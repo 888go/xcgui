@@ -3,9 +3,9 @@ package xc
 import (
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 列表_创建, 创建列表元素, 返回元素句柄.
@@ -21,6 +21,24 @@ import (
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 func XList_Create(x int, y int, cx int, cy int, hParent int) int {
 	r, _, _ := xList_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+	return int(r)
+}
+
+// 列表_创建Ex, 创建列表元素, 使用内置项模板, 自动创建数据适配器, 返回元素句柄.
+//
+// x: 元素x坐标.
+//
+// y: 元素y坐标.
+//
+// cx: 宽度.
+//
+// cy: 高度.
+//
+// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
+//
+// col_extend_count: 列数量. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
+func XList_CreateEx(x, y, cx, cy int32, hParent, col_extend_count int32) int {
+	r, _, _ := xList_CreateEx.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent), uintptr(col_extend_count))
 	return int(r)
 }
 
@@ -101,8 +119,8 @@ func XList_EnableFixedRowHeight(hEle int, bEnable bool) int {
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func XList_EnablemTemplateReuse(hEle int, bEnable bool) int {
-	r, _, _ := xList_EnablemTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
+func XList_EnableTemplateReuse(hEle int, bEnable bool) int {
+	r, _, _ := xList_EnableTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -282,6 +300,9 @@ func XList_SetSelectAll(hEle int) int {
 //
 // nArraySize: 数组大小.
 func XList_GetSelectAll(hEle int, pArray *[]int32, nArraySize int) int {
+	if nArraySize < 1 {
+		return 0
+	}
 	*pArray = make([]int32, nArraySize)
 	r, _, _ := xList_GetSelectAll.Call(uintptr(hEle), uintptr(unsafe.Pointer(&(*pArray)[0])), uintptr(nArraySize))
 	return int(r)
@@ -496,7 +517,7 @@ func XList_GetHeaderHeight(hEle int) int {
 // piStart: 开始行索引.
 //
 // piEnd: 结束行索引.
-func XList_GetVisibleRowRange(hEle int, piStart *int, piEnd *int) int {
+func XList_GetVisibleRowRange(hEle int, piStart *int32, piEnd *int32) int {
 	r, _, _ := xList_GetVisibleRowRange.Call(uintptr(hEle), uintptr(unsafe.Pointer(piStart)), uintptr(unsafe.Pointer(piEnd)))
 	return int(r)
 }
@@ -508,7 +529,7 @@ func XList_GetVisibleRowRange(hEle int, piStart *int, piEnd *int) int {
 // nHeight: 高度.
 //
 // nSelHeight: 选中时高度.
-func XList_SetItemHeightDefault(hEle int, nHeight int, nSelHeight int) int {
+func XList_SetItemHeightDefault(hEle int, nHeight int32, nSelHeight int32) int {
 	r, _, _ := xList_SetItemHeightDefault.Call(uintptr(hEle), uintptr(nHeight), uintptr(nSelHeight))
 	return int(r)
 }
@@ -520,7 +541,7 @@ func XList_SetItemHeightDefault(hEle int, nHeight int, nSelHeight int) int {
 // pHeight: 高度.
 //
 // pSelHeight: 选中时高度.
-func XList_GetItemHeightDefault(hEle int, pHeight *int, pSelHeight *int) int {
+func XList_GetItemHeightDefault(hEle int, pHeight *int32, pSelHeight *int32) int {
 	r, _, _ := xList_GetItemHeightDefault.Call(uintptr(hEle), uintptr(unsafe.Pointer(pHeight)), uintptr(unsafe.Pointer(pSelHeight)))
 	return int(r)
 }
@@ -592,7 +613,7 @@ func XList_SetLockRowBottomOverlap(hEle int, bOverlap bool) int {
 // piItem: 项索引.
 //
 // piSubItem: 子项索引.
-func XList_HitTest(hEle int, pPt *POINT, piItem *int, piSubItem *int) bool {
+func XList_HitTest(hEle int, pPt *POINT, piItem *int32, piSubItem *int32) bool {
 	r, _, _ := xList_HitTest.Call(uintptr(hEle), uintptr(unsafe.Pointer(pPt)), uintptr(unsafe.Pointer(piItem)), uintptr(unsafe.Pointer(piSubItem)))
 	return r != 0
 }
@@ -606,7 +627,7 @@ func XList_HitTest(hEle int, pPt *POINT, piItem *int, piSubItem *int) bool {
 // piItem: 项索引.
 //
 // piSubItem: 子项索引.
-func XList_HitTestOffset(hEle int, pPt *POINT, piItem *int, piSubItem *int) bool {
+func XList_HitTestOffset(hEle int, pPt *POINT, piItem *int32, piSubItem *int32) bool {
 	r, _, _ := xList_HitTestOffset.Call(uintptr(hEle), uintptr(unsafe.Pointer(pPt)), uintptr(unsafe.Pointer(piItem)), uintptr(unsafe.Pointer(piSubItem)))
 	return r != 0
 }
@@ -635,7 +656,7 @@ func XList_RefreshItem(hEle int, iItem int) int {
 //
 // nWidth: 列宽.
 //
-// pName: 模板里绑定的name名. 在List内部存在有默认模板, name名是从name1到namen. 你可以理解为创建数据适配器后, 内部有一个表, 这个name是每一列的字段名, 这个函数就相当于给这一行的这个字段赋值, 然后List会根据这个name名读取数据来显示到界面.
+// pName: 模板里绑定的name名. 在List内部存在有默认模板, name名是从name1到namen. 你可以理解为创建表头数据适配器后, 内部有一个Map来存储每一列的表头名(列名), 这个name名就是Map的Key, 这个函数就相当于给每一列的Key赋值, 然后List会根据这个name名从Map读取Value来显示表头到界面.
 //
 // pText: 文本.
 func XList_AddColumnText(hEle int, nWidth int, pName string, pText string) int {
@@ -649,7 +670,7 @@ func XList_AddColumnText(hEle int, nWidth int, pName string, pText string) int {
 //
 // nWidth: 列宽.
 //
-// pName: 模板里绑定的name名. 在List内部存在有默认模板, name名是从name1到namen. 你可以理解为创建数据适配器后, 内部有一个表, 这个name是每一列的字段名, 这个函数就相当于给这一行的这个字段赋值, 然后List会根据这个name名读取数据来显示到界面.
+// pName: 模板里绑定的name名. 在List内部存在有默认模板, name名是从name1到namen. 你可以理解为创建表头数据适配器后, 内部有一个Map来存储每一列的表头名(列名), 这个name名就是Map的Key, 这个函数就相当于给每一列的Key赋值, 然后List会根据这个name名从Map读取Value来显示表头到界面.
 //
 // hImage: 图片句柄.
 func XList_AddColumnImage(hEle int, nWidth int, pName string, hImage int) int {
@@ -922,7 +943,7 @@ func XList_GetItemImageEx(hEle int, iItem int, pName string) int {
 // iColumn:.
 //
 // pOutValue:.
-func XList_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int) bool {
+func XList_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int32) bool {
 	r, _, _ := xList_GetItemInt.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
@@ -936,7 +957,7 @@ func XList_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int) bool {
 // pName:.
 //
 // pOutValue:.
-func XList_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int) bool {
+func XList_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int32) bool {
 	r, _, _ := xList_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
@@ -1042,7 +1063,7 @@ func XList_SetSplitLineColor(hEle int, color int) int {
 // nHeight: 高度.
 //
 // nSelHeight: 选中时高度.
-func XList_SetItemHeight(hEle int, iRow int, nHeight int, nSelHeight int) int {
+func XList_SetItemHeight(hEle int, iRow int, nHeight, nSelHeight int32) int {
 	r, _, _ := xList_SetItemHeight.Call(uintptr(hEle), uintptr(iRow), uintptr(nHeight), uintptr(nSelHeight))
 	return int(r)
 }
@@ -1056,7 +1077,7 @@ func XList_SetItemHeight(hEle int, iRow int, nHeight int, nSelHeight int) int {
 // pHeight: 高度.
 //
 // pSelHeight: 选中时高度.
-func XList_GetItemHeight(hEle int, iRow int, pHeight *int, pSelHeight *int) int {
+func XList_GetItemHeight(hEle int, iRow int, pHeight, pSelHeight *int32) int {
 	r, _, _ := xList_GetItemHeight.Call(uintptr(hEle), uintptr(iRow), uintptr(unsafe.Pointer(pHeight)), uintptr(unsafe.Pointer(pSelHeight)))
 	return int(r)
 }
@@ -1071,4 +1092,54 @@ func XList_GetItemHeight(hEle int, iRow int, pHeight *int, pSelHeight *int) int 
 func XList_SetDragRectColor(hEle int, color, width int) int {
 	r, _, _ := xList_SetDragRectColor.Call(uintptr(hEle), uintptr(color), uintptr(width))
 	return int(r)
+}
+
+// 列表_取项模板. 返回列表项模板句柄.
+//
+// hEle: 元素句柄.
+func XList_GetItemTemplate(hEle int) int {
+	r, _, _ := xList_GetItemTemplate.Call(uintptr(hEle))
+	return int(r)
+}
+
+// 列表_取项模板列表头. 返回列表头项模板句柄.
+//
+// hEle: 元素句柄.
+func XList_GetItemTemplateHeader(hEle int) int {
+	r, _, _ := xList_GetItemTemplateHeader.Call(uintptr(hEle))
+	return int(r)
+}
+
+// 列表_刷新项数据列表头.
+//
+// hEle: 元素句柄.
+func XList_RefreshDataHeader(hEle int) int {
+	r, _, _ := xList_RefreshDataHeader.Call(uintptr(hEle))
+	return int(r)
+}
+
+// 列表_置项模板从内存.
+//
+// hEle: 元素句柄.
+//
+// data: 模板数据.
+func XList_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
+	r, _, _ := xList_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+	return r != 0
+}
+
+// 列表_置项模板从资源ZIP. 从RC资源ZIP加载.
+//
+// hEle: 元素句柄.
+//
+// id: RC资源ID.
+//
+// pFileName: 项模板文件名.
+//
+// pPassword: zip密码.
+//
+// hModule: 模块句柄, 可填0.
+func XList_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
+	r, _, _ := xList_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	return r != 0
 }

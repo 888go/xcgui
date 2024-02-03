@@ -1,10 +1,10 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 窗格_创建, 创建窗格元素, 返回元素句柄.
@@ -87,12 +87,12 @@ func XPane_SetSize(hEle int, nWidth int, nHeight int) int {
 	return int(r)
 }
 
-// 窗格_取状态, 获取窗格停靠状态, 返回: I常量_窗格状态_.
+// 窗格_取状态, 获取窗格停靠状态, 返回: Pane_State_.
 //
 // hEle: 元素句柄.
-func XPane_GetState(hEle int) xcc.I常量_窗格状态_ {
+func XPane_GetState(hEle int) xcc.Pane_State_ {
 	r, _, _ := xPane_GetState.Call(uintptr(hEle))
-	return xcc.I常量_窗格状态_(r)
+	return xcc.Pane_State_(r)
 }
 
 // 窗格_取视图坐标, 获取窗格视图坐标.

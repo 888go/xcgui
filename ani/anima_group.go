@@ -1,10 +1,10 @@
 package ani
 
 import (
-	"e.coding.net/gogit/go/xcgui/xc"
+	"github.com/twgh/xcgui/xc"
 )
 
-// 动画组.
+// AnimaGroup 动画组.
 type AnimaGroup struct {
 	animaBase
 }
@@ -24,5 +24,5 @@ func NewAnimaGroup(nLoopCount int) *AnimaGroup {
 //
 // hSequence: 动画序列句柄.
 func (a *AnimaGroup) AddItem(hSequence int) int {
-	return xc.XAnimaGroup_AddItem(a.I句柄, hSequence)
+	return xc.XAnimaGroup_AddItem(a.Handle, hSequence)
 }

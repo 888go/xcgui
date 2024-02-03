@@ -1,10 +1,11 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 列表框_创建, 创建列表框元素, 返回元素句柄.
@@ -23,6 +24,24 @@ func XListBox_Create(x int, y int, cx int, cy int, hParent int) int {
 	return int(r)
 }
 
+// 列表框_创建Ex. 创建列表框元素, 使用内置项模板, 自动创建数据适配器, 返回元素句柄.
+//
+// x: 元素x坐标.
+//
+// y: 元素y坐标.
+//
+// cx: 宽度.
+//
+// cy: 高度.
+//
+// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
+//
+// col_extend_count: 列数量. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
+func XListBox_CreateEx(x, y, cx, cy int32, hParent, col_extend_count int32) int {
+	r, _, _ := xListBox_CreateEx.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent), uintptr(col_extend_count))
+	return int(r)
+}
+
 // 列表框_启用固定行高.
 //
 // hEle: 元素句柄.
@@ -38,8 +57,8 @@ func XListBox_EnableFixedRowHeight(hEle int, bEnable bool) int {
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func XListBox_EnablemTemplateReuse(hEle int, bEnable bool) int {
-	r, _, _ := xListBox_EnablemTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
+func XListBox_EnableTemplateReuse(hEle int, bEnable bool) int {
+	r, _, _ := xListBox_EnableTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -173,6 +192,9 @@ func XListBox_CancelSelectAll(hEle int) bool {
 //
 // nArraySize: 数组大小.
 func XListBox_GetSelectAll(hEle int, pArray *[]int32, nArraySize int) int {
+	if nArraySize < 1 {
+		return 0
+	}
 	*pArray = make([]int32, nArraySize)
 	r, _, _ := xListBox_GetSelectAll.Call(uintptr(hEle), uintptr(unsafe.Pointer(&(*pArray)[0])), uintptr(nArraySize))
 	return int(r)
@@ -219,7 +241,7 @@ func XListBox_VisibleItem(hEle int, iItem int) int {
 // piStart: 开始行索引.
 //
 // piEnd: 结束行索引.
-func XListBox_GetVisibleRowRange(hEle int, piStart *int, piEnd *int) int {
+func XListBox_GetVisibleRowRange(hEle int, piStart *int32, piEnd *int32) int {
 	r, _, _ := xListBox_GetVisibleRowRange.Call(uintptr(hEle), uintptr(unsafe.Pointer(piStart)), uintptr(unsafe.Pointer(piEnd)))
 	return int(r)
 }
@@ -231,7 +253,7 @@ func XListBox_GetVisibleRowRange(hEle int, piStart *int, piEnd *int) int {
 // nHeight: 项高度.
 //
 // nSelHeight: 选中项高度.
-func XListBox_SetItemHeightDefault(hEle int, nHeight int, nSelHeight int) int {
+func XListBox_SetItemHeightDefault(hEle int, nHeight, nSelHeight int32) int {
 	r, _, _ := xListBox_SetItemHeightDefault.Call(uintptr(hEle), uintptr(nHeight), uintptr(nSelHeight))
 	return int(r)
 }
@@ -243,7 +265,7 @@ func XListBox_SetItemHeightDefault(hEle int, nHeight int, nSelHeight int) int {
 // pHeight: 高度.
 //
 // pSelHeight: 选中时高度.
-func XListBox_GetItemHeightDefault(hEle int, pHeight *int, pSelHeight *int) int {
+func XListBox_GetItemHeightDefault(hEle int, pHeight, pSelHeight *int32) int {
 	r, _, _ := xListBox_GetItemHeightDefault.Call(uintptr(hEle), uintptr(unsafe.Pointer(pHeight)), uintptr(unsafe.Pointer(pSelHeight)))
 	return int(r)
 }
@@ -669,7 +691,7 @@ func XListBox_GetItemImageEx(hEle int, iItem int, pName string) int {
 // iColumn:.
 //
 // pOutValue:.
-func XListBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int) bool {
+func XListBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int32) bool {
 	r, _, _ := xListBox_GetItemInt.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
@@ -683,7 +705,7 @@ func XListBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int) bool 
 // pName:.
 //
 // pOutValue:.
-func XListBox_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int) bool {
+func XListBox_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int32) bool {
 	r, _, _ := xListBox_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
@@ -789,5 +811,39 @@ func XListBox_SetSplitLineColor(hEle int, color int) int {
 // width: 线宽度.
 func XListBox_SetDragRectColor(hEle int, color, width int) int {
 	r, _, _ := xListBox_SetDragRectColor.Call(uintptr(hEle), uintptr(color), uintptr(width))
+	return int(r)
+}
+
+// 列表框_置项模板从内存. 设置项模板文件.
+//
+// hEle: 元素句柄.
+//
+// data: 模板数据.
+func XListBox_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
+	r, _, _ := xListBox_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+	return r != 0
+}
+
+// 列表框_置项模板从资源ZIP. 设置项模板文件.
+//
+// hEle: 元素句柄.
+//
+// id: RC资源ID.
+//
+// pFileName: 项模板文件名.
+//
+// pPassword: zip密码.
+//
+// hModule: 模块句柄, 可填0.
+func XListBox_SetItemTemplateXMLFromZipRes(hEle, id int, pFileName string, pPassword string, hModule uintptr) bool {
+	r, _, _ := xListBox_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	return r != 0
+}
+
+// 列表框_取项模板. 获取列表项模板, 返回项模板句柄.
+//
+// hEle: 元素句柄.
+func XListBox_GetItemTemplate(hEle int) int {
+	r, _, _ := xListBox_GetItemTemplate.Call(uintptr(hEle))
 	return int(r)
 }

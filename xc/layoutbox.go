@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 布局盒子_启用水平.
@@ -38,9 +38,9 @@ func XLayoutBox_EnableOverflowHide(hLayoutBox int, bEnable bool) int {
 // XLayoutBox_SetAlignH 布局盒子_置水平对齐.
 //
 //	@param hLayoutBox 窗口或布局元素或布局框架句柄.
-//	@param nAlign 对齐方式: xcc.I常量_布局对齐_.
+//	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-func XLayoutBox_SetAlignH(hLayoutBox int, nAlign xcc.I常量_布局对齐_) int {
+func XLayoutBox_SetAlignH(hLayoutBox int, nAlign xcc.Layout_Align_) int {
 	r, _, _ := xLayoutBox_SetAlignH.Call(uintptr(hLayoutBox), uintptr(nAlign))
 	return int(r)
 }
@@ -48,9 +48,9 @@ func XLayoutBox_SetAlignH(hLayoutBox int, nAlign xcc.I常量_布局对齐_) int 
 // XLayoutBox_SetAlignV 布局盒子_置垂直对齐.
 //
 //	@param hLayoutBox 窗口或布局元素或布局框架句柄.
-//	@param nAlign 对齐方式: xcc.I常量_布局对齐_.
+//	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-func XLayoutBox_SetAlignV(hLayoutBox int, nAlign xcc.I常量_布局对齐_) int {
+func XLayoutBox_SetAlignV(hLayoutBox int, nAlign xcc.Layout_Align_) int {
 	r, _, _ := xLayoutBox_SetAlignV.Call(uintptr(hLayoutBox), uintptr(nAlign))
 	return int(r)
 }
@@ -59,8 +59,8 @@ func XLayoutBox_SetAlignV(hLayoutBox int, nAlign xcc.I常量_布局对齐_) int 
 //
 // hLayoutBox: 窗口或布局元素或布局框架句柄.
 //
-// nAlign: 对齐方式: xcc.I常量_布局轴对齐_.
-func XLayoutBox_SetAlignBaseline(hLayoutBox int, nAlign xcc.I常量_布局轴对齐_) int {
+// nAlign: 对齐方式: xcc.Layout_Align_Axis_.
+func XLayoutBox_SetAlignBaseline(hLayoutBox int, nAlign xcc.Layout_Align_Axis_) int {
 	r, _, _ := xLayoutBox_SetAlignBaseline.Call(uintptr(hLayoutBox), uintptr(nAlign))
 	return int(r)
 }

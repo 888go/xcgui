@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // XUI_SetStyle 可视对象_置样式, 设置UI对象样式.

@@ -1,7 +1,7 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"unsafe"
 )
 

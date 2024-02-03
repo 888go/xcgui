@@ -1,6 +1,6 @@
 package xc
 
-import "e.coding.net/gogit/go/xcgui/common"
+import "github.com/twgh/xcgui/common"
 
 // 数据适配器_增加引用计数.
 //

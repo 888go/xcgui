@@ -1,11 +1,11 @@
 package ani
 
 import (
-	"e.coding.net/gogit/go/xcgui/xc"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
-// 动画序列.
+// Anima 动画序列.
 type Anima struct {
 	animaBase
 }
@@ -31,12 +31,12 @@ func NewAnima(hObjectUI int, nLoopCount int) *Anima {
 //
 // nLoopCount: 动画循环次数, 0:无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Move(a.I句柄, duration, x, y, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_Move(a.Handle, duration, x, y, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -54,12 +54,12 @@ func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_fl
 //
 // nLoopCount: 动画循环次数, 0:无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_MoveEx(a.I句柄, duration, from_x, from_y, to_x, to_y, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_MoveEx(a.Handle, duration, from_x, from_y, to_x, to_y, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -71,12 +71,12 @@ func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float3
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaRotate {
+func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaRotate {
 	p := &AnimaRotate{}
-	p.SetHandle(xc.XAnima_Rotate(a.I句柄, duration, angle, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_Rotate(a.Handle, duration, angle, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -90,12 +90,12 @@ func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag xc
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaRotate {
+func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaRotate {
 	p := &AnimaRotate{}
-	p.SetHandle(xc.XAnima_RotateEx(a.I句柄, duration, from, to, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_RotateEx(a.Handle, duration, from, to, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -109,12 +109,12 @@ func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int,
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaScale {
+func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaScale {
 	p := &AnimaScale{}
-	p.SetHandle(xc.XAnima_Scale(a.I句柄, duration, scaleX, scaleY, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_Scale(a.Handle, duration, scaleX, scaleY, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -128,12 +128,12 @@ func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount i
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaScale {
+func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaScale {
 	p := &AnimaScale{}
-	p.SetHandle(xc.XAnima_ScaleSize(a.I句柄, duration, width, height, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_ScaleSize(a.Handle, duration, width, height, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -145,12 +145,12 @@ func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCoun
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Alpha(a.I句柄, duration, alpha, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_Alpha(a.Handle, duration, alpha, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -164,12 +164,12 @@ func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag xcc.I
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_AlphaEx(a.I句柄, duration, from_alpha, to_alpha, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_AlphaEx(a.Handle, duration, from_alpha, to_alpha, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -181,12 +181,12 @@ func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCou
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Color(a.I句柄, duration, color, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_Color(a.Handle, duration, color, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -200,12 +200,12 @@ func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag xcc.I�
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_ColorEx(a.I句柄, duration, from, to, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_ColorEx(a.Handle, duration, from, to, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -213,18 +213,18 @@ func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_fla
 //
 // duration: 持续时间.
 //
-// nType: 布局宽度类型: xcc.I常量_布局大小_.
+// nType: 布局宽度类型: xcc.Layout_Size_.
 //
 // width: 布局宽度.
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) LayoutWidth(duration int, nType xcc.I常量_布局大小_, width float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_LayoutWidth(a.I句柄, duration, nType, width, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_LayoutWidth(a.Handle, duration, nType, width, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -232,18 +232,18 @@ func (a *Anima) LayoutWidth(duration int, nType xcc.I常量_布局大小_, width
 //
 // duration: 持续时间.
 //
-// nType: 布局高度类型: xcc.I常量_布局大小_.
+// nType: 布局高度类型: xcc.Layout_Size_.
 //
 // height: 布局高度.
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) LayoutHeight(duration int, nType xcc.I常量_布局大小_, height float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_LayoutHeight(a.I句柄, duration, nType, height, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_LayoutHeight(a.Handle, duration, nType, height, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -251,22 +251,22 @@ func (a *Anima) LayoutHeight(duration int, nType xcc.I常量_布局大小_, heig
 //
 // duration: 持续时间.
 //
-// nWidthType: 布局宽度类型: xcc.I常量_布局大小_.
+// nWidthType: 布局宽度类型: xcc.Layout_Size_.
 //
 // width: 布局宽度.
 //
-// nHeightType: 布局高度类型: xcc.I常量_布局大小_.
+// nHeightType: 布局高度类型: xcc.Layout_Size_.
 //
 // height: 布局高度.
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) LayoutSize(duration int, nWidthType xcc.I常量_布局大小_, width float32, nHeightType xcc.I常量_布局大小_, height float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) *AnimaItem {
+func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_LayoutSize(a.I句柄, duration, nWidthType, width, nHeightType, height, nLoopCount, ease_flag, bGoBack))
+	p.SetHandle(xc.XAnima_LayoutSize(a.Handle, duration, nWidthType, width, nHeightType, height, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -275,7 +275,7 @@ func (a *Anima) LayoutSize(duration int, nWidthType xcc.I常量_布局大小_, w
 // duration: 持续时间.
 func (a *Anima) Delay(duration float32) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Delay(a.I句柄, duration))
+	p.SetHandle(xc.XAnima_Delay(a.Handle, duration))
 	return p
 }
 
@@ -286,7 +286,7 @@ func (a *Anima) Delay(duration float32) *AnimaItem {
 // bShow: 显示或隐藏.
 func (a *Anima) Show(duration float32, bShow bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Show(a.I句柄, duration, bShow))
+	p.SetHandle(xc.XAnima_Show(a.Handle, duration, bShow))
 	return p
 }
 
@@ -295,7 +295,7 @@ func (a *Anima) Show(duration float32, bShow bool) *AnimaItem {
 // duration: 持续时间.
 func (a *Anima) DestroyObjectUI(duration float32) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_DestroyObjectUI(a.I句柄, duration))
+	p.SetHandle(xc.XAnima_DestroyObjectUI(a.Handle, duration))
 	return p
 }
 
@@ -305,9 +305,9 @@ func (a *Anima) DestroyObjectUI(duration float32) *AnimaItem {
 //
 // nLoopCount: 动画循环次数, 0:无限循环.
 //
-// ease_flag: 缓动标识, I常量_缓动标识_.
+// ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func (a *Anima) DelayEx(duration float32, nLoopCount int, ease_flag xcc.I常量_缓动标识_, bGoBack bool) int {
-	return xc.XAnima_DelayEx(a.I句柄, duration, nLoopCount, ease_flag, bGoBack)
+func (a *Anima) DelayEx(duration float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	return xc.XAnima_DelayEx(a.Handle, duration, nLoopCount, ease_flag, bGoBack)
 }

@@ -1,6 +1,6 @@
 package xc
 
-import "e.coding.net/gogit/go/xcgui/common"
+import "github.com/twgh/xcgui/common"
 
 // 工具条_创建, 创建工具条元素, 返回元素句柄; 如果指定了父为窗口, 默认调用XWnd_AddToolBar()函数, 将工具条添加到窗口非客户区.
 //
@@ -13,7 +13,7 @@ import "e.coding.net/gogit/go/xcgui/common"
 // cy: 高度.
 //
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-func XToolBar_Create(x int, y int, cx int, cy int, hParent int) int {
+func XToolBar_Create(x, y, cx, cy int32, hParent int) int {
 	r, _, _ := xToolBar_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)
 }

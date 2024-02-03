@@ -1,10 +1,10 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 窗口组件_判断显示, 判断UI对象是否显示.
@@ -62,9 +62,9 @@ func XWidget_GetParent(hXCGUI int) int {
 // 窗口组件_取HWND.
 //
 // hXCGUI: 对象句柄.
-func XWidget_GetHWND(hXCGUI int) int {
+func XWidget_GetHWND(hXCGUI int) uintptr {
 	r, _, _ := xWidget_GetHWND.Call(uintptr(hXCGUI))
-	return int(r)
+	return r
 }
 
 // 窗口组件_取HWINDOW.
@@ -109,10 +109,10 @@ func XWidget_LayoutItem_EnableFloat(hXCGUI int, bFloat bool) int {
 //
 // hXCGUI: UI对象句柄.
 //
-// nType: 类型: xcc.I常量_布局大小_.
+// nType: 类型: xcc.Layout_Size_.
 //
 // nWidth: 宽度.
-func XWidget_LayoutItem_SetWidth(hXCGUI int, nType xcc.I常量_布局大小_, nWidth int) int {
+func XWidget_LayoutItem_SetWidth(hXCGUI int, nType xcc.Layout_Size_, nWidth int32) int {
 	r, _, _ := xWidget_LayoutItem_SetWidth.Call(uintptr(hXCGUI), uintptr(nType), uintptr(nWidth))
 	return int(r)
 }
@@ -121,19 +121,22 @@ func XWidget_LayoutItem_SetWidth(hXCGUI int, nType xcc.I常量_布局大小_, nW
 //
 // hXCGUI: UI对象句柄.
 //
-// nType: 类型: xcc.I常量_布局大小_.
+// nType: 类型: xcc.Layout_Size_.
 //
 // nHeight: 高度.
-func XWidget_LayoutItem_SetHeight(hXCGUI int, nType xcc.I常量_布局大小_, nHeight int) int {
+func XWidget_LayoutItem_SetHeight(hXCGUI int, nType xcc.Layout_Size_, nHeight int32) int {
 	r, _, _ := xWidget_LayoutItem_SetHeight.Call(uintptr(hXCGUI), uintptr(nType), uintptr(nHeight))
 	return int(r)
 }
 
 // 窗口组件_布局项_取宽度.
+//
 // hXCGUI: UI对象句柄.
+//
 // pType: 返回类型.
+//
 // pWidth: 返回宽度.
-func XWidget_LayoutItem_GetWidth(hXCGUI int, pType, pWidth *int) int {
+func XWidget_LayoutItem_GetWidth(hXCGUI int, pType *xcc.Layout_Size_, pWidth *int32) int {
 	r, _, _ := xWidget_LayoutItem_GetWidth.Call(uintptr(hXCGUI), uintptr(unsafe.Pointer(pType)), uintptr(unsafe.Pointer(pWidth)))
 	return int(r)
 }
@@ -145,7 +148,7 @@ func XWidget_LayoutItem_GetWidth(hXCGUI int, pType, pWidth *int) int {
 // pType: 返回类型.
 //
 // pHeight: 返回高度.
-func XWidget_LayoutItem_GetHeight(hXCGUI int, pType, pHeight *int) int {
+func XWidget_LayoutItem_GetHeight(hXCGUI int, pType *xcc.Layout_Size_, pHeight *int32) int {
 	r, _, _ := xWidget_LayoutItem_GetHeight.Call(uintptr(hXCGUI), uintptr(unsafe.Pointer(pType)), uintptr(unsafe.Pointer(pHeight)))
 	return int(r)
 }
@@ -154,8 +157,8 @@ func XWidget_LayoutItem_GetHeight(hXCGUI int, pType, pHeight *int) int {
 //
 // hXCGUI: UI对象句柄.
 //
-// nAlign: 对齐方式: xcc.I常量_布局轴对齐_.
-func XWidget_LayoutItem_SetAlign(hXCGUI int, nAlign xcc.I常量_布局轴对齐_) int {
+// nAlign: 对齐方式: xcc.Layout_Align_Axis_.
+func XWidget_LayoutItem_SetAlign(hXCGUI int, nAlign xcc.Layout_Align_Axis_) int {
 	r, _, _ := xWidget_LayoutItem_SetAlign.Call(uintptr(hXCGUI), uintptr(nAlign))
 	return int(r)
 }
@@ -211,7 +214,7 @@ func XWidget_LayoutItem_SetPosition(hXCGUI, left, top, right, bottom int) int {
 // hXCGUI: UI对象句柄.
 //
 // nID: ID值.
-func XWidget_SetID(hXCGUI, nID int) int {
+func XWidget_SetID(hXCGUI int, nID int32) int {
 	r, _, _ := xWidget_SetID.Call(uintptr(hXCGUI), uintptr(nID))
 	return int(r)
 }
@@ -221,7 +224,7 @@ func XWidget_SetID(hXCGUI, nID int) int {
 // hXCGUI: UI对象句柄.
 //
 // nUID: UID值.
-func XWidget_SetUID(hXCGUI, nUID int) int {
+func XWidget_SetUID(hXCGUI int, nUID int32) int {
 	r, _, _ := xWidget_SetUID.Call(uintptr(hXCGUI), uintptr(nUID))
 	return int(r)
 }
@@ -239,17 +242,17 @@ func XWidget_SetName(hXCGUI int, pName string) int {
 // 窗口组件_取ID, 获取元素ID.
 //
 // hXCGUI: UI对象句柄.
-func XWidget_GetID(hXCGUI int) int {
+func XWidget_GetID(hXCGUI int) int32 {
 	r, _, _ := xWidget_GetID.Call(uintptr(hXCGUI))
-	return int(r)
+	return int32(r)
 }
 
 // 窗口组件_取UID, 获取元素UID, 全局唯一标识符.
 //
 // hXCGUI: UI对象句柄.
-func XWidget_GetUID(hXCGUI int) int {
+func XWidget_GetUID(hXCGUI int) int32 {
 	r, _, _ := xWidget_GetUID.Call(uintptr(hXCGUI))
-	return int(r)
+	return int32(r)
 }
 
 // 窗口组件_取名称 获取元素name.

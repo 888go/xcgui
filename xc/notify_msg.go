@@ -1,13 +1,13 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 通知消息_弹出, 未实现, 预留接口.
 //
-// position: 位置, I常量_位置标识_.
+// position: 位置, Position_Flag_.
 //
 // pTitle: 标题.
 //
@@ -15,15 +15,15 @@ import (
 //
 // hIcon: 图标.
 //
-// skin: 外观类型, I常量_通知消息外观_.
-func XNotifyMsg_Popup(position xcc.I常量_位置标识_, pTitle, pText string, hIcon int, skin xcc.I常量_通知消息外观_) int {
+// skin: 外观类型, NotifyMsg_Skin_.
+func XNotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_) int {
 	r, _, _ := xNotifyMsg_Popup.Call(uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin))
 	return int(r)
 }
 
 // 通知消息_弹出扩展, 未实现, 预留接口.
 //
-// position: 位置, I常量_位置标识_.
+// position: 位置, Position_Flag_.
 //
 // pTitle: 标题.
 //
@@ -31,7 +31,7 @@ func XNotifyMsg_Popup(position xcc.I常量_位置标识_, pTitle, pText string, 
 //
 // hIcon: 图标.
 //
-// skin: 外观类型, I常量_通知消息外观_.
+// skin: 外观类型, NotifyMsg_Skin_.
 //
 // bBtnClose: 是否启用关闭按钮.
 //
@@ -40,7 +40,7 @@ func XNotifyMsg_Popup(position xcc.I常量_位置标识_, pTitle, pText string, 
 // nWidth: 自定义宽度, -1(使用默认值).
 //
 // nHeight: 自定义高度, -1(使用默认值).
-func XNotifyMsg_PopupEx(position xcc.I常量_位置标识_, pTitle, pText string, hIcon int, skin xcc.I常量_通知消息外观_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
+func XNotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
 	r, _, _ := xNotifyMsg_PopupEx.Call(uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin), common.BoolPtr(bBtnClose), common.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
 	return int(r)
 }
@@ -49,7 +49,7 @@ func XNotifyMsg_PopupEx(position xcc.I常量_位置标识_, pTitle, pText string
 //
 // hWindow: 窗口句柄.
 //
-// position: 位置, I常量_位置标识_.
+// position: 位置, Position_Flag_.
 //
 // pTitle: 标题.
 //
@@ -57,8 +57,8 @@ func XNotifyMsg_PopupEx(position xcc.I常量_位置标识_, pTitle, pText string
 //
 // hIcon: 图标.
 //
-// skin: 外观类型, I常量_通知消息外观_.
-func XNotifyMsg_WindowPopup(hWindow int, position xcc.I常量_位置标识_, pTitle, pText string, hIcon int, skin xcc.I常量_通知消息外观_) int {
+// skin: 外观类型, NotifyMsg_Skin_.
+func XNotifyMsg_WindowPopup(hWindow int, position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_) int {
 	r, _, _ := xNotifyMsg_WindowPopup.Call(uintptr(hWindow), uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin))
 	return int(r)
 }
@@ -67,7 +67,7 @@ func XNotifyMsg_WindowPopup(hWindow int, position xcc.I常量_位置标识_, pTi
 //
 // hWindow: 窗口句柄.
 //
-// position: 位置, I常量_位置标识_.
+// position: 位置, Position_Flag_.
 //
 // pTitle: 标题.
 //
@@ -75,7 +75,7 @@ func XNotifyMsg_WindowPopup(hWindow int, position xcc.I常量_位置标识_, pTi
 //
 // hIcon: 图标.
 //
-// skin: 外观类型, I常量_通知消息外观_.
+// skin: 外观类型, NotifyMsg_Skin_.
 //
 // bBtnClose: 是否启用关闭按钮.
 //
@@ -84,7 +84,7 @@ func XNotifyMsg_WindowPopup(hWindow int, position xcc.I常量_位置标识_, pTi
 // nWidth: 自定义宽度, -1(使用默认值).
 //
 // nHeight: 自定义高度, -1(使用默认值).
-func XNotifyMsg_WindowPopupEx(hWindow int, position xcc.I常量_位置标识_, pTitle, pText string, hIcon int, skin xcc.I常量_通知消息外观_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
+func XNotifyMsg_WindowPopupEx(hWindow int, position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
 	r, _, _ := xNotifyMsg_WindowPopupEx.Call(uintptr(hWindow), uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin), common.BoolPtr(bBtnClose), common.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
 	return int(r)
 }

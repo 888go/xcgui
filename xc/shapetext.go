@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 形状文本_创建, 创建形状对象文本.
@@ -18,7 +18,7 @@ import (
 // pName: 文本内容.
 //
 // hParent: 父对象句柄.
-func XShapeText_Create(x int, y int, cx int, cy int, pName string, hParent int) int {
+func XShapeText_Create(x, y, cx, cy int32, pName string, hParent int) int {
 	r, _, _ := xShapeText_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
 	return int(r)
 }
@@ -89,8 +89,8 @@ func XShapeText_GetTextColor(hTextBlock int) int {
 //
 // hTextBlock: 形状对象文本句柄.
 //
-// align: 文本对齐方式, I常量_文本对齐_, TextAlignFlag_, TextTrimming_.
-func XShapeText_SetTextAlign(hTextBlock int, align xcc.I常量_文本对齐_) int {
+// align: 文本对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
+func XShapeText_SetTextAlign(hTextBlock int, align xcc.TextFormatFlag_) int {
 	r, _, _ := xShapeText_SetTextAlign.Call(uintptr(hTextBlock), uintptr(align))
 	return int(r)
 }

@@ -1,19 +1,19 @@
 package wapi_test
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/wapi"
-	"e.coding.net/gogit/go/xcgui/xcc"
 	"fmt"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/wapi"
+	"github.com/twgh/xcgui/xcc"
 	"syscall"
 	"testing"
 )
 
 func TestShellExecuteW(t *testing.T) {
 	// 打开指定网址
-	wapi.ShellExecuteW(0, "open", "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew", "", "", xcc.I常量_窗口形式_显示且激活_原尺寸位置)
+	wapi.ShellExecuteW(0, "open", "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew", "", "", xcc.SW_SHOWNORMAL)
 	// 打开指定文件
-	wapi.ShellExecuteW(0, "open", "C:\\Windows\\System32\\calc.exe", "", "", xcc.I常量_窗口形式_显示且激活_原尺寸位置)
+	wapi.ShellExecuteW(0, "open", "C:\\Windows\\System32\\calc.exe", "", "", xcc.SW_SHOWNORMAL)
 }
 
 func TestSHBrowseForFolderW(t *testing.T) {

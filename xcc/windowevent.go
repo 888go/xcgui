@@ -6,6 +6,8 @@ package xcc
 const (
 	XWM_WINDPROC             WM_ = 0x7000 + 2  // 窗口消息过程
 	XWM_XC_TIMER             WM_ = 0x7000 + 5  // 炫彩定时器, 非系统定时器, 注册消息 XWM_TIMER 接收
+	XWM_SETFOCUS_ELE         WM_ = 0x7000 + 9  // 窗口事件_置焦点元素. 指定元素获得焦点
+	XWM_TRAYICON             WM_ = 0x7000 + 10 // 托盘图标事件
 	XWM_MENU_POPUP           WM_ = 0x7000 + 11 // 菜单弹出
 	XWM_MENU_POPUP_WND       WM_ = 0x7000 + 12 // 菜单弹出窗口
 	XWM_MENU_SELECT          WM_ = 0x7000 + 13 // 菜单选择
@@ -23,34 +25,38 @@ const (
 	//
 	// hArray: HWINDOW array[6], 窗格停靠提示窗口句柄数组, 有6个成员, 分别为:[0]中间十字, [1]左侧, [2]顶部, [3]右侧, [4]底部, [5]停靠位置预览.
 	XWM_FLOATWND_DRAG WM_ = 0x7000 + 22
+	XWM_BODYVIEW_RECT WM_ = 0x7000 + 24 // 框架窗口主视图坐标改变, 如果主视图没有绑定元素, 那么当坐标改变时触发此事件
 )
 
 // 窗口事件
 type WM_ uint32
 
 const (
-	WM_PAINT          WM_ = 15  // 窗口绘制消息
-	WM_CLOSE          WM_ = 16  // 窗口关闭消息.
-	WM_DESTROY        WM_ = 2   // 窗口销毁消息.
-	WM_NCDESTROY      WM_ = 130 // 窗口非客户区销毁消息.
-	WM_MOUSEMOVE      WM_ = 512 // 窗口鼠标移动消息.
-	WM_LBUTTONDOWN    WM_ = 513 // 窗口鼠标左键按下消息
-	WM_LBUTTONUP      WM_ = 514 // 窗口鼠标左键弹起消息.
-	WM_RBUTTONDOWN    WM_ = 516 // 窗口鼠标右键按下消息.
-	WM_RBUTTONUP      WM_ = 517 // 窗口鼠标右键弹起消息.
-	WM_LBUTTONDBLCLK  WM_ = 515 // 窗口鼠标左键双击消息.
-	WM_RBUTTONDBLCLK  WM_ = 518 // 窗口鼠标右键双击消息.
-	WM_MOUSEWHEEL     WM_ = 522 // 窗口鼠标滚轮滚动消息.
-	WM_EXITSIZEMOVE   WM_ = 562 // 窗口退出移动或调整大小模式循环改，详情参见MSDN.
-	WM_MOUSEHOVER     WM_ = 673 // 窗口鼠标进入消息
-	WM_MOUSELEAVE     WM_ = 675 // 窗口鼠标离开消息.
-	WM_SIZE           WM_ = 5   // 窗口大小改变消息.
-	WM_TIMER          WM_ = 275 // 窗口定时器消息.
-	WM_SETFOCUS       WM_ = 7   // 窗口获得焦点.
-	WM_KILLFOCUS      WM_ = 8   // 窗口失去焦点.
-	WM_KEYDOWN        WM_ = 256 // 窗口键盘按键消息.
-	WM_CAPTURECHANGED WM_ = 533 // 窗口鼠标捕获改变消息.
-	WM_SETCURSOR      WM_ = 32  // 窗口设置鼠标光标.
-	WM_CHAR           WM_ = 258 // 窗口字符消息.
-	WM_DROPFILES      WM_ = 563 // 拖动文件到窗口.
+	WM_PAINT          WM_ = 15     // 窗口绘制消息
+	WM_CLOSE          WM_ = 16     // 窗口关闭消息.
+	WM_DESTROY        WM_ = 2      // 窗口销毁消息.
+	WM_NCDESTROY      WM_ = 130    // 窗口非客户区销毁消息.
+	WM_MOUSEMOVE      WM_ = 512    // 窗口鼠标移动消息.
+	WM_LBUTTONDOWN    WM_ = 513    // 窗口鼠标左键按下消息
+	WM_LBUTTONUP      WM_ = 514    // 窗口鼠标左键弹起消息.
+	WM_RBUTTONDOWN    WM_ = 516    // 窗口鼠标右键按下消息.
+	WM_RBUTTONUP      WM_ = 517    // 窗口鼠标右键弹起消息.
+	WM_LBUTTONDBLCLK  WM_ = 515    // 窗口鼠标左键双击消息.
+	WM_RBUTTONDBLCLK  WM_ = 518    // 窗口鼠标右键双击消息.
+	WM_MBUTTONDOWN    WM_ = 519    // 窗口鼠标中键按下消息.
+	WM_MBUTTONUP      WM_ = 520    // 窗口鼠标中键弹起消息.
+	WM_MOUSEWHEEL     WM_ = 522    // 窗口鼠标滚轮滚动消息.
+	WM_EXITSIZEMOVE   WM_ = 562    // 窗口退出移动或调整大小模式循环改，详情参见MSDN.
+	WM_MOUSEHOVER     WM_ = 673    // 窗口鼠标进入消息
+	WM_MOUSELEAVE     WM_ = 675    // 窗口鼠标离开消息.
+	WM_SIZE           WM_ = 5      // 窗口大小改变消息.
+	WM_TIMER          WM_ = 275    // 窗口定时器消息.
+	WM_SETFOCUS       WM_ = 7      // 窗口获得焦点.
+	WM_KILLFOCUS      WM_ = 8      // 窗口失去焦点.
+	WM_KEYDOWN        WM_ = 256    // 窗口键盘按键消息.
+	WM_CAPTURECHANGED WM_ = 533    // 窗口鼠标捕获改变消息.
+	WM_SETCURSOR      WM_ = 32     // 窗口设置鼠标光标.
+	WM_CHAR           WM_ = 258    // 窗口字符消息.
+	WM_DROPFILES      WM_ = 563    // 拖动文件到窗口.
+	WM_HOTKEY         WM_ = 0x0312 // 当用户按下 wapi.RegisterHotKey 函数注册的热键时发布。消息放置在与注册热键的线程关联的消息队列的顶部.
 )

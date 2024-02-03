@@ -1,17 +1,23 @@
 package wapi_test
 
 import (
-	"e.coding.net/gogit/go/xcgui/app"
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/wapi"
-	"e.coding.net/gogit/go/xcgui/window"
-	"e.coding.net/gogit/go/xcgui/xc"
-	"e.coding.net/gogit/go/xcgui/xcc"
 	"fmt"
 	"strings"
 	"syscall"
 	"unsafe"
+
+	"github.com/twgh/xcgui/app"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/wapi"
+	"github.com/twgh/xcgui/window"
+	"github.com/twgh/xcgui/xcc"
 )
+
+func ExampleLoadImageW() {
+	hIcon := wapi.LoadImageW(0, "C:\\Windows\\System32\\OneDrive.ico", wapi.IMAGE_ICON, 0, 0, wapi.LR_LOADFROMFILE|wapi.LR_DEFAULTSIZE|wapi.LR_SHARED)
+	fmt.Println("hIcon:", hIcon)
+	fmt.Println("LastErr:", syscall.GetLastError())
+}
 
 func ExampleMessageBoxW() {
 	id := wapi.MessageBoxW(0, "context", "title", wapi.MB_CanaelTryContinue|wapi.MB_IconInformation)
@@ -34,22 +40,22 @@ func ExampleFindWindowExW() {
 }
 
 func ExampleClientToScreen() {
-	a := app.I初始化(true)
-	w := window.I窗口_创建(0, 0, 300, 300, "", 0, xcc.I常量_窗口样式_默认)
+	a := app.New(true)
+	w := window.New(0, 0, 300, 300, "", 0, xcc.Window_Style_Default)
 
-	pt := xc.POINT{X: 0, Y: 0}
-	wapi.ClientToScreen(w.I取HWND(), &pt)
+	pt := wapi.POINT{X: 0, Y: 0}
+	wapi.ClientToScreen(w.GetHWND(), &pt)
 	fmt.Println(pt)
 
-	a.I显示窗口并运行(w.I句柄)
-	a.I退出()
+	a.ShowAndRun(w.Handle)
+	a.Exit()
 }
 
 func ExampleShellExecuteW() {
 	// 打开指定网址
-	wapi.ShellExecuteW(0, "open", "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew", "", "", xcc.I常量_窗口形式_显示且激活_原尺寸位置)
+	wapi.ShellExecuteW(0, "open", "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew", "", "", xcc.SW_SHOWNORMAL)
 	// 打开指定文件
-	wapi.ShellExecuteW(0, "open", "C:\\Windows\\System32\\calc.exe", "", "", xcc.I常量_窗口形式_显示且激活_原尺寸位置)
+	wapi.ShellExecuteW(0, "open", "C:\\Windows\\System32\\calc.exe", "", "", xcc.SW_SHOWNORMAL)
 }
 
 func ExampleSHBrowseForFolderW() {
@@ -219,4 +225,10 @@ func ExampleChooseColorW() {
 	fmt.Println(ret)
 	fmt.Println(cc.RgbResult) // rgb颜色
 	fmt.Println(lpCustColors) // 如果你添加了自定义颜色, 会保存在这个数组里面, 然后只要这个数组还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
+}
+
+func ExampleGetCursorPos() {
+	var pt wapi.POINT
+	wapi.GetCursorPos(&pt)
+	fmt.Println(pt)
 }

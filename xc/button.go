@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 按钮_创建.
@@ -18,7 +18,7 @@ import (
 // pName: 标题.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func XBtn_Create(x int, y int, cx int, cy int, pName string, hParent int) int {
+func XBtn_Create(x, y, cx, cy int32, pName string, hParent int) int {
 	r, _, _ := xBtn_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
 	return int(r)
 }
@@ -63,10 +63,10 @@ func XBtn_GetState(hEle int) xcc.Common_State3_ {
 // XBtn_GetStateEx 按钮_取状态扩展.
 //
 //	@param hEle 元素句柄.
-//	@return xcc.I常量_按钮状态_
-func XBtn_GetStateEx(hEle int) xcc.I常量_按钮状态_ {
+//	@return xcc.Button_State_
+func XBtn_GetStateEx(hEle int) xcc.Button_State_ {
 	r, _, _ := xBtn_GetStateEx.Call(uintptr(hEle))
-	return xcc.I常量_按钮状态_(r)
+	return xcc.Button_State_(r)
 }
 
 // 按钮_置类型扩展, 设置按钮类型并自动修改样式和文本对齐方式.
@@ -74,7 +74,7 @@ func XBtn_GetStateEx(hEle int) xcc.I常量_按钮状态_ {
 // hEle: 元素句柄.
 //
 // nType: 按钮类型, Button_Type_ , element_type_ , xc_ex_error.
-func XBtn_SetTypeEx(hEle int, nType xcc.I常量_对象扩展类型_) int {
+func XBtn_SetTypeEx(hEle int, nType xcc.XC_OBJECT_TYPE_EX) int {
 	r, _, _ := xBtn_SetTypeEx.Call(uintptr(hEle), uintptr(nType))
 	return int(r)
 }
@@ -84,7 +84,7 @@ func XBtn_SetTypeEx(hEle int, nType xcc.I常量_对象扩展类型_) int {
 // hEle: 元素句柄.
 //
 // nID: 组ID.
-func XBtn_SetGroupID(hEle int, nID int) int {
+func XBtn_SetGroupID(hEle int, nID int32) int {
 	r, _, _ := xBtn_SetGroupID.Call(uintptr(hEle), uintptr(nID))
 	return int(r)
 }
@@ -92,9 +92,9 @@ func XBtn_SetGroupID(hEle int, nID int) int {
 // 按钮_取组ID.
 //
 // hEle: 元素句柄.
-func XBtn_GetGroupID(hEle int) int {
+func XBtn_GetGroupID(hEle int) int32 {
 	r, _, _ := xBtn_GetGroupID.Call(uintptr(hEle))
-	return int(r)
+	return int32(r)
 }
 
 // 按钮_置绑定元素.
@@ -119,26 +119,26 @@ func XBtn_GetBindEle(hEle int) int {
 //
 // hEle: 元素句柄.
 //
-// nFlags: 对齐方式, I常量_文本对齐_ , TextAlignFlag_ , TextTrimming_.
-func XBtn_SetTextAlign(hEle int, nFlags xcc.I常量_文本对齐_) int {
+// nFlags: 对齐方式, TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
+func XBtn_SetTextAlign(hEle int, nFlags xcc.TextFormatFlag_) int {
 	r, _, _ := xBtn_SetTextAlign.Call(uintptr(hEle), uintptr(nFlags))
 	return int(r)
 }
 
-// 按钮_取文本对齐方式, 返回: I常量_文本对齐_ , TextAlignFlag_ , TextTrimming_.
+// 按钮_取文本对齐方式, 返回: TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
 //
 // hEle: 元素句柄.
-func XBtn_GetTextAlign(hEle int) xcc.I常量_文本对齐_ {
+func XBtn_GetTextAlign(hEle int) xcc.TextFormatFlag_ {
 	r, _, _ := xBtn_GetTextAlign.Call(uintptr(hEle))
-	return xcc.I常量_文本对齐_(r)
+	return xcc.TextFormatFlag_(r)
 }
 
 // 按钮_置图标对齐.
 //
 // hEle: 元素句柄.
 //
-// align: 对齐方式, I常量_按钮图标对齐_.
-func XBtn_SetIconAlign(hEle int, align xcc.I常量_按钮图标对齐_) int {
+// align: 对齐方式, Button_Icon_Align_.
+func XBtn_SetIconAlign(hEle int, align xcc.Button_Icon_Align_) int {
 	r, _, _ := xBtn_SetIconAlign.Call(uintptr(hEle), uintptr(align))
 	return int(r)
 }

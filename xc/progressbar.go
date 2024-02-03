@@ -1,6 +1,6 @@
 package xc
 
-import "e.coding.net/gogit/go/xcgui/common"
+import "github.com/twgh/xcgui/common"
 
 // 进度条_创建, 创建进度条元素, 返回元素句柄.
 //
@@ -91,5 +91,15 @@ func XProgBar_EnableStretch(hEle int, bStretch bool) bool {
 // bShow: 是否启用.
 func XProgBar_EnableShowText(hEle int, bShow bool) bool {
 	r, _, _ := xProgBar_EnableShowText.Call(uintptr(hEle), common.BoolPtr(bShow))
+	return r != 0
+}
+
+// 进度条_置进度颜色. 设置进度颜色.
+//
+// hEle: 元素句柄.
+//
+// color: ABGR 颜色.
+func XProgBar_SetColorLoad(hEle int, color int) bool {
+	r, _, _ := xProgBar_SetColorLoad.Call(uintptr(hEle), uintptr(color))
 	return r != 0
 }

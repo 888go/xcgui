@@ -1,6 +1,6 @@
 package res
 
-import "e.coding.net/gogit/go/xcgui/xc"
+import "github.com/twgh/xcgui/xc"
 
 // 资源_启用延迟加载, 启用延迟加载; 图片文件, 列表项模板文件.
 //

@@ -1,6 +1,6 @@
 package xc
 
-import "e.coding.net/gogit/go/xcgui/common"
+import "github.com/twgh/xcgui/common"
 
 // 布局_创建, 创建布局元素, 返回元素句柄.
 //

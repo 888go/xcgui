@@ -1,10 +1,10 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 背景_创建, 创建背景管理器, 返回背景管理器句柄.

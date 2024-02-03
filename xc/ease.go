@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 缓动_Linear, 线性.
@@ -17,8 +17,8 @@ func XEase_Linear(p float32) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Quad(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Quad(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Quad.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -27,8 +27,8 @@ func XEase_Quad(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Cubic(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Cubic(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Cubic.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -37,8 +37,8 @@ func XEase_Cubic(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Quart(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Quart(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Quart.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -47,8 +47,8 @@ func XEase_Quart(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Quint(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Quint(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Quint.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -57,8 +57,8 @@ func XEase_Quint(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Sine(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Sine(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Sine.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -67,8 +67,8 @@ func XEase_Sine(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Expo(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Expo(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Expo.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -77,8 +77,8 @@ func XEase_Expo(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Circ(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Circ(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Circ.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -87,8 +87,8 @@ func XEase_Circ(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Elastic(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Elastic(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Elastic.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -97,8 +97,8 @@ func XEase_Elastic(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Back(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Back(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Back.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -107,8 +107,8 @@ func XEase_Back(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // p: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动类型, I常量_缓动类型_.
-func XEase_Bounce(p float32, flag xcc.I常量_缓动类型_) float32 {
+// flag: 缓动类型, Ease_Type_.
+func XEase_Bounce(p float32, flag xcc.Ease_Type_) float32 {
 	_, r, _ := xEase_Bounce.Call(common.Float32Ptr(p), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }
@@ -117,8 +117,8 @@ func XEase_Bounce(p float32, flag xcc.I常量_缓动类型_) float32 {
 //
 // pos: 位置, 0.0f - 1.0f.
 //
-// flag: 缓动标识, I常量_缓动标识_.
-func XEase_Ex(pos float32, flag xcc.I常量_缓动标识_) float32 {
+// flag: 缓动标识, Ease_Flag_.
+func XEase_Ex(pos float32, flag xcc.Ease_Flag_) float32 {
 	_, r, _ := xEase_Ex.Call(common.Float32Ptr(pos), uintptr(flag))
 	return common.UintPtrToFloat32(r)
 }

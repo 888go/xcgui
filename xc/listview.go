@@ -1,10 +1,11 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 列表视_创建, 返回元素句柄.
@@ -20,6 +21,24 @@ import (
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 func XListView_Create(x int, y int, cx int, cy int, hParent int) int {
 	r, _, _ := xListView_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+	return int(r)
+}
+
+// 列表视_创建Ex. 创建列表视图元素, 使用内置项模板, 自动创建数据适配器, 返回元素句柄.
+//
+// x: 元素x坐标.
+//
+// y: 元素y坐标.
+//
+// cx: 宽度.
+//
+// cy: 高度.
+//
+// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
+//
+// col_extend_count: 列数量. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
+func XListView_CreateEx(x, y, cx, cy int32, hParent, col_extend_count int32) int {
+	r, _, _ := xListView_CreateEx.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent), uintptr(col_extend_count))
 	return int(r)
 }
 
@@ -114,7 +133,7 @@ func XListView_GetTemplateObjectGroup(hEle int, iGroup int, nTempItemID int) int
 // piGroup: 接收组索引.
 //
 // piItem: 接收项索引.
-func XListView_GetItemIDFromHXCGUI(hEle int, hXCGUI int, piGroup *int, piItem *int) bool {
+func XListView_GetItemIDFromHXCGUI(hEle int, hXCGUI int, piGroup *int32, piItem *int32) bool {
 	r, _, _ := xListView_GetItemIDFromHXCGUI.Call(uintptr(hEle), uintptr(hXCGUI), uintptr(unsafe.Pointer(piGroup)), uintptr(unsafe.Pointer(piItem)))
 	return r != 0
 }
@@ -128,7 +147,7 @@ func XListView_GetItemIDFromHXCGUI(hEle int, hXCGUI int, piGroup *int, piItem *i
 // pOutGroup: 接收组索引.
 //
 // pOutItem: 接收项索引.
-func XListView_HitTest(hEle int, pPt *POINT, pOutGroup *int, pOutItem *int) bool {
+func XListView_HitTest(hEle int, pPt *POINT, pOutGroup *int32, pOutItem *int32) bool {
 	r, _, _ := xListView_HitTest.Call(uintptr(hEle), uintptr(unsafe.Pointer(pPt)), uintptr(unsafe.Pointer(pOutGroup)), uintptr(unsafe.Pointer(pOutItem)))
 	return r != 0
 }
@@ -142,7 +161,7 @@ func XListView_HitTest(hEle int, pPt *POINT, pOutGroup *int, pOutItem *int) bool
 // pOutGroup: 接收做索引.
 //
 // pOutItem: 接收项索引.
-func XListView_HitTestOffset(hEle int, pPt *POINT, pOutGroup *int, pOutItem *int) bool {
+func XListView_HitTestOffset(hEle int, pPt *POINT, pOutGroup *int32, pOutItem *int32) bool {
 	r, _, _ := xListView_HitTestOffset.Call(uintptr(hEle), uintptr(unsafe.Pointer(pPt)), uintptr(unsafe.Pointer(pOutGroup)), uintptr(unsafe.Pointer(pOutItem)))
 	return r != 0
 }
@@ -162,8 +181,8 @@ func XListView_EnableMultiSel(hEle int, bEnable bool) int {
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func XListView_EnablemTemplateReuse(hEle int, bEnable bool) int {
-	r, _, _ := xListView_EnablemTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
+func XListView_EnableTemplateReuse(hEle int, bEnable bool) int {
+	r, _, _ := xListView_EnableTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -218,7 +237,7 @@ func XListView_SetSelectItem(hEle int, iGroup int, iItem int) bool {
 // piGroup: 接收组索引.
 //
 // piItem: 接收项索引.
-func XListView_GetSelectItem(hEle int, piGroup *int, piItem *int) bool {
+func XListView_GetSelectItem(hEle int, piGroup *int32, piItem *int32) bool {
 	r, _, _ := xListView_GetSelectItem.Call(uintptr(hEle), uintptr(unsafe.Pointer(piGroup)), uintptr(unsafe.Pointer(piItem)))
 	return r != 0
 }
@@ -262,7 +281,7 @@ func XListView_VisibleItem(hEle int, iGroup int, iItem int) int {
 // piEndGroup: 可视结束组.
 //
 // piEndItem: 可视结束项.
-func XListView_GetVisibleItemRange(hEle int, piGroup1 *int, piGroup2 *int, piStartGroup *int, piStartItem *int, piEndGroup *int, piEndItem *int) int {
+func XListView_GetVisibleItemRange(hEle int, piGroup1 *int32, piGroup2 *int32, piStartGroup *int32, piStartItem *int32, piEndGroup *int32, piEndItem *int32) int {
 	r, _, _ := xListView_GetVisibleItemRange.Call(uintptr(hEle), uintptr(unsafe.Pointer(piGroup1)), uintptr(unsafe.Pointer(piGroup2)), uintptr(unsafe.Pointer(piStartGroup)), uintptr(unsafe.Pointer(piStartItem)), uintptr(unsafe.Pointer(piEndGroup)), uintptr(unsafe.Pointer(piEndItem)))
 	return int(r)
 }
@@ -282,8 +301,12 @@ func XListView_GetSelectItemCount(hEle int) int {
 // pArray: 数组.
 //
 // nArraySize: 数组大小.
-func XListView_GetSelectAll(hEle int, pArray int, nArraySize int) int {
-	r, _, _ := xListView_GetSelectAll.Call(uintptr(hEle), uintptr(pArray), uintptr(nArraySize))
+func XListView_GetSelectAll(hEle int, pArray *[]ListView_Item_Id_, nArraySize int) int {
+	if nArraySize < 1 {
+		return 0
+	}
+	*pArray = make([]ListView_Item_Id_, nArraySize)
+	r, _, _ := xListView_GetSelectAll.Call(uintptr(hEle), uintptr(unsafe.Pointer(&(*pArray)[0])), uintptr(nArraySize))
 	return int(r)
 }
 
@@ -569,7 +592,7 @@ func XListView_Group_GetCount(hEle int) int {
 	return int(r)
 }
 
-// 列表视_项获取数量, 成功返回项数量, 否则返回 I常量_错误.
+// 列表视_项获取数量, 成功返回项数量, 否则返回 XC_ID_ERROR.
 //
 // hEle: 元素句柄.
 //
@@ -902,5 +925,47 @@ func XListView_Item_GetImage(hEle int, iGroup int, iItem int, iColumn int) int {
 // width: 线宽度.
 func XListView_SetDragRectColor(hEle int, color int, width int) int {
 	r, _, _ := xListView_SetDragRectColor.Call(uintptr(hEle), uintptr(color), uintptr(width))
+	return int(r)
+}
+
+// 列表视_置项模板从内存.
+//
+// hEle: 元素句柄.
+//
+// data: 模板数据.
+func XListView_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
+	r, _, _ := xListView_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+	return r != 0
+}
+
+// 列表视_置项模板从资源ZIP.
+//
+// hEle: 元素句柄.
+//
+// id: RC资源ID.
+//
+// pFileName: 文件名.
+//
+// pPassword: zip密码.
+//
+// hModule: 模块句柄, 可填0.
+func XListView_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
+	r, _, _ := xListView_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	return r != 0
+}
+
+// 列表视_取项模板, 返回项模板句柄.
+//
+// hEle: 元素句柄.
+func XListView_GetItemTemplate(hEle int) int {
+	r, _, _ := xListView_GetItemTemplate.Call(uintptr(hEle))
+	return int(r)
+}
+
+// 列表视_取项模板组, 返回项模板组句柄.
+//
+// hEle: 元素句柄.
+func XListView_GetItemTemplateGroup(hEle int) int {
+	r, _, _ := xListView_GetItemTemplateGroup.Call(uintptr(hEle))
 	return int(r)
 }

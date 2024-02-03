@@ -1,10 +1,10 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 组合框_创建, 返回元素句柄.
@@ -165,12 +165,12 @@ func XComboBox_GetSelItem(hEle int) int {
 	return int(r)
 }
 
-// 组合框_取状态, 返回: I常量_组合框状态_.
+// 组合框_取状态, 返回: ComboBox_State_.
 //
 // hEle: 元素句柄.
-func XComboBox_GetState(hEle int) xcc.I常量_组合框状态_ {
+func XComboBox_GetState(hEle int) xcc.ComboBox_State_ {
 	r, _, _ := xComboBox_GetState.Call(uintptr(hEle))
-	return xcc.I常量_组合框状态_(r)
+	return xcc.ComboBox_State_(r)
 }
 
 // 组合框_添加项文本, 返回项索引.
@@ -334,7 +334,7 @@ func XComboBox_SetItemImageEx(hEle int, iItem int, pName string, hImage int) boo
 // iColumn: 列索引.
 //
 // nValue: 整数值.
-func XComboBox_SetItemInt(hEle int, iItem int, iColumn int, nValue int) bool {
+func XComboBox_SetItemInt(hEle int, iItem int, iColumn int, nValue int32) bool {
 	r, _, _ := xComboBox_SetItemInt.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(nValue))
 	return r != 0
 }
@@ -348,7 +348,7 @@ func XComboBox_SetItemInt(hEle int, iItem int, iColumn int, nValue int) bool {
 // pName: 字段名.
 //
 // nValue: 整数值.
-func XComboBox_SetItemIntEx(hEle int, iItem int, pName string, nValue int) bool {
+func XComboBox_SetItemIntEx(hEle int, iItem int, pName string, nValue int32) bool {
 	r, _, _ := xComboBox_SetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(nValue))
 	return r != 0
 }
@@ -388,7 +388,7 @@ func XComboBox_SetItemFloatEx(hEle int, iItem int, pName string, fFloat float32)
 // iItem: 项索引.
 //
 // iColumn: 列索引.
-func XComboBox_GetItemText(hEle int, iItem int, iColumn int) string {
+func XComboBox_GetItemText(hEle int, iItem int32, iColumn int32) string {
 	r, _, _ := xComboBox_GetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn))
 	return common.UintPtrToString(r)
 }
@@ -438,7 +438,7 @@ func XComboBox_GetItemImageEx(hEle int, iItem int, pName string) int {
 // iColumn: 列索引.
 //
 // pOutValue: 接收返回整数值.
-func XComboBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int) bool {
+func XComboBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int32) bool {
 	r, _, _ := xComboBox_GetItemInt.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
@@ -452,7 +452,7 @@ func XComboBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int) bool
 // pName: 字段名.
 //
 // pOutValue: 接收返回整数值.
-func XComboBox_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int) bool {
+func XComboBox_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int32) bool {
 	r, _, _ := xComboBox_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
@@ -554,5 +554,39 @@ func XComboBox_PopupDropList(hEle int) int {
 // hTemp: 模板句柄.
 func XComboBox_SetItemTemplate(hEle, hTemp int) int {
 	r, _, _ := xComboBox_SetItemTemplate.Call(uintptr(hEle), uintptr(hTemp))
+	return int(r)
+}
+
+// 组合框_置项模板从内存.
+//
+// hEle: 元素句柄.
+//
+// data: 模板数据.
+func XComboBox_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
+	r, _, _ := xComboBox_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+	return r != 0
+}
+
+// 组合框_置项模板从资源ZIP.
+//
+// hEle: 元素句柄.
+//
+// id: RC资源ID.
+//
+// pFileName: 文件名.
+//
+// pPassword: zip密码.
+//
+// hModule: 模块句柄, 可填0.
+func XComboBox_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
+	r, _, _ := xComboBox_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	return r != 0
+}
+
+// 组合框_取项模板, 返回项模板句柄.
+//
+// hEle: 元素句柄.
+func XComboBox_GetItemTemplate(hEle int) int {
+	r, _, _ := xComboBox_GetItemTemplate.Call(uintptr(hEle))
 	return int(r)
 }

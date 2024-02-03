@@ -6,10 +6,51 @@ import (
 	"unsafe"
 )
 
+// Bytes2String byte切片到string.
+//
+//	@param b
+//	@return string
+func Bytes2String(b []byte) string {
+	return *(*string)(unsafe.Pointer(&b))
+}
+
+func String2Bytes(s string) []byte {
+	sh := (*stringHeader)(unsafe.Pointer(&s))
+	bh := sliceHeader{
+		Data: sh.Data,
+		Len:  sh.Len,
+		Cap:  sh.Len,
+	}
+	return *(*[]byte)(unsafe.Pointer(&bh))
+}
+
+// stringHeader is the runtime representation of a string.
+// It cannot be used safely or portably and its representation may
+// change in a later release.
+// Moreover, the Data field is not sufficient to guarantee the data
+// it references will not be garbage collected, so programs must keep
+// a separate, correctly typed pointer to the underlying data.
+type stringHeader struct {
+	Data uintptr
+	Len  int
+}
+
+// sliceHeader is the runtime representation of a slice.
+// It cannot be used safely or portably and its representation may
+// change in a later release.
+// Moreover, the Data field is not sufficient to guarantee the data
+// it references will not be garbage collected, so programs must keep
+// a separate, correctly typed pointer to the underlying data.
+type sliceHeader struct {
+	Data uintptr
+	Len  int
+	Cap  int
+}
+
 // StrPtr 将string转换到uintptr.
+//
 //	@param s
 //	@return uintptr
-//
 func StrPtr(s string) uintptr {
 	if len(s) == 0 {
 		return uintptr(0)
@@ -18,17 +59,14 @@ func StrPtr(s string) uintptr {
 	return uintptr(unsafe.Pointer(p))
 }
 
-type sliceHeader struct {
-	Data uintptr
-	Len  int
-	Cap  int
-}
-
 // UintPtrToString 将uintptr转换到string.
+//
 //	@param ptr
 //	@return string
-//
 func UintPtrToString(ptr uintptr) string {
+	if ptr == 0 {
+		return ""
+	}
 	s := *(*[]uint16)(unsafe.Pointer(&ptr)) // uintptr转换到[]uint16
 	for i := 0; i < len(s); i++ {
 		if s[i] == 0 {
@@ -41,9 +79,9 @@ func UintPtrToString(ptr uintptr) string {
 }
 
 // Uint16SliceDataPtr 将uint16[0]指针转换到uintptr.
+//
 //	@param p
 //	@return uintptr
-//
 func Uint16SliceDataPtr(p *[]uint16) uintptr {
 	if len(*p) == 0 {
 		return uintptr(0)
@@ -52,9 +90,9 @@ func Uint16SliceDataPtr(p *[]uint16) uintptr {
 }
 
 // BoolPtr 将bool转换到uintptr.
+//
 //	@param b
 //	@return uintptr
-//
 func BoolPtr(b bool) uintptr {
 	if b {
 		return uintptr(1)
@@ -63,26 +101,29 @@ func BoolPtr(b bool) uintptr {
 }
 
 // Float32Ptr 将float32转换到uintptr.
+//
 //	@param f
 //	@return uintptr
-//
 func Float32Ptr(f float32) uintptr {
 	return uintptr(*(*uint32)(unsafe.Pointer(&f)))
 }
 
 // UintPtrToFloat32 将uintptr转换到float32.
+//
 //	@param ptr
 //	@return float32
-//
 func UintPtrToFloat32(ptr uintptr) float32 {
+	if ptr == 0 {
+		return 0
+	}
 	u := uint32(ptr)
 	return *(*float32)(unsafe.Pointer(&u))
 }
 
 // ByteSliceDataPtr 将byte[0]指针转换到uintptr.
+//
 //	@param b
 //	@return uintptr
-//
 func ByteSliceDataPtr(b *[]byte) uintptr {
 	if len(*b) == 0 {
 		return uintptr(0)

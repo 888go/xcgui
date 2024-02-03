@@ -1,11 +1,11 @@
 package ani
 
 import (
-	"e.coding.net/gogit/go/xcgui/objectbase"
-	"e.coding.net/gogit/go/xcgui/xc"
+	"github.com/twgh/xcgui/objectbase"
+	"github.com/twgh/xcgui/xc"
 )
 
-// 动画项.
+// AnimaItem 动画项.
 type AnimaItem struct {
 	objectbase.ObjectBase
 }
@@ -16,31 +16,31 @@ type AnimaItem struct {
 //
 // bEnable: 是否启用.
 func (a *AnimaItem) EnableCompleteRelease(bEnable bool) int {
-	return xc.XAnimaItem_EnableCompleteRelease(a.I句柄, bEnable)
+	return xc.XAnimaItem_EnableCompleteRelease(a.Handle, bEnable)
 }
 
 // 动画项_置回调.
 //
 // callback: 回调函数.
 func (a *AnimaItem) SetCallback(callback interface{}) int {
-	return xc.XAnimaItem_SetCallback(a.I句柄, callback)
+	return xc.XAnimaItem_SetCallback(a.Handle, callback)
 }
 
 // 动画项_置用户数据.
 //
 // nUserData: 用户数据.
 func (a *AnimaItem) SetUserData(nUserData int) int {
-	return xc.XAnimaItem_SetUserData(a.I句柄, nUserData)
+	return xc.XAnimaItem_SetUserData(a.Handle, nUserData)
 }
 
 // 动画项_取用户数据, 返回用户数据.
 func (a *AnimaItem) GetUserData() int {
-	return xc.XAnimaItem_GetUserData(a.I句柄)
+	return xc.XAnimaItem_GetUserData(a.Handle)
 }
 
 // 动画项_启用自动销毁.
 //
 // bEnable: 是否启用.
 func (a *AnimaItem) EnableAutoDestroy(bEnable bool) int {
-	return xc.XAnimaItem_EnableAutoDestroy(a.I句柄, bEnable)
+	return xc.XAnimaItem_EnableAutoDestroy(a.Handle, bEnable)
 }

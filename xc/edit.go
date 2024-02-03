@@ -1,11 +1,12 @@
 package xc
 
 import (
-	"e.coding.net/gogit/go/xcgui/common"
 	"syscall"
 	"unsafe"
 
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/common"
+
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 编辑框_创建, 返回元素句柄.
@@ -34,10 +35,10 @@ func XEdit_Create(x int, y int, cx int, cy int, hParent int) int {
 //
 // cy: 高度.
 //
-// nType: 类型, I常量_编辑框类型_.
+// nType: 类型, Edit_Type_.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func XEdit_CreateEx(x int, y int, cx int, cy int, nType xcc.I常量_编辑框类型_, hParent int) int {
+func XEdit_CreateEx(x int, y int, cx int, cy int, nType xcc.Edit_Type_, hParent int) int {
 	r, _, _ := xEdit_CreateEx.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(nType), uintptr(hParent))
 	return int(r)
 }
@@ -226,8 +227,8 @@ func XEdit_SetPasswordCharacter(hEle int, ch int) int {
 //
 // hEle: 元素句柄.
 //
-// align: 对齐方式, I常量_编辑框文本对齐_.
-func XEdit_SetTextAlign(hEle int, align xcc.I常量_编辑框文本对齐_) int {
+// align: 对齐方式, Edit_TextAlign_Flag_.
+func XEdit_SetTextAlign(hEle int, align xcc.Edit_TextAlign_Flag_) int {
 	r, _, _ := xEdit_SetTextAlign.Call(uintptr(hEle), uintptr(align))
 	return int(r)
 }
@@ -268,7 +269,7 @@ func XEdit_SetTextInt(hEle int, nValue int) int {
 //
 // pOut: 接收文本内存指针.
 //
-// nOutlen: 内存大小.
+// nOutlen: 内存大小. 例: xc.XEdit_GetLength()+1 .
 func XEdit_GetText(hEle int, pOut *string, nOutlen int) int {
 	buf := make([]uint16, nOutlen)
 	r, _, _ := xEdit_GetText.Call(uintptr(hEle), common.Uint16SliceDataPtr(&buf), uintptr(nOutlen))
@@ -284,7 +285,7 @@ func XEdit_GetText(hEle int, pOut *string, nOutlen int) int {
 //
 // pOut: 接收文本内存指针.
 //
-// nOutlen: 接收文本内存块长度.
+// nOutlen: 接收文本内存块长度. 例: xc.XEdit_GetLengthRow()+1 .
 func XEdit_GetTextRow(hEle int, iRow int, pOut *string, nOutlen int) int {
 	buf := make([]uint16, nOutlen)
 	r, _, _ := xEdit_GetTextRow.Call(uintptr(hEle), uintptr(iRow), common.Uint16SliceDataPtr(&buf), uintptr(nOutlen))
@@ -410,12 +411,12 @@ func XEdit_AddStyle(hEle int, hFont_image_Obj int, color int, bColor bool) int {
 //
 // fontSize: 字体大小.
 //
-// fontStyle: 字体样式, I常量_字体样式_.
+// fontStyle: 字体样式, FontStyle_.
 //
 // color: 颜色.
 //
 // bColor: 是否使用颜色.
-func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle xcc.I常量_字体样式_, color int, bColor bool) int {
+func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle xcc.FontStyle_, color int, bColor bool) int {
 	r, _, _ := xEdit_AddStyleEx.Call(uintptr(hEle), common.StrPtr(fontName), uintptr(fontSize), uintptr(fontStyle), uintptr(color), common.BoolPtr(bColor))
 	return int(r)
 }
@@ -482,7 +483,7 @@ func XEdit_SetRowHeight(hEle int, nHeight int) int {
 	return int(r)
 }
 
-// 编辑框_置指定行高度, 类型为 I常量_编辑框类型_富文本 支持指定不同行高.
+// 编辑框_置指定行高度, 类型为 Edit_Type_Richedit 支持指定不同行高.
 //
 // hEle: 元素句柄.
 //
@@ -496,8 +497,8 @@ func XEdit_SetRowHeightEx(hEle int, iRow int, nHeight int) int {
 
 // XEdit_SetCurPos 编辑框_置当前位置.
 //
-//	@param hEle hEle: 元素句柄.
-//	@param iRow iRow: 行索引.
+//	@param hEle: 元素句柄.
+//	@param iRow: 行索引.
 //	@return int
 func XEdit_SetCurPos(hEle int, iRow int) int {
 	r, _, _ := xEdit_SetCurPos.Call(uintptr(hEle), uintptr(iRow))
@@ -619,7 +620,7 @@ func XEdit_SetSelect(hEle int, iStartRow int, iStartCol int, iEndRow int, iEndCo
 //
 // pOut: 接收返回文本内容.
 //
-// nOutLen: 接收内存大小.
+// nOutLen: 接收内存大小. xc.XEdit_GetSelectTextLength()+1 .
 func XEdit_GetSelectText(hEle int, pOut *string, nOutLen int) int {
 	buf := make([]uint16, nOutLen)
 	r, _, _ := xEdit_GetSelectText.Call(uintptr(hEle), common.Uint16SliceDataPtr(&buf), uintptr(nOutLen))
@@ -646,7 +647,7 @@ func XEdit_GetSelectRange(hEle int, pBegin *Position_, pEnd *Position_) bool {
 // piStart: 起始行索引.
 //
 // piEnd: 结束行索引.
-func XEdit_GetVisibleRowRange(hEle int, piStart *int, piEnd *int) int {
+func XEdit_GetVisibleRowRange(hEle int, piStart *int32, piEnd *int32) int {
 	r, _, _ := xEdit_GetVisibleRowRange.Call(uintptr(hEle), uintptr(unsafe.Pointer(piStart)), uintptr(unsafe.Pointer(piEnd)))
 	return int(r)
 }
@@ -766,7 +767,7 @@ func XEdit_SetRowSpace(hEle int, nSpace int) int {
 // iRow: 行索引.
 //
 // iCol: 列索引.
-func XEdit_SetCurPosEx(hEle int, iRow int, iCol int) int {
+func XEdit_SetCurPosEx(hEle int, iRow, iCol int32) int {
 	r, _, _ := xEdit_SetCurPosEx.Call(uintptr(hEle), uintptr(iRow), uintptr(iCol))
 	return int(r)
 }
@@ -778,7 +779,7 @@ func XEdit_SetCurPosEx(hEle int, iRow int, iCol int) int {
 // iRow: 返回行索引.
 //
 // iCol: 返回列索引.
-func XEdit_GetCurPosEx(hEle int, iRow *int, iCol *int) int {
+func XEdit_GetCurPosEx(hEle int, iRow, iCol *int32) int {
 	r, _, _ := xEdit_GetCurPosEx.Call(uintptr(hEle), uintptr(unsafe.Pointer(iRow)), uintptr(unsafe.Pointer(iCol)))
 	return int(r)
 }
@@ -877,4 +878,93 @@ func XEdit_GetSelectTextLength(hEle int) int {
 func XEdit_SetSelectTextStyle(hEle int, iStyle int) int {
 	r, _, _ := xEdit_SetSelectTextStyle.Call(uintptr(hEle), uintptr(iStyle))
 	return int(r)
+}
+
+// 编辑框_取文本_临时, 不包含非文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
+//
+// hEle: 元素句柄.
+func XEdit_GetText_Temp(hEle int) string {
+	r, _, _ := xEdit_GetText_Temp.Call(uintptr(hEle))
+	return common.UintPtrToString(r)
+}
+
+// 编辑框_取文本行_临时, 获取指定行文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
+//
+// hEle: 元素句柄.
+//
+// iRow: 行索引.
+func XEdit_GetTextRow_Temp(hEle int, iRow int) string {
+	r, _, _ := xEdit_GetTextRow_Temp.Call(uintptr(hEle), uintptr(iRow))
+	return common.UintPtrToString(r)
+}
+
+// 编辑框_取选择文本, 不包含非文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
+//
+// hEle: 元素句柄.
+func XEdit_GetSelectText_Temp(hEle int) string {
+	r, _, _ := xEdit_GetSelectText_Temp.Call(uintptr(hEle))
+	return common.UintPtrToString(r)
+}
+
+// 编辑框_插入气泡开始, 当前行开始.
+//
+// hEle: 元素句柄.
+//
+// hImageAvatar: 头像图片句柄.
+//
+// hImageBubble: 气泡背景图片句柄.
+//
+// nFlag: 聊天气泡对齐方式: xcc.Chat_Flag_ .
+func XEdit_InsertChatBegin(hEle int, hImageAvatar int, hImageBubble int, nFlag xcc.Chat_Flag_) int {
+	r, _, _ := xEdit_InsertChatBegin.Call(uintptr(hEle), uintptr(hImageAvatar), uintptr(hImageBubble), uintptr(nFlag))
+	return int(r)
+}
+
+// 编辑框_取指定行气泡标识. 返回行标识: xcc.Chat_Flag_
+//
+// hEle: 元素句柄.
+//
+// iRow: 行索引.
+func XEdit_GetChatFlags(hEle int, iRow int) xcc.Chat_Flag_ {
+	r, _, _ := xEdit_GetChatFlags.Call(uintptr(hEle), uintptr(iRow))
+	return xcc.Chat_Flag_(r)
+}
+
+// 编辑框_插入文本扩展.
+//
+// hEle: 元素句柄.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+//
+// pString: 字符串.
+//
+// iStyle: 样式.
+func XEdit_InsertTextEx(hEle int, iRow int, iCol int, pString string, iStyle int) int {
+	r, _, _ := xEdit_InsertTextEx.Call(uintptr(hEle), uintptr(iRow), uintptr(iCol), common.StrPtr(pString), uintptr(iStyle))
+	return int(r)
+}
+
+// 编辑框_插入对象.
+//
+// hEle: 元素句柄.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+//
+// hObj: 对象句柄.
+func XEdit_InsertObject(hEle int, iRow int, iCol int, hObj int) int {
+	r, _, _ := xEdit_InsertObject.Call(uintptr(hEle), uintptr(iRow), uintptr(iCol), uintptr(hObj))
+	return int(r)
+}
+
+// 编辑框_置气泡最大宽度. 当值为0时代表不限制宽度.
+//
+// hEle: 元素句柄.
+//
+// nWidth: 最大宽度.
+func XEdit_SetChatMaxWidth(hEle int, nWidth int32) {
+	xEdit_SetChatMaxWidth.Call(uintptr(hEle), uintptr(nWidth))
 }

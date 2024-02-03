@@ -1,6 +1,6 @@
 package xc
 
-import "e.coding.net/gogit/go/xcgui/common"
+import "github.com/twgh/xcgui/common"
 
 // 数据适配器列表视_创建, 创建列表视元素数据适配器, 返回数据适配器句柄.
 func XAdListView_Create() int {

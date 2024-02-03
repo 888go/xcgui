@@ -1,8 +1,8 @@
 package xc_test
 
 import (
-	"e.coding.net/gogit/go/xcgui/xc"
-	"e.coding.net/gogit/go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 func ExampleXInitXCGUI() {
@@ -13,8 +13,8 @@ func ExampleXInitXCGUI() {
 		}*/
 	xc.LoadXCGUI()
 	xc.XInitXCGUI(true)
-	hWindow := xc.XWnd_Create(0, 0, 500, 500, "", 0, xcc.I常量_窗口样式_默认)
-	xc.XWnd_ShowWindow(hWindow, xcc.I常量_窗口形式_显示并激活)
+	hWindow := xc.XWnd_Create(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
+	xc.XWnd_ShowWindow(hWindow, xcc.SW_SHOW)
 	xc.XRunXCGUI()
 	xc.XExitXCGUI()
 }
