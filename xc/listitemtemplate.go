@@ -8,7 +8,7 @@ import (
 	"github.com/twgh/xcgui/xcc"
 )
 
-// 模板_加载从文件, 列表项模板文件载入, 返回模板句柄.
+// 列表项模板_加载从文件, 列表项模板文件载入, 返回模板句柄.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -18,7 +18,7 @@ func XTemp_Load(nType xcc.ListItemTemp_Type_, pFileName string) int {
 	return int(r)
 }
 
-// 模板_加载从ZIP, 加载列表项模板从zip压缩包中, 返回模板句柄.
+// 列表项模板_加载从ZIP, 加载列表项模板从zip压缩包中, 返回模板句柄.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -32,7 +32,7 @@ func XTemp_LoadZip(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName stri
 	return int(r)
 }
 
-// 模板_加载从内存ZIP, 加载列表项模板从内存zip压缩包中, 返回模板句柄.
+// 列表项模板_加载从内存ZIP, 加载列表项模板从内存zip压缩包中, 返回模板句柄.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -46,7 +46,7 @@ func XTemp_LoadZipMem(nType xcc.ListItemTemp_Type_, data []byte, pFileName strin
 	return int(r)
 }
 
-// 模板_加载从文件扩展, 加载列表项模板从文件.
+// 列表项模板_加载从文件扩展, 加载列表项模板从文件.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -120,7 +120,7 @@ func XTemp_LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName string
 	return int(r)
 }
 
-// 模板_加载从ZIP扩展, 加载列表项模板从zip压缩包中.
+// 列表项模板_加载从ZIP扩展, 加载列表项模板从zip压缩包中.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -138,7 +138,7 @@ func XTemp_LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName st
 	return r != 0
 }
 
-// 模板_加载从内存ZIP扩展, 加载列表项模板从内存zip压缩包中.
+// 列表项模板_加载从内存ZIP扩展, 加载列表项模板从内存zip压缩包中.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -156,7 +156,7 @@ func XTemp_LoadZipMemEx(nType xcc.ListItemTemp_Type_, data []byte, pFileName str
 	return r != 0
 }
 
-// 模板_加载从字符串, 加载列表项模板文件从内存字符串.
+// 列表项模板_加载从字符串, 加载列表项模板文件从内存字符串.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -166,7 +166,7 @@ func XTemp_LoadFromString(nType xcc.ListItemTemp_Type_, pStringXML string) int {
 	return int(r)
 }
 
-// 模板_加载从字符串扩展, 加载列表项模板文件从内存字符串.
+// 列表项模板_加载从字符串扩展, 加载列表项模板文件从内存字符串.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
@@ -180,7 +180,7 @@ func XTemp_LoadFromStringEx(nType xcc.ListItemTemp_Type_, pStringXML string, pOu
 	return r != 0
 }
 
-// 模板_取类型, 获取列表项模板类型, 返回: xcc.ListItemTemp_Type_.
+// 列表项模板_取类型, 获取列表项模板类型, 返回: xcc.ListItemTemp_Type_.
 //
 // hTemp: 列表项模板句柄.
 func XTemp_GetType(hTemp int) xcc.ListItemTemp_Type_ {
@@ -188,7 +188,7 @@ func XTemp_GetType(hTemp int) xcc.ListItemTemp_Type_ {
 	return xcc.ListItemTemp_Type_(r)
 }
 
-// 模板_销毁, 项模板销毁.
+// 列表项模板_销毁, 项模板销毁.
 //
 // hTemp: 项模板句柄.
 func XTemp_Destroy(hTemp int) bool {
@@ -196,7 +196,7 @@ func XTemp_Destroy(hTemp int) bool {
 	return r != 0
 }
 
-// 模板_创建, 创建项模板, 返回模板句柄.
+// 列表项模板_创建, 创建项模板, 返回模板句柄.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 func XTemp_Create(nType xcc.ListItemTemp_Type_) int {
@@ -204,7 +204,7 @@ func XTemp_Create(nType xcc.ListItemTemp_Type_) int {
 	return int(r)
 }
 
-// 模板_添加根节点.
+// 列表项模板_添加根节点.
 //
 // hTemp: 项模板句柄.
 //
@@ -214,7 +214,7 @@ func XTemp_AddNodeRoot(hTemp int, pNode int) bool {
 	return r != 0
 }
 
-// 模板_添加子节点.
+// 列表项模板_添加子节点.
 //
 // pParentNode: 父节点指针.
 //
@@ -224,7 +224,7 @@ func XTemp_AddNode(pParentNode int, pNode int) bool {
 	return r != 0
 }
 
-// 模板_创建节点.
+// 列表项模板_创建节点.
 //
 // nType: 对象类型: xcc.XC_OBJECT_TYPE.
 func XTemp_CreateNode(nType xcc.XC_OBJECT_TYPE) int {
@@ -232,7 +232,7 @@ func XTemp_CreateNode(nType xcc.XC_OBJECT_TYPE) int {
 	return int(r)
 }
 
-// 模板_置节点属性.
+// 列表项模板_置节点属性.
 //
 // pNode: 节点指针.
 //
@@ -244,7 +244,7 @@ func XTemp_SetNodeAttribute(pNode int, pName string, pAttr string) bool {
 	return r != 0
 }
 
-// 模板_置节点属性扩展.
+// 列表项模板_置节点属性扩展.
 //
 // pNode: 节点指针.
 //
@@ -258,7 +258,7 @@ func XTemp_SetNodeAttributeEx(pNode int, itemID int32, pName string, pAttr strin
 	return r != 0
 }
 
-// 模板_取列表中的节点.
+// 列表项模板_取列表中的节点.
 //
 // hTemp: 模板句柄.
 //
@@ -268,7 +268,7 @@ func XTemp_List_GetNode(hTemp int, index int32) int {
 	return int(r)
 }
 
-// 模板_取节点, 获取节点, 根据itemID. 返回itemID对应的节点指针.
+// 列表项模板_取节点, 获取节点, 根据itemID. 返回itemID对应的节点指针.
 //
 // pNode: 节点指针.
 //
@@ -278,7 +278,7 @@ func XTemp_GetNode(pNode int, itemID int32) int {
 	return int(r)
 }
 
-// 模板_克隆节点, 克隆一个节点, 返回克隆的节点.
+// 列表项模板_克隆节点, 克隆一个节点, 返回克隆的节点.
 //
 // pNode: 节点指针.
 func XTemp_CloneNode(pNode int) int {

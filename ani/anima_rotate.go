@@ -10,7 +10,7 @@ type AnimaRotate struct {
 	objectbase.ObjectBase
 }
 
-// 动画旋转_置中心, 设置旋转中心点坐标.
+// 置中心, 设置旋转中心点坐标.
 //
 // x: 坐标X.
 //

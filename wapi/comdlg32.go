@@ -172,21 +172,21 @@ const (
 	OFN_SHOWHELP OFN_ = 0x00000010 // 使对话框显示“帮助”按钮。hwndOwner成员必须指定窗口以接收当用户单击帮助按钮时对话框发送的HELPMSGSTRING注册消息。当用户单击“帮助”按钮 时，资源管理器样式的对话框会向您的挂钩过程发送CDN_HELP通知消息。
 )
 
-// GetOpenFileNameW 创建一个打开对话框，让用户指定要打开的文件或文件集的驱动器、目录和名称。
+//	 创建打开对话框，让用户指定要打开的文件或文件集的驱动器、目录和名称。
 //
-//	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew.
-//	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
-//	@return bool
+//		@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew.
+//		@param unnamedParam1: 选项结构指针
+//		@return bool
 func GetOpenFileNameW(unnamedParam1 *OpenFileNameW) bool {
 	r, _, _ := getOpenFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
 	return r != 0
 }
 
-// GetSaveFileNameW 创建一个保存对话框，让用户指定要保存的文件的驱动器、目录和名称。
+//	 创建保存对话框，让用户指定要保存的文件的驱动器、目录和名称。
 //
-//	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-GetSaveFileNameW.
-//	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
-//	@return bool
+//		@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-GetSaveFileNameW.
+//		@param unnamedParam1: 选项结构指针, 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
+//		@return bool
 func GetSaveFileNameW(unnamedParam1 *OpenFileNameW) bool {
 	r, _, _ := getSaveFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
 	return r != 0
@@ -250,11 +250,11 @@ const (
 	CC_SOLIDCOLOR CC_ = 0x00000080 // 使对话框仅显示基本颜色集中的纯色。
 )
 
-// ChooseColorW 创建一个颜色对话框，使用户能够选择一种颜色。
+//	 创建颜色对话框，使用户能够选择一种颜色。
 //
-//	@Description 详情: https://docs.microsoft.com/zh-cn/previous-versions/windows/desktop/legacy/ms646912(v=vs.85).
-//	@param lpcc 指向 wapi.ChooseColor 结构的指针，该结构包含用于初始化对话框的信息。当函数返回时，此结构包含有关用户颜色选择的信息。
-//	@return bool
+//		@Description 详情: https://docs.microsoft.com/zh-cn/previous-versions/windows/desktop/legacy/ms646912(v=vs.85).
+//		@param lpcc: 选项结构指针, 指向 wapi.ChooseColor 结构的指针，该结构包含用于初始化对话框的信息。当函数返回时，此结构包含有关用户颜色选择的信息。
+//		@return bool
 func ChooseColorW(lpcc *ChooseColor) bool {
 	r, _, _ := chooseColorW.Call(uintptr(unsafe.Pointer(lpcc)))
 	return r != 0

@@ -10,7 +10,7 @@ type Anima struct {
 	animaBase
 }
 
-// 动画_创建动画序列, 按顺序执行的动画列表, 返回动画序列对象.
+// 创建动画序列, 按顺序执行的动画列表, 返回动画序列对象.
 //
 // hObjectUI: 绑定的UI对象. UI对象句柄: 窗口句柄, 元素句柄, 形状句柄, SVG句柄.
 //
@@ -21,7 +21,7 @@ func NewAnima(hObjectUI int, nLoopCount int) *Anima {
 	return p
 }
 
-// 动画_移动, 移动到目标位置, 默认以UI对象中心点为操作方式, 避免出现坐标错位, 返回动画项对象.
+// 移动, 移动到目标位置, 默认以UI对象中心点为操作方式, 避免出现坐标错位, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -40,7 +40,7 @@ func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_fl
 	return p
 }
 
-// 动画_移动扩展, 从指定位置移动到目标位置, 默认以UI对象中心点为操作方式, 避免出现坐标错位, 返回动画项对象.
+// 移动扩展, 从指定位置移动到目标位置, 默认以UI对象中心点为操作方式, 避免出现坐标错位, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -63,7 +63,7 @@ func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float3
 	return p
 }
 
-// 动画_旋转, 旋转角度支持负数值, 因为负数可以控制反向旋转, 返回动画旋转项对象.
+// 旋转, 旋转角度支持负数值, 因为负数可以控制反向旋转, 返回动画旋转项对象.
 //
 // duration: 持续时间.
 //
@@ -80,7 +80,7 @@ func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag xc
 	return p
 }
 
-// 动画_旋转扩展, 指定起点和终点, 返回动画旋转项对象.
+// 旋转扩展, 指定起点和终点, 返回动画旋转项对象.
 //
 // duration: 持续时间.
 //
@@ -99,7 +99,7 @@ func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int,
 	return p
 }
 
-// 动画_缩放, 缩放对象, 默认以自身为中心缩放, 返回动画缩放项对象.
+// 缩放, 缩放对象, 默认以自身为中心缩放, 返回动画缩放项对象.
 //
 // duration: 持续时间.
 //
@@ -118,7 +118,7 @@ func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount i
 	return p
 }
 
-// 动画_缩放大小, 修改UI对象大小, 默认向右延伸, 返回动画缩放项对象.
+// 缩放大小, 修改UI对象大小, 默认向右延伸, 返回动画缩放项对象.
 //
 // duration: 持续时间.
 //
@@ -137,7 +137,7 @@ func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCoun
 	return p
 }
 
-// 动画_透明度, 返回动画项对象.
+// 透明度, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -154,7 +154,7 @@ func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag xcc.E
 	return p
 }
 
-// 动画_透明度扩展, 从指定透明度到目标透明度, 返回动画项对象.
+// 透明度扩展, 从指定透明度到目标透明度, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -173,7 +173,7 @@ func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCou
 	return p
 }
 
-// 动画_颜色, 返回动画项对象.
+// 颜色, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -190,7 +190,7 @@ func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag xcc.Eas
 	return p
 }
 
-// 动画_颜色扩展, 从指定颜色到目标颜色, 返回动画项对象.
+// 颜色扩展, 从指定颜色到目标颜色, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -209,7 +209,7 @@ func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_fla
 	return p
 }
 
-// 动画_布局宽度, 修改布局宽度属性, 返回动画项对象.
+// 布局宽度, 修改布局宽度属性, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -228,7 +228,7 @@ func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width float32,
 	return p
 }
 
-// 动画_布局高度, 修改布局高度属性, 返回动画项对象.
+// 布局高度, 修改布局高度属性, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -247,7 +247,7 @@ func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height float3
 	return p
 }
 
-// 动画_布局大小, 修改布局宽度和高度, 返回动画项对象.
+// 布局大小, 修改布局宽度和高度, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -270,7 +270,7 @@ func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width floa
 	return p
 }
 
-// 动画_延迟, 返回动画项对象.
+// 延迟, 返回动画项对象.
 //
 // duration: 持续时间.
 func (a *Anima) Delay(duration float32) *AnimaItem {
@@ -279,7 +279,7 @@ func (a *Anima) Delay(duration float32) *AnimaItem {
 	return p
 }
 
-// 动画_显示, 显示或隐藏UI对象, 返回动画项对象.
+// 显示, 显示或隐藏UI对象, 返回动画项对象.
 //
 // duration: 持续时间.
 //
@@ -290,7 +290,7 @@ func (a *Anima) Show(duration float32, bShow bool) *AnimaItem {
 	return p
 }
 
-// 动画_销毁UI对象, 返回动画项对象.
+// 销毁UI对象, 返回动画项对象.
 //
 // duration: 持续时间.
 func (a *Anima) DestroyObjectUI(duration float32) *AnimaItem {
@@ -299,7 +299,7 @@ func (a *Anima) DestroyObjectUI(duration float32) *AnimaItem {
 	return p
 }
 
-// 动画_延迟扩展, 可以作为一个空动画, 然后在回调里处理自己的算法, 返回动画项句柄.
+// 延迟扩展, 可以作为一个空动画, 然后在回调里处理自己的算法, 返回动画项句柄.
 //
 // duration: 持续时间.
 //

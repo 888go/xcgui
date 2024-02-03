@@ -10,9 +10,6 @@ import (
 	"unsafe"
 )
 
-// waitOpenClipboard 循环打开剪贴板，最多等待一秒钟.
-//
-//	@return bool
 func waitOpenClipboard() bool {
 	started := time.Now()
 	limit := started.Add(time.Second)
@@ -25,7 +22,7 @@ func waitOpenClipboard() bool {
 	return false
 }
 
-// GetClipboardText 获取剪贴板中的文本.
+// 剪贴板取文本.
 //
 //	@return string
 //	@return error
@@ -68,9 +65,9 @@ func GetClipboardText() (string, error) {
 	return syscall.UTF16ToString(buf), nil
 }
 
-// SetClipboardText 将文本置入剪贴板.
+// 剪贴板置文本
 //
-//	@param text 要置入的文本.
+//	@param text: 文本.
 //	@return error
 func SetClipboardText(text string) error {
 	runtime.LockOSThread()
