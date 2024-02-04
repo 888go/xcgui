@@ -7,8 +7,8 @@ import (
 )
 
 // TFunc 测试用程序.
+// //	@Description: 测试时使用的函数.
 //
-//	@Description: 测试时使用的函数.
 //	@param f
 func TFunc(f func(a *app.App, w *window.Window)) {
 	a := app.New(true)

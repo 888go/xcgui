@@ -76,60 +76,50 @@ func (s *Shape) GetHeight() int32 {
 }
 
 // 移动位置.
-//
 // x: x坐标.
-//
 // y: y坐标.
 func (s *Shape) SetPosition(x, y int32) int {
 	return xc.XShape_SetPosition(s.Handle, x, y)
 }
 
 // 取坐标.
-//
 // pRect: 接收返回坐标.
 func (s *Shape) GetRect(pRect *xc.RECT) int {
 	return xc.XShape_GetRect(s.Handle, pRect)
 }
 
 // 置坐标.
-//
 // pRect: 坐标.
 func (s *Shape) SetRect(pRect *xc.RECT) int {
 	return xc.XShape_SetRect(s.Handle, pRect)
 }
 
 // 置逻辑坐标, 设置元素坐标, 逻辑坐标, 包含滚动视图偏移.
-//
 // pRect: 坐标.
-//
 // bRedraw: 是否重绘.
 func (s *Shape) SetRectLogic(pRect *xc.RECT, bRedraw bool) bool {
 	return xc.XShape_SetRectLogic(s.Handle, pRect, bRedraw)
 }
 
 // 取逻辑坐标, 获取元素坐标, 逻辑坐标, 包含滚动视图偏移.
-//
 // pRect: 坐标.
 func (s *Shape) GetRectLogic(pRect *xc.RECT) int {
 	return xc.XShape_GetRectLogic(s.Handle, pRect)
 }
 
 // 取基于窗口客户区坐标, 基于窗口客户区坐标.
-//
 // pRect: 坐标.
 func (s *Shape) GetWndClientRect(pRect *xc.RECT) int {
 	return xc.XShape_GetWndClientRect(s.Handle, pRect)
 }
 
 // 取内容大小 ,仅计算有效内容, 填充父, 权重依赖父级所以无法计算.
-//
 // pSize: 接收返回大小值.
 func (s *Shape) GetContentSize(pSize *xc.SIZE) int {
 	return xc.XShape_GetContentSize(s.Handle, pSize)
 }
 
 // 显示布局边界, 是否显示布局边界.
-//
 // bShow: 是否显示.
 func (s *Shape) ShowLayout(bShow bool) int {
 	return xc.XShape_ShowLayout(s.Handle, bShow)
@@ -146,34 +136,27 @@ func (s *Shape) Destroy() int {
 }
 
 // 取位置.
-//
 // pOutX: 返回X坐标.
-//
 // pOutY: 返回Y坐标.
 func (s *Shape) GetPosition(pOutX, pOutY *int32) int {
 	return xc.XShape_GetPosition(s.Handle, pOutX, pOutY)
 }
 
 // 置大小.
-//
 // nWidth: 宽度.
-//
 // nHeight: 高度.
 func (s *Shape) SetSize(nWidth, nHeight int32) int {
 	return xc.XShape_SetSize(s.Handle, nWidth, nHeight)
 }
 
 // 取大小.
-//
 // pOutWidth: 返回宽度.
-//
 // pOutHeight: 返回高度.
 func (s *Shape) GetSize(pOutWidth, pOutHeight *int32) int {
 	return xc.XShape_GetSize(s.Handle, pOutWidth, pOutHeight)
 }
 
 // 置透明度.
-//
 // alpha: 透明度.
 func (s *Shape) SetAlpha(alpha uint8) int {
 	return xc.XShape_SetAlpha(s.Handle, alpha)

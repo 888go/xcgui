@@ -11,8 +11,8 @@ var (
 )
 
 // 复制内存块 将源内存块的内容复制到目标内存块，并支持重叠的源内存块和目标内存块.
+// //	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/devnotes/rtlmovememory.
 //
-//	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/devnotes/rtlmovememory.
 //	@param Destination 目标内存块指针.
 //	@param Source 源内存块指针.
 //	@param Length 复制字节数

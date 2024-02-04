@@ -38,12 +38,9 @@ func NewByName(name string) *BkManager {
 }
 
 // 作废SetBkInfo
-//
-// !废弃函数, 保留为了兼容旧版; 请使用 SetInfo().
-//
-// 置内容, 设置背景内容, 返回设置的背景对象数量.
-//
-// pText: 背景内容
+// // !废弃函数, 保留为了兼容旧版; 请使用 SetInfo().
+// // 置内容, 设置背景内容, 返回设置的背景对象数量.
+// // pText: 背景内容
 func (b *BkManager) SetBkInfo(pText string) int {
 	return xc.XBkM_SetBkInfo(b.Handle, pText)
 }
@@ -54,43 +51,32 @@ func (b *BkManager) Destroy() int {
 }
 
 // 添加内容, 添加背景内容, 返回添加的背景对象数量.
-//
-// pText: 背景内容
+// // pText: 背景内容
 func (b *BkManager) AddInfo(pText string) int {
 	return xc.XBkM_AddInfo(b.Handle, pText)
 }
 
 // 添加边框, 添加背景内容边框.
-//
-// nState: 组合状态.
-//
-// color: ABGR颜色.
-//
-// width: 线宽.
-//
-// id: 背景对象ID, 可忽略(填0).
+// // nState: 组合状态.
+// // color: ABGR颜色.
+// // width: 线宽.
+// // id: 背景对象ID, 可忽略(填0).
 func (b *BkManager) AddBorder(nState xcc.CombinedState, color, width, id int) int {
 	return xc.XBkM_AddBorder(b.Handle, nState, color, width, id)
 }
 
 // 添加填充, 添加背景内容填充.
-//
-// nState: 组合状态.
-//
-// color: ABGR颜色.
-//
-// id: 背景对象ID, 可忽略(填0).
+// // nState: 组合状态.
+// // color: ABGR颜色.
+// // id: 背景对象ID, 可忽略(填0).
 func (b *BkManager) AddFill(nState xcc.CombinedState, color, id int) int {
 	return xc.XBkM_AddFill(b.Handle, nState, color, id)
 }
 
 // 添加图片, 添加背景内容图片.
-//
-// nState: 组合状态.
-//
-// hImage: 图片句柄.
-//
-// id: 背景对象ID, 可忽略(填0).
+// // nState: 组合状态.
+// // hImage: 图片句柄.
+// // id: 背景对象ID, 可忽略(填0).
 func (b *BkManager) AddImage(nState xcc.CombinedState, hImage, id int) int {
 	return xc.XBkM_AddImage(b.Handle, nState, hImage, id)
 }
@@ -106,34 +92,25 @@ func (b *BkManager) Clear() int {
 }
 
 // 绘制, 绘制背景内容.
-//
-// nState: 组合状态.
-//
-// hDraw: 图形绘制句柄.
-//
-// pRect: 区域坐标.
+// // nState: 组合状态.
+// // hDraw: 图形绘制句柄.
+// // pRect: 区域坐标.
 func (b *BkManager) Draw(nState xcc.CombinedState, hDraw int, pRect *xc.RECT) bool {
 	return xc.XBkM_Draw(b.Handle, nState, hDraw, pRect)
 }
 
 // 绘制扩展, 绘制背景内容, 设置条件.
-//
-// nState: 组合状态.
-//
-// hDraw: 图形绘制句柄.
-//
-// pRect: 区域坐标.
-//
-// nStateEx: 状态Ex
-//
-// 注解: 例如用来绘制列表项时, nState中包含项的状态(nStateEx)才会绘制, 避免列表项与元素背景叠加.
+// // nState: 组合状态.
+// // hDraw: 图形绘制句柄.
+// // pRect: 区域坐标.
+// // nStateEx: 状态Ex
+// // 注解: 例如用来绘制列表项时, nState中包含项的状态(nStateEx)才会绘制, 避免列表项与元素背景叠加.
 func (b *BkManager) DrawEx(nState xcc.CombinedState, hDraw int, pRect *xc.RECT, nStateEx xcc.CombinedState) bool {
 	return xc.XBkM_DrawEx(b.Handle, nState, hDraw, pRect, nStateEx)
 }
 
 // 启用自动销毁, 是否自动销毁.
-//
-// bEnable: 是否启用.
+// // bEnable: 是否启用.
 func (b *BkManager) EnableAutoDestroy(bEnable bool) int {
 	return xc.XBkM_EnableAutoDestroy(b.Handle, bEnable)
 }
@@ -154,24 +131,20 @@ func (b *BkManager) GetRefCount() int {
 }
 
 // 取引用计数, 设置背景内容, 返回设置的背景对象数量.
-//
-// pText: 背景内容
+// // pText: 背景内容
 func (b *BkManager) SetInfo(pText string) int {
 	return xc.XBkM_SetInfo(b.Handle, pText)
 }
 
 // 取指定状态文本颜色.
-//
-// nState: 组合状态.
-//
-// color: 返回ABGR颜色.
+// // nState: 组合状态.
+// // color: 返回ABGR颜色.
 func (b *BkManager) GetStateTextColor(nState xcc.CombinedState, color *int) bool {
 	return xc.XBkM_GetStateTextColor(b.Handle, nState, color)
 }
 
 // 取背景对象, 返回BkObj对象句柄.
-//
-// id: 背景对象ID.
+// // id: 背景对象ID.
 func (b *BkManager) GetObject(id int) int {
 	return xc.XBkM_GetObject(b.Handle, id)
 }

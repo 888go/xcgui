@@ -11,15 +11,10 @@ type MonthCal struct {
 }
 
 // 创建月历 创建日期时间元素.
-//
 // x: x坐标.
-//
 // y: y坐标.
-//
 // cx: 宽度.
-//
 // cy: 高度.
-//
 // hParent: 父窗口句柄或元素句柄.
 func NewMonthCal(x int, y int, cx int, cy int, hParent int) *MonthCal {
 	p := &MonthCal{}
@@ -68,49 +63,37 @@ func NewMonthCalByUIDName(name string) *MonthCal {
 }
 
 // 取内部按钮, 获取内部按钮元素.
-//
 // nType: 按钮类型.
 func (m *MonthCal) GetButton(nType int) int {
 	return xc.XMonthCal_GetButton(m.Handle, nType)
 }
 
 // 置当前日期, 设置月历选中的年月日.
-//
 // nYear: 年.
-//
 // nMonth: 月.
-//
 // nDay: 日.
 func (m *MonthCal) SetToday(nYear int32, nMonth int32, nDay int32) int {
 	return xc.XMonthCal_SetToday(m.Handle, nYear, nMonth, nDay)
 }
 
 // 取当前日期, 获取月历当前年月日.
-//
 // pnYear: 年指针.[INT.
-//
 // pnMonth: 月指针.[INT.
-//
 // pnDay: 日指针.[INT.
 func (m *MonthCal) GetToday(pnYear *int32, pnMonth *int32, pnDay *int32) int {
 	return xc.XMonthCal_GetToday(m.Handle, pnYear, pnMonth, pnDay)
 }
 
 // 取选择日期, 获取月历选中的年月日.
-//
 // pnYear: 年指针.[INT.
-//
 // pnMonth: 月指针.[INT.
-//
 // pnDay: 日指针.[INT.
 func (m *MonthCal) GetSelDate(pnYear *int32, pnMonth *int32, pnDay *int32) int {
 	return xc.XMonthCal_GetSelDate(m.Handle, pnYear, pnMonth, pnDay)
 }
 
 // 置文本颜色.
-//
 // nFlag: 1:周六, 周日文字颜色, 2:日期文字的颜色; 其它周文字颜色, 使用元素自身颜色.
-//
 // color: ABGR 颜色值.
 func (m *MonthCal) SetTextColor(nFlag int32, color int) int {
 	return xc.XMonthCal_SetTextColor(m.Handle, nFlag, color)

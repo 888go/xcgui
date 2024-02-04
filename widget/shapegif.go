@@ -10,15 +10,10 @@ type ShapeGif struct {
 }
 
 // 创建形状GIF, 创建形状对象GIF.
-//
 // x: X坐标.
-//
 // y: Y坐标.
-//
 // cx: 宽度.
-//
 // cy: 高度.
-//
 // hParent: 父对象句柄.
 func NewShapeGif(x int, y int, cx int, cy int, hParent int) *ShapeGif {
 	p := &ShapeGif{}
@@ -67,7 +62,6 @@ func NewShapeGifByUIDName(name string) *ShapeGif {
 }
 
 // 置图片, 设置GIF图片.
-//
 // hImage: 图片句柄.
 func (s *ShapeGif) SetImage(hImage int) int {
 	return xc.XShapeGif_SetImage(s.Handle, hImage)

@@ -11,15 +11,10 @@ type ProgressBar struct {
 }
 
 // 创建进度条 , 创建进度条元素.
-//
 // x: 元素x坐标.
-//
 // y: 元素y坐标.
-//
 // cx: 宽度.
-//
 // cy: 高度.
-//
 // hParent: 父窗口句柄或元素句柄.如果是窗口资源句柄将被添加到窗口.
 func NewProgressBar(x int, y int, cx int, cy int, hParent int) *ProgressBar {
 	p := &ProgressBar{}
@@ -68,7 +63,6 @@ func NewProgressBarByUIDName(name string) *ProgressBar {
 }
 
 // 置范围, 设置范围.
-//
 // range_: 范围.
 func (p *ProgressBar) SetRange(range_ int) int {
 	return xc.XProgBar_SetRange(p.Handle, range_)
@@ -80,14 +74,12 @@ func (p *ProgressBar) GetRange() int {
 }
 
 // 置进度图片.
-//
 // hImage: 图片句柄.
 func (p *ProgressBar) SetImageLoad(hImage int) int {
 	return xc.XProgBar_SetImageLoad(p.Handle, hImage)
 }
 
 // 置进度, 设置位置点.
-//
 // pos: 位置点.
 func (p *ProgressBar) SetPos(pos int) int {
 	return xc.XProgBar_SetPos(p.Handle, pos)
@@ -99,28 +91,24 @@ func (p *ProgressBar) GetPos() int {
 }
 
 // 置水平, 设置水平或垂直.
-//
 // bHorizon: 水平或垂直.
 func (p *ProgressBar) EnableHorizon(bHorizon bool) int {
 	return xc.XProgBar_EnableHorizon(p.Handle, bHorizon)
 }
 
 // 启用缩放, 缩放进度贴图为当前进度区域(当前进度所显示区域), 否则为整体100进度区域.
-//
 // bStretch: 缩放.
 func (p *ProgressBar) EnableStretch(bStretch bool) bool {
 	return xc.XProgBar_EnableStretch(p.Handle, bStretch)
 }
 
 // 启用进度文本 显示进度值文本.
-//
 // bShow: 是否启用.
 func (p *ProgressBar) EnableShowText(bShow bool) bool {
 	return xc.XProgBar_EnableShowText(p.Handle, bShow)
 }
 
 // 置进度颜色. 设置进度颜色.
-//
 // color: ABGR 颜色.
 func (p *ProgressBar) SetColorLoad(color int) bool {
 	return xc.XProgBar_SetColorLoad(p.Handle, color)

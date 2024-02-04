@@ -23,8 +23,8 @@ func waitOpenClipboard() bool {
 }
 
 // 剪贴板取文本.
+// //	@return string
 //
-//	@return string
 //	@return error
 func GetClipboardText() (string, error) {
 	runtime.LockOSThread()
@@ -66,8 +66,8 @@ func GetClipboardText() (string, error) {
 }
 
 // 剪贴板置文本
+// //	@param text: 文本.
 //
-//	@param text: 文本.
 //	@return error
 func SetClipboardText(text string) error {
 	runtime.LockOSThread()

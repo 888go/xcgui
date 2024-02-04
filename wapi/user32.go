@@ -44,8 +44,8 @@ var (
 )
 
 // 图标销毁
+// //	@Description 只需为使用以下函数创建的图标和游标调用 DestroyIcon ： CreateIconFromResourceEx (如果调用时没有 LR_SHARED 标志) 、 CreateIconIndirect 和 CopyIcon。 请勿使用此函数销毁共享图标。 只要从中加载共享图标的模块保留在内存中，共享图标就有效。
 //
-//	@Description 只需为使用以下函数创建的图标和游标调用 DestroyIcon ： CreateIconFromResourceEx (如果调用时没有 LR_SHARED 标志) 、 CreateIconIndirect 和 CopyIcon。 请勿使用此函数销毁共享图标。 只要从中加载共享图标的模块保留在内存中，共享图标就有效。
 //	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-destroyicon.
 //	@param hIcon: 图标句柄。 图标不得处于使用中。
 func DestroyIcon(hIcon uintptr) bool {
@@ -82,29 +82,22 @@ const (
 	LR_LOADMAP3DCOLORS = 0x00001000
 
 	// 检索图像中第一个像素的颜色值，并将颜色表中的相应条目替换为默认窗口颜色 (COLOR_WINDOW) 。 图像中使用该条目的所有像素都将成为默认的窗口颜色。 此值仅适用于具有相应颜色表的图像。
-	//
-	// 如果要加载颜色深度大于 8bpp 的位图，请不要使用此选项。
-	//
-	// 如果 fuLoad 同时包含 LR_LOADTRANSPARENT 值和 LR_LOADMAP3DCOLORS 值， LR_LOADTRANSPARENT 优先。 但是，颜色表条目将替换为 COLOR_3DFACE 而不是 COLOR_WINDOW。
+	//	// 如果要加载颜色深度大于 8bpp 的位图，请不要使用此选项。
+	//	// 如果 fuLoad 同时包含 LR_LOADTRANSPARENT 值和 LR_LOADMAP3DCOLORS 值， LR_LOADTRANSPARENT 优先。 但是，颜色表条目将替换为 COLOR_3DFACE 而不是 COLOR_WINDOW。
 	LR_LOADTRANSPARENT = 0x00000020
 	LR_MONOCHROME      = 0x00000001 // 加载黑白图像。
 
 	// 如果多次加载映像，则共享映像句柄。 如果未设置 LR_SHARED ，则对同一资源的第二次 LoadImageW 调用将再次加载映像并返回不同的句柄。
-	//
-	// 使用此标志时，系统将在不再需要资源时销毁资源。
-	//
-	// 对于非标准大小、加载后可能会更改或从文件加载的图像，请勿使用 LR_SHARED 。
-	//
-	// 加载系统图标或光标时，必须使用 LR_SHARED 否则函数将无法加载资源。
-	//
-	// 无论请求的大小如何，此函数都会查找缓存中具有请求的资源名称的第一个映像。
+	//	// 使用此标志时，系统将在不再需要资源时销毁资源。
+	//	// 对于非标准大小、加载后可能会更改或从文件加载的图像，请勿使用 LR_SHARED 。
+	//	// 加载系统图标或光标时，必须使用 LR_SHARED 否则函数将无法加载资源。
+	//	// 无论请求的大小如何，此函数都会查找缓存中具有请求的资源名称的第一个映像。
 	LR_SHARED   = 0x00008000
 	LR_VGACOLOR = 0x00000080 // 使用真正的 VGA 颜色。
 )
 
 // 加载图像W 加载图标、光标、动画光标或位图.
-//
-//	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-loadimagew.
+////	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-loadimagew.
 //	@param hInst:模块句柄 包含要加载的图像的 DLL 或可执行文件 (.exe) 模块的句柄。 有关详细信息，请参阅 GetModuleHandle。若要 (图标、光标或位图文件) 加载预定义图像或独立资源，请将此参数设置为0.
 //	@param name:名称 如果 hInst 参数为非0且 fuLoad 参数省略 LR_LOADFROMFILE， 则 name 指定 hInst 模块中的图像资源。如果要按名称从模块加载图像资源， 则 name 参数是指向包含映像资源名称的字符串。
 //	@param Type: 类型。 wapi.IMAGE_ .
@@ -124,8 +117,8 @@ const (
 
 // 窗口取顶级句柄
 // FindWindowW 检索顶级窗口的句柄，该窗口的类名称和窗口名称与指定的字符串匹配。 此函数不搜索子窗口。 此函数不执行区分大小写的搜索.
+// //	@Description 如果 lpWindowName 参数不 为 NULL， FindWindowW 将调用 GetWindowTextW 函数以检索窗口名称进行比较。 有关可能出现的潜在问题的说明，请参阅 GetWindowTextW 的备注。
 //
-//	@Description 如果 lpWindowName 参数不 为 NULL， FindWindowW 将调用 GetWindowTextW 函数以检索窗口名称进行比较。 有关可能出现的潜在问题的说明，请参阅 GetWindowTextW 的备注。
 //	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-FindWindowW.
 //	@param lpClassName: 窗口类名, 可为空.
 //	@param lpWindowName: 窗口标题（窗口的标题）, 可为空.
@@ -136,8 +129,8 @@ func FindWindowW(lpClassName, lpWindowName string) uintptr {
 }
 
 // RegisterWindowMessageW 定义保证在整个系统中唯一的新窗口消息。 发送或发布消息时可以使用消息值.
+// //	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-RegisterWindowMessageW.
 //
-//	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-RegisterWindowMessageW.
 //	@param lpString 要注册的消息。
 //	@return int 如果成功注册消息，则返回值是范围0xC000到0xFFFF的消息标识符. 如果函数失败，则返回值为零.
 func RegisterWindowMessageW(lpString string) int {
@@ -147,8 +140,8 @@ func RegisterWindowMessageW(lpString string) int {
 
 // 窗口句柄是否有效
 // IsWindow 判断一个窗口句柄是否有效.
+// //	@Description 线程不应将 IsWindow 用于未创建的窗口，因为调用此函数后可能会销毁该窗口。 此外，由于窗口句柄被回收，句柄甚至可以指向其他窗口.
 //
-//	@Description 线程不应将 IsWindow 用于未创建的窗口，因为调用此函数后可能会销毁该窗口。 此外，由于窗口句柄被回收，句柄甚至可以指向其他窗口.
 //	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-iswindow.
 //	@param hWnd: 窗口的句柄。
 //	@return bool
@@ -189,11 +182,11 @@ const (
 
 // 窗口设置位置
 // SetWindowPos 改变一个子窗口，弹出式窗口或顶层窗口的尺寸，位置和Z序。子窗口，弹出式窗口，及顶层窗口根据它们在屏幕上出现的顺序排序、顶层窗口设置的级别最高，并且被设置为Z序的第一个窗口.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-SetWindowPos.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-SetWindowPos.
 //	@param hWnd:  窗口句柄.
 //
-// @param x: 新x坐标。如hwnd是一个子窗口，则x用父窗口的客户区坐标表示.
+// // @param x: 新x坐标。如hwnd是一个子窗口，则x用父窗口的客户区坐标表示.
 // @param y: 新y坐标。如hwnd是一个子窗口，则y用父窗口的客户区坐标表示.
 // @param cx: 新宽度.
 // @param cy: 新高度.
@@ -206,8 +199,8 @@ func SetWindowPos(hWnd uintptr, hWndInsertAfter HWND_, x, y, cx, cy int32, wFlag
 
 // 窗口取桌面句柄
 // GetDesktopWindow 获取桌面窗口的句柄.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetDesktopWindow.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetDesktopWindow.
 //	@return int
 func GetDesktopWindow() uintptr {
 	r, _, _ := getDesktopWindow.Call()
@@ -292,8 +285,8 @@ const (
 
 // 窗口消息框W
 // MessageBoxW 显示一个模式对话框，其中包含一个系统图标、一组按钮和一条特定于应用程序的简短消息.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-MessageBoxW.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-MessageBoxW.
 //	@param hWnd:父窗口句柄 要创建的消息框的所有者窗口的句柄。如果此参数为0，则消息框没有所有者窗口.
 //	@param lpText: 显示消息。如果字符串由多行组成，您可以在每行之间使用换行符分隔各行.
 //	@param lpCaption: 标题。如果此参数为空，则默认标题为Error.
@@ -306,8 +299,8 @@ func MessageBoxW(hWnd uintptr, lpText, lpCaption string, uType MB_) ID_ {
 
 // 剪辑版打开
 // OpenClipboard 打开剪贴板进行检查并防止其他应用程序修改剪贴板内容.
+// //	@Description 如果另一个窗口打开了剪贴板，则 OpenClipboard 会失败.
 //
-//	@Description 如果另一个窗口打开了剪贴板，则 OpenClipboard 会失败.
 //	应用程序应在每次成功调用 OpenClipboard 后调用 CloseClipboard 函数.
 //	除非调用 EmptyClipboard 函数，否则由hWndNewOwner参数标识的窗口不会成为剪贴板所有者.
 //	如果应用程序在 hwnd 设置为0的情况下调用 OpenClipboard, EmptyClipboard 会将剪贴板所有者设置为NULL；这会导致 SetClipboardData 失败.
@@ -320,8 +313,8 @@ func OpenClipboard(hWnd uintptr) bool {
 }
 
 // 剪辑版关闭
+// //	@Description 当窗口完成检查或更改剪贴板时，通过调用 CloseClipboard 关闭剪贴板。这使其他窗口能够访问剪贴板.
 //
-//	@Description 当窗口完成检查或更改剪贴板时，通过调用 CloseClipboard 关闭剪贴板。这使其他窗口能够访问剪贴板.
 //	详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-CloseClipboard.
 //	@return bool
 func CloseClipboard() bool {
@@ -331,8 +324,8 @@ func CloseClipboard() bool {
 
 // 剪辑版清空
 // EmptyClipboard 清空剪贴板并释放剪贴板中数据的句柄。然后该函数将剪贴板的所有权分配给当前打开剪贴板的窗口。
+// //	@Description 在调用 EmptyClipboard 之前，应用程序必须使用 OpenClipboard 函数打开剪贴板。
 //
-//	@Description 在调用 EmptyClipboard 之前，应用程序必须使用 OpenClipboard 函数打开剪贴板。
 //	如果应用程序在打开剪贴板时指定了NULL窗口句柄，则 EmptyClipboard 会成功，但会将剪贴板所有者设置为NULL。请注意，这会导致 SetClipboardData 失败。
 //	详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-EmptyClipboard.
 //	@return bool
@@ -364,8 +357,8 @@ const (
 
 // 剪贴板内容格式判断
 // IsClipboardFormatAvailable 确定剪贴板是否包含指定格式的数据.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-IsClipboardFormatAvailable.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-IsClipboardFormatAvailable.
 //	@param uFormat:格式 标准或注册的剪贴板格式, wapi.CF_ .
 //	@return bool
 func IsClipboardFormatAvailable(uFormat CF_) bool {
@@ -375,8 +368,8 @@ func IsClipboardFormatAvailable(uFormat CF_) bool {
 
 // 剪贴板取指定格式内容
 // GetClipboardData 从剪贴板中检索指定格式的数据。剪贴板必须先前已打开.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetClipboardData.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetClipboardData.
 //	@param uFormat: 格式, wapi.CF_ .
 //	@return uintptr 如果函数成功，则返回值是指定格式的剪贴板对象的句柄. 如果函数失败，则返回值为NULL.
 func GetClipboardData(uFormat CF_) uintptr {
@@ -386,8 +379,8 @@ func GetClipboardData(uFormat CF_) uintptr {
 
 // 剪贴板设置数据
 // SetClipboardData 以指定的剪贴板格式将数据放在剪贴板上。该窗口必须是当前剪贴板所有者，并且应用程序必须调用 OpenClipboard 函数.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-setclipboarddata.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-setclipboarddata.
 //	@param uFormat:格式 标准或注册的剪贴板格式, wapi.CF_ .
 //	@param hMem: 指定格式数据句柄。该参数可以为0，表示窗口根据请求提供指定剪贴板格式的数据（渲染格式）.
 //	@return uintptr 如果函数成功，则返回值是数据的句柄. 如果函数失败，则返回值为NULL.
@@ -398,8 +391,8 @@ func SetClipboardData(uFormat CF_, hMem uintptr) uintptr {
 
 // 窗口激活
 // SetForegroundWindow 将创建指定窗口的线程带到前台并激活窗口. 键盘输入被定向到窗口, 并且为用户改变了各种视觉提示. 系统为创建前台窗口的线程分配比其他线程稍高的优先级.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-SetForegroundWindow.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-SetForegroundWindow.
 //	@param hWnd:窗口句柄, 应激活并置于前台的窗口句柄.
 //	@return bool
 func SetForegroundWindow(hWnd uintptr) bool {
@@ -409,8 +402,8 @@ func SetForegroundWindow(hWnd uintptr) bool {
 
 // 窗口模糊搜索子窗口
 // FindWindowExW 检索类名称和窗口名称与指定字符串匹配的窗口的句柄. 该函数搜索子窗口，从指定子窗口后面的那个开始. 此函数不执行区分大小写的搜索.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-FindWindowExW.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-FindWindowExW.
 //	@param hWndParent:窗口句柄,  要搜索其子窗口的父窗口的句柄. 如果hwndParent为0，该函数使用桌面窗口作为父窗口. 该函数在作为桌面子窗口的窗口中进行搜索.
 //	@param hWndChildAfter: 子窗口句柄。搜索从 Z 顺序中的下一个子窗口开始。子窗口必须是hwndParent的直接子窗口，而不仅仅是后代窗口。 如果hwndChildAfter为0，则搜索从hwndParent的第一个子窗口开始。 请注意，如果hwndParent和hwndChildAfter都是0，则该函数将搜索所有顶级和仅消息窗口。
 //	@param lpszClass: 类名, 可空.
@@ -423,8 +416,8 @@ func FindWindowExW(hWndParent, hWndChildAfter uintptr, lpszClass, lpszWindow str
 
 // 窗口取标题长度
 // GetWindowTextLengthW 检索指定窗口标题栏文本的长度（以字符为单位）（如果窗口有标题栏）。如果指定的窗口是控件，则该函数检索控件内文本的长度。但是无法检索另一个应用程序中编辑控件的文本长度。
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetWindowTextLengthW.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetWindowTextLengthW.
 //	@param hWnd: 窗口或控件句柄。
 //	@return int 如果成功，则返回值是文本的长度（以字符为单位）。在某些情况下，此值可能大于文本的长度。如果窗口没有文本，则返回值为零。
 func GetWindowTextLengthW(hWnd uintptr) int {
@@ -434,8 +427,8 @@ func GetWindowTextLengthW(hWnd uintptr) int {
 
 // 窗口取标题
 // GetWindowTextW 将指定窗口标题栏（如果有）的文本复制到缓冲区中。如果指定的窗口是控件，则复制控件的文本。但是无法检索另一个应用程序中控件的文本。
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetWindowTextW.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetWindowTextW.
 //	@param hWnd: 窗口或控件句柄。
 //	@param lpString: 接收文本.
 //	@param nMaxCount: 最大字符数，包括空字符。如果文本超出此限制，则将其截断.
@@ -449,8 +442,8 @@ func GetWindowTextW(hWnd uintptr, lpString *string, nMaxCount int) int {
 
 // 窗口取屏幕坐标
 // ClientToScreen 将指定点的客户区坐标转换为屏幕坐标。
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-ClientToScreen.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-ClientToScreen.
 //	@param hWnd 窗口句柄
 //	@param lpPoint:坐标指针 wapi.POINT 指针. 如果函数成功，则将新的屏幕坐标复制到此结构中.
 //	@return bool
@@ -461,8 +454,8 @@ func ClientToScreen(hWnd uintptr, lpPoint *POINT) bool {
 
 // 鼠标取光标坐标
 // GetCursorPos 检索鼠标光标的位置，以屏幕坐标表示.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-getcursorpos.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-getcursorpos.
 //	@param lpPoint:坐标指针, 指向接收光标屏幕坐标的 wapi.POINT 结构的指针.
 //	@return bool
 func GetCursorPos(lpPoint *POINT) bool {
@@ -482,8 +475,8 @@ const (
 
 // 键盘热键注册
 // RegisterHotKey 注册系统范围的热键.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-registerhotkey.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-registerhotkey.
 //	@param hWnd: 窗口句柄。将接收由热键生成的 WM_HOTKEY 消息的窗口句柄。如果此参数为0，则 WM_HOTKEY 消息将发布到调用线程的消息队列中，并且必须在消息循环中进行处理。
 //	@param id: 热键标识符。如果hWnd参数为0，则热键与当前线程相关联，而不是与特定窗口相关联。如果已存在具有相同hWnd和id参数的热键，请参阅备注了解所采取的操作。
 //	@param fsModifiers:组合键, 为了生成 WM_HOTKEY 消息，必须与vk参数指定的键组合按下的键 。fsModifiers参数可以是以下值的组合: xcc.Mod_ .
@@ -496,8 +489,8 @@ func RegisterHotKey(hWnd uintptr, id int32, fsModifiers, vk uint32) bool {
 
 // 键盘热键释放
 // UnregisterHotKey 释放先前注册的热键.
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-unregisterHotKey.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-unregisterHotKey.
 //	@param hWnd: 窗口句柄。与要释放的热键关联的窗口句柄。如果热键与窗口无关，则此参数应为0.
 //	@param id:热键标识符, 要释放的热键的标识符.
 //	@return bool
@@ -507,8 +500,8 @@ func UnregisterHotKey(hWnd uintptr, id int32) bool {
 }
 
 // GetMessage 从调用线程的消息队列中检索消息。应用程序通常使用返回值来确定是否结束主消息循环并退出程序。该函数分派传入的已发送消息，直到发布的消息可用于检索。 与 GetMessage 不同， PeekMessage 函数在返回之前不会等待消息发布。
+// //	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetMessageW.
 //
-//	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-GetMessageW.
 //	@param pMsg 指向从线程的消息队列接收消息信息的 MSG 结构的指针。
 //	@param hWnd 要检索其消息的窗口的句柄。窗口必须属于当前线程。如果hWnd为0， GetMessage 检索属于当前线程的任何窗口的消息，以及当前线程的消息队列中hwnd值为0的任何消息（参见 MSG 结构）。因此，如果hWnd为0，则同时处理窗口消息和线程消息。如果hWnd为-1， GetMessage 仅检索当前线程的消息队列中hwnd值为0的消息，即 PostMessage （当hWnd参数为0时）或 PostThreadMessage 发布的线程消息。
 //	@param wMsgFilterMin 要检索的最低消息值的整数值。使用WM_KEYFIRST (0x0100) 指定第一条键盘消息或WM_MOUSEFIRST (0x0200) 指定第一条鼠标消息。
@@ -520,8 +513,8 @@ func GetMessage(pMsg *MSG, hWnd uintptr, wMsgFilterMin uint32, wMsgFilterMax uin
 }
 
 // TranslateMessage 将虚拟键消息转换为字符消息。字符消息被发布到调用线程的消息队列中，以便在线程下次调用 GetMessage 或 PeekMessage 函数时读取。
+// //	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-TranslateMessage.
 //
-//	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-TranslateMessage.
 //	@param pMsg:消息指针, 一个指向 MSG 结构的指针，该结构包含使用 GetMessage 或 PeekMessage 函数从调用线程的消息队列中检索到的消息信息。
 //	@return bool
 func TranslateMessage(pMsg *MSG) bool {
@@ -530,8 +523,8 @@ func TranslateMessage(pMsg *MSG) bool {
 }
 
 // DispatchMessage 向窗口过程发送消息。它通常用于发送由 GetMessage 函数检索到的消息。
+// //	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-DispatchMessageW.
 //
-//	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-DispatchMessageW.
 //	@param pMsg 指向包含消息的结构的指针。
 //	@return int 返回值指定窗口过程返回的值。尽管它的含义取决于所发送的消息，但返回值通常会被忽略。
 func DispatchMessage(pMsg *MSG) int {
@@ -541,8 +534,8 @@ func DispatchMessage(pMsg *MSG) int {
 
 // 结束
 // PostQuitMessage 向系统指示线程已请求终止（退出）。它通常用于响应 WM_DESTROY 消息。
+// //	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-PostQuitMessage.
 //
-//	@Description: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-PostQuitMessage.
 //	@param nExitCode: 结束代码。该值用作 WM_QUIT 消息的wParam参数。
 func PostQuitMessage(nExitCode int32) {
 	postQuitMessage.Call(uintptr(nExitCode))
@@ -564,8 +557,8 @@ type POINT struct {
 
 // 窗口发送消息
 // SendMessageW 将指定的消息发送到一个或多个窗口。SendMessage函数调用指定窗口的窗口过程，直到窗口过程处理完消息才返回。
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-SendMessageW.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-SendMessageW.
 //	@param hWnd: 窗口句柄，其窗口过程将接收消息。如果该参数为 HWND_BROADCAST ((HWND)0xffff)，则将消息发送到系统中的所有顶层窗口，包括禁用或不可见的无主窗口、重叠窗口和弹出窗口；但消息不会发送到子窗口。
 //	@param Msg: 消息值。有关系统提供的消息的列表，请参阅: https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues.
 //	@param wParam:参数1, 其他特定于消息的信息。
@@ -578,8 +571,8 @@ func SendMessageW(hWnd uintptr, Msg int32, wParam, lParam uint) int {
 
 // 窗口投递消息
 // PostMessageW 在与创建指定窗口的线程关联的消息队列中放置（发布）一条消息，并在不等待线程处理消息的情况下返回。
+// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-postmessagew.
 //
-//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-postmessagew.
 //	@param hWnd: 窗口句柄，其窗口过程将接收消息。如果该参数为 HWND_BROADCAST ((HWND)0xffff)，则将消息发送到系统中的所有顶层窗口，包括禁用或不可见的无主窗口、重叠窗口和弹出窗口；但消息不会发送到子窗口。
 //	@param Msg:消息值, 要发送的消息。有关系统提供的消息的列表，请参阅: https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues.
 //	@param wParam:参数1  其他特定于消息的信息。

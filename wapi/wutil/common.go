@@ -11,8 +11,7 @@ import (
 )
 
 // 拖放文件取路径.
-//
-// hDropInfo: 拖放信息句柄.
+// // hDropInfo: 拖放信息句柄.
 func GetDropFiles(hDropInfo uintptr) []string {
 	var filePath string
 	files := make([]string, 0)
@@ -30,8 +29,8 @@ func GetDropFiles(hDropInfo uintptr) []string {
 }
 
 // 对话框打开文件夹.
+// //	@param hParent: 炫彩窗口句柄, 可为0.
 //
-//	@param hParent: 炫彩窗口句柄, 可为0.
 //	@return string 返回选择的文件夹完整路径.
 func OpenDir(hParent int) string {
 	buf := make([]uint16, 260)
@@ -55,8 +54,8 @@ func OpenDir(hParent int) string {
 }
 
 // 对话框打开单个文件.
+// //	@param hParent: 炫彩窗口句柄, 可为0.
 //
-//	@param hParent: 炫彩窗口句柄, 可为0.
 //	@param filters: 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir: 初始目录, 即默认打开的目录.
 //	@return string 返回文件完整路径.
@@ -102,8 +101,8 @@ func OpenFile(hParent int, filters []string, defaultDir string) string {
 }
 
 // 对话框打开多个文件.
+// //	@param hParent: 炫彩窗口句柄, 可为0.
 //
-//	@param hParent: 炫彩窗口句柄, 可为0.
 //	@param filters: 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir: 初始目录, 即默认打开的目录.
 //	@return string 返回文件完整路径数组.
@@ -160,8 +159,8 @@ func OpenFiles(hParent int, filters []string, defaultDir string) []string {
 }
 
 // 对话框保存文件.
+// //	@param hParent: 炫彩窗口句柄, 可为0.
 //
-//	@param hParent: 炫彩窗口句柄, 可为0.
 //	@param filters: 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir: 初始目录, 即默认打开的目录.
 //	@param defaultFileName: 默认文件名.
@@ -213,8 +212,8 @@ func SaveFile(hParent int, filters []string, defaultDir, defaultFileName string)
 }
 
 // 对话框选择颜色.
+// //	@param hParent: 炫彩窗口句柄, 可为0.
 //
-//	@param hParent: 炫彩窗口句柄, 可为0.
 //	@return int 返回rgb颜色.
 func ChooseColor(hParent int) int {
 	var hwnd uintptr

@@ -11,15 +11,10 @@ type ComboBox struct {
 }
 
 // 创建组合框
-//
 // x: 元素x坐标.
-//
 // y: 元素y坐标.
-//
 // cx: 宽度.
-//
 // cy: 高度.
-//
 // hParent: 父窗口句柄或元素句柄.如果是窗口资源句柄将被添加到窗口.
 func NewComboBox(x int, y int, cx int, cy int, hParent int) *ComboBox {
 	p := &ComboBox{}
@@ -68,7 +63,6 @@ func NewComboBoxByUIDName(name string) *ComboBox {
 }
 
 // 置选择项.
-//
 // iIndex: 项索引.
 func (c *ComboBox) SetSelItem(iIndex int) bool {
 	return xc.XComboBox_SetSelItem(c.Handle, iIndex)
@@ -80,7 +74,6 @@ func (c *ComboBox) CreateAdapter() int {
 }
 
 // 绑定数据适配器.
-//
 // hAdapter: 适配器句柄.
 func (c *ComboBox) BindAdapter(hAdapter int) int {
 	return xc.XComboBox_BindAdapter(c.Handle, hAdapter)
@@ -92,28 +85,24 @@ func (c *ComboBox) GetAdapter() int {
 }
 
 // 置绑定名称.
-//
 // pName: 字段名.
 func (c *ComboBox) SetBindName(pName string) int {
 	return xc.XComboBox_SetBindName(c.Handle, pName)
 }
 
 // 取下拉按钮坐标.
-//
 // pRect: 坐标.
 func (c *ComboBox) GetButtonRect(pRect *xc.RECT) int {
 	return xc.XComboBox_GetButtonRect(c.Handle, pRect)
 }
 
 // 置下拉按钮大小.
-//
 // size: 大小.
 func (c *ComboBox) SetButtonSize(size int) int {
 	return xc.XComboBox_SetButtonSize(c.Handle, size)
 }
 
 // 置下拉列表高度.
-//
 // height: 高度, -1自动计算高度.
 func (c *ComboBox) SetDropHeight(height int) int {
 	return xc.XComboBox_SetDropHeight(c.Handle, height)
@@ -125,35 +114,30 @@ func (c *ComboBox) GetDropHeight() int {
 }
 
 // 置项模板, 设置下拉列表项模板文件.
-//
 // pXmlFile: 项模板文件.
 func (c *ComboBox) SetItemTemplateXML(pXmlFile string) int {
 	return xc.XComboBox_SetItemTemplateXML(c.Handle, pXmlFile)
 }
 
 // 置项模板并按字符串, 设置下拉列表项模板.
-//
 // pStringXML: 字符串.
 func (c *ComboBox) SetItemTemplateXMLFromString(pStringXML string) int {
 	return xc.XComboBox_SetItemTemplateXMLFromString(c.Handle, pStringXML)
 }
 
 // 启用绘制下拉按钮, 是否绘制下拉按钮.
-//
 // bEnable: 是否绘制.
 func (c *ComboBox) EnableDrawButton(bEnable bool) int {
 	return xc.XComboBox_EnableDrawButton(c.Handle, bEnable)
 }
 
 // 启用编辑, 启用可编辑显示的文本内容.
-//
 // bEdit: TRUE可编辑.
 func (c *ComboBox) EnableEdit(bEdit bool) int {
 	return xc.XComboBox_EnableEdit(c.Handle, bEdit)
 }
 
 // 启用下拉列表高度固定大小, 启用/关闭下拉列表高度固定大小.
-//
 // bEnable: 是否启用.
 func (c *ComboBox) EnableDropHeightFixed(bEnable bool) int {
 	return xc.XComboBox_EnableDropHeightFixed(c.Handle, bEnable)
@@ -170,256 +154,193 @@ func (c *ComboBox) GetState() xcc.ComboBox_State_ {
 }
 
 // 添加项文本, 返回项索引.
-//
 // pText:.文本
 func (c *ComboBox) AddItemText(pText string) int {
 	return xc.XComboBox_AddItemText(c.Handle, pText)
 }
 
 // 添加项文本EX, 返回项索引.
-//
 // pName: 字段名.
-//
 // pText: 文本.
 func (c *ComboBox) AddItemTextEx(pName string, pText string) int {
 	return xc.XComboBox_AddItemTextEx(c.Handle, pName, pText)
 }
 
 // 添加项图片, 返回项索引.
-//
 // hImage: 图片句柄.
 func (c *ComboBox) AddItemImage(hImage int) int {
 	return xc.XComboBox_AddItemImage(c.Handle, hImage)
 }
 
 // 添加项图片EX, 返回项索引.
-//
 // pName: 字段名.
-//
 // hImage: 图片句柄.
 func (c *ComboBox) AddItemImageEx(pName string, hImage int) int {
 	return xc.XComboBox_AddItemImageEx(c.Handle, pName, hImage)
 }
 
 // 插入项文本, 返回项索引.
-//
 // iItem: 项索引.
-//
 // pText: 文本.
 func (c *ComboBox) InsertItemText(iItem int, pText string) int {
 	return xc.XComboBox_InsertItemText(c.Handle, iItem, pText)
 }
 
 // 插入项文本EX, 返回项索引.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // pText: 文本.
 func (c *ComboBox) InsertItemTextEx(iItem int, pName string, pText string) int {
 	return xc.XComboBox_InsertItemTextEx(c.Handle, iItem, pName, pText)
 }
 
 // 插入项图片, 返回项索引.
-//
 // iItem: 项索引.
-//
 // hImage: 图片句柄.
 func (c *ComboBox) InsertItemImage(iItem int, hImage int) int {
 	return xc.XComboBox_InsertItemImage(c.Handle, iItem, hImage)
 }
 
 // 插入项图片EX, 返回项索引.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // hImage: 图片句柄.
 func (c *ComboBox) InsertItemImageEx(iItem int, pName string, hImage int) int {
 	return xc.XComboBox_InsertItemImageEx(c.Handle, iItem, pName, hImage)
 }
 
 // 置项文本.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
-//
 // pText: 文本.
 func (c *ComboBox) SetItemText(iItem int, iColumn int, pText string) bool {
 	return xc.XComboBox_SetItemText(c.Handle, iItem, iColumn, pText)
 }
 
 // 置项文本EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // pText: 文本.
 func (c *ComboBox) SetItemTextEx(iItem int, pName string, pText string) bool {
 	return xc.XComboBox_SetItemTextEx(c.Handle, iItem, pName, pText)
 }
 
 // 置项图片.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
-//
 // hImage: 图片句柄.
 func (c *ComboBox) SetItemImage(iItem int, iColumn int, hImage int) bool {
 	return xc.XComboBox_SetItemImage(c.Handle, iItem, iColumn, hImage)
 }
 
 // 置项图片EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // hImage: 图片句柄.
 func (c *ComboBox) SetItemImageEx(iItem int, pName string, hImage int) bool {
 	return xc.XComboBox_SetItemImageEx(c.Handle, iItem, pName, hImage)
 }
 
 // 置项整数值.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
-//
 // nValue: 整数值.
 func (c *ComboBox) SetItemInt(iItem int, iColumn int, nValue int32) bool {
 	return xc.XComboBox_SetItemInt(c.Handle, iItem, iColumn, nValue)
 }
 
 // 置项指数值EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // nValue: 整数值.
 func (c *ComboBox) SetItemIntEx(iItem int, pName string, nValue int32) bool {
 	return xc.XComboBox_SetItemIntEx(c.Handle, iItem, pName, nValue)
 }
 
 // 置项浮点值.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
-//
 // fFloat: 浮点数.
 func (c *ComboBox) SetItemFloat(iItem int, iColumn int, fFloat float32) bool {
 	return xc.XComboBox_SetItemFloat(c.Handle, iItem, iColumn, fFloat)
 }
 
 // 置项浮点值EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // fFloat: 浮点数.
 func (c *ComboBox) SetItemFloatEx(iItem int, pName string, fFloat float32) bool {
 	return xc.XComboBox_SetItemFloatEx(c.Handle, iItem, pName, fFloat)
 }
 
 // 取项文本.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
 func (c *ComboBox) GetItemText(iItem int32, iColumn int32) string {
 	return xc.XComboBox_GetItemText(c.Handle, iItem, iColumn)
 }
 
 // 取项文本EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
 func (c *ComboBox) GetItemTextEx(iItem int, pName string) string {
 	return xc.XComboBox_GetItemTextEx(c.Handle, iItem, pName)
 }
 
 // 取项图片.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
 func (c *ComboBox) GetItemImage(iItem int, iColumn int) int {
 	return xc.XComboBox_GetItemImage(c.Handle, iItem, iColumn)
 }
 
 // 取项图片EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
 func (c *ComboBox) GetItemImageEx(iItem int, pName string) int {
 	return xc.XComboBox_GetItemImageEx(c.Handle, iItem, pName)
 }
 
 // 取项整数值.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
-//
 // pOutValue: 接收返回整数值.
 func (c *ComboBox) GetItemInt(iItem int, iColumn int, pOutValue *int32) bool {
 	return xc.XComboBox_GetItemInt(c.Handle, iItem, iColumn, pOutValue)
 }
 
 // 取项整数值EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // pOutValue: 接收返回整数值.
 func (c *ComboBox) GetItemIntEx(iItem int, pName string, pOutValue *int32) bool {
 	return xc.XComboBox_GetItemIntEx(c.Handle, iItem, pName, pOutValue)
 }
 
 // 取项浮点值.
-//
 // iItem: 项索引.
-//
 // iColumn: 列索引.
-//
 // pOutValue: 接收返回浮点值.
 func (c *ComboBox) GetItemFloat(iItem int, iColumn int, pOutValue *float32) bool {
 	return xc.XComboBox_GetItemFloat(c.Handle, iItem, iColumn, pOutValue)
 }
 
 // 取项浮点值EX.
-//
 // iItem: 项索引.
-//
 // pName: 字段名.
-//
 // pOutValue: 接收返回浮点值.
 func (c *ComboBox) GetItemFloatEx(iItem int, pName string, pOutValue *float32) bool {
 	return xc.XComboBox_GetItemFloatEx(c.Handle, iItem, pName, pOutValue)
 }
 
 // 删除项.
-//
 // iItem: 项索引.
 func (c *ComboBox) DeleteItem(iItem int) bool {
 	return xc.XComboBox_DeleteItem(c.Handle, iItem)
 }
 
 // 删除项EX.
-//
 // iItem: 项索引.
-//
 // nCount: 删除数量.
 func (c *ComboBox) DeleteItemEx(iItem int, nCount int) bool {
 	return xc.XComboBox_DeleteItemEx(c.Handle, iItem, nCount)
@@ -451,27 +372,21 @@ func (c *ComboBox) PopupDropList() int {
 }
 
 // 设置项模板.
-//
 // hTemp: 模板句柄.
 func (c *ComboBox) SetItemTemplate(hTemp int) int {
 	return xc.XComboBox_SetItemTemplate(c.Handle, hTemp)
 }
 
 // 置项模板并按内存.
-//
 // data: 模板数据.
 func (c *ComboBox) SetItemTemplateXMLFromMem(data []byte) bool {
 	return xc.XComboBox_SetItemTemplateXMLFromMem(c.Handle, data)
 }
 
 // 置项模板并按资源ZIP.
-//
 // id: RC资源ID.
-//
 // pFileName: 文件名.
-//
 // pPassword: zip密码.
-//
 // hModule: 模块句柄, 可填0.
 func (c *ComboBox) SetItemTemplateXMLFromZipRes(id int32, pFileName string, pPassword string, hModule uintptr) bool {
 	return xc.XComboBox_SetItemTemplateXMLFromZipRes(c.Handle, id, pFileName, pPassword, hModule)

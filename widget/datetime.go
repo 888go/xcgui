@@ -11,15 +11,10 @@ type DateTime struct {
 }
 
 // 创建日期, 创建日期时间元素.
-//
 // x: x坐标.
-//
 // y: y坐标.
-//
 // cx: 宽度.
-//
 // cy: 高度.
-//
 // hParent: 父窗口句柄或元素句柄.
 func NewDateTime(x int, y int, cx int, cy int, hParent int) *DateTime {
 	p := &DateTime{}
@@ -68,7 +63,6 @@ func NewDateTimeByUIDName(name string) *DateTime {
 }
 
 // 置样式, 设置样式.
-//
 // nStyle: 样式: 0为日期元素, 1为时间元素.
 func (d *DateTime) SetStyle(nStyle int) int {
 	return xc.XDateTime_SetStyle(d.Handle, nStyle)
@@ -80,14 +74,12 @@ func (d *DateTime) GetStyle() int {
 }
 
 // 启用分割栏为斜线, 切换分割栏为: 斜线或横线.
-//
-//	bSlash:斜线
+// //	bSlash:斜线
 func (d *DateTime) EnableSplitSlash(bSlash bool) int {
 	return xc.XDateTime_EnableSplitSlash(d.Handle, bSlash)
 }
 
 // 取内部按钮, 获取内部按钮元素.
-//
 // nType: 按钮类型.
 func (d *DateTime) GetButton(nType int) int {
 	return xc.XDateTime_GetButton(d.Handle, nType)
@@ -99,51 +91,38 @@ func (d *DateTime) GetSelBkColor() int {
 }
 
 // 置选择日期背景颜色, 设置被选择文字的背景颜色.
-//
 // crSelectBk: 文字被选中背景色, ABGR 颜色.
 func (d *DateTime) SetSelBkColor(crSelectBk int) int {
 	return xc.XDateTime_SetSelBkColor(d.Handle, crSelectBk)
 }
 
 // 取当前日期.
-//
 // pnYear: 年指针.[OUT].
-//
 // pnMonth: 月指针.[OUT].
-//
 // pnDay: 日指针.[OUT].
 func (d *DateTime) GetDate(pnYear *int32, pnMonth *int32, pnDay *int32) int {
 	return xc.XDateTime_GetDate(d.Handle, pnYear, pnMonth, pnDay)
 }
 
 // 置当前日期.
-//
 // nYear: 年.
-//
 // nMonth: 月.
-//
 // nDay: 日.
 func (d *DateTime) SetDate(nYear int32, nMonth int32, nDay int32) int {
 	return xc.XDateTime_SetDate(d.Handle, nYear, nMonth, nDay)
 }
 
 // 取当前时间.
-//
 // pnHour: 时指针.[OUT].
-//
 // pnMinute: 分指针.[OUT].
-//
 // pnSecond: 秒指针.[OUT].
 func (d *DateTime) GetTime(pnHour *int32, pnMinute *int32, pnSecond *int32) int {
 	return xc.XDateTime_GetTime(d.Handle, pnHour, pnMinute, pnSecond)
 }
 
 // 设置当前时间, 设置当前时分秒.
-//
 // nHour: 时.
-//
 // nMinute: 分.
-//
 // nSecond: 秒.
 func (d *DateTime) SetTime(nHour int32, nMinute int32, nSecond int32) int {
 	return xc.XDateTime_SetTime(d.Handle, nHour, nMinute, nSecond)

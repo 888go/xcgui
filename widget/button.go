@@ -11,17 +11,11 @@ type Button struct {
 }
 
 // 创建按钮
-//
 // x: 按钮x坐标.
-//
 // y: 按钮y坐标.
-//
 // cx: 宽度.
-//
 // cy: 高度.
-//
 // pName: 标题.
-//
 // hParent: 父窗口句柄
 func NewButton(x, y, cx, cy int32, pName string, hParent int) *Button {
 	p := &Button{}
@@ -75,43 +69,38 @@ func (b *Button) IsCheck() bool {
 }
 
 // 置选中, 设置选中状态.
-//
 // bCheck: 是否选中.
 func (b *Button) SetCheck(bCheck bool) bool {
 	return xc.XBtn_SetCheck(b.Handle, bCheck)
 }
 
 // 置状态.
+// //	@param nState: 按钮状态: xcc.Common_State3_.
 //
-//	@param nState: 按钮状态: xcc.Common_State3_.
 //	@return int
 func (b *Button) SetState(nState xcc.Common_State3_) int {
 	return xc.XBtn_SetState(b.Handle, nState)
 }
 
 // 取状态.
-//
-//	@return xcc.Common_State3_
+// //	@return xcc.Common_State3_
 func (b *Button) GetState() xcc.Common_State3_ {
 	return xc.XBtn_GetState(b.Handle)
 }
 
 // 取状态EX.
-//
-//	@return xcc.Button_State_
+// //	@return xcc.Button_State_
 func (b *Button) GetStateEx() xcc.Button_State_ {
 	return xc.XBtn_GetStateEx(b.Handle)
 }
 
 // 置类型EX, 设置按钮类型并自动修改样式和文本对齐方式.
-//
 // nType: 按钮类型, Button_Type_ , element_type_ , xc_ex_error.
 func (b *Button) SetTypeEx(nType xcc.XC_OBJECT_TYPE_EX) int {
 	return xc.XBtn_SetTypeEx(b.Handle, nType)
 }
 
 // 置组ID.
-//
 // nID: 组ID.
 func (b *Button) SetGroupID(nID int32) int {
 	return xc.XBtn_SetGroupID(b.Handle, nID)
@@ -123,7 +112,6 @@ func (b *Button) GetGroupID() int32 {
 }
 
 // 置绑定元素.
-//
 // hBindEle: 将要绑定的元素.
 func (b *Button) SetBindEle(hBindEle int) int {
 	return xc.XBtn_SetBindEle(b.Handle, hBindEle)
@@ -135,7 +123,6 @@ func (b *Button) GetBindEle() int {
 }
 
 // 置文本对齐.
-//
 // nFlags: 对齐方式, TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
 func (b *Button) SetTextAlign(nFlags xcc.TextFormatFlag_) int {
 	return xc.XBtn_SetTextAlign(b.Handle, nFlags)
@@ -147,39 +134,32 @@ func (b *Button) GetTextAlign() xcc.TextFormatFlag_ {
 }
 
 // 置图标对齐.
-//
 // align: 对齐方式, Button_Icon_Align_.
 func (b *Button) SetIconAlign(align xcc.Button_Icon_Align_) int {
 	return xc.XBtn_SetIconAlign(b.Handle, align)
 }
 
 // 置偏移, 设置按钮文本坐标偏移量.
-//
 // x: 偏移量.
-//
 // y: 偏移量.
 func (b *Button) SetOffset(x int, y int) int {
 	return xc.XBtn_SetOffset(b.Handle, x, y)
 }
 
 // 置图标偏移, 设置按钮图标坐标偏移量.
-//
 // x: 偏移量.
-//
 // y: 偏移量.
 func (b *Button) SetOffsetIcon(x int, y int) int {
 	return xc.XBtn_SetOffsetIcon(b.Handle, x, y)
 }
 
 // 置图标间隔, 设置图标与文本间隔大小.
-//
 // size: 间隔大小.
 func (b *Button) SetIconSpace(size int) int {
 	return xc.XBtn_SetIconSpace(b.Handle, size)
 }
 
 // 置文本.
-//
 // pName: 文本内容.
 func (b *Button) SetText(pName string) int {
 	return xc.XBtn_SetText(b.Handle, pName)
@@ -191,39 +171,32 @@ func (b *Button) GetText() string {
 }
 
 // 置图标.
-//
 // hImage: 图片句柄.
 func (b *Button) SetIcon(hImage int) int {
 	return xc.XBtn_SetIcon(b.Handle, hImage)
 }
 
 // 置禁用图标.
-//
 // hImage: 图片句柄.
 func (b *Button) SetIconDisable(hImage int) int {
 	return xc.XBtn_SetIconDisable(b.Handle, hImage)
 }
 
 // 取图标, 返回图标句柄.
-//
 // nType: 图标类型, 0:默认图标, 1:禁用状态图标.
 func (b *Button) GetIcon(nType int) int {
 	return xc.XBtn_GetIcon(b.Handle, nType)
 }
 
 // 添加动画帧.
-//
 // hImage: 图片句柄.
-//
 // uElapse: 图片帧延时, 单位毫秒.
 func (b *Button) AddAnimationFrame(hImage int, uElapse int) int {
 	return xc.XBtn_AddAnimationFrame(b.Handle, hImage, uElapse)
 }
 
 // 启用动画, 开始或关闭图片动画的播放.
-//
 // bEnable: 启用, 关闭播放动画FALSE.
-//
 // bLoopPlay: 是否循环播放.
 func (b *Button) EnableAnimation(bEnable bool, bLoopPlay bool) int {
 	return xc.XBtn_EnableAnimation(b.Handle, bEnable, bLoopPlay)

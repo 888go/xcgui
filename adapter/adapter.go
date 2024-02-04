@@ -31,8 +31,7 @@ func (a *adapter) Destroy() int {
 }
 
 // 启用自动销毁.
-//
-// bEnable: 是否启用.
+// // bEnable: 是否启用.
 func (a *adapter) EnableAutoDestroy(bEnable bool) int {
 	return xc.XAd_EnableAutoDestroy(a.Handle, bEnable)
 }

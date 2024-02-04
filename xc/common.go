@@ -9,8 +9,8 @@ import (
 )
 
 // PathExists 判断文件或文件夹是否存在.
+// //	@param path 文件或文件夹.
 //
-//	@param path 文件或文件夹.
 //	@return error 如果出错, 则不确定是否存在.
 func PathExists(path string) (bool, error) {
 	_, err := os.Stat(path)
@@ -25,8 +25,8 @@ func PathExists(path string) (bool, error) {
 }
 
 // Font_Info_Name 将[32]uint16转换到string.
+// //	@param arr [32]uint16.
 //
-//	@param arr [32]uint16.
 //	@return string
 func Font_Info_Name(arr [32]uint16) string {
 	return syscall.UTF16ToString(arr[0:])
@@ -47,8 +47,8 @@ func PointInRect(pt POINT, rc RECT) bool {
 }
 
 // ABGR 根据r, g, b, a组合成ABGR颜色.
+// //	@param r 红色分量.
 //
-//	@param r 红色分量.
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@param a 透明度.
@@ -58,8 +58,8 @@ func ABGR(r, g, b, a byte) int {
 }
 
 // ABGR2 根据bgr, a组合成ABGR颜色.
+// //	@param bgr BGR颜色.
 //
-//	@param bgr BGR颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
 func ABGR2(bgr int, a byte) int {
@@ -67,8 +67,8 @@ func ABGR2(bgr int, a byte) int {
 }
 
 // RGBA 根据r, g, b, a组合成ABGR颜色. 和 ABGR 函数一模一样, 只是为了符合部分人使用习惯.
+// //	@param r 红色分量.
 //
-//	@param r 红色分量.
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@param a 透明度.
@@ -78,8 +78,8 @@ func RGBA(r, g, b, a byte) int {
 }
 
 // RGBA2 根据bgr, a组合成十进制ABGR颜色. 和 ABGR2 函数一模一样, 只是为了符合部分人使用习惯.
+// //	@param bgr BGR颜色.
 //
-//	@param bgr BGR颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
 func RGBA2(bgr int, a byte) int {
@@ -87,8 +87,8 @@ func RGBA2(bgr int, a byte) int {
 }
 
 // BGR 根据r, g, b组合成BGR颜色.
+// //	@param r 红色分量.
 //
-//	@param r 红色分量.
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@return int BGR颜色.
@@ -97,8 +97,8 @@ func BGR(r, g, b byte) int {
 }
 
 // RGB 根据r, g, b组合成RGB颜色.
+// //	@param r 红色分量.
 //
-//	@param r 红色分量.
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@return int RGB颜色.
@@ -107,8 +107,8 @@ func RGB(r, g, b byte) int {
 }
 
 // RGB2ABGR 将RGB颜色转换到ABGR颜色.
+// //	@param rgb RGB颜色.
 //
-//	@param rgb RGB颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
 func RGB2ABGR(rgb int, a byte) int {
@@ -119,8 +119,8 @@ func RGB2ABGR(rgb int, a byte) int {
 }
 
 // RGB2BGR 将RGB颜色转换到BGR颜色.
+// //	@param rgb RGB颜色.
 //
-//	@param rgb RGB颜色.
 //	@return int BGR颜色.
 func RGB2BGR(rgb int) int {
 	r := byte(rgb % 256)
@@ -130,8 +130,8 @@ func RGB2BGR(rgb int) int {
 }
 
 // HexRGB2BGR 将十六进制RGB颜色转换到十进制BGR颜色.
+// //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //
-//	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@return int BGR颜色.
 func HexRGB2BGR(str string) int {
 	s := strings.TrimLeft(str, "#")
@@ -142,8 +142,8 @@ func HexRGB2BGR(str string) int {
 }
 
 // HexRGB2ABGR 将十六进制RGB颜色转换到十进制ABGR颜色.
+// //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //
-//	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@param a 透明度.
 //	@return int ABGR颜色.
 func HexRGB2ABGR(str string, a byte) int {
@@ -155,8 +155,8 @@ func HexRGB2ABGR(str string, a byte) int {
 }
 
 // HexRGB2RGB 将十六进制RGB颜色转换到十进制RGB颜色.
+// //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //
-//	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@return int RGB颜色.
 func HexRGB2RGB(str string) int {
 	s := strings.TrimLeft(str, "#")
@@ -167,10 +167,9 @@ func HexRGB2RGB(str string) int {
 }
 
 // SetBnClicks 给一个窗口或布局元素中所有的按钮注册按钮单击事件.
+// // 说明: 本函数是通过遍历子元素实现的, 只会给窗口和布局元素中的按钮注册事件, 像List, Tree, 滑块条等元素中的按钮不会注册, 想要更多可以自己实现一个.
+// //	@param HXCGUI 炫彩窗口句柄或布局元素句柄.
 //
-// 说明: 本函数是通过遍历子元素实现的, 只会给窗口和布局元素中的按钮注册事件, 像List, Tree, 滑块条等元素中的按钮不会注册, 想要更多可以自己实现一个.
-//
-//	@param HXCGUI 炫彩窗口句柄或布局元素句柄.
 //	@param onBnClick 按钮单击事件回调函数.
 func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
 	if XC_IsHWINDOW(HXCGUI) {
@@ -197,8 +196,7 @@ func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
 }
 
 // Deprecated
-//
-// !已废弃, 请使用 xc.XWnd_ClientToScreen 或 wapi.ClientToScreen
+// // !已废弃, 请使用 xc.XWnd_ClientToScreen 或 wapi.ClientToScreen
 func ClientToScreen(hWindow int, pPoint *POINT) {
 	XWnd_ClientToScreen(hWindow, pPoint)
 }

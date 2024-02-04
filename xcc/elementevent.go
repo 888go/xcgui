@@ -119,12 +119,7 @@ const (
 	XE_LISTVIEW_SELECT                    XE_ = 146 // 列表视元素,项选择事件.
 	XE_LISTVIEW_EXPAND                    XE_ = 147 // 列表视元素,组展开收缩事件.
 	XE_PGRID_VALUE_CHANGE                 XE_ = 151 // 属性网格元素 项值改变事件
-	XE_PGRID_ITEM_SET                     XE_ = 152 //
-	XE_PGRID_ITEM_SELECT                  XE_ = 153 //
-	XE_PGRID_ITEM_ADJUST_COORDINATE       XE_ = 154 //
-	XE_PGRID_ITEM_DESTROY                 XE_ = 155 //
-	XE_PGRID_ITEM_EXPAND                  XE_ = 156 //
-	XE_RICHEDIT_CHANGE                    XE_ = 161 // 富文本元素 用户修改内容事件,只有当用户操作时才会触发,需要开启后有效, XRichEdit_EnableEvent_XE_RICHEDIT_CHANGE()； XRichEdit_SetText()、 XRichEdit_InsertString()不会触发此事件
+	XE_PGRID_ITEM_SET                     XE_ = 152 //	XE_PGRID_ITEM_SELECT                  XE_ = 153 //	XE_PGRID_ITEM_ADJUST_COORDINATE       XE_ = 154 //	XE_PGRID_ITEM_DESTROY                 XE_ = 155 //	XE_PGRID_ITEM_EXPAND                  XE_ = 156 //	XE_RICHEDIT_CHANGE                    XE_ = 161 // 富文本元素 用户修改内容事件,只有当用户操作时才会触发,需要开启后有效, XRichEdit_EnableEvent_XE_RICHEDIT_CHANGE()； XRichEdit_SetText()、 XRichEdit_InsertString()不会触发此事件
 	XE_EDIT_SET                           XE_ = 162 // 元素事件_编辑框设置
 	XE_EDIT_DRAWROW                       XE_ = 181 // 暂未使用
 	XE_EDIT_CHANGED                       XE_ = 182 // 编辑框_内容被改变

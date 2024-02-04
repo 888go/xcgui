@@ -13,8 +13,7 @@ type Image struct {
 }
 
 // 创建图片并按图片源.
-//
-// hImageSrc: 图片源句柄.
+// // hImageSrc: 图片源句柄.
 func NewBySrc(hImageSrc int) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadSrc(hImageSrc))
@@ -22,8 +21,7 @@ func NewBySrc(hImageSrc int) *Image {
 }
 
 // 创建图片并按文件.
-//
-// pFileName: 图片文件.
+// // pFileName: 图片文件.
 func NewByFile(pFileName string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadFile(pFileName))
@@ -31,16 +29,11 @@ func NewByFile(pFileName string) *Image {
 }
 
 // 创建图片并按文件且自适应, 加载图片从文件, 自适应图片.
-//
-// pFileName: 图片文件.
-//
-// leftSize: 坐标.
-//
-// topSize: 坐标.
-//
-// rightSize: 坐标.
-//
-// bottomSize: 坐标.
+// // pFileName: 图片文件.
+// // leftSize: 坐标.
+// // topSize: 坐标.
+// // rightSize: 坐标.
+// // bottomSize: 坐标.
 func NewByFileAdaptive(pFileName string, leftSize, topSize, rightSize, bottomSize int32) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadFileAdaptive(pFileName, leftSize, topSize, rightSize, bottomSize))
@@ -48,16 +41,11 @@ func NewByFileAdaptive(pFileName string, leftSize, topSize, rightSize, bottomSiz
 }
 
 // 创建图片并按文件且指定区域, 加载图片, 指定区位置及大小.
-//
-// pFileName: 图片文件.
-//
-// x: 坐标.
-//
-// y: 坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
+// // pFileName: 图片文件.
+// // x: 坐标.
+// // y: 坐标.
+// // cx: 宽度.
+// // cy: 高度.
 func NewByFileRect(pFileName string, x, y, cx, cy int32) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadFileRect(pFileName, x, y, cx, cy))
@@ -65,20 +53,13 @@ func NewByFileRect(pFileName string, x, y, cx, cy int32) *Image {
 }
 
 // 创建图片并按资源且自适应, 加载图片从资源, 自适应图片.
-//
-// id: 资源ID.
-//
-// pType: 资源类型.
-//
-// leftSize: 坐标.
-//
-// topSize: 坐标.
-//
-// rightSize: 坐标.
-//
-// bottomSize: 坐标.
-//
-// hModule:	从指定模块加载, 例如:DLL, EXE; 如果为空, 从当前EXE加载.
+// // id: 资源ID.
+// // pType: 资源类型.
+// // leftSize: 坐标.
+// // topSize: 坐标.
+// // rightSize: 坐标.
+// // bottomSize: 坐标.
+// // hModule:	从指定模块加载, 例如:DLL, EXE; 如果为空, 从当前EXE加载.
 func NewByResAdaptive(id int32, pType string, leftSize, topSize, rightSize, bottomSize int32, hModule uintptr) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadResAdaptive(id, pType, leftSize, topSize, rightSize, bottomSize, hModule))
@@ -86,14 +67,10 @@ func NewByResAdaptive(id int32, pType string, leftSize, topSize, rightSize, bott
 }
 
 // 创建图片并按资源.
-//
-// id: 资源ID.
-//
-// pType: 资源类型.
-//
-// bStretch: 是否拉伸图片.
-//
-// hModule:	从指定模块加载, 例如:DLL, EXE; 如果为空, 从当前EXE加载.
+// // id: 资源ID.
+// // pType: 资源类型.
+// // bStretch: 是否拉伸图片.
+// // hModule:	从指定模块加载, 例如:DLL, EXE; 如果为空, 从当前EXE加载.
 func NewByRes(id int32, pType string, bStretch bool, hModule uintptr) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadRes(id, pType, bStretch, hModule))
@@ -101,12 +78,9 @@ func NewByRes(id int32, pType string, bStretch bool, hModule uintptr) *Image {
 }
 
 // 创建图片并按ZIP, 加载图片从ZIP压缩包.
-//
-// pZipFileName: ZIP压缩包文件名.
-//
-// pFileName: 图片文件名.
-//
-// pPassword: ZIP压缩包密码.
+// // pZipFileName: ZIP压缩包文件名.
+// // pFileName: 图片文件名.
+// // pPassword: ZIP压缩包密码.
 func NewByZip(pZipFileName string, pFileName string, pPassword string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadZip(pZipFileName, pFileName, pPassword))
@@ -114,14 +88,10 @@ func NewByZip(pZipFileName string, pFileName string, pPassword string) *Image {
 }
 
 // 创建图片并按资源ZIP.
-//
-// id: RC资源ID.
-//
-// pFileName: 图片文件名.
-//
-// pPassword: ZIP压缩包密码.
-//
-// hModule: 模块句柄, 可填0.
+// // id: RC资源ID.
+// // pFileName: 图片文件名.
+// // pPassword: ZIP压缩包密码.
+// // hModule: 模块句柄, 可填0.
 func NewByZipRes(id int32, pFileName string, pPassword string, hModule uintptr) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadZipRes(id, pFileName, pPassword, hModule))
@@ -129,20 +99,13 @@ func NewByZipRes(id int32, pFileName string, pPassword string, hModule uintptr) 
 }
 
 // 创建图片并按ZIP且自适应, 加载图片从ZIP压缩包, 自适应图片.
-//
-// pZipFileName: ZIP压缩包文件名.
-//
-// pFileName: 图片文件名.
-//
-// pPassword: ZIP压缩包密码.
-//
-// x1: 坐标.
-//
-// x2: 坐标.
-//
-// y1: 坐标.
-//
-// y2: 坐标.
+// // pZipFileName: ZIP压缩包文件名.
+// // pFileName: 图片文件名.
+// // pPassword: ZIP压缩包密码.
+// // x1: 坐标.
+// // x2: 坐标.
+// // y1: 坐标.
+// // y2: 坐标.
 func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x1, x2, y1, y2 int32) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadZipAdaptive(pZipFileName, pFileName, pPassword, x1, x2, y1, y2))
@@ -150,20 +113,13 @@ func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x
 }
 
 // 创建图片并按ZIP且指定区域, 加载ZIP图片, 指定区位置及大小.
-//
-// pZipFileName: ZIP文件.
-//
-// pFileName: 图片名称.
-//
-// pPassword: 密码.
-//
-// x: 坐标.
-//
-// y: 坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
+// // pZipFileName: ZIP文件.
+// // pFileName: 图片名称.
+// // pPassword: 密码.
+// // x: 坐标.
+// // y: 坐标.
+// // cx: 宽度.
+// // cy: 高度.
 func NewByZipRect(pZipFileName string, pFileName string, pPassword string, x, y, cx, cy int32) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadZipRect(pZipFileName, pFileName, pPassword, x, y, cx, cy))
@@ -171,12 +127,9 @@ func NewByZipRect(pZipFileName string, pFileName string, pPassword string, x, y,
 }
 
 // 创建图片并按内存ZIP.
-//
-// data: 图片数据.
-//
-// pFileName: 图片名称.
-//
-// pPassword: zip压缩包密码.
+// // data: 图片数据.
+// // pFileName: 图片名称.
+// // pPassword: zip压缩包密码.
 func NewByZipMem(data []byte, pFileName string, pPassword string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadZipMem(data, pFileName, pPassword))
@@ -184,8 +137,7 @@ func NewByZipMem(data []byte, pFileName string, pPassword string) *Image {
 }
 
 // 创建图片并按内存, 加载流图片.
-//
-// pBuffer: 图片数据.
+// // pBuffer: 图片数据.
 func NewByMem(pBuffer []byte) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadMemory(pBuffer))
@@ -193,16 +145,11 @@ func NewByMem(pBuffer []byte) *Image {
 }
 
 // 创建图片并按内存且指定区域, 加载流图片, 指定区位置及大小.
-//
-// pBuffer: 图片数据.
-//
-// x: 坐标.
-//
-// y: 坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
+// // pBuffer: 图片数据.
+// // x: 坐标.
+// // y: 坐标.
+// // cx: 宽度.
+// // cy: 高度.
 func NewByMemRect(pBuffer []byte, x, y, cx, cy int32) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadMemoryRect(pBuffer, x, y, cx, cy))
@@ -210,16 +157,11 @@ func NewByMemRect(pBuffer []byte, x, y, cx, cy int32) *Image {
 }
 
 // 创建图片并按内存且自适应, 加载流图片压缩包, 自适应图片(九宫格).
-//
-// pBuffer: 图片数据.
-//
-// leftSize: 坐标.
-//
-// topSize: 坐标.
-//
-// rightSize: 坐标.
-//
-// bottomSize: 坐标.
+// // pBuffer: 图片数据.
+// // leftSize: 坐标.
+// // topSize: 坐标.
+// // rightSize: 坐标.
+// // bottomSize: 坐标.
 func NewByMemAdaptive(pBuffer []byte, leftSize, topSize, rightSize, bottomSize int32) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadMemoryAdaptive(pBuffer, leftSize, topSize, rightSize, bottomSize))
@@ -227,8 +169,7 @@ func NewByMemAdaptive(pBuffer []byte, leftSize, topSize, rightSize, bottomSize i
 }
 
 // 创建图片并按GDI图片对象指针, 加载图片从GDI+的Image对象.
-//
-// pImage: GDI图片对象指针
+// // pImage: GDI图片对象指针
 func NewByImage(pImage uintptr) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadFromImage(pImage))
@@ -236,8 +177,7 @@ func NewByImage(pImage uintptr) *Image {
 }
 
 // 创建图片并按图标文件, 加载文件图标, 从一个EXE文件或DLL文件或图标文件; 例如:*.exe文件的图标.
-//
-// pFileName: 文件名.
+// // pFileName: 文件名.
 func NewByExtractIcon(pFileName string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadFromExtractIcon(pFileName))
@@ -245,8 +185,7 @@ func NewByExtractIcon(pFileName string) *Image {
 }
 
 // 创建图片并按图标句柄, 创建一个炫彩图片句柄, 从一个现有的图标句柄HICON.
-//
-// hIcon: 图标句柄.
+// // hIcon: 图标句柄.
 func NewByHICON(hIcon uintptr) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadFromHICON(hIcon))
@@ -254,8 +193,7 @@ func NewByHICON(hIcon uintptr) *Image {
 }
 
 // 创建图片并按位图句柄, 创建一个炫彩图片句柄, 从一个现有的位图句柄HBITMAP.
-//
-// hBitmap: 位图句柄.
+// // hBitmap: 位图句柄.
 func NewByHBITMAP(hBitmap uintptr) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadFromHBITMAP(hBitmap))
@@ -263,8 +201,7 @@ func NewByHBITMAP(hBitmap uintptr) *Image {
 }
 
 // 创建图片并按SVG.
-//
-// hSvg: SVG句柄.
+// // hSvg: SVG句柄.
 func NewBySvg(hSvg int) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadSvg(hSvg))
@@ -272,8 +209,7 @@ func NewBySvg(hSvg int) *Image {
 }
 
 // 创建图片并按SVG文件.
-//
-// pFileName: 文件名.
+// // pFileName: 文件名.
 func NewBySvgFile(pFileName string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadSvgFile(pFileName))
@@ -281,8 +217,7 @@ func NewBySvgFile(pFileName string) *Image {
 }
 
 // 创建图片并按SVG字符串.
-//
-// pString: 字符串.
+// // pString: 字符串.
 func NewBySvgString(pString string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadSvgString(pString))
@@ -290,8 +225,7 @@ func NewBySvgString(pString string) *Image {
 }
 
 // 创建图片并按SVG字符串W.
-//
-// pString: 字符串.
+// // pString: 字符串.
 func NewBySvgStringW(pString string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadSvgStringW(pString))
@@ -299,8 +233,7 @@ func NewBySvgStringW(pString string) *Image {
 }
 
 // 创建图片并按SVG字符串UTF8, 更推荐使用 imagex.NewBySvgStringW.
-//
-// pString: 字符串.
+// // pString: 字符串.
 func NewBySvgStringUtf8(pString string) *Image {
 	p := &Image{}
 	p.SetHandle(xc.XImage_LoadSvgStringUtf8(pString))
@@ -315,8 +248,7 @@ func NewByHandle(handle int) *Image {
 }
 
 // 创建图片并按资源名称, 根据资源文件中的name创建对象, 失败返回nil.
-//
-// pName: 资源名称.
+// // pName: 资源名称.
 func NewByName(name string) *Image {
 	handle := res.GetImage(name)
 	if handle > 0 {
@@ -328,10 +260,8 @@ func NewByName(name string) *Image {
 }
 
 // 创建图片并按资源文件名, 根据name创建对象, 失败返回nil.
-//
-// pFileName: 资源文件名.
-//
-// pName: 资源名称.
+// // pFileName: 资源文件名.
+// // pName: 资源名称.
 func NewByNameEx(fileName, name string) *Image {
 	handle := res.GetImageEx(fileName, name)
 	if handle > 0 {
@@ -343,8 +273,7 @@ func NewByNameEx(fileName, name string) *Image {
 }
 
 // 取SVG, 返回SVG句柄.
-//
-// hImage: 图片句柄.
+// // hImage: 图片句柄.
 func (i *Image) GetSvg() int {
 	return xc.XImage_GetSvg(i.Handle)
 }
@@ -365,74 +294,60 @@ func (i *Image) IsTile() bool {
 }
 
 // 置绘制类型, 设置图片绘制类型.
-//
-// nType: 图片绘制类型, Image_Draw_Type_.
+// // nType: 图片绘制类型, Image_Draw_Type_.
 func (i *Image) SetDrawType(nType xcc.Image_Draw_Type_) bool {
 	return xc.XImage_SetDrawType(i.Handle, nType)
 }
 
 // 置绘制类型自适应, 设置图片自适应(九宫格).
-//
-// leftSize: 坐标左.
-//
-// topSize: 坐标上.
-//
-// rightSize: 坐标右.
-//
-// bottomSize: 坐标下.
+// // leftSize: 坐标左.
+// // topSize: 坐标上.
+// // rightSize: 坐标右.
+// // bottomSize: 坐标下.
 func (i *Image) SetDrawTypeAdaptive(leftSize, topSize, rightSize, bottomSize int32) bool {
 	return xc.XImage_SetDrawTypeAdaptive(i.Handle, leftSize, topSize, rightSize, bottomSize)
 }
 
 // 置透明色, 指定图片透明颜色.
-//
-// color: ABGR颜色.
+// // color: ABGR颜色.
 func (i *Image) SetTranColor(color int) {
 	xc.XImage_SetTranColor(i.Handle, color)
 }
 
 // 置透明色扩展, 指定图片透明颜色及透明度.
-//
-// color: ABGR颜色.
-//
-// tranColor: 透明度.
+// // color: ABGR颜色.
+// // tranColor: 透明度.
 func (i *Image) SetTranColorEx(color int, tranColor byte) {
 	xc.XImage_SetTranColorEx(i.Handle, color, tranColor)
 }
 
 // 置旋转角度, 设置旋转角度, 返回先前角度.
-//
-// fAngle: 选择角度.
+// // fAngle: 选择角度.
 func (i *Image) SetRotateAngle(fAngle float32) float32 {
 	return xc.XImage_SetRotateAngle(i.Handle, fAngle)
 }
 
 // 置等分.
-//
-// nCount: 等分数量.
-//
-// iIndex: 索引.
+// // nCount: 等分数量.
+// // iIndex: 索引.
 func (i *Image) SetSplitEqual(nCount, iIndex int32) {
 	xc.XImage_SetSplitEqual(i.Handle, nCount, iIndex)
 }
 
 // 启用透明色, 启用或关闭图片透明色.
-//
-// bEnable: 启用TRUE.
+// // bEnable: 启用TRUE.
 func (i *Image) EnableTranColor(bEnable bool) {
 	xc.XImage_EnableTranColor(i.Handle, bEnable)
 }
 
 // 启用自动销毁, 启用或关闭自动销毁, 当与UI元素关联时有效.
-//
-// bEnable: 启用自动销毁TRUE.
+// // bEnable: 启用自动销毁TRUE.
 func (i *Image) EnableAutoDestroy(bEnable bool) {
 	xc.XImage_EnableAutoDestroy(i.Handle, bEnable)
 }
 
 // 启用居中, 启用或关闭图片居中显示，默认属性图片有效.
-//
-// bCenter: 是否居中显示.
+// // bCenter: 是否居中显示.
 func (i *Image) EnableCenter(bCenter bool) {
 	xc.XImage_EnableCenter(i.Handle, bCenter)
 }
@@ -483,10 +398,8 @@ func (i *Image) Destroy() {
 }
 
 // 置缩放大小, 启用缩放属性后有效, 值大于0有效.
-//
-// width: 宽度.
-//
-// height: 高度.
+// // width: 宽度.
+// // height: 高度.
 func (i *Image) SetScaleSize(width, height int32) {
 	xc.XImage_SetScaleSize(i.Handle, width, height)
 }

@@ -11,13 +11,9 @@ type Pane struct {
 }
 
 // 创建窗格  创建窗格元素, 返回元素句柄.
-//
 // pName: 窗格标题.
-//
 // nWidth: 宽度.
-//
 // nHeight: 高度.
-//
 // hFrameWnd: 框架窗口.
 func NewPane(pName string, nWidth int, nHeight int, hFrameWnd int) *Pane {
 	p := &Pane{}
@@ -66,14 +62,12 @@ func NewPaneByUIDName(name string) *Pane {
 }
 
 // 置视图, 设置窗格视图元素.
-//
 // hView: 绑定视图元素.
 func (p *Pane) SetView(hView int) int {
 	return xc.XPane_SetView(p.Handle, hView)
 }
 
 // 置标题, 设置标题文本.
-//
 // pTitle: 文本内容.
 func (p *Pane) SetTitle(pTitle string) int {
 	return xc.XPane_SetTitle(p.Handle, pTitle)
@@ -85,7 +79,6 @@ func (p *Pane) GetTitle() string {
 }
 
 // 置标题栏高度, 设置标题栏高度.
-//
 // nHeight: 高度.
 func (p *Pane) SetCaptionHeight(nHeight int) int {
 	return xc.XPane_SetCaptionHeight(p.Handle, nHeight)
@@ -102,9 +95,7 @@ func (p *Pane) IsShowPane() bool {
 }
 
 // 置大小, 设置窗格大小.
-//
 // nWidth: 宽度.
-//
 // nHeight: 高度.
 func (p *Pane) SetSize(nWidth int, nHeight int) int {
 	return xc.XPane_SetSize(p.Handle, nWidth, nHeight)
@@ -116,23 +107,22 @@ func (p *Pane) GetState() xcc.Pane_State_ {
 }
 
 // 取视图坐标, 获取窗格视图坐标.
-//
 // pRect: 接收返回的坐标值.
 func (p *Pane) GetViewRect(pRect *xc.RECT) int {
 	return xc.XPane_GetViewRect(p.Handle, pRect)
 }
 
 // 隐藏.
+// //	@param bGroupActivate:  延迟组成员激活
 //
-//	@param bGroupActivate:  延迟组成员激活
 //	@return int
 func (p *Pane) HidePane(bGroupActivate bool) int {
 	return xc.XPane_HidePane(p.Handle, bGroupActivate)
 }
 
 // 显示.
+// //	@param bGroupActivate:延迟组成员激活, 那么窗格组切换当前窗格为显示状态.
 //
-//	@param bGroupActivate:延迟组成员激活, 那么窗格组切换当前窗格为显示状态.
 //	@return int
 func (p *Pane) ShowPane(bGroupActivate bool) int {
 	return xc.XPane_ShowPane(p.Handle, bGroupActivate)
@@ -154,7 +144,6 @@ func (p *Pane) FloatPane() int {
 }
 
 // 绘制, 手动调用该函数绘制窗格, 以便控制绘制顺序.
-//
 // hDraw: 图形绘制句柄.
 func (p *Pane) DrawPane(hDraw int) int {
 	return xc.XPane_DrawPane(p.Handle, hDraw)

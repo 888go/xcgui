@@ -12,8 +12,7 @@ type ListItemTemplate struct {
 }
 
 // 创建, 创建项模板.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
 func New(nType xcc.ListItemTemp_Type_) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_Create(nType))
@@ -28,10 +27,8 @@ func NewByHandle(handle int) *ListItemTemplate {
 }
 
 // 创建并按文件, 列表项模板文件载入.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// pFileName: 文件名.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // pFileName: 文件名.
 func NewByXML(nType xcc.ListItemTemp_Type_, pFileName string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_Load(nType, pFileName))
@@ -39,14 +36,10 @@ func NewByXML(nType xcc.ListItemTemp_Type_, pFileName string) *ListItemTemplate 
 }
 
 // 创建并按ZIP, 加载列表项模板从zip压缩包中.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// pZipFile: zip文件.
-//
-// pFileName: 文件名.
-//
-// pPassword: zip密码.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // pZipFile: zip文件.
+// // pFileName: 文件名.
+// // pPassword: zip密码.
 func NewByZip(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadZip(nType, pZipFile, pFileName, pPassword))
@@ -54,16 +47,11 @@ func NewByZip(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, p
 }
 
 // 创建并按ZIP, 加载列表项模板从zip压缩包中.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// id: RC资源ID.
-//
-// pFileName: 模板文件名.
-//
-// pPassword: zip密码.
-//
-// hModule: 模块句柄, 可填0.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // id: RC资源ID.
+// // pFileName: 模板文件名.
+// // pPassword: zip密码.
+// // hModule: 模块句柄, 可填0.
 func NewByZipRes(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, hModule uintptr) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadZipRes(nType, id, pFileName, pPassword, hModule))
@@ -71,14 +59,10 @@ func NewByZipRes(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPass
 }
 
 // 创建并按内存ZIP, 加载列表项模板从内存zip压缩包中.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// data: 模板文件数据.
-//
-// pFileName: 文件名.
-//
-// pPassword: zip密码.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // data: 模板文件数据.
+// // pFileName: 文件名.
+// // pPassword: zip密码.
 func NewByZipMem(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadZipMem(nType, data, pFileName, pPassword))
@@ -86,10 +70,8 @@ func NewByZipMem(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pP
 }
 
 // 创建并按内存. 加载列表项模板文件从内存.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// data: 模板文件数据.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // data: 模板文件数据.
 func NewByXmlMem(nType xcc.ListItemTemp_Type_, data []byte) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadFromMem(nType, data))
@@ -97,10 +79,8 @@ func NewByXmlMem(nType xcc.ListItemTemp_Type_, data []byte) *ListItemTemplate {
 }
 
 // 创建并按字符串, 加载列表项模板文件从内存字符串.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// pStringXML: 字符串.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // pStringXML: 字符串.
 func NewByString(nType xcc.ListItemTemp_Type_, pStringXML string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadFromString(nType, pStringXML))
@@ -125,31 +105,26 @@ func (l *ListItemTemplate) Destroy() bool {
 }
 
 // 添加根节点.
-//
-// pNode: 节点指针.
+// // pNode: 节点指针.
 func (l *ListItemTemplate) AddNodeRoot(pNode int) bool {
 	return xc.XTemp_AddNodeRoot(l.Handle, pNode)
 }
 
 // 取列表中节点.
-//
-// index: 节点位置索引.
+// // index: 节点位置索引.
 func (l *ListItemTemplate) List_GetNode(index int32) int {
 	return xc.XTemp_List_GetNode(l.Handle, index)
 }
 
 // 列表插入节点.
-//
-// index: 插入位置索引.
-//
-// pNode: 节点指针.
+// // index: 插入位置索引.
+// // pNode: 节点指针.
 func (l *ListItemTemplate) List_InsertNode(index int32, pNode int) bool {
 	return xc.XTemp_List_InsertNode(l.Handle, index, pNode)
 }
 
 // 列表删除节点.
-//
-// index: 位置索引.
+// // index: 位置索引.
 func (l *ListItemTemplate) List_DeleteNode(index int32) bool {
 	return xc.XTemp_List_DeleteNode(l.Handle, index)
 }
@@ -160,102 +135,69 @@ func (l *ListItemTemplate) List_GetCount() int32 {
 }
 
 // 列表移动列, 将指定列移动到目标位置.
-//
-// iColSrc: 源列索引.
-//
-// iColDest: 目标列索引.
+// // iColSrc: 源列索引.
+// // iColDest: 目标列索引.
 func (l *ListItemTemplate) List_MoveColumn(iColSrc, iColDest int32) bool {
 	return xc.XTemp_List_MoveColumn(l.Handle, iColSrc, iColDest)
 }
 
 // 加载并按文件扩展, 加载列表项模板从文件.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// pFileName: 文件名.
-//
-// pOutTemp1: 返回模板句柄1, 项模板.
-//
-// pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // pFileName: 文件名.
+// // pOutTemp1: 返回模板句柄1, 项模板.
+// // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
 func LoadEx(nType xcc.ListItemTemp_Type_, pFileName string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadEx(nType, pFileName, pOutTemp1, pOutTemp2)
 }
 
 // 加载并按ZIP扩展, 加载列表项模板从zip压缩包中.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// pZipFile: zip文件.
-//
-// pFileName: 文件名.
-//
-// pPassword: zip密码.
-//
-// pOutTemp1: 返回模板句柄1, 项模板.
-//
-// pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // pZipFile: zip文件.
+// // pFileName: 文件名.
+// // pPassword: zip密码.
+// // pOutTemp1: 返回模板句柄1, 项模板.
+// // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
 func LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadZipEx(nType, pZipFile, pFileName, pPassword, pOutTemp1, pOutTemp2)
 }
 
 // 加载并按内存ZIP扩展, 加载列表项模板从内存zip压缩包中.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// data: 模板文件数据.
-//
-// pFileName: 文件名.
-//
-// pPassword: zip密码.
-//
-// pOutTemp1: 返回模板句柄1, 项模板.
-//
-// pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // data: 模板文件数据.
+// // pFileName: 文件名.
+// // pPassword: zip密码.
+// // pOutTemp1: 返回模板句柄1, 项模板.
+// // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
 func LoadZipMemEx(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadZipMemEx(nType, data, pFileName, pPassword, pOutTemp1, pOutTemp2)
 }
 
 // 加载并按字符串扩展, 加载列表项模板文件从内存字符串.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// pStringXML: 字符串内容.
-//
-// pOutTemp1: 返回模板句柄1, 项模板.
-//
-// pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // pStringXML: 字符串内容.
+// // pOutTemp1: 返回模板句柄1, 项模板.
+// // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
 func LoadFromStringEx(nType xcc.ListItemTemp_Type_, pStringXML string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadFromStringEx(nType, pStringXML, pOutTemp1, pOutTemp2)
 }
 
 // 加载并按内存扩展. 加载列表项模板文件从内存.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// data: 模板文件数据.
-//
-// pOutTemp1: 返回模板句柄1, 项模板.
-//
-// pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // data: 模板文件数据.
+// // pOutTemp1: 返回模板句柄1, 项模板.
+// // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
 func LoadFromMemEx(nType xcc.ListItemTemp_Type_, data []byte, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadFromMemEx(nType, data, pOutTemp1, pOutTemp2)
 }
 
 // 加载并按资源ZIP扩展. 加载列表项模板文件从RC资源ZIP, 返回模板句柄.
-//
-// nType: 模板类型, xcc.ListItemTemp_Type_.
-//
-// id: RC资源ID.
-//
-// pFileName: 模板文件名.
-//
-// pPassword: zip密码.
-//
-// pOutTemp1: 返回模板句柄1, 项模板.
-//
-// pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
-//
-// hModule: 模块句柄, 可填0.
+// // nType: 模板类型, xcc.ListItemTemp_Type_.
+// // id: RC资源ID.
+// // pFileName: 模板文件名.
+// // pPassword: zip密码.
+// // pOutTemp1: 返回模板句柄1, 项模板.
+// // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
+// // hModule: 模块句柄, 可填0.
 func LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int, hModule uintptr) int {
 	return xc.XTemp_LoadZipResEx(nType, id, pFileName, pPassword, pOutTemp1, pOutTemp2, hModule)
 }
