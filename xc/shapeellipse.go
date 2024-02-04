@@ -31,7 +31,7 @@ func XShapeEllipse_SetFillColor(hShape int, color int) int {
 
 // 形状圆_启用边框, 启用绘制圆边框.
 // hShape:形状对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XShapeEllipse_EnableBorder(hShape int, bEnable bool) int {
 	r, _, _ : xShapeEllipse_EnableBorder.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)
@@ -39,7 +39,7 @@ func XShapeEllipse_EnableBorder(hShape int, bEnable bool) int {
 
 // 形状圆_启用填充, 启用填充圆.
 // hShape:形状对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XShapeEllipse_EnableFill(hShape int, bEnable bool) int {
 	r, _, _ : xShapeEllipse_EnableFill.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)

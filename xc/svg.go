@@ -118,7 +118,7 @@ func XSvg_GetViewBox(hSvg int, pViewBox *RECT) {
 
 // SVG_启用自动销毁.
 // hSvg:SVG句柄.
-// bEnable:是否自动销毁.
+// bEnable:是否启用     .是否自动销毁.
 func XSvg_EnableAutoDestroy(hSvg int, bEnable bool) {
 	xSvg_EnableAutoDestroy.Call(uintptr(hSvg), common.BoolPtr(bEnable))
 }
@@ -164,17 +164,17 @@ func XSvg_GetAlpha(hSvg int) byte {
 
 // SVG_置用户填充颜色, 用户颜色将覆盖默认样式.
 // hSvg:SVG句柄.
-// color:颜色, AGBR颜色.
-// bEnable:是否有效.
+// color:AGBR颜色.
+// bEnable:是否启用     .是否有效.
 func XSvg_SetUserFillColor(hSvg int, color int, bEnable bool) {
 	xSvg_SetUserFillColor.Call(uintptr(hSvg), uintptr(color), common.BoolPtr(bEnable))
 }
 
 // SVG_置用户笔触颜色, 用户颜色将覆盖默认样式.
 // hSvg:SVG句柄.
-// color:颜色, AGBR颜色.
+// color:AGBR颜色.
 // strokeWidth:笔触宽度.
-// bEnable:是否有效.
+// bEnable:是否启用     .是否有效.
 func XSvg_SetUserStrokeColor(hSvg int, color int, strokeWidth float32, bEnable bool) {
 	xSvg_SetUserStrokeColor.Call(uintptr(hSvg), uintptr(color), common.Float32Ptr(strokeWidth), common.BoolPtr(bEnable))
 }
@@ -223,8 +223,8 @@ func XSvg_SetRotate(hSvg int, angle float32, x float32, y float32, bOffset bool)
 // SVG_取旋转.
 // hSvg:SVG句柄.
 // pAngle:返回角度.
-// pX:返回 旋转中心点X.
-// pY:返回 旋转中心点Y.
+// pX:返回旋转中心点X.
+// pY:返回旋转中心点Y.
 // pbOffset:返回TRUE:旋转中心点相对于自身中心偏移, FALSE:用绝对坐标.
 func XSvg_GetRotate(hSvg int, pAngle *float32, pX *float32, pY *float32, pbOffset *bool) {
 	xSvg_GetRotate.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pAngle)), uintptr(unsafe.Pointer(pX)), uintptr(unsafe.Pointer(pY)), uintptr(unsafe.Pointer(pbOffset)))

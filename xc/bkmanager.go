@@ -61,7 +61,7 @@ func XBkM_AddFill(hBkInfoM int, nState xcc.CombinedState, color, id int) int {
 // 背景_添加图片, 添加背景内容图片.
 // hBkInfoM:背景管理器句柄.
 // nState:组合状态.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // id:背景对象ID, 可忽略(填0).
 func XBkM_AddImage(hBkInfoM int, nState xcc.CombinedState, hImage, id int) int {
 	r, _, _ : xBkM_AddImage.Call(uintptr(hBkInfoM), uintptr(nState), uintptr(hImage), uintptr(id))
@@ -106,7 +106,7 @@ func XBkM_DrawEx(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect *RECT,
 
 // 背景_启用自动销毁, 是否自动销毁.
 // hBkInfoM:背景管理器句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XBkM_EnableAutoDestroy(hBkInfoM int, bEnable bool) int {
 	r, _, _ : xBkM_EnableAutoDestroy.Call(uintptr(hBkInfoM), common.BoolPtr(bEnable))
 	return int(r)

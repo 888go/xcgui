@@ -8,7 +8,7 @@ import (
 // 模态窗口_创建, 创建模态窗口; 当模态窗口关闭时, 会自动销毁模态窗口资源句柄.
 // nWidth:宽度.
 // nHeight:高度.
-// pTitle:窗口标题内容.
+// pTitle:标题内容.
 // hWndParent:父窗口句柄.
 // XCStyle:炫彩窗口样式:Window_Style_.
 func XModalWnd_Create(nWidth, nHeight int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) int {
@@ -17,13 +17,13 @@ func XModalWnd_Create(nWidth, nHeight int32, pTitle string, hWndParent uintptr, 
 }
 
 // 模态窗口_创建EX, 创建模态窗口, 增强功能.
-// dwExStyle:窗口EX样式.
-// dwStyle:窗口样式.
-// lpClassName:窗口类名.
-// x:窗口左上角x坐标.
-// y:窗口左上角y坐标.
-// cx:窗口宽度.
-// cy:窗口高度.
+// dwExStyle:EX样式.
+// dwStyle:样式.
+// lpClassName:类名.
+// x:左上角x坐标.
+// y:左上角y坐标.
+// cx:宽度.
+// cy:高度.
 // pTitle:窗口名.
 // hWndParent:父窗口.
 // XCStyle:GUI库窗口样式:Window_Style_.
@@ -34,7 +34,7 @@ func XModalWnd_CreateEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx
 
 // 模态窗口_启用自动关闭, 是否自动关闭窗口, 当窗口失去焦点时.
 // hWindow:模态窗口句柄.
-// bEnable:开启开关.
+// bEnable:是否启用     .开启开关.
 func XModalWnd_EnableAutoClose(hWindow int, bEnable bool) int {
 	r, _, _ : xModalWnd_EnableAutoClose.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -42,7 +42,7 @@ func XModalWnd_EnableAutoClose(hWindow int, bEnable bool) int {
 
 // 模态窗口_启用ESC关闭, 当用户按ESC键时自动关闭模态窗口.
 // hWindow:模态窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XModalWnd_EnableEscClose(hWindow int, bEnable bool) int {
 	r, _, _ : xModalWnd_EnableEscClose.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)

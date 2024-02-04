@@ -52,7 +52,7 @@ func XShapeRect_GetRoundAngle(hShape int, pWidth *int, pHeight *int32) int {
 
 // 形状矩形_启用边框, 启用绘制矩形边框.
 // hShape:形状对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XShapeRect_EnableBorder(hShape int, bEnable bool) int {
 	r, _, _ : xShapeRect_EnableBorder.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)
@@ -60,7 +60,7 @@ func XShapeRect_EnableBorder(hShape int, bEnable bool) int {
 
 // 形状矩形_启用填充, 启用填充矩形.
 // hShape:形状对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XShapeRect_EnableFill(hShape int, bEnable bool) int {
 	r, _, _ : xShapeRect_EnableFill.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)
@@ -68,7 +68,7 @@ func XShapeRect_EnableFill(hShape int, bEnable bool) int {
 
 // 形状矩形_启用圆角.
 // hShape:形状对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XShapeRect_EnableRoundAngle(hShape int, bEnable bool) int {
 	r, _, _ : xShapeRect_EnableRoundAngle.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)

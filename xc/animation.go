@@ -270,7 +270,7 @@ func XAnima_GetObjectUI(hAnimation int) int {
 // 动画项_启用完成释放, 当动画项完成后自动释放.
 // 例如对多个动画序列进行渐近式延迟, 在动画序列头标添加延时项(时间差), 当延时项完成时自动释放, 后续动画循环就形成一种时间差(因为对齐的时间差销毁了, 他们永远无法对齐时间).
 // hAnimationItem:动画项句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XAnimaItem_EnableCompleteRelease(hAnimationItem int, bEnable bool) int {
 	r, _, _ : xAnimaItem_EnableCompleteRelease.Call(uintptr(hAnimationItem), common.BoolPtr(bEnable))
 	return int(r)
@@ -278,7 +278,7 @@ func XAnimaItem_EnableCompleteRelease(hAnimationItem int, bEnable bool) int {
 
 // 动画_启用自动销毁, TRUE:当引用计数为0时自动销毁, FALSE:手动销毁.
 // hAnimation:动画项或动画序列或动画组句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XAnima_EnableAutoDestroy(hAnimation int, bEnable bool) int {
 	r, _, _ : xAnima_EnableAutoDestroy.Call(uintptr(hAnimation), common.BoolPtr(bEnable))
 	return int(r)
@@ -361,7 +361,7 @@ func XAnimaItem_GetUserData(hAnimationItem int) int {
 
 // 动画项_启用自动销毁.
 // hAnimationItem:动画项句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XAnimaItem_EnableAutoDestroy(hAnimationItem int, bEnable bool) int {
 	r, _, _ : xAnimaItem_EnableAutoDestroy.Call(uintptr(hAnimationItem), common.BoolPtr(bEnable))
 	return int(r)

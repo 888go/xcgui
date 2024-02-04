@@ -46,7 +46,7 @@ func XFrameWnd_GetLayoutAreaRect(hWindow int, pRect *RECT) int {
 
 // 框架窗口_置视图, 设置窗格组TabBar高度.
 // hWindow:窗口句柄.
-// hEle:元素句柄.
+// hEle:元素句柄    .元素句柄.
 func XFrameWnd_SetView(hWindow int, hEle int) int {
 	r, _, _ : xFrameWnd_SetView.Call(uintptr(hWindow), uintptr(hEle))
 	return int(r)

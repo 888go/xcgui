@@ -28,7 +28,7 @@ func XBkObj_SetAlign(hObj int, nFlags xcc.BkObject_Align_Flag_) int {
 
 // 背景对象_置图片.
 // hObj:背景对象句柄.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XBkObj_SetImage(hObj int, hImage int) int {
 	r, _, _ : xBkObj_SetImage.Call(uintptr(hObj), uintptr(hImage))
 	return int(r)
@@ -79,7 +79,7 @@ func XBkObj_SetRectRoundAngle(hObj int, leftTop int, leftBottom int, rightTop in
 
 // 背景对象_启用填充, 启用绘制填充.
 // hObj:背景对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XBkObj_EnableFill(hObj int, bEnable bool) int {
 	r, _, _ : xBkObj_EnableFill.Call(uintptr(hObj), common.BoolPtr(bEnable))
 	return int(r)
@@ -87,7 +87,7 @@ func XBkObj_EnableFill(hObj int, bEnable bool) int {
 
 // 背景对象_启用边框, 启用绘制边框.
 // hObj:背景对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XBkObj_EnableBorder(hObj int, bEnable bool) int {
 	r, _, _ : xBkObj_EnableBorder.Call(uintptr(hObj), common.BoolPtr(bEnable))
 	return int(r)

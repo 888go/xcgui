@@ -60,7 +60,7 @@ func XNotifyMsg_WindowPopupEx(hWindow int, position xcc.Position_Flag_, pTitle, 
 }
 
 // 通知消息_置持续时间.
-// hWindow:通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
+// hWindow:窗口句柄, 如果未指定那么认为是桌面通知消息.
 // duration:持续时间.
 func XNotifyMsg_SetDuration(hWindow, duration int) int {
 	r, _, _ : xNotifyMsg_SetDuration.Call(uintptr(hWindow), uintptr(duration))
@@ -68,7 +68,7 @@ func XNotifyMsg_SetDuration(hWindow, duration int) int {
 }
 
 // 通知消息_置父边距 设置通知消息与父对象的四边间隔.
-// hWindow:通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
+// hWindow:窗口句柄, 如果未指定那么认为是桌面通知消息.
 // left:左侧间隔, 未实现, 预留功能.
 // top:顶部间隔.
 // right:右侧间隔.
@@ -79,7 +79,7 @@ func XNotifyMsg_SetParentMargin(hWindow, left, top, right, bottom int) int {
 }
 
 // 通知消息_置标题高度.
-// hWindow:通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
+// hWindow:窗口句柄, 如果未指定那么认为是桌面通知消息.
 // nHeight:高度.
 func XNotifyMsg_SetCaptionHeight(hWindow, nHeight int) int {
 	r, _, _ : xNotifyMsg_SetCaptionHeight.Call(uintptr(hWindow), uintptr(nHeight))
@@ -87,7 +87,7 @@ func XNotifyMsg_SetCaptionHeight(hWindow, nHeight int) int {
 }
 
 // 通知消息_置宽度, 设置默认宽度.
-// hWindow:通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
+// hWindow:窗口句柄, 如果未指定那么认为是桌面通知消息.
 // nWidth:宽度.
 func XNotifyMsg_SetWidth(hWindow, nWidth int) int {
 	r, _, _ : xNotifyMsg_SetWidth.Call(uintptr(hWindow), uintptr(nWidth))
@@ -95,7 +95,7 @@ func XNotifyMsg_SetWidth(hWindow, nWidth int) int {
 }
 
 // 通知消息_置间隔.
-// hWindow:通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
+// hWindow:窗口句柄, 如果未指定那么认为是桌面通知消息.
 // nSpace:间隔大小.
 func XNotifyMsg_SetSpace(hWindow, nSpace int) int {
 	r, _, _ : xNotifyMsg_SetSpace.Call(uintptr(hWindow), uintptr(nSpace))
@@ -103,7 +103,7 @@ func XNotifyMsg_SetSpace(hWindow, nSpace int) int {
 }
 
 // 通知消息_置边大小, 设置通知消息面板边大小.
-// hWindow:通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
+// hWindow:窗口句柄, 如果未指定那么认为是桌面通知消息.
 // left:左边.
 // top:顶边.
 // right:右边.

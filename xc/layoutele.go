@@ -21,37 +21,37 @@ func XLayout_CreateEx(hParent int) int {
 }
 
 // 布局_判断启用, 是否已经启用布局功能.
-// hEle:元素句柄.
+// hEle:元素句柄    .元素句柄.
 func XLayout_IsEnableLayout(hEle int) bool {
 	r, _, _ : xLayout_IsEnableLayout.Call(uintptr(hEle))
 	return r != 0
 }
 
 // 布局_启用, 启用布局功能.
-// hEle:元素句柄.
-// bEnable:是否启用.
+// hEle:元素句柄    .元素句柄.
+// bEnable:是否启用     .是否启用.
 func XLayout_EnableLayout(hEle int, bEnable bool) int {
 	r, _, _ : xLayout_EnableLayout.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
 // 布局_显示布局边界, 显示布局边界.
-// hEle:元素句柄.
-// bEnable:是否显示.
+// hEle:元素句柄    .元素句柄.
+// bEnable:是否启用     .是否显示.
 func XLayout_ShowLayoutFrame(hEle int, bEnable bool) int {
 	r, _, _ : xLayout_ShowLayoutFrame.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
 // 布局_取内宽度, 获取宽度,不包含内边距大小.
-// hEle:元素句柄.
+// hEle:元素句柄    .元素句柄.
 func XLayout_GetWidthIn(hEle int) int {
 	r, _, _ : xLayout_GetWidthIn.Call(uintptr(hEle))
 	return int(r)
 }
 
 // 布局_取内高度, 获取高度,不包含内边距大小.
-// hEle:元素句柄.
+// hEle:元素句柄    .元素句柄.
 func XLayout_GetHeightIn(hEle int) int {
 	r, _, _ : xLayout_GetHeightIn.Call(uintptr(hEle))
 	return int(r)

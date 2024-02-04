@@ -10,7 +10,7 @@ import (
 // y:Y坐标.
 // cx:宽度.
 // cy:高度.
-// pName:名称.
+// pName:名称     .名称.
 // hParent:父对象句柄.
 func XShapeGroupBox_Create(x int, y int, cx int, cy int, pName string, hParent int) int {
 	r, _, _ : xShapeGroupBox_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
@@ -87,7 +87,7 @@ func XShapeGroupBox_GetRoundAngle(hShape int, pWidth *int32, pHeight *int32) int
 
 // 形状组框_启用圆角.
 // hShape:形状对象句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XShapeGroupBox_EnableRoundAngle(hShape int, bEnable bool) int {
 	r, _, _ : xShapeGroupBox_EnableRoundAngle.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)

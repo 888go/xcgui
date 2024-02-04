@@ -9,10 +9,10 @@ import (
 )
 
 // 窗口_创建, 返回:GUI库窗口资源句柄.
-// x:窗口左上角x坐标.
-// y:窗口左上角y坐标.
-// cx:窗口宽度.
-// cy:窗口高度.
+// x:左上角x坐标.
+// y:左上角y坐标.
+// cx:宽度.
+// cy:高度.
 // pTitle:窗口标题.
 // hWndParent:父窗口.
 // XCStyle:GUI库窗口样式, Window_Style_.
@@ -22,13 +22,13 @@ func XWnd_Create(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle 
 }
 
 // 窗口_创建EX, 返回:GUI库窗口资源句柄.
-// dwExStyle:窗口EX样式.
-// dwStyle:窗口样式.
-// lpClassName:窗口类名.
-// x:窗口左上角x坐标.
-// y:窗口左上角y坐标.
-// cx:窗口宽度.
-// cy:窗口高度.
+// dwExStyle:EX样式.
+// dwStyle:样式.
+// lpClassName:类名.
+// x:左上角x坐标.
+// y:左上角y坐标.
+// cx:宽度.
+// cy:高度.
 // pTitle:窗口名.
 // hWndParent:父窗口.
 // XCStyle:GUI库窗口样式, Window_Style_.
@@ -140,7 +140,7 @@ func XWnd_Redraw(hWindow int, bImmediate bool) int {
 
 // 窗口_重绘指定区域.
 // hWindow:窗口资源句柄.
-// pRect:需要重绘的区域坐标.
+// pRect:区域坐标.
 // bImmediate:TRUE立即重绘, FALSE放入消息队列延迟重绘.
 func XWnd_RedrawRect(hWindow int, pRect *RECT, bImmediate bool) int {
 	r, _, _ : xWnd_RedrawRect.Call(uintptr(hWindow), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bImmediate))
@@ -218,7 +218,7 @@ func XWnd_GetCursor(hWindow int) int {
 
 // 窗口_启用拖动边框.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableDragBorder(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableDragBorder.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -226,7 +226,7 @@ func XWnd_EnableDragBorder(hWindow int, bEnable bool) int {
 
 // 窗口_启用拖动窗口.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableDragWindow(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableDragWindow.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -234,7 +234,7 @@ func XWnd_EnableDragWindow(hWindow int, bEnable bool) int {
 
 // 窗口_启用拖动标题栏.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableDragCaption(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableDragCaption.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -242,7 +242,7 @@ func XWnd_EnableDragCaption(hWindow int, bEnable bool) int {
 
 // 窗口_启用绘制背景.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableDrawBk(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableDrawBk.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -250,7 +250,7 @@ func XWnd_EnableDrawBk(hWindow int, bEnable bool) int {
 
 // 窗口_启用自动焦点.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableAutoFocus(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableAutoFocus.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -258,7 +258,7 @@ func XWnd_EnableAutoFocus(hWindow int, bEnable bool) int {
 
 // 窗口_启用允许最大化.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableMaxWindow(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableMaxWindow.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -266,7 +266,7 @@ func XWnd_EnableMaxWindow(hWindow int, bEnable bool) int {
 
 // 窗口_启用限制窗口大小.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableLimitWindowSize(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableLimitWindowSize.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -274,7 +274,7 @@ func XWnd_EnableLimitWindowSize(hWindow int, bEnable bool) int {
 
 // 窗口_启用布局.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableLayout(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableLayout.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -282,7 +282,7 @@ func XWnd_EnableLayout(hWindow int, bEnable bool) int {
 
 // 窗口_启用布局覆盖边框.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableLayoutOverlayBorder(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_EnableLayoutOverlayBorder.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -290,7 +290,7 @@ func XWnd_EnableLayoutOverlayBorder(hWindow int, bEnable bool) int {
 
 // 窗口_显示布局边界.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_ShowLayoutFrame(hWindow int, bEnable bool) int {
 	r, _, _ : xWnd_ShowLayoutFrame.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return int(r)
@@ -312,7 +312,7 @@ func XWnd_IsMaxWindow(hWindow int) bool {
 
 // 窗口_置鼠标捕获元素.
 // hWindow:窗口句柄.
-// hEle:元素句柄.
+// hEle:元素句柄    .元素句柄.
 func XWnd_SetCaptureEle(hWindow, hEle int) int {
 	r, _, _ : xWnd_SetCaptureEle.Call(uintptr(hWindow), uintptr(hEle))
 	return int(r)
@@ -388,7 +388,7 @@ func XWnd_GetID(hWindow int) int {
 
 // 窗口_置名称.
 // hWindow:窗口句柄.
-// pName:name值, 字符串.
+// pName:名称     .name值, 字符串.
 func XWnd_SetName(hWindow int, pName string) int {
 	r, _, _ : xWnd_SetName.Call(uintptr(hWindow), common.StrPtr(pName))
 	return int(r)
@@ -403,10 +403,10 @@ func XWnd_GetName(hWindow int) string {
 
 // 窗口_置边大小.
 // hWindow:窗口句柄.
-// left:窗口左边大小.
-// top:窗口上边大小.
-// right:窗口右边大小.
-// bottom:窗口底部大小.
+// left:左边
+// top:上边
+// right:右边
+// bottom:底部
 func XWnd_SetBorderSize(hWindow, left, top, right, bottom int) int {
 	r, _, _ : xWnd_SetBorderSize.Call(uintptr(hWindow), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
 	return int(r)
@@ -421,10 +421,10 @@ func XWnd_GetBorderSize(hWindow int, pBorder *RECT) int {
 
 // 窗口_置布局内填充大小.
 // hWindow:窗口句柄.
-// left:左边大小.
-// top:上边大小.
-// right:右边大小.
-// bottom:下边大小.
+// left:左边
+// top:上边
+// right:右边
+// bottom:底部
 func XWnd_SetPadding(hWindow, left, top, right, bottom int) int {
 	r, _, _ : xWnd_SetPadding.Call(uintptr(hWindow), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
 	return int(r)
@@ -432,10 +432,10 @@ func XWnd_SetPadding(hWindow, left, top, right, bottom int) int {
 
 // 窗口_置拖动边框大小.
 // hWindow:窗口句柄.
-// left:窗口左边大小.
-// top:窗口上边大小.
-// right:窗口右边大小.
-// bottom:窗口底边大小.
+// left:左边
+// top:上边
+// right:右边
+// bottom:底部
 func XWnd_SetDragBorderSize(hWindow, left, top, right, bottom int) int {
 	r, _, _ : xWnd_SetDragBorderSize.Call(uintptr(hWindow), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
 	return int(r)
@@ -521,7 +521,7 @@ func XWnd_AdjustLayoutEx(hWindow int, nFlags xcc.AdjustLayout_) int {
 
 // 窗口_创建插入符.
 // hWindow:窗口句柄.
-// hEle:元素句柄.
+// hEle:元素句柄    .元素句柄.
 // x:x坐标.
 // y:y坐标.
 // width:宽度.
@@ -679,7 +679,7 @@ func XWnd_SetBkMagager(hWindow, hBkInfoM int) int {
 
 // 窗口_置透明类型.
 // hWindow:窗口句柄.
-// nType:窗口透明类型:xcc.Window_Transparent_.
+// nType:透明类型:xcc.Window_Transparent_.
 func XWnd_SetTransparentType(hWindow int, nType xcc.Window_Transparent_) int {
 	r, _, _ : xWnd_SetTransparentType.Call(uintptr(hWindow), uintptr(nType))
 	return int(r)
@@ -687,7 +687,7 @@ func XWnd_SetTransparentType(hWindow int, nType xcc.Window_Transparent_) int {
 
 // 窗口_置透明度.
 // hWindow:窗口句柄.
-// alpha:窗口透明度, 范围0-255之间, 0透明, 255不透明.
+// alpha:透明度, 范围0-255之间, 0透明, 255不透明.
 func XWnd_SetTransparentAlpha(hWindow int, alpha byte) int {
 	r, _, _ : xWnd_SetTransparentAlpha.Call(uintptr(hWindow), uintptr(alpha))
 	return int(r)
@@ -695,7 +695,7 @@ func XWnd_SetTransparentAlpha(hWindow int, alpha byte) int {
 
 // 窗口_置透明色.
 // hWindow:窗口句柄.
-// color:窗口透明色.
+// color:透明色.
 func XWnd_SetTransparentColor(hWindow, color int) int {
 	r, _, _ : xWnd_SetTransparentColor.Call(uintptr(hWindow), uintptr(color))
 	return int(r)
@@ -734,7 +734,7 @@ func XWnd_GetTransparentType(hWindow int) xcc.Window_Transparent_ {
 
 // 窗口_附加窗口, 返回窗口资源句柄.
 // hWnd:外部窗口句柄
-// XCStyle:炫彩窗口样式:Window_Style_.
+// XCStyle:窗口样式:Window_Style_.
 func XWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) int {
 	r, _, _ : xWnd_Attach.Call(hWnd, uintptr(XCStyle))
 	return int(r)
@@ -742,7 +742,7 @@ func XWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) int {
 
 // 窗口_启用拖放文件.
 // hWindow:窗口句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XWnd_EnableDragFiles(hWindow int, bEnable bool) bool {
 	r, _, _ : xWnd_EnableDragFiles.Call(uintptr(hWindow), common.BoolPtr(bEnable))
 	return r != 0
@@ -769,7 +769,7 @@ func XWnd_GetCaretInfo(hWindow int, pX, pY, pWidth, pHeight *int32) int {
 
 // 窗口_置图标.
 // hWindow:窗口句柄.
-// hImage:图标句柄.
+// hImage:图片句柄    .图标句柄.
 func XWnd_SetIcon(hWindow, hImage int) int {
 	r, _, _ : xWnd_SetIcon.Call(uintptr(hWindow), uintptr(hImage))
 	return int(r)
@@ -793,7 +793,7 @@ func XWnd_SetTitleColor(hWindow, color int) int {
 
 // 窗口_取控制按钮, 返回按钮句柄.
 // hWindow:窗口句柄.
-// nFlag:xcc.Window_Style_ . 可用值:xcc.Window_Style_Btn_Min , xcc.Window_Style_Btn_Max , xcc.Window_Style_Btn_Close .
+// nFlag:标志     xcc.Window_Style_ . 可用值:xcc.Window_Style_Btn_Min , xcc.Window_Style_Btn_Max , xcc.Window_Style_Btn_Close .
 func XWnd_GetButton(hWindow int, nFlag xcc.Window_Style_) int {
 	r, _, _ : xWnd_GetButton.Call(uintptr(hWindow), uintptr(nFlag))
 	return int(r)
@@ -842,7 +842,7 @@ func XWnd_AddBkFill(hWindow int, nState xcc.Window_State_Flag_, color int) int {
 // 窗口_添加背景图片.
 // hWindow:窗口句柄.
 // nState:组合状态.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XWnd_AddBkImage(hWindow int, nState xcc.Window_State_Flag_, hImage int) int {
 	r, _, _ : xWnd_AddBkImage.Call(uintptr(hWindow), uintptr(nState), uintptr(hImage))
 	return int(r)

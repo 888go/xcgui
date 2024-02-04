@@ -91,10 +91,10 @@ func XTable_SetFont(hShape int, hFont int) int {
 
 // 表格_置项内填充.
 // hShape:形状对象句柄.
-// leftSize:内填充大小.
-// topSize:内填充大小.
-// rightSize:内填充大小.
-// bottomSize:内填充大小.
+// leftSize:左
+// topSize:上
+// rightSize:右
+// bottomSize:下
 func XTable_SetItemPadding(hShape int, leftSize int, topSize int, rightSize int, bottomSize int) int {
 	r, _, _ : xTable_SetItemPadding.Call(uintptr(hShape), uintptr(leftSize), uintptr(topSize), uintptr(rightSize), uintptr(bottomSize))
 	return int(r)
@@ -158,7 +158,7 @@ func XTable_SetItemBkColor(hShape int, iRow int, iCol int, color int, bColor boo
 // iCol1:列索引1.
 // iRow2:行索引2.
 // iCol2:列索引2.
-// nFlag:标识, Table_Line_Flag_, 暂时没有, 填0.
+// nFlag:标志     标识, Table_Line_Flag_, 暂时没有, 填0.
 // color:颜色.
 func XTable_SetItemLine(hShape int, iRow1 int, iCol1 int, iRow2 int, iCol2 int, nFlag int, color int) int {
 	r, _, _ : xTable_SetItemLine.Call(uintptr(hShape), uintptr(iRow1), uintptr(iCol1), uintptr(iRow2), uintptr(iCol2), uintptr(nFlag), uintptr(color))

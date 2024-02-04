@@ -21,10 +21,10 @@ func XImage_LoadFile(pFileName string) int {
 
 // 图片_加载从文件自适应, 加载图片从文件, 自适应图片.
 // pFileName:图片文件.
-// leftSize:坐标.
-// topSize:坐标.
-// rightSize:坐标.
-// bottomSize:坐标.
+// leftSize:左.
+// topSize:上.
+// rightSize:右.
+// bottomSize:下.
 func XImage_LoadFileAdaptive(pFileName string, leftSize, topSize, rightSize, bottomSize int32) int {
 	r, _, _ : xImage_LoadFileAdaptive.Call(common.StrPtr(pFileName), uintptr(leftSize), uintptr(topSize), uintptr(rightSize), uintptr(bottomSize))
 	return int(r)
@@ -32,8 +32,8 @@ func XImage_LoadFileAdaptive(pFileName string, leftSize, topSize, rightSize, bot
 
 // 图片_加载从文件指定区域, 加载图片, 指定区位置及大小.
 // pFileName:图片文件.
-// x:坐标.
-// y:坐标.
+// x:左.
+// y:右.
 // cx:宽度.
 // cy:高度.
 func XImage_LoadFileRect(pFileName string, x, y, cx, cy int32) int {
@@ -44,10 +44,10 @@ func XImage_LoadFileRect(pFileName string, x, y, cx, cy int32) int {
 // 图片_加载从资源自适应, 加载图片从资源, 自适应图片.
 // id:资源ID.
 // pType:资源类型.
-// leftSize:坐标.
-// topSize:坐标.
-// rightSize:坐标.
-// bottomSize:坐标.
+// leftSize:左.
+// topSize:上.
+// rightSize:右.
+// bottomSize:下.
 // hModule:从指定模块加载, 例如:LL, EXE; 如果为空, 从当前EXE加载.
 func XImage_LoadResAdaptive(id int32, pType string, leftSize, topSize, rightSize, bottomSize int32, hModule uintptr) int {
 	r, _, _ : xImage_LoadResAdaptive.Call(uintptr(id), common.StrPtr(pType), uintptr(leftSize), uintptr(topSize), uintptr(rightSize), uintptr(bottomSize), hModule)
@@ -87,10 +87,6 @@ func XImage_LoadZipRes(id int32, pFileName string, pPassword string, hModule uin
 // pZipFileName:ZIP压缩包文件名.
 // pFileName:图片文件名.
 // pPassword:ZIP压缩包密码.
-// x1:坐标.
-// x2:坐标.
-// y1:坐标.
-// y2:坐标.
 func XImage_LoadZipAdaptive(pZipFileName string, pFileName string, pPassword string, x1, x2, y1, y2 int32) int {
 	r, _, _ : xImage_LoadZipAdaptive.Call(common.StrPtr(pZipFileName), common.StrPtr(pFileName), common.StrPtr(pPassword), uintptr(x1), uintptr(x2), uintptr(y1), uintptr(y2))
 	return int(r)
@@ -100,8 +96,8 @@ func XImage_LoadZipAdaptive(pZipFileName string, pFileName string, pPassword str
 // pZipFileName:ZIP文件.
 // pFileName:图片名称.
 // pPassword:密码.
-// x:坐标.
-// y:坐标.
+// x:左.
+// y:右.
 // cx:宽度.
 // cy:高度.
 func XImage_LoadZipRect(pZipFileName string, pFileName string, pPassword string, x, y, cx, cy int32) int {
@@ -127,8 +123,8 @@ func XImage_LoadMemory(pBuffer []byte) int {
 
 // 图片_加载从内存指定区域, 加载流图片, 指定区位置及大小.
 // pBuffer:图片数据.
-// x:坐标.
-// y:坐标.
+// x:左.
+// y:右.
 // cx:宽度.
 // cy:高度.
 func XImage_LoadMemoryRect(pBuffer []byte, x, y, cx, cy int32) int {
@@ -138,17 +134,17 @@ func XImage_LoadMemoryRect(pBuffer []byte, x, y, cx, cy int32) int {
 
 // 图片_加载从内存自适应, 加载流图片压缩包, 自适应图片(九宫格).
 // pBuffer:图片数据.
-// leftSize:坐标.
-// topSize:坐标.
-// rightSize:坐标.
-// bottomSize:坐标.
+// leftSize:左.
+// topSize:上.
+// rightSize:右.
+// bottomSize:下.
 func XImage_LoadMemoryAdaptive(pBuffer []byte, leftSize, topSize, rightSize, bottomSize int32) int {
 	r, _, _ : xImage_LoadMemoryAdaptive.Call(common.ByteSliceDataPtr(&pBuffer), uintptr(len(pBuffer)), uintptr(leftSize), uintptr(topSize), uintptr(rightSize), uintptr(bottomSize))
 	return int(r)
 }
 
 // 图片_加载从Image, 加载图片从GDI+的Image对象.
-// pImage:GDI图片对象指针Image*.
+// pImage:GDI图片对象指针
 func XImage_LoadFromImage(pImage uintptr) int {
 	r, _, _ : xImage_LoadFromImage.Call(pImage)
 	return int(r)
@@ -176,28 +172,28 @@ func XImage_LoadFromHBITMAP(hBitmap uintptr) int {
 }
 
 // 图片_判断缩放, 是否为拉伸图片句柄.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_IsStretch(hImage int) bool {
 	r, _, _ : xImage_IsStretch.Call(uintptr(hImage))
 	return r != 0
 }
 
 // 图片_判断自适应, 是否为自适应图片句柄.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_IsAdaptive(hImage int) bool {
 	r, _, _ : xImage_IsAdaptive.Call(uintptr(hImage))
 	return r != 0
 }
 
 // 图片_判断平铺, 是否为平铺图片.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_IsTile(hImage int) bool {
 	r, _, _ : xImage_IsTile.Call(uintptr(hImage))
 	return r != 0
 }
 
 // 图片_置绘制类型, 设置图片绘制类型.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // nType:图片绘制类型, Image_Draw_Type_.
 func XImage_SetDrawType(hImage int, nType xcc.Image_Draw_Type_) bool {
 	r, _, _ : xImage_SetDrawType.Call(uintptr(hImage), uintptr(nType))
@@ -205,25 +201,25 @@ func XImage_SetDrawType(hImage int, nType xcc.Image_Draw_Type_) bool {
 }
 
 // 图片_置绘制类型自适应, 设置图片自适应(九宫格).
-// hImage:图片句柄.
-// leftSize:坐标.
-// topSize:坐标.
-// rightSize:坐标.
-// bottomSize:坐标.
+// hImage:图片句柄    .图片句柄.
+// leftSize:左.
+// topSize:上.
+// rightSize:右.
+// bottomSize:下.
 func XImage_SetDrawTypeAdaptive(hImage int, leftSize, topSize, rightSize, bottomSize int32) bool {
 	r, _, _ : xImage_SetDrawTypeAdaptive.Call(uintptr(hImage), uintptr(leftSize), uintptr(topSize), uintptr(rightSize), uintptr(bottomSize))
 	return r != 0
 }
 
 // 图片_置透明色, 指定图片透明颜色.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // color:ABGR颜色.
 func XImage_SetTranColor(hImage int, color int) {
 	xImage_SetTranColor.Call(uintptr(hImage), uintptr(color))
 }
 
 // 图片_置透明色EX, 指定图片透明颜色及透明度.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // color:ABGR颜色.
 // tranColor:透明色的透明度.
 func XImage_SetTranColorEx(hImage int, color int, tranColor byte) {
@@ -231,7 +227,7 @@ func XImage_SetTranColorEx(hImage int, color int, tranColor byte) {
 }
 
 // 图片_置旋转角度, 设置旋转角度, 返回先前角度.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // fAngle:选择角度.
 func XImage_SetRotateAngle(hImage int, fAngle float32) float32 {
 	_, r, _ : xImage_SetRotateAngle.Call(uintptr(hImage), common.Float32Ptr(fAngle))
@@ -239,7 +235,7 @@ func XImage_SetRotateAngle(hImage int, fAngle float32) float32 {
 }
 
 // 图片_置等分.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // nCount:等分数量.
 // iIndex:索引.
 func XImage_SetSplitEqual(hImage int, nCount int32, iIndex int32) {
@@ -247,82 +243,82 @@ func XImage_SetSplitEqual(hImage int, nCount int32, iIndex int32) {
 }
 
 // 图片_启用透明色, 启用或关闭图片透明色.
-// hImage:图片句柄.
-// bEnable:启用TRUE.
+// hImage:图片句柄    .图片句柄.
+// bEnable:是否启用     .启用TRUE.
 func XImage_EnableTranColor(hImage int, bEnable bool) {
 	xImage_EnableTranColor.Call(uintptr(hImage), common.BoolPtr(bEnable))
 }
 
 // 图片_启用自动销毁, 启用或关闭自动销毁, 当与UI元素关联时有效.
-// hImage:图片句柄.
-// bEnable:启用自动销毁TRUE.
+// hImage:图片句柄    .图片句柄.
+// bEnable:是否启用     .启用自动销毁TRUE.
 func XImage_EnableAutoDestroy(hImage int, bEnable bool) {
 	xImage_EnableAutoDestroy.Call(uintptr(hImage), common.BoolPtr(bEnable))
 }
 
 // 图片_启用居中, 启用或关闭图片居中显示，默认属性图片有效.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // bCenter:是否居中显示.
 func XImage_EnableCenter(hImage int, bCenter bool) {
 	xImage_EnableCenter.Call(uintptr(hImage), common.BoolPtr(bCenter))
 }
 
 // 图片_判断居中, 判断图片是否居中显示.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_IsCenter(hImage int) bool {
 	r, _, _ : xImage_IsCenter.Call(uintptr(hImage))
 	return r != 0
 }
 
 // 图片_取绘制类型, 获取图片绘制类型, 返回:xcc.Image_Draw_Type_.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_GetDrawType(hImage int) xcc.Image_Draw_Type_ {
 	r, _, _ : xImage_GetDrawType.Call(uintptr(hImage))
 	return xcc.Image_Draw_Type_(r)
 }
 
 // 图片_取宽度.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_GetWidth(hImage int) int32 {
 	r, _, _ : xImage_GetWidth.Call(uintptr(hImage))
 	return int32(r)
 }
 
 // 图片_取高度.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_GetHeight(hImage int) int32 {
 	r, _, _ : xImage_GetHeight.Call(uintptr(hImage))
 	return int32(r)
 }
 
 // 图片_取图片源.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_GetImageSrc(hImage int) int {
 	r, _, _ : xImage_GetImageSrc.Call(uintptr(hImage))
 	return int(r)
 }
 
 // 图片_增加引用计数.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_AddRef(hImage int) {
 	xImage_AddRef.Call(uintptr(hImage))
 }
 
 // 图片_释放引用计数, 释放引用计数, 当引用计数为0时, 自动销毁.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_Release(hImage int) {
 	xImage_Release.Call(uintptr(hImage))
 }
 
 // 图片_取引用计数.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_GetRefCount(hImage int) int32 {
 	r, _, _ : xImage_GetRefCount.Call(uintptr(hImage))
 	return int32(r)
 }
 
 // 图片_销毁, 强制销毁图片, 谨慎使用, 建议使用 XImage_Release() 释放.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_Destroy(hImage int) {
 	xImage_Destroy.Call(uintptr(hImage))
 }
@@ -349,7 +345,7 @@ func XImage_LoadSvgString(pString string) int {
 }
 
 // 图片_取SVG, 返回SVG句柄.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XImage_GetSvg(hImage int) int {
 	r, _, _ : xImage_GetSvg.Call(uintptr(hImage))
 	return int(r)
@@ -370,7 +366,7 @@ func XImage_LoadSvgStringUtf8(pString string) int {
 }
 
 // 图片_置缩放大小, 启用缩放属性后有效, 值大于0有效.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 // width:宽度.
 // height:高度.
 func XImage_SetScaleSize(hImage int, width, height int32) {

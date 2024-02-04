@@ -66,7 +66,7 @@ func XShape_SetRect(hShape int, pRect *RECT) int {
 }
 
 // 形状_置逻辑坐标, 设置元素坐标, 逻辑坐标, 包含滚动视图偏移.
-// hShape:
+// hShape:形状对象句柄.
 // pRect:坐标.
 // bRedraw:是否重绘.
 func XShape_SetRectLogic(hShape int, pRect *RECT, bRedraw bool) bool {

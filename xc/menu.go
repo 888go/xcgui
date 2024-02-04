@@ -15,7 +15,7 @@ func XMenu_Create() int {
 // hMenu:菜单句柄.
 // nID:项ID.
 // pText:文本内容.
-// nParentID:父项ID.
+// nParentID:父ID    .父项ID.
 // nFlags:标识, Menu_Item_Flag_.
 func XMenu_AddItem(hMenu int, nID int32, pText string, nParentID int32, nFlags xcc.Menu_Item_Flag_) {
 	xMenu_AddItem.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText), uintptr(nParentID), uintptr(nFlags))
@@ -25,7 +25,7 @@ func XMenu_AddItem(hMenu int, nID int32, pText string, nParentID int32, nFlags x
 // hMenu:菜单句柄.
 // nID:项ID.
 // pText:文本内容.
-// nParentID:父项ID.
+// nParentID:父ID    .父项ID.
 // hIcon:菜单项图标句柄.
 // nFlags:标识, Menu_Item_Flag_.
 func XMenu_AddItemIcon(hMenu int, nID int32, pText string, nParentID int32, hIcon int, nFlags xcc.Menu_Item_Flag_) {
@@ -37,7 +37,7 @@ func XMenu_AddItemIcon(hMenu int, nID int32, pText string, nParentID int32, hIco
 // nID:项ID.
 // pText:文本内容.
 // nFlags:标识, Menu_Item_Flag_.
-// insertID:插入位置ID.
+// insertID:插入位置ID     .插入位置ID.
 func XMenu_InsertItem(hMenu int, nID int32, pText string, nFlags xcc.Menu_Item_Flag_, insertID int32) {
 	xMenu_InsertItem.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText), uintptr(nFlags), uintptr(insertID))
 }
@@ -48,7 +48,7 @@ func XMenu_InsertItem(hMenu int, nID int32, pText string, nFlags xcc.Menu_Item_F
 // pText:文本内容.
 // hIcon:菜单项图标句柄.
 // nFlags:标识, Menu_Item_Flag_.
-// insertID:插入位置ID.
+// insertID:插入位置ID     .插入位置ID.
 func XMenu_InsertItemIcon(hMenu int, nID int32, pText string, hIcon int, nFlags xcc.Menu_Item_Flag_, insertID int32) {
 	xMenu_InsertItemIcon.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText), uintptr(hIcon), uintptr(nFlags), uintptr(insertID))
 }
@@ -102,14 +102,14 @@ func XMenu_SetAutoDestroy(hMenu int, bAuto bool) {
 
 // 菜单_启用用户绘制背景, 是否有用户绘制菜单背景, 如果启用XWM_MENU_DRAW_BACKGROUND和XE_MENU_DRAW_BACKGROUND事件有效.
 // hMenu:菜单句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XMenu_EnableDrawBackground(hMenu int, bEnable bool) {
 	xMenu_EnableDrawBackground.Call(uintptr(hMenu), common.BoolPtr(bEnable))
 }
 
 // 菜单_启用用户绘制项, 是否有用户绘制菜单项, 如果启用XWM_MENU_DRAWITEM和XE_MENU_DRAWITEM事件有效.
 // hMenu:菜单句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XMenu_EnableDrawItem(hMenu int, bEnable bool) {
 	xMenu_EnableDrawItem.Call(uintptr(hMenu), common.BoolPtr(bEnable))
 }
@@ -140,7 +140,7 @@ func XMenu_CloseMenu(hMenu int) {
 
 // 菜单_置背景图片.
 // hMenu:菜单句柄.
-// hImage:图片句柄.
+// hImage:图片句柄    .图片句柄.
 func XMenu_SetBkImage(hMenu int, hImage int) {
 	xMenu_SetBkImage.Call(uintptr(hMenu), uintptr(hImage))
 }
@@ -211,10 +211,10 @@ func XMenu_SetBorderColor(hMenu int, crColor int) {
 
 // 菜单_置边框大小, 设置弹出菜单窗口边框大小.
 // hMenu:菜单句柄.
-// nLeft:边大小.
-// nTop:边大小.
-// nRight:边大小.
-// nBottom:边大小.
+// nLeft:左.
+// nTop:上.
+// nRight:右.
+// nBottom:下.
 func XMenu_SetBorderSize(hMenu int, nLeft, nTop, nRight, nBottom int32) {
 	xMenu_SetBorderSize.Call(uintptr(hMenu), uintptr(nLeft), uintptr(nTop), uintptr(nRight), uintptr(nBottom))
 }

@@ -258,7 +258,7 @@ func XDraw_ClearClip(hDraw int) int {
 
 // 绘制_启用平滑模式.
 // hDraw:图形绘制句柄.
-// bEnable:是否启用.
+// bEnable:是否启用     .是否启用.
 func XDraw_EnableSmoothingMode(hDraw int, bEnable bool) int {
 	r, _, _ : xDraw_EnableSmoothingMode.Call(uintptr(hDraw), common.BoolPtr(bEnable))
 	return int(r)
