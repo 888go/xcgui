@@ -63,13 +63,13 @@ func NewShapeGroupBoxByUIDName(name string) *ShapeGroupBox {
 }
 
 // 置边框颜色.
-// color: ABGR 颜色值.
+// color: ABGR颜色值.
 func (s *ShapeGroupBox) SetBorderColor(color int) int {
 	return xc.XShapeGroupBox_SetBorderColor(s.Handle, color)
 }
 
 // 置文本颜色.
-// color: ABGR 颜色值.
+// color: ABGR颜色值.
 func (s *ShapeGroupBox) SetTextColor(color int) int {
 	return xc.XShapeGroupBox_SetTextColor(s.Handle, color)
 }

@@ -10,8 +10,8 @@ type TextLink struct {
 }
 
 // 创建文本链接
-// x: 元素x坐标.
-// y: 元素y坐标.
+// x: x坐标.
+// y: y坐标.
 // cx: 宽度.
 // cy: 高度.
 // pName: 文本内容.

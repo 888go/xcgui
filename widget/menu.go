@@ -71,7 +71,7 @@ func (m *Menu) AddItem(nID int32, pText string, nParentID int32, nFlags xcc.Menu
 // nID: 项ID.
 // pText: 文本内容.
 // nParentID: 父项ID.
-// hIcon: 菜单项图标句柄.
+// hIcon: 图标句柄.
 // nFlags: 标识, Menu_Item_Flag_.
 func (m *Menu) AddItemIcon(nID int32, pText string, nParentID int32, hIcon int, nFlags xcc.Menu_Item_Flag_) {
 	xc.XMenu_AddItemIcon(m.Handle, nID, pText, nParentID, hIcon, nFlags)
@@ -89,7 +89,7 @@ func (m *Menu) InsertItem(nID int32, pText string, nFlags xcc.Menu_Item_Flag_, i
 // 插入项图标.
 // nID: 项ID.
 // pText: 文本内容.
-// hIcon: 菜单项图标句柄.
+// hIcon: 图标句柄.
 // nFlags: 标识, Menu_Item_Flag_.
 // insertID: 插入位置ID.
 func (m *Menu) InsertItemIcon(nID int32, pText string, hIcon int, nFlags xcc.Menu_Item_Flag_, insertID int32) {
@@ -221,10 +221,10 @@ func (m *Menu) SetBorderColor(crColor int) {
 }
 
 // 置边框大小, 设置弹出菜单窗口边框大小.
-// nLeft: 边大小.
-// nTop: 边大小.
-// nRight: 边大小.
-// nBottom: 边大小.
+// nLeft: 左.
+// nTop: 上.
+// nRight: 右.
+// nBottom: 下.
 func (m *Menu) SetBorderSize(nLeft, nTop, nRight, nBottom int32) {
 	xc.XMenu_SetBorderSize(m.Handle, nLeft, nTop, nRight, nBottom)
 }
@@ -259,7 +259,7 @@ func (m *Menu) IsItemCheck(nID int32) bool {
 
 // 置项宽度, 此宽度为文本显示区域宽度, 不包含侧边条和与文本间隔.
 // nID: 项ID.
-// nWidth: 指定文本区域宽度.
+// nWidth: 宽度.
 func (m *Menu) SetItemWidth(nID, nWidth int32) bool {
 	return xc.XMenu_SetItemWidth(m.Handle, nID, nWidth)
 }

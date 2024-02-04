@@ -72,13 +72,13 @@ func (m *MenuBar) SetButtonHeight(height int32) {
 }
 
 // 取菜单, 返回菜单句柄.
-// nIndex: 菜单条上菜单按钮的索引.
+// nIndex: 按钮索引.
 func (m *MenuBar) GetMenu(nIndex int32) int {
 	return xc.XMenuBar_GetMenu(m.Handle, nIndex)
 }
 
 // 删除按钮, 删除菜单条上的菜单按钮, 同时该按钮下的弹出菜单也被销毁.
-// nIndex: 菜单条按钮索引.
+// nIndex: 按钮索引.
 func (m *MenuBar) DeleteButton(nIndex int32) bool {
 	return xc.XMenuBar_DeleteButton(m.Handle, nIndex)
 }
@@ -90,7 +90,7 @@ func (m *MenuBar) EnableAutoWidth(bEnable bool) {
 }
 
 // 取菜单按钮. 返回按钮句柄.
-// nIndex: 菜单条按钮索引.
+// nIndex: 按钮索引.
 func (m *MenuBar) GetButton(nIndex int32) bool {
 	return xc.XMenuBar_GetButton(m.Handle, nIndex)
 }

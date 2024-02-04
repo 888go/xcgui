@@ -11,12 +11,12 @@ type FrameWindow struct {
 }
 
 // 创建框架窗口
-// // x: 窗口左上角x坐标.
-// // y: 窗口左上角y坐标.
-// // cx: 窗口宽度.
-// // cy: 窗口高度.
-// // pTitle: 窗口标题.
-// // hWndParent: 父窗口真实句柄.
+// // x: x坐标.
+// // y: y坐标.
+// // cx: 宽度.
+// // cy: 高度.
+// // pTitle: 标题.
+// // hWndParent: 父窗口句柄.
 // // XCStyle: GUI库窗口样式: Window_Style_.
 func NewFrameWindow(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *FrameWindow {
 	p := &FrameWindow{}
@@ -25,13 +25,13 @@ func NewFrameWindow(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCSty
 }
 
 // 创建框架窗口EX
-// // dwExStyle: 窗口扩展样式.
-// // dwStyle: 窗口样式.
-// // lpClassName: 窗口类名.
-// // x: 窗口左上角x坐标.
-// // y: 窗口左上角y坐标.
-// // cx: 窗口宽度.
-// // cy: 窗口高度.
+// // dwExStyle: 扩展样式.
+// // dwStyle: 样式.
+// // lpClassName: 类名.
+// // x: x坐标.
+// // y: y坐标.
+// // cx: 宽度.
+// // cy: 高度.
 // // pTitle: 窗口名.
 // // hWndParent: 父窗口.
 // // XCStyle: GUI库窗口样式: Window_Style_.
@@ -94,7 +94,7 @@ func (fw *FrameWindow) SetView(hEle int) int {
 }
 
 // 置窗格分隔条颜色.
-// // color: ABGR 颜色值.
+// // color: ABGR颜色值.
 func (fw *FrameWindow) SetPaneSplitBarColor(color int) int {
 	return xc.XFrameWnd_SetPaneSplitBarColor(fw.Handle, color)
 }
@@ -140,7 +140,7 @@ func (fw *FrameWindow) GetDragFloatWndTopFlag() xcc.FrameWnd_Cell_Type_ {
 }
 
 // 附加窗口, 返回窗口对象.
-// // hWnd: 要附加的外部窗口句柄.
+// // hWnd: 外部窗口句柄.
 // // XCStyle: 炫彩窗口样式: Window_Style_.
 func FrameWnd_Attach(hWnd uintptr, XCStyle int) *Window {
 	p := &Window{}

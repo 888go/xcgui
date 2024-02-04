@@ -63,14 +63,14 @@ func NewTabBarByUIDName(name string) *TabBar {
 }
 
 // 添加标签, 添加一个标签, 返回标签索引.
-// pName: 标签文本内容.
+// pName: 标签文本
 func (t *TabBar) AddLabel(pName string) int {
 	return xc.XTabBar_AddLabel(t.Handle, pName)
 }
 
 // TAB条插入_标签, 插入一个标签, 返回标签索引.
 // index: 插入位置.
-// pName: 标签文本内容.
+// pName: 标签文本
 func (t *TabBar) InsertLabel(index int, pName string) int {
 	return xc.XTabBar_InsertLabel(t.Handle, index, pName)
 }
@@ -157,7 +157,7 @@ func (t *TabBar) SetPadding(left int, top int, right int, bottom int) int {
 }
 
 // 置选择, 设置选择标签.
-// index: 标签位置索引.
+// index: 索引.
 func (t *TabBar) SetSelect(index int) int {
 	return xc.XTabBar_SetSelect(t.Handle, index)
 }

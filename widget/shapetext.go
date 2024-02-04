@@ -91,7 +91,7 @@ func (s *ShapeText) GetFont() int {
 }
 
 // 置文本颜色, 设置文本颜色.
-// color: ABGR 颜色值.
+// color: ABGR颜色值.
 func (s *ShapeText) SetTextColor(color int) int {
 	return xc.XShapeText_SetTextColor(s.Handle, color)
 }

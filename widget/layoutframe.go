@@ -81,10 +81,6 @@ func (l *LayoutFrame) ShowLayoutFrame(bEnable bool) int {
 	return xc.XLayoutFrame_ShowLayoutFrame(l.Handle, bEnable)
 }
 
-/*
-LayoutBox-布局盒子
-*/
-
 // 启用水平.
 // //	@param bEnable: 是否启用.
 //

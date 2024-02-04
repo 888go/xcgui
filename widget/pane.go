@@ -107,7 +107,7 @@ func (p *Pane) GetState() xcc.Pane_State_ {
 }
 
 // 取视图坐标, 获取窗格视图坐标.
-// pRect: 接收返回的坐标值.
+// pRect: 接收返回坐标值.
 func (p *Pane) GetViewRect(pRect *xc.RECT) int {
 	return xc.XPane_GetViewRect(p.Handle, pRect)
 }
@@ -121,7 +121,7 @@ func (p *Pane) HidePane(bGroupActivate bool) int {
 }
 
 // 显示.
-// //	@param bGroupActivate:延迟组成员激活, 那么窗格组切换当前窗格为显示状态.
+// bGroupActivate:延迟组成员激活, 那么窗格组切换当前窗格为显示状态.
 //
 //	@return int
 func (p *Pane) ShowPane(bGroupActivate bool) int {

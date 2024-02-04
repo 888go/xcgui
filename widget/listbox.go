@@ -286,8 +286,8 @@ func (l *ListBox) GetAdapter() int {
 }
 
 // 排序.
-// iColumnAdapter: 需要排序的数据在数据适配器中所属列索引.
-// bAscending: 升序(TRUE)或降序(FALSE).
+// iColumnAdapter: 列索引.
+// bAscending: 升序
 func (l *ListBox) Sort(iColumnAdapter int, bAscending bool) int {
 	return xc.XListBox_Sort(l.Handle, iColumnAdapter, bAscending)
 }

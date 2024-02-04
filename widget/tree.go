@@ -341,7 +341,7 @@ func (t *Tree) GetRowSpace() int32 {
 // 移动项, 移动项的位置.
 // nMoveItem: 要移动的项ID.
 // nDestItem: 目标项ID, 参照位置.
-// nFlag: 0:目标前面, 1:目标后面, 2:目标子项首, 3:目标子项尾.
+// nFlag:位置  0:目标前面, 1:目标后面, 2:目标子项首, 3:目标子项尾.
 func (t *Tree) MoveItem(nMoveItem, nDestItem, nFlag int32) bool {
 	return xc.XTree_MoveItem(t.Handle, nMoveItem, nDestItem, nFlag)
 }
