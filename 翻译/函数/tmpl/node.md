@@ -77,6 +77,6 @@ func (n *Node) SetNodeAttributeEx(itemID
 
 # <翻译开始>
 func (n *Node) SetNodeAttributeEx
-X置节点属性扩展
+X置节点属性EX
 # <翻译结束>
 

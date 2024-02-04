@@ -827,7 +827,7 @@ func (d *Draw) FillRoundRectEx(pRect
 
 # <翻译开始>
 func (d *Draw) FillRoundRectEx
-X填充圆角矩形扩展
+X填充圆角矩形EX
 # <翻译结束>
 
 
@@ -858,7 +858,7 @@ func (d *Draw) FillRoundRectExF(pRect
 
 # <翻译开始>
 func (d *Draw) FillRoundRectExF
-X填充圆角矩形扩展F
+X填充圆角矩形EXF
 # <翻译结束>
 
 
@@ -889,7 +889,7 @@ func (d *Draw) DrawRoundRectEx(pRect
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectEx
-X圆角矩形扩展
+X圆角矩形EX
 # <翻译结束>
 
 
@@ -920,7 +920,7 @@ func (d *Draw) DrawRoundRectExF(pRect
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectExF
-X圆角矩形扩展F
+X圆角矩形EXF
 # <翻译结束>
 
 
@@ -1359,7 +1359,7 @@ func (d *Draw) XDraw_ImageEx(hImageFrame
 
 # <翻译开始>
 func (d *Draw) XDraw_ImageEx
-X图片扩展
+X图片EX
 # <翻译结束>
 
 
@@ -1390,7 +1390,7 @@ func (d *Draw) XDraw_ImageExF(hImageFrame
 
 # <翻译开始>
 func (d *Draw) XDraw_ImageExF
-X图片扩展F
+X图片EXF
 # <翻译结束>
 
 
@@ -1453,7 +1453,7 @@ func (d *Draw) ImageSuperExF(hImageFrame
 
 # <翻译开始>
 func (d *Draw) ImageSuperExF
-X图片增强扩展F
+X图片增强EXF
 # <翻译结束>
 
 
@@ -1654,13 +1654,13 @@ X文本输出F
 
 # <翻译开始>
 func (d *Draw) TextOutEx
-X文本输出扩展
+X文本输出EX
 # <翻译结束>
 
 
 # <翻译开始>
 func (d *Draw) TextOutExF
-X文本输出扩展F
+X文本输出EXF
 # <翻译结束>
 
 
@@ -1741,7 +1741,7 @@ SVG句柄
 
 # <翻译开始>
 func (d *Draw) DrawSvgEx
-SVG扩展
+SVGEX
 # <翻译结束>
 
 

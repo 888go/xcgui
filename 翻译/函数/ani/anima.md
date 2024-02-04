@@ -93,7 +93,7 @@ func (a *Anima) MoveEx(duration
 
 # <翻译开始>
 func (a *Anima) MoveEx
-X移动扩展
+X移动EX
 # <翻译结束>
 
 
@@ -160,7 +160,7 @@ func (a *Anima) RotateEx(duration
 
 # <翻译开始>
 func (a *Anima) RotateEx
-X旋转扩展
+X旋转EX
 # <翻译结束>
 
 
@@ -299,7 +299,7 @@ func (a *Anima) AlphaEx(duration
 
 # <翻译开始>
 func (a *Anima) AlphaEx
-X透明度扩展
+X透明度EX
 # <翻译结束>
 
 
@@ -366,7 +366,7 @@ func (a *Anima) ColorEx(duration
 
 # <翻译开始>
 func (a *Anima) ColorEx
-X颜色扩展
+X颜色EX
 # <翻译结束>
 
 
@@ -548,6 +548,6 @@ func (a *Anima) DelayEx(duration
 
 # <翻译开始>
 func (a *Anima) DelayEx
-X延迟扩展
+X延迟EX
 # <翻译结束>
 

@@ -43,18 +43,17 @@ var (
 	destroyIcon                = user32.NewProc("DestroyIcon")
 )
 
-//	 图标销毁
+// 图标销毁
 //
-//		@Description 只需为使用以下函数创建的图标和游标调用 DestroyIcon ： CreateIconFromResourceEx (如果调用时没有 LR_SHARED 标志) 、 CreateIconIndirect 和 CopyIcon。 请勿使用此函数销毁共享图标。 只要从中加载共享图标的模块保留在内存中，共享图标就有效。
-//		详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-destroyicon.
-//		@param hIcon: 图标句柄。 图标不得处于使用中。
+//	@Description 只需为使用以下函数创建的图标和游标调用 DestroyIcon ： CreateIconFromResourceEx (如果调用时没有 LR_SHARED 标志) 、 CreateIconIndirect 和 CopyIcon。 请勿使用此函数销毁共享图标。 只要从中加载共享图标的模块保留在内存中，共享图标就有效。
+//	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-destroyicon.
+//	@param hIcon: 图标句柄。 图标不得处于使用中。
 func DestroyIcon(hIcon uintptr) bool {
 	r, _, _ := destroyIcon.Call(hIcon)
 	return r != 0
 }
 
-// 图片创建并按资源
-// CreateIconFromResource 从描述图标的资源位创建图标或光标。若要指定所需的高度或宽度，请使用 CreateIconFromResourceEx 函数。
+// 图标创建并按资源
 func CreateIconFromResource(presbits uintptr, dwResSize uint32, fIcon bool, dwVer uint32) (uintptr, error) {
 	r, _, err := createIconFromResource.Call(presbits, uintptr(dwResSize), common.BoolPtr(fIcon), uintptr(dwVer))
 	return r, err
@@ -151,7 +150,7 @@ func RegisterWindowMessageW(lpString string) int {
 //
 //	@Description 线程不应将 IsWindow 用于未创建的窗口，因为调用此函数后可能会销毁该窗口。 此外，由于窗口句柄被回收，句柄甚至可以指向其他窗口.
 //	详见: https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-iswindow.
-//	@param hWnd 要测试的窗口的句柄。
+//	@param hWnd: 窗口的句柄。
 //	@return bool
 func IsWindow(hWnd uintptr) bool {
 	r, _, _ := isWindow.Call(hWnd)
@@ -583,8 +582,8 @@ func SendMessageW(hWnd uintptr, Msg int32, wParam, lParam uint) int {
 //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-postmessagew.
 //	@param hWnd: 窗口句柄，其窗口过程将接收消息。如果该参数为 HWND_BROADCAST ((HWND)0xffff)，则将消息发送到系统中的所有顶层窗口，包括禁用或不可见的无主窗口、重叠窗口和弹出窗口；但消息不会发送到子窗口。
 //	@param Msg:消息值, 要发送的消息。有关系统提供的消息的列表，请参阅: https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues.
-//	@param wParam,参数1 其他特定于消息的信息。
-//	@param lParam,参数2 其他特定于消息的信息。
+//	@param wParam:参数1  其他特定于消息的信息。
+//	@param lParam:参数2  其他特定于消息的信息。
 //	@return bool
 func PostMessageW(hWnd uintptr, Msg int32, wParam, lParam uint) bool {
 	r, _, _ := postMessageW.Call(hWnd, uintptr(Msg), uintptr(wParam), uintptr(lParam))

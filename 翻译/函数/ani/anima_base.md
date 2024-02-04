@@ -28,7 +28,7 @@ func (a *animaBase) ReleaseEx(bEnd
 
 # <翻译开始>
 func (a *animaBase) ReleaseEx
-X释放扩展
+X释放EX
 # <翻译结束>
 
 

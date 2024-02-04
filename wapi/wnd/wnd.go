@@ -18,7 +18,7 @@ func SetTop(hWnd uintptr, b bool) bool {
 	return wapi.SetWindowPos(hWnd, hWndInsertAfter, 0, 0, 0, 0, wapi.SWP_NOMOVE|wapi.SWP_NOSIZE)
 }
 
-// 取窗口标题.
+// 窗口取标题.
 //
 //	@param hWnd: 窗口句柄.
 //	@return string
@@ -34,7 +34,7 @@ func GetTitle(hWnd uintptr) string {
 	return title
 }
 
-// 取窗口句柄, 标题支持模糊.
+// 窗口模糊取句柄, 标题支持模糊.
 //
 //	@param className: 窗口类名, 不支持模糊, 可空.
 //	@param title: 窗口标题, 可输入关键字, 支持模糊, 可空.

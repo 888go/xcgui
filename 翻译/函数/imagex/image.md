@@ -574,7 +574,7 @@ ABGR颜色
 
 # <翻译开始>
 func (i *Image) SetTranColorEx
-X置透明色扩展
+X置透明色EX
 # <翻译结束>
 
 

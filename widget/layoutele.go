@@ -10,13 +10,13 @@ type LayoutEle struct {
 	Element
 }
 
-// NewLayoutEle 布局_创建, 创建布局元素.
+// NewLayoutEle 创建布局  创建布局元素.
 //
-//	@param x 元素x坐标.
-//	@param y 元素y坐标.
-//	@param cx 宽度.
-//	@param cy 高度.
-//	@param hParent 父为窗口句柄或元素句柄.
+//	@param x: 元素x坐标.
+//	@param y: 元素y坐标.
+//	@param cx: 宽度.
+//	@param cy: 高度.
+//	@param hParent: 父为窗口句柄或元素句柄.
 //	@return *LayoutEle
 func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
 	p := &LayoutEle{}
@@ -24,7 +24,7 @@ func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
 	return p
 }
 
-// NewLayoutEleEx 布局_创建扩展, 创建布局元素.
+// NewLayoutEleEx 创建布局EX, 创建布局元素.
 //
 //	@param hParent 父为窗口句柄或元素句柄.
 //	@return *LayoutEle

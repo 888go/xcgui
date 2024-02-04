@@ -258,7 +258,7 @@ func LoadEx(nType
 
 # <翻译开始>
 func LoadEx
-X加载并按文件扩展
+X加载并按文件EX
 # <翻译结束>
 
 
@@ -294,7 +294,7 @@ func LoadZipEx(nType
 
 # <翻译开始>
 func LoadZipEx
-X加载并按ZIP扩展
+X加载并按ZIPEX
 # <翻译结束>
 
 
@@ -330,7 +330,7 @@ func LoadZipMemEx(nType
 
 # <翻译开始>
 func LoadZipMemEx
-X加载并按内存ZIP扩展
+X加载并按内存ZIPEX
 # <翻译结束>
 
 
@@ -356,7 +356,7 @@ func LoadFromStringEx(nType
 
 # <翻译开始>
 func LoadFromStringEx
-X加载并按字符串扩展
+X加载并按字符串EX
 # <翻译结束>
 
 
@@ -382,7 +382,7 @@ func LoadFromMemEx(nType
 
 # <翻译开始>
 func LoadFromMemEx
-X加载并按内存扩展
+X加载并按内存EX
 # <翻译结束>
 
 
@@ -423,6 +423,6 @@ func LoadZipResEx(nType
 
 # <翻译开始>
 func LoadZipResEx
-X加载并按资源ZIP扩展
+X加载并按资源ZIPEX
 # <翻译结束>
 

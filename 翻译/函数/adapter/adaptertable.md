@@ -55,7 +55,7 @@ func (a *AdapterTable) GetItemDataTypeEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) GetItemDataTypeEx
-X取项数据类型扩展
+X取项数据类型EX
 # <翻译结束>
 
 
@@ -104,7 +104,7 @@ func (a *AdapterTable) AddItemTextEx(pName
 
 # <翻译开始>
 func (a *AdapterTable) AddItemTextEx
-X添加项文本扩展
+X添加项文本EX
 # <翻译结束>
 
 
@@ -131,7 +131,7 @@ func (a *AdapterTable) AddItemImageEx(pName
 
 # <翻译开始>
 func (a *AdapterTable) AddItemImageEx
-X添加项图片扩展
+X添加项图片EX
 # <翻译结束>
 
 
@@ -168,7 +168,7 @@ func (a *AdapterTable) InsertItemTextEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) InsertItemTextEx
-X插入项文本扩展
+X插入项文本EX
 # <翻译结束>
 
 
@@ -205,7 +205,7 @@ func (a *AdapterTable) InsertItemImageEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) InsertItemImageEx
-X插入项图片扩展
+X插入项图片EX
 # <翻译结束>
 
 
@@ -247,7 +247,7 @@ func (a *AdapterTable) SetItemTextEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) SetItemTextEx
-X置项文本扩展
+X置项文本EX
 # <翻译结束>
 
 
@@ -289,7 +289,7 @@ func (a *AdapterTable) SetItemIntEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) SetItemIntEx
-X置项整数值扩展
+X置项整数值EX
 # <翻译结束>
 
 
@@ -332,7 +332,7 @@ func (a *AdapterTable) SetItemFloatEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) SetItemFloatEx
-X置项浮点值扩展
+X置项浮点值EX
 # <翻译结束>
 
 
@@ -374,7 +374,7 @@ func (a *AdapterTable) SetItemImageEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) SetItemImageEx
-X置项图片扩展
+X置项图片EX
 # <翻译结束>
 
 
@@ -401,7 +401,7 @@ func (a *AdapterTable) DeleteItemEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) DeleteItemEx
-X删除项扩展
+X删除项EX
 # <翻译结束>
 
 
@@ -457,7 +457,7 @@ func (a *AdapterTable) GetItemTextEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) GetItemTextEx
-X取项文本扩展
+X取项文本EX
 # <翻译结束>
 
 
@@ -489,7 +489,7 @@ func (a *AdapterTable) GetItemImageEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) GetItemImageEx
-X取项图片扩展
+X取项图片EX
 # <翻译结束>
 
 
@@ -531,7 +531,7 @@ func (a *AdapterTable) GetItemIntEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) GetItemIntEx
-X取项整数值扩展
+X取项整数值EX
 # <翻译结束>
 
 
@@ -573,6 +573,6 @@ func (a *AdapterTable) GetItemFloatEx(iItem
 
 # <翻译开始>
 func (a *AdapterTable) GetItemFloatEx
-X取项浮点值扩展
+X取项浮点值EX
 # <翻译结束>
 

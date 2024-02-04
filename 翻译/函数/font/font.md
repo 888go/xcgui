@@ -27,7 +27,7 @@ func NewEX(pName
 
 # <翻译开始>
 func NewEX
-X创建扩展
+X创建EX
 # <翻译结束>
 
 

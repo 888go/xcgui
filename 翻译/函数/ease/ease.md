@@ -182,6 +182,6 @@ func Ex(pos
 
 # <翻译开始>
 func Ex
-X缓动扩展
+X缓动EX
 # <翻译结束>
 

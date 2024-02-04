@@ -19,18 +19,18 @@ X取基础类型
 
 # <翻译开始>
 func (o *ObjectBase) GetTypeEx
-X取类型扩展
+X取类型EX
 # <翻译结束>
 
 
 # <翻译开始>
 func (o *ObjectBase) SetTypeEx(nType
-对象扩展类型
+对象类型EX
 # <翻译结束>
 
 # <翻译开始>
 func (o *ObjectBase) SetTypeEx
-X置类型扩展
+X置类型EX
 # <翻译结束>
 
 

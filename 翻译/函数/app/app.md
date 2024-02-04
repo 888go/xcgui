@@ -156,12 +156,12 @@ func (a *App) Msg_CreateEx(dwExStyle int, dwStyle
 
 # <翻译开始>
 func (a *App) Msg_CreateEx(dwExStyle
-窗口扩展样式
+窗口样式EX
 # <翻译结束>
 
 # <翻译开始>
 func (a *App) Msg_CreateEx
-X消息框_创建扩展
+X消息框_创建EX
 # <翻译结束>
 
 
@@ -636,7 +636,7 @@ func (a *App) GetTextShowSizeEx(pString
 
 # <翻译开始>
 func (a *App) GetTextShowSizeEx
-X取文本显示大小扩展
+X取文本显示大小EX
 # <翻译结束>
 
 
@@ -968,7 +968,7 @@ RC资源ID
 
 # <翻译开始>
 func (a *App) LoadLayoutZipResEx
-X加载布局文件资源ZIP扩展
+X加载布局文件资源ZIPEX
 # <翻译结束>
 
 
@@ -1356,7 +1356,7 @@ utf8字符串指针
 
 # <翻译开始>
 func (a *App) Utf8toWEx
-UTF8到文本W扩展
+UTF8到文本WEX
 # <翻译结束>
 
 
@@ -1405,7 +1405,7 @@ func (a *App) WtoUtf8Ex(pValue
 
 # <翻译开始>
 func (a *App) WtoUtf8Ex
-X文本W到UTF8扩展
+X文本W到UTF8EX
 # <翻译结束>
 
 
@@ -1617,7 +1617,7 @@ func (a *App) NotifyMsg_PopupEx(position
 
 # <翻译开始>
 func (a *App) NotifyMsg_PopupEx
-X通知消息_弹出扩展_未实现
+X通知消息_弹出EX_未实现
 # <翻译结束>
 
 

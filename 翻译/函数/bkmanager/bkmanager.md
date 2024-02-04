@@ -168,7 +168,7 @@ func (b *BkManager) DrawEx(nState
 
 # <翻译开始>
 func (b *BkManager) DrawEx
-X绘制扩展
+X绘制EX
 # <翻译结束>
 
 

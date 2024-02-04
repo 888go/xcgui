@@ -55,7 +55,7 @@ func GetImageEx(pFileName
 
 # <翻译开始>
 func GetImageEx
-X取图片扩展
+X取图片EX
 # <翻译结束>
 
 

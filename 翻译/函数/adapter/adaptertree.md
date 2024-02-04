@@ -76,7 +76,7 @@ func (a *AdapterTree) InsertItemTextEx(pName
 
 # <翻译开始>
 func (a *AdapterTree) InsertItemTextEx
-X插入项文本扩展
+X插入项文本EX
 # <翻译结束>
 
 
@@ -123,7 +123,7 @@ func (a *AdapterTree) InsertItemImageEx(pName
 
 # <翻译开始>
 func (a *AdapterTree) InsertItemImageEx
-X插入项图片扩展
+X插入项图片EX
 # <翻译结束>
 
 
@@ -177,7 +177,7 @@ func (a *AdapterTree) SetItemTextEx(nID
 
 # <翻译开始>
 func (a *AdapterTree) SetItemTextEx
-X置项文本扩展
+X置项文本EX
 # <翻译结束>
 
 
@@ -219,7 +219,7 @@ func (a *AdapterTree) SetItemImageEx(nID
 
 # <翻译开始>
 func (a *AdapterTree) SetItemImageEx
-X置项图片扩展
+X置项图片EX
 # <翻译结束>
 
 
@@ -251,7 +251,7 @@ func (a *AdapterTree) GetItemTextEx(nID
 
 # <翻译开始>
 func (a *AdapterTree) GetItemTextEx
-X取项文本扩展
+X取项文本EX
 # <翻译结束>
 
 
@@ -283,7 +283,7 @@ func (a *AdapterTree) GetItemImageEx(nID
 
 # <翻译开始>
 func (a *AdapterTree) GetItemImageEx
-X取项图片扩展
+X取项图片EX
 # <翻译结束>
 
 

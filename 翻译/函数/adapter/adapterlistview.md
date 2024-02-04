@@ -55,7 +55,7 @@ func (a *AdapterListView) Group_AddItemTextEx(pName
 
 # <翻译开始>
 func (a *AdapterListView) Group_AddItemTextEx
-X添加组文本扩展
+X添加组文本EX
 # <翻译结束>
 
 
@@ -92,7 +92,7 @@ func (a *AdapterListView) Group_AddItemImageEx(pName
 
 # <翻译开始>
 func (a *AdapterListView) Group_AddItemImageEx
-X添加组图片扩展
+X添加组图片EX
 # <翻译结束>
 
 
@@ -134,7 +134,7 @@ func (a *AdapterListView) Group_SetTextEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Group_SetTextEx
-X组设置文本扩展
+X组设置文本EX
 # <翻译结束>
 
 
@@ -176,7 +176,7 @@ func (a *AdapterListView) Group_SetImageEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Group_SetImageEx
-X组设置图片扩展
+X组设置图片EX
 # <翻译结束>
 
 
@@ -251,7 +251,7 @@ func (a *AdapterListView) Item_AddItemTextEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Item_AddItemTextEx
-X添加项文本扩展
+X添加项文本EX
 # <翻译结束>
 
 
@@ -298,7 +298,7 @@ func (a *AdapterListView) Item_AddItemImageEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Item_AddItemImageEx
-X添加项图片扩展
+X添加项图片EX
 # <翻译结束>
 
 
@@ -397,7 +397,7 @@ func (a *AdapterListView) Item_GetTextEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Item_GetTextEx
-X项获取文本扩展
+X项获取文本EX
 # <翻译结束>
 
 
@@ -418,7 +418,7 @@ func (a *AdapterListView) Item_GetImageEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Item_GetImageEx
-X项获取图片扩展
+X项获取图片EX
 # <翻译结束>
 
 
@@ -470,7 +470,7 @@ func (a *AdapterListView) Item_SetTextEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Item_SetTextEx
-X项置文本扩展
+X项置文本EX
 # <翻译结束>
 
 
@@ -522,7 +522,7 @@ func (a *AdapterListView) Item_SetImageEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Item_SetImageEx
-X项置图片扩展
+X项置图片EX
 # <翻译结束>
 
 
@@ -554,7 +554,7 @@ func (a *AdapterListView) Group_GetTextEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Group_GetTextEx
-X组取文本扩展
+X组取文本EX
 # <翻译结束>
 
 
@@ -586,7 +586,7 @@ func (a *AdapterListView) Group_GetImageEx(iGroup
 
 # <翻译开始>
 func (a *AdapterListView) Group_GetImageEx
-X组取图片扩展
+X组取图片EX
 # <翻译结束>
 
 
