@@ -558,7 +558,7 @@ func (l *List) AddItemImage(hImage int) int {
 	return xc.XList_AddItemImage(l.Handle, hImage)
 }
 
-// 添加项图片扩展.
+// 添加项图片EX.
 //
 // pName:名称
 //
@@ -576,7 +576,7 @@ func (l *List) InsertItemText(iItem int, pValue string) int {
 	return xc.XList_InsertItemText(l.Handle, iItem, pValue)
 }
 
-// 插入项文本扩展.
+// 插入项文本EX.
 //
 // iItem:项
 //
@@ -596,7 +596,7 @@ func (l *List) InsertItemImage(iItem int, hImage int) int {
 	return xc.XList_InsertItemImage(l.Handle, iItem, hImage)
 }
 
-// 插入项图片扩展.
+// 插入项图片EX.
 //
 // iItem:项
 //
@@ -618,7 +618,7 @@ func (l *List) SetItemText(iItem int, iColumn int, pText string) bool {
 	return xc.XList_SetItemText(l.Handle, iItem, iColumn, pText)
 }
 
-// 置项文本扩展.
+// 置项文本EX.
 //
 // iItem:项
 //
@@ -640,7 +640,7 @@ func (l *List) SetItemImage(iItem int, iColumn int, hImage int) bool {
 	return xc.XList_SetItemImage(l.Handle, iItem, iColumn, hImage)
 }
 
-// 置项图片扩展.
+// 置项图片EX.
 //
 // iItem:项
 //
@@ -662,7 +662,7 @@ func (l *List) SetItemInt(iItem int, iColumn int, nValue int) bool {
 	return xc.XList_SetItemInt(l.Handle, iItem, iColumn, nValue)
 }
 
-// 置项整数值扩展.
+// 置项整数值EX.
 //
 // iItem:项
 //
@@ -684,7 +684,7 @@ func (l *List) SetItemFloat(iItem int, iColumn int, fFloat float32) bool {
 	return xc.XList_SetItemFloat(l.Handle, iItem, iColumn, fFloat)
 }
 
-// 置项浮点值扩展.
+// 置项浮点值EX.
 //
 // iItem:项
 //
@@ -704,7 +704,7 @@ func (l *List) GetItemText(iItem int, iColumn int) string {
 	return xc.XList_GetItemText(l.Handle, iItem, iColumn)
 }
 
-// 取项文本扩展.
+// 取项文本EX.
 //
 // iItem:项
 //
@@ -722,7 +722,7 @@ func (l *List) GetItemImage(iItem int, iColumn int) int {
 	return xc.XList_GetItemImage(l.Handle, iItem, iColumn)
 }
 
-// 取项图片扩展.
+// 取项图片EX.
 //
 // iItem:项
 //
@@ -742,7 +742,7 @@ func (l *List) GetItemInt(iItem int, iColumn int, pOutValue *int32) bool {
 	return xc.XList_GetItemInt(l.Handle, iItem, iColumn, pOutValue)
 }
 
-// 取项整数值扩展.
+// 取项整数值EX.
 //
 // iItem:项
 //
@@ -764,7 +764,7 @@ func (l *List) GetItemFloat(iItem int, iColumn int, pOutValue *float32) bool {
 	return xc.XList_GetItemFloat(l.Handle, iItem, iColumn, pOutValue)
 }
 
-// 取项浮点值扩展.
+// 取项浮点值EX.
 //
 // iItem:项
 //
@@ -781,7 +781,7 @@ func (l *List) DeleteItem(iItem int) bool {
 	return xc.XList_DeleteItem(l.Handle, iItem)
 }
 
-// 删除项扩展.
+// 删除项EX.
 // iItem:项
 //
 // nCount:计数

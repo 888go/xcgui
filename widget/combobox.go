@@ -171,12 +171,12 @@ func (c *ComboBox) GetState() xcc.ComboBox_State_ {
 
 // 添加项文本, 返回项索引.
 //
-// pText:.
+// pText:.文本
 func (c *ComboBox) AddItemText(pText string) int {
 	return xc.XComboBox_AddItemText(c.Handle, pText)
 }
 
-// 添加项文本扩展, 返回项索引.
+// 添加项文本EX, 返回项索引.
 //
 // pName: 字段名.
 //
@@ -192,7 +192,7 @@ func (c *ComboBox) AddItemImage(hImage int) int {
 	return xc.XComboBox_AddItemImage(c.Handle, hImage)
 }
 
-// 添加项图片扩展, 返回项索引.
+// 添加项图片EX, 返回项索引.
 //
 // pName: 字段名.
 //
@@ -210,7 +210,7 @@ func (c *ComboBox) InsertItemText(iItem int, pText string) int {
 	return xc.XComboBox_InsertItemText(c.Handle, iItem, pText)
 }
 
-// 插入项文本扩展, 返回项索引.
+// 插入项文本EX, 返回项索引.
 //
 // iItem: 项索引.
 //
@@ -230,7 +230,7 @@ func (c *ComboBox) InsertItemImage(iItem int, hImage int) int {
 	return xc.XComboBox_InsertItemImage(c.Handle, iItem, hImage)
 }
 
-// 插入项图片扩展, 返回项索引.
+// 插入项图片EX, 返回项索引.
 //
 // iItem: 项索引.
 //
@@ -252,7 +252,7 @@ func (c *ComboBox) SetItemText(iItem int, iColumn int, pText string) bool {
 	return xc.XComboBox_SetItemText(c.Handle, iItem, iColumn, pText)
 }
 
-// 置项文本扩展.
+// 置项文本EX.
 //
 // iItem: 项索引.
 //
@@ -274,7 +274,7 @@ func (c *ComboBox) SetItemImage(iItem int, iColumn int, hImage int) bool {
 	return xc.XComboBox_SetItemImage(c.Handle, iItem, iColumn, hImage)
 }
 
-// 置项图片扩展.
+// 置项图片EX.
 //
 // iItem: 项索引.
 //
@@ -296,7 +296,7 @@ func (c *ComboBox) SetItemInt(iItem int, iColumn int, nValue int32) bool {
 	return xc.XComboBox_SetItemInt(c.Handle, iItem, iColumn, nValue)
 }
 
-// 置项指数值扩展.
+// 置项指数值EX.
 //
 // iItem: 项索引.
 //
@@ -318,7 +318,7 @@ func (c *ComboBox) SetItemFloat(iItem int, iColumn int, fFloat float32) bool {
 	return xc.XComboBox_SetItemFloat(c.Handle, iItem, iColumn, fFloat)
 }
 
-// 置项浮点值扩展.
+// 置项浮点值EX.
 //
 // iItem: 项索引.
 //
@@ -338,7 +338,7 @@ func (c *ComboBox) GetItemText(iItem int32, iColumn int32) string {
 	return xc.XComboBox_GetItemText(c.Handle, iItem, iColumn)
 }
 
-// 取项文本扩展.
+// 取项文本EX.
 //
 // iItem: 项索引.
 //
@@ -356,7 +356,7 @@ func (c *ComboBox) GetItemImage(iItem int, iColumn int) int {
 	return xc.XComboBox_GetItemImage(c.Handle, iItem, iColumn)
 }
 
-// 取项图片扩展.
+// 取项图片EX.
 //
 // iItem: 项索引.
 //
@@ -376,7 +376,7 @@ func (c *ComboBox) GetItemInt(iItem int, iColumn int, pOutValue *int32) bool {
 	return xc.XComboBox_GetItemInt(c.Handle, iItem, iColumn, pOutValue)
 }
 
-// 取项整数值扩展.
+// 取项整数值EX.
 //
 // iItem: 项索引.
 //
@@ -398,7 +398,7 @@ func (c *ComboBox) GetItemFloat(iItem int, iColumn int, pOutValue *float32) bool
 	return xc.XComboBox_GetItemFloat(c.Handle, iItem, iColumn, pOutValue)
 }
 
-// 取项浮点值扩展.
+// 取项浮点值EX.
 //
 // iItem: 项索引.
 //
@@ -416,7 +416,7 @@ func (c *ComboBox) DeleteItem(iItem int) bool {
 	return xc.XComboBox_DeleteItem(c.Handle, iItem)
 }
 
-// 删除项扩展.
+// 删除项EX.
 //
 // iItem: 项索引.
 //
@@ -486,14 +486,14 @@ func (c *ComboBox) GetItemTemplate() int {
 下面都是事件
 */
 
-type XE_COMBOBOX_SELECT_END func(iItem int32, pbHandled *bool) int                          // 组合框下拉列表项选择完成事件,编辑框内容已经改变.
-type XE_COMBOBOX_SELECT_END1 func(hEle int, iItem int32, pbHandled *bool) int               // 组合框下拉列表项选择完成事件,编辑框内容已经改变.
-type XE_COMBOBOX_SELECT func(iItem int32, pbHandled *bool) int                              // 组合框下拉列表项选择事件.
-type XE_COMBOBOX_SELECT1 func(hEle int, iItem int32, pbHandled *bool) int                   // 组合框下拉列表项选择事件.
-type XE_COMBOBOX_POPUP_LIST func(hWindow int, hListBox int, pbHandled *bool) int            // 组合框下拉列表弹出事件.
-type XE_COMBOBOX_POPUP_LIST1 func(hEle int, hWindow int, hListBox int, pbHandled *bool) int // 组合框下拉列表弹出事件.
-type XE_COMBOBOX_EXIT_LIST func(pbHandled *bool) int                                        // 组合框下拉列表退出事件.
-type XE_COMBOBOX_EXIT_LIST1 func(hEle int, pbHandled *bool) int                             // 组合框下拉列表退出事件.
+type XE_COMBOBOX_SELECT_END func(iItem int32, pbHandled *bool) int                          //组合框下拉列表项选择完成事件,编辑框内容已经改变.
+type XE_COMBOBOX_SELECT_END1 func(hEle int, iItem int32, pbHandled *bool) int               //组合框下拉列表项选择完成事件,编辑框内容已经改变.
+type XE_COMBOBOX_SELECT func(iItem int32, pbHandled *bool) int                              //组合框下拉列表项选择事件.
+type XE_COMBOBOX_SELECT1 func(hEle int, iItem int32, pbHandled *bool) int                   //组合框下拉列表项选择事件.
+type XE_COMBOBOX_POPUP_LIST func(hWindow int, hListBox int, pbHandled *bool) int            //组合框下拉列表弹出事件.
+type XE_COMBOBOX_POPUP_LIST1 func(hEle int, hWindow int, hListBox int, pbHandled *bool) int //组合框下拉列表弹出事件.
+type XE_COMBOBOX_EXIT_LIST func(pbHandled *bool) int                                        //组合框下拉列表退出事件.
+type XE_COMBOBOX_EXIT_LIST1 func(hEle int, pbHandled *bool) int                             //组合框下拉列表退出事件.
 
 // 事件_下拉列表项选择完成, 编辑框内容已经改变.
 func (c *ComboBox) Event_ComboBox_Select_End(pFun XE_COMBOBOX_SELECT_END) bool {

@@ -20,7 +20,7 @@ type DateTime struct {
 //
 // cy: 高度.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func NewDateTime(x int, y int, cx int, cy int, hParent int) *DateTime {
 	p := &DateTime{}
 	p.SetHandle(xc.XDateTime_Create(x, y, cx, cy, hParent))
@@ -81,7 +81,7 @@ func (d *DateTime) GetStyle() int {
 
 // 启用分割栏为斜线, 切换分割栏为: 斜线或横线.
 //
-// bSlash: TRUE: 斜线, FALSE: 横线.
+//	bSlash:斜线
 func (d *DateTime) EnableSplitSlash(bSlash bool) int {
 	return xc.XDateTime_EnableSplitSlash(d.Handle, bSlash)
 }
@@ -107,11 +107,11 @@ func (d *DateTime) SetSelBkColor(crSelectBk int) int {
 
 // 取当前日期.
 //
-// pnYear: 年.[OUT].
+// pnYear: 年指针.[OUT].
 //
-// pnMonth: 月.[OUT].
+// pnMonth: 月指针.[OUT].
 //
-// pnDay: 日.[OUT].
+// pnDay: 日指针.[OUT].
 func (d *DateTime) GetDate(pnYear *int32, pnMonth *int32, pnDay *int32) int {
 	return xc.XDateTime_GetDate(d.Handle, pnYear, pnMonth, pnDay)
 }
@@ -129,11 +129,11 @@ func (d *DateTime) SetDate(nYear int32, nMonth int32, nDay int32) int {
 
 // 取当前时间.
 //
-// pnHour: 时.[OUT].
+// pnHour: 时指针.[OUT].
 //
-// pnMinute: 分.[OUT].
+// pnMinute: 分指针.[OUT].
 //
-// pnSecond: 秒.[OUT].
+// pnSecond: 秒指针.[OUT].
 func (d *DateTime) GetTime(pnHour *int32, pnMinute *int32, pnSecond *int32) int {
 	return xc.XDateTime_GetTime(d.Handle, pnHour, pnMinute, pnSecond)
 }

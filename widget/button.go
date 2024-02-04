@@ -22,7 +22,7 @@ type Button struct {
 //
 // pName: 标题.
 //
-// hParent: 父为窗口句柄
+// hParent: 父窗口句柄
 func NewButton(x, y, cx, cy int32, pName string, hParent int) *Button {
 	p := &Button{}
 	p.SetHandle(xc.XBtn_Create(x, y, cx, cy, pName, hParent))
@@ -96,14 +96,14 @@ func (b *Button) GetState() xcc.Common_State3_ {
 	return xc.XBtn_GetState(b.Handle)
 }
 
-// 取状态扩展.
+// 取状态EX.
 //
 //	@return xcc.Button_State_
 func (b *Button) GetStateEx() xcc.Button_State_ {
 	return xc.XBtn_GetStateEx(b.Handle)
 }
 
-// 置类型扩展, 设置按钮类型并自动修改样式和文本对齐方式.
+// 置类型EX, 设置按钮类型并自动修改样式和文本对齐方式.
 //
 // nType: 按钮类型, Button_Type_ , element_type_ , xc_ex_error.
 func (b *Button) SetTypeEx(nType xcc.XC_OBJECT_TYPE_EX) int {

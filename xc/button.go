@@ -17,7 +17,7 @@ import (
 //
 // pName: 标题.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func XBtn_Create(x, y, cx, cy int32, pName string, hParent int) int {
 	r, _, _ := xBtn_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
 	return int(r)

@@ -19,7 +19,7 @@ type Element struct {
 //
 // cy: 高度.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func NewElement(x, y, cx, cy int32, hParent int) *Element {
 	p := &Element{}
 	p.SetHandle(xc.XEle_Create(x, y, cx, cy, hParent))
@@ -263,7 +263,7 @@ func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_
 	return xc.XEle_SetRect(e.Handle, pRect, bRedraw, nFlags, nAdjustNo)
 }
 
-// 置坐标扩展, 如果坐标未改变返回0, 如果大小改变返回2(触发XE_SIZE), 否则返回1.
+// 置坐标EX, 如果坐标未改变返回0, 如果大小改变返回2(触发XE_SIZE), 否则返回1.
 //
 // x: X坐标.
 //
@@ -394,7 +394,7 @@ func (e *Element) IsFocus() bool {
 	return xc.XEle_IsFocus(e.Handle)
 }
 
-// 判断焦点扩展, 判断该元素或该元素的子元素是否拥有焦点.
+// 判断焦点EX, 判断该元素或该元素的子元素是否拥有焦点.
 func (e *Element) IsFocusEx() bool {
 	return xc.XEle_IsFocusEx(e.Handle)
 }
@@ -488,7 +488,7 @@ func (e *Element) SetZOrder(index int) bool {
 	return xc.XEle_SetZOrder(e.Handle, index)
 }
 
-// 置Z序扩展, 设置元素Z序.
+// 置Z序EX, 设置元素Z序.
 //
 // hDestEle: 目标元素.
 //
@@ -641,7 +641,7 @@ func (e *Element) GetTextColor() int {
 	return xc.XEle_GetTextColor(e.Handle)
 }
 
-// 取文本颜色扩展, 获取文本颜色, 优先从资源中获取.
+// 取文本颜色EX, 获取文本颜色, 优先从资源中获取.
 func (e *Element) GetTextColorEx() int {
 	return xc.XEle_GetTextColorEx(e.Handle)
 }
@@ -670,7 +670,7 @@ func (e *Element) GetFont() int {
 	return xc.XEle_GetFont(e.Handle)
 }
 
-// 取字体扩展, 获取元素字体, 优先从资源中获取.
+// 取字体EX, 获取元素字体, 优先从资源中获取.
 func (e *Element) GetFontEx() int {
 	return xc.XEle_GetFontEx(e.Handle)
 }
@@ -729,7 +729,7 @@ func (e *Element) GetBkManager() int {
 	return xc.XEle_GetBkManager(e.Handle)
 }
 
-// 取背景管理器扩展, 获取元素背景管理器, 优先从资源中获取.
+// 取背景管理器EX, 获取元素背景管理器, 优先从资源中获取.
 func (e *Element) GetBkManagerEx() int {
 	return xc.XEle_GetBkManagerEx(e.Handle)
 }
@@ -824,7 +824,7 @@ func (e *Element) SetToolTip(pText string) int {
 	return xc.XEle_SetToolTip(e.Handle, pText)
 }
 
-// 置工具提示扩展, 设置工具提示内容.
+// 置工具提示EX, 设置工具提示内容.
 //
 // pText: 工具提示内容.
 //
@@ -854,7 +854,7 @@ func (e *Element) AdjustLayout(nAdjustNo uint32) int {
 	return xc.XEle_AdjustLayout(e.Handle, nAdjustNo)
 }
 
-// 调整布局扩展.
+// 调整布局EX.
 //
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //

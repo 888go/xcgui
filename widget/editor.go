@@ -20,7 +20,7 @@ type Editor struct {
 //
 // cy: 高度.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func NewEditor(x int, y int, cx int, cy int, hParent int) *Editor {
 	p := &Editor{}
 	p.SetHandle(xc.XEditor_Create(x, y, cx, cy, hParent))
@@ -221,7 +221,7 @@ func (e *Editor) ToExpandRow(iRow int) int {
 	return xc.XEditor_ToExpandRow(e.Handle, iRow)
 }
 
-// 展开扩展, 完全展开指定行, 例如:行包含在折叠内容中, 将其展开.
+// 展开EX, 完全展开指定行, 例如:行包含在折叠内容中, 将其展开.
 //
 // iRow: 行索引.
 func (e *Editor) ExpandEx(iRow int) int {

@@ -262,7 +262,7 @@ func (t *Tree) HitTest(pPt *xc.POINT) int32 {
 	return xc.XTree_HitTest(t.Handle, pPt)
 }
 
-// 测试点击项扩展, 检测坐标点所在项, 自动添加滚动视图偏移坐标, 返回项ID.
+// 测试点击项EX, 检测坐标点所在项, 自动添加滚动视图偏移坐标, 返回项ID.
 //
 // pPt: 坐标点.
 func (t *Tree) HitTestOffset(pPt *xc.POINT) int32 {
@@ -435,7 +435,7 @@ func (t *Tree) InsertItemText(pValue string, nParentID, insertID int32) int32 {
 	return xc.XTree_InsertItemText(t.Handle, pValue, nParentID, insertID)
 }
 
-// 插入项文本扩展.
+// 插入项文本EX.
 //
 // pName:名称      名称
 //
@@ -459,7 +459,7 @@ func (t *Tree) InsertItemImage(hImage int, nParentID, insertID int32) int32 {
 	return xc.XTree_InsertItemImage(t.Handle, hImage, nParentID, insertID)
 }
 
-// 插入项图片扩展.
+// 插入项图片EX.
 //
 // pName:名称      名称
 //
@@ -493,7 +493,7 @@ func (t *Tree) SetItemText(nID, iColumn int32, pValue string) bool {
 	return xc.XTree_SetItemText(t.Handle, nID, iColumn, pValue)
 }
 
-// 置项文本扩展.
+// 置项文本EX.
 // nID: 项ID.
 // pName:名称      名称
 //
@@ -513,7 +513,7 @@ func (t *Tree) SetItemImage(nID, iColumn int32, hImage int) bool {
 	return xc.XTree_SetItemImage(t.Handle, nID, iColumn, hImage)
 }
 
-// 置项图片扩展.
+// 置项图片EX.
 //
 // nID: 项ID.
 // pName:名称
@@ -532,7 +532,7 @@ func (t *Tree) GetItemText(nID, iColumn int32) string {
 	return xc.XTree_GetItemText(t.Handle, nID, iColumn)
 }
 
-// 取项文本扩展.
+// 取项文本EX.
 //
 // nID: 项ID.
 //
@@ -549,7 +549,7 @@ func (t *Tree) GetItemImage(nID, iColumn int32) int {
 	return xc.XTree_GetItemImage(t.Handle, nID, iColumn)
 }
 
-// 取项图片扩展.
+// 取项图片EX.
 //
 // nID: 项ID.
 //

@@ -20,7 +20,7 @@ type Table struct {
 //
 // cy: 高度.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func NewTable(x int, y int, cx int, cy int, hParent int) *Table {
 	p := &Table{}
 	p.SetHandle(xc.XTable_Create(x, y, cx, cy, hParent))

@@ -166,7 +166,7 @@ func (l *ListView) HitTest(pPt *xc.POINT, pOutGroup *int32, pOutItem *int32) boo
 	return xc.XListView_HitTest(l.Handle, pPt, pOutGroup, pOutItem)
 }
 
-// 测试点击项扩展, 检查坐标点所在项, 自动添加滚动视图偏移量.
+// 测试点击项EX, 检查坐标点所在项, 自动添加滚动视图偏移量.
 //
 // pPt: 坐标点.
 //
@@ -408,7 +408,7 @@ func (l *ListView) Group_AddItemText(pValue string, iPos int) int {
 	return xc.XListView_Group_AddItemText(l.Handle, pValue, iPos)
 }
 
-// 组添加项文本扩展, 返回组索引.
+// 组添加项文本EX, 返回组索引.
 //
 // pName: 字段称.
 //
@@ -428,7 +428,7 @@ func (l *ListView) Group_AddItemImage(hImage int, iPos int) int {
 	return xc.XListView_Group_AddItemImage(l.Handle, hImage, iPos)
 }
 
-// 组添加项图片扩展, 返回组索引.
+// 组添加项图片EX, 返回组索引.
 //
 // pName: 字段称.
 //
@@ -450,7 +450,7 @@ func (l *ListView) Group_SetText(iGroup int, iColumn int, pValue string) bool {
 	return xc.XListView_Group_SetText(l.Handle, iGroup, iColumn, pValue)
 }
 
-// 组置文本扩展.
+// 组置文本EX.
 //
 // iGroup: 组索引.
 //
@@ -472,7 +472,7 @@ func (l *ListView) Group_SetImage(iGroup int, iColumn int, hImage int) bool {
 	return xc.XListView_Group_SetImage(l.Handle, iGroup, iColumn, hImage)
 }
 
-// 组置图片扩展.
+// 组置图片EX.
 //
 // iGroup: 组索引.
 //
@@ -513,7 +513,7 @@ func (l *ListView) Item_AddItemText(iGroup int, pValue string, iPos int) int {
 	return xc.XListView_Item_AddItemText(l.Handle, iGroup, pValue, iPos)
 }
 
-// 项添加文本扩展, 返回项索引.
+// 项添加文本EX, 返回项索引.
 //
 // iGroup: 组索引.
 //
@@ -537,7 +537,7 @@ func (l *ListView) Item_AddItemImage(iGroup int, hImage int, iPos int) int {
 	return xc.XListView_Item_AddItemImage(l.Handle, iGroup, hImage, iPos)
 }
 
-// 项添加图片扩展, 返回项索引.
+// 项添加图片EX, 返回项索引.
 //
 // iGroup: 组索引.
 //
@@ -563,7 +563,7 @@ func (l *ListView) Item_SetText(iGroup int, iItem int, iColumn int, pValue strin
 	return xc.XListView_Item_SetText(l.Handle, iGroup, iItem, iColumn, pValue)
 }
 
-// 项置文本扩展.
+// 项置文本EX.
 //
 // iGroup: 组索引.
 //
@@ -589,7 +589,7 @@ func (l *ListView) Item_SetImage(iGroup int, iItem int, iColumn int, hImage int)
 	return xc.XListView_Item_SetImage(l.Handle, iGroup, iItem, iColumn, hImage)
 }
 
-// 项置图片扩展.
+// 项置图片EX.
 //
 // iGroup: 组索引.
 //
@@ -665,7 +665,7 @@ func (l *ListView) Item_GetTextEx(iGroup int, iItem int, pName string) string {
 	return xc.XListView_Item_GetTextEx(l.Handle, iGroup, iItem, pName)
 }
 
-// 项获取图片扩展, 返回图片句柄.
+// 项获取图片EX, 返回图片句柄.
 //
 // iGroup: 组索引.
 //
@@ -685,7 +685,7 @@ func (l *ListView) Group_GetText(iGroup int, iColumn int) string {
 	return xc.XListView_Group_GetText(l.Handle, iGroup, iColumn)
 }
 
-// 组取文本扩展, 返回文本内容.
+// 组取文本EX, 返回文本内容.
 //
 // iGroup: 组索引.
 //
@@ -703,7 +703,7 @@ func (l *ListView) Group_GetImage(iGroup int, iColumn int) int {
 	return xc.XListView_Group_GetImage(l.Handle, iGroup, iColumn)
 }
 
-// 组取图片扩展, 返回图片句柄.
+// 组取图片EX, 返回图片句柄.
 //
 // iGroup: 组索引.
 //

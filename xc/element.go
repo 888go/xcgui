@@ -18,7 +18,7 @@ import (
 //
 // cy: 高度.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func XEle_Create(x, y, cx, cy int32, hParent int) int {
 	r, _, _ := xEle_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)

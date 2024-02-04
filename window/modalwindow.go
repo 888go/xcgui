@@ -10,7 +10,7 @@ type ModalWindow struct {
 	windowBase
 }
 
-// 模态窗口_创建, 创建模态窗口, 然后你需要调用DoModal()来显示窗口; 当模态窗口关闭时, 会自动销毁模态窗口资源句柄.
+// 创建模态窗口, 创建模态窗口, 然后你需要调用DoModal()来显示窗口; 当模态窗口关闭时, 会自动销毁模态窗口资源句柄.
 //
 // nWidth: 宽度.
 //
@@ -27,7 +27,7 @@ func NewModalWindow(nWidth, nHeight int32, pTitle string, hWndParent uintptr, XC
 	return p
 }
 
-// 模态窗口_创建扩展, 创建模态窗口, 增强功能.
+// 创建模态窗口EX, 创建模态窗口, 增强功能.
 //
 // dwExStyle: 窗口扩展样式.
 //
@@ -54,12 +54,12 @@ func NewModalWindowEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, 
 	return p
 }
 
-// NewModalWindowByLayout 从布局文件创建对象, 失败返回nil.
+//	 创建模态窗口并按布局文件 , 失败返回nil.
 //
-//	@param pFileName 布局文件名.
-//	@param hParent 父对象句柄.
-//	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
-//	@return *ModalWindow
+//		@param pFileName 布局文件名.
+//		@param hParent 父对象句柄.
+//		@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
+//		@return *ModalWindow
 func NewModalWindowByLayout(pFileName string, hParent int, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
 	if handle > 0 {
@@ -70,14 +70,14 @@ func NewModalWindowByLayout(pFileName string, hParent int, hAttachWnd uintptr) *
 	return nil
 }
 
-// NewModalWindowByLayoutZip 从压缩包中的布局文件创建对象, 失败返回nil.
+//	  创建模态窗口并按压缩包布局文件 失败返回nil.
 //
-//	@param pZipFileName zip文件名.
-//	@param pFileName 布局文件名.
-//	@param pPassword zip密码.
-//	@param hParent 父对象句柄.
-//	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
-//	@return *ModalWindow
+//		@param pZipFileName zip文件名.
+//		@param pFileName 布局文件名.
+//		@param pPassword zip密码.
+//		@param hParent 父对象句柄.
+//		@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
+//		@return *ModalWindow
 func NewModalWindowByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
@@ -88,7 +88,7 @@ func NewModalWindowByLayoutZip(pZipFileName string, pFileName string, pPassword 
 	return nil
 }
 
-// NewModalWindowByLayoutZipMem 从内存压缩包中的布局文件创建对象, 失败返回nil.
+// NewModalWindowByLayoutZipMem 创建模态窗口并按内存压缩包布局文件
 //
 //	@param data 布局文件数据.
 //	@param pFileName 布局文件名.
@@ -106,7 +106,7 @@ func NewModalWindowByLayoutZipMem(data []byte, pFileName string, pPassword strin
 	return nil
 }
 
-// NewModalWindowByLayoutStringW 从布局文件字符串W创建对象, 失败返回nil.
+// NewModalWindowByLayoutStringW 创建模态窗口并按布局文件字符串W
 //
 //	@param pStringXML 字符串.
 //	@param hParent 父对象.
@@ -122,7 +122,7 @@ func NewModalWindowByLayoutStringW(pStringXML string, hParent int, hAttachWnd ui
 	return nil
 }
 
-// NewModalWindowByLayoutEx 从布局文件创建对象, 失败返回nil.
+// NewModalWindowByLayoutEx 创建模态窗口并按布局文件EX
 //
 //	@param pFileName 布局文件名.
 //	@param pPrefixName 名称(name)前缀, 可选参数; 给当前布局文件中所有name属性增加前缀, 那么name属性值为: 前缀 + name.
@@ -140,7 +140,7 @@ func NewModalWindowByLayoutEx(pFileName, pPrefixName string, hParent int, hParen
 	return nil
 }
 
-// NewModalWindowByLayoutZipResEx 从RC资源zip压缩包中的布局文件创建对象, 失败返回nil.
+// NewModalWindowByLayoutZipResEx 创建模态窗口并按RC资源zip压缩包布局文件EX
 //
 //	@param id RC资源ID.
 //	@param pFileName 布局文件名.
@@ -161,7 +161,7 @@ func NewModalWindowByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName 
 	return nil
 }
 
-// NewModalWindowByLayoutZipEx 从压缩包中的布局文件创建对象, 失败返回nil.
+// NewModalWindowByLayoutZipEx 创建模态窗口并按压缩包布局文件EX
 //
 //	@param pZipFileName zip文件名.
 //	@param pFileName 布局文件名.
@@ -181,7 +181,7 @@ func NewModalWindowByLayoutZipEx(pZipFileName string, pFileName string, pPasswor
 	return nil
 }
 
-// NewModalWindowByLayoutZipMemEx 从内存压缩包中的布局文件创建对象, 失败返回nil.
+// NewModalWindowByLayoutZipMemEx 创建模态窗口并按内存压缩包布局文件EX
 //
 //	@param data 布局文件数据.
 //	@param pFileName 布局文件名.
@@ -201,7 +201,7 @@ func NewModalWindowByLayoutZipMemEx(data []byte, pFileName string, pPassword, pP
 	return nil
 }
 
-// NewModalWindowByLayoutStringWEx 从布局文件字符串W创建对象, 失败返回nil.
+// NewModalWindowByLayoutStringWEx 创建模态窗口并按布局文件字符串WEX
 //
 //	@param pStringXML 字符串.
 //	@param pPrefixName 名称(name)前缀, 可选参数; 给当前布局文件中所有name属性增加前缀, 那么name属性值为: 前缀 + name.
@@ -219,9 +219,9 @@ func NewModalWindowByLayoutStringWEx(pStringXML, pPrefixName string, hParent int
 	return nil
 }
 
-// 模态窗口_附加窗口, 返回窗口对象.
+// 模态窗口附加窗口, 返回窗口对象.
 //
-// hWnd: 要附加的外部窗口句柄.
+// hWnd: 外部窗口句柄.
 //
 // XCStyle: 炫彩窗口样式: xcc.Window_Style_.
 func ModalWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
@@ -230,14 +230,14 @@ func ModalWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
 	return p
 }
 
-// 从句柄创建对象.
+// 创建模态窗口并按句柄
 func NewModalWindowByHandle(handle int) *ModalWindow {
 	p := &ModalWindow{}
 	p.SetHandle(handle)
 	return p
 }
 
-// 从name创建对象, 失败返回nil.
+// 创建模态窗口并按名称, 失败返回nil.
 func NewModalWindowByName(name string) *ModalWindow {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
@@ -248,7 +248,7 @@ func NewModalWindowByName(name string) *ModalWindow {
 	return nil
 }
 
-// 从UID创建对象, 失败返回nil.
+// 创建模态窗口并按UID
 func NewModalWindowByUID(nUID int) *ModalWindow {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
@@ -259,7 +259,7 @@ func NewModalWindowByUID(nUID int) *ModalWindow {
 	return nil
 }
 
-// 从UID名称创建对象, 失败返回nil.
+// 创建模态窗口并按UID名称
 func NewModalWindowByUIDName(name string) *ModalWindow {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
@@ -270,28 +270,28 @@ func NewModalWindowByUIDName(name string) *ModalWindow {
 	return nil
 }
 
-// 模态窗口_启用自动关闭, 是否自动关闭窗口, 当窗口失去焦点时.
+// 启用自动关闭, 是否自动关闭窗口, 当窗口失去焦点时.
 //
 // bEnable: 开启开关.
 func (m *ModalWindow) EnableAutoClose(bEnable bool) int {
 	return xc.XModalWnd_EnableAutoClose(m.Handle, bEnable)
 }
 
-// 模态窗口_启用ESC关闭, 当用户按ESC键时自动关闭模态窗口.
+// 启用ESC关闭, 当用户按ESC键时自动关闭模态窗口.
 //
 // bEnable: 是否启用.
 func (m *ModalWindow) EnableEscClose(bEnable bool) int {
 	return xc.XModalWnd_EnableEscClose(m.Handle, bEnable)
 }
 
-// 模态窗口_启动, 启动显示模态窗口, 当窗口关闭时返回: MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
+// 启动, 启动显示模态窗口, 当窗口关闭时返回: MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
 func (m *ModalWindow) DoModal() xcc.MessageBox_Flag_ {
 	return xc.XModalWnd_DoModal(m.Handle)
 }
 
-// 模态窗口_结束, 结束模态窗口.
+// 结束, 结束模态窗口.
 //
-// nResult: 用作XModalWnd_DoModal()的返回值. MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
+// nResult: 结果  用作XModalWnd_DoModal()的返回值. MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
 func (m *ModalWindow) EndModal(nResult xcc.MessageBox_Flag_) int {
 	return xc.XModalWnd_EndModal(m.Handle, nResult)
 }

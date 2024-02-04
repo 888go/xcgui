@@ -19,7 +19,7 @@ import (
 //
 // cy: 高度.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func XEdit_Create(x int, y int, cx int, cy int, hParent int) int {
 	r, _, _ := xEdit_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)
@@ -37,7 +37,7 @@ func XEdit_Create(x int, y int, cx int, cy int, hParent int) int {
 //
 // nType: 类型, Edit_Type_.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func XEdit_CreateEx(x int, y int, cx int, cy int, nType xcc.Edit_Type_, hParent int) int {
 	r, _, _ := xEdit_CreateEx.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(nType), uintptr(hParent))
 	return int(r)

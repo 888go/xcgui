@@ -12,7 +12,7 @@ import "github.com/twgh/xcgui/common"
 //
 // cy: 高度.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func XLayout_Create(x int, y int, cx int, cy int, hParent int) int {
 	r, _, _ := xLayout_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)
@@ -20,7 +20,7 @@ func XLayout_Create(x int, y int, cx int, cy int, hParent int) int {
 
 // 布局_创建扩展, 创建布局元素, 返回元素句柄.
 //
-// hParent: 父为窗口句柄或元素句柄.
+// hParent: 父窗口句柄或元素句柄.
 func XLayout_CreateEx(hParent int) int {
 	r, _, _ := xLayout_CreateEx.Call(uintptr(hParent))
 	return int(r)

@@ -1,7 +1,7 @@
 
 # <翻译开始>
 func NewButton(x, y, cx, cy int32, pName string, hParent
-父为窗口句柄
+父窗口句柄
 # <翻译结束>
 
 # <翻译开始>

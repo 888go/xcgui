@@ -10,10 +10,10 @@ type Window struct {
 	windowBase
 }
 
-// New 窗口_创建.
+// New 创建窗口
 //
-//	@param x 窗口左上角x坐标.
-//	@param y 窗口左上角y坐标.
+//	@param x  x坐标.
+//	@param y  y坐标.
 //	@param cx 窗口宽度.
 //	@param cy 窗口高度.
 //	@param pTitle 窗口标题.
@@ -26,7 +26,7 @@ func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Wind
 	return p
 }
 
-// NewEx 窗口_创建扩展.
+// NewEx 创建窗口EX
 //
 //	@param dwExStyle 窗口扩展样式.
 //	@param dwStyle 窗口样式.
@@ -45,7 +45,7 @@ func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int,
 	return p
 }
 
-// Attach 窗口_附加窗口, 返回窗口对象.
+// Attach 窗口附加窗口, 返回窗口对象.
 //
 //	@param hWnd 要附加的外部窗口句柄.
 //	@param XCStyle 窗口样式: xcc.Window_Style_.
@@ -56,7 +56,7 @@ func Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
 	return p
 }
 
-// NewByHandle 从句柄创建窗口对象.
+// NewByHandle 创建窗口并按句柄
 //
 //	@param hWindow 窗口资源句柄.
 //	@return *Window
@@ -66,7 +66,7 @@ func NewByHandle(hWindow int) *Window {
 	return p
 }
 
-// NewByLayout 从布局文件创建窗口对象, 失败返回nil.
+// NewByLayout 创建窗口并按布局文件
 //
 //	@param pFileName 布局文件名.
 //	@param hParent 父对象句柄.
@@ -82,7 +82,7 @@ func NewByLayout(pFileName string, hParent int, hAttachWnd uintptr) *Window {
 	return nil
 }
 
-// NewByLayoutZip 从压缩包中的布局文件创建窗口对象, 失败返回nil.
+// NewByLayoutZip 创建窗口并按压缩包布局文件
 //
 //	@param pZipFileName zip文件名.
 //	@param pFileName 布局文件名.
@@ -100,7 +100,7 @@ func NewByLayoutZip(pZipFileName string, pFileName string, pPassword string, hPa
 	return nil
 }
 
-// NewByLayoutZipMem 从内存压缩包中的布局文件创建窗口对象, 失败返回nil.
+// NewByLayoutZipMem 创建窗口并按内存压缩包布局文件
 //
 //	@param data 布局文件数据.
 //	@param pFileName 布局文件名.
@@ -118,7 +118,7 @@ func NewByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent 
 	return nil
 }
 
-// NewByLayoutStringW 从布局文件字符串W创建窗口对象, 失败返回nil.
+// NewByLayoutStringW 创建窗口并按布局文件字符串W
 //
 //	@param pStringXML 字符串.
 //	@param hParent 父对象.
@@ -134,7 +134,7 @@ func NewByLayoutStringW(pStringXML string, hParent int, hAttachWnd uintptr) *Win
 	return nil
 }
 
-// NewByLayoutEx 从布局文件创建窗口对象, 失败返回nil.
+// NewByLayoutEx 创建窗口并按布局文件EX
 //
 //	@param pFileName 布局文件名.
 //	@param pPrefixName 名称(name)前缀, 可选参数; 给当前布局文件中所有name属性增加前缀, 那么name属性值为: 前缀 + name.
@@ -152,7 +152,7 @@ func NewByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAtta
 	return nil
 }
 
-// NewByLayoutZipEx 从压缩包中的布局文件创建窗口对象, 失败返回nil.
+// NewByLayoutZipEx 创建窗口并按压缩包布局文件EX
 //
 //	@param pZipFileName zip文件名.
 //	@param pFileName 布局文件名.
@@ -172,7 +172,7 @@ func NewByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixN
 	return nil
 }
 
-// NewByLayoutZipResEx 从RC资源zip压缩包中的布局文件创建窗口对象, 失败返回nil.
+// NewByLayoutZipResEx 创建窗口并按RC资源zip压缩包布局文件EX
 //
 //	@param id RC资源ID.
 //	@param pFileName 布局文件名.
@@ -193,7 +193,7 @@ func NewByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hPa
 	return nil
 }
 
-// NewByLayoutZipMemEx 从内存压缩包中的布局文件创建窗口对象, 失败返回nil.
+// NewByLayoutZipMemEx 创建窗口并按内存压缩包布局文件EX
 //
 //	@param data 布局文件数据.
 //	@param pFileName 布局文件名.
@@ -213,7 +213,7 @@ func NewByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName s
 	return nil
 }
 
-// NewByLayoutStringWEx 从布局文件字符串W创建窗口对象, 失败返回nil.
+// NewByLayoutStringWEx 创建窗口并按布局文件字符串WEX
 //
 //	@param pStringXML 字符串.
 //	@param pPrefixName 名称(name)前缀, 可选参数; 给当前布局文件中所有name属性增加前缀, 那么name属性值为: 前缀 + name.
@@ -231,7 +231,7 @@ func NewByLayoutStringWEx(pStringXML, pPrefixName string, hParent int, hParentWn
 	return nil
 }
 
-// NewByName 从name创建对象, 失败返回nil.
+// NewByName 创建窗口并按名称
 //
 //	@param name
 //	@return *Window
@@ -245,7 +245,7 @@ func NewByName(name string) *Window {
 	return nil
 }
 
-// NewByUID 从UID创建窗口对象, 失败返回nil.
+// NewByUID 创建窗口并按UID
 //
 //	@param nUID
 //	@return *Window
@@ -259,7 +259,7 @@ func NewByUID(nUID int) *Window {
 	return nil
 }
 
-// NewByUIDName 从UID名称创建对象, 失败返回nil.
+// NewByUIDName 创建窗口并按UID名称
 //
 //	@param name
 //	@return *Window

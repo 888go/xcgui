@@ -27,7 +27,7 @@ func NewEdit(x int, y int, cx int, cy int, hParent int) *Edit {
 	return p
 }
 
-// 创建编辑框扩展.
+// 创建编辑框EX.
 //
 // x: 元素x坐标.
 //
@@ -197,7 +197,7 @@ func (e *Edit) SetDefaultText(pString string) int {
 
 // 置默认文本颜色.
 //
-// color: ABGR 颜色值.
+// color: ABGR颜色值.
 func (e *Edit) SetDefaultTextColor(color int) int {
 	return xc.XEdit_SetDefaultTextColor(e.Handle, color)
 }
@@ -239,7 +239,7 @@ func (e *Edit) SetTextInt(nValue int) int {
 
 // 取文本, 不包含非文本内容, 返回实际接收文本长度.
 //
-// pOut: 接收文本内存指针.
+// pOut: 接收文本指针.
 //
 // nOutlen: 内存大小. 例: GetLength()+1 .
 func (e *Edit) GetText(pOut *string, nOutlen int) int {
@@ -264,7 +264,7 @@ func (e *Edit) GetSelectTextEx() string {
 //
 // iRow: 行索引.
 //
-// pOut: 接收文本内存指针.
+// pOut: 接收文本指针.
 //
 // nOutlen: 接收文本内存块长度. 例: GetLengthRow()+1 .
 func (e *Edit) GetTextRow(iRow int, pOut *string, nOutlen int) int {
@@ -327,7 +327,7 @@ func (e *Edit) AddText(pString string) int {
 	return xc.XEdit_AddText(e.Handle, pString)
 }
 
-// 添加文本扩展.
+// 添加文本EX.
 //
 // pString: 字符串.
 //
@@ -361,7 +361,7 @@ func (e *Edit) AddStyle(hFont_image_Obj int, color int, bColor bool) int {
 	return xc.XEdit_AddStyle(e.Handle, hFont_image_Obj, color, bColor)
 }
 
-// 添加样式扩展, 返回样式索引.
+// 添加样式EX, 返回样式索引.
 //
 // fontName: 字体名称.
 //
@@ -468,7 +468,7 @@ func (e *Edit) AutoScroll() bool {
 	return xc.XEdit_AutoScroll(e.Handle)
 }
 
-// 自动滚动扩展, 视图自动滚动到指定位置.
+// 自动滚动EX, 视图自动滚动到指定位置.
 //
 // iRow: 行索引.
 //
@@ -616,7 +616,7 @@ func (e *Edit) SetRowSpace(nSpace int) int {
 	return xc.XEdit_SetRowSpace(e.Handle, nSpace)
 }
 
-// 置当前位置扩展.
+// 置当前位置EX.
 //
 // iRow: 行索引.
 //
@@ -625,7 +625,7 @@ func (e *Edit) SetCurPosEx(iRow, iCol int32) int {
 	return xc.XEdit_SetCurPosEx(e.Handle, iRow, iCol)
 }
 
-// 取当前位置扩展.
+// 取当前位置EX.
 //
 // iRow: 返回行索引.
 //
@@ -738,7 +738,7 @@ func (e *Edit) GetChatFlags(iRow int) xcc.Chat_Flag_ {
 	return xc.XEdit_GetChatFlags(e.Handle, iRow)
 }
 
-// 插入文本扩展.
+// 插入文本EX.
 //
 // iRow: 行索引.
 //
@@ -834,12 +834,12 @@ func (e *Edit) Event_EDIT_SET1(pFun XE_EDIT_SET1) bool {
 	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_SET, pFun)
 }
 
-// 暂未使用.
+// 暂未使用Event_EDIT_DRAWROW
 func (e *Edit) Event_EDIT_DRAWROW(pFun XE_EDIT_DRAWROW) bool {
 	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_DRAWROW, pFun)
 }
 
-// 暂未使用.
+// 暂未使用Event_EDIT_DRAWROW1
 func (e *Edit) Event_EDIT_DRAWROW1(pFun XE_EDIT_DRAWROW1) bool {
 	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_DRAWROW, pFun)
 }
