@@ -9,7 +9,7 @@ type ShapeLine struct {
 	Shape
 }
 
-// 形状线_创建.
+// 创建形状线
 //
 // x1: 坐标.
 //
@@ -26,14 +26,14 @@ func NewShapeLine(x1 int, y1 int, x2 int, y2 int, hParent int) *ShapeLine {
 	return p
 }
 
-// 从句柄创建对象.
+// 创建形状线并按句柄
 func NewShapeLineByHandle(handle int) *ShapeLine {
 	p := &ShapeLine{}
 	p.SetHandle(handle)
 	return p
 }
 
-// 从name创建对象, 失败返回nil.
+// 创建形状线并按名称, 失败返回nil.
 func NewShapeLineByName(name string) *ShapeLine {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
@@ -44,7 +44,7 @@ func NewShapeLineByName(name string) *ShapeLine {
 	return nil
 }
 
-// 从UID创建对象, 失败返回nil.
+// 创建形状线并按UID
 func NewShapeLineByUID(nUID int) *ShapeLine {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
@@ -55,7 +55,7 @@ func NewShapeLineByUID(nUID int) *ShapeLine {
 	return nil
 }
 
-// 从UID名称创建对象, 失败返回nil.
+// 创建形状线并按UID名称
 func NewShapeLineByUIDName(name string) *ShapeLine {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
@@ -66,7 +66,7 @@ func NewShapeLineByUIDName(name string) *ShapeLine {
 	return nil
 }
 
-// 形状线_置位置.
+// 置位置.
 //
 // x1: 坐标.
 //
@@ -79,9 +79,9 @@ func (s *ShapeLine) SetPosition(x1 int, y1 int, x2 int, y2 int) int {
 	return xc.XShapeLine_SetPosition(s.Handle, x1, y1, x2, y2)
 }
 
-// 形状线_置颜色, 设置直线颜色.
+// 置颜色, 设置直线颜色.
 //
-// color: ABGR 颜色值.
+// color: ABGR颜色值.
 func (s *ShapeLine) SetColor(color int) int {
 	return xc.XShapeLine_SetColor(s.Handle, color)
 }

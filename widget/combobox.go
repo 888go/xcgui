@@ -20,7 +20,7 @@ type ComboBox struct {
 //
 // cy: 高度.
 //
-// hParent: 父是窗口资源句柄或UI元素资源句柄.如果是窗口资源句柄将被添加到窗口.
+// hParent: 父窗口句柄或元素句柄.如果是窗口资源句柄将被添加到窗口.
 func NewComboBox(x int, y int, cx int, cy int, hParent int) *ComboBox {
 	p := &ComboBox{}
 	p.SetHandle(xc.XComboBox_Create(x, y, cx, cy, hParent))

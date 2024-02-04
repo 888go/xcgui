@@ -9,7 +9,7 @@ type ShapePicture struct {
 	Shape
 }
 
-// NewShapePicture 形状图片_创建, 创建形状对象-图片.
+// 创建形状图片
 //
 // x: x坐标.
 //
@@ -26,14 +26,14 @@ func NewShapePicture(x int, y int, cx int, cy int, hParent int) *ShapePicture {
 	return p
 }
 
-// 从句柄创建对象.
+// 创建形状图片并按句柄.
 func NewShapePictureByHandle(handle int) *ShapePicture {
 	p := &ShapePicture{}
 	p.SetHandle(handle)
 	return p
 }
 
-// 从name创建对象, 失败返回nil.
+// 创建形状图片并按名称 失败返回nil.
 func NewShapePictureByName(name string) *ShapePicture {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
@@ -44,7 +44,7 @@ func NewShapePictureByName(name string) *ShapePicture {
 	return nil
 }
 
-// 从UID创建对象, 失败返回nil.
+// 创建形状图片并按UID
 func NewShapePictureByUID(nUID int) *ShapePicture {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
@@ -55,7 +55,7 @@ func NewShapePictureByUID(nUID int) *ShapePicture {
 	return nil
 }
 
-// 从UID名称创建对象, 失败返回nil.
+// 创建形状图片并按UID名称
 func NewShapePictureByUIDName(name string) *ShapePicture {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
@@ -66,14 +66,14 @@ func NewShapePictureByUIDName(name string) *ShapePicture {
 	return nil
 }
 
-// 形状图片_置图片, 设置图片.
+// 置图片, 设置图片.
 //
 // hImage: 图片句柄.
 func (s *ShapePicture) SetImage(hImage int) int {
 	return xc.XShapePic_SetImage(s.Handle, hImage)
 }
 
-// 形状图片_取图片, 获取图片句柄.
+// 取图片, 获取图片句柄.
 func (s *ShapePicture) GetImage() int {
 	return xc.XShapePic_GetImage(s.Handle)
 }

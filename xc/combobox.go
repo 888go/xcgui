@@ -17,7 +17,7 @@ import (
 //
 // cy: 高度.
 //
-// hParent: 父是窗口资源句柄或UI元素资源句柄.如果是窗口资源句柄将被添加到窗口.
+// hParent: 父窗口句柄或元素句柄.如果是窗口资源句柄将被添加到窗口.
 func XComboBox_Create(x int, y int, cx int, cy int, hParent int) int {
 	r, _, _ := xComboBox_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)

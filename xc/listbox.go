@@ -18,7 +18,7 @@ import (
 //
 // cy: 高度.
 //
-// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
+// hParent: 父窗口句柄或元素句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 func XListBox_Create(x int, y int, cx int, cy int, hParent int) int {
 	r, _, _ := xListBox_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)
@@ -34,7 +34,7 @@ func XListBox_Create(x int, y int, cx int, cy int, hParent int) int {
 //
 // cy: 高度.
 //
-// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
+// hParent: 父窗口句柄或元素句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 //
 // col_extend_count: 列数量. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
 func XListBox_CreateEx(x, y, cx, cy int32, hParent, col_extend_count int32) int {
