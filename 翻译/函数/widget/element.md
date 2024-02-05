@@ -365,7 +365,7 @@ func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_
 
 # <翻译开始>
 func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags
-识位
+标识
 # <翻译结束>
 
 # <翻译开始>
@@ -432,7 +432,7 @@ func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLa
 
 # <翻译开始>
 func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags
-识位
+标识
 # <翻译结束>
 
 # <翻译开始>
@@ -458,7 +458,7 @@ func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_
 
 # <翻译开始>
 func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags
-识位
+标识
 # <翻译结束>
 
 # <翻译开始>
@@ -489,7 +489,7 @@ func (e *Element) SetPositionLogic(x, y int32, bRedraw bool, nFlags xcc.AdjustLa
 
 # <翻译开始>
 func (e *Element) SetPositionLogic(x, y int32, bRedraw bool, nFlags
-识位
+标识
 # <翻译结束>
 
 # <翻译开始>
@@ -1342,7 +1342,7 @@ func (e *Element) AdjustLayoutEx(nFlags xcc.AdjustLayout_, nAdjustNo
 
 # <翻译开始>
 func (e *Element) AdjustLayoutEx(nFlags
-识位
+标识
 # <翻译结束>
 
 # <翻译开始>
@@ -1380,7 +1380,7 @@ func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags xcc.Adjust
 
 # <翻译开始>
 func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags
-识位
+标识
 # <翻译结束>
 
 # <翻译开始>

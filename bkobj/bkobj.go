@@ -20,6 +20,7 @@ func NewByHandle(handle int) *BkObj {
 	return p
 }
 
+// func +NewByBkm\(bkm
 // 创建背景对象并按背景管理器对象
 // NewByBkm 从BkManager对象创建BkObj对象, 失败返回nil.
 // // bkm: 背景管理器对象.
