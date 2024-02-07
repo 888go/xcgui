@@ -159,7 +159,7 @@ func (w *windowBase) ShowWindow(nCmdShow
 
 # <翻译开始>
 func (w *windowBase) ShowWindow
-X显示
+X显示方式
 # <翻译结束>
 
 
@@ -306,7 +306,7 @@ X置坐标
 
 # <翻译开始>
 func (w *windowBase) SetFocusEle(hFocusEle
-将获得焦点的元素
+元素
 # <翻译结束>
 
 # <翻译开始>
@@ -1539,7 +1539,7 @@ X置标题外间距
 
 
 # <翻译开始>
-func (w *windowBase) SetTopEx(b bool) b
+func (w *windowBase) SetTopEx(b
 是否置顶
 # <翻译结束>
 
@@ -1576,7 +1576,7 @@ X坐标
 
 # <翻译开始>
 func (w *windowBase) SetWindowPos(hWndInsertAfter
-在Z序中位于定位窗口之前的窗口句柄
+置顶方式
 # <翻译结束>
 
 # <翻译开始>
@@ -1879,7 +1879,7 @@ X事件_置焦点元素
 
 # <翻译开始>
 func (w *windowBase) Event_SETFOCUS_ELE1
-X事件_置焦点元素
+X事件_置焦点元素1
 # <翻译结束>
 
 

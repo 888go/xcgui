@@ -6,22 +6,22 @@ func NewShapeLine(x1 int, y1 int, x2 int, y2 int, hParent
 
 # <翻译开始>
 func NewShapeLine(x1 int, y1 int, x2 int, y2
-坐标
+坐标y2
 # <翻译结束>
 
 # <翻译开始>
 func NewShapeLine(x1 int, y1 int, x2
-坐标
+坐标x2
 # <翻译结束>
 
 # <翻译开始>
 func NewShapeLine(x1 int, y1
-坐标
+坐标y1
 # <翻译结束>
 
 # <翻译开始>
 func NewShapeLine(x1
-坐标
+坐标x1
 # <翻译结束>
 
 # <翻译开始>
@@ -56,22 +56,22 @@ X创建形状线并按UID名称
 
 # <翻译开始>
 func (s *ShapeLine) SetPosition(x1 int, y1 int, x2 int, y2
-坐标
+坐标y2
 # <翻译结束>
 
 # <翻译开始>
 func (s *ShapeLine) SetPosition(x1 int, y1 int, x2
-坐标
+坐标x2
 # <翻译结束>
 
 # <翻译开始>
 func (s *ShapeLine) SetPosition(x1 int, y1
-坐标
+坐标y1
 # <翻译结束>
 
 # <翻译开始>
 func (s *ShapeLine) SetPosition(x1
-坐标
+坐标x1
 # <翻译结束>
 
 # <翻译开始>

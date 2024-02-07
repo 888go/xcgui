@@ -6,7 +6,7 @@ XUI线程回调函数
 
 
 # <翻译开始>
-func XC_CallUiThreadEx(f f
+func XC_CallUiThreadEx(f
 回调函数
 # <翻译结束>
 
@@ -17,7 +17,7 @@ X炫彩_调用界面线程Ex
 
 
 # <翻译开始>
-func XC_CallUT(f f
+func XC_CallUT(f
 回调函数
 # <翻译结束>
 

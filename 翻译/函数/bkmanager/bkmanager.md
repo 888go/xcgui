@@ -208,7 +208,7 @@ func (b *BkManager) SetInfo(pText
 
 # <翻译开始>
 func (b *BkManager) SetInfo
-X取引用计数
+X设置背景内容
 # <翻译结束>
 
 

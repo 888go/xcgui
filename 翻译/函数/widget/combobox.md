@@ -29,12 +29,21 @@ func NewComboBox
 X创建组合框
 # <翻译结束>
 
+# <翻译开始>
+func NewComboBoxByHandle(handle
+句柄
+# <翻译结束>
 
 # <翻译开始>
 func NewComboBoxByHandle
 X创建组合框并按句柄
 # <翻译结束>
 
+
+# <翻译开始>
+func NewComboBoxByName(name
+名称
+# <翻译结束>
 
 # <翻译开始>
 func NewComboBoxByName
@@ -47,6 +56,10 @@ func NewComboBoxByUID
 X创建组合框并按UID
 # <翻译结束>
 
+# <翻译开始>
+func NewComboBoxByUIDName(name
+UID名称
+# <翻译结束>
 
 # <翻译开始>
 func NewComboBoxByUIDName
@@ -204,6 +217,11 @@ func (c *ComboBox) GetState
 X取状态
 # <翻译结束>
 
+# <翻译开始>
+func (c *ComboBox) AddItemText(pText
+文本
+# <翻译结束>
+
 
 # <翻译开始>
 func (c *ComboBox) AddItemText
@@ -223,7 +241,7 @@ func (c *ComboBox) AddItemTextEx(pName
 
 # <翻译开始>
 func (c *ComboBox) AddItemTextEx
-X添加项文本扩展
+X添加项文本EX
 # <翻译结束>
 
 
@@ -250,7 +268,7 @@ func (c *ComboBox) AddItemImageEx(pName
 
 # <翻译开始>
 func (c *ComboBox) AddItemImageEx
-X添加项图片扩展
+X添加项图片EX
 # <翻译结束>
 
 
@@ -287,7 +305,7 @@ func (c *ComboBox) InsertItemTextEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) InsertItemTextEx
-X插入项文本扩展
+X插入项文本EX
 # <翻译结束>
 
 
@@ -324,7 +342,7 @@ func (c *ComboBox) InsertItemImageEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) InsertItemImageEx
-X插入项图片扩展
+X插入项图片EX
 # <翻译结束>
 
 
@@ -366,7 +384,7 @@ func (c *ComboBox) SetItemTextEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) SetItemTextEx
-X置项文本扩展
+X置项文本EX
 # <翻译结束>
 
 
@@ -408,7 +426,7 @@ func (c *ComboBox) SetItemImageEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) SetItemImageEx
-X置项图片扩展
+X置项图片EX
 # <翻译结束>
 
 
@@ -450,7 +468,7 @@ func (c *ComboBox) SetItemIntEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) SetItemIntEx
-X置项指数值扩展
+X置项指数值EX
 # <翻译结束>
 
 
@@ -492,7 +510,7 @@ func (c *ComboBox) SetItemFloatEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) SetItemFloatEx
-X置项浮点值扩展
+X置项浮点值EX
 # <翻译结束>
 
 
@@ -524,7 +542,7 @@ func (c *ComboBox) GetItemTextEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) GetItemTextEx
-X取项文本扩展
+X取项文本EX
 # <翻译结束>
 
 
@@ -556,7 +574,7 @@ func (c *ComboBox) GetItemImageEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) GetItemImageEx
-X取项图片扩展
+X取项图片EX
 # <翻译结束>
 
 
@@ -598,7 +616,7 @@ func (c *ComboBox) GetItemIntEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) GetItemIntEx
-X取项整数值扩展
+X取项整数值EX
 # <翻译结束>
 
 
@@ -640,7 +658,7 @@ func (c *ComboBox) GetItemFloatEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) GetItemFloatEx
-X取项浮点值扩展
+X取项浮点值EX
 # <翻译结束>
 
 
@@ -667,7 +685,7 @@ func (c *ComboBox) DeleteItemEx(iItem
 
 # <翻译开始>
 func (c *ComboBox) DeleteItemEx
-X删除项扩展
+X删除项EX
 # <翻译结束>
 
 

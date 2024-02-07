@@ -29,7 +29,7 @@ func (a *App) ShowAndRun(hWindow
 
 # <翻译开始>
 func (a *App) ShowAndRun
-X显示窗口并调用运行
+X显示窗口并运行
 # <翻译结束>
 
 
@@ -165,26 +165,7 @@ X消息框_创建EX
 # <翻译结束>
 
 
-# <翻译开始>
-func (a *App) SendMessage(hWindow
-窗口句柄
-# <翻译结束>
-
-# <翻译开始>
-func (a *App) SendMessage
-X发送窗口消息
-# <翻译结束>
-
-
-# <翻译开始>
-func (a *App) PostMessage(hWindow
-窗口句柄
-# <翻译结束>
-
-# <翻译开始>
-func (a *App) PostMessage
-X投递窗口消息
-# <翻译结束>
+ 
 
 
 # <翻译开始>
@@ -194,7 +175,7 @@ func (a *App) CallUiThread(pCall
 
 # <翻译开始>
 func (a *App) CallUiThread
-X调用界面线程
+X内部_调用界面线程
 # <翻译结束>
 
 
@@ -205,18 +186,18 @@ func (a *App) CallUiThreadEx(pCall
 
 # <翻译开始>
 func (a *App) CallUiThreadEx
-X调用界面线程
+X调用界面线程EX
 # <翻译结束>
 
 
 # <翻译开始>
-func (a *App) CallUT(f f
+func (a *App) CallUT(f
 回调函数
 # <翻译结束>
 
 # <翻译开始>
 func (a *App) CallUT
-X调用界面线程
+X简易调用界面线程
 # <翻译结束>
 
 
@@ -881,7 +862,7 @@ zip密码
 
 # <翻译开始>
 func (a *App) LoadLayoutZip(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -1103,7 +1084,7 @@ zip密码
 
 # <翻译开始>
 func (a *App) LoadLayoutZipEx(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -1260,7 +1241,7 @@ zip压缩包密码
 
 # <翻译开始>
 func (a *App) LoadResourceZip(pZipFileName string, pFileName
-zip文件名
+资源文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -1777,5 +1758,57 @@ func (a *App) EnableDPI(bEnabel
 # <翻译开始>
 func (a *App) EnableDPI
 X启用DPI
+# <翻译结束>
+
+
+# <翻译开始>
+func (a *App) SendMessage(hWindow int, msg uint32, wParam, lParam
+参数2
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) SendMessage(hWindow int, msg uint32, wParam
+参数1
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) SendMessage(hWindow int, msg
+消息值
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) SendMessage(hWindow
+窗口句柄
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) SendMessage
+X发送窗口消息
+# <翻译结束>
+
+
+# <翻译开始>
+func (a *App) PostMessage(hWindow int, msg uint32, wParam int32, lParam
+参数2
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) PostMessage(hWindow int, msg uint32, wParam
+参数1
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) PostMessage(hWindow int, msg
+消息值
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) PostMessage(hWindow
+窗口句柄
+# <翻译结束>
+
+# <翻译开始>
+func (a *App) PostMessage
+X投递窗口消息
 # <翻译结束>
 

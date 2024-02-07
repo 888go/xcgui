@@ -156,7 +156,7 @@ zip密码
 
 # <翻译开始>
 func NewByLayoutZip(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -280,7 +280,7 @@ zip密码
 
 # <翻译开始>
 func NewByLayoutZipEx(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>

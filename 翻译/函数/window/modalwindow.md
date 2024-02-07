@@ -124,7 +124,7 @@ zip密码
 
 # <翻译开始>
 func NewModalWindowByLayoutZip(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -294,7 +294,7 @@ zip密码
 
 # <翻译开始>
 func NewModalWindowByLayoutZipEx(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>

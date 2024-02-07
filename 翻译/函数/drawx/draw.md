@@ -112,12 +112,12 @@ func (d *Draw) DrawArc(x, y int, nWidth
 
 # <翻译开始>
 func (d *Draw) DrawArc(x, y
-坐标
+y坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawArc(x
-坐标
+x坐标
 # <翻译结束>
 
 # <翻译开始>
@@ -148,12 +148,12 @@ func (d *Draw) DrawArcF(x, y, nWidth
 
 # <翻译开始>
 func (d *Draw) DrawArcF(x, y
-坐标
+y坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawArcF(x
-坐标
+x坐标
 # <翻译结束>
 
 # <翻译开始>
@@ -206,22 +206,22 @@ X曲线F
 
 # <翻译开始>
 func (d *Draw) DrawLine(x1 int, y1 int, x2 int, y2
-坐标
+y2坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawLine(x1 int, y1 int, x2
-坐标
+x2坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawLine(x1 int, y1
-坐标
+y1坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawLine(x1
-坐标
+x1坐标
 # <翻译结束>
 
 # <翻译开始>
@@ -232,22 +232,22 @@ X线条
 
 # <翻译开始>
 func (d *Draw) DrawLineF(x1, y1, x2, y2
-坐标
+y2坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawLineF(x1, y1, x2
-坐标
+x2坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawLineF(x1, y1
-坐标
+y1坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawLineF(x1
-坐标
+x1坐标
 # <翻译结束>
 
 # <翻译开始>
@@ -295,7 +295,7 @@ func (d *Draw) DrawRect(pRect
 
 # <翻译开始>
 func (d *Draw) DrawRect
-X矩形
+X矩形边框
 # <翻译结束>
 
 
@@ -306,7 +306,7 @@ func (d *Draw) DrawRectF(pRect
 
 # <翻译开始>
 func (d *Draw) DrawRectF
-X矩形F
+X矩形边框F
 # <翻译结束>
 
 
@@ -439,6 +439,11 @@ func (d *Draw) SetClipRect(pRect
 # <翻译开始>
 func (d *Draw) SetClipRect
 X置裁剪区域
+# <翻译结束>
+
+# <翻译开始>
+func (d *Draw) SetD2dTextRenderingMode(mode
+渲染模式
 # <翻译结束>
 
 
@@ -802,22 +807,22 @@ X圆角矩形F
 
 # <翻译开始>
 func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom, nLeftBottom
-圆角大小
+左下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom
-圆角大小
+右下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop, nRightTop
-圆角大小
+右上
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop
-圆角大小
+左上
 # <翻译结束>
 
 # <翻译开始>
@@ -833,22 +838,22 @@ X填充圆角矩形EX
 
 # <翻译开始>
 func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop, nRightTop, nRightBottom, nLeftBottom
-圆角大小
+左下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop, nRightTop, nRightBottom
-圆角大小
+右下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop, nRightTop
-圆角大小
+右上
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop
-圆角大小
+左上
 # <翻译结束>
 
 # <翻译开始>
@@ -864,22 +869,22 @@ X填充圆角矩形EXF
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop int, nRightTop int, nRightBottom int, nLeftBottom
-圆角大小
+左下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop int, nRightTop int, nRightBottom
-圆角大小
+右下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop int, nRightTop
-圆角大小
+右上
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop
-圆角大小
+左上
 # <翻译结束>
 
 # <翻译开始>
@@ -895,22 +900,22 @@ X圆角矩形EX
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom, nLeftBottom
-圆角大小
+左下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom
-圆角大小
+右下
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop, nRightTop
-圆角大小
+右上
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop
-圆角大小
+左上
 # <翻译结束>
 
 # <翻译开始>
@@ -1009,22 +1014,22 @@ func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3 int,
 
 # <翻译开始>
 func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3 int, color4
-结束颜色
+颜色4
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3
-开始颜色
+颜色3
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2
-结束颜色
+颜色2
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GradientFill4(pRect *xc.RECT, color1
-开始颜色
+颜色1
 # <翻译结束>
 
 # <翻译开始>
@@ -1045,22 +1050,22 @@ func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3 in
 
 # <翻译开始>
 func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3 int, color4
-结束颜色
+颜色4
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3
-开始颜色
+颜色3
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2
-结束颜色
+颜色2
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1
-开始颜色
+颜色1
 # <翻译结束>
 
 # <翻译开始>
@@ -1129,12 +1134,12 @@ func (d *Draw) GDI_MoveToEx(X int, Y int, pPoint
 
 # <翻译开始>
 func (d *Draw) GDI_MoveToEx(X int, Y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GDI_MoveToEx(X
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -1172,12 +1177,12 @@ RGB颜色值
 
 # <翻译开始>
 func (d *Draw) GDI_SetPixel(X int, Y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GDI_SetPixel(X
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -1464,7 +1469,7 @@ func (d *Draw) ImageSuperMask(hImageFrame int, hImageFrameMask int, pRect *xc.RE
 
 # <翻译开始>
 func (d *Draw) ImageSuperMask(hImageFrame int, hImageFrameMask int, pRect *xc.RECT, pRectMask
-坐标
+遮盖坐标
 # <翻译结束>
 
 # <翻译开始>
@@ -1532,22 +1537,22 @@ X图片平铺F
 
 # <翻译开始>
 func (d *Draw) ImageMask(hImageFrame int, hImageFrameMask int, x int, y int, x2 int, y2
-hImageFrameMask
+y2坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) ImageMask(hImageFrame int, hImageFrameMask int, x int, y int, x2
-hImageFrameMask
+x2坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) ImageMask(hImageFrame int, hImageFrameMask int, x int, y
-hImageFrame
+y1坐标
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) ImageMask(hImageFrame int, hImageFrameMask int, x
-hImageFrame
+x1坐标
 # <翻译结束>
 
 # <翻译开始>
@@ -1827,5 +1832,26 @@ X图片遮盖圆型
 # <翻译开始>
 func (d *Draw) GetFont
 X取字体
+# <翻译结束>
+
+
+# <翻译开始>
+func (d *Draw) ImageSuperEx(hImageFrame int, prcDest *xc.RECT, prcSrc
+源坐标
+# <翻译结束>
+
+# <翻译开始>
+func (d *Draw) ImageSuperEx(hImageFrame int, prcDest
+目标坐标
+# <翻译结束>
+
+# <翻译开始>
+func (d *Draw) ImageSuperEx(hImageFrame
+图片句柄
+# <翻译结束>
+
+# <翻译开始>
+func (d *Draw) ImageSuperEx
+X图片增强扩展
 # <翻译结束>
 

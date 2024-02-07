@@ -144,7 +144,7 @@ func XMsg_CreateEx(dwExStyle int, dwStyle
 
 # <翻译开始>
 func XMsg_CreateEx(dwExStyle
-窗口EX样式
+窗口扩展样式
 # <翻译结束>
 
 # <翻译开始>
@@ -980,7 +980,7 @@ pOut缓冲区大小
 
 # <翻译开始>
 func XC_UnicodeToAnsi(pIn string, inLen int, pOut
-指向接收转换后的Ansi字符串缓冲区指针
+转换后缓冲区指针
 # <翻译结束>
 
 # <翻译开始>
@@ -1006,7 +1006,7 @@ pOut缓冲区大小
 
 # <翻译开始>
 func XC_AnsiToUnicode(pIn uintptr, inLen int, pOut
-指向接收转换后的Unicode字符串缓冲区指针
+转换后缓冲区指针
 # <翻译结束>
 
 # <翻译开始>

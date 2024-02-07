@@ -268,7 +268,7 @@ func XWidget_LayoutItem_GetMargin(hXCGUI
 
 # <翻译开始>
 func XWidget_LayoutItem_GetMargin
-X窗口组件_布局项_置对齐
+X窗口组件_布局项_取外间距
 # <翻译结束>
 
 

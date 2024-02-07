@@ -23,22 +23,22 @@ X创建并按文件
 
 # <翻译开始>
 func NewByFileAdaptive(pFileName string, leftSize, topSize, rightSize, bottomSize
-坐标
+下
 # <翻译结束>
 
 # <翻译开始>
 func NewByFileAdaptive(pFileName string, leftSize, topSize, rightSize
-坐标
+右
 # <翻译结束>
 
 # <翻译开始>
 func NewByFileAdaptive(pFileName string, leftSize, topSize
-坐标
+上
 # <翻译结束>
 
 # <翻译开始>
 func NewByFileAdaptive(pFileName string, leftSize
-坐标
+左
 # <翻译结束>
 
 # <翻译开始>
@@ -64,12 +64,12 @@ func NewByFileRect(pFileName string, x, y, cx
 
 # <翻译开始>
 func NewByFileRect(pFileName string, x, y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func NewByFileRect(pFileName string, x
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -85,27 +85,27 @@ X创建并按文件且指定区域
 
 # <翻译开始>
 func NewByResAdaptive(id int32, pType string, leftSize, topSize, rightSize, bottomSize int32, hModule
-	从指定模块加载
+从指定模块加载
 # <翻译结束>
 
 # <翻译开始>
 func NewByResAdaptive(id int32, pType string, leftSize, topSize, rightSize, bottomSize
-坐标
+下
 # <翻译结束>
 
 # <翻译开始>
 func NewByResAdaptive(id int32, pType string, leftSize, topSize, rightSize
-坐标
+右
 # <翻译结束>
 
 # <翻译开始>
 func NewByResAdaptive(id int32, pType string, leftSize, topSize
-坐标
+上
 # <翻译结束>
 
 # <翻译开始>
 func NewByResAdaptive(id int32, pType string, leftSize
-坐标
+左
 # <翻译结束>
 
 # <翻译开始>
@@ -126,7 +126,7 @@ X创建并按资源且自适应
 
 # <翻译开始>
 func NewByRes(id int32, pType string, bStretch bool, hModule
-	从指定模块加载
+从指定模块加载
 # <翻译结束>
 
 # <翻译开始>
@@ -157,7 +157,7 @@ ZIP压缩包密码
 
 # <翻译开始>
 func NewByZip(pZipFileName string, pFileName
-ZIP压缩包文件名
+图片文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -199,22 +199,22 @@ X创建并按资源ZIP
 
 # <翻译开始>
 func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x1, x2, y1, y2
-坐标
+坐标y2
 # <翻译结束>
 
 # <翻译开始>
 func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x1, x2, y1
-坐标
+坐标y1
 # <翻译结束>
 
 # <翻译开始>
 func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x1, x2
-坐标
+坐标x2
 # <翻译结束>
 
 # <翻译开始>
 func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x1
-坐标
+坐标x1
 # <翻译结束>
 
 # <翻译开始>
@@ -224,7 +224,7 @@ ZIP压缩包密码
 
 # <翻译开始>
 func NewByZipAdaptive(pZipFileName string, pFileName
-ZIP压缩包文件名
+图片文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -250,12 +250,12 @@ func NewByZipRect(pZipFileName string, pFileName string, pPassword string, x, y,
 
 # <翻译开始>
 func NewByZipRect(pZipFileName string, pFileName string, pPassword string, x, y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func NewByZipRect(pZipFileName string, pFileName string, pPassword string, x
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -265,7 +265,7 @@ func NewByZipRect(pZipFileName string, pFileName string, pPassword
 
 # <翻译开始>
 func NewByZipRect(pZipFileName string, pFileName
-ZIP文件
+图片名称
 # <翻译结束>
 
 # <翻译开始>
@@ -323,12 +323,12 @@ func NewByMemRect(pBuffer []byte, x, y, cx
 
 # <翻译开始>
 func NewByMemRect(pBuffer []byte, x, y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func NewByMemRect(pBuffer []byte, x
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -344,22 +344,22 @@ X创建并按内存且指定区域
 
 # <翻译开始>
 func NewByMemAdaptive(pBuffer []byte, leftSize, topSize, rightSize, bottomSize
-坐标
+坐标下
 # <翻译结束>
 
 # <翻译开始>
 func NewByMemAdaptive(pBuffer []byte, leftSize, topSize, rightSize
-坐标
+坐标右
 # <翻译结束>
 
 # <翻译开始>
 func NewByMemAdaptive(pBuffer []byte, leftSize, topSize
-坐标
+坐标上
 # <翻译结束>
 
 # <翻译开始>
 func NewByMemAdaptive(pBuffer []byte, leftSize
-坐标
+坐标左
 # <翻译结束>
 
 # <翻译开始>
@@ -473,8 +473,19 @@ X创建并按SVG字符串UTF8
 
 
 # <翻译开始>
+func NewByHandle(handle
+句柄
+# <翻译结束>
+
+# <翻译开始>
 func NewByHandle
 X创建并按句柄
+# <翻译结束>
+
+
+# <翻译开始>
+func NewByName(name
+资源名称
 # <翻译结束>
 
 
@@ -482,6 +493,21 @@ X创建并按句柄
 func NewByName
 X创建并按资源名称
 # <翻译结束>
+
+
+
+# <翻译开始>
+func NewByNameEx(fileName, name
+资源名称
+# <翻译结束>
+
+
+# <翻译开始>
+func NewByNameEx(fileName
+资源文件名
+# <翻译结束>
+
+
 
 
 # <翻译开始>

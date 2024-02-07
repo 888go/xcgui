@@ -1,7 +1,7 @@
 
 # <翻译开始>
 func (a *AnimaRotate) SetCenter(x float32, y float32, bOffset
-TRUE
+偏移方式
 # <翻译结束>
 
 # <翻译开始>

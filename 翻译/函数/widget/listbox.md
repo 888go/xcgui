@@ -1081,7 +1081,7 @@ X事件_项模板创建
 
 # <翻译开始>
 func (l *ListBox) Event_LISTBOX_TEMP_CREATE1
-X事件_项模板创建
+X事件_项模板创建1
 # <翻译结束>
 
 
@@ -1093,7 +1093,7 @@ X事件_项模板创建完成
 
 # <翻译开始>
 func (l *ListBox) Event_LISTBOX_TEMP_CREATE_END1
-X事件_项模板创建完成
+X事件_项模板创建完成1
 # <翻译结束>
 
 
@@ -1105,7 +1105,7 @@ X事件_项模板销毁
 
 # <翻译开始>
 func (l *ListBox) Event_LISTBOX_TEMP_DESTROY1
-X事件_项模板销毁
+X事件_项模板销毁1
 # <翻译结束>
 
 
@@ -1117,7 +1117,7 @@ X停用_项模板调整坐标
 
 # <翻译开始>
 func (l *ListBox) Event_LISTBOX_TEMP_ADJUST_COORDINATE1
-X停用_项模板调整坐标
+X停用_项模板调整坐标1
 # <翻译结束>
 
 
@@ -1129,7 +1129,7 @@ X事件_项绘制事件
 
 # <翻译开始>
 func (l *ListBox) Event_LISTBOX_DRAWITEM1
-X事件_项绘制事件
+X事件_项绘制事件1
 # <翻译结束>
 
 
@@ -1141,6 +1141,6 @@ X事件_项选择事件
 
 # <翻译开始>
 func (l *ListBox) Event_LISTBOX_SELECT1
-X事件_项选择事件
+X事件_项选择事件1
 # <翻译结束>
 

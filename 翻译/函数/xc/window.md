@@ -87,7 +87,7 @@ func XWnd_CreateEx(dwExStyle int, dwStyle
 
 # <翻译开始>
 func XWnd_CreateEx(dwExStyle
-EX样式
+扩展样式
 # <翻译结束>
 
 # <翻译开始>
@@ -108,7 +108,7 @@ func XWnd_ShowWindow(hWindow
 
 # <翻译开始>
 func XWnd_ShowWindow
-X窗口_显示
+X窗口_显示方式
 # <翻译结束>
 
 
@@ -1904,7 +1904,7 @@ X坐标
 
 # <翻译开始>
 func XWnd_SetWindowPos(hWindow int, hWndInsertAfter
-在Z序中位于定位窗口之前的窗口句柄
+置顶方式
 # <翻译结束>
 
 # <翻译开始>

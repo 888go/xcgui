@@ -29,10 +29,20 @@ func NewDateTime
 X创建日期
 # <翻译结束>
 
+# <翻译开始>
+func NewDateTimeByHandle(handle
+句柄
+# <翻译结束>
+
 
 # <翻译开始>
 func NewDateTimeByHandle
 X创建日期并按句柄
+# <翻译结束>
+
+# <翻译开始>
+func NewDateTimeByName(name
+名称
 # <翻译结束>
 
 
@@ -47,6 +57,11 @@ func NewDateTimeByUID
 X创建日期并按UID
 # <翻译结束>
 
+
+# <翻译开始>
+func NewDateTimeByUIDName(name
+UID名称
+# <翻译结束>
 
 # <翻译开始>
 func NewDateTimeByUIDName
@@ -101,7 +116,7 @@ X取选择日期背景颜色
 
 # <翻译开始>
 func (d *DateTime) SetSelBkColor(crSelectBk
-文字被选中背景色
+背景色
 # <翻译结束>
 
 # <翻译开始>

@@ -18,7 +18,7 @@ X图标创建并按资源
 
 # <翻译开始>
 func LoadImageW(hInst uintptr, name string, Type IMAGE_, cx
-宽度（以像素为单位）
+宽度
 # <翻译结束>
 
 # <翻译开始>
@@ -44,7 +44,7 @@ X加载图像W
 
 # <翻译开始>
 func FindWindowW(lpClassName, lpWindowName
-窗口标题（窗口的标题）
+窗口标题
 # <翻译结束>
 
 # <翻译开始>
@@ -92,6 +92,11 @@ func SetWindowPos(hWnd uintptr, hWndInsertAfter HWND_, x, y
 # <翻译开始>
 func SetWindowPos(hWnd uintptr, hWndInsertAfter HWND_, x
 新x坐标
+# <翻译结束>
+
+# <翻译开始>
+func SetWindowPos(hWnd uintptr, hWndInsertAfter
+置顶方式
 # <翻译结束>
 
 # <翻译开始>
@@ -271,6 +276,12 @@ X窗口取标题
 func ClientToScreen(hWnd uintptr, lpPoint
 坐标指针
 # <翻译结束>
+
+# <翻译开始>
+func ClientToScreen(hWnd
+窗口句柄
+# <翻译结束>
+
 
 # <翻译开始>
 func ClientToScreen

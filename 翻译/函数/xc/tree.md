@@ -781,7 +781,7 @@ X列表树_取行间距
 
 # <翻译开始>
 func XTree_MoveItem(hEle int, nMoveItem, nDestItem, nFlag
-0
+移动方式
 # <翻译结束>
 
 # <翻译开始>

@@ -392,12 +392,12 @@ func (l *ListView) GetVisibleItemRange(piGroup1 *int32, piGroup2 *int32, piStart
 
 # <翻译开始>
 func (l *ListView) GetVisibleItemRange(piGroup1 *int32, piGroup2
-可视结束组
+组2
 # <翻译结束>
 
 # <翻译开始>
 func (l *ListView) GetVisibleItemRange(piGroup1
-可视开始组
+组1
 # <翻译结束>
 
 # <翻译开始>
@@ -1302,7 +1302,7 @@ X事件_项模板创建
 
 # <翻译开始>
 func (l *ListView) Event_LISTVIEW_TEMP_CREATE1
-X事件_项模板创建
+X事件_项模板创建1
 # <翻译结束>
 
 
@@ -1314,7 +1314,7 @@ X事件_项模板创建完成
 
 # <翻译开始>
 func (l *ListView) Event_LISTVIEW_TEMP_CREATE_END1
-X事件_项模板创建完成
+X事件_项模板创建完成1
 # <翻译结束>
 
 
@@ -1326,7 +1326,7 @@ X事件_项模板销毁
 
 # <翻译开始>
 func (l *ListView) Event_LISTVIEW_TEMP_DESTROY1
-X事件_项模板销毁
+X事件_项模板销毁1
 # <翻译结束>
 
 
@@ -1338,7 +1338,7 @@ X事件_项模板调整坐标
 
 # <翻译开始>
 func (l *ListView) Event_LISTVIEW_TEMP_ADJUST_COORDINATE1
-X事件_项模板调整坐标
+X事件_项模板调整坐标1
 # <翻译结束>
 
 
@@ -1350,7 +1350,7 @@ X事件_自绘项
 
 # <翻译开始>
 func (l *ListView) Event_LISTVIEW_DRAWITEM1
-X事件_自绘项
+X事件_自绘项1
 # <翻译结束>
 
 
@@ -1362,7 +1362,7 @@ X事件_项选择
 
 # <翻译开始>
 func (l *ListView) Event_LISTVIEW_SELECT1
-X事件_项选择
+X事件_项选择1
 # <翻译结束>
 
 
@@ -1374,6 +1374,6 @@ X事件_组展开收缩
 
 # <翻译开始>
 func (l *ListView) Event_LISTVIEW_EXPAND1
-X事件_组展开收缩
+X事件_组展开收缩1
 # <翻译结束>
 

@@ -28,7 +28,7 @@ zip密码
 
 # <翻译开始>
 func XSvg_LoadZip(pZipFileName, pFileName
-zip文件名
+svg文件名
 # <翻译结束>
 
 # <翻译开始>

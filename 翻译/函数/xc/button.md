@@ -215,12 +215,12 @@ X按钮_置图标对齐
 
 # <翻译开始>
 func XBtn_SetOffset(hEle int, x int, y
-偏移量
+偏移量y
 # <翻译结束>
 
 # <翻译开始>
 func XBtn_SetOffset(hEle int, x
-偏移量
+偏移量x
 # <翻译结束>
 
 # <翻译开始>
@@ -236,12 +236,12 @@ X按钮_置偏移
 
 # <翻译开始>
 func XBtn_SetOffsetIcon(hEle int, x int, y
-偏移量
+偏移量y
 # <翻译结束>
 
 # <翻译开始>
 func XBtn_SetOffsetIcon(hEle int, x
-偏移量
+偏移量x
 # <翻译结束>
 
 # <翻译开始>

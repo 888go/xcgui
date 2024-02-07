@@ -11,7 +11,7 @@ func NewByBkm(bkm *bkmanager.BkManager, id
 # <翻译结束>
 
 # <翻译开始>
-func NewByBkm(bkm *bkm
+func NewByBkm(bkm
 背景管理器对象
 # <翻译结束>
 
@@ -201,7 +201,7 @@ X置字体
 
 # <翻译开始>
 func (b *BkObj) SetTextAlign(nAlign
-文本对齐方式
+对齐方式
 # <翻译结束>
 
 # <翻译开始>
@@ -212,7 +212,7 @@ X置文本对齐
 
 # <翻译开始>
 func (b *BkObj) GetMargin(pMargin
-接收返回外间距
+接收返回
 # <翻译结束>
 
 # <翻译开始>

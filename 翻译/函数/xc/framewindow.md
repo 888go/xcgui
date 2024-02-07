@@ -87,7 +87,7 @@ func XFrameWnd_CreateEx(dwExStyle int, dwStyle
 
 # <翻译开始>
 func XFrameWnd_CreateEx(dwExStyle
-EX样式
+扩展样式
 # <翻译结束>
 
 # <翻译开始>

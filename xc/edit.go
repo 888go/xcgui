@@ -10,8 +10,8 @@ import (
 )
 
 // 编辑框_创建, 返回元素句柄.
-// x:元素x坐标.
-// y:元素y坐标.
+// x:x坐标.
+// y:y坐标.
 // cx:宽度.
 // cy:高度.
 // hParent:父窗口句柄或元素句柄.
@@ -21,8 +21,8 @@ func XEdit_Create(x int, y int, cx int, cy int, hParent int) int {
 }
 
 // 编辑框_创建EX, 返回元素句柄.
-// x:元素x坐标.
-// y:元素y坐标.
+// x:x坐标.
+// y:y坐标.
 // cx:宽度.
 // cy:高度.
 // nType:类型, Edit_Type_.
@@ -270,10 +270,10 @@ func XEdit_InsertText(hEle int, iRow int, iCol int, pString string) int {
 	return int(r)
 }
 
-// XEdit_AddTextUser 编辑框_插入文本模拟用户操作, 自动刷新UI, 支持撤销/恢复.
+// 编辑框_插入文本模拟用户操作, 自动刷新UI, 支持撤销/恢复.
 //
-//	@param hEle 元素句柄.
-//	@param pString 字符串.
+//	@param hEle: 元素句柄.
+//	@param pString: 字符串.
 //	@return int
 func XEdit_AddTextUser(hEle int, pString string) int {
 	r, _, _ : xEdit_AddTextUser.Call(uintptr(hEle), common.StrPtr(pString))
@@ -393,7 +393,7 @@ func XEdit_SetRowHeightEx(hEle int, iRow int, nHeight int) int {
 	return int(r)
 }
 
-// XEdit_SetCurPos 编辑框_置当前位置.
+// 编辑框_置当前位置.
 //
 //	@param hEle:元素句柄.
 //	@param iRow:行索引.
@@ -450,11 +450,11 @@ func XEdit_AutoScrollEx(hEle int, iRow int, iCol int) bool {
 	return r != 0
 }
 
-// XEdit_PosToRowCol 编辑框_转换位置, 转换位置点到行列.
+// 编辑框_转换位置, 转换位置点到行列.
 //
-//	@param hEle 元素句柄.
-//	@param iPos 位置点.
-//	@param pInfo 行列.
+//	@param hEle: 元素句柄.
+//	@param iPos: 位置点.
+//	@param pInfo: 行列.
 //	@return int
 func XEdit_PosToRowCol(hEle int, iPos int, pInfo *Position_) int {
 	r, _, _ : xEdit_PosToRowCol.Call(uintptr(hEle), uintptr(iPos), uintptr(unsafe.Pointer(pInfo)))
@@ -681,8 +681,8 @@ func XEdit_SetSpaceSize(hEle int, size int) int {
 
 // 编辑框_置字符间距.
 // hEle:元素句柄    .元素句柄.
-// size:英文字符间距大小.
-// sizeZh:中文字符间距大小.
+// size:英文字符
+// sizeZh:中文字符
 func XEdit_SetCharSpaceSize(hEle int, size int, sizeZh int) int {
 	r, _, _ : xEdit_SetCharSpaceSize.Call(uintptr(hEle), uintptr(size), uintptr(sizeZh))
 	return int(r)
@@ -703,14 +703,14 @@ func XEdit_SetSelectTextStyle(hEle int, iStyle int) int {
 	return int(r)
 }
 
-// 编辑框_取文本_临时, 不包含非文本内容. 返回临时文本, 临时缓存区大小:xcc.Text_Buffer_Size .
+// 编辑框_取文本Tmp, 不包含非文本内容. 返回临时文本, 临时缓存区大小:xcc.Text_Buffer_Size .
 // hEle:元素句柄    .元素句柄.
 func XEdit_GetText_Temp(hEle int) string {
 	r, _, _ : xEdit_GetText_Temp.Call(uintptr(hEle))
 	return common.UintPtrToString(r)
 }
 
-// 编辑框_取文本行_临时, 获取指定行文本内容. 返回临时文本, 临时缓存区大小:xcc.Text_Buffer_Size .
+// 编辑框_取文本行Tmp, 获取指定行文本内容. 返回临时文本, 临时缓存区大小:xcc.Text_Buffer_Size .
 // hEle:元素句柄    .元素句柄.
 // iRow:行索引.
 func XEdit_GetTextRow_Temp(hEle int, iRow int) string {

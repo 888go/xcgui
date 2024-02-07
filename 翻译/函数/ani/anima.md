@@ -464,7 +464,7 @@ func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width floa
 
 # <翻译开始>
 func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType
-布局高度类型
+布局大小类型
 # <翻译结束>
 
 # <翻译开始>

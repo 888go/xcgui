@@ -67,10 +67,19 @@ X创建编辑框EX
 
 
 # <翻译开始>
+func NewEditByHandle(handle
+句柄
+# <翻译结束>
+
+# <翻译开始>
 func NewEditByHandle
 X创建编辑框并按句柄
 # <翻译结束>
 
+# <翻译开始>
+func NewEditByName(name
+名称
+# <翻译结束>
 
 # <翻译开始>
 func NewEditByName
@@ -81,6 +90,12 @@ X创建编辑框并按名称
 # <翻译开始>
 func NewEditByUID
 X创建编辑框并按UID
+# <翻译结束>
+
+
+# <翻译开始>
+func NewEditByUIDName(name
+UID名称
 # <翻译结束>
 
 
@@ -111,6 +126,10 @@ func (e *Edit) EnableReadOnly
 X启用只读
 # <翻译结束>
 
+# <翻译开始>
+func (e *Edit) EnableMultiLine(bEnable
+是否启用
+# <翻译结束>
 
 # <翻译开始>
 func (e *Edit) EnableMultiLine
@@ -590,7 +609,7 @@ X置插入符宽度
 
 # <翻译开始>
 func (e *Edit) SetSelectBkColor(color
-ABGR
+ABGR颜色
 # <翻译结束>
 
 # <翻译开始>
@@ -1070,7 +1089,7 @@ X置选择文本样式
 
 # <翻译开始>
 func (e *Edit) GetText_Temp
-X取临时文本
+X取文本Tmp
 # <翻译结束>
 
 
@@ -1081,13 +1100,13 @@ func (e *Edit) GetTextRow_Temp(iRow
 
 # <翻译开始>
 func (e *Edit) GetTextRow_Temp
-X取临时文本行
+X取行文本Tmp
 # <翻译结束>
 
 
 # <翻译开始>
 func (e *Edit) GetSelectText_Temp
-X取选择文本
+X取选择文本Tmp
 # <翻译结束>
 
 

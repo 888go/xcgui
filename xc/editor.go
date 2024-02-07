@@ -6,8 +6,8 @@ import (
 )
 
 // 代码编辑框_创建, 返回元素句柄.
-// x:元素x坐标.
-// y:元素y坐标.
+// x:x坐标.
+// y:y坐标.
 // cx:宽度.
 // cy:高度.
 // hParent:父窗口句柄或元素句柄.
@@ -287,7 +287,7 @@ func XEidtor_IsEmptyRow(hEle int, iRow int) int {
 
 // 代码编辑框_置自动匹配结果显示模式.
 // hEle:元素句柄    .元素句柄.
-// mode:0:英文, 1:文, 3:文.
+// mode:模式
 func XEditor_SetAutoMatchMode(hEle int, mode int) int {
 	r, _, _ : xEditor_SetAutoMatchMode.Call(uintptr(hEle), uintptr(mode))
 	return int(r)

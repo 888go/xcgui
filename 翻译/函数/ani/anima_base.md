@@ -48,3 +48,49 @@ func (a *animaBase) EnableAutoDestroy
 X启用自动销毁
 # <翻译结束>
 
+
+# <翻译开始>
+func (a *animaBase) SetCallBack(callback
+回调函数
+# <翻译结束>
+
+# <翻译开始>
+func (a *animaBase) SetCallBack
+X置回调
+# <翻译结束>
+
+
+# <翻译开始>
+func (a *animaBase) SetUserData(nUserData
+用户数据
+# <翻译结束>
+
+# <翻译开始>
+func (a *animaBase) SetUserData
+X置用户数据
+# <翻译结束>
+
+
+# <翻译开始>
+func (a *animaBase) GetUserData
+X取用户数据
+# <翻译结束>
+
+
+# <翻译开始>
+func (a *animaBase) Stop
+X停止
+# <翻译结束>
+
+
+# <翻译开始>
+func (a *animaBase) Start
+X启动
+# <翻译结束>
+
+
+# <翻译开始>
+func (a *animaBase) Pause
+X暂停
+# <翻译结束>
+

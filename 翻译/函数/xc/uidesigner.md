@@ -68,7 +68,7 @@ zip密码
 
 # <翻译开始>
 func XC_LoadLayoutZip(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -109,7 +109,7 @@ zip密码
 
 # <翻译开始>
 func XC_LoadLayoutZipEx(pZipFileName string, pFileName
-zip文件名
+布局文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -318,7 +318,7 @@ zip压缩包密码
 
 # <翻译开始>
 func XC_LoadResourceZip(pZipFileName string, pFileName
-zip文件名
+资源文件名
 # <翻译结束>
 
 # <翻译开始>

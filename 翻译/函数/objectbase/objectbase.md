@@ -1,5 +1,10 @@
 
 # <翻译开始>
+func (o *ObjectBase) SetHandle(handle
+句柄
+# <翻译结束>
+
+# <翻译开始>
 func (o *ObjectBase) SetHandle
 X设置句柄
 # <翻译结束>

@@ -9,6 +9,10 @@ func New
 X创建
 # <翻译结束>
 
+# <翻译开始>
+func NewByHandle(handle
+句柄
+# <翻译结束>
 
 # <翻译开始>
 func NewByHandle
@@ -85,7 +89,7 @@ func NewByZipRes(nType
 
 # <翻译开始>
 func NewByZipRes
-X创建并按ZIP
+X创建并按RC资源ZIP
 # <翻译结束>
 
 

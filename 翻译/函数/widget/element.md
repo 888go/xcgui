@@ -1049,6 +1049,10 @@ func (e *Element) GetFontEx
 X取字体EX
 # <翻译结束>
 
+# <翻译开始>
+func (e *Element) SetAlpha(alpha
+透明度
+# <翻译结束>
 
 # <翻译开始>
 func (e *Element) SetAlpha
@@ -1227,8 +1231,8 @@ X取内容大小
 
 
 # <翻译开始>
-func (e *Element) SetCapture(b b
-TRUE设置
+func (e *Element) SetCapture(b
+开启
 # <翻译结束>
 
 # <翻译开始>
@@ -1449,7 +1453,7 @@ func (e *Element) PointClientToWndClientDPI(pPt
 
 # <翻译开始>
 func (e *Element) PointClientToWndClientDPI
-X取窗口客户区坐标DPI
+X取窗口客户区坐标点DPI
 # <翻译结束>
 
 
@@ -1726,7 +1730,7 @@ X事件_调整布局完成
 
 # <翻译开始>
 func (e *Element) Event_ADJUSTLAYOUT_END1
-X事件_调整布局完成
+X事件_调整布局完成1
 # <翻译结束>
 
 

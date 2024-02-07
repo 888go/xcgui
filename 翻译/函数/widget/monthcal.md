@@ -152,6 +152,6 @@ X事件_日期改变
 
 # <翻译开始>
 func (m *MonthCal) Event_MONTHCAL_CHANGE1
-X事件_日期改变
+X事件_日期改变1
 # <翻译结束>
 

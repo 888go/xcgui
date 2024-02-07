@@ -13,7 +13,7 @@ X创建适配器表并按句柄
 
 # <翻译开始>
 func (a *AdapterTable) Sort(iColumn int, bAscending
-是否按照升序方式排序
+升序排序
 # <翻译结束>
 
 # <翻译开始>

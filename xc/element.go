@@ -9,8 +9,8 @@ import (
 )
 
 // 元素_创建, 创建基础元素.
-// x:元素x坐标.
-// y:元素y坐标.
+// x:x坐标.
+// y:y坐标.
 // cx:宽度.
 // cy:高度.
 // hParent:父窗口句柄或元素句柄.
@@ -76,8 +76,8 @@ func XEle_RemoveEventCEx(hEle int, nEvent xcc.XE_, pFun uintptr) bool {
 // 元素_发送事件.
 // hEle:元素句柄    .目标元素句柄.
 // nEvent:事件类型:xcc.XE_.
-// wParam:参数.
-// lParam:参数.
+// wParam:参数1.
+// lParam:参数2.
 func XEle_SendEvent(hEle int, nEvent xcc.XE_, wParam, lParam uint) int {
 	r, _, _ : xEle_SendEvent.Call(uintptr(hEle), uintptr(nEvent), uintptr(wParam), uintptr(lParam))
 	return int(r)
@@ -86,8 +86,8 @@ func XEle_SendEvent(hEle int, nEvent xcc.XE_, wParam, lParam uint) int {
 // 元素_投递事件.
 // hEle:元素句柄    .元素句柄.
 // nEvent:事件类型:xcc.XE_.
-// wParam:参数.
-// lParam:参数.
+// wParam:参数1.
+// lParam:参数2.
 func XEle_PostEvent(hEle int, nEvent xcc.XE_, wParam, lParam uint) int {
 	r, _, _ : xEle_PostEvent.Call(uintptr(hEle), uintptr(nEvent), uintptr(wParam), uintptr(lParam))
 	return int(r)
@@ -548,10 +548,10 @@ func XEle_GetChildByID(hEle int, nID int) int {
 
 // 元素_置边框大小.
 // hEle:元素句柄    .元素句柄.
-// left:左边大小.
-// top:上边大小.
-// right:右边大小.
-// bottom:下边大小.
+// left:左.
+// top:上.
+// right:右.
+// bottom:下.
 func XEle_SetBorderSize(hEle int, left int, top int, right int, bottom int) int {
 	r, _, _ : xEle_SetBorderSize.Call(uintptr(hEle), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
 	return int(r)
@@ -567,10 +567,10 @@ func XEle_GetBorderSize(hEle int, pBorder *RECT) int {
 
 // 元素_置内填充大小.
 // hEle:元素句柄    .元素句柄.
-// left:左边大小.
-// top:上边大小.
-// right:右边大小.
-// bottom:下边大小.
+// left:左
+// top:上
+// right:右
+// bottom:下
 func XEle_SetPadding(hEle int, left int, top int, right int, bottom int) int {
 	r, _, _ : xEle_SetPadding.Call(uintptr(hEle), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
 	return int(r)

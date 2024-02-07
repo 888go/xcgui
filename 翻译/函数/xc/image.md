@@ -157,7 +157,7 @@ ZIP压缩包密码
 
 # <翻译开始>
 func XImage_LoadZip(pZipFileName string, pFileName
-ZIP压缩包文件名
+图片文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -204,7 +204,7 @@ ZIP压缩包密码
 
 # <翻译开始>
 func XImage_LoadZipAdaptive(pZipFileName string, pFileName
-ZIP压缩包文件名
+图片文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -245,7 +245,7 @@ func XImage_LoadZipRect(pZipFileName string, pFileName string, pPassword
 
 # <翻译开始>
 func XImage_LoadZipRect(pZipFileName string, pFileName
-ZIP文件
+图片名称
 # <翻译结束>
 
 # <翻译开始>

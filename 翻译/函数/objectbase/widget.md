@@ -15,6 +15,11 @@ func (w *Widget) Show
 X显示
 # <翻译结束>
 
+# <翻译开始>
+func (w *Widget) EnableLayoutControl(bEnable
+是否启用
+# <翻译结束>
+
 
 # <翻译开始>
 func (w *Widget) EnableLayoutControl
@@ -173,7 +178,7 @@ func (w *Widget) LayoutItem_GetMargin(pMargin
 
 # <翻译开始>
 func (w *Widget) LayoutItem_GetMargin
-X布局项置对齐
+X布局项取外间距
 # <翻译结束>
 
 

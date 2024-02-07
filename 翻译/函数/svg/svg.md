@@ -50,7 +50,7 @@ zip密码
 
 # <翻译开始>
 func NewByZip(pZipFileName, pFileName
-zip文件名
+svg文件名
 # <翻译结束>
 
 # <翻译开始>
@@ -381,7 +381,7 @@ X取旋转角度
 
 # <翻译开始>
 func (s *Svg) SetRotate(angle float32, x float32, y float32, bOffset
-TRUE
+偏移方式
 # <翻译结束>
 
 # <翻译开始>
@@ -407,17 +407,17 @@ X置旋转
 
 # <翻译开始>
 func (s *Svg) GetRotate(pAngle *float32, pX *float32, pY *float32, pbOffset
-返回TRUE
+返回偏移方式
 # <翻译结束>
 
 # <翻译开始>
 func (s *Svg) GetRotate(pAngle *float32, pX *float32, pY
-返回
+返回y
 # <翻译结束>
 
 # <翻译开始>
 func (s *Svg) GetRotate(pAngle *float32, pX
-返回
+返回x
 # <翻译结束>
 
 # <翻译开始>

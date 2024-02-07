@@ -102,7 +102,7 @@ zip密码
 
 # <翻译开始>
 func XFont_CreateFromZip(pZipFileName, pFileName
-zip文件名
+字体文件名
 # <翻译结束>
 
 # <翻译开始>

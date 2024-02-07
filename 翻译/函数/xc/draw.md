@@ -121,12 +121,12 @@ func XDraw_DrawArc(hDraw int, x, y int, nWidth
 
 # <翻译开始>
 func XDraw_DrawArc(hDraw int, x, y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_DrawArc(hDraw int, x
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -162,12 +162,12 @@ func XDraw_DrawArcF(hDraw int, x, y, nWidth
 
 # <翻译开始>
 func XDraw_DrawArcF(hDraw int, x, y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_DrawArcF(hDraw int, x
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -309,7 +309,7 @@ func XDraw_DrawRect(hDraw
 
 # <翻译开始>
 func XDraw_DrawRect
-X绘制_矩形
+X绘制_矩形边框
 # <翻译结束>
 
 
@@ -325,7 +325,7 @@ func XDraw_DrawRectF(hDraw
 
 # <翻译开始>
 func XDraw_DrawRectF
-X绘制_矩形F
+X绘制_矩形边框F
 # <翻译结束>
 
 
@@ -1217,22 +1217,22 @@ func XDraw_GradientFill4(hDraw int, pRect *RECT, color1 int, color2 int, color3 
 
 # <翻译开始>
 func XDraw_GradientFill4(hDraw int, pRect *RECT, color1 int, color2 int, color3 int, color4
-结束颜色
+颜色4
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GradientFill4(hDraw int, pRect *RECT, color1 int, color2 int, color3
-开始颜色
+颜色3
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GradientFill4(hDraw int, pRect *RECT, color1 int, color2
-结束颜色
+颜色2
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GradientFill4(hDraw int, pRect *RECT, color1
-开始颜色
+颜色1
 # <翻译结束>
 
 # <翻译开始>
@@ -1258,22 +1258,22 @@ func XDraw_GradientFill4F(hDraw int, pRect *RECTF, color1 int, color2 int, color
 
 # <翻译开始>
 func XDraw_GradientFill4F(hDraw int, pRect *RECTF, color1 int, color2 int, color3 int, color4
-结束颜色
+颜色4
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GradientFill4F(hDraw int, pRect *RECTF, color1 int, color2 int, color3
-开始颜色
+颜色3
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GradientFill4F(hDraw int, pRect *RECTF, color1 int, color2
-结束颜色
+颜色2
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GradientFill4F(hDraw int, pRect *RECTF, color1
-开始颜色
+颜色1
 # <翻译结束>
 
 # <翻译开始>
@@ -1362,12 +1362,12 @@ func XDraw_GDI_MoveToEx(hDraw int, X int, Y int, pPoint
 
 # <翻译开始>
 func XDraw_GDI_MoveToEx(hDraw int, X int, Y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GDI_MoveToEx(hDraw int, X
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -1420,12 +1420,12 @@ RGB颜色值
 
 # <翻译开始>
 func XDraw_GDI_SetPixel(hDraw int, X int, Y
-坐标
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GDI_SetPixel(hDraw int, X
-坐标
+坐标x
 # <翻译结束>
 
 # <翻译开始>
@@ -1829,7 +1829,7 @@ func XDraw_ImageSuperMask(hDraw int, hImageFrame int, hImageFrameMask int, pRect
 
 # <翻译开始>
 func XDraw_ImageSuperMask(hDraw int, hImageFrame int, hImageFrameMask
-图片句柄
+图片遮盖句柄
 # <翻译结束>
 
 # <翻译开始>
@@ -1922,7 +1922,7 @@ hImageFrame
 
 # <翻译开始>
 func XDraw_ImageMask(hDraw int, hImageFrame int, hImageFrameMask
-图片句柄
+图片遮盖句柄
 # <翻译结束>
 
 # <翻译开始>

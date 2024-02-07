@@ -1,6 +1,6 @@
 
 # <翻译开始>
-func SetTop(hWnd uintptr, b bool) b
+func SetTop(hWnd uintptr, b
 是否置顶
 # <翻译结束>
 

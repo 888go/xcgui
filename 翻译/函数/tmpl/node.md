@@ -11,6 +11,11 @@ X创建节点
 
 
 # <翻译开始>
+func (n *Node) SetHandle(handle
+句柄
+# <翻译结束>
+
+# <翻译开始>
 func (n *Node) SetHandle
 X设置句柄
 # <翻译结束>

@@ -970,7 +970,7 @@ X事件_项模板创建
 
 # <翻译开始>
 func (t *Tree) Event_TREE_TEMP_CREATE1
-X事件_项模板创建
+X事件_项模板创建1
 # <翻译结束>
 
 
@@ -1006,7 +1006,7 @@ X停用_项模板
 
 # <翻译开始>
 func (t *Tree) Event_TREE_TEMP_ADJUST_COORDINATE1
-X停用_项模板
+X停用_项模板1
 # <翻译结束>
 
 

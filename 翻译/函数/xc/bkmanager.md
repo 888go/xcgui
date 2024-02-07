@@ -271,7 +271,7 @@ func XBkM_SetInfo(hBkInfoM
 
 # <翻译开始>
 func XBkM_SetInfo
-X背景_取引用计数
+X背景_设置内容
 # <翻译结束>
 
 

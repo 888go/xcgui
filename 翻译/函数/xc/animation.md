@@ -572,7 +572,7 @@ func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_,
 
 # <翻译开始>
 func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType
-布局高度类型
+布局大小类型
 # <翻译结束>
 
 # <翻译开始>

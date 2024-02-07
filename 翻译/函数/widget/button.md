@@ -34,12 +34,23 @@ func NewButton
 X创建按钮
 # <翻译结束>
 
+# <翻译开始>
+func NewButtonByHandle(handle
+句柄
+# <翻译结束>
+
+
 
 # <翻译开始>
 func NewButtonByHandle
 X创建按钮并按句柄
 # <翻译结束>
 
+
+# <翻译开始>
+func NewButtonByName(name
+名称
+# <翻译结束>
 
 # <翻译开始>
 func NewButtonByName
@@ -52,6 +63,10 @@ func NewButtonByUID
 X创建按钮并按UID
 # <翻译结束>
 
+# <翻译开始>
+func NewButtonByUIDName(name
+UID名称
+# <翻译结束>
 
 # <翻译开始>
 func NewButtonByUIDName
@@ -174,12 +189,12 @@ X置图标对齐
 
 # <翻译开始>
 func (b *Button) SetOffset(x int, y
-偏移量
+偏移量y
 # <翻译结束>
 
 # <翻译开始>
 func (b *Button) SetOffset(x
-偏移量
+偏移量x
 # <翻译结束>
 
 # <翻译开始>
@@ -190,12 +205,12 @@ X置偏移
 
 # <翻译开始>
 func (b *Button) SetOffsetIcon(x int, y
-偏移量
+偏移量y
 # <翻译结束>
 
 # <翻译开始>
 func (b *Button) SetOffsetIcon(x
-偏移量
+偏移量x
 # <翻译结束>
 
 # <翻译开始>

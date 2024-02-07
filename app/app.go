@@ -100,14 +100,22 @@ func (a *App) Msg_CreateEx(dwExStyle int, dwStyle int, lpClassName string, pTitl
 
 // 发送窗口消息.
 //// hWindow: 窗口句柄.
-
+// msg:消息值
+//
+// wParam:参数1
+//
+// lParam:参数2
 func (a *App) SendMessage(hWindow int, msg uint32, wParam, lParam uint) uint {
 	return xc.XC_SendMessage(hWindow, msg, wParam, lParam)
 }
 
 // 投递窗口消息.
 //// hWindow: 窗口句柄.
-
+// msg:消息值
+//
+// wParam:参数1
+//
+// lParam:参数2
 func (a *App) PostMessage(hWindow int, msg uint32, wParam int32, lParam int32) bool {
 	return xc.XC_PostMessage(hWindow, msg, wParam, lParam)
 }

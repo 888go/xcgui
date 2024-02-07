@@ -468,12 +468,12 @@ func XListView_GetVisibleItemRange(hEle int, piGroup1 *int32, piGroup2 *int32, p
 
 # <翻译开始>
 func XListView_GetVisibleItemRange(hEle int, piGroup1 *int32, piGroup2
-可视结束组
+组2
 # <翻译结束>
 
 # <翻译开始>
 func XListView_GetVisibleItemRange(hEle int, piGroup1
-可视开始组
+组1
 # <翻译结束>
 
 # <翻译开始>

@@ -419,7 +419,7 @@ X是否为空行
 
 # <翻译开始>
 func (e *Editor) SetAutoMatchMode(mode
-0
+模式
 # <翻译结束>
 
 # <翻译开始>
