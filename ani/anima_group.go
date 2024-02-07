@@ -1,4 +1,4 @@
-package 炫彩动画类
+package ani
 
 import (
 	"github.com/888go/xcgui/xc"

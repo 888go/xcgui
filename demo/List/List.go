@@ -11,20 +11,20 @@ import (
 )
 
 var (
-	a    *炫彩App类.App
+	a    *app.App
 	w    *window.Window
-	list *炫彩组件类.List
+	list *widget.List
 
-	btn_add   *炫彩组件类.Button
-	btn_del   *炫彩组件类.Button
-	btn_clear *炫彩组件类.Button
+	btn_add   *widget.Button
+	btn_del   *widget.Button
+	btn_clear *widget.Button
 )
 
 func main() {
-	a = 炫彩App类.New(true)
+	a = app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w = window.New(0, 0, 784, 400, "List", 0, 炫彩常量类.Window_Style_Default)
+	w = window.New(0, 0, 784, 400, "List", 0, xcc.Window_Style_Default)
 
 	// 创建List
 	createList()
@@ -32,15 +32,15 @@ func main() {
 	listAddItem()
 
 	var startX int32 = 10
-	btn_add = 炫彩组件类.NewButton(startX, 35, 100, 30, "添加20行", w.Handle)
+	btn_add = widget.NewButton(startX, 35, 100, 30, "添加20行", w.Handle)
 	btn_add.Event_BnClick1(onBnClick)
 
 	startX += 100 + 3
-	btn_del = 炫彩组件类.NewButton(startX, 35, 100, 30, "删除选中行", w.Handle)
+	btn_del = widget.NewButton(startX, 35, 100, 30, "删除选中行", w.Handle)
 	btn_del.Event_BnClick1(onBnClick)
 
 	startX += 100 + 3
-	btn_clear = 炫彩组件类.NewButton(startX, 35, 100, 30, "删除所有行", w.Handle)
+	btn_clear = widget.NewButton(startX, 35, 100, 30, "删除所有行", w.Handle)
 	btn_clear.Event_BnClick1(onBnClick)
 
 	w.Show(true)
@@ -69,7 +69,7 @@ func onBnClick(hEle int, pbHandled *bool) int {
 // 创建List
 func createList() {
 	// 创建List
-	list = 炫彩组件类.NewList(10, 70, 764, 315, w.Handle)
+	list = widget.NewList(10, 70, 764, 315, w.Handle)
 	// 创建表头数据适配器
 	list.CreateAdapterHeader()
 	// 创建数据适配器: 5列
@@ -123,8 +123,8 @@ func listTextAlign() {
 	list.Event_LIST_HEADER_TEMP_CREATE_END(func(pItem *xc.List_Header_Item_, pbHandled *bool) int {
 		for i := 0; i < list.GetColumnCount(); i++ {
 			hEle := list.GetHeaderTemplateObject(i, 1)
-			if a.IsHXCGUI(hEle, 炫彩常量类.XC_SHAPE_TEXT) { // 是形状文本
-				xc.XShapeText_SetTextAlign(hEle, 炫彩常量类.TextAlignFlag_Center|炫彩常量类.TextAlignFlag_Vcenter)
+			if a.IsHXCGUI(hEle, xcc.XC_SHAPE_TEXT) { // 是形状文本
+				xc.XShapeText_SetTextAlign(hEle, xcc.TextAlignFlag_Center|xcc.TextAlignFlag_Vcenter)
 			}
 		}
 		return 0
@@ -135,8 +135,8 @@ func listTextAlign() {
 		if nFlag == 1 {
 			for i := 0; i < list.GetColumnCount(); i++ {
 				hEle := list.GetTemplateObject(int(pItem.Index), i, 1)
-				if a.IsHXCGUI(hEle, 炫彩常量类.XC_SHAPE_TEXT) { // 是形状文本
-					xc.XShapeText_SetTextAlign(hEle, 炫彩常量类.TextAlignFlag_Center|炫彩常量类.TextAlignFlag_Vcenter)
+				if a.IsHXCGUI(hEle, xcc.XC_SHAPE_TEXT) { // 是形状文本
+					xc.XShapeText_SetTextAlign(hEle, xcc.TextAlignFlag_Center|xcc.TextAlignFlag_Vcenter)
 				}
 			}
 		}
@@ -174,7 +174,7 @@ func listAddItem() {
 func listDelSelectItem() {
 	count := list.GetSelectItemCount()
 	if count == 0 {
-		w.MessageBox("提示", "你没有选中列表任何行!", 炫彩常量类.MessageBox_Flag_Ok|炫彩常量类.MessageBox_Flag_Icon_Info, 炫彩常量类.Window_Style_Modal)
+		w.MessageBox("提示", "你没有选中列表任何行!", xcc.MessageBox_Flag_Ok|xcc.MessageBox_Flag_Icon_Info, xcc.Window_Style_Modal)
 		return
 	}
 

@@ -65,7 +65,7 @@ func XComboBox_GetAdapter(hEle int) int {
 //
 // pName: 字段名.
 func XComboBox_SetBindName(hEle int, pName string) int {
-	r, _, _ := xComboBox_SetBindName.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xComboBox_SetBindName.Call(uintptr(hEle), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -113,7 +113,7 @@ func XComboBox_GetDropHeight(hEle int) int {
 //
 // pXmlFile: 项模板文件.
 func XComboBox_SetItemTemplateXML(hEle int, pXmlFile string) int {
-	r, _, _ := xComboBox_SetItemTemplateXML.Call(uintptr(hEle), 炫彩工具类.StrPtr(pXmlFile))
+	r, _, _ := xComboBox_SetItemTemplateXML.Call(uintptr(hEle), common.StrPtr(pXmlFile))
 	return int(r)
 }
 
@@ -133,7 +133,7 @@ func XComboBox_SetItemTemplateXMLFromString(hEle int, pStringXML string) int {
 //
 // bEnable: 是否绘制.
 func XComboBox_EnableDrawButton(hEle int, bEnable bool) int {
-	r, _, _ := xComboBox_EnableDrawButton.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xComboBox_EnableDrawButton.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -143,7 +143,7 @@ func XComboBox_EnableDrawButton(hEle int, bEnable bool) int {
 //
 // bEdit: TRUE可编辑.
 func XComboBox_EnableEdit(hEle int, bEdit bool) int {
-	r, _, _ := xComboBox_EnableEdit.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEdit))
+	r, _, _ := xComboBox_EnableEdit.Call(uintptr(hEle), common.BoolPtr(bEdit))
 	return int(r)
 }
 
@@ -153,7 +153,7 @@ func XComboBox_EnableEdit(hEle int, bEdit bool) int {
 //
 // bEnable: 是否启用.
 func XComboBox_EnableDropHeightFixed(hEle int, bEnable bool) int {
-	r, _, _ := xComboBox_EnableDropHeightFixed.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xComboBox_EnableDropHeightFixed.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -168,9 +168,9 @@ func XComboBox_GetSelItem(hEle int) int {
 // 组合框_取状态, 返回: ComboBox_State_.
 //
 // hEle: 元素句柄.
-func XComboBox_GetState(hEle int) 炫彩常量类.ComboBox_State_ {
+func XComboBox_GetState(hEle int) xcc.ComboBox_State_ {
 	r, _, _ := xComboBox_GetState.Call(uintptr(hEle))
-	return 炫彩常量类.ComboBox_State_(r)
+	return xcc.ComboBox_State_(r)
 }
 
 // 组合框_添加项文本, 返回项索引.
@@ -179,7 +179,7 @@ func XComboBox_GetState(hEle int) 炫彩常量类.ComboBox_State_ {
 //
 // pText:.
 func XComboBox_AddItemText(hEle int, pText string) int {
-	r, _, _ := xComboBox_AddItemText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xComboBox_AddItemText.Call(uintptr(hEle), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -191,7 +191,7 @@ func XComboBox_AddItemText(hEle int, pText string) int {
 //
 // pText: 文本.
 func XComboBox_AddItemTextEx(hEle int, pName string, pText string) int {
-	r, _, _ := xComboBox_AddItemTextEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xComboBox_AddItemTextEx.Call(uintptr(hEle), common.StrPtr(pName), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -213,7 +213,7 @@ func XComboBox_AddItemImage(hEle int, hImage int) int {
 //
 // hImage: 图片句柄.
 func XComboBox_AddItemImageEx(hEle int, pName string, hImage int) int {
-	r, _, _ := xComboBox_AddItemImageEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xComboBox_AddItemImageEx.Call(uintptr(hEle), common.StrPtr(pName), uintptr(hImage))
 	return int(r)
 }
 
@@ -225,7 +225,7 @@ func XComboBox_AddItemImageEx(hEle int, pName string, hImage int) int {
 //
 // pText: 文本.
 func XComboBox_InsertItemText(hEle int, iItem int, pText string) int {
-	r, _, _ := xComboBox_InsertItemText.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xComboBox_InsertItemText.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -239,7 +239,7 @@ func XComboBox_InsertItemText(hEle int, iItem int, pText string) int {
 //
 // pText: 文本.
 func XComboBox_InsertItemTextEx(hEle int, iItem int, pName string, pText string) int {
-	r, _, _ := xComboBox_InsertItemTextEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xComboBox_InsertItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -265,7 +265,7 @@ func XComboBox_InsertItemImage(hEle int, iItem int, hImage int) int {
 //
 // hImage: 图片句柄.
 func XComboBox_InsertItemImageEx(hEle int, iItem int, pName string, hImage int) int {
-	r, _, _ := xComboBox_InsertItemImageEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xComboBox_InsertItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
 	return int(r)
 }
 
@@ -279,7 +279,7 @@ func XComboBox_InsertItemImageEx(hEle int, iItem int, pName string, hImage int) 
 //
 // pText: 文本.
 func XComboBox_SetItemText(hEle int, iItem int, iColumn int, pText string) bool {
-	r, _, _ := xComboBox_SetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xComboBox_SetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), common.StrPtr(pText))
 	return r != 0
 }
 
@@ -293,7 +293,7 @@ func XComboBox_SetItemText(hEle int, iItem int, iColumn int, pText string) bool 
 //
 // pText: 文本.
 func XComboBox_SetItemTextEx(hEle int, iItem int, pName string, pText string) bool {
-	r, _, _ := xComboBox_SetItemTextEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xComboBox_SetItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pText))
 	return r != 0
 }
 
@@ -321,7 +321,7 @@ func XComboBox_SetItemImage(hEle int, iItem int, iColumn int, hImage int) bool {
 //
 // hImage: 图片句柄.
 func XComboBox_SetItemImageEx(hEle int, iItem int, pName string, hImage int) bool {
-	r, _, _ := xComboBox_SetItemImageEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xComboBox_SetItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -349,7 +349,7 @@ func XComboBox_SetItemInt(hEle int, iItem int, iColumn int, nValue int32) bool {
 //
 // nValue: 整数值.
 func XComboBox_SetItemIntEx(hEle int, iItem int, pName string, nValue int32) bool {
-	r, _, _ := xComboBox_SetItemIntEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(nValue))
+	r, _, _ := xComboBox_SetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(nValue))
 	return r != 0
 }
 
@@ -363,7 +363,7 @@ func XComboBox_SetItemIntEx(hEle int, iItem int, pName string, nValue int32) boo
 //
 // fFloat: 浮点数.
 func XComboBox_SetItemFloat(hEle int, iItem int, iColumn int, fFloat float32) bool {
-	r, _, _ := xComboBox_SetItemFloat.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), 炫彩工具类.Float32Ptr(fFloat))
+	r, _, _ := xComboBox_SetItemFloat.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), common.Float32Ptr(fFloat))
 	return r != 0
 }
 
@@ -377,7 +377,7 @@ func XComboBox_SetItemFloat(hEle int, iItem int, iColumn int, fFloat float32) bo
 //
 // fFloat: 浮点数.
 func XComboBox_SetItemFloatEx(hEle int, iItem int, pName string, fFloat float32) bool {
-	r, _, _ := xComboBox_SetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.Float32Ptr(fFloat))
+	r, _, _ := xComboBox_SetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.Float32Ptr(fFloat))
 	return r != 0
 }
 
@@ -390,7 +390,7 @@ func XComboBox_SetItemFloatEx(hEle int, iItem int, pName string, fFloat float32)
 // iColumn: 列索引.
 func XComboBox_GetItemText(hEle int, iItem int32, iColumn int32) string {
 	r, _, _ := xComboBox_GetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 组合框_取项文本扩展.
@@ -401,8 +401,8 @@ func XComboBox_GetItemText(hEle int, iItem int32, iColumn int32) string {
 //
 // pName: 字段名.
 func XComboBox_GetItemTextEx(hEle int, iItem int, pName string) string {
-	r, _, _ := xComboBox_GetItemTextEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName))
-	return 炫彩工具类.UintPtrToString(r)
+	r, _, _ := xComboBox_GetItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName))
+	return common.UintPtrToString(r)
 }
 
 // 组合框_取项图片.
@@ -425,7 +425,7 @@ func XComboBox_GetItemImage(hEle int, iItem int, iColumn int) int {
 //
 // pName: 字段名.
 func XComboBox_GetItemImageEx(hEle int, iItem int, pName string) int {
-	r, _, _ := xComboBox_GetItemImageEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xComboBox_GetItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -453,7 +453,7 @@ func XComboBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int32) bo
 //
 // pOutValue: 接收返回整数值.
 func XComboBox_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int32) bool {
-	r, _, _ := xComboBox_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
+	r, _, _ := xComboBox_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
 
@@ -481,7 +481,7 @@ func XComboBox_GetItemFloat(hEle int, iItem int, iColumn int, pOutValue *float32
 //
 // pOutValue: 接收返回浮点值.
 func XComboBox_GetItemFloatEx(hEle int, iItem int, pName string, pOutValue *float32) bool {
-	r, _, _ := xComboBox_GetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
+	r, _, _ := xComboBox_GetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
 
@@ -563,7 +563,7 @@ func XComboBox_SetItemTemplate(hEle, hTemp int) int {
 //
 // data: 模板数据.
 func XComboBox_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
-	r, _, _ := xComboBox_SetItemTemplateXMLFromMem.Call(uintptr(hEle), 炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)))
+	r, _, _ := xComboBox_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
 	return r != 0
 }
 
@@ -579,7 +579,7 @@ func XComboBox_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
 //
 // hModule: 模块句柄, 可填0.
 func XComboBox_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xComboBox_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), hModule)
+	r, _, _ := xComboBox_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
 	return r != 0
 }
 

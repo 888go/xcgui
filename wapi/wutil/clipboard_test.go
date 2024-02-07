@@ -1,4 +1,4 @@
-package 炫彩WinApi工具类_test
+package wutil_test
 
 import (
 	"fmt"
@@ -7,11 +7,11 @@ import (
 )
 
 func TestSetClipboardText(t *testing.T) {
-	err := 炫彩WinApi工具类.SetClipboardText("SetClipboardText")
+	err := wutil.SetClipboardText("SetClipboardText")
 	if err != nil {
 		fmt.Println(err)
 	}
-	text, err := 炫彩WinApi工具类.GetClipboardText()
+	text, err := wutil.GetClipboardText()
 	if err != nil {
 		fmt.Println(err)
 	}

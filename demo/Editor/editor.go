@@ -12,18 +12,18 @@ import (
 
 func main() {
 	panic("由于代码编辑框的API正在升级, 所以[代码编辑框的部分函数]会用不了, 等待xcgui原作者更新后将会开放大量接口, 比以前更好用")
-	a := 炫彩App类.New(true)
-	w := window.New(0, 0, 1000, 600, "Editor", 0, 炫彩常量类.Window_Style_Default)
+	a := app.New(true)
+	w := window.New(0, 0, 1000, 600, "Editor", 0, xcc.Window_Style_Default)
 
 	// 创建Editor
-	Editor := 炫彩组件类.NewEditor(12, 35, 975, 555, w.Handle)
+	Editor := widget.NewEditor(12, 35, 975, 555, w.Handle)
 	// 启用接收Tab输入
 	Editor.EnableKeyTab(true)
 	// 启用自动换行
 	Editor.EnableAutoWrap(true)
 
 	// 创建字体
-	font1 := 炫彩字体类.NewEX("Arial", 12, 炫彩常量类.FontStyle_Regular)
+	font1 := font.NewEX("Arial", 12, xcc.FontStyle_Regular)
 	// 设置Editor的字体
 	Editor.SetFont(font1.Handle)
 	// 设置默认颜色
@@ -98,7 +98,7 @@ function foo(a int,b int) int{
 }`
 	Editor.SetText(code)
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

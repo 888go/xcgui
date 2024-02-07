@@ -1,4 +1,4 @@
-package 炫彩背景对象类
+package bkobj
 
 import (
 	"github.com/888go/xcgui/bkmanager"
@@ -9,7 +9,7 @@ import (
 
 // BkObj 背景对象.
 type BkObj struct {
-	炫彩对象基类.ObjectBase
+	objectbase.ObjectBase
 }
 
 // NewByHandle 从BkObj句柄创建BkObj对象.
@@ -24,7 +24,7 @@ func NewByHandle(handle int) *BkObj {
 // bkm: 背景管理器对象.
 //
 // id: 背景对象ID.
-func NewByBkm(bkm *炫彩背景管理器类.BkManager, id int) *BkObj {
+func NewByBkm(bkm *bkmanager.BkManager, id int) *BkObj {
 	handle := bkm.GetObject(id)
 	if handle == 0 {
 		return nil
@@ -65,7 +65,7 @@ func (b *BkObj) SetMargin(left int, top int, right int, bottom int) int {
 // 背景对象_置对齐.
 //
 // nFlags: 对齐方式: xcc.BkObject_Align_Flag_.
-func (b *BkObj) SetAlign(nFlags 炫彩常量类.BkObject_Align_Flag_) int {
+func (b *BkObj) SetAlign(nFlags xcc.BkObject_Align_Flag_) int {
 	return xc.XBkObj_SetAlign(b.Handle, nFlags)
 }
 
@@ -148,7 +148,7 @@ func (b *BkObj) SetFont(hFont int) int {
 // 背景对象_置文本对齐.
 //
 // nAlign: 文本对齐方式: xcc.TextFormatFlag_, xcc.TextAlignFlag_, xcc.TextTrimming_.
-func (b *BkObj) SetTextAlign(nAlign 炫彩常量类.TextFormatFlag_) int {
+func (b *BkObj) SetTextAlign(nAlign xcc.TextFormatFlag_) int {
 	return xc.XBkObj_SetTextAlign(b.Handle, nAlign)
 }
 
@@ -160,7 +160,7 @@ func (b *BkObj) GetMargin(pMargin *xc.RECT) int {
 }
 
 // 背景对象_取对齐, 返回对齐标识: xcc.BkObject_Align_Flag_.
-func (b *BkObj) GetAlign() 炫彩常量类.BkObject_Align_Flag_ {
+func (b *BkObj) GetAlign() xcc.BkObject_Align_Flag_ {
 	return xc.XBkObj_GetAlign(b.Handle)
 }
 
@@ -217,6 +217,6 @@ func (b *BkObj) GetFont() int {
 }
 
 // 背景对象_取文本对齐, 返回文本对齐方式: xcc.TextFormatFlag_.
-func (b *BkObj) GetTextAlign() 炫彩常量类.TextFormatFlag_ {
+func (b *BkObj) GetTextAlign() xcc.TextFormatFlag_ {
 	return xc.XBkObj_GetTextAlign(b.Handle)
 }

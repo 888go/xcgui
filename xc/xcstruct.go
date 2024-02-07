@@ -22,7 +22,7 @@ type Menu_DrawItem_ struct {
 	HMenu             int                 // 菜单句柄
 	HWindow           int                 // 当前弹出菜单项的窗口句柄
 	NID               int32               // ID
-	NState            炫彩常量类.Menu_Item_Flag_ // 状态: Menu_Item_Flag_
+	NState            xcc.Menu_Item_Flag_ // 状态: Menu_Item_Flag_
 	NShortcutKeyWidth int32               // 右侧快捷键占位宽度
 	RcItem            RECT                // 坐标
 	HIcon             int                 // 菜单项图标句柄
@@ -35,7 +35,7 @@ type ListBox_Item_ struct {
 	NUserData  int                  // 用户绑定数据
 	NHeight    int32                // 项默认高度
 	NSelHeight int32                // 项选中时高度
-	NState     炫彩常量类.List_Item_State_ // 状态: List_Item_State_
+	NState     xcc.List_Item_State_ // 状态: List_Item_State_
 	RcItem     RECT                 // 项坐标
 	HLayout    int                  // 布局对象句柄
 	HTemp      int                  // 列表项模板句柄
@@ -48,7 +48,7 @@ type List_Header_Item_ struct {
 	BSort          bool               // 是否支持排序
 	NSortType      int32              // 排序方式,0无效,1升序,2降序
 	IColumnAdapter int32              // 对应数据适配器中的列索引
-	NState         炫彩常量类.Common_State3_ // 状态: Common_State3_
+	NState         xcc.Common_State3_ // 状态: Common_State3_
 	RcItem         RECT               // 项坐标
 	HLayout        int                // 布局对象句柄
 	HTemp          int                // 列表项模板句柄
@@ -59,7 +59,7 @@ type List_Item_ struct {
 	Index     int32                // 项索引
 	ISubItem  int32                // 子项索引
 	NUserData int                  // 用户数据
-	NState    炫彩常量类.List_Item_State_ // 状态: List_Item_State_
+	NState    xcc.List_Item_State_ // 状态: List_Item_State_
 	RcItem    RECT                 // 未使用
 	HLayout   int                  // 布局对象句柄
 	HTemp     int                  // 列表项模板句柄
@@ -73,7 +73,7 @@ type Tree_Item_ struct {
 	NSelHeight int32                // 项选中状态高度
 	NUserData  int                  // 用户数据
 	BExpand    bool                 // 展开
-	NState     炫彩常量类.Tree_Item_State_ // 状态:　Tree_Item_State_
+	NState     xcc.Tree_Item_State_ // 状态:　Tree_Item_State_
 	RcItem     RECT                 // 坐标
 	HLayout    int                  // 布局对象句柄
 	HTemp      int                  // 列表项模板句柄
@@ -91,7 +91,7 @@ type ListView_Item_ struct {
 	IGroup    int32                // 项所述组索引 -1没有组
 	IItem     int32                // 项在数组中位置索引,如果此致为-1,那么为组
 	NUserData int                  // 用户绑定数据
-	NState    炫彩常量类.List_Item_State_ // 状态: List_Item_State_
+	NState    xcc.List_Item_State_ // 状态: List_Item_State_
 	RcItem    RECT                 // 整个区域,包含边框
 	HLayout   int                  // 布局对象
 	HTemp     int                  // 列表项模板
@@ -166,7 +166,7 @@ type Edit_Data_Copy_ struct {
 
 // Edit 样式信息
 type Edit_Style_Info_ struct {
-	Type            炫彩常量类.Edit_Style_Type_ // 样式类型: Edit_Style_Type_
+	Type            xcc.Edit_Style_Type_ // 样式类型: Edit_Style_Type_
 	NRef            uint16               // 引用计数
 	HFont_image_obj int                  // 字体,图片,UI对象句柄
 	Color           int32                // 颜色
@@ -189,7 +189,7 @@ type Position_ struct {
 // Font_Info_ 字体信息
 type Font_Info_ struct {
 	NSize  int32          // 字体大小, 单位(pt,磅).
-	NStyle 炫彩常量类.FontStyle_ // 字体样式: FontStyle_
+	NStyle xcc.FontStyle_ // 字体样式: FontStyle_
 	Name   [32]uint16     // 字体名称, 使用xc.Font_Info_Name()函数转换为string.
 }
 
@@ -204,7 +204,7 @@ type ListBox_Item_Info_ struct {
 type MonthCal_item_ struct {
 	NDay   int32             // 日期
 	NType  int32             // 1上月, 2当月, 3下月
-	NState 炫彩常量类.CombinedState // 组合状态, MonthCal_State_Flag_
+	NState xcc.CombinedState // 组合状态, MonthCal_State_Flag_
 	RcItem RECT              // 项坐标
 }
 

@@ -1,4 +1,4 @@
-package 炫彩对象基类
+package objectbase
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -14,14 +14,14 @@ type UI struct {
 //
 //	@param nStyle xcc.XC_OBJECT_STYLE, 样式值: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
 //	@return int
-func (u *UI) SetStyle(nStyle 炫彩常量类.XC_OBJECT_STYLE) int {
+func (u *UI) SetStyle(nStyle xcc.XC_OBJECT_STYLE) int {
 	return xc.XUI_SetStyle(u.Handle, nStyle)
 }
 
 // GetStyle 可视对象_取样式, 获取UI对象样式.
 //
 //	@return xcc.XC_OBJECT_STYLE 返回: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
-func (u *UI) GetStyle() 炫彩常量类.XC_OBJECT_STYLE {
+func (u *UI) GetStyle() xcc.XC_OBJECT_STYLE {
 	return xc.XUI_GetStyle(u.Handle)
 }
 

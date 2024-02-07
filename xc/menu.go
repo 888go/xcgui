@@ -22,8 +22,8 @@ func XMenu_Create() int {
 // nParentID: 父项ID.
 //
 // nFlags: 标识, Menu_Item_Flag_.
-func XMenu_AddItem(hMenu int, nID int32, pText string, nParentID int32, nFlags 炫彩常量类.Menu_Item_Flag_) {
-	xMenu_AddItem.Call(uintptr(hMenu), uintptr(nID), 炫彩工具类.StrPtr(pText), uintptr(nParentID), uintptr(nFlags))
+func XMenu_AddItem(hMenu int, nID int32, pText string, nParentID int32, nFlags xcc.Menu_Item_Flag_) {
+	xMenu_AddItem.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText), uintptr(nParentID), uintptr(nFlags))
 }
 
 // 菜单_添加项图标.
@@ -39,8 +39,8 @@ func XMenu_AddItem(hMenu int, nID int32, pText string, nParentID int32, nFlags �
 // hIcon: 菜单项图标句柄.
 //
 // nFlags: 标识, Menu_Item_Flag_.
-func XMenu_AddItemIcon(hMenu int, nID int32, pText string, nParentID int32, hIcon int, nFlags 炫彩常量类.Menu_Item_Flag_) {
-	xMenu_AddItemIcon.Call(uintptr(hMenu), uintptr(nID), 炫彩工具类.StrPtr(pText), uintptr(nParentID), uintptr(hIcon), uintptr(nFlags))
+func XMenu_AddItemIcon(hMenu int, nID int32, pText string, nParentID int32, hIcon int, nFlags xcc.Menu_Item_Flag_) {
+	xMenu_AddItemIcon.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText), uintptr(nParentID), uintptr(hIcon), uintptr(nFlags))
 }
 
 // 菜单_插入项.
@@ -54,8 +54,8 @@ func XMenu_AddItemIcon(hMenu int, nID int32, pText string, nParentID int32, hIco
 // nFlags: 标识, Menu_Item_Flag_.
 //
 // insertID: 插入位置ID.
-func XMenu_InsertItem(hMenu int, nID int32, pText string, nFlags 炫彩常量类.Menu_Item_Flag_, insertID int32) {
-	xMenu_InsertItem.Call(uintptr(hMenu), uintptr(nID), 炫彩工具类.StrPtr(pText), uintptr(nFlags), uintptr(insertID))
+func XMenu_InsertItem(hMenu int, nID int32, pText string, nFlags xcc.Menu_Item_Flag_, insertID int32) {
+	xMenu_InsertItem.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText), uintptr(nFlags), uintptr(insertID))
 }
 
 // 菜单_插入项图标.
@@ -71,8 +71,8 @@ func XMenu_InsertItem(hMenu int, nID int32, pText string, nFlags 炫彩常量类
 // nFlags: 标识, Menu_Item_Flag_.
 //
 // insertID: 插入位置ID.
-func XMenu_InsertItemIcon(hMenu int, nID int32, pText string, hIcon int, nFlags 炫彩常量类.Menu_Item_Flag_, insertID int32) {
-	xMenu_InsertItemIcon.Call(uintptr(hMenu), uintptr(nID), 炫彩工具类.StrPtr(pText), uintptr(hIcon), uintptr(nFlags), uintptr(insertID))
+func XMenu_InsertItemIcon(hMenu int, nID int32, pText string, hIcon int, nFlags xcc.Menu_Item_Flag_, insertID int32) {
+	xMenu_InsertItemIcon.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText), uintptr(hIcon), uintptr(nFlags), uintptr(insertID))
 }
 
 // 菜单_取第一个子项, 返回项ID.
@@ -131,7 +131,7 @@ func XMenu_GetParentItem(hMenu int, nID int32) int32 {
 //
 // bAuto: 是否自动销毁.
 func XMenu_SetAutoDestroy(hMenu int, bAuto bool) {
-	xMenu_SetAutoDestroy.Call(uintptr(hMenu), 炫彩工具类.BoolPtr(bAuto))
+	xMenu_SetAutoDestroy.Call(uintptr(hMenu), common.BoolPtr(bAuto))
 }
 
 // 菜单_启用用户绘制背景, 是否有用户绘制菜单背景, 如果启用XWM_MENU_DRAW_BACKGROUND和XE_MENU_DRAW_BACKGROUND事件有效.
@@ -140,7 +140,7 @@ func XMenu_SetAutoDestroy(hMenu int, bAuto bool) {
 //
 // bEnable: 是否启用.
 func XMenu_EnableDrawBackground(hMenu int, bEnable bool) {
-	xMenu_EnableDrawBackground.Call(uintptr(hMenu), 炫彩工具类.BoolPtr(bEnable))
+	xMenu_EnableDrawBackground.Call(uintptr(hMenu), common.BoolPtr(bEnable))
 }
 
 // 菜单_启用用户绘制项, 是否有用户绘制菜单项, 如果启用XWM_MENU_DRAWITEM和XE_MENU_DRAWITEM事件有效.
@@ -149,7 +149,7 @@ func XMenu_EnableDrawBackground(hMenu int, bEnable bool) {
 //
 // bEnable: 是否启用.
 func XMenu_EnableDrawItem(hMenu int, bEnable bool) {
-	xMenu_EnableDrawItem.Call(uintptr(hMenu), 炫彩工具类.BoolPtr(bEnable))
+	xMenu_EnableDrawItem.Call(uintptr(hMenu), common.BoolPtr(bEnable))
 }
 
 // 菜单_弹出.
@@ -165,7 +165,7 @@ func XMenu_EnableDrawItem(hMenu int, bEnable bool) {
 // hParentEle: 父元素句柄, 如果该值不为NULL, hParentEle元素将接收菜单消息事件, 否则将由hParentWnd窗口接收菜单的消息事件.
 //
 // nPosition: 弹出位置, Menu_Popup_Position_.
-func XMenu_Popup(hMenu int, hParentWnd uintptr, x, y int32, hParentEle int, nPosition 炫彩常量类.Menu_Popup_Position_) bool {
+func XMenu_Popup(hMenu int, hParentWnd uintptr, x, y int32, hParentEle int, nPosition xcc.Menu_Popup_Position_) bool {
 	r, _, _ := xMenu_Popup.Call(uintptr(hMenu), hParentWnd, uintptr(x), uintptr(y), uintptr(hParentEle), uintptr(nPosition))
 	return r != 0
 }
@@ -201,7 +201,7 @@ func XMenu_SetBkImage(hMenu int, hImage int) {
 //
 // pText: 文本内容.
 func XMenu_SetItemText(hMenu int, nID int32, pText string) bool {
-	r, _, _ := xMenu_SetItemText.Call(uintptr(hMenu), uintptr(nID), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xMenu_SetItemText.Call(uintptr(hMenu), uintptr(nID), common.StrPtr(pText))
 	return r != 0
 }
 
@@ -212,7 +212,7 @@ func XMenu_SetItemText(hMenu int, nID int32, pText string) bool {
 // nID: 项ID.
 func XMenu_GetItemText(hMenu int, nID int32) string {
 	r, _, _ := xMenu_GetItemText.Call(uintptr(hMenu), uintptr(nID))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 菜单_取项文本长度, 获取项文本长度, 不包含字符串空终止符.
@@ -244,7 +244,7 @@ func XMenu_SetItemIcon(hMenu int, nID int32, hIcon int) bool {
 // nID: 项ID.
 //
 // uFlags: 标识, Menu_Item_Flag_.
-func XMenu_SetItemFlags(hMenu int, nID int32, uFlags 炫彩常量类.Menu_Item_Flag_) bool {
+func XMenu_SetItemFlags(hMenu int, nID int32, uFlags xcc.Menu_Item_Flag_) bool {
 	r, _, _ := xMenu_SetItemFlags.Call(uintptr(hMenu), uintptr(nID), uintptr(uFlags))
 	return r != 0
 }
@@ -322,7 +322,7 @@ func XMenu_GetItemCount(hMenu int) int32 {
 //
 // bCheck: 勾选TRUE.
 func XMenu_SetItemCheck(hMenu int, nID int32, bCheck bool) bool {
-	r, _, _ := xMenu_SetItemCheck.Call(uintptr(hMenu), uintptr(nID), 炫彩工具类.BoolPtr(bCheck))
+	r, _, _ := xMenu_SetItemCheck.Call(uintptr(hMenu), uintptr(nID), common.BoolPtr(bCheck))
 	return r != 0
 }
 

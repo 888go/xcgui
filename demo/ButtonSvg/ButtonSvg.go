@@ -11,32 +11,32 @@ import (
 )
 
 func main() {
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 400, 300, "给按钮设置Svg图标", 0, 炫彩常量类.Window_Style_Default)
+	w := window.New(0, 0, 400, 300, "给按钮设置Svg图标", 0, xcc.Window_Style_Default)
 
 	// 加载svg1从string
-	svg1 := 炫彩图片类.NewBySvgStringW(svgStr1)
+	svg1 := imagex.NewBySvgStringW(svgStr1)
 	// 设置svg1的大小
 	xc.XSvg_SetSize(svg1.GetSvg(), 24, 24)
 
 	// 创建按钮1
-	btn1 := 炫彩组件类.NewButton(30, 40, 130, 30, "Test Svg Icon", w.Handle)
+	btn1 := widget.NewButton(30, 40, 130, 30, "Test Svg Icon", w.Handle)
 	// 设置按钮1的icon
 	btn1.SetIcon(svg1.Handle)
 
 	// 加载svg2从string
-	svg2 := 炫彩图片类.NewBySvgStringW(svgStr2)
+	svg2 := imagex.NewBySvgStringW(svgStr2)
 	// 设置svg2的大小
 	xc.XSvg_SetSize(svg2.GetSvg(), 100, 100)
 
 	// 创建按钮2
-	btn2 := 炫彩组件类.NewButton(30, 80, 100, 100, "", w.Handle)
+	btn2 := widget.NewButton(30, 80, 100, 100, "", w.Handle)
 	// 设置按钮2的icon
 	btn2.SetIcon(svg2.Handle)
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,7 +7,7 @@ import (
 
 // Shape 形状对象基类.
 type Shape struct {
-	炫彩对象基类.Widget
+	objectbase.Widget
 }
 
 // 从句柄创建对象.

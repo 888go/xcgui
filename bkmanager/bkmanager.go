@@ -1,4 +1,4 @@
-package 炫彩背景管理器类
+package bkmanager
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -9,7 +9,7 @@ import (
 
 // BkManager 背景管理器.
 type BkManager struct {
-	炫彩对象基类.ObjectBase
+	objectbase.ObjectBase
 }
 
 // New 背景_创建, 创建背景管理器.
@@ -28,7 +28,7 @@ func NewByHandle(handle int) *BkManager {
 
 // NewByName 从name创建背景管理器对象, 失败返回nil.
 func NewByName(name string) *BkManager {
-	handle := 炫彩资源类.GetBkM(name)
+	handle := res.GetBkM(name)
 	if handle > 0 {
 		p := &BkManager{}
 		p.SetHandle(handle)
@@ -69,7 +69,7 @@ func (b *BkManager) AddInfo(pText string) int {
 // width: 线宽.
 //
 // id: 背景对象ID, 可忽略(填0).
-func (b *BkManager) AddBorder(nState 炫彩常量类.CombinedState, color, width, id int) int {
+func (b *BkManager) AddBorder(nState xcc.CombinedState, color, width, id int) int {
 	return xc.XBkM_AddBorder(b.Handle, nState, color, width, id)
 }
 
@@ -80,7 +80,7 @@ func (b *BkManager) AddBorder(nState 炫彩常量类.CombinedState, color, width
 // color: ABGR 颜色.
 //
 // id: 背景对象ID, 可忽略(填0).
-func (b *BkManager) AddFill(nState 炫彩常量类.CombinedState, color, id int) int {
+func (b *BkManager) AddFill(nState xcc.CombinedState, color, id int) int {
 	return xc.XBkM_AddFill(b.Handle, nState, color, id)
 }
 
@@ -91,7 +91,7 @@ func (b *BkManager) AddFill(nState 炫彩常量类.CombinedState, color, id int)
 // hImage: 图片句柄.
 //
 // id: 背景对象ID, 可忽略(填0).
-func (b *BkManager) AddImage(nState 炫彩常量类.CombinedState, hImage, id int) int {
+func (b *BkManager) AddImage(nState xcc.CombinedState, hImage, id int) int {
 	return xc.XBkM_AddImage(b.Handle, nState, hImage, id)
 }
 
@@ -112,7 +112,7 @@ func (b *BkManager) Clear() int {
 // hDraw: 图形绘制句柄.
 //
 // pRect: 区域坐标.
-func (b *BkManager) Draw(nState 炫彩常量类.CombinedState, hDraw int, pRect *xc.RECT) bool {
+func (b *BkManager) Draw(nState xcc.CombinedState, hDraw int, pRect *xc.RECT) bool {
 	return xc.XBkM_Draw(b.Handle, nState, hDraw, pRect)
 }
 
@@ -127,7 +127,7 @@ func (b *BkManager) Draw(nState 炫彩常量类.CombinedState, hDraw int, pRect 
 // nStateEx: 当(nState)中包含(nStateEx)中的一个或多个状态时有效.
 //
 // 注解: 例如用来绘制列表项时, nState中包含项的状态(nStateEx)才会绘制, 避免列表项与元素背景叠加.
-func (b *BkManager) DrawEx(nState 炫彩常量类.CombinedState, hDraw int, pRect *xc.RECT, nStateEx 炫彩常量类.CombinedState) bool {
+func (b *BkManager) DrawEx(nState xcc.CombinedState, hDraw int, pRect *xc.RECT, nStateEx xcc.CombinedState) bool {
 	return xc.XBkM_DrawEx(b.Handle, nState, hDraw, pRect, nStateEx)
 }
 
@@ -165,7 +165,7 @@ func (b *BkManager) SetInfo(pText string) int {
 // nState: 组合状态.
 //
 // color: 接收返回的ABGR 颜色.
-func (b *BkManager) GetStateTextColor(nState 炫彩常量类.CombinedState, color *int) bool {
+func (b *BkManager) GetStateTextColor(nState xcc.CombinedState, color *int) bool {
 	return xc.XBkM_GetStateTextColor(b.Handle, nState, color)
 }
 

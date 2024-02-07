@@ -1,4 +1,4 @@
-package 炫彩常量类
+package xcc
 
 // XC_NAME
 

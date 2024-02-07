@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -8,7 +8,7 @@ import (
 
 // Menu 弹出菜单.
 type Menu struct {
-	炫彩对象基类.ObjectBase
+	objectbase.ObjectBase
 }
 
 // 菜单_创建, 创建菜单, 默认弹出菜单窗口关闭后自动销毁.
@@ -67,7 +67,7 @@ func NewMenuByUIDName(name string) *Menu {
 // nParentID: 父项ID.
 //
 // nFlags: 标识, Menu_Item_Flag_.
-func (m *Menu) AddItem(nID int32, pText string, nParentID int32, nFlags 炫彩常量类.Menu_Item_Flag_) {
+func (m *Menu) AddItem(nID int32, pText string, nParentID int32, nFlags xcc.Menu_Item_Flag_) {
 	xc.XMenu_AddItem(m.Handle, nID, pText, nParentID, nFlags)
 }
 
@@ -82,7 +82,7 @@ func (m *Menu) AddItem(nID int32, pText string, nParentID int32, nFlags 炫彩�
 // hIcon: 菜单项图标句柄.
 //
 // nFlags: 标识, Menu_Item_Flag_.
-func (m *Menu) AddItemIcon(nID int32, pText string, nParentID int32, hIcon int, nFlags 炫彩常量类.Menu_Item_Flag_) {
+func (m *Menu) AddItemIcon(nID int32, pText string, nParentID int32, hIcon int, nFlags xcc.Menu_Item_Flag_) {
 	xc.XMenu_AddItemIcon(m.Handle, nID, pText, nParentID, hIcon, nFlags)
 }
 
@@ -95,7 +95,7 @@ func (m *Menu) AddItemIcon(nID int32, pText string, nParentID int32, hIcon int, 
 // nFlags: 标识, Menu_Item_Flag_.
 //
 // insertID: 插入位置ID.
-func (m *Menu) InsertItem(nID int32, pText string, nFlags 炫彩常量类.Menu_Item_Flag_, insertID int32) {
+func (m *Menu) InsertItem(nID int32, pText string, nFlags xcc.Menu_Item_Flag_, insertID int32) {
 	xc.XMenu_InsertItem(m.Handle, nID, pText, nFlags, insertID)
 }
 
@@ -110,7 +110,7 @@ func (m *Menu) InsertItem(nID int32, pText string, nFlags 炫彩常量类.Menu_I
 // nFlags: 标识, Menu_Item_Flag_.
 //
 // insertID: 插入位置ID.
-func (m *Menu) InsertItemIcon(nID int32, pText string, hIcon int, nFlags 炫彩常量类.Menu_Item_Flag_, insertID int32) {
+func (m *Menu) InsertItemIcon(nID int32, pText string, hIcon int, nFlags xcc.Menu_Item_Flag_, insertID int32) {
 	xc.XMenu_InsertItemIcon(m.Handle, nID, pText, hIcon, nFlags, insertID)
 }
 
@@ -181,7 +181,7 @@ func (m *Menu) EnableDrawItem(bEnable bool) {
 // hParentEle: 父元素句柄, 如果该值不为NULL, hParentEle元素将接收菜单消息事件, 否则将由hParentWnd窗口接收菜单的消息事件.
 //
 // nPosition: 弹出位置, Menu_Popup_Position_.
-func (m *Menu) Popup(hParentWnd uintptr, x, y int32, hParentEle int, nPosition 炫彩常量类.Menu_Popup_Position_) bool {
+func (m *Menu) Popup(hParentWnd uintptr, x, y int32, hParentEle int, nPosition xcc.Menu_Popup_Position_) bool {
 	return xc.XMenu_Popup(m.Handle, hParentWnd, x, y, hParentEle, nPosition)
 }
 
@@ -239,7 +239,7 @@ func (m *Menu) SetItemIcon(nID int32, hIcon int) bool {
 // nID: 项ID.
 //
 // uFlags: 标识, Menu_Item_Flag_.
-func (m *Menu) SetItemFlags(nID int32, uFlags 炫彩常量类.Menu_Item_Flag_) bool {
+func (m *Menu) SetItemFlags(nID int32, uFlags xcc.Menu_Item_Flag_) bool {
 	return xc.XMenu_SetItemFlags(m.Handle, nID, uFlags)
 }
 

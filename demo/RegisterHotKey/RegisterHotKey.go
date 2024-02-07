@@ -17,13 +17,13 @@ const (
 )
 
 var (
-	a *炫彩App类.App
+	a *app.App
 	w *window.Window
 )
 
 func main() {
-	a = 炫彩App类.New(true)
-	w = window.New(0, 0, 400, 300, "", 0, 炫彩常量类.Window_Style_Default)
+	a = app.New(true)
+	w = window.New(0, 0, 400, 300, "", 0, xcc.Window_Style_Default)
 
 	// 全局生效
 	one()
@@ -38,17 +38,17 @@ func main() {
 // 全局生效
 func one() {
 	// 注册热键F3
-	if !炫彩WinApi类.RegisterHotKey(w.GetHWND(), ID_F3, 0, 炫彩常量类.VK_F3) {
+	if !wapi.RegisterHotKey(w.GetHWND(), ID_F3, 0, xcc.VK_F3) {
 		fmt.Println("注册热键F3失败")
 	}
 
 	// 注册热键F4
-	if !炫彩WinApi类.RegisterHotKey(w.GetHWND(), ID_F4, 0, 炫彩常量类.VK_F4) {
+	if !wapi.RegisterHotKey(w.GetHWND(), ID_F4, 0, xcc.VK_F4) {
 		fmt.Println("注册热键F4失败")
 	}
 
 	w.Event_WINDPROC1(func(hWindow int, message uint32, wParam, lParam uint, pbHandled *bool) int {
-		if message == uint32(炫彩常量类.WM_HOTKEY) {
+		if message == uint32(xcc.WM_HOTKEY) {
 			switch wParam {
 			case ID_F3:
 				fmt.Println("Event_WINDPROC1 F3键被按下")
@@ -64,9 +64,9 @@ func one() {
 func two() {
 	w.Event_KEYDOWN1(func(hWindow int, wParam, lParam uint, pbHandled *bool) int {
 		switch wParam {
-		case 炫彩常量类.VK_F5:
+		case xcc.VK_F5:
 			fmt.Println("Event_KEYDOWN1 F5键被按下")
-		case 炫彩常量类.VK_F6:
+		case xcc.VK_F6:
 			fmt.Println("Event_KEYDOWN1 F6键被按下")
 		}
 		return 0

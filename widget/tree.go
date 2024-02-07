@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -191,7 +191,7 @@ func (t *Tree) SetItemTemplateXMLSelFromString(pStringXML string) bool {
 // 列表树_置项背景绘制标志, 设置是否绘制指定状态下项的背景.
 //
 // nFlags: 标志位: xcc.List_DrawItemBk_Flag_.
-func (t *Tree) SetDrawItemBkFlags(nFlags 炫彩常量类.List_DrawItemBk_Flag_) {
+func (t *Tree) SetDrawItemBkFlags(nFlags xcc.List_DrawItemBk_Flag_) {
 	xc.XTree_SetDrawItemBkFlags(t.Handle, nFlags)
 }
 
@@ -661,100 +661,100 @@ type XE_TREE_DRAG_ITEM1 func(hEle int, pInfo *xc.Tree_Drag_Item_, pbHandled *boo
 //
 // nFlag  0:状态改变; 1:新模板实例; 2:旧模板复用
 func (t *Tree) Event_TREE_TEMP_CREATE(pFun XE_TREE_TEMP_CREATE) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_TEMP_CREATE, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_TEMP_CREATE, pFun)
 }
 
 // 列表树元素-项模板创建,模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复.
 //
 // nFlag  0:状态改变; 1:新模板实例; 2:旧模板复用
 func (t *Tree) Event_TREE_TEMP_CREATE1(pFun XE_TREE_TEMP_CREATE1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_TEMP_CREATE, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_TEMP_CREATE, pFun)
 }
 
 // 列表树元素-项模板创建完成,模板复用机制需先启用; 不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用); 1:新模板实例; 2:旧模板复用
 func (t *Tree) Event_TREE_TEMP_CREATE_END(pFun XE_TREE_TEMP_CREATE_END) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_TEMP_CREATE_END, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_TEMP_CREATE_END, pFun)
 }
 
 // 列表树元素-项模板创建完成,模板复用机制需先启用; 不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用); 1:新模板实例; 2:旧模板复用
 func (t *Tree) Event_TREE_TEMP_CREATE_END1(pFun XE_TREE_TEMP_CREATE_END1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_TEMP_CREATE_END, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_TEMP_CREATE_END, pFun)
 }
 
 // 列表树元素-项模板销毁,模板复用机制需先启用;
 //
 // nFlag   0:正常销毁;  1:移动到缓存(不会被销毁,临时缓存备用,当需要时被复用)
 func (t *Tree) Event_TREE_TEMP_DESTROY(pFun XE_TREE_TEMP_DESTROY) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_TEMP_DESTROY, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_TEMP_DESTROY, pFun)
 }
 
 // 列表树元素-项模板销毁,模板复用机制需先启用;
 //
 // nFlag   0:正常销毁;  1:移动到缓存(不会被销毁,临时缓存备用,当需要时被复用)
 func (t *Tree) Event_TREE_TEMP_DESTROY1(pFun XE_TREE_TEMP_DESTROY1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_TEMP_DESTROY, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_TEMP_DESTROY, pFun)
 }
 
 // 树元素,项模板,调整项坐标. 已停用.
 func (t *Tree) Event_TREE_TEMP_ADJUST_COORDINATE(pFun XE_TREE_TEMP_ADJUST_COORDINATE) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_TEMP_ADJUST_COORDINATE, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_TEMP_ADJUST_COORDINATE, pFun)
 }
 
 // 树元素,项模板,调整项坐标. 已停用.
 func (t *Tree) Event_TREE_TEMP_ADJUST_COORDINATE1(pFun XE_TREE_TEMP_ADJUST_COORDINATE1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_TEMP_ADJUST_COORDINATE, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_TEMP_ADJUST_COORDINATE, pFun)
 }
 
 // 树元素,绘制项.
 func (t *Tree) Event_TREE_DRAWITEM(pFun XE_TREE_DRAWITEM) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_DRAWITEM, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_DRAWITEM, pFun)
 }
 
 // 树元素,绘制项.
 func (t *Tree) Event_TREE_DRAWITEM1(pFun XE_TREE_DRAWITEM1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_DRAWITEM, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_DRAWITEM, pFun)
 }
 
 // 树元素,项选择事件.
 func (t *Tree) Event_TREE_SELECT(pFun XE_TREE_SELECT) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_SELECT, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_SELECT, pFun)
 }
 
 // 树元素,项选择事件.
 func (t *Tree) Event_TREE_SELECT1(pFun XE_TREE_SELECT1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_SELECT, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_SELECT, pFun)
 }
 
 // 树元素,项展开收缩事件.
 func (t *Tree) Event_TREE_EXPAND(pFun XE_TREE_EXPAND) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_EXPAND, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_EXPAND, pFun)
 }
 
 // 树元素,项展开收缩事件.
 func (t *Tree) Event_TREE_EXPAND1(pFun XE_TREE_EXPAND1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_EXPAND, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_EXPAND, pFun)
 }
 
 // 树元素,用户正在拖动项, 可对参数值修改.
 func (t *Tree) Event_TREE_DRAG_ITEM_ING(pFun XE_TREE_DRAG_ITEM_ING) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_DRAG_ITEM_ING, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_DRAG_ITEM_ING, pFun)
 }
 
 // 树元素,用户正在拖动项, 可对参数值修改.
 func (t *Tree) Event_TREE_DRAG_ITEM_ING1(pFun XE_TREE_DRAG_ITEM_ING1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_DRAG_ITEM_ING, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_DRAG_ITEM_ING, pFun)
 }
 
 // 树元素,拖动项事件.
 func (t *Tree) Event_TREE_DRAG_ITEM(pFun XE_TREE_DRAG_ITEM) bool {
-	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TREE_DRAG_ITEM, pFun)
+	return xc.XEle_RegEventC(t.Handle, xcc.XE_TREE_DRAG_ITEM, pFun)
 }
 
 // 树元素,拖动项事件.
 func (t *Tree) Event_TREE_DRAG_ITEM1(pFun XE_TREE_DRAG_ITEM1) bool {
-	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TREE_DRAG_ITEM, pFun)
+	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TREE_DRAG_ITEM, pFun)
 }

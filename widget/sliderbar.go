@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -133,10 +133,10 @@ type XE_SLIDERBAR_CHANGE1 func(hEle int, pos int32, pbHandled *bool) int // 滑�
 
 // 滑动条元素,滑块位置改变事件.
 func (s *SliderBar) Event_SLIDERBAR_CHANGE(pFun XE_SLIDERBAR_CHANGE) bool {
-	return xc.XEle_RegEventC(s.Handle, 炫彩常量类.XE_SLIDERBAR_CHANGE, pFun)
+	return xc.XEle_RegEventC(s.Handle, xcc.XE_SLIDERBAR_CHANGE, pFun)
 }
 
 // 滑动条元素,滑块位置改变事件.
 func (s *SliderBar) Event_SLIDERBAR_CHANGE1(pFun XE_SLIDERBAR_CHANGE1) bool {
-	return xc.XEle_RegEventC1(s.Handle, 炫彩常量类.XE_SLIDERBAR_CHANGE, pFun)
+	return xc.XEle_RegEventC1(s.Handle, xcc.XE_SLIDERBAR_CHANGE, pFun)
 }

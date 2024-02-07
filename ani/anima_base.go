@@ -1,4 +1,4 @@
-package 炫彩动画类
+package ani
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,7 +7,7 @@ import (
 
 // 动画特效基类.
 type animaBase struct {
-	炫彩对象基类.ObjectBase
+	objectbase.ObjectBase
 }
 
 // 动画_运行, 并且增加引用计数.

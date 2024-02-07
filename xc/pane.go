@@ -17,7 +17,7 @@ import (
 //
 // hFrameWnd: 框架窗口.
 func XPane_Create(pName string, nWidth int, nHeight int, hFrameWnd int) int {
-	r, _, _ := xPane_Create.Call(炫彩工具类.StrPtr(pName), uintptr(nWidth), uintptr(nHeight), uintptr(hFrameWnd))
+	r, _, _ := xPane_Create.Call(common.StrPtr(pName), uintptr(nWidth), uintptr(nHeight), uintptr(hFrameWnd))
 	return int(r)
 }
 
@@ -37,7 +37,7 @@ func XPane_SetView(hEle int, hView int) int {
 //
 // pTitle: 文本内容.
 func XPane_SetTitle(hEle int, pTitle string) int {
-	r, _, _ := xPane_SetTitle.Call(uintptr(hEle), 炫彩工具类.StrPtr(pTitle))
+	r, _, _ := xPane_SetTitle.Call(uintptr(hEle), common.StrPtr(pTitle))
 	return int(r)
 }
 
@@ -46,7 +46,7 @@ func XPane_SetTitle(hEle int, pTitle string) int {
 // hEle: 元素句柄.
 func XPane_GetTitle(hEle int) string {
 	r, _, _ := xPane_GetTitle.Call(uintptr(hEle))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 窗格_置标题栏高度, 设置标题栏高度.
@@ -90,9 +90,9 @@ func XPane_SetSize(hEle int, nWidth int, nHeight int) int {
 // 窗格_取状态, 获取窗格停靠状态, 返回: Pane_State_.
 //
 // hEle: 元素句柄.
-func XPane_GetState(hEle int) 炫彩常量类.Pane_State_ {
+func XPane_GetState(hEle int) xcc.Pane_State_ {
 	r, _, _ := xPane_GetState.Call(uintptr(hEle))
-	return 炫彩常量类.Pane_State_(r)
+	return xcc.Pane_State_(r)
 }
 
 // 窗格_取视图坐标, 获取窗格视图坐标.
@@ -111,7 +111,7 @@ func XPane_GetViewRect(hEle int, pRect *RECT) int {
 //	@param bGroupActivate 当为窗格组成员时, 延迟处理窗格组成员激活的切换.
 //	@return int
 func XPane_HidePane(hEle int, bGroupActivate bool) int {
-	r, _, _ := xPane_HidePane.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bGroupActivate))
+	r, _, _ := xPane_HidePane.Call(uintptr(hEle), common.BoolPtr(bGroupActivate))
 	return int(r)
 }
 
@@ -121,7 +121,7 @@ func XPane_HidePane(hEle int, bGroupActivate bool) int {
 //	@param bGroupActivate 如果是窗格组成员, 那么窗格组切换当前窗格为显示状态.
 //	@return int
 func XPane_ShowPane(hEle int, bGroupActivate bool) int {
-	r, _, _ := xPane_ShowPane.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bGroupActivate))
+	r, _, _ := xPane_ShowPane.Call(uintptr(hEle), common.BoolPtr(bGroupActivate))
 	return int(r)
 }
 

@@ -16,7 +16,7 @@ func XAdListView_Create() int {
 //
 // pName: 字段称.
 func XAdListView_Group_AddColumn(hAdapter int, pName string) int {
-	r, _, _ := xAdListView_Group_AddColumn.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xAdListView_Group_AddColumn.Call(uintptr(hAdapter), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -28,7 +28,7 @@ func XAdListView_Group_AddColumn(hAdapter int, pName string) int {
 //
 // iPos: 插入位置, 可为-1.
 func XAdListView_Group_AddItemText(hAdapter int, pValue string, iPos int) int {
-	r, _, _ := xAdListView_Group_AddItemText.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xAdListView_Group_AddItemText.Call(uintptr(hAdapter), common.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -42,7 +42,7 @@ func XAdListView_Group_AddItemText(hAdapter int, pValue string, iPos int) int {
 //
 // iPos: 插入位置, 可为-1.
 func XAdListView_Group_AddItemTextEx(hAdapter int, pName string, pValue string, iPos int) int {
-	r, _, _ := xAdListView_Group_AddItemTextEx.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xAdListView_Group_AddItemTextEx.Call(uintptr(hAdapter), common.StrPtr(pName), common.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -68,7 +68,7 @@ func XAdListView_Group_AddItemImage(hAdapter int, hImage int, iPos int) int {
 //
 // iPos: 插入位置, 可为-1.
 func XAdListView_Group_AddItemImageEx(hAdapter int, pName string, hImage int, iPos int) int {
-	r, _, _ := xAdListView_Group_AddItemImageEx.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pName), uintptr(hImage), uintptr(iPos))
+	r, _, _ := xAdListView_Group_AddItemImageEx.Call(uintptr(hAdapter), common.StrPtr(pName), uintptr(hImage), uintptr(iPos))
 	return int(r)
 }
 
@@ -82,7 +82,7 @@ func XAdListView_Group_AddItemImageEx(hAdapter int, pName string, hImage int, iP
 //
 // pValue: 值.
 func XAdListView_Group_SetText(hAdapter int, iGroup int, iColumn int, pValue string) bool {
-	r, _, _ := xAdListView_Group_SetText.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iColumn), 炫彩工具类.StrPtr(pValue))
+	r, _, _ := xAdListView_Group_SetText.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iColumn), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -96,7 +96,7 @@ func XAdListView_Group_SetText(hAdapter int, iGroup int, iColumn int, pValue str
 //
 // pValue: 值.
 func XAdListView_Group_SetTextEx(hAdapter int, iGroup int, pName string, pValue string) bool {
-	r, _, _ := xAdListView_Group_SetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue))
+	r, _, _ := xAdListView_Group_SetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), common.StrPtr(pName), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -124,7 +124,7 @@ func XAdListView_Group_SetImage(hAdapter int, iGroup int, iColumn int, hImage in
 //
 // hImage: 图片句柄.
 func XAdListView_Group_SetImageEx(hAdapter int, iGroup int, pName string, hImage int) bool {
-	r, _, _ := xAdListView_Group_SetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xAdListView_Group_SetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), common.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -134,7 +134,7 @@ func XAdListView_Group_SetImageEx(hAdapter int, iGroup int, pName string, hImage
 //
 // pName: 字段称.
 func XAdListView_Item_AddColumn(hAdapter int, pName string) int {
-	r, _, _ := xAdListView_Item_AddColumn.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xAdListView_Item_AddColumn.Call(uintptr(hAdapter), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -166,7 +166,7 @@ func XAdListView_Item_GetCount(hAdapter int, iGroup int) int {
 //
 // iPos: 插入位置, 可为-1.
 func XAdListView_Item_AddItemText(hAdapter int, iGroup int, pValue string, iPos int) int {
-	r, _, _ := xAdListView_Item_AddItemText.Call(uintptr(hAdapter), uintptr(iGroup), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xAdListView_Item_AddItemText.Call(uintptr(hAdapter), uintptr(iGroup), common.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -182,7 +182,7 @@ func XAdListView_Item_AddItemText(hAdapter int, iGroup int, pValue string, iPos 
 //
 // iPos: 插入位置, 可为-1.
 func XAdListView_Item_AddItemTextEx(hAdapter int, iGroup int, pName string, pValue string, iPos int) int {
-	r, _, _ := xAdListView_Item_AddItemTextEx.Call(uintptr(hAdapter), uintptr(iGroup), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xAdListView_Item_AddItemTextEx.Call(uintptr(hAdapter), uintptr(iGroup), common.StrPtr(pName), common.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -212,7 +212,7 @@ func XAdListView_Item_AddItemImage(hAdapter int, iGroup int, hImage int, iPos in
 //
 // iPos: 插入位置, 可为-1.
 func XAdListView_Item_AddItemImageEx(hAdapter int, iGroup int, pName string, hImage int, iPos int) int {
-	r, _, _ := xAdListView_Item_AddItemImageEx.Call(uintptr(hAdapter), uintptr(iGroup), 炫彩工具类.StrPtr(pName), uintptr(hImage), uintptr(iPos))
+	r, _, _ := xAdListView_Item_AddItemImageEx.Call(uintptr(hAdapter), uintptr(iGroup), common.StrPtr(pName), uintptr(hImage), uintptr(iPos))
 	return int(r)
 }
 
@@ -302,8 +302,8 @@ func XAdListView_DeleteColumnItem(hAdapter int, iColumn int) int {
 //
 // pName: 字段称.
 func XAdListView_Item_GetTextEx(hAdapter int, iGroup int, iItem int, pName string) string {
-	r, _, _ := xAdListView_Item_GetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName))
-	return 炫彩工具类.UintPtrToString(r)
+	r, _, _ := xAdListView_Item_GetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName))
+	return common.UintPtrToString(r)
 }
 
 // 数据适配器列表视_项获取图片扩展, 项操作, 获取项图片句柄.
@@ -316,7 +316,7 @@ func XAdListView_Item_GetTextEx(hAdapter int, iGroup int, iItem int, pName strin
 //
 // pName: 字段称.
 func XAdListView_Item_GetImageEx(hAdapter int, iGroup int, iItem int, pName string) int {
-	r, _, _ := xAdListView_Item_GetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xAdListView_Item_GetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -332,7 +332,7 @@ func XAdListView_Item_GetImageEx(hAdapter int, iGroup int, iItem int, pName stri
 //
 // pValue: 值.
 func XAdListView_Item_SetText(hAdapter int, iGroup int, iItem int, iColumn int, pValue string) bool {
-	r, _, _ := xAdListView_Item_SetText.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), uintptr(iColumn), 炫彩工具类.StrPtr(pValue))
+	r, _, _ := xAdListView_Item_SetText.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), uintptr(iColumn), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -348,7 +348,7 @@ func XAdListView_Item_SetText(hAdapter int, iGroup int, iItem int, iColumn int, 
 //
 // pValue: 值.
 func XAdListView_Item_SetTextEx(hAdapter int, iGroup int, iItem int, pName string, pValue string) bool {
-	r, _, _ := xAdListView_Item_SetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue))
+	r, _, _ := xAdListView_Item_SetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -380,7 +380,7 @@ func XAdListView_Item_SetImage(hAdapter int, iGroup int, iItem int, iColumn int,
 //
 // hImage: 图片句柄.
 func XAdListView_Item_SetImageEx(hAdapter int, iGroup int, iItem int, pName string, hImage int) bool {
-	r, _, _ := xAdListView_Item_SetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xAdListView_Item_SetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -393,7 +393,7 @@ func XAdListView_Item_SetImageEx(hAdapter int, iGroup int, iItem int, pName stri
 // iColumn: 列索引.
 func XAdListView_Group_GetText(hAdapter int, iGroup int, iColumn int) string {
 	r, _, _ := xAdListView_Group_GetText.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iColumn))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 数据适配器列表视_组取文本扩展, 返回文本内容.
@@ -404,8 +404,8 @@ func XAdListView_Group_GetText(hAdapter int, iGroup int, iColumn int) string {
 //
 // pName: 字段名称.
 func XAdListView_Group_GetTextEx(hAdapter int, iGroup int, pName string) string {
-	r, _, _ := xAdListView_Group_GetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), 炫彩工具类.StrPtr(pName))
-	return 炫彩工具类.UintPtrToString(r)
+	r, _, _ := xAdListView_Group_GetTextEx.Call(uintptr(hAdapter), uintptr(iGroup), common.StrPtr(pName))
+	return common.UintPtrToString(r)
 }
 
 // 数据适配器列表视_组取图片, 返回图片句柄.
@@ -428,7 +428,7 @@ func XAdListView_Group_GetImage(hAdapter int, iGroup int, iColumn int) int {
 //
 // pName: 字段名称.
 func XAdListView_Group_GetImageEx(hAdapter int, iGroup int, pName string) int {
-	r, _, _ := xAdListView_Group_GetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xAdListView_Group_GetImageEx.Call(uintptr(hAdapter), uintptr(iGroup), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -443,7 +443,7 @@ func XAdListView_Group_GetImageEx(hAdapter int, iGroup int, pName string) int {
 // iColumn: 列索引.
 func XAdListView_Item_GetText(hAdapter int, iGroup int, iItem int, iColumn int) string {
 	r, _, _ := xAdListView_Item_GetText.Call(uintptr(hAdapter), uintptr(iGroup), uintptr(iItem), uintptr(iColumn))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 数据适配器列表视_项取图片. 项操作, 返回项图片句柄.

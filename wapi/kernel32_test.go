@@ -1,4 +1,4 @@
-package 炫彩WinApi类_test
+package wapi_test
 
 import (
 	"fmt"
@@ -9,6 +9,6 @@ import (
 func TestSleep(t *testing.T) {
 	for i := 0; i < 5; i++ {
 		fmt.Println(i)
-		炫彩WinApi类.Sleep(1000)
+		wapi.Sleep(1000)
 	}
 }

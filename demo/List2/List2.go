@@ -15,28 +15,28 @@ var (
 	//go:embed list2/list2.zip
 	zipData []byte
 
-	a  *炫彩App类.App
+	a  *app.App
 	w  *window.Window
-	ls *炫彩组件类.List
+	ls *widget.List
 )
 
 func main() {
-	a = 炫彩App类.New(true)
+	a = app.New(true)
 	// 从内存zip加载资源文件
 	a.LoadResourceZipMem(zipData, "resource.res", "")
-	w = window.New(0, 0, 302, 308, "列表, 模板进阶操作", 0, 炫彩常量类.Window_Style_Default)
+	w = window.New(0, 0, 302, 308, "列表, 模板进阶操作", 0, xcc.Window_Style_Default)
 
 	// 创建List
-	ls = 炫彩组件类.NewList(10, 33, 282, 263, w.Handle)
+	ls = widget.NewList(10, 33, 282, 263, w.Handle)
 
 	// List的模板得设置两遍, 一遍是列表头, 一遍是列表项
 	var hTemp int
-	if hTemp = xc.XTemp_LoadZipMem(炫彩常量类.ListItemTemp_Type_List_Head, zipData, "tmpl_list.xml", ""); hTemp == 0 {
+	if hTemp = xc.XTemp_LoadZipMem(xcc.ListItemTemp_Type_List_Head, zipData, "tmpl_list.xml", ""); hTemp == 0 {
 		panic("ListItemTemp_Type_List_Head: hTemp==0")
 	}
 	ls.SetItemTemplate(hTemp)
 
-	if hTemp = xc.XTemp_LoadZipMem(炫彩常量类.ListItemTemp_Type_List_Item, zipData, "tmpl_list.xml", ""); hTemp == 0 {
+	if hTemp = xc.XTemp_LoadZipMem(xcc.ListItemTemp_Type_List_Item, zipData, "tmpl_list.xml", ""); hTemp == 0 {
 		panic("ListItemTemp_Type_List_Item: hTemp==0")
 	}
 	ls.SetItemTemplate(hTemp)
@@ -63,7 +63,7 @@ func main() {
 	// 注册项模板创建完成事件
 	ls.Event_LIST_TEMP_CREATE_END(onLIST_TEMP_CREATE_END)
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }
@@ -76,13 +76,13 @@ func onLIST_TEMP_CREATE_END(pItem *xc.List_Item_, nFlag int32, pbHandled *bool) 
 		hBtn := ls.GetTemplateObject(index, 0, 2) // 前两个参数是项索引和列索引, 第三个参数是项模板里按钮的itemID, 在设计器里是可以自己填的, 必须填了, 这里才能获取
 		fmt.Println(xc.XBtn_GetText(hBtn))
 		// 注册按钮事件
-		xc.XEle_RegEventC1(hBtn, 炫彩常量类.XE_BNCLICK, onBnClick)
+		xc.XEle_RegEventC1(hBtn, xcc.XE_BNCLICK, onBnClick)
 
 		// 项模板里按钮的itemID是2,3,4
 		for i := 2; i < 5; i++ {
 			hBtn = ls.GetTemplateObject(index, 1, i)
 			fmt.Println(xc.XBtn_GetText(hBtn))
-			xc.XEle_RegEventC1(hBtn, 炫彩常量类.XE_BNCLICK, onBnClick)
+			xc.XEle_RegEventC1(hBtn, xcc.XE_BNCLICK, onBnClick)
 		}
 	}
 	return 0
@@ -100,6 +100,6 @@ func onBnClick(hEle int, pbHandled *bool) int {
 		col = 1
 	}
 
-	xc.XC_MessageBox("提示", fmt.Sprintf("你点击了按钮: %s, 行: %d, 列: %d", btnText, row, col), 炫彩常量类.MessageBox_Flag_Ok, w.GetHWND(), 炫彩常量类.Window_Style_Default)
+	xc.XC_MessageBox("提示", fmt.Sprintf("你点击了按钮: %s, 行: %d, 列: %d", btnText, row, col), xcc.MessageBox_Flag_Ok, w.GetHWND(), xcc.Window_Style_Default)
 	return 0
 }

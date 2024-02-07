@@ -38,7 +38,7 @@ func XEdit_Create(x int, y int, cx int, cy int, hParent int) int {
 // nType: 类型, Edit_Type_.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func XEdit_CreateEx(x int, y int, cx int, cy int, nType 炫彩常量类.Edit_Type_, hParent int) int {
+func XEdit_CreateEx(x int, y int, cx int, cy int, nType xcc.Edit_Type_, hParent int) int {
 	r, _, _ := xEdit_CreateEx.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(nType), uintptr(hParent))
 	return int(r)
 }
@@ -49,7 +49,7 @@ func XEdit_CreateEx(x int, y int, cx int, cy int, nType 炫彩常量类.Edit_Typ
 //
 // bEnable: 是否启用.
 func XEdit_EnableAutoWrap(hEle int, bEnable bool) int {
-	r, _, _ := xEdit_EnableAutoWrap.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xEdit_EnableAutoWrap.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -59,7 +59,7 @@ func XEdit_EnableAutoWrap(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEdit_EnableReadOnly(hEle int, bEnable bool) int {
-	r, _, _ := xEdit_EnableReadOnly.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xEdit_EnableReadOnly.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -69,7 +69,7 @@ func XEdit_EnableReadOnly(hEle int, bEnable bool) int {
 //
 // bEnable:.
 func XEdit_EnableMultiLine(hEle int, bEnable bool) int {
-	r, _, _ := xEdit_EnableMultiLine.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xEdit_EnableMultiLine.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -79,7 +79,7 @@ func XEdit_EnableMultiLine(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEdit_EnablePassword(hEle int, bEnable bool) int {
-	r, _, _ := xEdit_EnablePassword.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xEdit_EnablePassword.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -89,7 +89,7 @@ func XEdit_EnablePassword(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEdit_EnableAutoSelAll(hEle int, bEnable bool) int {
-	r, _, _ := xEdit_EnableAutoSelAll.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xEdit_EnableAutoSelAll.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -99,7 +99,7 @@ func XEdit_EnableAutoSelAll(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEdit_EnableAutoCancelSel(hEle int, bEnable bool) int {
-	r, _, _ := xEdit_EnableAutoCancelSel.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xEdit_EnableAutoCancelSel.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -199,7 +199,7 @@ func XEdit_FreeData(pData *Edit_Data_Copy_) int {
 //
 // pString: 文本内容.
 func XEdit_SetDefaultText(hEle int, pString string) int {
-	r, _, _ := xEdit_SetDefaultText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pString))
+	r, _, _ := xEdit_SetDefaultText.Call(uintptr(hEle), common.StrPtr(pString))
 	return int(r)
 }
 
@@ -228,7 +228,7 @@ func XEdit_SetPasswordCharacter(hEle int, ch int) int {
 // hEle: 元素句柄.
 //
 // align: 对齐方式, Edit_TextAlign_Flag_.
-func XEdit_SetTextAlign(hEle int, align 炫彩常量类.Edit_TextAlign_Flag_) int {
+func XEdit_SetTextAlign(hEle int, align xcc.Edit_TextAlign_Flag_) int {
 	r, _, _ := xEdit_SetTextAlign.Call(uintptr(hEle), uintptr(align))
 	return int(r)
 }
@@ -249,7 +249,7 @@ func XEdit_SetTabSpace(hEle int, nSpace int) int {
 //
 // pString: 字符串.
 func XEdit_SetText(hEle int, pString string) int {
-	r, _, _ := xEdit_SetText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pString))
+	r, _, _ := xEdit_SetText.Call(uintptr(hEle), common.StrPtr(pString))
 	return int(r)
 }
 
@@ -272,7 +272,7 @@ func XEdit_SetTextInt(hEle int, nValue int) int {
 // nOutlen: 内存大小. 例: xc.XEdit_GetLength()+1 .
 func XEdit_GetText(hEle int, pOut *string, nOutlen int) int {
 	buf := make([]uint16, nOutlen)
-	r, _, _ := xEdit_GetText.Call(uintptr(hEle), 炫彩工具类.Uint16SliceDataPtr(&buf), uintptr(nOutlen))
+	r, _, _ := xEdit_GetText.Call(uintptr(hEle), common.Uint16SliceDataPtr(&buf), uintptr(nOutlen))
 	*pOut = syscall.UTF16ToString(buf[0:])
 	return int(r)
 }
@@ -288,7 +288,7 @@ func XEdit_GetText(hEle int, pOut *string, nOutlen int) int {
 // nOutlen: 接收文本内存块长度. 例: xc.XEdit_GetLengthRow()+1 .
 func XEdit_GetTextRow(hEle int, iRow int, pOut *string, nOutlen int) int {
 	buf := make([]uint16, nOutlen)
-	r, _, _ := xEdit_GetTextRow.Call(uintptr(hEle), uintptr(iRow), 炫彩工具类.Uint16SliceDataPtr(&buf), uintptr(nOutlen))
+	r, _, _ := xEdit_GetTextRow.Call(uintptr(hEle), uintptr(iRow), common.Uint16SliceDataPtr(&buf), uintptr(nOutlen))
 	*pOut = syscall.UTF16ToString(buf[0:])
 	return int(r)
 }
@@ -333,7 +333,7 @@ func XEdit_GetAt(hEle int, iRow int, iCol int) int {
 //
 // pString: 字符串.
 func XEdit_InsertText(hEle int, iRow int, iCol int, pString string) int {
-	r, _, _ := xEdit_InsertText.Call(uintptr(hEle), uintptr(iRow), uintptr(iCol), 炫彩工具类.StrPtr(pString))
+	r, _, _ := xEdit_InsertText.Call(uintptr(hEle), uintptr(iRow), uintptr(iCol), common.StrPtr(pString))
 	return int(r)
 }
 
@@ -343,7 +343,7 @@ func XEdit_InsertText(hEle int, iRow int, iCol int, pString string) int {
 //	@param pString 字符串.
 //	@return int
 func XEdit_AddTextUser(hEle int, pString string) int {
-	r, _, _ := xEdit_AddTextUser.Call(uintptr(hEle), 炫彩工具类.StrPtr(pString))
+	r, _, _ := xEdit_AddTextUser.Call(uintptr(hEle), common.StrPtr(pString))
 	return int(r)
 }
 
@@ -353,7 +353,7 @@ func XEdit_AddTextUser(hEle int, pString string) int {
 //
 // pString: 字符串.
 func XEdit_AddText(hEle int, pString string) int {
-	r, _, _ := xEdit_AddText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pString))
+	r, _, _ := xEdit_AddText.Call(uintptr(hEle), common.StrPtr(pString))
 	return int(r)
 }
 
@@ -365,7 +365,7 @@ func XEdit_AddText(hEle int, pString string) int {
 //
 // iStyle: 样式索引.
 func XEdit_AddTextEx(hEle int, pString string, iStyle int) int {
-	r, _, _ := xEdit_AddTextEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pString), uintptr(iStyle))
+	r, _, _ := xEdit_AddTextEx.Call(uintptr(hEle), common.StrPtr(pString), uintptr(iStyle))
 	return int(r)
 }
 
@@ -399,7 +399,7 @@ func XEdit_AddByStyle(hEle int, iStyle int) int {
 //
 // bColor: 是否使用颜色.
 func XEdit_AddStyle(hEle int, hFont_image_Obj int, color int, bColor bool) int {
-	r, _, _ := xEdit_AddStyle.Call(uintptr(hEle), uintptr(hFont_image_Obj), uintptr(color), 炫彩工具类.BoolPtr(bColor))
+	r, _, _ := xEdit_AddStyle.Call(uintptr(hEle), uintptr(hFont_image_Obj), uintptr(color), common.BoolPtr(bColor))
 	return int(r)
 }
 
@@ -416,8 +416,8 @@ func XEdit_AddStyle(hEle int, hFont_image_Obj int, color int, bColor bool) int {
 // color: 颜色.
 //
 // bColor: 是否使用颜色.
-func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle 炫彩常量类.FontStyle_, color int, bColor bool) int {
-	r, _, _ := xEdit_AddStyleEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(fontName), uintptr(fontSize), uintptr(fontStyle), uintptr(color), 炫彩工具类.BoolPtr(bColor))
+func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle xcc.FontStyle_, color int, bColor bool) int {
+	r, _, _ := xEdit_AddStyleEx.Call(uintptr(hEle), common.StrPtr(fontName), uintptr(fontSize), uintptr(fontStyle), uintptr(color), common.BoolPtr(bColor))
 	return int(r)
 }
 
@@ -623,7 +623,7 @@ func XEdit_SetSelect(hEle int, iStartRow int, iStartCol int, iEndRow int, iEndCo
 // nOutLen: 接收内存大小. xc.XEdit_GetSelectTextLength()+1 .
 func XEdit_GetSelectText(hEle int, pOut *string, nOutLen int) int {
 	buf := make([]uint16, nOutLen)
-	r, _, _ := xEdit_GetSelectText.Call(uintptr(hEle), 炫彩工具类.Uint16SliceDataPtr(&buf), uintptr(nOutLen))
+	r, _, _ := xEdit_GetSelectText.Call(uintptr(hEle), common.Uint16SliceDataPtr(&buf), uintptr(nOutLen))
 	*pOut = syscall.UTF16ToString(buf[0:])
 	return int(r)
 }
@@ -727,7 +727,7 @@ func XEdit_Redo(hEle int) bool {
 // hImageBubble: 气泡背景.
 //
 // nFlag: 标志, Chat_Flag_.
-func XEdit_AddChatBegin(hEle int, hImageAvatar int, hImageBubble int, nFlag 炫彩常量类.Chat_Flag_) int {
+func XEdit_AddChatBegin(hEle int, hImageAvatar int, hImageBubble int, nFlag xcc.Chat_Flag_) int {
 	r, _, _ := xEdit_AddChatBegin.Call(uintptr(hEle), uintptr(hImageAvatar), uintptr(hImageBubble), uintptr(nFlag))
 	return int(r)
 }
@@ -836,7 +836,7 @@ func XEdit_ReleaseStyle(hEle int, iStyle int) bool {
 //
 // bColor: 是否使用颜色.
 func XEdit_ModifyStyle(hEle int, iStyle int, hFont int, color int, bColor bool) bool {
-	r, _, _ := xEdit_ModifyStyle.Call(uintptr(hEle), uintptr(iStyle), uintptr(hFont), uintptr(color), 炫彩工具类.BoolPtr(bColor))
+	r, _, _ := xEdit_ModifyStyle.Call(uintptr(hEle), uintptr(iStyle), uintptr(hFont), uintptr(color), common.BoolPtr(bColor))
 	return r != 0
 }
 
@@ -885,7 +885,7 @@ func XEdit_SetSelectTextStyle(hEle int, iStyle int) int {
 // hEle: 元素句柄.
 func XEdit_GetText_Temp(hEle int) string {
 	r, _, _ := xEdit_GetText_Temp.Call(uintptr(hEle))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 编辑框_取文本行_临时, 获取指定行文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
@@ -895,7 +895,7 @@ func XEdit_GetText_Temp(hEle int) string {
 // iRow: 行索引.
 func XEdit_GetTextRow_Temp(hEle int, iRow int) string {
 	r, _, _ := xEdit_GetTextRow_Temp.Call(uintptr(hEle), uintptr(iRow))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 编辑框_取选择文本, 不包含非文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
@@ -903,7 +903,7 @@ func XEdit_GetTextRow_Temp(hEle int, iRow int) string {
 // hEle: 元素句柄.
 func XEdit_GetSelectText_Temp(hEle int) string {
 	r, _, _ := xEdit_GetSelectText_Temp.Call(uintptr(hEle))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 编辑框_插入气泡开始, 当前行开始.
@@ -915,7 +915,7 @@ func XEdit_GetSelectText_Temp(hEle int) string {
 // hImageBubble: 气泡背景图片句柄.
 //
 // nFlag: 聊天气泡对齐方式: xcc.Chat_Flag_ .
-func XEdit_InsertChatBegin(hEle int, hImageAvatar int, hImageBubble int, nFlag 炫彩常量类.Chat_Flag_) int {
+func XEdit_InsertChatBegin(hEle int, hImageAvatar int, hImageBubble int, nFlag xcc.Chat_Flag_) int {
 	r, _, _ := xEdit_InsertChatBegin.Call(uintptr(hEle), uintptr(hImageAvatar), uintptr(hImageBubble), uintptr(nFlag))
 	return int(r)
 }
@@ -925,9 +925,9 @@ func XEdit_InsertChatBegin(hEle int, hImageAvatar int, hImageBubble int, nFlag �
 // hEle: 元素句柄.
 //
 // iRow: 行索引.
-func XEdit_GetChatFlags(hEle int, iRow int) 炫彩常量类.Chat_Flag_ {
+func XEdit_GetChatFlags(hEle int, iRow int) xcc.Chat_Flag_ {
 	r, _, _ := xEdit_GetChatFlags.Call(uintptr(hEle), uintptr(iRow))
-	return 炫彩常量类.Chat_Flag_(r)
+	return xcc.Chat_Flag_(r)
 }
 
 // 编辑框_插入文本扩展.
@@ -942,7 +942,7 @@ func XEdit_GetChatFlags(hEle int, iRow int) 炫彩常量类.Chat_Flag_ {
 //
 // iStyle: 样式.
 func XEdit_InsertTextEx(hEle int, iRow int, iCol int, pString string, iStyle int) int {
-	r, _, _ := xEdit_InsertTextEx.Call(uintptr(hEle), uintptr(iRow), uintptr(iCol), 炫彩工具类.StrPtr(pString), uintptr(iStyle))
+	r, _, _ := xEdit_InsertTextEx.Call(uintptr(hEle), uintptr(iRow), uintptr(iCol), common.StrPtr(pString), uintptr(iStyle))
 	return int(r)
 }
 

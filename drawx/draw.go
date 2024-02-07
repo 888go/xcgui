@@ -1,4 +1,4 @@
-package 炫彩绘制类
+package drawx
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -8,7 +8,7 @@ import (
 
 // Draw 图形绘制.
 type Draw struct {
-	炫彩对象基类.ObjectBase
+	objectbase.ObjectBase
 }
 
 // New 绘制_创建, 创建图形绘制模块实例, 返回句柄.
@@ -228,7 +228,7 @@ func (d *Draw) SetTextVertical(bVertical bool) int {
 // 绘制_置文本对齐, 设置文本对齐.
 //
 // nFlags: 对齐标识, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func (d *Draw) SetTextAlign(nFlags 炫彩常量类.TextFormatFlag_) int {
+func (d *Draw) SetTextAlign(nFlags xcc.TextFormatFlag_) int {
 	return xc.XDraw_SetTextAlign(d.Handle, nFlags)
 }
 
@@ -270,7 +270,7 @@ func (d *Draw) SetClipRect(pRect *xc.RECT) int {
 // 绘制_置D2D文本渲染模式.
 //
 // mode	渲染模式 XC_DWRITE_RENDERING_MODE_.
-func (d *Draw) SetD2dTextRenderingMode(mode 炫彩常量类.XC_DWRITE_RENDERING_MODE_) int {
+func (d *Draw) SetD2dTextRenderingMode(mode xcc.XC_DWRITE_RENDERING_MODE_) int {
 	return xc.XDraw_SetD2dTextRenderingMode(d.Handle, mode)
 }
 
@@ -568,7 +568,7 @@ func (d *Draw) GDI_Rectangle(nLeftRect int, nTopRect int, nRightRect int, nBotto
 // color2: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func (d *Draw) GradientFill2(pRect *xc.RECT, color1 int, color2 int, mode 炫彩常量类.GRADIENT_FILL_) int {
+func (d *Draw) GradientFill2(pRect *xc.RECT, color1 int, color2 int, mode xcc.GRADIENT_FILL_) int {
 	return xc.XDraw_GradientFill2(d.Handle, pRect, color1, color2, mode)
 }
 
@@ -581,7 +581,7 @@ func (d *Draw) GradientFill2(pRect *xc.RECT, color1 int, color2 int, mode 炫彩
 // color2: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func (d *Draw) GradientFill2F(pRect *xc.RECTF, color1 int, color2 int, mode 炫彩常量类.GRADIENT_FILL_) int {
+func (d *Draw) GradientFill2F(pRect *xc.RECTF, color1 int, color2 int, mode xcc.GRADIENT_FILL_) int {
 	return xc.XDraw_GradientFill2F(d.Handle, pRect, color1, color2, mode)
 }
 
@@ -598,7 +598,7 @@ func (d *Draw) GradientFill2F(pRect *xc.RECTF, color1 int, color2 int, mode 炫�
 // color4: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3 int, color4 int, mode 炫彩常量类.GRADIENT_FILL_) bool {
+func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3 int, color4 int, mode xcc.GRADIENT_FILL_) bool {
 	return xc.XDraw_GradientFill4(d.Handle, pRect, color1, color2, color3, color4, mode)
 }
 
@@ -615,7 +615,7 @@ func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3 int,
 // color4: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3 int, color4 int, mode 炫彩常量类.GRADIENT_FILL_) bool {
+func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3 int, color4 int, mode xcc.GRADIENT_FILL_) bool {
 	return xc.XDraw_GradientFill4F(d.Handle, pRect, color1, color2, color3, color4, mode)
 }
 

@@ -1,4 +1,4 @@
-package 炫彩模板类
+package tmpl
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -8,13 +8,13 @@ import (
 
 // ListItemTemplate 列表项模板.
 type ListItemTemplate struct {
-	炫彩对象基类.ObjectBase
+	objectbase.ObjectBase
 }
 
 // 模板_创建, 创建项模板.
 //
 // nType: 模板类型, xcc.ListItemTemp_Type_.
-func New(nType 炫彩常量类.ListItemTemp_Type_) *ListItemTemplate {
+func New(nType xcc.ListItemTemp_Type_) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_Create(nType))
 	return p
@@ -32,7 +32,7 @@ func NewByHandle(handle int) *ListItemTemplate {
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
 // pFileName: 文件名.
-func NewByXML(nType 炫彩常量类.ListItemTemp_Type_, pFileName string) *ListItemTemplate {
+func NewByXML(nType xcc.ListItemTemp_Type_, pFileName string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_Load(nType, pFileName))
 	return p
@@ -47,7 +47,7 @@ func NewByXML(nType 炫彩常量类.ListItemTemp_Type_, pFileName string) *ListI
 // pFileName: 文件名.
 //
 // pPassword: zip密码.
-func NewByZip(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string) *ListItemTemplate {
+func NewByZip(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadZip(nType, pZipFile, pFileName, pPassword))
 	return p
@@ -64,7 +64,7 @@ func NewByZip(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileNa
 // pPassword: zip密码.
 //
 // hModule: 模块句柄, 可填0.
-func NewByZipRes(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword string, hModule uintptr) *ListItemTemplate {
+func NewByZipRes(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, hModule uintptr) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadZipRes(nType, id, pFileName, pPassword, hModule))
 	return p
@@ -79,7 +79,7 @@ func NewByZipRes(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName s
 // pFileName: 文件名.
 //
 // pPassword: zip密码.
-func NewByZipMem(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName string, pPassword string) *ListItemTemplate {
+func NewByZipMem(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadZipMem(nType, data, pFileName, pPassword))
 	return p
@@ -90,7 +90,7 @@ func NewByZipMem(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileNam
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
 // data: 模板文件数据.
-func NewByXmlMem(nType 炫彩常量类.ListItemTemp_Type_, data []byte) *ListItemTemplate {
+func NewByXmlMem(nType xcc.ListItemTemp_Type_, data []byte) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadFromMem(nType, data))
 	return p
@@ -101,7 +101,7 @@ func NewByXmlMem(nType 炫彩常量类.ListItemTemp_Type_, data []byte) *ListIte
 // nType: 模板类型, xcc.ListItemTemp_Type_.
 //
 // pStringXML: 字符串.
-func NewByString(nType 炫彩常量类.ListItemTemp_Type_, pStringXML string) *ListItemTemplate {
+func NewByString(nType xcc.ListItemTemp_Type_, pStringXML string) *ListItemTemplate {
 	p := &ListItemTemplate{}
 	p.SetHandle(xc.XTemp_LoadFromString(nType, pStringXML))
 	return p
@@ -115,7 +115,7 @@ func (l *ListItemTemplate) Clone() *ListItemTemplate {
 }
 
 // 模板_取类型, 获取列表项模板类型, 返回: xcc.ListItemTemp_Type_.
-func (l *ListItemTemplate) GetType() 炫彩常量类.ListItemTemp_Type_ {
+func (l *ListItemTemplate) GetType() xcc.ListItemTemp_Type_ {
 	return xc.XTemp_GetType(l.Handle)
 }
 
@@ -177,7 +177,7 @@ func (l *ListItemTemplate) List_MoveColumn(iColSrc, iColDest int32) bool {
 // pOutTemp1: 返回模板句柄1, 项模板.
 //
 // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
-func LoadEx(nType 炫彩常量类.ListItemTemp_Type_, pFileName string, pOutTemp1 *int, pOutTemp2 *int) bool {
+func LoadEx(nType xcc.ListItemTemp_Type_, pFileName string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadEx(nType, pFileName, pOutTemp1, pOutTemp2)
 }
 
@@ -194,7 +194,7 @@ func LoadEx(nType 炫彩常量类.ListItemTemp_Type_, pFileName string, pOutTemp
 // pOutTemp1: 返回模板句柄1, 项模板.
 //
 // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
-func LoadZipEx(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int) bool {
+func LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadZipEx(nType, pZipFile, pFileName, pPassword, pOutTemp1, pOutTemp2)
 }
 
@@ -211,7 +211,7 @@ func LoadZipEx(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileN
 // pOutTemp1: 返回模板句柄1, 项模板.
 //
 // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
-func LoadZipMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int) bool {
+func LoadZipMemEx(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadZipMemEx(nType, data, pFileName, pPassword, pOutTemp1, pOutTemp2)
 }
 
@@ -224,7 +224,7 @@ func LoadZipMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileNa
 // pOutTemp1: 返回模板句柄1, 项模板.
 //
 // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
-func LoadFromStringEx(nType 炫彩常量类.ListItemTemp_Type_, pStringXML string, pOutTemp1 *int, pOutTemp2 *int) bool {
+func LoadFromStringEx(nType xcc.ListItemTemp_Type_, pStringXML string, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadFromStringEx(nType, pStringXML, pOutTemp1, pOutTemp2)
 }
 
@@ -237,7 +237,7 @@ func LoadFromStringEx(nType 炫彩常量类.ListItemTemp_Type_, pStringXML strin
 // pOutTemp1: 返回模板句柄1, 项模板.
 //
 // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
-func LoadFromMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pOutTemp1 *int, pOutTemp2 *int) bool {
+func LoadFromMemEx(nType xcc.ListItemTemp_Type_, data []byte, pOutTemp1 *int, pOutTemp2 *int) bool {
 	return xc.XTemp_LoadFromMemEx(nType, data, pOutTemp1, pOutTemp2)
 }
 
@@ -256,6 +256,6 @@ func LoadFromMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pOutTe
 // pOutTemp2: 返回模板句柄2, 列表头模板或列表视组模板.
 //
 // hModule: 模块句柄, 可填0.
-func LoadZipResEx(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int, hModule uintptr) int {
+func LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int, hModule uintptr) int {
 	return xc.XTemp_LoadZipResEx(nType, id, pFileName, pPassword, pOutTemp1, pOutTemp2, hModule)
 }

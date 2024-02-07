@@ -71,7 +71,7 @@ func XShapeRect_GetRoundAngle(hShape int, pWidth *int, pHeight *int32) int {
 //
 // bEnable: 是否启用.
 func XShapeRect_EnableBorder(hShape int, bEnable bool) int {
-	r, _, _ := xShapeRect_EnableBorder.Call(uintptr(hShape), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xShapeRect_EnableBorder.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -81,7 +81,7 @@ func XShapeRect_EnableBorder(hShape int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XShapeRect_EnableFill(hShape int, bEnable bool) int {
-	r, _, _ := xShapeRect_EnableFill.Call(uintptr(hShape), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xShapeRect_EnableFill.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -91,6 +91,6 @@ func XShapeRect_EnableFill(hShape int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XShapeRect_EnableRoundAngle(hShape int, bEnable bool) int {
-	r, _, _ := xShapeRect_EnableRoundAngle.Call(uintptr(hShape), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xShapeRect_EnableRoundAngle.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)
 }

@@ -1,4 +1,4 @@
-package 炫彩常量类
+package xcc
 
 // 窗口事件
 // XWM_

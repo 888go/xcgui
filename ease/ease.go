@@ -1,4 +1,4 @@
-package 炫彩缓动类
+package ease
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -17,7 +17,7 @@ func Linear(p float32) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Quad(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Quad(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Quad(p, flag)
 }
 
@@ -26,7 +26,7 @@ func Quad(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Cubic(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Cubic(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Cubic(p, flag)
 }
 
@@ -35,7 +35,7 @@ func Cubic(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Quart(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Quart(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Quart(p, flag)
 }
 
@@ -44,7 +44,7 @@ func Quart(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Quint(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Quint(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Quint(p, flag)
 }
 
@@ -53,7 +53,7 @@ func Quint(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Sine(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Sine(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Sine(p, flag)
 }
 
@@ -62,7 +62,7 @@ func Sine(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Expo(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Expo(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Expo(p, flag)
 }
 
@@ -71,7 +71,7 @@ func Expo(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Circ(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Circ(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Circ(p, flag)
 }
 
@@ -80,7 +80,7 @@ func Circ(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Elastic(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Elastic(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Elastic(p, flag)
 }
 
@@ -89,7 +89,7 @@ func Elastic(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Back(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Back(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Back(p, flag)
 }
 
@@ -98,7 +98,7 @@ func Back(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func Bounce(p float32, flag 炫彩常量类.Ease_Type_) float32 {
+func Bounce(p float32, flag xcc.Ease_Type_) float32 {
 	return xc.XEase_Bounce(p, flag)
 }
 
@@ -107,6 +107,6 @@ func Bounce(p float32, flag 炫彩常量类.Ease_Type_) float32 {
 // pos: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动标识, Ease_Flag_.
-func Ex(pos float32, flag 炫彩常量类.Ease_Flag_) float32 {
+func Ex(pos float32, flag xcc.Ease_Flag_) float32 {
 	return xc.XEase_Ex(pos, flag)
 }

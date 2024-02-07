@@ -12,19 +12,19 @@ import (
 )
 
 func main() {
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 430, 300, "单选按钮", 0, 炫彩常量类.Window_Style_Default)
+	w := window.New(0, 0, 430, 300, "单选按钮", 0, xcc.Window_Style_Default)
 
 	// 创建按钮
-	Radio1 := 炫彩组件类.NewButton(10, 35, 70, 30, "Radio1", w.Handle)
-	Radio2 := 炫彩组件类.NewButton(10, 75, 70, 30, "Radio2", w.Handle)
-	Radio3 := 炫彩组件类.NewButton(10, 115, 70, 30, "Radio3", w.Handle)
+	Radio1 := widget.NewButton(10, 35, 70, 30, "Radio1", w.Handle)
+	Radio2 := widget.NewButton(10, 75, 70, 30, "Radio2", w.Handle)
+	Radio3 := widget.NewButton(10, 115, 70, 30, "Radio3", w.Handle)
 	// 设置按钮类型
-	Radio1.SetTypeEx(炫彩常量类.Button_Type_Radio)
-	Radio2.SetTypeEx(炫彩常量类.Button_Type_Radio)
-	Radio3.SetTypeEx(炫彩常量类.Button_Type_Radio)
+	Radio1.SetTypeEx(xcc.Button_Type_Radio)
+	Radio2.SetTypeEx(xcc.Button_Type_Radio)
+	Radio3.SetTypeEx(xcc.Button_Type_Radio)
 	// 设置分组id
 	Radio1.SetGroupID(1)
 	Radio2.SetGroupID(1)
@@ -38,7 +38,7 @@ func main() {
 	Radio2.Event_BUTTON_CHECK1(btn_check)
 	Radio3.Event_BUTTON_CHECK1(btn_check)
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

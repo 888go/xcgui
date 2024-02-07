@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -85,28 +85,28 @@ func (b *Button) SetCheck(bCheck bool) bool {
 //
 //	@param nState 按钮状态: xcc.Common_State3_.
 //	@return int
-func (b *Button) SetState(nState 炫彩常量类.Common_State3_) int {
+func (b *Button) SetState(nState xcc.Common_State3_) int {
 	return xc.XBtn_SetState(b.Handle, nState)
 }
 
 // GetState 按钮_取状态.
 //
 //	@return xcc.Common_State3_
-func (b *Button) GetState() 炫彩常量类.Common_State3_ {
+func (b *Button) GetState() xcc.Common_State3_ {
 	return xc.XBtn_GetState(b.Handle)
 }
 
 // GetStateEx 按钮_取状态扩展.
 //
 //	@return xcc.Button_State_
-func (b *Button) GetStateEx() 炫彩常量类.Button_State_ {
+func (b *Button) GetStateEx() xcc.Button_State_ {
 	return xc.XBtn_GetStateEx(b.Handle)
 }
 
 // 按钮_置类型扩展, 设置按钮类型并自动修改样式和文本对齐方式.
 //
 // nType: 按钮类型, Button_Type_ , element_type_ , xc_ex_error.
-func (b *Button) SetTypeEx(nType 炫彩常量类.XC_OBJECT_TYPE_EX) int {
+func (b *Button) SetTypeEx(nType xcc.XC_OBJECT_TYPE_EX) int {
 	return xc.XBtn_SetTypeEx(b.Handle, nType)
 }
 
@@ -137,19 +137,19 @@ func (b *Button) GetBindEle() int {
 // 按钮_置文本对齐.
 //
 // nFlags: 对齐方式, TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
-func (b *Button) SetTextAlign(nFlags 炫彩常量类.TextFormatFlag_) int {
+func (b *Button) SetTextAlign(nFlags xcc.TextFormatFlag_) int {
 	return xc.XBtn_SetTextAlign(b.Handle, nFlags)
 }
 
 // 按钮_取文本对齐方式, 返回: TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
-func (b *Button) GetTextAlign() 炫彩常量类.TextFormatFlag_ {
+func (b *Button) GetTextAlign() xcc.TextFormatFlag_ {
 	return xc.XBtn_GetTextAlign(b.Handle)
 }
 
 // 按钮_置图标对齐.
 //
 // align: 对齐方式, Button_Icon_Align_.
-func (b *Button) SetIconAlign(align 炫彩常量类.Button_Icon_Align_) int {
+func (b *Button) SetIconAlign(align xcc.Button_Icon_Align_) int {
 	return xc.XBtn_SetIconAlign(b.Handle, align)
 }
 
@@ -240,20 +240,20 @@ type XE_BUTTON_CHECK1 func(hEle int, bCheck bool, pbHandled *bool) int // 按钮
 
 // 事件_按钮被单击.
 func (b *Button) Event_BnClick(pFun XE_BNCLICK) bool {
-	return xc.XEle_RegEventC(b.Handle, 炫彩常量类.XE_BNCLICK, pFun)
+	return xc.XEle_RegEventC(b.Handle, xcc.XE_BNCLICK, pFun)
 }
 
 // 事件_按钮被单击1.
 func (b *Button) Event_BnClick1(pFun XE_BNCLICK1) bool {
-	return xc.XEle_RegEventC1(b.Handle, 炫彩常量类.XE_BNCLICK, pFun)
+	return xc.XEle_RegEventC1(b.Handle, xcc.XE_BNCLICK, pFun)
 }
 
 // 按钮选中事件.
 func (b *Button) Event_BUTTON_CHECK(pFun XE_BUTTON_CHECK) bool {
-	return xc.XEle_RegEventC(b.Handle, 炫彩常量类.XE_BUTTON_CHECK, pFun)
+	return xc.XEle_RegEventC(b.Handle, xcc.XE_BUTTON_CHECK, pFun)
 }
 
 // 按钮选中事件.
 func (b *Button) Event_BUTTON_CHECK1(pFun XE_BUTTON_CHECK1) bool {
-	return xc.XEle_RegEventC1(b.Handle, 炫彩常量类.XE_BUTTON_CHECK, pFun)
+	return xc.XEle_RegEventC1(b.Handle, xcc.XE_BUTTON_CHECK, pFun)
 }

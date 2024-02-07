@@ -1,4 +1,4 @@
-package 炫彩WinApi窗口类_test
+package wnd_test
 
 import (
 	"fmt"
@@ -8,15 +8,15 @@ import (
 )
 
 func TestGetWindowTitle(t *testing.T) {
-	hwnd := 炫彩WinApi类.FindWindowExW(0, 0, "", "任务管理器")
-	fmt.Println(炫彩WinApi窗口类.GetTitle(hwnd))
+	hwnd := wapi.FindWindowExW(0, 0, "", "任务管理器")
+	fmt.Println(wnd.GetTitle(hwnd))
 }
 
 func TestSetTop(t *testing.T) {
-	hwnd := 炫彩WinApi类.FindWindowExW(0, 0, "", "任务管理器")
-	fmt.Println(炫彩WinApi窗口类.SetTop(hwnd, true))
+	hwnd := wapi.FindWindowExW(0, 0, "", "任务管理器")
+	fmt.Println(wnd.SetTop(hwnd, true))
 }
 
 func TestGetWindowHWND(t *testing.T) {
-	fmt.Println(炫彩WinApi窗口类.GetHWND("", "管理器"))
+	fmt.Println(wnd.GetHWND("", "管理器"))
 }

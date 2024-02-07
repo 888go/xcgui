@@ -1,4 +1,4 @@
-package 炫彩缓动类_test
+package ease_test
 
 import (
 	"github.com/888go/xcgui/app"
@@ -12,14 +12,14 @@ import (
 )
 
 func TestEx(t *testing.T) {
-	tf.TFunc(func(a *炫彩App类.App, w *window.Window) {
+	tf.TFunc(func(a *app.App, w *window.Window) {
 		time.AfterFunc(time.Millisecond*3, func() {
 			// 获取窗口坐标
 			var rect xc.RECT
 			w.GetRect(&rect)
 
 			for i := 0; i < 30; i++ {
-				v := 炫彩缓动类.Ex(float32(i)/30.0, 炫彩常量类.Ease_Flag_Back|炫彩常量类.Ease_Flag_Out)
+				v := ease.Ex(float32(i)/30.0, xcc.Ease_Flag_Back|xcc.Ease_Flag_Out)
 				y := int32(v * float32(rect.Top))
 				w.SetPosition(rect.Left, y)
 				time.Sleep(time.Millisecond * 10)

@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -116,7 +116,7 @@ func (l *LayoutFrame) EnableOverflowHide(bEnable bool) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-func (l *LayoutFrame) SetAlignH(nAlign 炫彩常量类.Layout_Align_) int {
+func (l *LayoutFrame) SetAlignH(nAlign xcc.Layout_Align_) int {
 	return xc.XLayoutBox_SetAlignH(l.Handle, nAlign)
 }
 
@@ -124,7 +124,7 @@ func (l *LayoutFrame) SetAlignH(nAlign 炫彩常量类.Layout_Align_) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-func (l *LayoutFrame) SetAlignV(nAlign 炫彩常量类.Layout_Align_) int {
+func (l *LayoutFrame) SetAlignV(nAlign xcc.Layout_Align_) int {
 	return xc.XLayoutBox_SetAlignV(l.Handle, nAlign)
 }
 
@@ -132,7 +132,7 @@ func (l *LayoutFrame) SetAlignV(nAlign 炫彩常量类.Layout_Align_) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_Axis_.
 //	@return int
-func (l *LayoutFrame) SetAlignBaseline(nAlign 炫彩常量类.Layout_Align_Axis_) int {
+func (l *LayoutFrame) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
 	return xc.XLayoutBox_SetAlignBaseline(l.Handle, nAlign)
 }
 

@@ -1,4 +1,4 @@
-package 炫彩WinApi类
+package wapi
 
 import (
 	"syscall"

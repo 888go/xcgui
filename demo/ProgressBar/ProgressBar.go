@@ -12,23 +12,23 @@ import (
 )
 
 var (
-	bar    *炫彩组件类.ProgressBar
-	bar2   *炫彩组件类.ProgressBar
-	btnAdd *炫彩组件类.Button
-	btnSub *炫彩组件类.Button
+	bar    *widget.ProgressBar
+	bar2   *widget.ProgressBar
+	btnAdd *widget.Button
+	btnSub *widget.Button
 )
 
 //go:embed jindu.png
 var img []byte
 
 func main() {
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 436, 450, "ProgressBar", 0, 炫彩常量类.Window_Style_Default)
+	w := window.New(0, 0, 436, 450, "ProgressBar", 0, xcc.Window_Style_Default)
 
 	// 创建一个水平进度条
-	bar = 炫彩组件类.NewProgressBar(24, 60, 200, 10, w.Handle)
+	bar = widget.NewProgressBar(24, 60, 200, 10, w.Handle)
 	// 设置进度条边框大小
 	bar.SetBorderSize(1, 1, 1, 1)
 	// 设置进度条不显示进度文字
@@ -40,9 +40,9 @@ func main() {
 	// 置进度颜色
 	bar.SetColorLoad(xc.RGBA(43, 170, 255, 255))
 	// 置进度条背景颜色
-	bar.AddBkFill(炫彩常量类.Element_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
+	bar.AddBkFill(xcc.Element_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
 
-	bar2 = 炫彩组件类.NewProgressBar(24, 200, 24, 200, w.Handle)
+	bar2 = widget.NewProgressBar(24, 200, 24, 200, w.Handle)
 	// 设置为垂直进度条
 	bar2.EnableHorizon(false)
 	// 设置进度条边框大小
@@ -50,18 +50,18 @@ func main() {
 	// 不显示进度文本
 	bar2.EnableShowText(false)
 	// 置进度图片
-	bar2.SetImageLoad(炫彩图片类.NewByMemAdaptive(img, 0, 0, 0, 0).Handle)
+	bar2.SetImageLoad(imagex.NewByMemAdaptive(img, 0, 0, 0, 0).Handle)
 	// 置进度条背景颜色
-	bar2.AddBkFill(炫彩常量类.Element_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
+	bar2.AddBkFill(xcc.Element_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
 
 	// 创建按钮_进度加
-	btnAdd = 炫彩组件类.NewButton(238, 50, 70, 30, "+", w.Handle)
+	btnAdd = widget.NewButton(238, 50, 70, 30, "+", w.Handle)
 	btnAdd.Event_BnClick1(onBtnClick)
 	// 创建按钮_进度减
-	btnSub = 炫彩组件类.NewButton(318, 50, 70, 30, "-", w.Handle)
+	btnSub = widget.NewButton(318, 50, 70, 30, "-", w.Handle)
 	btnSub.Event_BnClick1(onBtnClick)
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

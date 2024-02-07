@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -113,7 +113,7 @@ func (s *ShapeText) GetTextColor() int {
 // 形状文本_置文本对齐.
 //
 // align: 文本对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func (s *ShapeText) SetTextAlign(align 炫彩常量类.TextFormatFlag_) int {
+func (s *ShapeText) SetTextAlign(align xcc.TextFormatFlag_) int {
 	return xc.XShapeText_SetTextAlign(s.Handle, align)
 }
 

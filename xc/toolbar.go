@@ -50,7 +50,7 @@ func XToolBar_InsertSeparator(hEle int, index int, color int) int {
 //
 // bEnable: 是否启用.
 func XToolBar_EnableButtonMenu(hEle int, bEnable bool) int {
-	r, _, _ := xToolBar_EnableButtonMenu.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xToolBar_EnableButtonMenu.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 

@@ -11,17 +11,17 @@ import (
 
 var (
 	w    *window.Window
-	svg1 *炫彩SVG类.Svg
+	svg1 *svg.Svg
 )
 
 func main() {
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w = window.New(0, 0, 350, 200, "svg绘制", 0, 炫彩常量类.Window_Style_Default)
+	w = window.New(0, 0, 350, 200, "svg绘制", 0, xcc.Window_Style_Default)
 
 	// SVG_加载从字符串
-	svg1 = 炫彩SVG类.NewByStringW(svgStr)
+	svg1 = svg.NewByStringW(svgStr)
 	if svg1.Handle == 0 {
 		panic("svg1.Handle = 0")
 	}
@@ -29,7 +29,7 @@ func main() {
 	// 窗口绘制消息
 	w.Event_PAINT(OnWndDrawWindow)
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }
@@ -39,7 +39,7 @@ func OnWndDrawWindow(hDraw int, pbHandled *bool) int {
 	// 在自绘事件函数中,用户手动调用绘制窗口, 以便控制绘制顺序
 	w.DrawWindow(hDraw)
 	// 创建绘制对象
-	draw := 炫彩绘制类.NewByHandle(hDraw)
+	draw := drawx.NewByHandle(hDraw)
 
 	left := 20
 	top := 50

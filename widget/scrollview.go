@@ -1,4 +1,4 @@
-package 炫彩组件类
+package widget
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -243,20 +243,20 @@ type XE_SCROLLVIEW_SCROLL_V1 func(hEle int, pos int32, pbHandled *bool) int // �
 
 // 滚动视图元素水平滚动事件,滚动视图触发.
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_H(pFun XE_SCROLLVIEW_SCROLL_H) bool {
-	return xc.XEle_RegEventC(s.Handle, 炫彩常量类.XE_SCROLLVIEW_SCROLL_H, pFun)
+	return xc.XEle_RegEventC(s.Handle, xcc.XE_SCROLLVIEW_SCROLL_H, pFun)
 }
 
 // 滚动视图元素水平滚动事件,滚动视图触发.
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_H1(pFun XE_SCROLLVIEW_SCROLL_H1) bool {
-	return xc.XEle_RegEventC1(s.Handle, 炫彩常量类.XE_SCROLLVIEW_SCROLL_H, pFun)
+	return xc.XEle_RegEventC1(s.Handle, xcc.XE_SCROLLVIEW_SCROLL_H, pFun)
 }
 
 // 滚动视图元素垂直滚动事件,滚动视图触发.
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_V(pFun XE_SCROLLVIEW_SCROLL_V) bool {
-	return xc.XEle_RegEventC(s.Handle, 炫彩常量类.XE_SCROLLVIEW_SCROLL_V, pFun)
+	return xc.XEle_RegEventC(s.Handle, xcc.XE_SCROLLVIEW_SCROLL_V, pFun)
 }
 
 // 滚动视图元素垂直滚动事件,滚动视图触发.
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_V1(pFun XE_SCROLLVIEW_SCROLL_V1) bool {
-	return xc.XEle_RegEventC1(s.Handle, 炫彩常量类.XE_SCROLLVIEW_SCROLL_V, pFun)
+	return xc.XEle_RegEventC1(s.Handle, xcc.XE_SCROLLVIEW_SCROLL_V, pFun)
 }

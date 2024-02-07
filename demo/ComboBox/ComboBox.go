@@ -11,13 +11,13 @@ import (
 )
 
 func main() {
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 430, 300, "ComboBox", 0, 炫彩常量类.Window_Style_Default)
+	w := window.New(0, 0, 430, 300, "ComboBox", 0, xcc.Window_Style_Default)
 
 	// 创建组合框
-	cbb := 炫彩组件类.NewComboBox(24, 50, 100, 30, w.Handle)
+	cbb := widget.NewComboBox(24, 50, 100, 30, w.Handle)
 	// 创建数据适配器, 这个是必须创建的, 存储数据的
 	cbb.CreateAdapter()
 	// 组合框加入项
@@ -31,7 +31,7 @@ func main() {
 	cbb.EnableEdit(false)
 
 	// 创建编辑框
-	edit := 炫彩组件类.NewEdit(138, 50, 100, 30, w.Handle)
+	edit := widget.NewEdit(138, 50, 100, 30, w.Handle)
 	edit.SetText("hello")
 
 	// 注册组合框被选择事件
@@ -41,7 +41,7 @@ func main() {
 		return 0
 	})
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

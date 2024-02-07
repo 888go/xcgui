@@ -22,8 +22,8 @@ func XFont_Create(size int32) int {
 //	@param size 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return int 返回字体句柄.
-func XFont_CreateEx(pName string, size int32, style 炫彩常量类.FontStyle_) int {
-	r, _, _ := xFont_CreateEx.Call(炫彩工具类.StrPtr(pName), uintptr(size), uintptr(style))
+func XFont_CreateEx(pName string, size int32, style xcc.FontStyle_) int {
+	r, _, _ := xFont_CreateEx.Call(common.StrPtr(pName), uintptr(size), uintptr(style))
 	return int(r)
 }
 
@@ -60,8 +60,8 @@ func XFont_CreateFromFont(pFont uintptr) int {
 //	@param size 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return int 返回炫彩字体句柄.
-func XFont_CreateFromFile(pFontFile string, size int32, style 炫彩常量类.FontStyle_) int {
-	r, _, _ := xFont_CreateFromFile.Call(炫彩工具类.StrPtr(pFontFile), uintptr(size), uintptr(style))
+func XFont_CreateFromFile(pFontFile string, size int32, style xcc.FontStyle_) int {
+	r, _, _ := xFont_CreateFromFile.Call(common.StrPtr(pFontFile), uintptr(size), uintptr(style))
 	return int(r)
 }
 
@@ -73,8 +73,8 @@ func XFont_CreateFromFile(pFontFile string, size int32, style 炫彩常量类.Fo
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式: xcc.FontStyle_.
 //	@return int 返回炫彩字体句柄.
-func XFont_CreateFromZip(pZipFileName, pFileName, pPassword string, fontSize int32, style 炫彩常量类.FontStyle_) int {
-	r, _, _ := xFont_CreateFromZip.Call(炫彩工具类.StrPtr(pZipFileName), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), uintptr(fontSize), uintptr(style))
+func XFont_CreateFromZip(pZipFileName, pFileName, pPassword string, fontSize int32, style xcc.FontStyle_) int {
+	r, _, _ := xFont_CreateFromZip.Call(common.StrPtr(pZipFileName), common.StrPtr(pFileName), common.StrPtr(pPassword), uintptr(fontSize), uintptr(style))
 	return int(r)
 }
 
@@ -86,8 +86,8 @@ func XFont_CreateFromZip(pZipFileName, pFileName, pPassword string, fontSize int
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式: xcc.FontStyle_.
 //	@return int 返回炫彩字体句柄.
-func XFont_CreateFromZipMem(data []byte, pFileName, pPassword string, fontSize int32, style 炫彩常量类.FontStyle_) int {
-	r, _, _ := xFont_CreateFromZipMem.Call(炫彩工具类.ByteSliceDataPtr(&data), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), uintptr(fontSize), uintptr(style))
+func XFont_CreateFromZipMem(data []byte, pFileName, pPassword string, fontSize int32, style xcc.FontStyle_) int {
+	r, _, _ := xFont_CreateFromZipMem.Call(common.ByteSliceDataPtr(&data), common.StrPtr(pFileName), common.StrPtr(pPassword), uintptr(fontSize), uintptr(style))
 	return int(r)
 }
 
@@ -97,8 +97,8 @@ func XFont_CreateFromZipMem(data []byte, pFileName, pPassword string, fontSize i
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return int 返回字体句柄.
-func XFont_CreateFromMem(data []byte, fontSize int32, style 炫彩常量类.FontStyle_) int {
-	r, _, _ := xFont_CreateFromMem.Call(炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)), uintptr(fontSize), uintptr(style))
+func XFont_CreateFromMem(data []byte, fontSize int32, style xcc.FontStyle_) int {
+	r, _, _ := xFont_CreateFromMem.Call(common.ByteSliceDataPtr(&data), uintptr(len(data)), uintptr(fontSize), uintptr(style))
 	return int(r)
 }
 
@@ -110,8 +110,8 @@ func XFont_CreateFromMem(data []byte, fontSize int32, style 炫彩常量类.Font
 //	@param style 字体样式, xcc.FontStyle_.
 //	@param hModule xx.
 //	@return int 返回炫彩字体句柄.
-func XFont_CreateFromRes(id int32, pType string, fontSize int32, style 炫彩常量类.FontStyle_, hModule uintptr) int {
-	r, _, _ := xFont_CreateFromRes.Call(uintptr(id), 炫彩工具类.StrPtr(pType), uintptr(fontSize), uintptr(style), hModule)
+func XFont_CreateFromRes(id int32, pType string, fontSize int32, style xcc.FontStyle_, hModule uintptr) int {
+	r, _, _ := xFont_CreateFromRes.Call(uintptr(id), common.StrPtr(pType), uintptr(fontSize), uintptr(style), hModule)
 	return int(r)
 }
 
@@ -121,7 +121,7 @@ func XFont_CreateFromRes(id int32, pType string, fontSize int32, style 炫彩常
 //	@param bEnable 是否启用.
 //	@return int
 func XFont_EnableAutoDestroy(hFontX int, bEnable bool) int {
-	r, _, _ := xFont_EnableAutoDestroy.Call(uintptr(hFontX), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xFont_EnableAutoDestroy.Call(uintptr(hFontX), common.BoolPtr(bEnable))
 	return int(r)
 }
 

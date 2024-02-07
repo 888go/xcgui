@@ -24,31 +24,31 @@ var (
 
 func main() {
 	// 1.初始化UI库
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w := window.New(0, 0, 465, 300, "", 0, 炫彩常量类.Window_Style_Simple|炫彩常量类.Window_Style_Title|炫彩常量类.Window_Style_Drag_Window)
+	w := window.New(0, 0, 465, 300, "", 0, xcc.Window_Style_Simple|xcc.Window_Style_Title|xcc.Window_Style_Drag_Window)
 	// 设置窗口透明类型
-	w.SetTransparentType(炫彩常量类.Window_Transparent_Shadow)
+	w.SetTransparentType(xcc.Window_Transparent_Shadow)
 	// 设置窗口阴影
 	w.SetShadowInfo(8, 255, 10, false, 0)
 	// 给整个窗口添加背景色
-	w.AddBkFill(炫彩常量类.Window_State_Flag_Leave, xc.ABGR(51, 57, 60, 254))
+	w.AddBkFill(xcc.Window_State_Flag_Leave, xc.ABGR(51, 57, 60, 254))
 
 	// 创建最小化按钮
-	btnMin := 炫彩组件类.NewButton(397, 8, 30, 30, "", w.Handle)
-	btnMin.SetTypeEx(炫彩常量类.Button_Type_Min)
+	btnMin := widget.NewButton(397, 8, 30, 30, "", w.Handle)
+	btnMin.SetTypeEx(xcc.Button_Type_Min)
 	// 创建结束按钮
-	btnClose := 炫彩组件类.NewButton(427, 8, 30, 30, "", w.Handle)
-	btnClose.SetTypeEx(炫彩常量类.Button_Type_Close)
+	btnClose := widget.NewButton(427, 8, 30, 30, "", w.Handle)
+	btnClose.SetTypeEx(xcc.Button_Type_Close)
 
 	// 给按钮加上三种状态下的图片
 	setBtnImg(btnMin, img1)
 	setBtnImg(btnClose, img2)
 
 	// 3.显示窗口
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	// 4.运行程序
 	a.Run()
 	// 5.释放UI库
@@ -56,11 +56,11 @@ func main() {
 }
 
 // 给按钮加上三态图片
-func setBtnImg(btn *炫彩组件类.Button, file []byte) {
+func setBtnImg(btn *widget.Button, file []byte) {
 	for i := 0; i < 3; i++ {
 		x := int32(i * 31)
 		// 图片_加载从内存, 指定区域位置及大小
-		img := 炫彩图片类.NewByMemRect(file, x, 0, 30, 30)
+		img := imagex.NewByMemRect(file, x, 0, 30, 30)
 
 		if img.Handle == 0 {
 			fmt.Println("Error: hImg=", img.Handle)
@@ -72,11 +72,11 @@ func setBtnImg(btn *炫彩组件类.Button, file []byte) {
 		// 添加背景图片
 		switch i {
 		case 0:
-			btn.AddBkImage(炫彩常量类.Button_State_Flag_Leave, img.Handle)
+			btn.AddBkImage(xcc.Button_State_Flag_Leave, img.Handle)
 		case 1:
-			btn.AddBkImage(炫彩常量类.Button_State_Flag_Stay, img.Handle)
+			btn.AddBkImage(xcc.Button_State_Flag_Stay, img.Handle)
 		case 2:
-			btn.AddBkImage(炫彩常量类.Button_State_Flag_Down, img.Handle)
+			btn.AddBkImage(xcc.Button_State_Flag_Down, img.Handle)
 		}
 		// 启用按钮背景透明
 		btn.EnableBkTransparent(true)

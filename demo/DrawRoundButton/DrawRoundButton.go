@@ -13,21 +13,21 @@ import (
 
 func main() {
 	// 1.初始化UI库
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w := window.New(0, 0, 430, 300, "绘制圆角按钮", 0, 炫彩常量类.Window_Style_Default)
+	w := window.New(0, 0, 430, 300, "绘制圆角按钮", 0, xcc.Window_Style_Default)
 
 	// 创建一个按钮
-	btn := 炫彩组件类.NewButton((w.GetWidth()-100)/2, 100, 100, 30, "圆角按钮", w.Handle)
+	btn := widget.NewButton((w.GetWidth()-100)/2, 100, 100, 30, "圆角按钮", w.Handle)
 	// 设置按钮字体颜色, 白色
 	btn.SetTextColor(xc.ABGR(255, 255, 255, 255))
 	// 设置按钮圆角
 	setBtnRound(btn, 14)
 
 	// 3.显示窗口
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	// 4.运行程序
 	a.Run()
 	// 5.释放UI库
@@ -35,13 +35,13 @@ func main() {
 }
 
 // 设置按钮圆角
-func setBtnRound(btn *炫彩组件类.Button, round int) {
+func setBtnRound(btn *widget.Button, round int) {
 	// 启用按钮背景透明
 	btn.EnableBkTransparent(true)
 	// 注册按钮绘制事件
 	btn.Event_PAINT1(func(hEle int, hDraw int, pbHandled *bool) int {
 		// 创建Draw对象
-		draw := 炫彩绘制类.NewByHandle(hDraw)
+		draw := drawx.NewByHandle(hDraw)
 		// 启用平滑模式
 		draw.EnableSmoothingMode(true)
 
@@ -49,11 +49,11 @@ func setBtnRound(btn *炫彩组件类.Button, round int) {
 		nState := xc.XBtn_GetStateEx(hEle)
 		bgcolor := xc.ABGR(1, 162, 232, 255) // 默认
 		switch nState {
-		case 炫彩常量类.Button_State_Stay:
+		case xcc.Button_State_Stay:
 			bgcolor = xc.ABGR(1, 182, 252, 255)
-		case 炫彩常量类.Button_State_Down:
+		case xcc.Button_State_Down:
 			bgcolor = xc.ABGR(1, 122, 192, 255)
-		case 炫彩常量类.Button_State_Disable:
+		case xcc.Button_State_Disable:
 			bgcolor = xc.ABGR(211, 215, 212, 255)
 		}
 		// 设置画刷颜色

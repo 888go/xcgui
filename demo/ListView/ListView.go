@@ -17,11 +17,11 @@ import (
 var img1 []byte
 
 func main() {
-	a := 炫彩App类.New(true)
-	w := window.New(0, 0, 465, 400, "ListView", 0, 炫彩常量类.Window_Style_Default)
+	a := app.New(true)
+	w := window.New(0, 0, 465, 400, "ListView", 0, xcc.Window_Style_Default)
 
 	// 创建ListView
-	lv := 炫彩组件类.NewListView(10, 32, 445, 357, w.Handle)
+	lv := widget.NewListView(10, 32, 445, 357, w.Handle)
 	// 创建数据适配器
 	lv.CreateAdapter()
 
@@ -29,7 +29,7 @@ func main() {
 	group1 := lv.Group_AddItemText("group1", -1)
 	group2 := lv.Group_AddItemText("group2", -1)
 	// 图片加载从内存
-	img := 炫彩图片类.NewByMem(img1)
+	img := imagex.NewByMem(img1)
 
 	// 循环把图片加到分组里
 	var index int
@@ -41,7 +41,7 @@ func main() {
 		lv.Item_SetText(group2, index, 1, fmt.Sprintf("group2-item%d", i))
 	}
 
-	炫彩组件类.NewButton(150, 0, 70, 30, "取选中项", w.Handle).Event_BnClick(func(pbHandled *bool) int {
+	widget.NewButton(150, 0, 70, 30, "取选中项", w.Handle).Event_BnClick(func(pbHandled *bool) int {
 		n := lv.GetSelectItemCount()
 		fmt.Println("个数:", n)
 		if n == 0 {
@@ -60,7 +60,7 @@ func main() {
 		return 0
 	})
 
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

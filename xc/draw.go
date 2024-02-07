@@ -62,7 +62,7 @@ func XDraw_Dottedline(hDraw int, x1 int, y1 int, x2 int, y2 int) int {
 //
 // y2: 结束点y坐标.
 func XDraw_DottedlineF(hDraw int, x1, y1, x2, y2 float32) int {
-	r, _, _ := xDraw_DottedlineF.Call(uintptr(hDraw), 炫彩工具类.Float32Ptr(x1), 炫彩工具类.Float32Ptr(y1), 炫彩工具类.Float32Ptr(x2), 炫彩工具类.Float32Ptr(y2))
+	r, _, _ := xDraw_DottedlineF.Call(uintptr(hDraw), common.Float32Ptr(x1), common.Float32Ptr(y1), common.Float32Ptr(x2), common.Float32Ptr(y2))
 	return int(r)
 }
 
@@ -82,7 +82,7 @@ func XDraw_DottedlineF(hDraw int, x1, y1, x2, y2 float32) int {
 //
 // sweepAngle: 绘制角度, 从起始角度开始计算.
 func XDraw_DrawArc(hDraw int, x, y int, nWidth int, nHeight int, startAngle float32, sweepAngle float32) int {
-	r, _, _ := xDraw_DrawArc.Call(uintptr(hDraw), uintptr(x), uintptr(y), uintptr(nWidth), uintptr(nHeight), 炫彩工具类.Float32Ptr(startAngle), 炫彩工具类.Float32Ptr(sweepAngle))
+	r, _, _ := xDraw_DrawArc.Call(uintptr(hDraw), uintptr(x), uintptr(y), uintptr(nWidth), uintptr(nHeight), common.Float32Ptr(startAngle), common.Float32Ptr(sweepAngle))
 	return int(r)
 }
 
@@ -102,7 +102,7 @@ func XDraw_DrawArc(hDraw int, x, y int, nWidth int, nHeight int, startAngle floa
 //
 // sweepAngle: 绘制角度, 从起始角度开始计算.
 func XDraw_DrawArcF(hDraw int, x, y, nWidth, nHeight, startAngle, sweepAngle float32) int {
-	r, _, _ := xDraw_DrawArcF.Call(uintptr(hDraw), 炫彩工具类.Float32Ptr(x), 炫彩工具类.Float32Ptr(y), 炫彩工具类.Float32Ptr(nWidth), 炫彩工具类.Float32Ptr(nHeight), 炫彩工具类.Float32Ptr(startAngle), 炫彩工具类.Float32Ptr(sweepAngle))
+	r, _, _ := xDraw_DrawArcF.Call(uintptr(hDraw), common.Float32Ptr(x), common.Float32Ptr(y), common.Float32Ptr(nWidth), common.Float32Ptr(nHeight), common.Float32Ptr(startAngle), common.Float32Ptr(sweepAngle))
 	return int(r)
 }
 
@@ -116,7 +116,7 @@ func XDraw_DrawArcF(hDraw int, x, y, nWidth, nHeight, startAngle, sweepAngle flo
 //
 // tension: 大于或等于0.0F的值，指定曲线的张力, D2D 忽略此参数.
 func XDraw_DrawCurve(hDraw int, points []POINT, count int, tension float32) int {
-	r, _, _ := xDraw_DrawCurve.Call(uintptr(hDraw), uintptr(unsafe.Pointer(&points[0])), uintptr(count), 炫彩工具类.Float32Ptr(tension))
+	r, _, _ := xDraw_DrawCurve.Call(uintptr(hDraw), uintptr(unsafe.Pointer(&points[0])), uintptr(count), common.Float32Ptr(tension))
 	return int(r)
 }
 
@@ -130,7 +130,7 @@ func XDraw_DrawCurve(hDraw int, points []POINT, count int, tension float32) int 
 //
 // tension: 大于或等于0.0F的值，指定曲线的张力, D2D 忽略此参数.
 func XDraw_DrawCurveF(hDraw int, points []POINTF, count int, tension float32) int {
-	r, _, _ := xDraw_DrawCurveF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(&points[0])), uintptr(count), 炫彩工具类.Float32Ptr(tension))
+	r, _, _ := xDraw_DrawCurveF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(&points[0])), uintptr(count), common.Float32Ptr(tension))
 	return int(r)
 }
 
@@ -162,7 +162,7 @@ func XDraw_DrawLine(hDraw int, x1 int, y1 int, x2 int, y2 int) int {
 //
 // y2: 坐标.
 func XDraw_DrawLineF(hDraw int, x1, y1, x2, y2 float32) int {
-	r, _, _ := xDraw_DrawLineF.Call(uintptr(hDraw), 炫彩工具类.Float32Ptr(x1), 炫彩工具类.Float32Ptr(y1), 炫彩工具类.Float32Ptr(x2), 炫彩工具类.Float32Ptr(y2))
+	r, _, _ := xDraw_DrawLineF.Call(uintptr(hDraw), common.Float32Ptr(x1), common.Float32Ptr(y1), common.Float32Ptr(x2), common.Float32Ptr(y2))
 	return int(r)
 }
 
@@ -266,7 +266,7 @@ func XDraw_SetBrushColor(hDraw int, color int) int {
 //
 // bVertical: 是否垂直显示文本.
 func XDraw_SetTextVertical(hDraw int, bVertical bool) int {
-	r, _, _ := xDraw_SetTextVertical.Call(uintptr(hDraw), 炫彩工具类.BoolPtr(bVertical))
+	r, _, _ := xDraw_SetTextVertical.Call(uintptr(hDraw), common.BoolPtr(bVertical))
 	return int(r)
 }
 
@@ -275,7 +275,7 @@ func XDraw_SetTextVertical(hDraw int, bVertical bool) int {
 // hDraw: 图形绘制句柄.
 //
 // nFlags: 对齐标识, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func XDraw_SetTextAlign(hDraw int, nFlags 炫彩常量类.TextFormatFlag_) int {
+func XDraw_SetTextAlign(hDraw int, nFlags xcc.TextFormatFlag_) int {
 	r, _, _ := xDraw_SetTextAlign.Call(uintptr(hDraw), uintptr(nFlags))
 	return int(r)
 }
@@ -306,7 +306,7 @@ func XDraw_SetLineWidth(hDraw int, nWidth int) int {
 //
 // nWidth: 宽度.
 func XDraw_SetLineWidthF(hDraw int, nWidth float32) int {
-	r, _, _ := xDraw_SetLineWidthF.Call(uintptr(hDraw), 炫彩工具类.Float32Ptr(nWidth))
+	r, _, _ := xDraw_SetLineWidthF.Call(uintptr(hDraw), common.Float32Ptr(nWidth))
 	return int(r)
 }
 
@@ -316,7 +316,7 @@ func XDraw_SetLineWidthF(hDraw int, nWidth float32) int {
 //
 // bTransparent: 参见MSDN.
 func XDraw_GDI_SetBkMode(hDraw int, bTransparent bool) int {
-	r, _, _ := xDraw_GDI_SetBkMode.Call(uintptr(hDraw), 炫彩工具类.BoolPtr(bTransparent))
+	r, _, _ := xDraw_GDI_SetBkMode.Call(uintptr(hDraw), common.BoolPtr(bTransparent))
 	return int(r)
 }
 
@@ -335,7 +335,7 @@ func XDraw_SetClipRect(hDraw int, pRect *RECT) int {
 // hDraw: 图形绘制句柄.
 //
 // mode	渲染模式 XC_DWRITE_RENDERING_MODE_.
-func XDraw_SetD2dTextRenderingMode(hDraw int, mode 炫彩常量类.XC_DWRITE_RENDERING_MODE_) int {
+func XDraw_SetD2dTextRenderingMode(hDraw int, mode xcc.XC_DWRITE_RENDERING_MODE_) int {
 	r, _, _ := xDraw_SetD2dTextRenderingMode.Call(uintptr(hDraw), uintptr(mode))
 	return int(r)
 }
@@ -354,7 +354,7 @@ func XDraw_ClearClip(hDraw int) int {
 //
 // bEnable: 是否启用.
 func XDraw_EnableSmoothingMode(hDraw int, bEnable bool) int {
-	r, _, _ := xDraw_EnableSmoothingMode.Call(uintptr(hDraw), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xDraw_EnableSmoothingMode.Call(uintptr(hDraw), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -364,7 +364,7 @@ func XDraw_EnableSmoothingMode(hDraw int, bEnable bool) int {
 //
 // bTransparent: 是否启用.
 func XDraw_EnableWndTransparent(hDraw int, bTransparent bool) int {
-	r, _, _ := xDraw_EnableWndTransparent.Call(uintptr(hDraw), 炫彩工具类.BoolPtr(bTransparent))
+	r, _, _ := xDraw_EnableWndTransparent.Call(uintptr(hDraw), common.BoolPtr(bTransparent))
 	return int(r)
 }
 
@@ -576,7 +576,7 @@ func XDraw_FillRoundRect(hDraw int, pRect *RECT, nWidth, nHeight int) int {
 //
 // nHeight: 圆角高度.
 func XDraw_FillRoundRectF(hDraw int, pRect *RECTF, nWidth, nHeight float32) int {
-	r, _, _ := xDraw_FillRoundRectF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.Float32Ptr(nWidth), 炫彩工具类.Float32Ptr(nHeight))
+	r, _, _ := xDraw_FillRoundRectF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), common.Float32Ptr(nWidth), common.Float32Ptr(nHeight))
 	return int(r)
 }
 
@@ -604,7 +604,7 @@ func XDraw_DrawRoundRect(hDraw int, pRect *RECT, nWidth int, nHeight int) int {
 //
 // nHeight: 圆角高度.
 func XDraw_DrawRoundRectF(hDraw int, pRect *RECT, nWidth, nHeight float32) int {
-	r, _, _ := xDraw_DrawRoundRectF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.Float32Ptr(nWidth), 炫彩工具类.Float32Ptr(nHeight))
+	r, _, _ := xDraw_DrawRoundRectF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), common.Float32Ptr(nWidth), common.Float32Ptr(nHeight))
 	return int(r)
 }
 
@@ -640,7 +640,7 @@ func XDraw_FillRoundRectEx(hDraw int, pRect *RECT, nLeftTop, nRightTop, nRightBo
 //
 // nLeftBottom: 圆角大小.
 func XDraw_FillRoundRectExF(hDraw int, pRect *RECTF, nLeftTop, nRightTop, nRightBottom, nLeftBottom float32) int {
-	r, _, _ := xDraw_FillRoundRectExF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.Float32Ptr(nLeftTop), 炫彩工具类.Float32Ptr(nRightTop), 炫彩工具类.Float32Ptr(nRightBottom), 炫彩工具类.Float32Ptr(nLeftBottom))
+	r, _, _ := xDraw_FillRoundRectExF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), common.Float32Ptr(nLeftTop), common.Float32Ptr(nRightTop), common.Float32Ptr(nRightBottom), common.Float32Ptr(nLeftBottom))
 	return int(r)
 }
 
@@ -676,7 +676,7 @@ func XDraw_DrawRoundRectEx(hDraw int, pRect *RECT, nLeftTop int, nRightTop int, 
 //
 // nLeftBottom: 圆角大小.
 func XDraw_DrawRoundRectExF(hDraw int, pRect *RECT, nLeftTop, nRightTop, nRightBottom, nLeftBottom float32) int {
-	r, _, _ := xDraw_DrawRoundRectExF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.Float32Ptr(nLeftTop), 炫彩工具类.Float32Ptr(nRightTop), 炫彩工具类.Float32Ptr(nRightBottom), 炫彩工具类.Float32Ptr(nLeftBottom))
+	r, _, _ := xDraw_DrawRoundRectExF.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), common.Float32Ptr(nLeftTop), common.Float32Ptr(nRightTop), common.Float32Ptr(nRightBottom), common.Float32Ptr(nLeftBottom))
 	return int(r)
 }
 
@@ -707,7 +707,7 @@ func XDraw_GDI_Rectangle(hDraw int, nLeftRect int, nTopRect int, nRightRect int,
 // color2: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func XDraw_GradientFill2(hDraw int, pRect *RECT, color1 int, color2 int, mode 炫彩常量类.GRADIENT_FILL_) int {
+func XDraw_GradientFill2(hDraw int, pRect *RECT, color1 int, color2 int, mode xcc.GRADIENT_FILL_) int {
 	r, _, _ := xDraw_GradientFill2.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), uintptr(color1), uintptr(color2), uintptr(mode))
 	return int(r)
 }
@@ -723,7 +723,7 @@ func XDraw_GradientFill2(hDraw int, pRect *RECT, color1 int, color2 int, mode �
 // color2: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func XDraw_GradientFill2F(hDraw int, pRect *RECTF, color1 int, color2 int, mode 炫彩常量类.GRADIENT_FILL_) int {
+func XDraw_GradientFill2F(hDraw int, pRect *RECTF, color1 int, color2 int, mode xcc.GRADIENT_FILL_) int {
 	r, _, _ := xDraw_GradientFill2F.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), uintptr(color1), uintptr(color2), uintptr(mode))
 	return int(r)
 }
@@ -743,7 +743,7 @@ func XDraw_GradientFill2F(hDraw int, pRect *RECTF, color1 int, color2 int, mode 
 // color4: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func XDraw_GradientFill4(hDraw int, pRect *RECT, color1 int, color2 int, color3 int, color4 int, mode 炫彩常量类.GRADIENT_FILL_) bool {
+func XDraw_GradientFill4(hDraw int, pRect *RECT, color1 int, color2 int, color3 int, color4 int, mode xcc.GRADIENT_FILL_) bool {
 	r, _, _ := xDraw_GradientFill4.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), uintptr(color1), uintptr(color2), uintptr(color3), uintptr(color4), uintptr(mode))
 	return r != 0
 }
@@ -763,7 +763,7 @@ func XDraw_GradientFill4(hDraw int, pRect *RECT, color1 int, color2 int, color3 
 // color4: 结束颜色, ABGR 颜色.
 //
 // mode: 模式, GRADIENT_FILL_.
-func XDraw_GradientFill4F(hDraw int, pRect *RECTF, color1 int, color2 int, color3 int, color4 int, mode 炫彩常量类.GRADIENT_FILL_) bool {
+func XDraw_GradientFill4F(hDraw int, pRect *RECTF, color1 int, color2 int, color3 int, color4 int, mode xcc.GRADIENT_FILL_) bool {
 	r, _, _ := xDraw_GradientFill4F.Call(uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), uintptr(color1), uintptr(color2), uintptr(color3), uintptr(color4), uintptr(mode))
 	return r != 0
 }
@@ -1021,7 +1021,7 @@ func XDraw_Image(hDraw int, hImageFrame int, x, y int32) {
 //
 // y: y坐标.
 func XDraw_ImageF(hDraw int, hImageFrame int, x, y float32) int {
-	r, _, _ := xDraw_ImageF.Call(uintptr(hDraw), uintptr(hImageFrame), 炫彩工具类.Float32Ptr(x), 炫彩工具类.Float32Ptr(y))
+	r, _, _ := xDraw_ImageF.Call(uintptr(hDraw), uintptr(hImageFrame), common.Float32Ptr(x), common.Float32Ptr(y))
 	return int(r)
 }
 
@@ -1035,7 +1035,7 @@ func XDraw_ImageF(hDraw int, hImageFrame int, x, y float32) int {
 //
 // bOnlyBorder: 是否只绘制边缘区域.
 func XDraw_ImageAdaptive(hDraw int, hImageFrame int, pRect *RECT, bOnlyBorder bool) int {
-	r, _, _ := xDraw_ImageAdaptive.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.BoolPtr(bOnlyBorder))
+	r, _, _ := xDraw_ImageAdaptive.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bOnlyBorder))
 	return int(r)
 }
 
@@ -1049,7 +1049,7 @@ func XDraw_ImageAdaptive(hDraw int, hImageFrame int, pRect *RECT, bOnlyBorder bo
 //
 // bOnlyBorder: 是否只绘制边缘区域.
 func XDraw_ImageAdaptiveF(hDraw int, hImageFrame int, pRect *RECTF, bOnlyBorder bool) int {
-	r, _, _ := xDraw_ImageAdaptiveF.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.BoolPtr(bOnlyBorder))
+	r, _, _ := xDraw_ImageAdaptiveF.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bOnlyBorder))
 	return int(r)
 }
 
@@ -1085,7 +1085,7 @@ func XDraw_ImageEx(hDraw int, hImageFrame int, x, y, width, height int) int {
 //
 // height: 高度.
 func XDraw_ImageExF(hDraw int, hImageFrame int, x, y, width, height float32) int {
-	r, _, _ := xDraw_ImageExF.Call(uintptr(hDraw), uintptr(hImageFrame), 炫彩工具类.Float32Ptr(x), 炫彩工具类.Float32Ptr(y), 炫彩工具类.Float32Ptr(width), 炫彩工具类.Float32Ptr(height))
+	r, _, _ := xDraw_ImageExF.Call(uintptr(hDraw), uintptr(hImageFrame), common.Float32Ptr(x), common.Float32Ptr(y), common.Float32Ptr(width), common.Float32Ptr(height))
 	return int(r)
 }
 
@@ -1099,7 +1099,7 @@ func XDraw_ImageExF(hDraw int, hImageFrame int, x, y, width, height float32) int
 //
 // bClip: 是否裁剪区域.
 func XDraw_ImageSuper(hDraw int, hImageFrame int, pRect *RECT, bClip bool) int {
-	r, _, _ := xDraw_ImageSuper.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.BoolPtr(bClip))
+	r, _, _ := xDraw_ImageSuper.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bClip))
 	return int(r)
 }
 
@@ -1113,7 +1113,7 @@ func XDraw_ImageSuper(hDraw int, hImageFrame int, pRect *RECT, bClip bool) int {
 //
 // bClip: 是否裁剪区域.
 func XDraw_ImageSuperF(hDraw int, hImageFrame int, pRect *RECTF, bClip bool) int {
-	r, _, _ := xDraw_ImageSuperF.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.BoolPtr(bClip))
+	r, _, _ := xDraw_ImageSuperF.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bClip))
 	return int(r)
 }
 
@@ -1159,7 +1159,7 @@ func XDraw_ImageSuperExF(hDraw int, hImageFrame int, prcDest *RECTF, prcSrc *REC
 //
 // bClip: 是否裁剪区域.
 func XDraw_ImageSuperMask(hDraw int, hImageFrame int, hImageFrameMask int, pRect *RECT, pRectMask *RECT, bClip bool) int {
-	r, _, _ := xDraw_ImageSuperMask.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(hImageFrameMask), uintptr(unsafe.Pointer(pRect)), uintptr(unsafe.Pointer(pRectMask)), 炫彩工具类.BoolPtr(bClip))
+	r, _, _ := xDraw_ImageSuperMask.Call(uintptr(hDraw), uintptr(hImageFrame), uintptr(hImageFrameMask), uintptr(unsafe.Pointer(pRect)), uintptr(unsafe.Pointer(pRectMask)), common.BoolPtr(bClip))
 	return int(r)
 }
 
@@ -1249,7 +1249,7 @@ func XDraw_ImageMaskEllipse(hDraw int, hImageFrame int, pRect *RECT, pRcMask *RE
 //
 // lpRect: 坐标.
 func XDraw_DrawText(hDraw int, lpString string, lpRect *RECT) int {
-	r, _, _ := xDraw_DrawText.Call(uintptr(hDraw), 炫彩工具类.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)))
+	r, _, _ := xDraw_DrawText.Call(uintptr(hDraw), common.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)))
 	return int(r)
 }
 
@@ -1261,7 +1261,7 @@ func XDraw_DrawText(hDraw int, lpString string, lpRect *RECT) int {
 //
 // lpRect: 坐标.
 func XDraw_DrawTextF(hDraw int, lpString string, lpRect *RECTF) int {
-	r, _, _ := xDraw_DrawTextF.Call(uintptr(hDraw), 炫彩工具类.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)))
+	r, _, _ := xDraw_DrawTextF.Call(uintptr(hDraw), common.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)))
 	return int(r)
 }
 
@@ -1275,7 +1275,7 @@ func XDraw_DrawTextF(hDraw int, lpString string, lpRect *RECTF) int {
 //
 // colorLine: 下划线颜色, ABGR 颜色.
 func XDraw_DrawTextUnderline(hDraw int, lpString string, lpRect *RECT, colorLine int) int {
-	r, _, _ := xDraw_DrawTextUnderline.Call(uintptr(hDraw), 炫彩工具类.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)), uintptr(colorLine))
+	r, _, _ := xDraw_DrawTextUnderline.Call(uintptr(hDraw), common.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)), uintptr(colorLine))
 	return int(r)
 }
 
@@ -1289,7 +1289,7 @@ func XDraw_DrawTextUnderline(hDraw int, lpString string, lpRect *RECT, colorLine
 //
 // colorLine: 下划线颜色, ABGR 颜色.
 func XDraw_DrawTextUnderlineF(hDraw int, lpString string, lpRect *RECTF, colorLine int) int {
-	r, _, _ := xDraw_DrawTextUnderlineF.Call(uintptr(hDraw), 炫彩工具类.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)), uintptr(colorLine))
+	r, _, _ := xDraw_DrawTextUnderlineF.Call(uintptr(hDraw), common.StrPtr(lpString), uintptr(len([]rune(lpString))), uintptr(unsafe.Pointer(lpRect)), uintptr(colorLine))
 	return int(r)
 }
 
@@ -1305,7 +1305,7 @@ func XDraw_DrawTextUnderlineF(hDraw int, lpString string, lpRect *RECTF, colorLi
 //
 // cbString: XX.
 func XDraw_TextOut(hDraw int, nXStart int, nYStart int, lpString string, cbString string) int {
-	r, _, _ := xDraw_TextOut.Call(uintptr(hDraw), uintptr(nXStart), uintptr(nYStart), 炫彩工具类.StrPtr(lpString), 炫彩工具类.StrPtr(cbString))
+	r, _, _ := xDraw_TextOut.Call(uintptr(hDraw), uintptr(nXStart), uintptr(nYStart), common.StrPtr(lpString), common.StrPtr(cbString))
 	return int(r)
 }
 
@@ -1321,7 +1321,7 @@ func XDraw_TextOut(hDraw int, nXStart int, nYStart int, lpString string, cbStrin
 //
 // cbString: XX.
 func XDraw_TextOutF(hDraw int, nXStart, nYStart float32, lpString string, cbString string) int {
-	r, _, _ := xDraw_TextOutF.Call(uintptr(hDraw), 炫彩工具类.Float32Ptr(nXStart), 炫彩工具类.Float32Ptr(nYStart), 炫彩工具类.StrPtr(lpString), 炫彩工具类.StrPtr(cbString))
+	r, _, _ := xDraw_TextOutF.Call(uintptr(hDraw), common.Float32Ptr(nXStart), common.Float32Ptr(nYStart), common.StrPtr(lpString), common.StrPtr(cbString))
 	return int(r)
 }
 
@@ -1335,7 +1335,7 @@ func XDraw_TextOutF(hDraw int, nXStart, nYStart float32, lpString string, cbStri
 //
 // lpString: XX.
 func XDraw_TextOutEx(hDraw int, nXStart int, nYStart int, lpString string) int {
-	r, _, _ := xDraw_TextOutEx.Call(uintptr(hDraw), uintptr(nXStart), uintptr(nYStart), 炫彩工具类.StrPtr(lpString))
+	r, _, _ := xDraw_TextOutEx.Call(uintptr(hDraw), uintptr(nXStart), uintptr(nYStart), common.StrPtr(lpString))
 	return int(r)
 }
 
@@ -1349,7 +1349,7 @@ func XDraw_TextOutEx(hDraw int, nXStart int, nYStart int, lpString string) int {
 //
 // lpString: XX.
 func XDraw_TextOutExF(hDraw int, nXStart, nYStart float32, lpString string) int {
-	r, _, _ := xDraw_TextOutExF.Call(uintptr(hDraw), 炫彩工具类.Float32Ptr(nXStart), 炫彩工具类.Float32Ptr(nYStart), 炫彩工具类.StrPtr(lpString))
+	r, _, _ := xDraw_TextOutExF.Call(uintptr(hDraw), common.Float32Ptr(nXStart), common.Float32Ptr(nYStart), common.StrPtr(lpString))
 	return int(r)
 }
 
@@ -1363,7 +1363,7 @@ func XDraw_TextOutExF(hDraw int, nXStart, nYStart float32, lpString string) int 
 //
 // lpString: XX.
 func XDraw_TextOutA(hDraw int, nXStart int, nYStart int, lpString string) int {
-	r, _, _ := xDraw_TextOutA.Call(uintptr(hDraw), uintptr(nXStart), uintptr(nYStart), 炫彩工具类.StrPtr(lpString))
+	r, _, _ := xDraw_TextOutA.Call(uintptr(hDraw), uintptr(nXStart), uintptr(nYStart), common.StrPtr(lpString))
 	return int(r)
 }
 
@@ -1377,7 +1377,7 @@ func XDraw_TextOutA(hDraw int, nXStart int, nYStart int, lpString string) int {
 //
 // lpString: XX.
 func XDraw_TextOutAF(hDraw int, nXStart, nYStart float32, lpString string) int {
-	r, _, _ := xDraw_TextOutAF.Call(uintptr(hDraw), 炫彩工具类.Float32Ptr(nXStart), 炫彩工具类.Float32Ptr(nYStart), 炫彩工具类.StrPtr(lpString))
+	r, _, _ := xDraw_TextOutAF.Call(uintptr(hDraw), common.Float32Ptr(nXStart), common.Float32Ptr(nYStart), common.StrPtr(lpString))
 	return int(r)
 }
 

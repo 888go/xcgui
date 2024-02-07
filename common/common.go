@@ -1,4 +1,4 @@
-package 炫彩工具类
+package common
 
 import (
 	"syscall"

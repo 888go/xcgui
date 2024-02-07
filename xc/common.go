@@ -177,20 +177,20 @@ func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
 		for i := 0; i < XWnd_GetChildCount(HXCGUI); i++ {
 			hEle := XWnd_GetChildByIndex(HXCGUI, i)
 			switch XC_GetObjectType(hEle) {
-			case 炫彩常量类.XC_ELE_LAYOUT:
+			case xcc.XC_ELE_LAYOUT:
 				SetBnClicks(hEle, onBnClick)
-			case 炫彩常量类.XC_BUTTON:
-				XEle_RegEventC1(hEle, 炫彩常量类.XE_BNCLICK, onBnClick)
+			case xcc.XC_BUTTON:
+				XEle_RegEventC1(hEle, xcc.XE_BNCLICK, onBnClick)
 			}
 		}
-	} else if XC_GetObjectType(HXCGUI) == 炫彩常量类.XC_ELE_LAYOUT {
+	} else if XC_GetObjectType(HXCGUI) == xcc.XC_ELE_LAYOUT {
 		for i := 0; i < XEle_GetChildCount(HXCGUI); i++ {
 			hEle := XEle_GetChildByIndex(HXCGUI, i)
 			switch XC_GetObjectType(hEle) {
-			case 炫彩常量类.XC_ELE_LAYOUT:
+			case xcc.XC_ELE_LAYOUT:
 				SetBnClicks(hEle, onBnClick)
-			case 炫彩常量类.XC_BUTTON:
-				XEle_RegEventC1(hEle, 炫彩常量类.XE_BNCLICK, onBnClick)
+			case xcc.XC_BUTTON:
+				XEle_RegEventC1(hEle, xcc.XE_BNCLICK, onBnClick)
 			}
 		}
 	}

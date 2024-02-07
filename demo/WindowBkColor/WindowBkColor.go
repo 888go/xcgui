@@ -11,23 +11,23 @@ import (
 
 func main() {
 	// 1.初始化UI库
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w := window.New(0, 0, 430, 300, "xcgui window", 0, 炫彩常量类.Window_Style_Default|炫彩常量类.Window_Style_Drag_Window)
+	w := window.New(0, 0, 430, 300, "xcgui window", 0, xcc.Window_Style_Default|xcc.Window_Style_Drag_Window)
 	// 设置窗口边框大小
 	w.SetBorderSize(1, 30, 1, 1)
 	// 设置窗口图标
-	a.SetWindowIcon(炫彩图片类.NewBySvgStringW(svgIcon).Handle)
+	a.SetWindowIcon(imagex.NewBySvgStringW(svgIcon).Handle)
 
 	// 设置窗口主体颜色
-	w.AddBkFill(炫彩常量类.Window_State_Flag_Body_Leave, xc.RGBA(248, 249, 251, 255))
+	w.AddBkFill(xcc.Window_State_Flag_Body_Leave, xc.RGBA(248, 249, 251, 255))
 	// 设置窗口边框颜色
-	w.AddBkFill(炫彩常量类.Window_State_Flag_Top_Leave, xc.RGBA(39, 40, 46, 255))
-	w.AddBkFill(炫彩常量类.Window_State_Flag_Left_Leave, xc.RGBA(177, 177, 177, 255))
-	w.AddBkFill(炫彩常量类.Window_State_Flag_Right_Leave, xc.RGBA(177, 177, 177, 255))
-	w.AddBkFill(炫彩常量类.Window_State_Flag_Bottom_Leave, xc.RGBA(177, 177, 177, 255))
+	w.AddBkFill(xcc.Window_State_Flag_Top_Leave, xc.RGBA(39, 40, 46, 255))
+	w.AddBkFill(xcc.Window_State_Flag_Left_Leave, xc.RGBA(177, 177, 177, 255))
+	w.AddBkFill(xcc.Window_State_Flag_Right_Leave, xc.RGBA(177, 177, 177, 255))
+	w.AddBkFill(xcc.Window_State_Flag_Bottom_Leave, xc.RGBA(177, 177, 177, 255))
 
 	// 3.显示窗口
 	w.Show(true)

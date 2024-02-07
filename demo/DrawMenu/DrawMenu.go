@@ -13,9 +13,9 @@ import (
 )
 
 var (
-	a   *炫彩App类.App
+	a   *app.App
 	w   *window.Window
-	btn *炫彩组件类.Button
+	btn *widget.Button
 
 	item_selected = true                 // 控制item_select是否选中
 	svgMap        = make(map[int]int, 7) // 存放图片句柄
@@ -37,18 +37,18 @@ const (
 
 func main() {
 	// 1.初始化UI库
-	a = 炫彩App类.New(true)
+	a = app.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w = window.New(0, 0, 500, 350, "DrawMenu", 0, 炫彩常量类.Window_Style_Default)
+	w = window.New(0, 0, 500, 350, "DrawMenu", 0, xcc.Window_Style_Default)
 	w.SetBorderSize(1, 30, 1, 1)
 
 	// 加载所有的svg图片
 	loadAllSvg()
 
 	// 创建一个按钮
-	btn = 炫彩组件类.NewButton(50, 50, 100, 30, "ShowMenu", w.Handle)
+	btn = widget.NewButton(50, 50, 100, 30, "ShowMenu", w.Handle)
 	// 注册按钮被单击事件
 	btn.Event_BnClick(onBnClick)
 
@@ -60,7 +60,7 @@ func main() {
 	w.Event_MENU_SELECT(onMenuSelect)
 
 	// 3.显示窗口
-	w.ShowWindow(炫彩常量类.SW_SHOW)
+	w.ShowWindow(xcc.SW_SHOW)
 	// 4.运行程序
 	a.Run()
 	a.Exit()
@@ -88,37 +88,37 @@ func loadSvg(svgText string) int {
 // 按钮被单击事件
 func onBnClick(pbHandled *bool) int {
 	// 创建菜单
-	menu := 炫彩组件类.NewMenu()
+	menu := widget.NewMenu()
 	menu.SetItemHeight(30)          // 设置菜单项高度
 	menu.EnableDrawBackground(true) // 菜单_启用用户绘制背景
 	menu.EnableDrawItem(true)       // 菜单_启用用户绘制项
 
 	// 一级菜单
-	menu.AddItemIcon(menuid_item1, "item1测试", 0, svgMap[menuid_item1], 炫彩常量类.Menu_Item_Flag_Normal)
+	menu.AddItemIcon(menuid_item1, "item1测试", 0, svgMap[menuid_item1], xcc.Menu_Item_Flag_Normal)
 	menu.SetItemWidth(menuid_item1, 100) // 设置菜单宽度
-	menu.AddItemIcon(menuid_item2, "item2中文", 0, svgMap[menuid_item2], 炫彩常量类.Menu_Item_Flag_Normal)
+	menu.AddItemIcon(menuid_item2, "item2中文", 0, svgMap[menuid_item2], xcc.Menu_Item_Flag_Normal)
 	if item_selected {
-		menu.AddItemIcon(menuid_item_select, "item_select", 0, svgMap[menuid_item_select], 炫彩常量类.Menu_Item_Flag_Check)
+		menu.AddItemIcon(menuid_item_select, "item_select", 0, svgMap[menuid_item_select], xcc.Menu_Item_Flag_Check)
 	} else {
-		menu.AddItem(menuid_item_select, "item_select", 0, 炫彩常量类.Menu_Item_Flag_Normal)
+		menu.AddItem(menuid_item_select, "item_select", 0, xcc.Menu_Item_Flag_Normal)
 	}
-	menu.AddItemIcon(menuid_item3, "item3", 0, svgMap[menuid_item3], 炫彩常量类.Menu_Item_Flag_Normal)
-	menu.AddItem(-1, "", 0, 炫彩常量类.Menu_Item_Flag_Separator) // 分隔栏
-	menu.AddItemIcon(menuid_item4, "item4", 0, svgMap[menuid_item4], 炫彩常量类.Menu_Item_Flag_Normal)
-	menu.AddItemIcon(menuid_item_disable, "item_disable", 0, svgMap[menuid_item_disable], 炫彩常量类.Menu_Item_Flag_Disable)
+	menu.AddItemIcon(menuid_item3, "item3", 0, svgMap[menuid_item3], xcc.Menu_Item_Flag_Normal)
+	menu.AddItem(-1, "", 0, xcc.Menu_Item_Flag_Separator) // 分隔栏
+	menu.AddItemIcon(menuid_item4, "item4", 0, svgMap[menuid_item4], xcc.Menu_Item_Flag_Normal)
+	menu.AddItemIcon(menuid_item_disable, "item_disable", 0, svgMap[menuid_item_disable], xcc.Menu_Item_Flag_Disable)
 
 	// item1的二级菜单
-	menu.AddItemIcon(menuid_subitem1, "subitem1", menuid_item1, svgMap[menuid_subitem1], 炫彩常量类.Menu_Item_Flag_Normal)
-	menu.AddItemIcon(menuid_subitem2, "subitem2", menuid_item1, svgMap[menuid_subitem2], 炫彩常量类.Menu_Item_Flag_Normal)
+	menu.AddItemIcon(menuid_subitem1, "subitem1", menuid_item1, svgMap[menuid_subitem1], xcc.Menu_Item_Flag_Normal)
+	menu.AddItemIcon(menuid_subitem2, "subitem2", menuid_item1, svgMap[menuid_subitem2], xcc.Menu_Item_Flag_Normal)
 
 	// 获取按钮坐标
 	var rc xc.RECT
 	btn.GetWndClientRectDPI(&rc)
 	// 转换到屏幕坐标
-	pt := 炫彩WinApi类.POINT{X: rc.Left, Y: rc.Bottom}
-	炫彩WinApi类.ClientToScreen(w.GetHWND(), &pt)
+	pt := wapi.POINT{X: rc.Left, Y: rc.Bottom}
+	wapi.ClientToScreen(w.GetHWND(), &pt)
 	// 弹出菜单
-	menu.Popup(w.GetHWND(), pt.X, pt.Y, 0, 炫彩常量类.Menu_Popup_Position_Left_Top)
+	menu.Popup(w.GetHWND(), pt.X, pt.Y, 0, xcc.Menu_Popup_Position_Left_Top)
 	return 0
 }
 
@@ -143,14 +143,14 @@ func onMenuDrawItem(hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool) int {
 	*pbHandled = true // 作用是拦截菜单原本的绘制
 
 	// 绘制分割栏
-	if pInfo.NState&炫彩常量类.Menu_Item_Flag_Separator > 0 {
+	if pInfo.NState&xcc.Menu_Item_Flag_Separator > 0 {
 		xc.XDraw_SetBrushColor(hDraw, xc.ABGR(218, 220, 224, 255))
 		xc.XDraw_DrawLine(hDraw, int(pInfo.RcItem.Left+3), int(pInfo.RcItem.Top+1), int(pInfo.RcItem.Right-3), int(pInfo.RcItem.Top+1))
 		return 0
 	}
 
 	// 绘制鼠标停留时菜单项的背景
-	if pInfo.NState&炫彩常量类.Menu_Item_Flag_Select > 0 {
+	if pInfo.NState&xcc.Menu_Item_Flag_Select > 0 {
 		// 左右把项填满
 		rc := xc.RECT{
 			Left:   pInfo.RcItem.Left - 2,
@@ -169,7 +169,7 @@ func onMenuDrawItem(hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool) int {
 	}
 
 	// 绘制右三角
-	if pInfo.NState&炫彩常量类.Menu_Item_Flag_Popup > 0 {
+	if pInfo.NState&xcc.Menu_Item_Flag_Popup > 0 {
 		var pt [3]xc.POINT
 		pt[0].X = pInfo.RcItem.Right - 12
 		pt[0].Y = pInfo.RcItem.Top + 10
@@ -188,7 +188,7 @@ func onMenuDrawItem(hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool) int {
 	rc := pInfo.RcItem
 	rc.Left = leftWidth + 5
 
-	if pInfo.NState&炫彩常量类.Menu_Item_Flag_Disable > 0 {
+	if pInfo.NState&xcc.Menu_Item_Flag_Disable > 0 {
 		// 设置被禁用的菜单项文本颜色
 		xc.XDraw_SetBrushColor(hDraw, xc.ABGR(160, 160, 160, 255))
 	} else {
@@ -196,9 +196,9 @@ func onMenuDrawItem(hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool) int {
 		xc.XDraw_SetBrushColor(hDraw, xc.ABGR(77, 77, 77, 255))
 	}
 	// 获取菜单项文本
-	text := 炫彩工具类.UintPtrToString(pInfo.PText)
+	text := common.UintPtrToString(pInfo.PText)
 	// 绘制菜单项文本
-	xc.XDraw_SetTextAlign(hDraw, 炫彩常量类.TextAlignFlag_Vcenter|炫彩常量类.TextFormatFlag_NoWrap)
+	xc.XDraw_SetTextAlign(hDraw, xcc.TextAlignFlag_Vcenter|xcc.TextFormatFlag_NoWrap)
 	xc.XDraw_DrawText(hDraw, text, &rc)
 
 	// 绘制菜单项图标

@@ -21,7 +21,7 @@ func XWidget_IsShow(hXCGUI int) bool {
 //
 // bShow: 是否显示.
 func XWidget_Show(hXCGUI int, bShow bool) int {
-	r, _, _ := xWidget_Show.Call(uintptr(hXCGUI), 炫彩工具类.BoolPtr(bShow))
+	r, _, _ := xWidget_Show.Call(uintptr(hXCGUI), common.BoolPtr(bShow))
 	return int(r)
 }
 
@@ -31,7 +31,7 @@ func XWidget_Show(hXCGUI int, bShow bool) int {
 //
 // bEnable:.
 func XWidget_EnableLayoutControl(hXCGUI int, bEnable bool) int {
-	r, _, _ := xWidget_EnableLayoutControl.Call(uintptr(hXCGUI), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xWidget_EnableLayoutControl.Call(uintptr(hXCGUI), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -81,7 +81,7 @@ func XWidget_GetHWINDOW(hXCGUI int) int {
 //
 // bWrap: 是否换行.
 func XWidget_LayoutItem_EnableWrap(hXCGUI int, bWrap bool) int {
-	r, _, _ := xWidget_LayoutItem_EnableWrap.Call(uintptr(hXCGUI), 炫彩工具类.BoolPtr(bWrap))
+	r, _, _ := xWidget_LayoutItem_EnableWrap.Call(uintptr(hXCGUI), common.BoolPtr(bWrap))
 	return int(r)
 }
 
@@ -91,7 +91,7 @@ func XWidget_LayoutItem_EnableWrap(hXCGUI int, bWrap bool) int {
 //
 // bEnable: 是否启用.
 func XWidget_LayoutItem_EnableSwap(hXCGUI int, bEnable bool) int {
-	r, _, _ := xWidget_LayoutItem_EnableSwap.Call(uintptr(hXCGUI), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xWidget_LayoutItem_EnableSwap.Call(uintptr(hXCGUI), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -101,7 +101,7 @@ func XWidget_LayoutItem_EnableSwap(hXCGUI int, bEnable bool) int {
 //
 // bFloat: 是否浮动.
 func XWidget_LayoutItem_EnableFloat(hXCGUI int, bFloat bool) int {
-	r, _, _ := xWidget_LayoutItem_EnableFloat.Call(uintptr(hXCGUI), 炫彩工具类.BoolPtr(bFloat))
+	r, _, _ := xWidget_LayoutItem_EnableFloat.Call(uintptr(hXCGUI), common.BoolPtr(bFloat))
 	return int(r)
 }
 
@@ -112,7 +112,7 @@ func XWidget_LayoutItem_EnableFloat(hXCGUI int, bFloat bool) int {
 // nType: 类型: xcc.Layout_Size_.
 //
 // nWidth: 宽度.
-func XWidget_LayoutItem_SetWidth(hXCGUI int, nType 炫彩常量类.Layout_Size_, nWidth int32) int {
+func XWidget_LayoutItem_SetWidth(hXCGUI int, nType xcc.Layout_Size_, nWidth int32) int {
 	r, _, _ := xWidget_LayoutItem_SetWidth.Call(uintptr(hXCGUI), uintptr(nType), uintptr(nWidth))
 	return int(r)
 }
@@ -124,7 +124,7 @@ func XWidget_LayoutItem_SetWidth(hXCGUI int, nType 炫彩常量类.Layout_Size_,
 // nType: 类型: xcc.Layout_Size_.
 //
 // nHeight: 高度.
-func XWidget_LayoutItem_SetHeight(hXCGUI int, nType 炫彩常量类.Layout_Size_, nHeight int32) int {
+func XWidget_LayoutItem_SetHeight(hXCGUI int, nType xcc.Layout_Size_, nHeight int32) int {
 	r, _, _ := xWidget_LayoutItem_SetHeight.Call(uintptr(hXCGUI), uintptr(nType), uintptr(nHeight))
 	return int(r)
 }
@@ -136,7 +136,7 @@ func XWidget_LayoutItem_SetHeight(hXCGUI int, nType 炫彩常量类.Layout_Size_
 // pType: 返回类型.
 //
 // pWidth: 返回宽度.
-func XWidget_LayoutItem_GetWidth(hXCGUI int, pType *炫彩常量类.Layout_Size_, pWidth *int32) int {
+func XWidget_LayoutItem_GetWidth(hXCGUI int, pType *xcc.Layout_Size_, pWidth *int32) int {
 	r, _, _ := xWidget_LayoutItem_GetWidth.Call(uintptr(hXCGUI), uintptr(unsafe.Pointer(pType)), uintptr(unsafe.Pointer(pWidth)))
 	return int(r)
 }
@@ -148,7 +148,7 @@ func XWidget_LayoutItem_GetWidth(hXCGUI int, pType *炫彩常量类.Layout_Size_
 // pType: 返回类型.
 //
 // pHeight: 返回高度.
-func XWidget_LayoutItem_GetHeight(hXCGUI int, pType *炫彩常量类.Layout_Size_, pHeight *int32) int {
+func XWidget_LayoutItem_GetHeight(hXCGUI int, pType *xcc.Layout_Size_, pHeight *int32) int {
 	r, _, _ := xWidget_LayoutItem_GetHeight.Call(uintptr(hXCGUI), uintptr(unsafe.Pointer(pType)), uintptr(unsafe.Pointer(pHeight)))
 	return int(r)
 }
@@ -158,7 +158,7 @@ func XWidget_LayoutItem_GetHeight(hXCGUI int, pType *炫彩常量类.Layout_Size
 // hXCGUI: UI对象句柄.
 //
 // nAlign: 对齐方式: xcc.Layout_Align_Axis_.
-func XWidget_LayoutItem_SetAlign(hXCGUI int, nAlign 炫彩常量类.Layout_Align_Axis_) int {
+func XWidget_LayoutItem_SetAlign(hXCGUI int, nAlign xcc.Layout_Align_Axis_) int {
 	r, _, _ := xWidget_LayoutItem_SetAlign.Call(uintptr(hXCGUI), uintptr(nAlign))
 	return int(r)
 }
@@ -235,7 +235,7 @@ func XWidget_SetUID(hXCGUI int, nUID int32) int {
 //
 // pName: name值.
 func XWidget_SetName(hXCGUI int, pName string) int {
-	r, _, _ := xWidget_SetName.Call(uintptr(hXCGUI), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xWidget_SetName.Call(uintptr(hXCGUI), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -260,5 +260,5 @@ func XWidget_GetUID(hXCGUI int) int32 {
 // hXCGUI: UI对象句柄.
 func XWidget_GetName(hXCGUI int) string {
 	r, _, _ := xWidget_GetName.Call(uintptr(hXCGUI))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }

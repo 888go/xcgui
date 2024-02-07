@@ -70,7 +70,7 @@ func XList_InsertColumn(hEle int, width int, iItem int) int {
 //
 // bEnable: 是否启用.
 func XList_EnableMultiSel(hEle int, bEnable bool) int {
-	r, _, _ := xList_EnableMultiSel.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xList_EnableMultiSel.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -80,7 +80,7 @@ func XList_EnableMultiSel(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XList_EnableDragChangeColumnWidth(hEle int, bEnable bool) int {
-	r, _, _ := xList_EnableDragChangeColumnWidth.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xList_EnableDragChangeColumnWidth.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -90,7 +90,7 @@ func XList_EnableDragChangeColumnWidth(hEle int, bEnable bool) int {
 //
 // bTop: 是否启用.
 func XList_EnableVScrollBarTop(hEle int, bTop bool) int {
-	r, _, _ := xList_EnableVScrollBarTop.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bTop))
+	r, _, _ := xList_EnableVScrollBarTop.Call(uintptr(hEle), common.BoolPtr(bTop))
 	return int(r)
 }
 
@@ -100,7 +100,7 @@ func XList_EnableVScrollBarTop(hEle int, bTop bool) int {
 //
 // bFull: 是否启用.
 func XList_EnableItemBkFullRow(hEle int, bFull bool) int {
-	r, _, _ := xList_EnableItemBkFullRow.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bFull))
+	r, _, _ := xList_EnableItemBkFullRow.Call(uintptr(hEle), common.BoolPtr(bFull))
 	return int(r)
 }
 
@@ -110,7 +110,7 @@ func XList_EnableItemBkFullRow(hEle int, bFull bool) int {
 //
 // bEnable: 是否启用.
 func XList_EnableFixedRowHeight(hEle int, bEnable bool) int {
-	r, _, _ := xList_EnableFixedRowHeight.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xList_EnableFixedRowHeight.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -120,7 +120,7 @@ func XList_EnableFixedRowHeight(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XList_EnableTemplateReuse(hEle int, bEnable bool) int {
-	r, _, _ := xList_EnableTemplateReuse.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xList_EnableTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -130,7 +130,7 @@ func XList_EnableTemplateReuse(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XList_EnableVirtualTable(hEle int, bEnable bool) int {
-	r, _, _ := xList_EnableVirtualTable.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xList_EnableVirtualTable.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -154,7 +154,7 @@ func XList_SetVirtualRowCount(hEle int, nRowCount int) int {
 //
 // bEnable: 是否启用排序功能.
 func XList_SetSort(hEle int, iColumn int, iColumnAdapter int, bEnable bool) int {
-	r, _, _ := xList_SetSort.Call(uintptr(hEle), uintptr(iColumn), uintptr(iColumnAdapter), 炫彩工具类.BoolPtr(bEnable))
+	r, _, _ := xList_SetSort.Call(uintptr(hEle), uintptr(iColumn), uintptr(iColumnAdapter), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -163,7 +163,7 @@ func XList_SetSort(hEle int, iColumn int, iColumnAdapter int, bEnable bool) int 
 // hEle: 元素句柄.
 //
 // nFlags: 标志位, List_DrawItemBk_Flag_.
-func XList_SetDrawItemBkFlags(hEle int, nFlags 炫彩常量类.List_DrawItemBk_Flag_) int {
+func XList_SetDrawItemBkFlags(hEle int, nFlags xcc.List_DrawItemBk_Flag_) int {
 	r, _, _ := xList_SetDrawItemBkFlags.Call(uintptr(hEle), uintptr(nFlags))
 	return int(r)
 }
@@ -200,7 +200,7 @@ func XList_SetColumnMinWidth(hEle int, iItem int, width int) int {
 //
 // bFixed: 是否固定宽度.
 func XList_SetColumnWidthFixed(hEle int, iColumn int, bFixed bool) int {
-	r, _, _ := xList_SetColumnWidthFixed.Call(uintptr(hEle), uintptr(iColumn), 炫彩工具类.BoolPtr(bFixed))
+	r, _, _ := xList_SetColumnWidthFixed.Call(uintptr(hEle), uintptr(iColumn), common.BoolPtr(bFixed))
 	return int(r)
 }
 
@@ -422,7 +422,7 @@ func XList_GetAdapterHeader(hEle int) int {
 //
 // pXmlFile: 文件名.
 func XList_SetItemTemplateXML(hEle int, pXmlFile string) bool {
-	r, _, _ := xList_SetItemTemplateXML.Call(uintptr(hEle), 炫彩工具类.StrPtr(pXmlFile))
+	r, _, _ := xList_SetItemTemplateXML.Call(uintptr(hEle), common.StrPtr(pXmlFile))
 	return r != 0
 }
 
@@ -590,7 +590,7 @@ func XList_SetLockColumnRight(hEle int, iColumn int) int {
 //
 // bLock: 是否锁定.
 func XList_SetLockRowBottom(hEle int, bLock bool) int {
-	r, _, _ := xList_SetLockRowBottom.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bLock))
+	r, _, _ := xList_SetLockRowBottom.Call(uintptr(hEle), common.BoolPtr(bLock))
 	return int(r)
 }
 
@@ -600,7 +600,7 @@ func XList_SetLockRowBottom(hEle int, bLock bool) int {
 //
 // bOverlap: 是否重叠.
 func XList_SetLockRowBottomOverlap(hEle int, bOverlap bool) int {
-	r, _, _ := xList_SetLockRowBottomOverlap.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bOverlap))
+	r, _, _ := xList_SetLockRowBottomOverlap.Call(uintptr(hEle), common.BoolPtr(bOverlap))
 	return int(r)
 }
 
@@ -660,7 +660,7 @@ func XList_RefreshItem(hEle int, iItem int) int {
 //
 // pText: 文本.
 func XList_AddColumnText(hEle int, nWidth int, pName string, pText string) int {
-	r, _, _ := xList_AddColumnText.Call(uintptr(hEle), uintptr(nWidth), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xList_AddColumnText.Call(uintptr(hEle), uintptr(nWidth), common.StrPtr(pName), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -674,7 +674,7 @@ func XList_AddColumnText(hEle int, nWidth int, pName string, pText string) int {
 //
 // hImage: 图片句柄.
 func XList_AddColumnImage(hEle int, nWidth int, pName string, hImage int) int {
-	r, _, _ := xList_AddColumnImage.Call(uintptr(hEle), uintptr(nWidth), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xList_AddColumnImage.Call(uintptr(hEle), uintptr(nWidth), common.StrPtr(pName), uintptr(hImage))
 	return int(r)
 }
 
@@ -684,7 +684,7 @@ func XList_AddColumnImage(hEle int, nWidth int, pName string, hImage int) int {
 //
 // pText:.
 func XList_AddItemText(hEle int, pText string) int {
-	r, _, _ := xList_AddItemText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xList_AddItemText.Call(uintptr(hEle), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -696,7 +696,7 @@ func XList_AddItemText(hEle int, pText string) int {
 //
 // pText:.
 func XList_AddItemTextEx(hEle int, pName string, pText string) int {
-	r, _, _ := xList_AddItemTextEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xList_AddItemTextEx.Call(uintptr(hEle), common.StrPtr(pName), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -718,7 +718,7 @@ func XList_AddItemImage(hEle int, hImage int) int {
 //
 // hImage:.
 func XList_AddItemImageEx(hEle int, pName string, hImage int) int {
-	r, _, _ := xList_AddItemImageEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xList_AddItemImageEx.Call(uintptr(hEle), common.StrPtr(pName), uintptr(hImage))
 	return int(r)
 }
 
@@ -730,7 +730,7 @@ func XList_AddItemImageEx(hEle int, pName string, hImage int) int {
 //
 // pValue:.
 func XList_InsertItemText(hEle int, iItem int, pValue string) int {
-	r, _, _ := xList_InsertItemText.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pValue))
+	r, _, _ := xList_InsertItemText.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pValue))
 	return int(r)
 }
 
@@ -744,7 +744,7 @@ func XList_InsertItemText(hEle int, iItem int, pValue string) int {
 //
 // pValue:.
 func XList_InsertItemTextEx(hEle int, iItem int, pName string, pValue string) int {
-	r, _, _ := xList_InsertItemTextEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue))
+	r, _, _ := xList_InsertItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pValue))
 	return int(r)
 }
 
@@ -770,7 +770,7 @@ func XList_InsertItemImage(hEle int, iItem int, hImage int) int {
 //
 // hImage:.
 func XList_InsertItemImageEx(hEle int, iItem int, pName string, hImage int) int {
-	r, _, _ := xList_InsertItemImageEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xList_InsertItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
 	return int(r)
 }
 
@@ -784,7 +784,7 @@ func XList_InsertItemImageEx(hEle int, iItem int, pName string, hImage int) int 
 //
 // pText:.
 func XList_SetItemText(hEle int, iItem int, iColumn int, pText string) bool {
-	r, _, _ := xList_SetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xList_SetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), common.StrPtr(pText))
 	return r != 0
 }
 
@@ -798,7 +798,7 @@ func XList_SetItemText(hEle int, iItem int, iColumn int, pText string) bool {
 //
 // pText:.
 func XList_SetItemTextEx(hEle int, iItem int, pName string, pText string) bool {
-	r, _, _ := xList_SetItemTextEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pText))
+	r, _, _ := xList_SetItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pText))
 	return r != 0
 }
 
@@ -826,7 +826,7 @@ func XList_SetItemImage(hEle int, iItem int, iColumn int, hImage int) bool {
 //
 // hImage:.
 func XList_SetItemImageEx(hEle int, iItem int, pName string, hImage int) bool {
-	r, _, _ := xList_SetItemImageEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xList_SetItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -854,7 +854,7 @@ func XList_SetItemInt(hEle int, iItem int, iColumn int, nValue int) bool {
 //
 // nValue:.
 func XList_SetItemIntEx(hEle int, iItem int, pName string, nValue int) bool {
-	r, _, _ := xList_SetItemIntEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(nValue))
+	r, _, _ := xList_SetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(nValue))
 	return r != 0
 }
 
@@ -868,7 +868,7 @@ func XList_SetItemIntEx(hEle int, iItem int, pName string, nValue int) bool {
 //
 // fFloat:.
 func XList_SetItemFloat(hEle int, iItem int, iColumn int, fFloat float32) bool {
-	r, _, _ := xList_SetItemFloat.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), 炫彩工具类.Float32Ptr(fFloat))
+	r, _, _ := xList_SetItemFloat.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), common.Float32Ptr(fFloat))
 	return r != 0
 }
 
@@ -882,7 +882,7 @@ func XList_SetItemFloat(hEle int, iItem int, iColumn int, fFloat float32) bool {
 //
 // fFloat:.
 func XList_SetItemFloatEx(hEle int, iItem int, pName string, fFloat float32) bool {
-	r, _, _ := xList_SetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.Float32Ptr(fFloat))
+	r, _, _ := xList_SetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.Float32Ptr(fFloat))
 	return r != 0
 }
 
@@ -895,7 +895,7 @@ func XList_SetItemFloatEx(hEle int, iItem int, pName string, fFloat float32) boo
 // iColumn:.
 func XList_GetItemText(hEle int, iItem int, iColumn int) string {
 	r, _, _ := xList_GetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn))
-	return 炫彩工具类.UintPtrToString(r)
+	return common.UintPtrToString(r)
 }
 
 // 列表_取项文本扩展.
@@ -906,8 +906,8 @@ func XList_GetItemText(hEle int, iItem int, iColumn int) string {
 //
 // pName:.
 func XList_GetItemTextEx(hEle int, iItem int, pName string) string {
-	r, _, _ := xList_GetItemTextEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName))
-	return 炫彩工具类.UintPtrToString(r)
+	r, _, _ := xList_GetItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName))
+	return common.UintPtrToString(r)
 }
 
 // 列表_取项图片.
@@ -930,7 +930,7 @@ func XList_GetItemImage(hEle int, iItem int, iColumn int) int {
 //
 // pName:.
 func XList_GetItemImageEx(hEle int, iItem int, pName string) int {
-	r, _, _ := xList_GetItemImageEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName))
+	r, _, _ := xList_GetItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -958,7 +958,7 @@ func XList_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int32) bool {
 //
 // pOutValue:.
 func XList_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int32) bool {
-	r, _, _ := xList_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
+	r, _, _ := xList_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
 
@@ -986,7 +986,7 @@ func XList_GetItemFloat(hEle int, iItem int, iColumn int, pOutValue *float32) bo
 //
 // pOutValue:.
 func XList_GetItemFloatEx(hEle int, iItem int, pName string, pOutValue *float32) bool {
-	r, _, _ := xList_GetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
+	r, _, _ := xList_GetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
 	return r != 0
 }
 
@@ -1124,7 +1124,7 @@ func XList_RefreshDataHeader(hEle int) int {
 //
 // data: 模板数据.
 func XList_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
-	r, _, _ := xList_SetItemTemplateXMLFromMem.Call(uintptr(hEle), 炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)))
+	r, _, _ := xList_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
 	return r != 0
 }
 
@@ -1140,6 +1140,6 @@ func XList_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
 //
 // hModule: 模块句柄, 可填0.
 func XList_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xList_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), hModule)
+	r, _, _ := xList_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
 	return r != 0
 }

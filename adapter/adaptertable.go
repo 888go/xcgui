@@ -1,4 +1,4 @@
-package 炫彩数据适配器类
+package adapter
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -38,7 +38,7 @@ func (a *AdapterTable) Sort(iColumn int, bAscending bool) int {
 // iItem: 项索引.
 //
 // iColumn: 列索引.
-func (a *AdapterTable) GetItemDataType(iItem int, iColumn int) 炫彩常量类.Adapter_Date_Type_ {
+func (a *AdapterTable) GetItemDataType(iItem int, iColumn int) xcc.Adapter_Date_Type_ {
 	return xc.XAdTable_GetItemDataType(a.Handle, iItem, iColumn)
 }
 
@@ -47,7 +47,7 @@ func (a *AdapterTable) GetItemDataType(iItem int, iColumn int) 炫彩常量类.A
 // iItem: 项索引.
 //
 // pName: 字段称.
-func (a *AdapterTable) GetItemDataTypeEx(iItem int, pName string) 炫彩常量类.Adapter_Date_Type_ {
+func (a *AdapterTable) GetItemDataTypeEx(iItem int, pName string) xcc.Adapter_Date_Type_ {
 	return xc.XAdTable_GetItemDataTypeEx(a.Handle, iItem, pName)
 }
 

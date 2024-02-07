@@ -11,29 +11,29 @@ import (
 
 func main() {
 	// 1.初始化UI库
-	a := 炫彩App类.New(true)
+	a := app.New(true)
 	// 启用自适应DPI
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w := window.New(0, 0, 430, 300, "xcgui window", 0, 炫彩常量类.Window_Style_Default|炫彩常量类.Window_Style_Drag_Window)
+	w := window.New(0, 0, 430, 300, "xcgui window", 0, xcc.Window_Style_Default|xcc.Window_Style_Drag_Window)
 
 	// 设置窗口边框大小
 	w.SetBorderSize(0, 30, 0, 0)
 	// 设置窗口图标
-	a.SetWindowIcon(炫彩图片类.NewBySvgStringW(svgIcon).Handle)
+	a.SetWindowIcon(imagex.NewBySvgStringW(svgIcon).Handle)
 	// 设置窗口透明类型
-	w.SetTransparentType(炫彩常量类.Window_Transparent_Shadow)
+	w.SetTransparentType(xcc.Window_Transparent_Shadow)
 	// 设置窗口阴影
 	w.SetShadowInfo(8, 255, 10, false, 0)
 	// 窗口_置透明度
 	w.SetTransparentAlpha(255)
 
 	// 创建按钮
-	btn := 炫彩组件类.NewButton(165, 135, 100, 30, "Button", w.Handle)
+	btn := widget.NewButton(165, 135, 100, 30, "Button", w.Handle)
 	// 注册按钮被单击事件
 	btn.Event_BnClick(func(pbHandled *bool) int {
-		a.MessageBox("提示", btn.GetText(), 炫彩常量类.MessageBox_Flag_Ok|炫彩常量类.MessageBox_Flag_Icon_Info, w.GetHWND(), 炫彩常量类.Window_Style_Modal)
+		a.MessageBox("提示", btn.GetText(), xcc.MessageBox_Flag_Ok|xcc.MessageBox_Flag_Icon_Info, w.GetHWND(), xcc.Window_Style_Modal)
 		return 0
 	})
 

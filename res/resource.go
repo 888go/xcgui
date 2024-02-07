@@ -1,4 +1,4 @@
-package 炫彩资源类
+package res
 
 import (
 	"github.com/888go/xcgui/xc"

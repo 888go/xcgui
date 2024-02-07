@@ -22,8 +22,8 @@ import (
 // hWndParent: 父窗口真实句柄.
 //
 // XCStyle: GUI库窗口样式: Window_Style_.
-func XFrameWnd_Create(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle 炫彩常量类.Window_Style_) int {
-	r, _, _ := xFrameWnd_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), 炫彩工具类.StrPtr(pTitle), hWndParent, uintptr(XCStyle))
+func XFrameWnd_Create(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) int {
+	r, _, _ := xFrameWnd_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pTitle), hWndParent, uintptr(XCStyle))
 	return int(r)
 }
 
@@ -48,8 +48,8 @@ func XFrameWnd_Create(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCS
 // hWndParent: 父窗口.
 //
 // XCStyle: GUI库窗口样式: Window_Style_.
-func XFrameWnd_CreateEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle 炫彩常量类.Window_Style_) int {
-	r, _, _ := xFrameWnd_CreateEx.Call(uintptr(dwExStyle), uintptr(dwStyle), 炫彩工具类.StrPtr(lpClassName), uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), 炫彩工具类.StrPtr(pTitle), hWndParent, uintptr(XCStyle))
+func XFrameWnd_CreateEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) int {
+	r, _, _ := xFrameWnd_CreateEx.Call(uintptr(dwExStyle), uintptr(dwStyle), common.StrPtr(lpClassName), uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pTitle), hWndParent, uintptr(XCStyle))
 	return int(r)
 }
 
@@ -99,7 +99,7 @@ func XFrameWnd_SetTabBarHeight(hWindow int, nHeight int32) int {
 //
 // pFileName: 文件名，如果文件名为空，将使用默认文件名frameWnd_layout.xml.
 func XFrameWnd_SaveLayoutToFile(hWindow int, pFileName string) bool {
-	r, _, _ := xFrameWnd_SaveLayoutToFile.Call(uintptr(hWindow), 炫彩工具类.StrPtr(pFileName))
+	r, _, _ := xFrameWnd_SaveLayoutToFile.Call(uintptr(hWindow), common.StrPtr(pFileName))
 	return r != 0
 }
 
@@ -113,7 +113,7 @@ func XFrameWnd_SaveLayoutToFile(hWindow int, pFileName string) bool {
 //
 // pFileName: 文件名，如果文件名为空，将使用默认文件名frameWnd_layout.xml.
 func XFrameWnd_LoadLayoutFile(hWindow int, aPaneList []int, nPaneCount int32, pFileName string) bool {
-	r, _, _ := xFrameWnd_LoadLayoutFile.Call(uintptr(hWindow), uintptr(unsafe.Pointer(&aPaneList[0])), uintptr(nPaneCount), 炫彩工具类.StrPtr(pFileName))
+	r, _, _ := xFrameWnd_LoadLayoutFile.Call(uintptr(hWindow), uintptr(unsafe.Pointer(&aPaneList[0])), uintptr(nPaneCount), common.StrPtr(pFileName))
 	return r != 0
 }
 
@@ -126,7 +126,7 @@ func XFrameWnd_LoadLayoutFile(hWindow int, aPaneList []int, nPaneCount int32, pF
 // hPaneNew: 当前窗格.
 //
 // align: 对齐方式, Pane_Align_.
-func XFrameWnd_AddPane(hWindow int, hPaneDest int, hPaneNew int, align 炫彩常量类.Pane_Align_) bool {
+func XFrameWnd_AddPane(hWindow int, hPaneDest int, hPaneNew int, align xcc.Pane_Align_) bool {
 	r, _, _ := xFrameWnd_AddPane.Call(uintptr(hWindow), uintptr(hPaneDest), uintptr(hPaneNew), uintptr(align))
 	return r != 0
 }
@@ -156,9 +156,9 @@ func XFrameWnd_Attach(hWnd uintptr, XCStyle int) int {
 // 框架窗口_取拖动浮动窗格停留位置标识, 返回 拖动窗格 所处框架窗口单元格标识: xcc.FrameWnd_Cell_Type_.
 //
 // hWindow: 窗口句柄.
-func XFrameWnd_GetDragFloatWndTopFlag(hWindow int) 炫彩常量类.FrameWnd_Cell_Type_ {
+func XFrameWnd_GetDragFloatWndTopFlag(hWindow int) xcc.FrameWnd_Cell_Type_ {
 	r, _, _ := xFrameWnd_GetDragFloatWndTopFlag.Call(uintptr(hWindow))
-	return 炫彩常量类.FrameWnd_Cell_Type_(r)
+	return xcc.FrameWnd_Cell_Type_(r)
 }
 
 // 框架窗口_取主视图坐标. 获取框架窗口主视图区域坐标.
