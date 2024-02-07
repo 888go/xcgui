@@ -1,5 +1,6 @@
 package wapi
 
+//炫彩WinApi类
 import (
 	"syscall"
 	"unsafe"
@@ -16,7 +17,8 @@ var (
 )
 
 // OpenFileNameW 包含 GetOpenFileNameW 和 GetSaveFileNameW 函数用于初始化“打开”或“另存为”对话框的信息。用户关闭对话框后，系统在此结构中返回有关用户选择的信息。
-// //	详见: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/ns-commdlg-openfilenamea.
+//
+//	详见: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/ns-commdlg-openfilenamea.
 type OpenFileNameW struct {
 	// 结构体大小.
 	//	ofn := wapi.OpenFileNameW{...}
@@ -30,17 +32,23 @@ type OpenFileNameW struct {
 	HInstance uintptr
 
 	// 过滤器. 包含成对的以 null 结尾的过滤器字符串的缓冲区。缓冲区中的最后一个字符串必须以两个NULL字符终止。
-	//	//	每对中的第一个字符串是描述过滤器的显示字符串（例如:“文本文件”），第二个字符串指定过滤器模式（例如:“ .TXT”）。要为单个显示字符串指定多个过滤器模式，请使用分号分隔模式（例如:“ .TXT; .DOC; .BAK”）。模式字符串可以是有效文件名字符和星号 (*) 通配符的组合。不要在模式字符串中包含空格。
-	//	//	系统不会更改过滤器的顺序。它按照lpstrFilter中指定的顺序将它们显示在文件类型组合框中。
-	//	//	如果lpstrFilter为NULL，则对话框不显示任何过滤器。
-	//	//	例子:
+	//
+	//	每对中的第一个字符串是描述过滤器的显示字符串（例如:“文本文件”），第二个字符串指定过滤器模式（例如:“ .TXT”）。要为单个显示字符串指定多个过滤器模式，请使用分号分隔模式（例如:“ .TXT; .DOC; .BAK”）。模式字符串可以是有效文件名字符和星号 (*) 通配符的组合。不要在模式字符串中包含空格。
+	//
+	//	系统不会更改过滤器的顺序。它按照lpstrFilter中指定的顺序将它们显示在文件类型组合框中。
+	//
+	//	如果lpstrFilter为NULL，则对话框不显示任何过滤器。
+	//
+	//	例子:
 	//	lpstrFilter := strings.Join([]string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}, wapi.NULL) + wapi.NULL2
 	//	common.StringToUint16Ptr(lpstrFilter)
 	LpstrFilter *uint16
 
 	// 一个静态缓冲区，其中包含一对以空值结尾的过滤器字符串，用于保存用户选择的过滤器模式。第一个字符串是描述自定义过滤器的显示字符串，第二个字符串是用户选择的过滤器模式。当您的应用程序第一次创建对话框时，您指定第一个字符串，它可以是任何非空字符串。当用户选择一个文件时，对话框将当前过滤模式复制到第二个字符串。保留的过滤器模式可以是lpstrFilter缓冲区中指定的模式之一，也可以是用户键入的过滤器模式。下次创建对话框时，系统使用字符串初始化用户定义的文件过滤器。如果nFilterIndex成员为零，对话框使用自定义过滤器。
-	//	//	如果此成员为NULL，则对话框不保留用户定义的过滤器模式。
-	//	//	如果此成员不是NULL，则nMaxCustFilter成员的值必须指定lpstrCustomFilter缓冲区的大小（以字符为单位） 。
+	//
+	//	如果此成员为NULL，则对话框不保留用户定义的过滤器模式。
+	//
+	//	如果此成员不是NULL，则nMaxCustFilter成员的值必须指定lpstrCustomFilter缓冲区的大小（以字符为单位） 。
 	LpstrCustomFilter *uint16
 
 	// 由lpstrCustomFilter标识的缓冲区的大小（以字符为单位） 。此缓冲区应至少有 40 个字符长。如果lpstrCustomFilter为NULL或指向NULL字符串，则忽略此成员。
@@ -50,9 +58,12 @@ type OpenFileNameW struct {
 	NFilterIndex uint32
 
 	// 用于初始化文件名编辑控件的文件名。如果不需要初始化，此缓冲区的第一个字符必须为NULL 。当 GetOpenFileNameW 或 GetSaveFileNameW 函数成功返回时，此缓冲区包含所选文件的驱动器指示符、路径、文件名和扩展名。
-	//	//	如果设置了 OFN_ALLOWMULTISELECT 标志并且用户选择了多个文件，则缓冲区包含当前目录，后跟所选文件的文件名。对于资源管理器样式的对话框，目录和文件名字符串是NULL分隔的，最后一个文件名后有一个额外的NULL字符。对于旧式对话框，字符串以空格分隔，函数使用短文件名作为带空格的文件名。您可以使用 FindFirstFile 函数在长文件名和短文件名之间进行转换。如果用户只选择一个文件，lpstrFile字符串在路径和文件名之间没有分隔符。
-	//	//	如果缓冲区太小，该函数返回FALSE并且 CommDlgExtendedError 函数返回 FNERR_BUFFERTOOSMALL 。在这种情况下，lpstrFile缓冲区的前两个字节包含所需的大小，以字节或字符为单位。
-	//	//	例子:
+	//
+	//	如果设置了 OFN_ALLOWMULTISELECT 标志并且用户选择了多个文件，则缓冲区包含当前目录，后跟所选文件的文件名。对于资源管理器样式的对话框，目录和文件名字符串是NULL分隔的，最后一个文件名后有一个额外的NULL字符。对于旧式对话框，字符串以空格分隔，函数使用短文件名作为带空格的文件名。您可以使用 FindFirstFile 函数在长文件名和短文件名之间进行转换。如果用户只选择一个文件，lpstrFile字符串在路径和文件名之间没有分隔符。
+	//
+	//	如果缓冲区太小，该函数返回FALSE并且 CommDlgExtendedError 函数返回 FNERR_BUFFERTOOSMALL 。在这种情况下，lpstrFile缓冲区的前两个字节包含所需的大小，以字节或字符为单位。
+	//
+	//	例子:
 	//	lpstrFile := make([]uint16, 260)//初始大小如果是单选文件的话, 就填260. 多选文件的话, 可根据情况增大
 	//	然后填写: &lpstrFile[0]
 	LpstrFile *uint16
@@ -87,15 +98,18 @@ type OpenFileNameW struct {
 	NFileExtension uint16
 
 	// 默认扩展名。如果用户未能键入扩展名， GetOpenFileNameW 和 GetSaveFileNameW 会将此扩展名附加到文件名中。此字符串可以是任意长度，但仅附加前三个字符。该字符串不应包含句点 (.)。如果此成员为NULL并且用户未能键入扩展名，则不会附加任何扩展名。
-	//	//	例子: common.StrPtr("txt")
+	//
+	//	例子: common.StrPtr("txt")
 	LpstrDefExt uintptr
 
 	// 系统传递给由lpfnHook成员标识的钩子过程的应用程序定义的数据。当系统向挂钩过程发送 WM_INITDIALOG 消息时，该消息的lParam参数是一个指向对话框创建时指定的 OpenFileNameW 结构的指针。挂钩过程可以使用此指针来获取lCustData值。
 	LCustData uintptr
 
 	// 指向钩子过程的指针。除非Flags成员包含 OFN_ENABLEHOOK 标志，否则此成员将被忽略。
-	//	//	如果在Flags成员中没有设置 OFN_EXPLORER 标志， lpfnHook是一个指向 OFNHookProcOldStyle 挂钩过程的指针，该过程接收用于对话框的消息。挂钩过程返回FALSE以将消息传递给默认对话框过程，或返回TRUE以丢弃消息。
-	//	//	如果设置了 OFN_EXPLORER，lpfnHook是一个指向 OFNHookProc 挂钩过程的指针。挂钩过程接收从对话框发送的通知消息。挂钩过程还接收您通过指定子对话框模板定义的任何其他控件的消息。挂钩过程不接收用于默认对话框的标准控件的消息。
+	//
+	//	如果在Flags成员中没有设置 OFN_EXPLORER 标志， lpfnHook是一个指向 OFNHookProcOldStyle 挂钩过程的指针，该过程接收用于对话框的消息。挂钩过程返回FALSE以将消息传递给默认对话框过程，或返回TRUE以丢弃消息。
+	//
+	//	如果设置了 OFN_EXPLORER，lpfnHook是一个指向 OFNHookProc 挂钩过程的指针。挂钩过程接收从对话框发送的通知消息。挂钩过程还接收您通过指定子对话框模板定义的任何其他控件的消息。挂钩过程不接收用于默认对话框的标准控件的消息。
 	LpfnHook uintptr
 
 	// 由hInstance成员标识的模块中对话模板资源的名称。对于编号的对话框资源，这可以是 MAKEINTRESOURCE 宏返回的值。除非在Flags成员中设置了 OFN_ENABLETEMPLATE 标志，否则该成员将被忽略。如果设置了 OFN_EXPLORER 标志，系统将使用指定的模板创建一个对话框，该对话框是默认资源管理器样式对话框的子对话框。如果未设置 OFN_EXPLORER 标志，则系统使用模板创建旧式对话框，替换默认对话框。
@@ -159,20 +173,20 @@ const (
 	OFN_SHOWHELP OFN_ = 0x00000010 // 使对话框显示“帮助”按钮。hwndOwner成员必须指定窗口以接收当用户单击帮助按钮时对话框发送的HELPMSGSTRING注册消息。当用户单击“帮助”按钮 时，资源管理器样式的对话框会向您的挂钩过程发送CDN_HELP通知消息。
 )
 
-// 创建打开对话框，让用户指定要打开的文件或文件集的驱动器、目录和名称。
-// //	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew.
+// GetOpenFileNameW 创建一个打开对话框，让用户指定要打开的文件或文件集的驱动器、目录和名称。
 //
-//	@param unnamedParam1: 选项结构指针
+//	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew.
+//	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
 //	@return bool
 func GetOpenFileNameW(unnamedParam1 *OpenFileNameW) bool {
 	r, _, _ := getOpenFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
 	return r != 0
 }
 
-// 创建保存对话框，让用户指定要保存的文件的驱动器、目录和名称。
-// //	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-GetSaveFileNameW.
+// GetSaveFileNameW 创建一个保存对话框，让用户指定要保存的文件的驱动器、目录和名称。
 //
-//	@param unnamedParam1: 选项结构指针, 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
+//	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-GetSaveFileNameW.
+//	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
 //	@return bool
 func GetSaveFileNameW(unnamedParam1 *OpenFileNameW) bool {
 	r, _, _ := getSaveFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
@@ -237,10 +251,10 @@ const (
 	CC_SOLIDCOLOR CC_ = 0x00000080 // 使对话框仅显示基本颜色集中的纯色。
 )
 
-// 创建颜色对话框，使用户能够选择一种颜色。
-// //	@Description 详情: https://docs.microsoft.com/zh-cn/previous-versions/windows/desktop/legacy/ms646912(v=vs.85).
+// ChooseColorW 创建一个颜色对话框，使用户能够选择一种颜色。
 //
-//	@param lpcc: 选项结构指针, 指向 wapi.ChooseColor 结构的指针，该结构包含用于初始化对话框的信息。当函数返回时，此结构包含有关用户颜色选择的信息。
+//	@Description 详情: https://docs.microsoft.com/zh-cn/previous-versions/windows/desktop/legacy/ms646912(v=vs.85).
+//	@param lpcc 指向 wapi.ChooseColor 结构的指针，该结构包含用于初始化对话框的信息。当函数返回时，此结构包含有关用户颜色选择的信息。
 //	@return bool
 func ChooseColorW(lpcc *ChooseColor) bool {
 	r, _, _ := chooseColorW.Call(uintptr(unsafe.Pointer(lpcc)))

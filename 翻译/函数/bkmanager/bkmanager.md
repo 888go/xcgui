@@ -46,17 +46,17 @@ X添加内容
 
 
 # <翻译开始>
-func (b *BkManager) AddBorder(nState xcc.CombinedState, color, width, id
+func (b *BkManager) AddBorder(nState 炫彩常量类.CombinedState, color, width, id
 背景对象ID
 # <翻译结束>
 
 # <翻译开始>
-func (b *BkManager) AddBorder(nState xcc.CombinedState, color, width
+func (b *BkManager) AddBorder(nState 炫彩常量类.CombinedState, color, width
 线宽
 # <翻译结束>
 
 # <翻译开始>
-func (b *BkManager) AddBorder(nState xcc.CombinedState, color
+func (b *BkManager) AddBorder(nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -72,12 +72,12 @@ X添加边框
 
 
 # <翻译开始>
-func (b *BkManager) AddFill(nState xcc.CombinedState, color, id
+func (b *BkManager) AddFill(nState 炫彩常量类.CombinedState, color, id
 背景对象ID
 # <翻译结束>
 
 # <翻译开始>
-func (b *BkManager) AddFill(nState xcc.CombinedState, color
+func (b *BkManager) AddFill(nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -93,12 +93,12 @@ X添加填充
 
 
 # <翻译开始>
-func (b *BkManager) AddImage(nState xcc.CombinedState, hImage, id
+func (b *BkManager) AddImage(nState 炫彩常量类.CombinedState, hImage, id
 背景对象ID
 # <翻译结束>
 
 # <翻译开始>
-func (b *BkManager) AddImage(nState xcc.CombinedState, hImage
+func (b *BkManager) AddImage(nState 炫彩常量类.CombinedState, hImage
 图片句柄
 # <翻译结束>
 
@@ -126,12 +126,12 @@ X清空
 
 
 # <翻译开始>
-func (b *BkManager) Draw(nState xcc.CombinedState, hDraw int, pRect
+func (b *BkManager) Draw(nState 炫彩常量类.CombinedState, hDraw int, pRect
 区域坐标
 # <翻译结束>
 
 # <翻译开始>
-func (b *BkManager) Draw(nState xcc.CombinedState, hDraw
+func (b *BkManager) Draw(nState 炫彩常量类.CombinedState, hDraw
 图形绘制句柄
 # <翻译结束>
 
@@ -147,17 +147,17 @@ X绘制
 
 
 # <翻译开始>
-func (b *BkManager) DrawEx(nState xcc.CombinedState, hDraw int, pRect *xc.RECT, nStateEx
+func (b *BkManager) DrawEx(nState 炫彩常量类.CombinedState, hDraw int, pRect *xc.RECT, nStateEx
 状态Ex
 # <翻译结束>
 
 # <翻译开始>
-func (b *BkManager) DrawEx(nState xcc.CombinedState, hDraw int, pRect
+func (b *BkManager) DrawEx(nState 炫彩常量类.CombinedState, hDraw int, pRect
 区域坐标
 # <翻译结束>
 
 # <翻译开始>
-func (b *BkManager) DrawEx(nState xcc.CombinedState, hDraw
+func (b *BkManager) DrawEx(nState 炫彩常量类.CombinedState, hDraw
 图形绘制句柄
 # <翻译结束>
 
@@ -213,7 +213,7 @@ X设置背景内容
 
 
 # <翻译开始>
-func (b *BkManager) GetStateTextColor(nState xcc.CombinedState, color
+func (b *BkManager) GetStateTextColor(nState 炫彩常量类.CombinedState, color
 返回ABGR颜色
 # <翻译结束>
 

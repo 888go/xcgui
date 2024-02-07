@@ -3,12 +3,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/font"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/font"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 func main() {

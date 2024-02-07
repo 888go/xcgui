@@ -8,12 +8,20 @@ import (
 	"syscall"
 )
 
-// 取当前炫彩版本
+// GetVer 获取当前库版本所需的 xcgui.dll 的版本号.
 func GetVer() string {
 	return "3.3.8.1"
 }
 
-// 设置炫彩DLL路径
+// xcguiPath 是xcgui.dll的完整路径（目录+文件名）, 也可以是相对路径, 默认值为'xcgui.dll'.
+//
+//	如果你想要更改它的位置, 可以在 xc.LoadXCGUI() 之前调用 xc.SetXcguiPath() 更改为其他路径.
+var xcguiPath = "xcgui.dll"
+
+// SetXcguiPath 手动设置xcgui.dll的路径. 未设置时, 默认值为'xcgui.dll'.
+//
+//	@param XcguiPath dll完整路径（目录+文件名）, 也可以是相对路径.
+//	@return error 如果出错, 要么你输入的文件不存在, 要么你输入的不是dll文件.
 func SetXcguiPath(XcguiPath string) error {
 	// 判断是否为dll文件
 	if len(XcguiPath) < 5 {
@@ -21,38 +29,41 @@ func SetXcguiPath(XcguiPath string) error {
 	}
 
 	// 判断文件是否存在
-	b, err : PathExists(XcguiPath)
+	b, err := PathExists(XcguiPath)
 	if err != nil {
 		return err
 	}
 	if !b {
-		return errors.New("XcguiPath 指向的文件不存在:" + XcguiPath)
+		return errors.New("XcguiPath 指向的文件不存在: " + XcguiPath)
 	}
 
 	xcguiPath = XcguiPath
 	return nil
 }
 
-// 取炫彩DLL路径
+// GetXcguiPath 获取设置的xcgui.dll的路径.
+//
+//	@return string
 func GetXcguiPath() string {
 	return xcguiPath
 }
 
-//取已加载炫彩DLL
+// GetXcgui 获取加载的炫彩dll, 用途是你可以利用这个来封装dll中的函数, 因为我有时候可能更新不及时, 如果你恰巧需要最新版本dll中的函数, 那么你可以自己封装最新版本dll中的函数.
+//
+//	@return *syscall.LazyDLL
 func GetXcgui() *syscall.LazyDLL {
 	return xcgui
 }
 
-// 写出炫彩dll到临时目录
+// WriteDll 把 xcgui.dll 写出到windows临时目录中版本号文件夹里, 如果检测到dll已存在则不会写出.
+//
+// 使用完本函数后无需再调用 xc.SetXcguiPath(), 内部已自动操作.
 func WriteDll(dll []byte) error {
-tmpDir:
-	os.TempDir()
-tmpPath:
-	filepath.Join(tmpDir, "xcgui"+GetVer())
-dllPath:
-	filepath.Join(tmpPath, "xcgui.dll")
+	tmpDir := os.TempDir()
+	tmpPath := filepath.Join(tmpDir, "xcgui"+GetVer())
+	dllPath := filepath.Join(tmpPath, "xcgui.dll")
 
-	b, err : PathExists(tmpPath)
+	b, err := PathExists(tmpPath)
 	if err != nil {
 		return err
 	}
@@ -1863,8 +1874,10 @@ var once = sync.Once{}
 // LoadXCGUI 将从 xcguiPath 加载xcgui.dll. xcguiPath 的默认值是'xcgui.dll'.
 //
 //	本函数在进程运行期间只需调用一次, 而且也只会被调用一次.
+//
 //	如果你想要更改xcgui.dll的路径, 那么请在调用本函数之前调用 xc.SetXcguiPath().
-//	注意:app.New() 函数内部会自动调用 xc.LoadXCGUI().
+//
+//	注意: app.New() 函数内部会自动调用 xc.LoadXCGUI().
 //	所以一般是不需要手动调用的, 除非你没有使用 app.New() 函数, 而是使用了 xc.XInitXCGUI(), 那么你需要在 xc.XInitXCGUI() 之前调用 xc.LoadXCGUI().
 func LoadXCGUI() *syscall.LazyDLL {
 	once.Do(_loadXCGUI)

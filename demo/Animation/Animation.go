@@ -3,13 +3,13 @@ package main
 
 import (
 	_ "embed"
-
-	"github.com/twgh/xcgui/ani"
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	
+	"github.com/888go/xcgui/ani"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 var (

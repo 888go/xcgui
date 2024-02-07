@@ -1,14 +1,14 @@
 package tf
 
 import (
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xcc"
 )
 
 // TFunc 测试用程序.
-// //	@Description: 测试时使用的函数.
 //
+//	@Description: 测试时使用的函数.
 //	@param f
 func TFunc(f func(a *app.App, w *window.Window)) {
 	a := app.New(true)

@@ -1,10 +1,11 @@
 package widget_test
 
+//炫彩组件类_test
 import (
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/tf"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/tf"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
 	"testing"
 )
 

@@ -57,12 +57,12 @@ X取默认字体
 
 
 # <翻译开始>
-func (a *App) MessageBox(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent uintptr, XCStyle
+func (a *App) MessageBox(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent uintptr, XCStyle
 炫彩样式
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) MessageBox(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent
+func (a *App) MessageBox(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent
 父窗口句柄
 # <翻译结束>
 
@@ -89,12 +89,12 @@ X消息框
 
  
 # <翻译开始>
-func (a *App) Msg_Create(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent uintptr, XCStyle
+func (a *App) Msg_Create(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent uintptr, XCStyle
 炫彩样式
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) Msg_Create(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent
+func (a *App) Msg_Create(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent
 父窗口句柄
 # <翻译结束>
 
@@ -120,12 +120,12 @@ X消息框_创建
 
 
 # <翻译开始>
-func (a *App) Msg_CreateEx(dwExStyle int, dwStyle int, lpClassName string, pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent uintptr, XCStyle
+func (a *App) Msg_CreateEx(dwExStyle int, dwStyle int, lpClassName string, pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent uintptr, XCStyle
 炫彩样式
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) Msg_CreateEx(dwExStyle int, dwStyle int, lpClassName string, pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent
+func (a *App) Msg_CreateEx(dwExStyle int, dwStyle int, lpClassName string, pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent
 父窗口句柄
 # <翻译结束>
 
@@ -202,7 +202,7 @@ X简易调用界面线程
 
 
 # <翻译开始>
-func (a *App) CallUiThreader(u xc.UiThreader, data
+func (a *App) CallUiThreader(u 炫彩基类.UiThreader, data
 回调函数数据
 # <翻译结束>
 
@@ -591,7 +591,7 @@ X取文本显示大小
 
 
 # <翻译开始>
-func (a *App) GetTextShowSizeEx(pString string, length int, hFontX int, nTextAlign xcc.TextFormatFlag_, pOutSize
+func (a *App) GetTextShowSizeEx(pString string, length int, hFontX int, nTextAlign 炫彩常量类.TextFormatFlag_, pOutSize
 接收返回大小
 # <翻译结束>
 
@@ -622,12 +622,12 @@ X取文本显示大小EX
 
 
 # <翻译开始>
-func (a *App) GetTextShowRect(pString string, length int, hFontX int, nTextAlign xcc.TextFormatFlag_, width int, pOutSize
+func (a *App) GetTextShowRect(pString string, length int, hFontX int, nTextAlign 炫彩常量类.TextFormatFlag_, width int, pOutSize
 接收返回大小
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) GetTextShowRect(pString string, length int, hFontX int, nTextAlign xcc.TextFormatFlag_, width
+func (a *App) GetTextShowRect(pString string, length int, hFontX int, nTextAlign 炫彩常量类.TextFormatFlag_, width
 最大宽度
 # <翻译结束>
 
@@ -1521,22 +1521,22 @@ X显示边界
 
 
 # <翻译开始>
-func (a *App) NotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin
+func (a *App) NotifyMsg_Popup(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin
 外观类型
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText string, hIcon
+func (a *App) NotifyMsg_Popup(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon
 图标
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText
+func (a *App) NotifyMsg_Popup(position 炫彩常量类.Position_Flag_, pTitle, pText
 内容
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_Popup(position xcc.Position_Flag_, pTitle
+func (a *App) NotifyMsg_Popup(position 炫彩常量类.Position_Flag_, pTitle
 标题
 # <翻译结束>
 
@@ -1552,42 +1552,42 @@ X通知消息_弹出_未实现
 
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight
 自定义高度
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth
 自定义宽度
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose
 是否自动关闭
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose
 是否启用关闭按钮
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin
 外观类型
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon
 图标
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText
 内容
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) NotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle
+func (a *App) NotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle
 标题
 # <翻译结束>
 

@@ -1,6 +1,8 @@
 package xc
 
-import "github.com/twgh/xcgui/xcc"
+import (
+	"github.com/888go/xcgui/xcc"
+)
 
 // Menu_PopupWnd_ 菜单-弹出窗口信息
 type Menu_PopupWnd_ struct {
@@ -20,7 +22,7 @@ type Menu_DrawItem_ struct {
 	HMenu             int                 // 菜单句柄
 	HWindow           int                 // 当前弹出菜单项的窗口句柄
 	NID               int32               // ID
-	NState            xcc.Menu_Item_Flag_ // 状态:Menu_Item_Flag_
+	NState            xcc.Menu_Item_Flag_ // 状态: Menu_Item_Flag_
 	NShortcutKeyWidth int32               // 右侧快捷键占位宽度
 	RcItem            RECT                // 坐标
 	HIcon             int                 // 菜单项图标句柄
@@ -33,7 +35,7 @@ type ListBox_Item_ struct {
 	NUserData  int                  // 用户绑定数据
 	NHeight    int32                // 项默认高度
 	NSelHeight int32                // 项选中时高度
-	NState     xcc.List_Item_State_ // 状态:List_Item_State_
+	NState     xcc.List_Item_State_ // 状态: List_Item_State_
 	RcItem     RECT                 // 项坐标
 	HLayout    int                  // 布局对象句柄
 	HTemp      int                  // 列表项模板句柄
@@ -46,7 +48,7 @@ type List_Header_Item_ struct {
 	BSort          bool               // 是否支持排序
 	NSortType      int32              // 排序方式,0无效,1升序,2降序
 	IColumnAdapter int32              // 对应数据适配器中的列索引
-	NState         xcc.Common_State3_ // 状态:Common_State3_
+	NState         xcc.Common_State3_ // 状态: Common_State3_
 	RcItem         RECT               // 项坐标
 	HLayout        int                // 布局对象句柄
 	HTemp          int                // 列表项模板句柄
@@ -57,7 +59,7 @@ type List_Item_ struct {
 	Index     int32                // 项索引
 	ISubItem  int32                // 子项索引
 	NUserData int                  // 用户数据
-	NState    xcc.List_Item_State_ // 状态:List_Item_State_
+	NState    xcc.List_Item_State_ // 状态: List_Item_State_
 	RcItem    RECT                 // 未使用
 	HLayout   int                  // 布局对象句柄
 	HTemp     int                  // 列表项模板句柄
@@ -71,7 +73,7 @@ type Tree_Item_ struct {
 	NSelHeight int32                // 项选中状态高度
 	NUserData  int                  // 用户数据
 	BExpand    bool                 // 展开
-	NState     xcc.Tree_Item_State_ // 状态:Tree_Item_State_
+	NState     xcc.Tree_Item_State_ // 状态:　Tree_Item_State_
 	RcItem     RECT                 // 坐标
 	HLayout    int                  // 布局对象句柄
 	HTemp      int                  // 列表项模板句柄
@@ -81,7 +83,7 @@ type Tree_Item_ struct {
 type Tree_Drag_Item_ struct {
 	NDragItem int32 // 拖动项ID
 	NDestItem int32 // 目标项ID
-	NType     int32 // 停放相对目标位置, 0:上)停放到目标的上面, 1:下)停放到目标的下面, 3:中)停放到目标的的子项,
+	NType     int32 // 停放相对目标位置, 0:(上)停放到目标的上面, 1:(下)停放到目标的下面, 3:(中)停放到目标的的子项,
 }
 
 // ListView 列表视项信息
@@ -89,7 +91,7 @@ type ListView_Item_ struct {
 	IGroup    int32                // 项所述组索引 -1没有组
 	IItem     int32                // 项在数组中位置索引,如果此致为-1,那么为组
 	NUserData int                  // 用户绑定数据
-	NState    xcc.List_Item_State_ // 状态:List_Item_State_
+	NState    xcc.List_Item_State_ // 状态: List_Item_State_
 	RcItem    RECT                 // 整个区域,包含边框
 	HLayout   int                  // 布局对象
 	HTemp     int                  // 列表项模板
@@ -144,14 +146,14 @@ type LOGFONTW struct {
 
 // Editor 颜色信息
 type Editor_Color_ struct {
-	ClrMargin1         int32 // 背景色1, ABGR颜色
-	ClrMargin2         int32 // 背景色2, ABGR颜色
-	ClrMarginText      int32 // 文本色, ABGR颜色
-	ClrBreakpoint      int32 // 断点色, ABGR颜色
-	ClrBreakpointArrow int32 // 断点箭头色, ABGR颜色
-	ClrRun             int32 // 当前执行位置指示色, ABGR颜色
-	ClrCurRow          int32 // 突出显示当前行颜色, ABGR颜色
-	ClrMatch           int32 // 设置匹配文本背景色, ABGR颜色
+	ClrMargin1         int32 // 背景色1, ABGR 颜色
+	ClrMargin2         int32 // 背景色2, ABGR 颜色
+	ClrMarginText      int32 // 文本色, ABGR 颜色
+	ClrBreakpoint      int32 // 断点色, ABGR 颜色
+	ClrBreakpointArrow int32 // 断点箭头色, ABGR 颜色
+	ClrRun             int32 // 当前执行位置指示色, ABGR 颜色
+	ClrCurRow          int32 // 突出显示当前行颜色, ABGR 颜色
+	ClrMatch           int32 // 设置匹配文本背景色, ABGR 颜色
 }
 
 // Edit 数据复制
@@ -164,7 +166,7 @@ type Edit_Data_Copy_ struct {
 
 // Edit 样式信息
 type Edit_Style_Info_ struct {
-	Type            xcc.Edit_Style_Type_ // 样式类型:Edit_Style_Type_
+	Type            xcc.Edit_Style_Type_ // 样式类型: Edit_Style_Type_
 	NRef            uint16               // 引用计数
 	HFont_image_obj int                  // 字体,图片,UI对象句柄
 	Color           int32                // 颜色
@@ -187,7 +189,7 @@ type Position_ struct {
 // Font_Info_ 字体信息
 type Font_Info_ struct {
 	NSize  int32          // 字体大小, 单位(pt,磅).
-	NStyle xcc.FontStyle_ // 字体样式:FontStyle_
+	NStyle xcc.FontStyle_ // 字体样式: FontStyle_
 	Name   [32]uint16     // 字体名称, 使用xc.Font_Info_Name()函数转换为string.
 }
 

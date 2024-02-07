@@ -16,7 +16,7 @@ X创建动画序列
 
 
 # <翻译开始>
-func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -52,7 +52,7 @@ X移动
 
 
 # <翻译开始>
-func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -98,7 +98,7 @@ X移动EX
 
 
 # <翻译开始>
-func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -129,7 +129,7 @@ X旋转
 
 
 # <翻译开始>
-func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -165,7 +165,7 @@ X旋转EX
 
 
 # <翻译开始>
-func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -201,7 +201,7 @@ X缩放
 
 
 # <翻译开始>
-func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -237,7 +237,7 @@ X缩放大小
 
 
 # <翻译开始>
-func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -268,7 +268,7 @@ X透明度
 
 
 # <翻译开始>
-func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -304,7 +304,7 @@ X透明度EX
 
 
 # <翻译开始>
-func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -335,7 +335,7 @@ X颜色
 
 
 # <翻译开始>
-func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -371,22 +371,22 @@ X颜色EX
 
 
 # <翻译开始>
-func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) LayoutWidth(duration int, nType 炫彩常量类.Layout_Size_, width float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width float32, nLoopCount int, ease_flag
+func (a *Anima) LayoutWidth(duration int, nType 炫彩常量类.Layout_Size_, width float32, nLoopCount int, ease_flag
 缓动标识
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width float32, nLoopCount
+func (a *Anima) LayoutWidth(duration int, nType 炫彩常量类.Layout_Size_, width float32, nLoopCount
 动画循环次数
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width
+func (a *Anima) LayoutWidth(duration int, nType 炫彩常量类.Layout_Size_, width
 布局宽度
 # <翻译结束>
 
@@ -407,22 +407,22 @@ X布局宽度
 
 
 # <翻译开始>
-func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) LayoutHeight(duration int, nType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag
+func (a *Anima) LayoutHeight(duration int, nType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag
 缓动标识
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height float32, nLoopCount
+func (a *Anima) LayoutHeight(duration int, nType 炫彩常量类.Layout_Size_, height float32, nLoopCount
 动画循环次数
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height
+func (a *Anima) LayoutHeight(duration int, nType 炫彩常量类.Layout_Size_, height
 布局高度
 # <翻译结束>
 
@@ -443,32 +443,32 @@ X布局高度
 
 
 # <翻译开始>
-func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) LayoutSize(duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag
+func (a *Anima) LayoutSize(duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag
 缓动标识
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount
+func (a *Anima) LayoutSize(duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height float32, nLoopCount
 动画循环次数
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height
+func (a *Anima) LayoutSize(duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height
 布局高度
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType
+func (a *Anima) LayoutSize(duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType
 布局大小类型
 # <翻译结束>
 
 # <翻译开始>
-func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width
+func (a *Anima) LayoutSize(duration int, nWidthType 炫彩常量类.Layout_Size_, width
 布局宽度
 # <翻译结束>
 
@@ -527,7 +527,7 @@ X销毁UI对象
 
 
 # <翻译开始>
-func (a *Anima) DelayEx(duration float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func (a *Anima) DelayEx(duration float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 

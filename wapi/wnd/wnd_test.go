@@ -1,9 +1,10 @@
 package wnd_test
 
+//炫彩WinApi窗口类_test
 import (
 	"fmt"
-	"github.com/twgh/xcgui/wapi"
-	"github.com/twgh/xcgui/wapi/wnd"
+	"github.com/888go/xcgui/wapi"
+	"github.com/888go/xcgui/wapi/wnd"
 	"testing"
 )
 

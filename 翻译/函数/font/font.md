@@ -169,7 +169,7 @@ X创建并按内存
 
 
 # <翻译开始>
-func NewByRes(id int32, pType string, fontSize int32, style xcc.FontStyle_, hModule
+func NewByRes(id int32, pType string, fontSize int32, style 炫彩常量类.FontStyle_, hModule
 模块
 # <翻译结束>
 

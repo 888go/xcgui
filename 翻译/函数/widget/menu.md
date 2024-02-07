@@ -87,7 +87,7 @@ X添加项图标
 
 
 # <翻译开始>
-func (m *Menu) InsertItem(nID int32, pText string, nFlags xcc.Menu_Item_Flag_, insertID
+func (m *Menu) InsertItem(nID int32, pText string, nFlags 炫彩常量类.Menu_Item_Flag_, insertID
 插入位置ID
 # <翻译结束>
 
@@ -113,7 +113,7 @@ X插入项
 
 
 # <翻译开始>
-func (m *Menu) InsertItemIcon(nID int32, pText string, hIcon int, nFlags xcc.Menu_Item_Flag_, insertID
+func (m *Menu) InsertItemIcon(nID int32, pText string, hIcon int, nFlags 炫彩常量类.Menu_Item_Flag_, insertID
 插入位置ID
 # <翻译结束>
 

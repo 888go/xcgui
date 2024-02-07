@@ -1,10 +1,11 @@
 package wapi_test
 
+//炫彩WinApi类_test
 import (
 	"fmt"
-	"github.com/twgh/xcgui/common"
-	"github.com/twgh/xcgui/wapi"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/common"
+	"github.com/888go/xcgui/wapi"
+	"github.com/888go/xcgui/xcc"
 	"syscall"
 	"testing"
 )

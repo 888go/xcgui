@@ -3,9 +3,9 @@ package main
 
 import (
 	_ "embed"
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
 )
 
 //go:embed res/qqmusic.zip

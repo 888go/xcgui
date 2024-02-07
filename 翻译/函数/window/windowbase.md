@@ -1,6 +1,6 @@
 
 # <翻译开始>
-func (w *windowBase) MessageBox(pTitle, pText string, nFlags xcc.MessageBox_Flag_, XCStyle
+func (w *windowBase) MessageBox(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, XCStyle
 样式
 # <翻译结束>
 
@@ -26,7 +26,7 @@ X消息框
 
 
 # <翻译开始>
-func (w *windowBase) Msg_Create(pTitle, pText string, nFlags xcc.MessageBox_Flag_, XCStyle
+func (w *windowBase) Msg_Create(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, XCStyle
 样式
 # <翻译结束>
 
@@ -47,7 +47,7 @@ X消息框创建
 
 
 # <翻译开始>
-func (w *windowBase) Msg_CreateEx(dwExStyle, dwStyle int, lpClassName, pTitle, pText string, nFlags xcc.MessageBox_Flag_, XCStyle
+func (w *windowBase) Msg_CreateEx(dwExStyle, dwStyle int, lpClassName, pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, XCStyle
 xcc
 # <翻译结束>
 
@@ -170,7 +170,7 @@ X置顶
 
 
 # <翻译开始>
-func (w *windowBase) RegEventC(nEvent xcc.WM_, pFun
+func (w *windowBase) RegEventC(nEvent 炫彩常量类.WM_, pFun
 事件函数
 # <翻译结束>
 
@@ -186,7 +186,7 @@ X注册事件C
 
 
 # <翻译开始>
-func (w *windowBase) RegEventC1(nEvent xcc.WM_, pFun
+func (w *windowBase) RegEventC1(nEvent 炫彩常量类.WM_, pFun
 事件函数
 # <翻译结束>
 
@@ -202,7 +202,7 @@ X注册事件C1
 
 
 # <翻译开始>
-func (w *windowBase) RemoveEventC(nEvent xcc.WM_, pFun
+func (w *windowBase) RemoveEventC(nEvent 炫彩常量类.WM_, pFun
 事件函数
 # <翻译结束>
 
@@ -218,7 +218,7 @@ X移除事件C
 
 
 # <翻译开始>
-func (w *windowBase) RemoveEventCEx(nEvent xcc.WM_, pFun
+func (w *windowBase) RemoveEventCEx(nEvent 炫彩常量类.WM_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -1241,12 +1241,12 @@ X取标题颜色
 
 
 # <翻译开始>
-func (w *windowBase) AddBkBorder(nState xcc.Window_State_Flag_, color int, width
+func (w *windowBase) AddBkBorder(nState 炫彩常量类.Window_State_Flag_, color int, width
 线宽
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) AddBkBorder(nState xcc.Window_State_Flag_, color
+func (w *windowBase) AddBkBorder(nState 炫彩常量类.Window_State_Flag_, color
 ABGR颜色
 # <翻译结束>
 
@@ -1262,7 +1262,7 @@ X添加背景边框
 
 
 # <翻译开始>
-func (w *windowBase) AddBkFill(nState xcc.Window_State_Flag_, color
+func (w *windowBase) AddBkFill(nState 炫彩常量类.Window_State_Flag_, color
 ABGR颜色
 # <翻译结束>
 
@@ -1278,7 +1278,7 @@ X添加背景填充
 
 
 # <翻译开始>
-func (w *windowBase) AddBkImage(nState xcc.Window_State_Flag_, hImage
+func (w *windowBase) AddBkImage(nState 炫彩常量类.Window_State_Flag_, hImage
 图片句柄
 # <翻译结束>
 
@@ -1306,22 +1306,22 @@ X清空背景对象
 
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopup(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin
+func (w *windowBase) NotifyMsg_WindowPopup(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin
 外观类型
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopup(position xcc.Position_Flag_, pTitle, pText string, hIcon
+func (w *windowBase) NotifyMsg_WindowPopup(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon
 图标
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopup(position xcc.Position_Flag_, pTitle, pText
+func (w *windowBase) NotifyMsg_WindowPopup(position 炫彩常量类.Position_Flag_, pTitle, pText
 内容
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopup(position xcc.Position_Flag_, pTitle
+func (w *windowBase) NotifyMsg_WindowPopup(position 炫彩常量类.Position_Flag_, pTitle
 标题
 # <翻译结束>
 
@@ -1337,42 +1337,42 @@ X通知消息_窗口中弹出
 
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight
 自定义高度
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth
 自定义宽度
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose
 是否自动关闭
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose
 是否启用关闭按钮
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin
 外观类型
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon
 图标
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText
 内容
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle
+func (w *windowBase) NotifyMsg_WindowPopupEx(position 炫彩常量类.Position_Flag_, pTitle
 标题
 # <翻译结束>
 
@@ -1550,27 +1550,27 @@ XSetTopEx
 
 
 # <翻译开始>
-func (w *windowBase) SetWindowPos(hWndInsertAfter xcc.HWND_, x, y, cx, cy int32, uFlags
+func (w *windowBase) SetWindowPos(hWndInsertAfter 炫彩常量类.HWND_, x, y, cx, cy int32, uFlags
 标志
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) SetWindowPos(hWndInsertAfter xcc.HWND_, x, y, cx, cy
+func (w *windowBase) SetWindowPos(hWndInsertAfter 炫彩常量类.HWND_, x, y, cx, cy
 高度
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) SetWindowPos(hWndInsertAfter xcc.HWND_, x, y, cx
+func (w *windowBase) SetWindowPos(hWndInsertAfter 炫彩常量类.HWND_, x, y, cx
 宽度
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) SetWindowPos(hWndInsertAfter xcc.HWND_, x, y
+func (w *windowBase) SetWindowPos(hWndInsertAfter 炫彩常量类.HWND_, x, y
 Y坐标
 # <翻译结束>
 
 # <翻译开始>
-func (w *windowBase) SetWindowPos(hWndInsertAfter xcc.HWND_, x
+func (w *windowBase) SetWindowPos(hWndInsertAfter 炫彩常量类.HWND_, x
 X坐标
 # <翻译结束>
 

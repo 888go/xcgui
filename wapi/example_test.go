@@ -5,12 +5,12 @@ import (
 	"strings"
 	"syscall"
 	"unsafe"
-
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/common"
-	"github.com/twgh/xcgui/wapi"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xcc"
+	
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/common"
+	"github.com/888go/xcgui/wapi"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xcc"
 )
 
 func ExampleLoadImageW() {

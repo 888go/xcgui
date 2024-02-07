@@ -31,7 +31,7 @@ X元素_创建
 
 
 # <翻译开始>
-func XEle_RegEventC(hEle int, nEvent xcc.XE_, pFun
+func XEle_RegEventC(hEle int, nEvent 炫彩常量类.XE_, pFun
 事件函数
 # <翻译结束>
 
@@ -52,7 +52,7 @@ X元素_注册事件C
 
 
 # <翻译开始>
-func XEle_RegEventC1(hEle int, nEvent xcc.XE_, pFun
+func XEle_RegEventC1(hEle int, nEvent 炫彩常量类.XE_, pFun
 事件函数
 # <翻译结束>
 
@@ -73,7 +73,7 @@ X元素_注册事件C1
 
 
 # <翻译开始>
-func XEle_RemoveEventC(hEle int, nEvent xcc.XE_, pFun
+func XEle_RemoveEventC(hEle int, nEvent 炫彩常量类.XE_, pFun
 事件函数
 # <翻译结束>
 
@@ -94,7 +94,7 @@ X元素_移除事件C
 
 
 # <翻译开始>
-func XEle_RegEventCEx(hEle int, nEvent xcc.XE_, pFun
+func XEle_RegEventCEx(hEle int, nEvent 炫彩常量类.XE_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -115,7 +115,7 @@ X元素_注册事件CEx
 
 
 # <翻译开始>
-func XEle_RegEventC1Ex(hEle int, nEvent xcc.XE_, pFun
+func XEle_RegEventC1Ex(hEle int, nEvent 炫彩常量类.XE_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -136,7 +136,7 @@ X元素_注册事件C1Ex
 
 
 # <翻译开始>
-func XEle_RemoveEventCEx(hEle int, nEvent xcc.XE_, pFun
+func XEle_RemoveEventCEx(hEle int, nEvent 炫彩常量类.XE_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -157,12 +157,12 @@ X元素_移除事件CEx
 
 
 # <翻译开始>
-func XEle_SendEvent(hEle int, nEvent xcc.XE_, wParam, lParam
+func XEle_SendEvent(hEle int, nEvent 炫彩常量类.XE_, wParam, lParam
 参数2
 # <翻译结束>
 
 # <翻译开始>
-func XEle_SendEvent(hEle int, nEvent xcc.XE_, wParam
+func XEle_SendEvent(hEle int, nEvent 炫彩常量类.XE_, wParam
 参数1
 # <翻译结束>
 
@@ -183,12 +183,12 @@ X元素_发送事件
 
 
 # <翻译开始>
-func XEle_PostEvent(hEle int, nEvent xcc.XE_, wParam, lParam
+func XEle_PostEvent(hEle int, nEvent 炫彩常量类.XE_, wParam, lParam
 参数2
 # <翻译结束>
 
 # <翻译开始>
-func XEle_PostEvent(hEle int, nEvent xcc.XE_, wParam
+func XEle_PostEvent(hEle int, nEvent 炫彩常量类.XE_, wParam
 参数1
 # <翻译结束>
 
@@ -455,7 +455,7 @@ X元素_插入子对象
 
 
 # <翻译开始>
-func XEle_SetRect(hEle int, pRect *RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func XEle_SetRect(hEle int, pRect *RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 调整布局流水号
 # <翻译结束>
 
@@ -486,7 +486,7 @@ X元素_置坐标
 
 
 # <翻译开始>
-func XEle_SetRectEx(hEle int, x int, y int, cx int, cy int, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func XEle_SetRectEx(hEle int, x int, y int, cx int, cy int, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 调整布局流水号
 # <翻译结束>
 
@@ -532,7 +532,7 @@ X元素_置坐标EX
 
 
 # <翻译开始>
-func XEle_SetRectLogic(hEle int, pRect *RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func XEle_SetRectLogic(hEle int, pRect *RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 调整布局流水号
 # <翻译结束>
 
@@ -563,7 +563,7 @@ X元素_置逻辑坐标
 
 
 # <翻译开始>
-func XEle_SetPosition(hEle int, x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func XEle_SetPosition(hEle int, x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 调整布局流水号
 # <翻译结束>
 
@@ -599,7 +599,7 @@ X元素_移动
 
 
 # <翻译开始>
-func XEle_SetPositionLogic(hEle int, x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func XEle_SetPositionLogic(hEle int, x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 调整布局流水号
 # <翻译结束>
 
@@ -1240,12 +1240,12 @@ X元素_置拖动边框
 
 
 # <翻译开始>
-func XEle_SetDragBorderBindEle(hEle int, nFlags xcc.Element_Position_, hBindEle int, nSpace
+func XEle_SetDragBorderBindEle(hEle int, nFlags 炫彩常量类.Element_Position_, hBindEle int, nSpace
 元素间隔大小
 # <翻译结束>
 
 # <翻译开始>
-func XEle_SetDragBorderBindEle(hEle int, nFlags xcc.Element_Position_, hBindEle
+func XEle_SetDragBorderBindEle(hEle int, nFlags 炫彩常量类.Element_Position_, hBindEle
 绑定元素
 # <翻译结束>
 
@@ -1454,12 +1454,12 @@ X元素_销毁
 
 
 # <翻译开始>
-func XEle_AddBkBorder(hEle int, nState xcc.CombinedState, color int, width
+func XEle_AddBkBorder(hEle int, nState 炫彩常量类.CombinedState, color int, width
 线宽
 # <翻译结束>
 
 # <翻译开始>
-func XEle_AddBkBorder(hEle int, nState xcc.CombinedState, color
+func XEle_AddBkBorder(hEle int, nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -1480,7 +1480,7 @@ X元素_添加背景边框
 
 
 # <翻译开始>
-func XEle_AddBkFill(hEle int, nState xcc.CombinedState, color
+func XEle_AddBkFill(hEle int, nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -1501,7 +1501,7 @@ X元素_添加背景填充
 
 
 # <翻译开始>
-func XEle_AddBkImage(hEle int, nState xcc.CombinedState, hImage
+func XEle_AddBkImage(hEle int, nState 炫彩常量类.CombinedState, hImage
 图片句柄
 # <翻译结束>
 
@@ -1842,7 +1842,7 @@ X元素_调整布局
 
 
 # <翻译开始>
-func XEle_AdjustLayoutEx(hEle int, nFlags xcc.AdjustLayout_, nAdjustNo
+func XEle_AdjustLayoutEx(hEle int, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 调整布局流水号
 # <翻译结束>
 
@@ -1895,7 +1895,7 @@ X元素_取位置
 
 
 # <翻译开始>
-func XEle_SetSize(hEle int, nWidth, nHeight int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func XEle_SetSize(hEle int, nWidth, nHeight int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 调整布局流水号
 # <翻译结束>
 

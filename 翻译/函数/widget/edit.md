@@ -31,7 +31,7 @@ X创建编辑框
 
 
 # <翻译开始>
-func NewEditEx(x int, y int, cx int, cy int, nType xcc.Edit_Type_, hParent
+func NewEditEx(x int, y int, cx int, cy int, nType 炫彩常量类.Edit_Type_, hParent
 父窗口句柄或元素句柄
 # <翻译结束>
 
@@ -528,12 +528,12 @@ X添加样式
 
 
 # <翻译开始>
-func (e *Edit) AddStyleEx(fontName string, fontSize int, fontStyle xcc.FontStyle_, color int, bColor
+func (e *Edit) AddStyleEx(fontName string, fontSize int, fontStyle 炫彩常量类.FontStyle_, color int, bColor
 是否使用颜色
 # <翻译结束>
 
 # <翻译开始>
-func (e *Edit) AddStyleEx(fontName string, fontSize int, fontStyle xcc.FontStyle_, color
+func (e *Edit) AddStyleEx(fontName string, fontSize int, fontStyle 炫彩常量类.FontStyle_, color
 颜色
 # <翻译结束>
 

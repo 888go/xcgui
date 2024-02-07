@@ -3,14 +3,14 @@ package main
 
 import (
 	"time"
-
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/drawx"
-	"github.com/twgh/xcgui/ease"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/drawx"
+	"github.com/888go/xcgui/ease"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 var (

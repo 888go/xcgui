@@ -46,12 +46,12 @@ X取默认字体
 
 
 # <翻译开始>
-func XC_MessageBox(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent uintptr, XCStyle
+func XC_MessageBox(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent uintptr, XCStyle
 样式
 # <翻译结束>
 
 # <翻译开始>
-func XC_MessageBox(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent
+func XC_MessageBox(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent
 父窗口句柄
 # <翻译结束>
 
@@ -77,12 +77,12 @@ X消息框
 
 
 # <翻译开始>
-func XMsg_Create(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent uintptr, XCStyle
+func XMsg_Create(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent uintptr, XCStyle
 样式
 # <翻译结束>
 
 # <翻译开始>
-func XMsg_Create(pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent
+func XMsg_Create(pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent
 父窗口句柄
 # <翻译结束>
 
@@ -108,12 +108,12 @@ X消息框_创建
 
 
 # <翻译开始>
-func XMsg_CreateEx(dwExStyle int, dwStyle int, lpClassName, pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent uintptr, XCStyle
+func XMsg_CreateEx(dwExStyle int, dwStyle int, lpClassName, pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent uintptr, XCStyle
 样式
 # <翻译结束>
 
 # <翻译开始>
-func XMsg_CreateEx(dwExStyle int, dwStyle int, lpClassName, pTitle, pText string, nFlags xcc.MessageBox_Flag_, hWndParent
+func XMsg_CreateEx(dwExStyle int, dwStyle int, lpClassName, pTitle, pText string, nFlags 炫彩常量类.MessageBox_Flag_, hWndParent
 父窗口句柄
 # <翻译结束>
 
@@ -595,7 +595,7 @@ X取文本显示大小
 
 
 # <翻译开始>
-func XC_GetTextShowSizeEx(pString string, length int, hFontX int, nTextAlign xcc.TextFormatFlag_, pOutSize
+func XC_GetTextShowSizeEx(pString string, length int, hFontX int, nTextAlign 炫彩常量类.TextFormatFlag_, pOutSize
 接收返回大小
 # <翻译结束>
 
@@ -626,12 +626,12 @@ X取文本显示大小EX
 
 
 # <翻译开始>
-func XC_GetTextShowRect(pString string, length int, hFontX int, nTextAlign xcc.TextFormatFlag_, width int, pOutSize
+func XC_GetTextShowRect(pString string, length int, hFontX int, nTextAlign 炫彩常量类.TextFormatFlag_, width int, pOutSize
 接收返回大小
 # <翻译结束>
 
 # <翻译开始>
-func XC_GetTextShowRect(pString string, length int, hFontX int, nTextAlign xcc.TextFormatFlag_, width
+func XC_GetTextShowRect(pString string, length int, hFontX int, nTextAlign 炫彩常量类.TextFormatFlag_, width
 最大宽度
 # <翻译结束>
 

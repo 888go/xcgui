@@ -31,7 +31,7 @@ X编辑框_创建
 
 
 # <翻译开始>
-func XEdit_CreateEx(x int, y int, cx int, cy int, nType xcc.Edit_Type_, hParent
+func XEdit_CreateEx(x int, y int, cx int, cy int, nType 炫彩常量类.Edit_Type_, hParent
 父窗口句柄或元素句柄
 # <翻译结束>
 
@@ -642,12 +642,12 @@ X编辑框_添加样式
 
 
 # <翻译开始>
-func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle xcc.FontStyle_, color int, bColor
+func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle 炫彩常量类.FontStyle_, color int, bColor
 是否使用颜色
 # <翻译结束>
 
 # <翻译开始>
-func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle xcc.FontStyle_, color
+func XEdit_AddStyleEx(hEle int, fontName string, fontSize int, fontStyle 炫彩常量类.FontStyle_, color
 颜色
 # <翻译结束>
 

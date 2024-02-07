@@ -1,19 +1,19 @@
 package xc
 
-// 取D2D工厂, 开启D2D有效, 返回 ID2D1Factory* .
+// XC_GetD2dFactory 炫彩_取D2D工厂, 开启D2D有效, 返回 ID2D1Factory* .
 func XC_GetD2dFactory() int {
-	r, _, _ : xC_GetD2dFactory.Call()
+	r, _, _ := xC_GetD2dFactory.Call()
 	return int(r)
 }
 
-// 取DWrite工厂, 开启D2D有效, 返回 IDWriteFactory* .
+// XC_GetDWriteFactory 炫彩_取DWrite工厂, 开启D2D有效, 返回 IDWriteFactory* .
 func XC_GetDWriteFactory() int {
-	r, _, _ : xC_GetDWriteFactory.Call()
+	r, _, _ := xC_GetDWriteFactory.Call()
 	return int(r)
 }
 
-// 取WIC工厂, 开启D2D有效, 返回 IWICImagingFactory* .
+// XC_GetWicFactory 炫彩_取WIC工厂, 开启D2D有效, 返回 IWICImagingFactory* .
 func XC_GetWicFactory() int {
-	r, _, _ : xC_GetWicFactory.Call()
+	r, _, _ := xC_GetWicFactory.Call()
 	return int(r)
 }

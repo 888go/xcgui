@@ -2,11 +2,11 @@ package wutil_test
 
 import (
 	"fmt"
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/tf"
-	"github.com/twgh/xcgui/wapi/wutil"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/tf"
+	"github.com/888go/xcgui/wapi/wutil"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xc"
 	"testing"
 )
 

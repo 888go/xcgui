@@ -1,8 +1,9 @@
 package wutil_test
 
+//炫彩WinApi工具类_test
 import (
 	"fmt"
-	"github.com/twgh/xcgui/wapi/wutil"
+	"github.com/888go/xcgui/wapi/wutil"
 	"testing"
 )
 

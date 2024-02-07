@@ -146,7 +146,7 @@ X窗口组件_布局项_启用浮动
 
 
 # <翻译开始>
-func XWidget_LayoutItem_SetWidth(hXCGUI int, nType xcc.Layout_Size_, nWidth
+func XWidget_LayoutItem_SetWidth(hXCGUI int, nType 炫彩常量类.Layout_Size_, nWidth
 宽度
 # <翻译结束>
 
@@ -167,7 +167,7 @@ X窗口组件_布局项_置宽度
 
 
 # <翻译开始>
-func XWidget_LayoutItem_SetHeight(hXCGUI int, nType xcc.Layout_Size_, nHeight
+func XWidget_LayoutItem_SetHeight(hXCGUI int, nType 炫彩常量类.Layout_Size_, nHeight
 高度
 # <翻译结束>
 
@@ -188,7 +188,7 @@ X窗口组件_布局项_置高度
 
 
 # <翻译开始>
-func XWidget_LayoutItem_GetWidth(hXCGUI int, pType *xcc.Layout_Size_, pWidth
+func XWidget_LayoutItem_GetWidth(hXCGUI int, pType *炫彩常量类.Layout_Size_, pWidth
 返回宽度
 # <翻译结束>
 
@@ -209,7 +209,7 @@ X窗口组件_布局项_取宽度
 
 
 # <翻译开始>
-func XWidget_LayoutItem_GetHeight(hXCGUI int, pType *xcc.Layout_Size_, pHeight
+func XWidget_LayoutItem_GetHeight(hXCGUI int, pType *炫彩常量类.Layout_Size_, pHeight
 返回高度
 # <翻译结束>
 

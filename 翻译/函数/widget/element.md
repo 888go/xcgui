@@ -55,7 +55,7 @@ X创建基础元素并按UID名称
 
 
 # <翻译开始>
-func (e *Element) RegEventC(nEvent xcc.XE_, pFun
+func (e *Element) RegEventC(nEvent 炫彩常量类.XE_, pFun
 事件函数
 # <翻译结束>
 
@@ -71,7 +71,7 @@ X注册事件C
 
 
 # <翻译开始>
-func (e *Element) RegEventC1(nEvent xcc.XE_, pFun
+func (e *Element) RegEventC1(nEvent 炫彩常量类.XE_, pFun
 事件函数
 # <翻译结束>
 
@@ -87,7 +87,7 @@ X注册事件C1
 
 
 # <翻译开始>
-func (e *Element) RemoveEventC(nEvent xcc.XE_, pFun
+func (e *Element) RemoveEventC(nEvent 炫彩常量类.XE_, pFun
 事件函数
 # <翻译结束>
 
@@ -103,7 +103,7 @@ X移除事件C
 
 
 # <翻译开始>
-func (e *Element) RegEventCEx(nEvent xcc.XE_, pFun
+func (e *Element) RegEventCEx(nEvent 炫彩常量类.XE_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -119,7 +119,7 @@ X注册事件CEx
 
 
 # <翻译开始>
-func (e *Element) RegEventC1Ex(nEvent xcc.XE_, pFun
+func (e *Element) RegEventC1Ex(nEvent 炫彩常量类.XE_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -135,7 +135,7 @@ X注册事件C1Ex
 
 
 # <翻译开始>
-func (e *Element) RemoveEventCEx(nEvent xcc.XE_, pFun
+func (e *Element) RemoveEventCEx(nEvent 炫彩常量类.XE_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -151,12 +151,12 @@ X移除事件CEx
 
 
 # <翻译开始>
-func (e *Element) SendEvent(nEvent xcc.XE_, wParam, lParam
+func (e *Element) SendEvent(nEvent 炫彩常量类.XE_, wParam, lParam
 参数2
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) SendEvent(nEvent xcc.XE_, wParam
+func (e *Element) SendEvent(nEvent 炫彩常量类.XE_, wParam
 参数1
 # <翻译结束>
 
@@ -172,12 +172,12 @@ X发送事件
 
 
 # <翻译开始>
-func (e *Element) PostEvent(nEvent xcc.XE_, wParam, lParam
+func (e *Element) PostEvent(nEvent 炫彩常量类.XE_, wParam, lParam
 参数2
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) PostEvent(nEvent xcc.XE_, wParam
+func (e *Element) PostEvent(nEvent 炫彩常量类.XE_, wParam
 参数1
 # <翻译结束>
 
@@ -359,7 +359,7 @@ X插入子对象
 
 
 # <翻译开始>
-func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
@@ -385,7 +385,7 @@ X置坐标
 
 
 # <翻译开始>
-func (e *Element) SetRectEx(x int, y int, cx int, cy int, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func (e *Element) SetRectEx(x int, y int, cx int, cy int, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
@@ -426,7 +426,7 @@ X置坐标EX
 
 
 # <翻译开始>
-func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
@@ -452,7 +452,7 @@ X置逻辑坐标
 
 
 # <翻译开始>
-func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
@@ -483,7 +483,7 @@ X移动
 
 
 # <翻译开始>
-func (e *Element) SetPositionLogic(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func (e *Element) SetPositionLogic(x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
@@ -919,12 +919,12 @@ X置拖动边框
 
 
 # <翻译开始>
-func (e *Element) SetDragBorderBindEle(nFlags xcc.Element_Position_, hBindEle int, nSpace
+func (e *Element) SetDragBorderBindEle(nFlags 炫彩常量类.Element_Position_, hBindEle int, nSpace
 元素间隔大小
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) SetDragBorderBindEle(nFlags xcc.Element_Position_, hBindEle
+func (e *Element) SetDragBorderBindEle(nFlags 炫彩常量类.Element_Position_, hBindEle
 绑定元素
 # <翻译结束>
 
@@ -1067,12 +1067,12 @@ X销毁
 
 
 # <翻译开始>
-func (e *Element) AddBkBorder(nState xcc.CombinedState, color int, width
+func (e *Element) AddBkBorder(nState 炫彩常量类.CombinedState, color int, width
 线宽
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) AddBkBorder(nState xcc.CombinedState, color
+func (e *Element) AddBkBorder(nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -1088,7 +1088,7 @@ X添加背景边框
 
 
 # <翻译开始>
-func (e *Element) AddBkFill(nState xcc.CombinedState, color
+func (e *Element) AddBkFill(nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -1104,7 +1104,7 @@ X添加背景填充
 
 
 # <翻译开始>
-func (e *Element) AddBkImage(nState xcc.CombinedState, hImage
+func (e *Element) AddBkImage(nState 炫彩常量类.CombinedState, hImage
 图片句柄
 # <翻译结束>
 
@@ -1340,7 +1340,7 @@ X调整布局
 
 
 # <翻译开始>
-func (e *Element) AdjustLayoutEx(nFlags xcc.AdjustLayout_, nAdjustNo
+func (e *Element) AdjustLayoutEx(nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
@@ -1378,7 +1378,7 @@ X取位置
 
 
 # <翻译开始>
-func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo
+func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 

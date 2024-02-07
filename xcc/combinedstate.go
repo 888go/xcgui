@@ -1,5 +1,6 @@
 package xcc
 
+// 炫彩常量类
 // CombinedState 组合状态.
 type CombinedState uint32
 

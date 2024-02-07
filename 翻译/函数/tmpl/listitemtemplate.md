@@ -21,7 +21,7 @@ X创建并按句柄
 
 
 # <翻译开始>
-func NewByXML(nType xcc.ListItemTemp_Type_, pFileName
+func NewByXML(nType 炫彩常量类.ListItemTemp_Type_, pFileName
 文件名
 # <翻译结束>
 
@@ -37,17 +37,17 @@ X创建并按文件
 
 
 # <翻译开始>
-func NewByZip(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword
+func NewByZip(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword
 zip密码
 # <翻译结束>
 
 # <翻译开始>
-func NewByZip(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName
+func NewByZip(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName
 文件名
 # <翻译结束>
 
 # <翻译开始>
-func NewByZip(nType xcc.ListItemTemp_Type_, pZipFile
+func NewByZip(nType 炫彩常量类.ListItemTemp_Type_, pZipFile
 zip文件
 # <翻译结束>
 
@@ -63,22 +63,22 @@ X创建并按ZIP
 
 
 # <翻译开始>
-func NewByZipRes(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, hModule
+func NewByZipRes(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword string, hModule
 模块句柄
 # <翻译结束>
 
 # <翻译开始>
-func NewByZipRes(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword
+func NewByZipRes(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword
 zip密码
 # <翻译结束>
 
 # <翻译开始>
-func NewByZipRes(nType xcc.ListItemTemp_Type_, id int32, pFileName
+func NewByZipRes(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName
 模板文件名
 # <翻译结束>
 
 # <翻译开始>
-func NewByZipRes(nType xcc.ListItemTemp_Type_, id
+func NewByZipRes(nType 炫彩常量类.ListItemTemp_Type_, id
 RC资源ID
 # <翻译结束>
 
@@ -94,17 +94,17 @@ X创建并按RC资源ZIP
 
 
 # <翻译开始>
-func NewByZipMem(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword
+func NewByZipMem(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName string, pPassword
 zip密码
 # <翻译结束>
 
 # <翻译开始>
-func NewByZipMem(nType xcc.ListItemTemp_Type_, data []byte, pFileName
+func NewByZipMem(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName
 文件名
 # <翻译结束>
 
 # <翻译开始>
-func NewByZipMem(nType xcc.ListItemTemp_Type_, data
+func NewByZipMem(nType 炫彩常量类.ListItemTemp_Type_, data
 模板文件数据
 # <翻译结束>
 
@@ -120,7 +120,7 @@ X创建并按内存ZIP
 
 
 # <翻译开始>
-func NewByXmlMem(nType xcc.ListItemTemp_Type_, data
+func NewByXmlMem(nType 炫彩常量类.ListItemTemp_Type_, data
 模板文件数据
 # <翻译结束>
 
@@ -136,7 +136,7 @@ X创建并按内存
 
 
 # <翻译开始>
-func NewByString(nType xcc.ListItemTemp_Type_, pStringXML
+func NewByString(nType 炫彩常量类.ListItemTemp_Type_, pStringXML
 字符串
 # <翻译结束>
 
@@ -241,17 +241,17 @@ X列表移动列
 
 
 # <翻译开始>
-func LoadEx(nType xcc.ListItemTemp_Type_, pFileName string, pOutTemp1 *int, pOutTemp2
+func LoadEx(nType 炫彩常量类.ListItemTemp_Type_, pFileName string, pOutTemp1 *int, pOutTemp2
 返回模板句柄2
 # <翻译结束>
 
 # <翻译开始>
-func LoadEx(nType xcc.ListItemTemp_Type_, pFileName string, pOutTemp1
+func LoadEx(nType 炫彩常量类.ListItemTemp_Type_, pFileName string, pOutTemp1
 返回模板句柄1
 # <翻译结束>
 
 # <翻译开始>
-func LoadEx(nType xcc.ListItemTemp_Type_, pFileName
+func LoadEx(nType 炫彩常量类.ListItemTemp_Type_, pFileName
 文件名
 # <翻译结束>
 
@@ -267,27 +267,27 @@ X加载并按文件EX
 
 
 # <翻译开始>
-func LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2
+func LoadZipEx(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2
 返回模板句柄2
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string, pOutTemp1
+func LoadZipEx(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword string, pOutTemp1
 返回模板句柄1
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword
+func LoadZipEx(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName string, pPassword
 zip密码
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile string, pFileName
+func LoadZipEx(nType 炫彩常量类.ListItemTemp_Type_, pZipFile string, pFileName
 文件名
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipEx(nType xcc.ListItemTemp_Type_, pZipFile
+func LoadZipEx(nType 炫彩常量类.ListItemTemp_Type_, pZipFile
 zip文件
 # <翻译结束>
 
@@ -303,27 +303,27 @@ X加载并按ZIPEX
 
 
 # <翻译开始>
-func LoadZipMemEx(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2
+func LoadZipMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2
 返回模板句柄2
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipMemEx(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword string, pOutTemp1
+func LoadZipMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName string, pPassword string, pOutTemp1
 返回模板句柄1
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipMemEx(nType xcc.ListItemTemp_Type_, data []byte, pFileName string, pPassword
+func LoadZipMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName string, pPassword
 zip密码
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipMemEx(nType xcc.ListItemTemp_Type_, data []byte, pFileName
+func LoadZipMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pFileName
 文件名
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipMemEx(nType xcc.ListItemTemp_Type_, data
+func LoadZipMemEx(nType 炫彩常量类.ListItemTemp_Type_, data
 模板文件数据
 # <翻译结束>
 
@@ -339,17 +339,17 @@ X加载并按内存ZIPEX
 
 
 # <翻译开始>
-func LoadFromStringEx(nType xcc.ListItemTemp_Type_, pStringXML string, pOutTemp1 *int, pOutTemp2
+func LoadFromStringEx(nType 炫彩常量类.ListItemTemp_Type_, pStringXML string, pOutTemp1 *int, pOutTemp2
 返回模板句柄2
 # <翻译结束>
 
 # <翻译开始>
-func LoadFromStringEx(nType xcc.ListItemTemp_Type_, pStringXML string, pOutTemp1
+func LoadFromStringEx(nType 炫彩常量类.ListItemTemp_Type_, pStringXML string, pOutTemp1
 返回模板句柄1
 # <翻译结束>
 
 # <翻译开始>
-func LoadFromStringEx(nType xcc.ListItemTemp_Type_, pStringXML
+func LoadFromStringEx(nType 炫彩常量类.ListItemTemp_Type_, pStringXML
 字符串内容
 # <翻译结束>
 
@@ -365,17 +365,17 @@ X加载并按字符串EX
 
 
 # <翻译开始>
-func LoadFromMemEx(nType xcc.ListItemTemp_Type_, data []byte, pOutTemp1 *int, pOutTemp2
+func LoadFromMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pOutTemp1 *int, pOutTemp2
 返回模板句柄2
 # <翻译结束>
 
 # <翻译开始>
-func LoadFromMemEx(nType xcc.ListItemTemp_Type_, data []byte, pOutTemp1
+func LoadFromMemEx(nType 炫彩常量类.ListItemTemp_Type_, data []byte, pOutTemp1
 返回模板句柄1
 # <翻译结束>
 
 # <翻译开始>
-func LoadFromMemEx(nType xcc.ListItemTemp_Type_, data
+func LoadFromMemEx(nType 炫彩常量类.ListItemTemp_Type_, data
 模板文件数据
 # <翻译结束>
 
@@ -391,32 +391,32 @@ X加载并按内存EX
 
 
 # <翻译开始>
-func LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int, hModule
+func LoadZipResEx(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2 *int, hModule
 模块句柄
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2
+func LoadZipResEx(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1 *int, pOutTemp2
 返回模板句柄2
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1
+func LoadZipResEx(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword string, pOutTemp1
 返回模板句柄1
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName string, pPassword
+func LoadZipResEx(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName string, pPassword
 zip密码
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipResEx(nType xcc.ListItemTemp_Type_, id int32, pFileName
+func LoadZipResEx(nType 炫彩常量类.ListItemTemp_Type_, id int32, pFileName
 模板文件名
 # <翻译结束>
 
 # <翻译开始>
-func LoadZipResEx(nType xcc.ListItemTemp_Type_, id
+func LoadZipResEx(nType 炫彩常量类.ListItemTemp_Type_, id
 RC资源ID
 # <翻译结束>
 

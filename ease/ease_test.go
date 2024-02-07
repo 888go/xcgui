@@ -1,12 +1,13 @@
 package ease_test
 
+// 炫彩缓动类_test
 import (
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/ease"
-	"github.com/twgh/xcgui/tf"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/ease"
+	"github.com/888go/xcgui/tf"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 	"testing"
 	"time"
 )

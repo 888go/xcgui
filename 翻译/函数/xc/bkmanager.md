@@ -49,17 +49,17 @@ X背景_添加内容
 
 
 # <翻译开始>
-func XBkM_AddBorder(hBkInfoM int, nState xcc.CombinedState, color, width, id
+func XBkM_AddBorder(hBkInfoM int, nState 炫彩常量类.CombinedState, color, width, id
 背景对象ID
 # <翻译结束>
 
 # <翻译开始>
-func XBkM_AddBorder(hBkInfoM int, nState xcc.CombinedState, color, width
+func XBkM_AddBorder(hBkInfoM int, nState 炫彩常量类.CombinedState, color, width
 线宽
 # <翻译结束>
 
 # <翻译开始>
-func XBkM_AddBorder(hBkInfoM int, nState xcc.CombinedState, color
+func XBkM_AddBorder(hBkInfoM int, nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -80,12 +80,12 @@ X背景_添加边框
 
 
 # <翻译开始>
-func XBkM_AddFill(hBkInfoM int, nState xcc.CombinedState, color, id
+func XBkM_AddFill(hBkInfoM int, nState 炫彩常量类.CombinedState, color, id
 背景对象ID
 # <翻译结束>
 
 # <翻译开始>
-func XBkM_AddFill(hBkInfoM int, nState xcc.CombinedState, color
+func XBkM_AddFill(hBkInfoM int, nState 炫彩常量类.CombinedState, color
 ABGR颜色
 # <翻译结束>
 
@@ -106,12 +106,12 @@ X背景_添加填充
 
 
 # <翻译开始>
-func XBkM_AddImage(hBkInfoM int, nState xcc.CombinedState, hImage, id
+func XBkM_AddImage(hBkInfoM int, nState 炫彩常量类.CombinedState, hImage, id
 背景对象ID
 # <翻译结束>
 
 # <翻译开始>
-func XBkM_AddImage(hBkInfoM int, nState xcc.CombinedState, hImage
+func XBkM_AddImage(hBkInfoM int, nState 炫彩常量类.CombinedState, hImage
 图片句柄
 # <翻译结束>
 
@@ -154,12 +154,12 @@ X背景_清空
 
 
 # <翻译开始>
-func XBkM_Draw(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect
+func XBkM_Draw(hBkInfoM int, nState 炫彩常量类.CombinedState, hDraw int, pRect
 区域坐标
 # <翻译结束>
 
 # <翻译开始>
-func XBkM_Draw(hBkInfoM int, nState xcc.CombinedState, hDraw
+func XBkM_Draw(hBkInfoM int, nState 炫彩常量类.CombinedState, hDraw
 图形绘制句柄
 # <翻译结束>
 
@@ -180,17 +180,17 @@ X背景_绘制
 
 
 # <翻译开始>
-func XBkM_DrawEx(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect *RECT, nStateEx
+func XBkM_DrawEx(hBkInfoM int, nState 炫彩常量类.CombinedState, hDraw int, pRect *RECT, nStateEx
 状态
 # <翻译结束>
 
 # <翻译开始>
-func XBkM_DrawEx(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect
+func XBkM_DrawEx(hBkInfoM int, nState 炫彩常量类.CombinedState, hDraw int, pRect
 区域坐标
 # <翻译结束>
 
 # <翻译开始>
-func XBkM_DrawEx(hBkInfoM int, nState xcc.CombinedState, hDraw
+func XBkM_DrawEx(hBkInfoM int, nState 炫彩常量类.CombinedState, hDraw
 图形绘制句柄
 # <翻译结束>
 
@@ -276,7 +276,7 @@ X背景_设置内容
 
 
 # <翻译开始>
-func XBkM_GetStateTextColor(hBkInfoM int, nState xcc.CombinedState, color
+func XBkM_GetStateTextColor(hBkInfoM int, nState 炫彩常量类.CombinedState, color
 接收返回的ABGR颜色
 # <翻译结束>
 

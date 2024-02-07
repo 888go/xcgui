@@ -73,7 +73,7 @@ X菜单_添加项图标
 
 
 # <翻译开始>
-func XMenu_InsertItem(hMenu int, nID int32, pText string, nFlags xcc.Menu_Item_Flag_, insertID
+func XMenu_InsertItem(hMenu int, nID int32, pText string, nFlags 炫彩常量类.Menu_Item_Flag_, insertID
 插入位置ID
 # <翻译结束>
 
@@ -104,7 +104,7 @@ X菜单_插入项
 
 
 # <翻译开始>
-func XMenu_InsertItemIcon(hMenu int, nID int32, pText string, hIcon int, nFlags xcc.Menu_Item_Flag_, insertID
+func XMenu_InsertItemIcon(hMenu int, nID int32, pText string, hIcon int, nFlags 炫彩常量类.Menu_Item_Flag_, insertID
 插入位置ID
 # <翻译结束>
 

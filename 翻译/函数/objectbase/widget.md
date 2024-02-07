@@ -91,7 +91,7 @@ X布局项启用浮动
 
 
 # <翻译开始>
-func (w *Widget) LayoutItem_SetWidth(nType xcc.Layout_Size_, nWidth
+func (w *Widget) LayoutItem_SetWidth(nType 炫彩常量类.Layout_Size_, nWidth
 宽度
 # <翻译结束>
 
@@ -107,7 +107,7 @@ X布局项置宽度
 
 
 # <翻译开始>
-func (w *Widget) LayoutItem_SetHeight(nType xcc.Layout_Size_, nHeight
+func (w *Widget) LayoutItem_SetHeight(nType 炫彩常量类.Layout_Size_, nHeight
 高度
 # <翻译结束>
 
@@ -123,7 +123,7 @@ X布局项置高度
 
 
 # <翻译开始>
-func (w *Widget) LayoutItem_GetWidth(pType *xcc.Layout_Size_, pWidth
+func (w *Widget) LayoutItem_GetWidth(pType *炫彩常量类.Layout_Size_, pWidth
 返回宽度
 # <翻译结束>
 
@@ -139,7 +139,7 @@ X布局项取宽度
 
 
 # <翻译开始>
-func (w *Widget) LayoutItem_GetHeight(pType *xcc.Layout_Size_, pHeight
+func (w *Widget) LayoutItem_GetHeight(pType *炫彩常量类.Layout_Size_, pHeight
 返回高度
 # <翻译结束>
 

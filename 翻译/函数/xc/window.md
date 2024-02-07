@@ -124,7 +124,7 @@ X窗口_置顶
 
 
 # <翻译开始>
-func XWnd_RegEventC(hWindow int, nEvent xcc.WM_, pFun
+func XWnd_RegEventC(hWindow int, nEvent 炫彩常量类.WM_, pFun
 事件函数
 # <翻译结束>
 
@@ -145,7 +145,7 @@ X窗口_注册事件C
 
 
 # <翻译开始>
-func XWnd_RegEventC1(hWindow int, nEvent xcc.WM_, pFun
+func XWnd_RegEventC1(hWindow int, nEvent 炫彩常量类.WM_, pFun
 事件函数
 # <翻译结束>
 
@@ -166,7 +166,7 @@ X窗口_注册事件C1
 
 
 # <翻译开始>
-func XWnd_RemoveEventC(hWindow int, nEvent xcc.WM_, pFun
+func XWnd_RemoveEventC(hWindow int, nEvent 炫彩常量类.WM_, pFun
 事件函数
 # <翻译结束>
 
@@ -187,7 +187,7 @@ X窗口_移除事件C
 
 
 # <翻译开始>
-func XWnd_RegEventCEx(hWindow int, nEvent xcc.WM_, pFun
+func XWnd_RegEventCEx(hWindow int, nEvent 炫彩常量类.WM_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -208,7 +208,7 @@ X窗口_注册事件CEx
 
 
 # <翻译开始>
-func XWnd_RegEventC1Ex(hWindow int, nEvent xcc.WM_, pFun
+func XWnd_RegEventC1Ex(hWindow int, nEvent 炫彩常量类.WM_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -229,7 +229,7 @@ X窗口_注册事件C1Ex
 
 
 # <翻译开始>
-func XWnd_RemoveEventCEx(hWindow int, nEvent xcc.WM_, pFun
+func XWnd_RemoveEventCEx(hWindow int, nEvent 炫彩常量类.WM_, pFun
 事件函数指针
 # <翻译结束>
 
@@ -1708,12 +1708,12 @@ X窗口_取标题颜色
 
 
 # <翻译开始>
-func XWnd_AddBkBorder(hWindow int, nState xcc.Window_State_Flag_, color int, width
+func XWnd_AddBkBorder(hWindow int, nState 炫彩常量类.Window_State_Flag_, color int, width
 线宽
 # <翻译结束>
 
 # <翻译开始>
-func XWnd_AddBkBorder(hWindow int, nState xcc.Window_State_Flag_, color
+func XWnd_AddBkBorder(hWindow int, nState 炫彩常量类.Window_State_Flag_, color
 ABGR颜色
 # <翻译结束>
 
@@ -1734,7 +1734,7 @@ X窗口_添加背景边框
 
 
 # <翻译开始>
-func XWnd_AddBkFill(hWindow int, nState xcc.Window_State_Flag_, color
+func XWnd_AddBkFill(hWindow int, nState 炫彩常量类.Window_State_Flag_, color
 ABGR颜色
 # <翻译结束>
 
@@ -1755,7 +1755,7 @@ X窗口_添加背景填充
 
 
 # <翻译开始>
-func XWnd_AddBkImage(hWindow int, nState xcc.Window_State_Flag_, hImage
+func XWnd_AddBkImage(hWindow int, nState 炫彩常量类.Window_State_Flag_, hImage
 图片句柄
 # <翻译结束>
 
@@ -1878,27 +1878,27 @@ X窗口_置标题外间距
 
 
 # <翻译开始>
-func XWnd_SetWindowPos(hWindow int, hWndInsertAfter xcc.HWND_, x, y, cx, cy int32, uFlags
+func XWnd_SetWindowPos(hWindow int, hWndInsertAfter 炫彩常量类.HWND_, x, y, cx, cy int32, uFlags
 窗口大小调整和定位标志
 # <翻译结束>
 
 # <翻译开始>
-func XWnd_SetWindowPos(hWindow int, hWndInsertAfter xcc.HWND_, x, y, cx, cy
+func XWnd_SetWindowPos(hWindow int, hWndInsertAfter 炫彩常量类.HWND_, x, y, cx, cy
 高度
 # <翻译结束>
 
 # <翻译开始>
-func XWnd_SetWindowPos(hWindow int, hWndInsertAfter xcc.HWND_, x, y, cx
+func XWnd_SetWindowPos(hWindow int, hWndInsertAfter 炫彩常量类.HWND_, x, y, cx
 宽度
 # <翻译结束>
 
 # <翻译开始>
-func XWnd_SetWindowPos(hWindow int, hWndInsertAfter xcc.HWND_, x, y
+func XWnd_SetWindowPos(hWindow int, hWndInsertAfter 炫彩常量类.HWND_, x, y
 Y坐标
 # <翻译结束>
 
 # <翻译开始>
-func XWnd_SetWindowPos(hWindow int, hWndInsertAfter xcc.HWND_, x
+func XWnd_SetWindowPos(hWindow int, hWndInsertAfter 炫彩常量类.HWND_, x
 X坐标
 # <翻译结束>
 

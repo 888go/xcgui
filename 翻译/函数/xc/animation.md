@@ -64,7 +64,7 @@ X动画_创建动画序列
 
 
 # <翻译开始>
-func XAnima_Move(hSequence int, duration int, x float32, y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_Move(hSequence int, duration int, x float32, y float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -105,7 +105,7 @@ X动画_移动
 
 
 # <翻译开始>
-func XAnima_MoveEx(hSequence int, duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_MoveEx(hSequence int, duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -156,7 +156,7 @@ X动画_移动EX
 
 
 # <翻译开始>
-func XAnima_Rotate(hSequence int, duration int, angle float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_Rotate(hSequence int, duration int, angle float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -192,7 +192,7 @@ X动画_旋转
 
 
 # <翻译开始>
-func XAnima_RotateEx(hSequence int, duration int, from float32, to float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_RotateEx(hSequence int, duration int, from float32, to float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -233,7 +233,7 @@ X动画_旋转EX
 
 
 # <翻译开始>
-func XAnima_Scale(hSequence int, duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_Scale(hSequence int, duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -274,7 +274,7 @@ X动画_缩放
 
 
 # <翻译开始>
-func XAnima_ScaleSize(hSequence int, duration int, width float32, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_ScaleSize(hSequence int, duration int, width float32, height float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -315,7 +315,7 @@ X动画_缩放大小
 
 
 # <翻译开始>
-func XAnima_Alpha(hSequence int, duration int, alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_Alpha(hSequence int, duration int, alpha uint8, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -351,7 +351,7 @@ X动画_透明度
 
 
 # <翻译开始>
-func XAnima_AlphaEx(hSequence int, duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_AlphaEx(hSequence int, duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -392,7 +392,7 @@ X动画_透明度EX
 
 
 # <翻译开始>
-func XAnima_Color(hSequence int, duration int, color int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_Color(hSequence int, duration int, color int, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -428,7 +428,7 @@ X动画_颜色
 
 
 # <翻译开始>
-func XAnima_ColorEx(hSequence int, duration int, from int, to int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_ColorEx(hSequence int, duration int, from int, to int, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
@@ -469,22 +469,22 @@ X动画_颜色EX
 
 
 # <翻译开始>
-func XAnima_LayoutWidth(hSequence int, duration int, nType xcc.Layout_Size_, width float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_LayoutWidth(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, width float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutWidth(hSequence int, duration int, nType xcc.Layout_Size_, width float32, nLoopCount int, ease_flag
+func XAnima_LayoutWidth(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, width float32, nLoopCount int, ease_flag
 缓动标识
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutWidth(hSequence int, duration int, nType xcc.Layout_Size_, width float32, nLoopCount
+func XAnima_LayoutWidth(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, width float32, nLoopCount
 动画循环次数
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutWidth(hSequence int, duration int, nType xcc.Layout_Size_, width
+func XAnima_LayoutWidth(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, width
 布局宽度
 # <翻译结束>
 
@@ -510,22 +510,22 @@ X动画_布局宽度
 
 
 # <翻译开始>
-func XAnima_LayoutHeight(hSequence int, duration int, nType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_LayoutHeight(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutHeight(hSequence int, duration int, nType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag
+func XAnima_LayoutHeight(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag
 缓动标识
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutHeight(hSequence int, duration int, nType xcc.Layout_Size_, height float32, nLoopCount
+func XAnima_LayoutHeight(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, height float32, nLoopCount
 动画循环次数
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutHeight(hSequence int, duration int, nType xcc.Layout_Size_, height
+func XAnima_LayoutHeight(hSequence int, duration int, nType 炫彩常量类.Layout_Size_, height
 布局高度
 # <翻译结束>
 
@@ -551,32 +551,32 @@ X动画_布局高度
 
 
 # <翻译开始>
-func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_LayoutSize(hSequence int, duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag
+func XAnima_LayoutSize(hSequence int, duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height float32, nLoopCount int, ease_flag
 缓动标识
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount
+func XAnima_LayoutSize(hSequence int, duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height float32, nLoopCount
 动画循环次数
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height
+func XAnima_LayoutSize(hSequence int, duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType 炫彩常量类.Layout_Size_, height
 布局高度
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType
+func XAnima_LayoutSize(hSequence int, duration int, nWidthType 炫彩常量类.Layout_Size_, width float32, nHeightType
 布局大小类型
 # <翻译结束>
 
 # <翻译开始>
-func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width
+func XAnima_LayoutSize(hSequence int, duration int, nWidthType 炫彩常量类.Layout_Size_, width
 布局宽度
 # <翻译结束>
 
@@ -902,7 +902,7 @@ X动画项_启用自动销毁
 
 
 # <翻译开始>
-func XAnima_DelayEx(hSequence int, duration float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack
+func XAnima_DelayEx(hSequence int, duration float32, nLoopCount int, ease_flag 炫彩常量类.Ease_Flag_, bGoBack
 是否返回
 # <翻译结束>
 

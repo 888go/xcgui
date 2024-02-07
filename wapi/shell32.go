@@ -1,12 +1,12 @@
 package wapi
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/888go/xcgui/common"
 	"syscall"
 	"unsafe"
-
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 var (
@@ -22,11 +22,9 @@ var (
 	sHGetPathFromIDListW = shell32.NewProc("SHGetPathFromIDListW")
 )
 
-// 拖放文件取路径.
-// // hDropInfo: 拖放信息句柄.
 // DragQueryFileW 检索由成功的拖放操作产生的文件路径.
-// //	@Description 详见: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-DragQueryFileW.
 //
+//	@Description 详见: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-DragQueryFileW.
 //	@param hDrop 句柄.
 //	@param iFile 文件索引.
 //	@param lpszFile 返回的文件路径.
@@ -39,32 +37,43 @@ func DragQueryFileW(hDrop uintptr, iFile uint32, lpszFile *string, cch uint32) i
 	return int(r)
 }
 
-// 拖放文件取鼠标位置
-// DragQueryPoint 检索在拖放文件时鼠标指针的位置.
-// //	@Description 详见: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-DragQueryPoint.
+// DragFinish 释放系统分配用于将文件名传输到应用程序的内存.
 //
-//	@param hDrop: 句柄.
-//	@param ppt: 接收鼠标指针的坐标.
+//	@Description 详见: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-DragFinish.
+//	@param hDrop 句柄.
+func DragFinish(hDrop uintptr) {
+	dragFinish.Call(hDrop)
+}
+
+// DragQueryPoint 检索在拖放文件时鼠标指针的位置.
+//
+//	@Description 详见: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-DragQueryPoint.
+//	@param hDrop 句柄.
+//	@param ppt 接收鼠标指针的坐标.
 //	@return bool 如果拖放发生在窗口的客户区, 返回true；否则返回false.
 func DragQueryPoint(hDrop uintptr, ppt *xc.POINT) bool {
 	r, _, _ := dragQueryPoint.Call(hDrop, uintptr(unsafe.Pointer(ppt)))
 	return r != 0
 }
 
-// 对指定文件执行操作. 如果函数成功，则返回大于 32 的值。如果函数失败，则返回指示失败原因的错误值.
-// hwnd:父窗口句柄 。如果操作与窗口无关，则此值可以为0.
-// lpOperation:操作类型  填“open”则打开lpFlie文档. 其它操作详见:https:/docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew.
-// lpFile:文件名,想用关联的程序打印或打开的一个程序名或文件名.
-// lpParameters:参数  如果lpFile是一个可执行文件，则这个字串包含了传递给执行程序的参数.
-// lpDirectory:默认完整路径  想使用的默认路径完整路径.
-// nShowCmd:显示Cmd  定义了如何显示启动程序的常数值:xcc.SW_.
+// ShellExecuteW 对指定文件执行操作.
+//
+//	@Description 详见: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew.
+//	@param hwnd 用于显示 UI 或错误消息的父窗口的句柄。如果操作与窗口无关，则此值可以为0.
+//	@param lpOperation 填“open”则打开lpFlie文档.
+//	@param lpFile 想用关联的程序打印或打开的一个程序名或文件名.
+//	@param lpParameters 如果lpFile是一个可执行文件，则这个字串包含了传递给执行程序的参数.
+//	@param lpDirectory 想使用的默认路径完整路径.
+//	@param nShowCmd 定义了如何显示启动程序的常数值, xcc.SW_.
+//	@return int 如果函数成功，则返回大于32的值。如果函数失败，则返回指示失败原因的错误值.
 func ShellExecuteW(hwnd uintptr, lpOperation, lpFile, lpParameters, lpDirectory string, nShowCmd xcc.SW_) int {
 	r, _, _ := shellExecuteW.Call(hwnd, common.StrPtr(lpOperation), common.StrPtr(lpFile), common.StrPtr(lpParameters), common.StrPtr(lpDirectory), uintptr(nShowCmd))
 	return int(r)
 }
 
 // BrowseInfoW 包含用于显示对话框的信息。
-// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/shlobj_core/ns-shlobj_core-browseinfow.
+//
+//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/shlobj_core/ns-shlobj_core-browseinfow.
 type BrowseInfoW struct {
 	HwndOwner      uintptr // 父窗口句柄
 	PidlRoot       uintptr // 指定开始浏览的根文件夹的位置。只有命名空间层次结构中的指定文件夹及其子文件夹出现在对话框中。该成员可以为NULL；在这种情况下，将使用默认位置.
@@ -115,21 +124,21 @@ const (
 	BIF_BROWSEFILEJUNCTIONS BIF_ = 0x00010000 // Windows 7 及更高版本。允许浏览文件夹连接，例如库或具有 .zip 文件扩展名的压缩文件。
 )
 
-// 对话框打开文件夹.
+// SHBrowseForFolderW 显示一个对话框，使用户能够选择文件夹。
 //
-//	@param browseInfo:对话框选项 指向 wapi.BrowseInfoW 结构的指针，该结构包含用于显示对话框的信息。
+//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/shlobj_core/nf-shlobj_core-shbrowseforfolderw.
+//	@param browseInfo 指向 wapi.BrowseInfoW 结构的指针，该结构包含用于显示对话框的信息。
 //	@return uintptr 返回一个 PIDL，它指定所选文件夹相对于命名空间根的位置。如果用户在对话框中选择取消按钮，则返回值为NULL。返回的 PIDL 可能是文件夹快捷方式而不是文件夹。
 func SHBrowseForFolderW(browseInfo *BrowseInfoW) uintptr {
 	r, _, _ := sHBrowseForFolderW.Call(uintptr(unsafe.Pointer(browseInfo)))
 	return r
 }
 
-// PIDL指针取实际路径
 // SHGetPathFromIDListW 将 SHBrowseForFolderW 的返回值转换为文件路径。
-// //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/shlobj_core/nf-shlobj_core-shgetpathfromidlistw.
 //
-//	@param pidl:文件夹指针
-//	@param pszPath: 返回文件路径。
+//	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/shlobj_core/nf-shlobj_core-shgetpathfromidlistw.
+//	@param pidl SHBrowseForFolderW 的返回值.
+//	@param pszPath 返回的文件路径。
 //	@return bool
 func SHGetPathFromIDListW(pidl uintptr, pszPath *string) bool {
 	buf := make([]uint16, 260)
