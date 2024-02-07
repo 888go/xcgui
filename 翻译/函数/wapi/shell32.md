@@ -80,6 +80,6 @@ func SHGetPathFromIDListW(pidl
 
 # <翻译开始>
 func SHGetPathFromIDListW
-文件夹指针取实际路径
+X文件夹指针取实际路径
 # <翻译结束>
 

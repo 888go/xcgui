@@ -4,7 +4,7 @@ import (
 	"github.com/888go/xcgui/common"
 	"syscall"
 	"unsafe"
-	
+
 	"github.com/888go/xcgui/xc"
 	"github.com/888go/xcgui/xcc"
 )
@@ -140,7 +140,7 @@ func X对话框打开文件夹(对话框选项 *BrowseInfoW) uintptr {
 //	@param pidl SHBrowseForFolderW 的返回值.
 //	@param pszPath 返回的文件路径。
 //	@return bool
-func 文件夹指针取实际路径(文件夹指针 uintptr, 返回文件路径 *string) bool {
+func X文件夹指针取实际路径(文件夹指针 uintptr, 返回文件路径 *string) bool {
 	buf := make([]uint16, 260)
 	r, _, _ := sHGetPathFromIDListW.Call(文件夹指针, 炫彩工具类.Uint16SliceDataPtr(&buf))
 	*返回文件路径 = syscall.UTF16ToString(buf)

@@ -29,7 +29,7 @@ func TestSHBrowseForFolderW(t *testing.T) {
 		IImage:         0,
 	}
 	var pszPath string
-	ret := 炫彩WinApi类.文件夹指针取实际路径(炫彩WinApi类.X对话框打开文件夹(&bi), &pszPath)
+	ret := 炫彩WinApi类.X文件夹指针取实际路径(炫彩WinApi类.X对话框打开文件夹(&bi), &pszPath)
 	fmt.Println(ret)
 	fmt.Println("pszPath:", pszPath)                           // 用户选择的文件夹完整路径
 	fmt.Println("PszDisplayName:", syscall.UTF16ToString(buf)) // 用户选择的文件夹的名称
