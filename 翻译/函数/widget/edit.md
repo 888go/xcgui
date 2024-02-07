@@ -229,12 +229,12 @@ X取数据
 
 
 # <翻译开始>
-func (e *Edit) AddData(pData *xc.Edit_Data_Copy_, styleTable []uint16, nStyleCount
+func (e *Edit) AddData(pData *炫彩基类.Edit_Data_Copy_, styleTable []uint16, nStyleCount
 样式数量
 # <翻译结束>
 
 # <翻译开始>
-func (e *Edit) AddData(pData *xc.Edit_Data_Copy_, styleTable
+func (e *Edit) AddData(pData *炫彩基类.Edit_Data_Copy_, styleTable
 样式表
 # <翻译结束>
 
@@ -794,7 +794,7 @@ X取选择文本
 
 
 # <翻译开始>
-func (e *Edit) GetSelectRange(pBegin *xc.Position_, pEnd
+func (e *Edit) GetSelectRange(pBegin *炫彩基类.Position_, pEnd
 结束位置
 # <翻译结束>
 

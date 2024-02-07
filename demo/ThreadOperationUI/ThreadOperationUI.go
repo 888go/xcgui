@@ -14,28 +14,28 @@ import (
 )
 
 var (
-	a         *app.App
+	a         *炫彩App类.App
 	w         *window.Window
-	btn       *widget.Button
-	radioBtn1 *widget.Button
-	radioBtn2 *widget.Button
+	btn       *炫彩组件类.Button
+	radioBtn1 *炫彩组件类.Button
+	radioBtn2 *炫彩组件类.Button
 
 	t = 1 // 方式类型
 )
 
 func main() {
-	a = app.New(true)
-	w = window.New(0, 0, 550, 300, "ThreadOperationUI", 0, xcc.Window_Style_Default)
+	a = 炫彩App类.New(true)
+	w = window.New(0, 0, 550, 300, "ThreadOperationUI", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建按钮
-	btn = widget.NewButton(20, 35, 100, 30, "click", w.Handle)
+	btn = 炫彩组件类.NewButton(20, 35, 100, 30, "click", w.Handle)
 	btn.Event_BnClick(onBnClick)
 
 	// 单选按钮
-	radioBtn1 = widget.NewButton(20, 70, 70, 30, "方式1", w.Handle)
-	radioBtn2 = widget.NewButton(100, 70, 70, 30, "方式2", w.Handle)
-	radioBtn1.SetTypeEx(xcc.Button_Type_Radio)
-	radioBtn2.SetTypeEx(xcc.Button_Type_Radio)
+	radioBtn1 = 炫彩组件类.NewButton(20, 70, 70, 30, "方式1", w.Handle)
+	radioBtn2 = 炫彩组件类.NewButton(100, 70, 70, 30, "方式2", w.Handle)
+	radioBtn1.SetTypeEx(炫彩常量类.Button_Type_Radio)
+	radioBtn2.SetTypeEx(炫彩常量类.Button_Type_Radio)
 	radioBtn1.SetCheck(true) // 默认选中radioBtn1
 	radioBtn1.Event_BUTTON_CHECK1(onBnCheck)
 	radioBtn2.Event_BUTTON_CHECK1(onBnCheck)

@@ -12,22 +12,22 @@ import (
 )
 
 var (
-	a  *app.App
+	a  *炫彩App类.App
 	w  *window.Window
-	mb *widget.MenuBar
+	mb *炫彩组件类.MenuBar
 )
 
 func main() {
 	// 1.初始化UI库
-	a = app.New(true)
+	a = 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w = window.New(0, 0, 570, 400, "MenuBar", 0, xcc.Window_Style_Default)
+	w = window.New(0, 0, 570, 400, "MenuBar", 0, 炫彩常量类.Window_Style_Default)
 	w.SetBorderSize(1, 30, 1, 1)
 
 	// 创建菜单条
-	mb = widget.NewMenuBar(5, 32, w.GetWidth()-10, 30, w.Handle)
+	mb = 炫彩组件类.NewMenuBar(5, 32, w.GetWidth()-10, 30, w.Handle)
 	// 菜单条禁用按钮自动宽度
 	mb.EnableAutoWidth(false)
 	// 菜单条禁用绘制边框
@@ -49,12 +49,12 @@ func main() {
 	for i := 0; i < mb.GetChildCount(); i++ {
 		hele := mb.GetChildByIndex(i)
 		xc.XEle_EnableDrawBorder(hele, false)
-		xc.XEle_RegEventC1(hele, xcc.XE_BNCLICK, onMenuBarBnClick)
-		xc.XEle_RegEventC1(hele, xcc.XE_MENU_SELECT, onMenuSelect)
+		xc.XEle_RegEventC1(hele, 炫彩常量类.XE_BNCLICK, onMenuBarBnClick)
+		xc.XEle_RegEventC1(hele, 炫彩常量类.XE_MENU_SELECT, onMenuSelect)
 	}
 
 	// 3.显示窗口
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	// 4.运行程序
 	a.Run()
 	// 5.释放UI库
@@ -64,19 +64,19 @@ func main() {
 func onMenuBarBnClick(hEle int, pbHandled *bool) int {
 	fmt.Println(xc.XBtn_GetText(hEle) + "被单击了")
 	// 创建菜单
-	menu := widget.NewMenu()
+	menu := 炫彩组件类.NewMenu()
 	// 一级菜单
-	menu.AddItem(10001, "item1", 0, xcc.Menu_Item_Flag_Normal)
-	menu.AddItem(10002, "item2", 0, xcc.Menu_Item_Flag_Normal)
+	menu.AddItem(10001, "item1", 0, 炫彩常量类.Menu_Item_Flag_Normal)
+	menu.AddItem(10002, "item2", 0, 炫彩常量类.Menu_Item_Flag_Normal)
 
 	// 获取按钮坐标
 	var rc xc.RECT
 	xc.XEle_GetWndClientRectDPI(hEle, &rc)
 	// 转换到屏幕坐标
-	pt := wapi.POINT{X: rc.Left, Y: rc.Bottom}
-	wapi.ClientToScreen(w.GetHWND(), &pt)
+	pt := 炫彩WinApi类.POINT{X: rc.Left, Y: rc.Bottom}
+	炫彩WinApi类.ClientToScreen(w.GetHWND(), &pt)
 	// 弹出菜单
-	menu.Popup(w.GetHWND(), pt.X, pt.Y, hEle, xcc.Menu_Popup_Position_Left_Top)
+	menu.Popup(w.GetHWND(), pt.X, pt.Y, hEle, 炫彩常量类.Menu_Popup_Position_Left_Top)
 	return 0
 }
 

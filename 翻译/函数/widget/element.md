@@ -359,17 +359,17 @@ X插入子对象
 
 
 # <翻译开始>
-func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
+func (e *Element) SetRect(pRect *炫彩基类.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags
+func (e *Element) SetRect(pRect *炫彩基类.RECT, bRedraw bool, nFlags
 标识
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) SetRect(pRect *xc.RECT, bRedraw
+func (e *Element) SetRect(pRect *炫彩基类.RECT, bRedraw
 是否重绘
 # <翻译结束>
 
@@ -426,17 +426,17 @@ X置坐标EX
 
 
 # <翻译开始>
-func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
+func (e *Element) SetRectLogic(pRect *炫彩基类.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo
 流水号
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags
+func (e *Element) SetRectLogic(pRect *炫彩基类.RECT, bRedraw bool, nFlags
 标识
 # <翻译结束>
 
 # <翻译开始>
-func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw
+func (e *Element) SetRectLogic(pRect *炫彩基类.RECT, bRedraw
 是否重绘
 # <翻译结束>
 
@@ -790,7 +790,7 @@ X重绘
 
 
 # <翻译开始>
-func (e *Element) RedrawRect(pRect *xc.RECT, bImmediate
+func (e *Element) RedrawRect(pRect *炫彩基类.RECT, bImmediate
 是否立即重绘
 # <翻译结束>
 

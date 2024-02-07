@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -170,10 +170,10 @@ type XE_SBAR_SCROLL1 func(hEle int, pos int32, pbHandled *bool) int // 滚动条
 
 // 滚动条元素滚动事件,滚动条触发.
 func (s *ScrollBar) Event_SBAR_SCROLL(pFun XE_SBAR_SCROLL) bool {
-	return xc.XEle_RegEventC(s.Handle, xcc.XE_SBAR_SCROLL, pFun)
+	return xc.XEle_RegEventC(s.Handle, 炫彩常量类.XE_SBAR_SCROLL, pFun)
 }
 
 // 滚动条元素滚动事件,滚动条触发.
 func (s *ScrollBar) Event_SBAR_SCROLL1(pFun XE_SBAR_SCROLL1) bool {
-	return xc.XEle_RegEventC1(s.Handle, xcc.XE_SBAR_SCROLL, pFun)
+	return xc.XEle_RegEventC1(s.Handle, 炫彩常量类.XE_SBAR_SCROLL, pFun)
 }

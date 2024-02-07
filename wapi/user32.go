@@ -1,4 +1,4 @@
-package wapi
+package 炫彩WinApi类
 
 import (
 	"syscall"
@@ -65,7 +65,7 @@ func DestroyIcon(hIcon uintptr) bool {
 //	@param dwVer presbits 参数指向的资源位的图标或光标格式的版本号。 该值必须大于或等于 0x00020000 且小于或等于 0x00030000。 此参数通常设置为 0x00030000。
 //	@return HICON
 func CreateIconFromResource(presbits uintptr, dwResSize uint32, fIcon bool, dwVer uint32) (uintptr, error) {
-	r, _, err := createIconFromResource.Call(presbits, uintptr(dwResSize), common.BoolPtr(fIcon), uintptr(dwVer))
+	r, _, err := createIconFromResource.Call(presbits, uintptr(dwResSize), 炫彩工具类.BoolPtr(fIcon), uintptr(dwVer))
 	return r, err
 }
 
@@ -123,7 +123,7 @@ const (
 //	@param fuLoad 此参数可使用以下一个或多个值: wapi.LR_ .
 //	@return 返回HICON。
 func LoadImageW(hInst uintptr, name string, Type IMAGE_, cx, cy int32, fuLoad LR_) uintptr {
-	r, _, _ := loadImageW.Call(hInst, common.StrPtr(name), uintptr(Type), uintptr(cx), uintptr(cy), uintptr(fuLoad))
+	r, _, _ := loadImageW.Call(hInst, 炫彩工具类.StrPtr(name), uintptr(Type), uintptr(cx), uintptr(cy), uintptr(fuLoad))
 	return r
 }
 
@@ -140,7 +140,7 @@ const (
 //	@param lpWindowName 窗口名称（窗口的标题）, 可为空.
 //	@return 返回窗口句柄。
 func FindWindowW(lpClassName, lpWindowName string) uintptr {
-	r, _, _ := findWindowW.Call(common.StrPtr(lpClassName), common.StrPtr(lpWindowName))
+	r, _, _ := findWindowW.Call(炫彩工具类.StrPtr(lpClassName), 炫彩工具类.StrPtr(lpWindowName))
 	return r
 }
 
@@ -150,7 +150,7 @@ func FindWindowW(lpClassName, lpWindowName string) uintptr {
 //	@param lpString 要注册的消息。
 //	@return int 如果成功注册消息，则返回值是范围0xC000到0xFFFF的消息标识符. 如果函数失败，则返回值为零.
 func RegisterWindowMessageW(lpString string) int {
-	r, _, _ := registerWindowMessageW.Call(common.StrPtr(lpString))
+	r, _, _ := registerWindowMessageW.Call(炫彩工具类.StrPtr(lpString))
 	return int(r)
 }
 
@@ -305,7 +305,7 @@ const (
 //	@param uType 对话框的内容和行为, 是以下值的组合: wapi.MB_.
 //	@return wapi.ID_ 如果函数失败，则返回值为0; 成功则返回一个整数，指示用户单击了哪个按钮.
 func MessageBoxW(hWnd uintptr, lpText, lpCaption string, uType MB_) ID_ {
-	r, _, _ := messageBoxW.Call(hWnd, common.StrPtr(lpText), common.StrPtr(lpCaption), uintptr(uType))
+	r, _, _ := messageBoxW.Call(hWnd, 炫彩工具类.StrPtr(lpText), 炫彩工具类.StrPtr(lpCaption), uintptr(uType))
 	return ID_(r)
 }
 
@@ -415,7 +415,7 @@ func SetForegroundWindow(hWnd uintptr) bool {
 //	@param lpszWindow 窗口名称（窗口的标题）, 可空.
 //	@return uintptr
 func FindWindowExW(hWndParent, hWndChildAfter uintptr, lpszClass, lpszWindow string) uintptr {
-	r, _, _ := findWindowExW.Call(hWndParent, hWndChildAfter, common.StrPtr(lpszClass), common.StrPtr(lpszWindow))
+	r, _, _ := findWindowExW.Call(hWndParent, hWndChildAfter, 炫彩工具类.StrPtr(lpszClass), 炫彩工具类.StrPtr(lpszWindow))
 	return r
 }
 
@@ -438,7 +438,7 @@ func GetWindowTextLengthW(hWnd uintptr) int {
 //	@return int 如果函数成功，则返回值是复制字符串的长度（以字符为单位），不包括终止空字符。如果窗口没有标题栏或文本，如果标题栏为空，或者窗口或控制句柄无效，则返回值为零。
 func GetWindowTextW(hWnd uintptr, lpString *string, nMaxCount int) int {
 	buf := make([]uint16, nMaxCount)
-	r, _, _ := getWindowTextW.Call(hWnd, common.Uint16SliceDataPtr(&buf), uintptr(nMaxCount))
+	r, _, _ := getWindowTextW.Call(hWnd, 炫彩工具类.Uint16SliceDataPtr(&buf), uintptr(nMaxCount))
 	*lpString = syscall.UTF16ToString(buf[0:])
 	return int(r)
 }

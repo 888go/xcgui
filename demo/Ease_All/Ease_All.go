@@ -16,7 +16,7 @@ import (
 var (
 	w *window.Window
 
-	m_easeFlag           = xcc.Ease_Type_Out // 缓动方式
+	m_easeFlag           = 炫彩常量类.Ease_Type_Out // 缓动方式
 	m_easeType   int32   = 11                // 缓动类型
 	m_pos                = 0                 // 当前位置
 	m_time               = 60                // 缓动点数量
@@ -26,9 +26,9 @@ var (
 )
 
 func main() {
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 	a.SetPaintFrequency(10)
-	w = window.New(0, 0, 700, 450, "炫彩缓动测试", 0, xcc.Window_Style_Default|xcc.Window_Style_Drag_Window)
+	w = window.New(0, 0, 700, 450, "炫彩缓动测试", 0, 炫彩常量类.Window_Style_Default|炫彩常量类.Window_Style_Drag_Window)
 
 	var left int32 = 30
 	var top int32 = 35
@@ -70,32 +70,32 @@ func main() {
 	CreateButton(1, 2, left, top, 100, "easeInOut")
 	left += 105
 
-	btn := widget.NewButton(445, top, 100, 24, "快速", w.Handle)
-	btn.SetTypeEx(xcc.Button_Type_Check)
+	btn := 炫彩组件类.NewButton(445, top, 100, 24, "快速", w.Handle)
+	btn.SetTypeEx(炫彩常量类.Button_Type_Check)
 	btn.SetCheck(true)
 	btn.Event_BUTTON_CHECK(OnBtnCheckSlow)
 
-	btn = widget.NewButton(445, 65, 100, 24, "从左向右", w.Handle)
-	btn.SetTypeEx(xcc.Button_Type_Radio)
+	btn = 炫彩组件类.NewButton(445, 65, 100, 24, "从左向右", w.Handle)
+	btn.SetTypeEx(炫彩常量类.Button_Type_Radio)
 	btn.SetGroupID(3)
 	btn.Event_BUTTON_CHECK(OnBtnCheck_LeftToRight)
 
-	btn = widget.NewButton(445, 92, 100, 24, "从上向下", w.Handle)
-	btn.SetTypeEx(xcc.Button_Type_Radio)
+	btn = 炫彩组件类.NewButton(445, 92, 100, 24, "从上向下", w.Handle)
+	btn.SetTypeEx(炫彩常量类.Button_Type_Radio)
 	btn.SetGroupID(3)
 	btn.SetCheck(true)
 	btn.Event_BUTTON_CHECK(OnBtnCheck_TopToBottom)
 
-	btn = widget.NewButton(550, 65, 110, 50, "Run - 窗口缓动", w.Handle)
+	btn = 炫彩组件类.NewButton(550, 65, 110, 50, "Run - 窗口缓动", w.Handle)
 	btn.Event_BnClick(OnBtnStartWindow)
 
-	btn = widget.NewButton(550, 120, 110, 50, "Run - 缓动曲线", w.Handle)
+	btn = 炫彩组件类.NewButton(550, 120, 110, 50, "Run - 缓动曲线", w.Handle)
 	btn.Event_BnClick(OnBtnStart)
 
 	// 窗口绘制事件
 	w.Event_PAINT(OnDrawWindow)
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 
 	// 窗口第一次出现时的缓动
 	time.AfterFunc(time.Millisecond*3, func() {
@@ -104,7 +104,7 @@ func main() {
 		w.GetRect(&rect)
 
 		for i := 1; i <= 30; i++ {
-			v := ease.Bounce(float32(i)/30.0, xcc.Ease_Type_Out)
+			v := 炫彩缓动类.Bounce(float32(i)/30.0, 炫彩常量类.Ease_Type_Out)
 			y := int32(v * float32(rect.Top))
 
 			w.SetPosition(rect.Left, y)
@@ -118,9 +118,9 @@ func main() {
 
 // 创建按钮
 func CreateButton(nGroup, id, x, y, cx int32, title string) {
-	btn := widget.NewButton(x, y, cx, 22, title, w.Handle)
+	btn := 炫彩组件类.NewButton(x, y, cx, 22, title, w.Handle)
 	// 设置为单选按钮
-	btn.SetTypeEx(xcc.Button_Type_Radio)
+	btn.SetTypeEx(炫彩常量类.Button_Type_Radio)
 	// 设置按钮组id
 	btn.SetGroupID(nGroup)
 	// 设置元素ID
@@ -141,7 +141,7 @@ func OnButtonCheck(hEle int, bCheck bool, pbHandled *bool) int {
 	id := xc.XWidget_GetID(hEle)
 
 	if id <= 2 {
-		m_easeFlag = xcc.Ease_Type_(id)
+		m_easeFlag = 炫彩常量类.Ease_Type_(id)
 	} else {
 		m_easeType = id - 10
 	}
@@ -186,27 +186,27 @@ func OnBtnStartWindow(pbHandled *bool) int {
 		var v float32
 		switch m_easeType {
 		case 1:
-			v = ease.Linear(float32(i) / float32(time2))
+			v = 炫彩缓动类.Linear(float32(i) / float32(time2))
 		case 2:
-			v = ease.Quad(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Quad(float32(i)/float32(time2), m_easeFlag)
 		case 3:
-			v = ease.Cubic(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Cubic(float32(i)/float32(time2), m_easeFlag)
 		case 4:
-			v = ease.Quart(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Quart(float32(i)/float32(time2), m_easeFlag)
 		case 5:
-			v = ease.Quint(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Quint(float32(i)/float32(time2), m_easeFlag)
 		case 6:
-			v = ease.Sine(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Sine(float32(i)/float32(time2), m_easeFlag)
 		case 7:
-			v = ease.Expo(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Expo(float32(i)/float32(time2), m_easeFlag)
 		case 8:
-			v = ease.Circ(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Circ(float32(i)/float32(time2), m_easeFlag)
 		case 9:
-			v = ease.Elastic(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Elastic(float32(i)/float32(time2), m_easeFlag)
 		case 10:
-			v = ease.Back(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Back(float32(i)/float32(time2), m_easeFlag)
 		case 11:
-			v = ease.Bounce(float32(i)/float32(time2), m_easeFlag)
+			v = 炫彩缓动类.Bounce(float32(i)/float32(time2), m_easeFlag)
 		}
 
 		if m_windowType == 1 {
@@ -228,27 +228,27 @@ func OnBtnStart(pbHandled *bool) int {
 		var v float32
 		switch m_easeType {
 		case 1:
-			v = ease.Linear(float32(i) / float32(m_time))
+			v = 炫彩缓动类.Linear(float32(i) / float32(m_time))
 		case 2:
-			v = ease.Quad(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Quad(float32(i)/float32(m_time), m_easeFlag)
 		case 3:
-			v = ease.Cubic(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Cubic(float32(i)/float32(m_time), m_easeFlag)
 		case 4:
-			v = ease.Quart(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Quart(float32(i)/float32(m_time), m_easeFlag)
 		case 5:
-			v = ease.Quint(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Quint(float32(i)/float32(m_time), m_easeFlag)
 		case 6:
-			v = ease.Sine(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Sine(float32(i)/float32(m_time), m_easeFlag)
 		case 7:
-			v = ease.Expo(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Expo(float32(i)/float32(m_time), m_easeFlag)
 		case 8:
-			v = ease.Circ(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Circ(float32(i)/float32(m_time), m_easeFlag)
 		case 9:
-			v = ease.Elastic(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Elastic(float32(i)/float32(m_time), m_easeFlag)
 		case 10:
-			v = ease.Back(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Back(float32(i)/float32(m_time), m_easeFlag)
 		case 11:
-			v = ease.Bounce(float32(i)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Bounce(float32(i)/float32(m_time), m_easeFlag)
 		}
 
 		m_pos = int(v * width)
@@ -268,7 +268,7 @@ func OnDrawWindow(hDraw int, pbHandled *bool) int {
 
 	var rect xc.RECT
 	w.GetClientRect(&rect)
-	draw := drawx.NewByHandle(hDraw)
+	draw := 炫彩绘制类.NewByHandle(hDraw)
 
 	draw.SetBrushColor(xc.ABGR(230, 230, 230, 255))
 	draw.FillRect(&rect)
@@ -317,27 +317,27 @@ func OnDrawWindow(hDraw int, pbHandled *bool) int {
 		var v float32
 		switch m_easeType {
 		case 1:
-			v = ease.Linear(float32(t) / float32(m_time))
+			v = 炫彩缓动类.Linear(float32(t) / float32(m_time))
 		case 2:
-			v = ease.Quad(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Quad(float32(t)/float32(m_time), m_easeFlag)
 		case 3:
-			v = ease.Cubic(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Cubic(float32(t)/float32(m_time), m_easeFlag)
 		case 4:
-			v = ease.Quart(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Quart(float32(t)/float32(m_time), m_easeFlag)
 		case 5:
-			v = ease.Quint(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Quint(float32(t)/float32(m_time), m_easeFlag)
 		case 6:
-			v = ease.Sine(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Sine(float32(t)/float32(m_time), m_easeFlag)
 		case 7:
-			v = ease.Expo(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Expo(float32(t)/float32(m_time), m_easeFlag)
 		case 8:
-			v = ease.Circ(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Circ(float32(t)/float32(m_time), m_easeFlag)
 		case 9:
-			v = ease.Elastic(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Elastic(float32(t)/float32(m_time), m_easeFlag)
 		case 10:
-			v = ease.Back(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Back(float32(t)/float32(m_time), m_easeFlag)
 		case 11:
-			v = ease.Bounce(float32(t)/float32(m_time), m_easeFlag)
+			v = 炫彩缓动类.Bounce(float32(t)/float32(m_time), m_easeFlag)
 		}
 
 		pts[t].X = rc.Left + int32(float32(t)*400.0/float32(m_time))

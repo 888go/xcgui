@@ -9,15 +9,15 @@ import (
 )
 
 var (
-	a    *app.App
+	a    *炫彩App类.App
 	w1   *window.Window
 	w2   *window.Window
-	btn1 *widget.Button
-	btn2 *widget.Button
+	btn1 *炫彩组件类.Button
+	btn2 *炫彩组件类.Button
 )
 
 func main() {
-	a = app.New(true)
+	a = 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 
@@ -28,15 +28,15 @@ func main() {
 }
 
 func loadWindow1() {
-	w1 = window.New(0, 0, 200, 200, "窗口1", 0, xcc.Window_Style_Default)
-	btn1 = widget.NewButton(50, 50, 100, 30, "载入窗口2", w1.Handle)
+	w1 = window.New(0, 0, 200, 200, "窗口1", 0, 炫彩常量类.Window_Style_Default)
+	btn1 = 炫彩组件类.NewButton(50, 50, 100, 30, "载入窗口2", w1.Handle)
 	btn1.Event_BnClick1(onBnClick)
 	w1.Show(true)
 }
 
 func loadWindow2() {
-	w2 = window.New(0, 0, 300, 300, "窗口2", 0, xcc.Window_Style_Default)
-	btn2 = widget.NewButton(100, 100, 100, 30, "载入窗口1", w2.Handle)
+	w2 = window.New(0, 0, 300, 300, "窗口2", 0, 炫彩常量类.Window_Style_Default)
+	btn2 = 炫彩组件类.NewButton(100, 100, 100, 30, "载入窗口1", w2.Handle)
 	btn2.Event_BnClick1(onBnClick)
 	w2.Show(true)
 }

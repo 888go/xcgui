@@ -1,4 +1,4 @@
-package tmpl
+package 炫彩模板类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -13,7 +13,7 @@ type Node struct {
 // 模板_创建节点.
 //
 // nType: 对象类型: xcc.XC_OBJECT_TYPE : xcc.XC_.
-func NewNode(nType xcc.XC_OBJECT_TYPE) *Node {
+func NewNode(nType 炫彩常量类.XC_OBJECT_TYPE) *Node {
 	p := &Node{
 		Handle: xc.XTemp_CreateNode(nType),
 	}

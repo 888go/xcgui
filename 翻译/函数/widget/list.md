@@ -716,12 +716,12 @@ X置锁定行底部重叠
 
 
 # <翻译开始>
-func (l *List) HitTest(pPt *xc.POINT, piItem *int32, piSubItem
+func (l *List) HitTest(pPt *炫彩基类.POINT, piItem *int32, piSubItem
 子项索引
 # <翻译结束>
 
 # <翻译开始>
-func (l *List) HitTest(pPt *xc.POINT, piItem
+func (l *List) HitTest(pPt *炫彩基类.POINT, piItem
 项索引
 # <翻译结束>
 
@@ -737,12 +737,12 @@ X测试点击项
 
 
 # <翻译开始>
-func (l *List) HitTestOffset(pPt *xc.POINT, piItem *int32, piSubItem
+func (l *List) HitTestOffset(pPt *炫彩基类.POINT, piItem *int32, piSubItem
 子项索引
 # <翻译结束>
 
 # <翻译开始>
-func (l *List) HitTestOffset(pPt *xc.POINT, piItem
+func (l *List) HitTestOffset(pPt *炫彩基类.POINT, piItem
 项索引
 # <翻译结束>
 

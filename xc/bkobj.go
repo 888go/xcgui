@@ -28,7 +28,7 @@ func XBkObj_SetMargin(hObj int, left int, top int, right int, bottom int) int {
 // hObj: 背景对象句柄.
 //
 // nFlags: 对齐方式: xcc.BkObject_Align_Flag_.
-func XBkObj_SetAlign(hObj int, nFlags xcc.BkObject_Align_Flag_) int {
+func XBkObj_SetAlign(hObj int, nFlags 炫彩常量类.BkObject_Align_Flag_) int {
 	r, _, _ := xBkObj_SetAlign.Call(uintptr(hObj), uintptr(nFlags))
 	return int(r)
 }
@@ -49,7 +49,7 @@ func XBkObj_SetImage(hObj int, hImage int) int {
 //
 // angle: 旋转角度.
 func XBkObj_SetRotate(hObj int, angle float32) int {
-	r, _, _ := xBkObj_SetRotate.Call(uintptr(hObj), common.Float32Ptr(angle))
+	r, _, _ := xBkObj_SetRotate.Call(uintptr(hObj), 炫彩工具类.Float32Ptr(angle))
 	return int(r)
 }
 
@@ -105,7 +105,7 @@ func XBkObj_SetRectRoundAngle(hObj int, leftTop int, leftBottom int, rightTop in
 //
 // bEnable: 是否启用.
 func XBkObj_EnableFill(hObj int, bEnable bool) int {
-	r, _, _ := xBkObj_EnableFill.Call(uintptr(hObj), common.BoolPtr(bEnable))
+	r, _, _ := xBkObj_EnableFill.Call(uintptr(hObj), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -115,7 +115,7 @@ func XBkObj_EnableFill(hObj int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XBkObj_EnableBorder(hObj int, bEnable bool) int {
-	r, _, _ := xBkObj_EnableBorder.Call(uintptr(hObj), common.BoolPtr(bEnable))
+	r, _, _ := xBkObj_EnableBorder.Call(uintptr(hObj), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -125,7 +125,7 @@ func XBkObj_EnableBorder(hObj int, bEnable bool) int {
 //
 // pText: 文本字符串.
 func XBkObj_SetText(hObj int, pText string) int {
-	r, _, _ := xBkObj_SetText.Call(uintptr(hObj), common.StrPtr(pText))
+	r, _, _ := xBkObj_SetText.Call(uintptr(hObj), 炫彩工具类.StrPtr(pText))
 	return int(r)
 }
 
@@ -144,7 +144,7 @@ func XBkObj_SetFont(hObj int, hFont int) int {
 // hObj: 背景对象句柄.
 //
 // nAlign: 文本对齐方式: xcc.TextFormatFlag_, xcc.TextAlignFlag_, xcc.TextTrimming_.
-func XBkObj_SetTextAlign(hObj int, nAlign xcc.TextFormatFlag_) int {
+func XBkObj_SetTextAlign(hObj int, nAlign 炫彩常量类.TextFormatFlag_) int {
 	r, _, _ := xBkObj_SetTextAlign.Call(uintptr(hObj), uintptr(nAlign))
 	return int(r)
 }
@@ -162,9 +162,9 @@ func XBkObj_GetMargin(hObj int, pMargin *RECT) int {
 // 背景对象_取对齐, 返回对齐标识: xcc.BkObject_Align_Flag_.
 //
 // hObj: 背景对象句柄.
-func XBkObj_GetAlign(hObj int) xcc.BkObject_Align_Flag_ {
+func XBkObj_GetAlign(hObj int) 炫彩常量类.BkObject_Align_Flag_ {
 	r, _, _ := xBkObj_GetAlign.Call(uintptr(hObj))
-	return xcc.BkObject_Align_Flag_(r)
+	return 炫彩常量类.BkObject_Align_Flag_(r)
 }
 
 // 背景对象_取图片, 返回图片句柄.
@@ -238,7 +238,7 @@ func XBkObj_IsBorder(hObj int) bool {
 // hObj: 背景对象句柄.
 func XBkObj_GetText(hObj int) string {
 	r, _, _ := xBkObj_GetText.Call(uintptr(hObj))
-	return common.UintPtrToString(r)
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 背景对象_取字体, 返回字体句柄.
@@ -252,7 +252,7 @@ func XBkObj_GetFont(hObj int) int {
 // 背景对象_取文本对齐, 返回文本对齐方式: xcc.TextFormatFlag_.
 //
 // hObj: 背景对象句柄.
-func XBkObj_GetTextAlign(hObj int) xcc.TextFormatFlag_ {
+func XBkObj_GetTextAlign(hObj int) 炫彩常量类.TextFormatFlag_ {
 	r, _, _ := xBkObj_GetTextAlign.Call(uintptr(hObj))
-	return xcc.TextFormatFlag_(r)
+	return 炫彩常量类.TextFormatFlag_(r)
 }

@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -167,30 +167,30 @@ type XE_DATETIME_EXIT_MONTHCAL1 func(hEle int, hMonthCalWnd int, hMonthCal int, 
 
 // 日期时间元素,内容改变事件.
 func (d *DateTime) Event_DATETIME_CHANGE(pFun XE_DATETIME_CHANGE) bool {
-	return xc.XEle_RegEventC(d.Handle, xcc.XE_DATETIME_CHANGE, pFun)
+	return xc.XEle_RegEventC(d.Handle, 炫彩常量类.XE_DATETIME_CHANGE, pFun)
 }
 
 // 日期时间元素,内容改变事件.
 func (d *DateTime) Event_DATETIME_CHANGE1(pFun XE_DATETIME_CHANGE1) bool {
-	return xc.XEle_RegEventC1(d.Handle, xcc.XE_DATETIME_CHANGE, pFun)
+	return xc.XEle_RegEventC1(d.Handle, 炫彩常量类.XE_DATETIME_CHANGE, pFun)
 }
 
 // 日期时间元素,弹出月历卡片事件.
 func (d *DateTime) Event_DATETIME_POPUP_MONTHCAL(pFun XE_DATETIME_POPUP_MONTHCAL) bool {
-	return xc.XEle_RegEventC(d.Handle, xcc.XE_DATETIME_POPUP_MONTHCAL, pFun)
+	return xc.XEle_RegEventC(d.Handle, 炫彩常量类.XE_DATETIME_POPUP_MONTHCAL, pFun)
 }
 
 // 日期时间元素,弹出月历卡片事件.
 func (d *DateTime) Event_DATETIME_POPUP_MONTHCAL1(pFun XE_DATETIME_POPUP_MONTHCAL1) bool {
-	return xc.XEle_RegEventC1(d.Handle, xcc.XE_DATETIME_POPUP_MONTHCAL, pFun)
+	return xc.XEle_RegEventC1(d.Handle, 炫彩常量类.XE_DATETIME_POPUP_MONTHCAL, pFun)
 }
 
 // 日期时间元素,弹出的月历卡片退出事件.
 func (d *DateTime) Event_DATETIME_EXIT_MONTHCAL(pFun XE_DATETIME_EXIT_MONTHCAL) bool {
-	return xc.XEle_RegEventC(d.Handle, xcc.XE_DATETIME_EXIT_MONTHCAL, pFun)
+	return xc.XEle_RegEventC(d.Handle, 炫彩常量类.XE_DATETIME_EXIT_MONTHCAL, pFun)
 }
 
 // 日期时间元素,弹出的月历卡片退出事件.
 func (d *DateTime) Event_DATETIME_EXIT_MONTHCAL1(pFun XE_DATETIME_EXIT_MONTHCAL1) bool {
-	return xc.XEle_RegEventC1(d.Handle, xcc.XE_DATETIME_EXIT_MONTHCAL, pFun)
+	return xc.XEle_RegEventC1(d.Handle, 炫彩常量类.XE_DATETIME_EXIT_MONTHCAL, pFun)
 }

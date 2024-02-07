@@ -16,8 +16,8 @@ import (
 // hIcon: 图标.
 //
 // skin: 外观类型, NotifyMsg_Skin_.
-func XNotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_) int {
-	r, _, _ := xNotifyMsg_Popup.Call(uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin))
+func XNotifyMsg_Popup(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_) int {
+	r, _, _ := xNotifyMsg_Popup.Call(uintptr(position), 炫彩工具类.StrPtr(pTitle), 炫彩工具类.StrPtr(pText), uintptr(hIcon), uintptr(skin))
 	return int(r)
 }
 
@@ -40,8 +40,8 @@ func XNotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText string, hIcon i
 // nWidth: 自定义宽度, -1(使用默认值).
 //
 // nHeight: 自定义高度, -1(使用默认值).
-func XNotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
-	r, _, _ := xNotifyMsg_PopupEx.Call(uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin), common.BoolPtr(bBtnClose), common.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
+func XNotifyMsg_PopupEx(position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
+	r, _, _ := xNotifyMsg_PopupEx.Call(uintptr(position), 炫彩工具类.StrPtr(pTitle), 炫彩工具类.StrPtr(pText), uintptr(hIcon), uintptr(skin), 炫彩工具类.BoolPtr(bBtnClose), 炫彩工具类.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
 	return int(r)
 }
 
@@ -58,8 +58,8 @@ func XNotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon
 // hIcon: 图标.
 //
 // skin: 外观类型, NotifyMsg_Skin_.
-func XNotifyMsg_WindowPopup(hWindow int, position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_) int {
-	r, _, _ := xNotifyMsg_WindowPopup.Call(uintptr(hWindow), uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin))
+func XNotifyMsg_WindowPopup(hWindow int, position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_) int {
+	r, _, _ := xNotifyMsg_WindowPopup.Call(uintptr(hWindow), uintptr(position), 炫彩工具类.StrPtr(pTitle), 炫彩工具类.StrPtr(pText), uintptr(hIcon), uintptr(skin))
 	return int(r)
 }
 
@@ -84,8 +84,8 @@ func XNotifyMsg_WindowPopup(hWindow int, position xcc.Position_Flag_, pTitle, pT
 // nWidth: 自定义宽度, -1(使用默认值).
 //
 // nHeight: 自定义高度, -1(使用默认值).
-func XNotifyMsg_WindowPopupEx(hWindow int, position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
-	r, _, _ := xNotifyMsg_WindowPopupEx.Call(uintptr(hWindow), uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin), common.BoolPtr(bBtnClose), common.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
+func XNotifyMsg_WindowPopupEx(hWindow int, position 炫彩常量类.Position_Flag_, pTitle, pText string, hIcon int, skin 炫彩常量类.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
+	r, _, _ := xNotifyMsg_WindowPopupEx.Call(uintptr(hWindow), uintptr(position), 炫彩工具类.StrPtr(pTitle), 炫彩工具类.StrPtr(pText), uintptr(hIcon), uintptr(skin), 炫彩工具类.BoolPtr(bBtnClose), 炫彩工具类.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
 	return int(r)
 }
 

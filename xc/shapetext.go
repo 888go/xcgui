@@ -19,7 +19,7 @@ import (
 //
 // hParent: 父对象句柄.
 func XShapeText_Create(x, y, cx, cy int32, pName string, hParent int) int {
-	r, _, _ := xShapeText_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
+	r, _, _ := xShapeText_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), 炫彩工具类.StrPtr(pName), uintptr(hParent))
 	return int(r)
 }
 
@@ -29,7 +29,7 @@ func XShapeText_Create(x, y, cx, cy int32, pName string, hParent int) int {
 //
 // pName: 文本内容.
 func XShapeText_SetText(hTextBlock int, pName string) int {
-	r, _, _ := xShapeText_SetText.Call(uintptr(hTextBlock), common.StrPtr(pName))
+	r, _, _ := xShapeText_SetText.Call(uintptr(hTextBlock), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -38,7 +38,7 @@ func XShapeText_SetText(hTextBlock int, pName string) int {
 // hTextBlock: 形状对象文本句柄.
 func XShapeText_GetText(hTextBlock int) string {
 	r, _, _ := xShapeText_GetText.Call(uintptr(hTextBlock))
-	return common.UintPtrToString(r)
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 形状文本_取文本长度, 获取文本长度.
@@ -90,7 +90,7 @@ func XShapeText_GetTextColor(hTextBlock int) int {
 // hTextBlock: 形状对象文本句柄.
 //
 // align: 文本对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func XShapeText_SetTextAlign(hTextBlock int, align xcc.TextFormatFlag_) int {
+func XShapeText_SetTextAlign(hTextBlock int, align 炫彩常量类.TextFormatFlag_) int {
 	r, _, _ := xShapeText_SetTextAlign.Call(uintptr(hTextBlock), uintptr(align))
 	return int(r)
 }

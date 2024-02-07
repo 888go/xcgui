@@ -13,13 +13,13 @@ import (
 )
 
 func main() {
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 400, 300, "月历卡片", 0, xcc.Window_Style_Default)
+	w := window.New(0, 0, 400, 300, "月历卡片", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建MonthCal
-	monthCal := widget.NewMonthCal(30, 40, 290, 240, w.Handle)
+	monthCal := 炫彩组件类.NewMonthCal(30, 40, 290, 240, w.Handle)
 	// 注册月历元素日期改变事件
 	monthCal.Event_MONTHCAL_CHANGE(func(pbHandled *bool) int {
 		// 获取被选择的年月日
@@ -30,7 +30,7 @@ func main() {
 		return 0
 	})
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

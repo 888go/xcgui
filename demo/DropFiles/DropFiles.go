@@ -14,19 +14,19 @@ import (
 )
 
 var (
-	a    *app.App
+	a    *炫彩App类.App
 	w    *window.Window
-	edit *widget.Edit
+	edit *炫彩组件类.Edit
 )
 
 func main() {
-	a = app.New(true)
+	a = 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 
-	w = window.New(0, 0, 600, 600, "拖放文件到窗口or元素", 0, xcc.Window_Style_Default|xcc.Window_Style_Drag_Window)
+	w = window.New(0, 0, 600, 600, "拖放文件到窗口or元素", 0, 炫彩常量类.Window_Style_Default|炫彩常量类.Window_Style_Drag_Window)
 	// 创建编辑框.
-	edit = widget.NewEdit(15, 40, 570, 300, w.Handle)
+	edit = 炫彩组件类.NewEdit(15, 40, 570, 300, w.Handle)
 	// 编辑框允许多行.
 	edit.EnableMultiLine(true)
 
@@ -39,7 +39,7 @@ func main() {
 	// 注册窗口文件拖放事件.
 	// w.Event_DROPFILES1(onWndDropFiles)
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }
@@ -49,10 +49,10 @@ func onEleDropFiles(hEle int, hDropInfo uintptr, pbHandled *bool) int {
 	fmt.Println("***************************************拖放文件到元素***************************************")
 	// 获取拖放文件到窗口时鼠标的坐标.
 	var pt xc.POINT
-	wapi.DragQueryPoint(hDropInfo, &pt)
+	炫彩WinApi类.DragQueryPoint(hDropInfo, &pt)
 	fmt.Println("鼠标坐标:", pt)
 
-	files := wutil.GetDropFiles(hDropInfo)
+	files := 炫彩WinApi工具类.GetDropFiles(hDropInfo)
 	for _, v := range files {
 		edit.AddText(v + "\n")
 		fmt.Println("文件路径:", v)
@@ -72,10 +72,10 @@ func onWndDropFiles(HXCGUI int, hDropInfo uintptr, pbHandled *bool) int {
 	fmt.Println("***************************************拖放文件到窗口***************************************")
 	// 获取拖放文件到窗口时鼠标的坐标.
 	var pt xc.POINT
-	wapi.DragQueryPoint(hDropInfo, &pt)
+	炫彩WinApi类.DragQueryPoint(hDropInfo, &pt)
 	fmt.Println("鼠标坐标:", pt)
 
-	files := wutil.GetDropFiles(hDropInfo)
+	files := 炫彩WinApi工具类.GetDropFiles(hDropInfo)
 	for _, v := range files {
 		fmt.Println("文件路径:", v)
 	}

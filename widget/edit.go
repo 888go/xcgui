@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -40,7 +40,7 @@ func NewEdit(x int, y int, cx int, cy int, hParent int) *Edit {
 // nType: 类型, Edit_Type_.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func NewEditEx(x int, y int, cx int, cy int, nType xcc.Edit_Type_, hParent int) *Edit {
+func NewEditEx(x int, y int, cx int, cy int, nType 炫彩常量类.Edit_Type_, hParent int) *Edit {
 	p := &Edit{}
 	p.Handle = xc.XEdit_CreateEx(x, y, cx, cy, nType, hParent)
 	return p
@@ -212,7 +212,7 @@ func (e *Edit) SetPasswordCharacter(ch int) int {
 // 编辑框_置文本对齐, 单行模式下有效.
 //
 // align: 对齐方式, Edit_TextAlign_Flag_.
-func (e *Edit) SetTextAlign(align xcc.Edit_TextAlign_Flag_) int {
+func (e *Edit) SetTextAlign(align 炫彩常量类.Edit_TextAlign_Flag_) int {
 	return xc.XEdit_SetTextAlign(e.Handle, align)
 }
 
@@ -372,7 +372,7 @@ func (e *Edit) AddStyle(hFont_image_Obj int, color int, bColor bool) int {
 // color: 颜色.
 //
 // bColor: 是否使用颜色.
-func (e *Edit) AddStyleEx(fontName string, fontSize int, fontStyle xcc.FontStyle_, color int, bColor bool) int {
+func (e *Edit) AddStyleEx(fontName string, fontSize int, fontStyle 炫彩常量类.FontStyle_, color int, bColor bool) int {
 	return xc.XEdit_AddStyleEx(e.Handle, fontName, fontSize, fontStyle, color, bColor)
 }
 
@@ -593,7 +593,7 @@ func (e *Edit) Redo() bool {
 // hImageBubble: 气泡背景.
 //
 // nFlag: 标志, Chat_Flag_.
-func (e *Edit) AddChatBegin(hImageAvatar int, hImageBubble int, nFlag xcc.Chat_Flag_) int {
+func (e *Edit) AddChatBegin(hImageAvatar int, hImageBubble int, nFlag 炫彩常量类.Chat_Flag_) int {
 	return xc.XEdit_AddChatBegin(e.Handle, hImageAvatar, hImageBubble, nFlag)
 }
 
@@ -727,14 +727,14 @@ func (e *Edit) GetSelectText_Temp() string {
 // hImageBubble: 气泡背景图片句柄.
 //
 // nFlag: 聊天气泡对齐方式: xcc.Chat_Flag_ .
-func (e *Edit) InsertChatBegin(hImageAvatar int, hImageBubble int, nFlag xcc.Chat_Flag_) int {
+func (e *Edit) InsertChatBegin(hImageAvatar int, hImageBubble int, nFlag 炫彩常量类.Chat_Flag_) int {
 	return xc.XEdit_InsertChatBegin(e.Handle, hImageAvatar, hImageBubble, nFlag)
 }
 
 // 编辑框_取指定行气泡标识. 返回行标识: xcc.Chat_Flag_
 //
 // iRow: 行索引.
-func (e *Edit) GetChatFlags(iRow int) xcc.Chat_Flag_ {
+func (e *Edit) GetChatFlags(iRow int) 炫彩常量类.Chat_Flag_ {
 	return xc.XEdit_GetChatFlags(e.Handle, iRow)
 }
 
@@ -805,82 +805,82 @@ type XE_EDIT_COLOR_CHANGE1 func(hEle int, color int, pbHandled *bool) int       
 
 // 编辑框_颜色被改变.
 func (e *Edit) Event_EDIT_COLOR_CHANGE(pFun XE_EDIT_COLOR_CHANGE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_COLOR_CHANGE, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_COLOR_CHANGE, pFun)
 }
 
 // 编辑框_颜色被改变.
 func (e *Edit) Event_EDIT_COLOR_CHANGE1(pFun XE_EDIT_COLOR_CHANGE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_COLOR_CHANGE, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_COLOR_CHANGE, pFun)
 }
 
 // 元素事件_交换行.
 func (e *Edit) Event_EDIT_SWAPROW(pFun XE_EDIT_SWAPROW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_SWAPROW, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_SWAPROW, pFun)
 }
 
 // 元素事件_交换行.
 func (e *Edit) Event_EDIT_SWAPROW1(pFun XE_EDIT_SWAPROW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_SWAPROW, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_SWAPROW, pFun)
 }
 
 // 元素事件_编辑框设置.
 func (e *Edit) Event_EDIT_SET(pFun XE_EDIT_SET) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_SET, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_SET, pFun)
 }
 
 // 元素事件_编辑框设置.
 func (e *Edit) Event_EDIT_SET1(pFun XE_EDIT_SET1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_SET, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_SET, pFun)
 }
 
 // 暂未使用.
 func (e *Edit) Event_EDIT_DRAWROW(pFun XE_EDIT_DRAWROW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_DRAWROW, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_DRAWROW, pFun)
 }
 
 // 暂未使用.
 func (e *Edit) Event_EDIT_DRAWROW1(pFun XE_EDIT_DRAWROW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_DRAWROW, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_DRAWROW, pFun)
 }
 
 // 编辑框_内容被改变.
 func (e *Edit) Event_EDIT_CHANGED(pFun XE_EDIT_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_CHANGED, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_CHANGED, pFun)
 }
 
 // 编辑框_内容被改变.
 func (e *Edit) Event_EDIT_CHANGED1(pFun XE_EDIT_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_CHANGED, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_CHANGED, pFun)
 }
 
 // 编辑框_光标位置_被改变.
 func (e *Edit) Event_EDIT_POS_CHANGED(pFun XE_EDIT_POS_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_POS_CHANGED, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_POS_CHANGED, pFun)
 }
 
 // 编辑框_光标位置_被改变.
 func (e *Edit) Event_EDIT_POS_CHANGED1(pFun XE_EDIT_POS_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_POS_CHANGED, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_POS_CHANGED, pFun)
 }
 
 // 编辑框_样式_被改变.
 func (e *Edit) Event_EDIT_STYLE_CHANGED(pFun XE_EDIT_STYLE_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_STYLE_CHANGED, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_STYLE_CHANGED, pFun)
 }
 
 // 编辑框_样式_被改变.
 func (e *Edit) Event_EDIT_STYLE_CHANGED1(pFun XE_EDIT_STYLE_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_STYLE_CHANGED, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_STYLE_CHANGED, pFun)
 }
 
 // 回车TAB对齐,返回需要TAB数量.
 func (e *Edit) Event_EDIT_ENTER_GET_TABALIGN(pFun XE_EDIT_ENTER_GET_TABALIGN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_ENTER_GET_TABALIGN, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_ENTER_GET_TABALIGN, pFun)
 }
 
 // 回车TAB对齐,返回需要TAB数量.
 func (e *Edit) Event_EDIT_ENTER_GET_TABALIGN1(pFun XE_EDIT_ENTER_GET_TABALIGN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_ENTER_GET_TABALIGN, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_ENTER_GET_TABALIGN, pFun)
 }
 
 // 编辑框_行_被改变.
@@ -889,7 +889,7 @@ func (e *Edit) Event_EDIT_ENTER_GET_TABALIGN1(pFun XE_EDIT_ENTER_GET_TABALIGN1) 
 //
 // nChangeRows: 改变行数, 正数添加行, 负数删除行
 func (e *Edit) Event_EDIT_ROW_CHANGED(pFun XE_EDIT_ROW_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_ROW_CHANGED, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDIT_ROW_CHANGED, pFun)
 }
 
 // 编辑框_行_被改变.
@@ -898,5 +898,5 @@ func (e *Edit) Event_EDIT_ROW_CHANGED(pFun XE_EDIT_ROW_CHANGED) bool {
 //
 // nChangeRows: 改变行数, 正数添加行, 负数删除行
 func (e *Edit) Event_EDIT_ROW_CHANGED1(pFun XE_EDIT_ROW_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_ROW_CHANGED, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDIT_ROW_CHANGED, pFun)
 }

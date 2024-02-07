@@ -31,7 +31,7 @@ func XEle_Create(x, y, cx, cy int32, hParent int) int {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func XEle_RegEventC(hEle int, nEvent xcc.XE_, pFun interface{}) bool {
+func XEle_RegEventC(hEle int, nEvent 炫彩常量类.XE_, pFun interface{}) bool {
 	r, _, _ := xEle_RegEventC.Call(uintptr(hEle), uintptr(nEvent), syscall.NewCallback(pFun))
 	return r != 0
 }
@@ -43,7 +43,7 @@ func XEle_RegEventC(hEle int, nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func XEle_RegEventC1(hEle int, nEvent xcc.XE_, pFun interface{}) bool {
+func XEle_RegEventC1(hEle int, nEvent 炫彩常量类.XE_, pFun interface{}) bool {
 	r, _, _ := xEle_RegEventC1.Call(uintptr(hEle), uintptr(nEvent), syscall.NewCallback(pFun))
 	return r != 0
 }
@@ -55,7 +55,7 @@ func XEle_RegEventC1(hEle int, nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func XEle_RemoveEventC(hEle int, nEvent xcc.XE_, pFun interface{}) bool {
+func XEle_RemoveEventC(hEle int, nEvent 炫彩常量类.XE_, pFun interface{}) bool {
 	r, _, _ := xEle_RemoveEventC.Call(uintptr(hEle), uintptr(nEvent), syscall.NewCallback(pFun))
 	return r != 0
 }
@@ -67,7 +67,7 @@ func XEle_RemoveEventC(hEle int, nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func XEle_RegEventCEx(hEle int, nEvent xcc.XE_, pFun uintptr) bool {
+func XEle_RegEventCEx(hEle int, nEvent 炫彩常量类.XE_, pFun uintptr) bool {
 	r, _, _ := xEle_RegEventC.Call(uintptr(hEle), uintptr(nEvent), pFun)
 	return r != 0
 }
@@ -79,7 +79,7 @@ func XEle_RegEventCEx(hEle int, nEvent xcc.XE_, pFun uintptr) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func XEle_RegEventC1Ex(hEle int, nEvent xcc.XE_, pFun uintptr) bool {
+func XEle_RegEventC1Ex(hEle int, nEvent 炫彩常量类.XE_, pFun uintptr) bool {
 	r, _, _ := xEle_RegEventC1.Call(uintptr(hEle), uintptr(nEvent), pFun)
 	return r != 0
 }
@@ -91,7 +91,7 @@ func XEle_RegEventC1Ex(hEle int, nEvent xcc.XE_, pFun uintptr) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func XEle_RemoveEventCEx(hEle int, nEvent xcc.XE_, pFun uintptr) bool {
+func XEle_RemoveEventCEx(hEle int, nEvent 炫彩常量类.XE_, pFun uintptr) bool {
 	r, _, _ := xEle_RemoveEventC.Call(uintptr(hEle), uintptr(nEvent), pFun)
 	return r != 0
 }
@@ -105,7 +105,7 @@ func XEle_RemoveEventCEx(hEle int, nEvent xcc.XE_, pFun uintptr) bool {
 // wParam: 参数.
 //
 // lParam: 参数.
-func XEle_SendEvent(hEle int, nEvent xcc.XE_, wParam, lParam uint) int {
+func XEle_SendEvent(hEle int, nEvent 炫彩常量类.XE_, wParam, lParam uint) int {
 	r, _, _ := xEle_SendEvent.Call(uintptr(hEle), uintptr(nEvent), uintptr(wParam), uintptr(lParam))
 	return int(r)
 }
@@ -119,7 +119,7 @@ func XEle_SendEvent(hEle int, nEvent xcc.XE_, wParam, lParam uint) int {
 // wParam: 参数.
 //
 // lParam: 参数.
-func XEle_PostEvent(hEle int, nEvent xcc.XE_, wParam, lParam uint) int {
+func XEle_PostEvent(hEle int, nEvent 炫彩常量类.XE_, wParam, lParam uint) int {
 	r, _, _ := xEle_PostEvent.Call(uintptr(hEle), uintptr(nEvent), uintptr(wParam), uintptr(lParam))
 	return int(r)
 }
@@ -291,8 +291,8 @@ func XEle_InsertChild(hEle int, hChild int, index int) bool {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func XEle_SetRect(hEle int, pRect *RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	r, _, _ := xEle_SetRect.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
+func XEle_SetRect(hEle int, pRect *RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
+	r, _, _ := xEle_SetRect.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
 	return int(r)
 }
 
@@ -313,8 +313,8 @@ func XEle_SetRect(hEle int, pRect *RECT, bRedraw bool, nFlags xcc.AdjustLayout_,
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func XEle_SetRectEx(hEle int, x int, y int, cx int, cy int, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	r, _, _ := xEle_SetRectEx.Call(uintptr(hEle), uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
+func XEle_SetRectEx(hEle int, x int, y int, cx int, cy int, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
+	r, _, _ := xEle_SetRectEx.Call(uintptr(hEle), uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), 炫彩工具类.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
 	return int(r)
 }
 
@@ -329,8 +329,8 @@ func XEle_SetRectEx(hEle int, x int, y int, cx int, cy int, bRedraw bool, nFlags
 // nFlags: 调整布局标识位: xcc.AdjustLayout_ , 此参数将会传入XE_SIZE ,XE_ADJUSTLAYOUT 事件回调.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func XEle_SetRectLogic(hEle int, pRect *RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	r, _, _ := xEle_SetRectLogic.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
+func XEle_SetRectLogic(hEle int, pRect *RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
+	r, _, _ := xEle_SetRectLogic.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
 	return int(r)
 }
 
@@ -347,8 +347,8 @@ func XEle_SetRectLogic(hEle int, pRect *RECT, bRedraw bool, nFlags xcc.AdjustLay
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func XEle_SetPosition(hEle int, x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	r, _, _ := xEle_SetPosition.Call(uintptr(hEle), uintptr(x), uintptr(y), common.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
+func XEle_SetPosition(hEle int, x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
+	r, _, _ := xEle_SetPosition.Call(uintptr(hEle), uintptr(x), uintptr(y), 炫彩工具类.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
 	return int(r)
 }
 
@@ -365,8 +365,8 @@ func XEle_SetPosition(hEle int, x, y int32, bRedraw bool, nFlags xcc.AdjustLayou
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func XEle_SetPositionLogic(hEle int, x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	r, _, _ := xEle_SetPositionLogic.Call(uintptr(hEle), uintptr(x), uintptr(y), common.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
+func XEle_SetPositionLogic(hEle int, x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
+	r, _, _ := xEle_SetPositionLogic.Call(uintptr(hEle), uintptr(x), uintptr(y), 炫彩工具类.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
 	return int(r)
 }
 
@@ -492,7 +492,7 @@ func XEle_IsFocusEx(hEle int) bool {
 //
 // bEnable: 启用或禁用.
 func XEle_Enable(hEle int, bEnable bool) int {
-	r, _, _ := xEle_Enable.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_Enable.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -502,7 +502,7 @@ func XEle_Enable(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableFocus(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableFocus.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableFocus.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -512,7 +512,7 @@ func XEle_EnableFocus(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableDrawFocus(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableDrawFocus.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableDrawFocus.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -522,7 +522,7 @@ func XEle_EnableDrawFocus(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableDrawBorder(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableDrawBorder.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableDrawBorder.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -532,7 +532,7 @@ func XEle_EnableDrawBorder(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableCanvas(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableCanvas.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableCanvas.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -542,7 +542,7 @@ func XEle_EnableCanvas(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableEvent_XE_PAINT_END(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableEvent_XE_PAINT_END.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableEvent_XE_PAINT_END.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -552,7 +552,7 @@ func XEle_EnableEvent_XE_PAINT_END(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableBkTransparent(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableBkTransparent.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableBkTransparent.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -562,7 +562,7 @@ func XEle_EnableBkTransparent(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableMouseThrough(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableMouseThrough.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableMouseThrough.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -572,7 +572,7 @@ func XEle_EnableMouseThrough(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableKeyTab(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableKeyTab.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableKeyTab.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -582,7 +582,7 @@ func XEle_EnableKeyTab(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableSwitchFocus(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableSwitchFocus.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableSwitchFocus.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -592,7 +592,7 @@ func XEle_EnableSwitchFocus(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XEle_EnableEvent_XE_MOUSEWHEEL(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableEvent_XE_MOUSEWHEEL.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableEvent_XE_MOUSEWHEEL.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -621,7 +621,7 @@ func XEle_SetZOrder(hEle int, index int) bool {
 // hDestEle: 目标元素.
 //
 // nType: 类型, Zorder_.
-func XEle_SetZOrderEx(hEle int, hDestEle int, nType xcc.Zorder_) bool {
+func XEle_SetZOrderEx(hEle int, hDestEle int, nType 炫彩常量类.Zorder_) bool {
 	r, _, _ := xEle_SetZOrderEx.Call(uintptr(hEle), uintptr(hDestEle), uintptr(nType))
 	return r != 0
 }
@@ -640,7 +640,7 @@ func XEle_GetZOrder(hEle int) int {
 //
 // bTopmost: 是否置顶显示.
 func XEle_EnableTopmost(hEle int, bTopmost bool) bool {
-	r, _, _ := xEle_EnableTopmost.Call(uintptr(hEle), common.BoolPtr(bTopmost))
+	r, _, _ := xEle_EnableTopmost.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bTopmost))
 	return r != 0
 }
 
@@ -650,7 +650,7 @@ func XEle_EnableTopmost(hEle int, bTopmost bool) bool {
 //
 // bImmediate: 是否立即重绘.
 func XEle_Redraw(hEle int, bImmediate bool) int {
-	r, _, _ := xEle_Redraw.Call(uintptr(hEle), common.BoolPtr(bImmediate))
+	r, _, _ := xEle_Redraw.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bImmediate))
 	return int(r)
 }
 
@@ -662,7 +662,7 @@ func XEle_Redraw(hEle int, bImmediate bool) int {
 //
 // bImmediate: 是否立即重绘.
 func XEle_RedrawRect(hEle int, pRect *RECT, bImmediate bool) int {
-	r, _, _ := xEle_RedrawRect.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)), common.BoolPtr(bImmediate))
+	r, _, _ := xEle_RedrawRect.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)), 炫彩工具类.BoolPtr(bImmediate))
 	return int(r)
 }
 
@@ -751,7 +751,7 @@ func XEle_GetPadding(hEle int, pPadding *RECT) int {
 // hEle: 元素句柄.
 //
 // nFlags: 边框位置组合, Element_Position_.
-func XEle_SetDragBorder(hEle int, nFlags xcc.Element_Position_) int {
+func XEle_SetDragBorder(hEle int, nFlags 炫彩常量类.Element_Position_) int {
 	r, _, _ := xEle_SetDragBorder.Call(uintptr(hEle), uintptr(nFlags))
 	return int(r)
 }
@@ -765,7 +765,7 @@ func XEle_SetDragBorder(hEle int, nFlags xcc.Element_Position_) int {
 // hBindEle: 绑定元素.
 //
 // nSpace: 元素间隔大小.
-func XEle_SetDragBorderBindEle(hEle int, nFlags xcc.Element_Position_, hBindEle int, nSpace int) int {
+func XEle_SetDragBorderBindEle(hEle int, nFlags 炫彩常量类.Element_Position_, hBindEle int, nSpace int) int {
 	r, _, _ := xEle_SetDragBorderBindEle.Call(uintptr(hEle), uintptr(nFlags), uintptr(hBindEle), uintptr(nSpace))
 	return int(r)
 }
@@ -802,7 +802,7 @@ func XEle_SetMaxSize(hEle int, nWidth int, nHeight int) int {
 //
 // bVertical: 是否锁定垂直滚动.
 func XEle_SetLockScroll(hEle int, bHorizon bool, bVertical bool) int {
-	r, _, _ := xEle_SetLockScroll.Call(uintptr(hEle), common.BoolPtr(bHorizon), common.BoolPtr(bVertical))
+	r, _, _ := xEle_SetLockScroll.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bHorizon), 炫彩工具类.BoolPtr(bVertical))
 	return int(r)
 }
 
@@ -901,7 +901,7 @@ func XEle_Destroy(hEle int) int {
 // color: ABGR 颜色.
 //
 // width: 线宽.
-func XEle_AddBkBorder(hEle int, nState xcc.CombinedState, color int, width int) int {
+func XEle_AddBkBorder(hEle int, nState 炫彩常量类.CombinedState, color int, width int) int {
 	r, _, _ := xEle_AddBkBorder.Call(uintptr(hEle), uintptr(nState), uintptr(color), uintptr(width))
 	return int(r)
 }
@@ -913,7 +913,7 @@ func XEle_AddBkBorder(hEle int, nState xcc.CombinedState, color int, width int) 
 // nState: 组合状态.
 //
 // color: ABGR 颜色.
-func XEle_AddBkFill(hEle int, nState xcc.CombinedState, color int) int {
+func XEle_AddBkFill(hEle int, nState 炫彩常量类.CombinedState, color int) int {
 	r, _, _ := xEle_AddBkFill.Call(uintptr(hEle), uintptr(nState), uintptr(color))
 	return int(r)
 }
@@ -925,7 +925,7 @@ func XEle_AddBkFill(hEle int, nState xcc.CombinedState, color int) int {
 // nState: 组合状态.
 //
 // hImage: 图片句柄.
-func XEle_AddBkImage(hEle int, nState xcc.CombinedState, hImage int) int {
+func XEle_AddBkImage(hEle int, nState 炫彩常量类.CombinedState, hImage int) int {
 	r, _, _ := xEle_AddBkImage.Call(uintptr(hEle), uintptr(nState), uintptr(hImage))
 	return int(r)
 }
@@ -975,9 +975,9 @@ func XEle_SetBkManager(hEle int, hBkInfoM int) int {
 // 元素_取状态, 获取组合状态.
 //
 // hEle: 元素句柄.
-func XEle_GetStateFlags(hEle int) xcc.CombinedState {
+func XEle_GetStateFlags(hEle int) 炫彩常量类.CombinedState {
 	r, _, _ := xEle_GetStateFlags.Call(uintptr(hEle))
-	return xcc.CombinedState(r)
+	return 炫彩常量类.CombinedState(r)
 }
 
 // 元素_绘制焦点, 绘制元素焦点.
@@ -1032,7 +1032,7 @@ func XEle_GetUserData(hEle int) int {
 //
 // pSize: 返回大小.
 func XEle_GetContentSize(hEle int, bHorizon bool, cx int, cy int, pSize *SIZE) int {
-	r, _, _ := xEle_GetContentSize.Call(uintptr(hEle), common.BoolPtr(bHorizon), uintptr(cx), uintptr(cy), uintptr(unsafe.Pointer(pSize)))
+	r, _, _ := xEle_GetContentSize.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bHorizon), uintptr(cx), uintptr(cy), uintptr(unsafe.Pointer(pSize)))
 	return int(r)
 }
 
@@ -1042,7 +1042,7 @@ func XEle_GetContentSize(hEle int, bHorizon bool, cx int, cy int, pSize *SIZE) i
 //
 // b: TRUE设置.
 func XEle_SetCapture(hEle int, b bool) int {
-	r, _, _ := xEle_SetCapture.Call(uintptr(hEle), common.BoolPtr(b))
+	r, _, _ := xEle_SetCapture.Call(uintptr(hEle), 炫彩工具类.BoolPtr(b))
 	return int(r)
 }
 
@@ -1052,7 +1052,7 @@ func XEle_SetCapture(hEle int, b bool) int {
 //
 // bEnable: 启用或关闭.
 func XEle_EnableTransparentChannel(hEle int, bEnable bool) int {
-	r, _, _ := xEle_EnableTransparentChannel.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xEle_EnableTransparentChannel.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -1084,7 +1084,7 @@ func XEle_KillXCTimer(hEle int, nIDEvent int) bool {
 //
 // pText: 工具提示内容.
 func XEle_SetToolTip(hEle int, pText string) int {
-	r, _, _ := xEle_SetToolTip.Call(uintptr(hEle), common.StrPtr(pText))
+	r, _, _ := xEle_SetToolTip.Call(uintptr(hEle), 炫彩工具类.StrPtr(pText))
 	return int(r)
 }
 
@@ -1095,8 +1095,8 @@ func XEle_SetToolTip(hEle int, pText string) int {
 // pText: 工具提示内容.
 //
 // nTextAlign: 文本对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func XEle_SetToolTipEx(hEle int, pText string, nTextAlign xcc.TextFormatFlag_) int {
-	r, _, _ := xEle_SetToolTipEx.Call(uintptr(hEle), common.StrPtr(pText), uintptr(nTextAlign))
+func XEle_SetToolTipEx(hEle int, pText string, nTextAlign 炫彩常量类.TextFormatFlag_) int {
+	r, _, _ := xEle_SetToolTipEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pText), uintptr(nTextAlign))
 	return int(r)
 }
 
@@ -1137,7 +1137,7 @@ func XEle_AdjustLayout(hEle int, nAdjustNo uint32) int {
 // nFlags: 调整标识.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func XEle_AdjustLayoutEx(hEle int, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func XEle_AdjustLayoutEx(hEle int, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	r, _, _ := xEle_AdjustLayoutEx.Call(uintptr(hEle), uintptr(nFlags), uintptr(nAdjustNo))
 	return int(r)
 }
@@ -1175,8 +1175,8 @@ func XEle_GetPosition(hEle int, pOutX, pOutY *int32) int {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func XEle_SetSize(hEle int, nWidth, nHeight int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	r, _, _ := xEle_SetSize.Call(uintptr(hEle), uintptr(nWidth), uintptr(nHeight), common.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
+func XEle_SetSize(hEle int, nWidth, nHeight int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
+	r, _, _ := xEle_SetSize.Call(uintptr(hEle), uintptr(nWidth), uintptr(nHeight), 炫彩工具类.BoolPtr(bRedraw), uintptr(nFlags), uintptr(nAdjustNo))
 	return int(r)
 }
 
@@ -1198,7 +1198,7 @@ func XEle_GetSize(hEle int, pOutWidth, pOutHeight *int32) int {
 //
 // pText: 背景内容字符串.
 func XEle_SetBkInfo(hEle int, pText string) int {
-	r, _, _ := xEle_SetBkInfo.Call(uintptr(hEle), common.StrPtr(pText))
+	r, _, _ := xEle_SetBkInfo.Call(uintptr(hEle), 炫彩工具类.StrPtr(pText))
 	return int(r)
 }
 

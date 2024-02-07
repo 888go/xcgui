@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// 1.初始化UI库
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 
 	// 告诉系统本软件要自己控制DPI的两种方法:
 	// 1.调用 a.EnableDPI(true)
@@ -20,13 +20,13 @@ func main() {
 	// 使用上面的两种方法之一, 然后调用这个函数启用自动DPI
 	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w := window.New(0, 0, 430, 300, "xcgui window", 0, xcc.Window_Style_Default)
+	w := window.New(0, 0, 430, 300, "xcgui window", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建按钮
-	btn := widget.NewButton(165, 135, 100, 30, "Button", w.Handle)
+	btn := 炫彩组件类.NewButton(165, 135, 100, 30, "Button", w.Handle)
 	// 注册按钮被单击事件
 	btn.Event_BnClick(func(pbHandled *bool) int {
-		a.MessageBox("提示", btn.GetText(), xcc.MessageBox_Flag_Ok|xcc.MessageBox_Flag_Icon_Info, w.GetHWND(), xcc.Window_Style_Modal)
+		a.MessageBox("提示", btn.GetText(), 炫彩常量类.MessageBox_Flag_Ok|炫彩常量类.MessageBox_Flag_Icon_Info, w.GetHWND(), 炫彩常量类.Window_Style_Modal)
 		return 0
 	})
 

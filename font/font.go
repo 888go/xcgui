@@ -1,4 +1,4 @@
-package font
+package 炫彩字体类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,9 +7,9 @@ import (
 	"github.com/888go/xcgui/xcc"
 )
 
-// Font 炫彩字体类.
+// Font 炫彩字体.
 type Font struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // New 字体_创建, 创建炫彩字体. 当字体句柄与元素关联后, 会自动释放.
@@ -28,7 +28,7 @@ func New(size int32) *Font {
 //	@param size 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return *Font 返回字体对象.
-func NewEX(pName string, size int32, style xcc.FontStyle_) *Font {
+func NewEX(pName string, size int32, style 炫彩常量类.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateEx(pName, size, style))
 	return p
@@ -70,7 +70,7 @@ func NewByFont(pFont uintptr) *Font {
 //	@param size 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return *Font 返回字体对象.
-func NewByFile(pFontFile string, size int32, style xcc.FontStyle_) *Font {
+func NewByFile(pFontFile string, size int32, style 炫彩常量类.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromFile(pFontFile, size, style))
 	return p
@@ -84,7 +84,7 @@ func NewByFile(pFontFile string, size int32, style xcc.FontStyle_) *Font {
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式: xcc.FontStyle_.
 //	@return *Font 返回炫彩字体对象.
-func NewByZip(pZipFileName, pFileName, pPassword string, fontSize int32, style xcc.FontStyle_) *Font {
+func NewByZip(pZipFileName, pFileName, pPassword string, fontSize int32, style 炫彩常量类.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromZip(pZipFileName, pFileName, pPassword, fontSize, style))
 	return p
@@ -98,7 +98,7 @@ func NewByZip(pZipFileName, pFileName, pPassword string, fontSize int32, style x
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式: xcc.FontStyle_.
 //	@return *Font 返回炫彩字体对象.
-func NewByZipMem(data []byte, pFileName, pPassword string, fontSize int32, style xcc.FontStyle_) *Font {
+func NewByZipMem(data []byte, pFileName, pPassword string, fontSize int32, style 炫彩常量类.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromZipMem(data, pFileName, pPassword, fontSize, style))
 	return p
@@ -110,7 +110,7 @@ func NewByZipMem(data []byte, pFileName, pPassword string, fontSize int32, style
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return *Font 返回字体对象.
-func NewByMem(data []byte, fontSize int32, style xcc.FontStyle_) *Font {
+func NewByMem(data []byte, fontSize int32, style 炫彩常量类.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromMem(data, fontSize, style))
 	return p
@@ -124,7 +124,7 @@ func NewByMem(data []byte, fontSize int32, style xcc.FontStyle_) *Font {
 //	@param style 字体样式, xcc.FontStyle_.
 //	@param hModule xx.
 //	@return *Font 返回字体对象.
-func NewByRes(id int32, pType string, fontSize int32, style xcc.FontStyle_, hModule uintptr) *Font {
+func NewByRes(id int32, pType string, fontSize int32, style 炫彩常量类.FontStyle_, hModule uintptr) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromRes(id, pType, fontSize, style, hModule))
 	return p
@@ -145,7 +145,7 @@ func NewByHandle(handle int) *Font {
 //	@param name
 //	@return *Font
 func NewByName(name string) *Font {
-	handle := res.GetFont(name)
+	handle := 炫彩资源类.GetFont(name)
 	if handle > 0 {
 		p := &Font{}
 		p.SetHandle(handle)

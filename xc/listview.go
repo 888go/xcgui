@@ -74,7 +74,7 @@ func XListView_GetAdapter(hEle int) int {
 //
 // pXmlFile: 文件名.
 func XListView_SetItemTemplateXML(hEle int, pXmlFile string) bool {
-	r, _, _ := xListView_SetItemTemplateXML.Call(uintptr(hEle), common.StrPtr(pXmlFile))
+	r, _, _ := xListView_SetItemTemplateXML.Call(uintptr(hEle), 炫彩工具类.StrPtr(pXmlFile))
 	return r != 0
 }
 
@@ -172,7 +172,7 @@ func XListView_HitTestOffset(hEle int, pPt *POINT, pOutGroup *int32, pOutItem *i
 //
 // bEnable: 是否启用.
 func XListView_EnableMultiSel(hEle int, bEnable bool) int {
-	r, _, _ := xListView_EnableMultiSel.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xListView_EnableMultiSel.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -182,7 +182,7 @@ func XListView_EnableMultiSel(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XListView_EnableTemplateReuse(hEle int, bEnable bool) int {
-	r, _, _ := xListView_EnableTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xListView_EnableTemplateReuse.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -192,7 +192,7 @@ func XListView_EnableTemplateReuse(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XListView_EnableVirtualTable(hEle int, bEnable bool) int {
-	r, _, _ := xListView_EnableVirtualTable.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xListView_EnableVirtualTable.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -213,7 +213,7 @@ func XListView_SetVirtualItemCount(hEle int, iGroup int, nCount int) bool {
 // hEle: 元素句柄.
 //
 // nFlags: 标志位: List_DrawItemBk_Flag_.
-func XListView_SetDrawItemBkFlags(hEle int, nFlags xcc.List_DrawItemBk_Flag_) int {
+func XListView_SetDrawItemBkFlags(hEle int, nFlags 炫彩常量类.List_DrawItemBk_Flag_) int {
 	r, _, _ := xListView_SetDrawItemBkFlags.Call(uintptr(hEle), uintptr(nFlags))
 	return int(r)
 }
@@ -462,7 +462,7 @@ func XListView_RefreshItem(hEle int, iGroup int, iItem int) int {
 //
 // bExpand: 是否展开.
 func XListView_ExpandGroup(hEle int, iGroup int, bExpand bool) bool {
-	r, _, _ := xListView_ExpandGroup.Call(uintptr(hEle), uintptr(iGroup), common.BoolPtr(bExpand))
+	r, _, _ := xListView_ExpandGroup.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.BoolPtr(bExpand))
 	return r != 0
 }
 
@@ -472,7 +472,7 @@ func XListView_ExpandGroup(hEle int, iGroup int, bExpand bool) bool {
 //
 // pName: 字段称.
 func XListView_Group_AddColumn(hEle int, pName string) int {
-	r, _, _ := xListView_Group_AddColumn.Call(uintptr(hEle), common.StrPtr(pName))
+	r, _, _ := xListView_Group_AddColumn.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -484,7 +484,7 @@ func XListView_Group_AddColumn(hEle int, pName string) int {
 //
 // iPos: 插入位置.
 func XListView_Group_AddItemText(hEle int, pValue string, iPos int) int {
-	r, _, _ := xListView_Group_AddItemText.Call(uintptr(hEle), common.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xListView_Group_AddItemText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -498,7 +498,7 @@ func XListView_Group_AddItemText(hEle int, pValue string, iPos int) int {
 //
 // iPos: 插入位置.
 func XListView_Group_AddItemTextEx(hEle int, pName string, pValue string, iPos int) int {
-	r, _, _ := xListView_Group_AddItemTextEx.Call(uintptr(hEle), common.StrPtr(pName), common.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xListView_Group_AddItemTextEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -524,7 +524,7 @@ func XListView_Group_AddItemImage(hEle int, hImage int, iPos int) int {
 //
 // iPos: 插入位置.
 func XListView_Group_AddItemImageEx(hEle int, pName string, hImage int, iPos int) int {
-	r, _, _ := xListView_Group_AddItemImageEx.Call(uintptr(hEle), common.StrPtr(pName), uintptr(hImage), uintptr(iPos))
+	r, _, _ := xListView_Group_AddItemImageEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), uintptr(hImage), uintptr(iPos))
 	return int(r)
 }
 
@@ -538,7 +538,7 @@ func XListView_Group_AddItemImageEx(hEle int, pName string, hImage int, iPos int
 //
 // pValue: 值.
 func XListView_Group_SetText(hEle int, iGroup int, iColumn int, pValue string) bool {
-	r, _, _ := xListView_Group_SetText.Call(uintptr(hEle), uintptr(iGroup), uintptr(iColumn), common.StrPtr(pValue))
+	r, _, _ := xListView_Group_SetText.Call(uintptr(hEle), uintptr(iGroup), uintptr(iColumn), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -552,7 +552,7 @@ func XListView_Group_SetText(hEle int, iGroup int, iColumn int, pValue string) b
 //
 // pValue: 值.
 func XListView_Group_SetTextEx(hEle int, iGroup int, pName string, pValue string) bool {
-	r, _, _ := xListView_Group_SetTextEx.Call(uintptr(hEle), uintptr(iGroup), common.StrPtr(pName), common.StrPtr(pValue))
+	r, _, _ := xListView_Group_SetTextEx.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -580,7 +580,7 @@ func XListView_Group_SetImage(hEle int, iGroup int, iColumn int, hImage int) boo
 //
 // hImage: 图片句柄.
 func XListView_Group_SetImageEx(hEle int, iGroup int, pName string, hImage int) bool {
-	r, _, _ := xListView_Group_SetImageEx.Call(uintptr(hEle), uintptr(iGroup), common.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xListView_Group_SetImageEx.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -608,7 +608,7 @@ func XListView_Item_GetCount(hEle int, iGroup int) int {
 //
 // pName: 字段名.
 func XListView_Item_AddColumn(hEle int, pName string) int {
-	r, _, _ := xListView_Item_AddColumn.Call(uintptr(hEle), common.StrPtr(pName))
+	r, _, _ := xListView_Item_AddColumn.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -622,7 +622,7 @@ func XListView_Item_AddColumn(hEle int, pName string) int {
 //
 // iPos: 插入位置, -1添加到末尾.
 func XListView_Item_AddItemText(hEle int, iGroup int, pValue string, iPos int) int {
-	r, _, _ := xListView_Item_AddItemText.Call(uintptr(hEle), uintptr(iGroup), common.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xListView_Item_AddItemText.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -638,7 +638,7 @@ func XListView_Item_AddItemText(hEle int, iGroup int, pValue string, iPos int) i
 //
 // iPos: 插入位置, -1添加到末尾.
 func XListView_Item_AddItemTextEx(hEle int, iGroup int, pName string, pValue string, iPos int) int {
-	r, _, _ := xListView_Item_AddItemTextEx.Call(uintptr(hEle), uintptr(iGroup), common.StrPtr(pName), common.StrPtr(pValue), uintptr(iPos))
+	r, _, _ := xListView_Item_AddItemTextEx.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue), uintptr(iPos))
 	return int(r)
 }
 
@@ -668,7 +668,7 @@ func XListView_Item_AddItemImage(hEle int, iGroup int, hImage int, iPos int) int
 //
 // iPos: 插入位置, -1添加到末尾.
 func XListView_Item_AddItemImageEx(hEle int, iGroup int, pName string, hImage int, iPos int) int {
-	r, _, _ := xListView_Item_AddItemImageEx.Call(uintptr(hEle), uintptr(iGroup), common.StrPtr(pName), uintptr(hImage), uintptr(iPos))
+	r, _, _ := xListView_Item_AddItemImageEx.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.StrPtr(pName), uintptr(hImage), uintptr(iPos))
 	return int(r)
 }
 
@@ -684,7 +684,7 @@ func XListView_Item_AddItemImageEx(hEle int, iGroup int, pName string, hImage in
 //
 // pValue: 值.
 func XListView_Item_SetText(hEle int, iGroup int, iItem int, iColumn int, pValue string) bool {
-	r, _, _ := xListView_Item_SetText.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), uintptr(iColumn), common.StrPtr(pValue))
+	r, _, _ := xListView_Item_SetText.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), uintptr(iColumn), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -700,7 +700,7 @@ func XListView_Item_SetText(hEle int, iGroup int, iItem int, iColumn int, pValue
 //
 // pValue: 值.
 func XListView_Item_SetTextEx(hEle int, iGroup int, iItem int, pName string, pValue string) bool {
-	r, _, _ := xListView_Item_SetTextEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pValue))
+	r, _, _ := xListView_Item_SetTextEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -732,7 +732,7 @@ func XListView_Item_SetImage(hEle int, iGroup int, iItem int, iColumn int, hImag
 //
 // hImage: 图片句柄.
 func XListView_Item_SetImageEx(hEle int, iGroup int, iItem int, pName string, hImage int) bool {
-	r, _, _ := xListView_Item_SetImageEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xListView_Item_SetImageEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -822,8 +822,8 @@ func XListView_DeleteColumnItem(hEle int, iColumn int) int {
 //
 // pName: 字段称.
 func XListView_Item_GetTextEx(hEle int, iGroup int, iItem int, pName string) string {
-	r, _, _ := xListView_Item_GetTextEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName))
-	return common.UintPtrToString(r)
+	r, _, _ := xListView_Item_GetTextEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表视_项获取图片扩展, 返回图片句柄.
@@ -836,7 +836,7 @@ func XListView_Item_GetTextEx(hEle int, iGroup int, iItem int, pName string) str
 //
 // pName: 字段称.
 func XListView_Item_GetImageEx(hEle int, iGroup int, iItem int, pName string) int {
-	r, _, _ := xListView_Item_GetImageEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), common.StrPtr(pName))
+	r, _, _ := xListView_Item_GetImageEx.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -849,7 +849,7 @@ func XListView_Item_GetImageEx(hEle int, iGroup int, iItem int, pName string) in
 // iColumn: 列索引.
 func XListView_Group_GetText(hEle int, iGroup int, iColumn int) string {
 	r, _, _ := xListView_Group_GetText.Call(uintptr(hEle), uintptr(iGroup), uintptr(iColumn))
-	return common.UintPtrToString(r)
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表视_组取文本扩展, 返回文本内容.
@@ -860,8 +860,8 @@ func XListView_Group_GetText(hEle int, iGroup int, iColumn int) string {
 //
 // pName: 字段名称.
 func XListView_Group_GetTextEx(hEle int, iGroup int, pName string) string {
-	r, _, _ := xListView_Group_GetTextEx.Call(uintptr(hEle), uintptr(iGroup), common.StrPtr(pName))
-	return common.UintPtrToString(r)
+	r, _, _ := xListView_Group_GetTextEx.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.StrPtr(pName))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表视_组取图片, 返回图片句柄.
@@ -884,7 +884,7 @@ func XListView_Group_GetImage(hEle int, iGroup int, iColumn int) int {
 //
 // pName: 字段名称.
 func XListView_Group_GetImageEx(hEle int, iGroup int, pName string) int {
-	r, _, _ := xListView_Group_GetImageEx.Call(uintptr(hEle), uintptr(iGroup), common.StrPtr(pName))
+	r, _, _ := xListView_Group_GetImageEx.Call(uintptr(hEle), uintptr(iGroup), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -899,7 +899,7 @@ func XListView_Group_GetImageEx(hEle int, iGroup int, pName string) int {
 // iColumn: 列索引.
 func XListView_Item_GetText(hEle int, iGroup int, iItem int, iColumn int) string {
 	r, _, _ := xListView_Item_GetText.Call(uintptr(hEle), uintptr(iGroup), uintptr(iItem), uintptr(iColumn))
-	return common.UintPtrToString(r)
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表视_项取图片, 返回图片句柄.
@@ -934,7 +934,7 @@ func XListView_SetDragRectColor(hEle int, color int, width int) int {
 //
 // data: 模板数据.
 func XListView_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
-	r, _, _ := xListView_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+	r, _, _ := xListView_SetItemTemplateXMLFromMem.Call(uintptr(hEle), 炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)))
 	return r != 0
 }
 
@@ -950,7 +950,7 @@ func XListView_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
 //
 // hModule: 模块句柄, 可填0.
 func XListView_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xListView_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	r, _, _ := xListView_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), hModule)
 	return r != 0
 }
 

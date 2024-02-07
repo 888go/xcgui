@@ -11,7 +11,7 @@ import (
 //
 // bEnable: 是否启用.
 func XLayoutBox_EnableHorizon(hLayoutBox int, bEnable bool) int {
-	r, _, _ := xLayoutBox_EnableHorizon.Call(uintptr(hLayoutBox), common.BoolPtr(bEnable))
+	r, _, _ := xLayoutBox_EnableHorizon.Call(uintptr(hLayoutBox), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -21,7 +21,7 @@ func XLayoutBox_EnableHorizon(hLayoutBox int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XLayoutBox_EnableAutoWrap(hLayoutBox int, bEnable bool) int {
-	r, _, _ := xLayoutBox_EnableAutoWrap.Call(uintptr(hLayoutBox), common.BoolPtr(bEnable))
+	r, _, _ := xLayoutBox_EnableAutoWrap.Call(uintptr(hLayoutBox), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -31,7 +31,7 @@ func XLayoutBox_EnableAutoWrap(hLayoutBox int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XLayoutBox_EnableOverflowHide(hLayoutBox int, bEnable bool) int {
-	r, _, _ := xLayoutBox_EnableOverflowHide.Call(uintptr(hLayoutBox), common.BoolPtr(bEnable))
+	r, _, _ := xLayoutBox_EnableOverflowHide.Call(uintptr(hLayoutBox), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -40,7 +40,7 @@ func XLayoutBox_EnableOverflowHide(hLayoutBox int, bEnable bool) int {
 //	@param hLayoutBox 窗口或布局元素或布局框架句柄.
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-func XLayoutBox_SetAlignH(hLayoutBox int, nAlign xcc.Layout_Align_) int {
+func XLayoutBox_SetAlignH(hLayoutBox int, nAlign 炫彩常量类.Layout_Align_) int {
 	r, _, _ := xLayoutBox_SetAlignH.Call(uintptr(hLayoutBox), uintptr(nAlign))
 	return int(r)
 }
@@ -50,7 +50,7 @@ func XLayoutBox_SetAlignH(hLayoutBox int, nAlign xcc.Layout_Align_) int {
 //	@param hLayoutBox 窗口或布局元素或布局框架句柄.
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-func XLayoutBox_SetAlignV(hLayoutBox int, nAlign xcc.Layout_Align_) int {
+func XLayoutBox_SetAlignV(hLayoutBox int, nAlign 炫彩常量类.Layout_Align_) int {
 	r, _, _ := xLayoutBox_SetAlignV.Call(uintptr(hLayoutBox), uintptr(nAlign))
 	return int(r)
 }
@@ -60,7 +60,7 @@ func XLayoutBox_SetAlignV(hLayoutBox int, nAlign xcc.Layout_Align_) int {
 // hLayoutBox: 窗口或布局元素或布局框架句柄.
 //
 // nAlign: 对齐方式: xcc.Layout_Align_Axis_.
-func XLayoutBox_SetAlignBaseline(hLayoutBox int, nAlign xcc.Layout_Align_Axis_) int {
+func XLayoutBox_SetAlignBaseline(hLayoutBox int, nAlign 炫彩常量类.Layout_Align_Axis_) int {
 	r, _, _ := xLayoutBox_SetAlignBaseline.Call(uintptr(hLayoutBox), uintptr(nAlign))
 	return int(r)
 }

@@ -147,7 +147,7 @@ X绘制
 
 
 # <翻译开始>
-func (b *BkManager) DrawEx(nState 炫彩常量类.CombinedState, hDraw int, pRect *xc.RECT, nStateEx
+func (b *BkManager) DrawEx(nState 炫彩常量类.CombinedState, hDraw int, pRect *炫彩基类.RECT, nStateEx
 状态Ex
 # <翻译结束>
 

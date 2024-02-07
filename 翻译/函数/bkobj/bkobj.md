@@ -6,7 +6,7 @@ X创建并按句柄
 
 
 # <翻译开始>
-func NewByBkm(bkm *bkmanager.BkManager, id
+func NewByBkm(bkm *炫彩背景管理器类.BkManager, id
 背景对象ID
 # <翻译结束>
 

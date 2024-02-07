@@ -29,7 +29,7 @@ func XBkM_Destroy(hBkInfoM int) int {
 //
 // pText: 背景内容字符串.
 func XBkM_SetBkInfo(hBkInfoM int, pText string) int {
-	r, _, _ := xBkM_SetBkInfo.Call(uintptr(hBkInfoM), common.StrPtr(pText))
+	r, _, _ := xBkM_SetBkInfo.Call(uintptr(hBkInfoM), 炫彩工具类.StrPtr(pText))
 	return int(r)
 }
 
@@ -39,7 +39,7 @@ func XBkM_SetBkInfo(hBkInfoM int, pText string) int {
 //
 // pText: 背景内容字符串.
 func XBkM_AddInfo(hBkInfoM int, pText string) int {
-	r, _, _ := xBkM_AddInfo.Call(uintptr(hBkInfoM), common.StrPtr(pText))
+	r, _, _ := xBkM_AddInfo.Call(uintptr(hBkInfoM), 炫彩工具类.StrPtr(pText))
 	return int(r)
 }
 
@@ -54,7 +54,7 @@ func XBkM_AddInfo(hBkInfoM int, pText string) int {
 // width: 线宽.
 //
 // id: 背景对象ID, 可忽略(填0).
-func XBkM_AddBorder(hBkInfoM int, nState xcc.CombinedState, color, width, id int) int {
+func XBkM_AddBorder(hBkInfoM int, nState 炫彩常量类.CombinedState, color, width, id int) int {
 	r, _, _ := xBkM_AddBorder.Call(uintptr(hBkInfoM), uintptr(nState), uintptr(color), uintptr(width), uintptr(id))
 	return int(r)
 }
@@ -68,7 +68,7 @@ func XBkM_AddBorder(hBkInfoM int, nState xcc.CombinedState, color, width, id int
 // color: ABGR 颜色.
 //
 // id: 背景对象ID, 可忽略(填0).
-func XBkM_AddFill(hBkInfoM int, nState xcc.CombinedState, color, id int) int {
+func XBkM_AddFill(hBkInfoM int, nState 炫彩常量类.CombinedState, color, id int) int {
 	r, _, _ := xBkM_AddFill.Call(uintptr(hBkInfoM), uintptr(nState), uintptr(color), uintptr(id))
 	return int(r)
 }
@@ -82,7 +82,7 @@ func XBkM_AddFill(hBkInfoM int, nState xcc.CombinedState, color, id int) int {
 // hImage: 图片句柄.
 //
 // id: 背景对象ID, 可忽略(填0).
-func XBkM_AddImage(hBkInfoM int, nState xcc.CombinedState, hImage, id int) int {
+func XBkM_AddImage(hBkInfoM int, nState 炫彩常量类.CombinedState, hImage, id int) int {
 	r, _, _ := xBkM_AddImage.Call(uintptr(hBkInfoM), uintptr(nState), uintptr(hImage), uintptr(id))
 	return int(r)
 }
@@ -112,7 +112,7 @@ func XBkM_Clear(hBkInfoM int) int {
 // hDraw: 图形绘制句柄.
 //
 // pRect: 区域坐标.
-func XBkM_Draw(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect *RECT) bool {
+func XBkM_Draw(hBkInfoM int, nState 炫彩常量类.CombinedState, hDraw int, pRect *RECT) bool {
 	r, _, _ := xBkM_Draw.Call(uintptr(hBkInfoM), uintptr(nState), uintptr(hDraw), uintptr(unsafe.Pointer(pRect)))
 	return r != 0
 }
@@ -130,7 +130,7 @@ func XBkM_Draw(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect *RECT) b
 // nStateEx: 当(nState)中包含(nStateEx)中的一个或多个状态时有效.
 //
 // 注解: 例如用来绘制列表项时, nState中包含项的状态(nStateEx)才会绘制, 避免列表项与元素背景叠加.
-func XBkM_DrawEx(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect *RECT, nStateEx xcc.CombinedState) bool {
+func XBkM_DrawEx(hBkInfoM int, nState 炫彩常量类.CombinedState, hDraw int, pRect *RECT, nStateEx 炫彩常量类.CombinedState) bool {
 	r, _, _ := xBkM_DrawEx.Call(uintptr(hBkInfoM), uintptr(nState), uintptr(hDraw), uintptr(unsafe.Pointer(pRect)), uintptr(nStateEx))
 	return r != 0
 }
@@ -141,7 +141,7 @@ func XBkM_DrawEx(hBkInfoM int, nState xcc.CombinedState, hDraw int, pRect *RECT,
 //
 // bEnable: 是否启用.
 func XBkM_EnableAutoDestroy(hBkInfoM int, bEnable bool) int {
-	r, _, _ := xBkM_EnableAutoDestroy.Call(uintptr(hBkInfoM), common.BoolPtr(bEnable))
+	r, _, _ := xBkM_EnableAutoDestroy.Call(uintptr(hBkInfoM), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -175,7 +175,7 @@ func XBkM_GetRefCount(hBkInfoM int) int {
 //
 // pText: 背景内容字符串.
 func XBkM_SetInfo(hBkInfoM int, pText string) int {
-	r, _, _ := xBkM_SetInfo.Call(uintptr(hBkInfoM), common.StrPtr(pText))
+	r, _, _ := xBkM_SetInfo.Call(uintptr(hBkInfoM), 炫彩工具类.StrPtr(pText))
 	return int(r)
 }
 
@@ -186,7 +186,7 @@ func XBkM_SetInfo(hBkInfoM int, pText string) int {
 // nState: 组合状态.
 //
 // color: 接收返回的ABGR 颜色.
-func XBkM_GetStateTextColor(hBkInfoM int, nState xcc.CombinedState, color *int) bool {
+func XBkM_GetStateTextColor(hBkInfoM int, nState 炫彩常量类.CombinedState, color *int) bool {
 	r, _, _ := xBkM_GetStateTextColor.Call(uintptr(hBkInfoM), uintptr(nState), uintptr(unsafe.Pointer(color)))
 	return r != 0
 }

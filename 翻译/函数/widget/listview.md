@@ -205,12 +205,12 @@ X取对象所在项
 
 
 # <翻译开始>
-func (l *ListView) HitTest(pPt *xc.POINT, pOutGroup *int32, pOutItem
+func (l *ListView) HitTest(pPt *炫彩基类.POINT, pOutGroup *int32, pOutItem
 接收项索引
 # <翻译结束>
 
 # <翻译开始>
-func (l *ListView) HitTest(pPt *xc.POINT, pOutGroup
+func (l *ListView) HitTest(pPt *炫彩基类.POINT, pOutGroup
 接收组索引
 # <翻译结束>
 
@@ -226,12 +226,12 @@ X测试点击项
 
 
 # <翻译开始>
-func (l *ListView) HitTestOffset(pPt *xc.POINT, pOutGroup *int32, pOutItem
+func (l *ListView) HitTestOffset(pPt *炫彩基类.POINT, pOutGroup *int32, pOutItem
 接收项索引
 # <翻译结束>
 
 # <翻译开始>
-func (l *ListView) HitTestOffset(pPt *xc.POINT, pOutGroup
+func (l *ListView) HitTestOffset(pPt *炫彩基类.POINT, pOutGroup
 接收做索引
 # <翻译结束>
 
@@ -413,7 +413,7 @@ X取选择项数量
 
 
 # <翻译开始>
-func (l *ListView) GetSelectAll(pArray *[]xc.ListView_Item_Id_, nArraySize
+func (l *ListView) GetSelectAll(pArray *[]炫彩基类.ListView_Item_Id_, nArraySize
 数组大小
 # <翻译结束>
 

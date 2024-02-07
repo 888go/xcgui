@@ -1,6 +1,4 @@
-package adapter
-
-//炫彩数据适配器类
+package 炫彩数据适配器类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -9,7 +7,7 @@ import (
 
 // 数据适配器.
 type adapter struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // 数据适配器_增加引用计数.

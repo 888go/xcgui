@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -111,7 +111,7 @@ func (p *Pane) SetSize(nWidth int, nHeight int) int {
 }
 
 // 窗格_取状态, 获取窗格停靠状态, 返回: Pane_State_.
-func (p *Pane) GetState() xcc.Pane_State_ {
+func (p *Pane) GetState() 炫彩常量类.Pane_State_ {
 	return xc.XPane_GetState(p.Handle)
 }
 

@@ -92,7 +92,7 @@ X置坐标
 
 
 # <翻译开始>
-func (s *Shape) SetRectLogic(pRect *xc.RECT, bRedraw
+func (s *Shape) SetRectLogic(pRect *炫彩基类.RECT, bRedraw
 是否重绘
 # <翻译结束>
 

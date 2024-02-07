@@ -11,29 +11,29 @@ import (
 )
 
 func main() {
-	a := app.New(true)
-	w := window.New(0, 0, 340, 280, "", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.New(true)
+	w := window.New(0, 0, 340, 280, "", 0, 炫彩常量类.Window_Style_Default)
 
 	// 1.普通编辑框
-	edit := widget.NewEdit(12, 35, 100, 30, w.Handle)
+	edit := 炫彩组件类.NewEdit(12, 35, 100, 30, w.Handle)
 	edit.SetTextColor(xc.ABGR(236, 64, 122, 255))
 	edit.SetText("hello")
 
 	// 2.密码输入框
-	editPwd := widget.NewEdit(12, 75, 100, 30, w.Handle)
+	editPwd := 炫彩组件类.NewEdit(12, 75, 100, 30, w.Handle)
 	editPwd.EnablePassword(true)
 	editPwd.SetText("pwd")
 	// 这个可以改变密码字符
 	editPwd.SetPasswordCharacter('#')
 
 	// 3.多行编辑框
-	editMultiLine := widget.NewEdit(12, 115, 300, 100, w.Handle)
+	editMultiLine := 炫彩组件类.NewEdit(12, 115, 300, 100, w.Handle)
 	editMultiLine.EnableAutoShowScrollBar(true)
 	editMultiLine.EnableMultiLine(true)
 	editMultiLine.EnableAutoWrap(true)
 	editMultiLine.AddText("你好, 世界")
 	// 添加样式
-	style1 := editMultiLine.AddStyleEx("Arial", 14, xcc.FontStyle_Bold, xc.ABGR(0, 191, 165, 255), true)
+	style1 := editMultiLine.AddStyleEx("Arial", 14, 炫彩常量类.FontStyle_Bold, xc.ABGR(0, 191, 165, 255), true)
 	// 添加带样式的文本
 	editMultiLine.AddTextEx("\nhello world", style1)
 	// 获取编辑框文本
@@ -52,7 +52,7 @@ func main() {
 	})
 
 	// 4.只能输入数字的编辑框
-	editOnlyNumber := widget.NewEdit(12, 225, 100, 30, w.Handle)
+	editOnlyNumber := 炫彩组件类.NewEdit(12, 225, 100, 30, w.Handle)
 	editOnlyNumber.Event_CHAR(func(wParam, lParam uint, pbHandled *bool) int {
 		fmt.Println(wParam)
 		if wParam < 58 && wParam > 47 { // 0-9

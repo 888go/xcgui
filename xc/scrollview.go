@@ -179,7 +179,7 @@ func XSView_ScrollPosYV(hEle int, posY int) bool {
 //
 // bShow: 是否显示.
 func XSView_ShowSBarH(hEle int, bShow bool) int {
-	r, _, _ := xSView_ShowSBarH.Call(uintptr(hEle), common.BoolPtr(bShow))
+	r, _, _ := xSView_ShowSBarH.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bShow))
 	return int(r)
 }
 
@@ -189,7 +189,7 @@ func XSView_ShowSBarH(hEle int, bShow bool) int {
 //
 // bShow: 是否显示.
 func XSView_ShowSBarV(hEle int, bShow bool) int {
-	r, _, _ := xSView_ShowSBarV.Call(uintptr(hEle), common.BoolPtr(bShow))
+	r, _, _ := xSView_ShowSBarV.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bShow))
 	return int(r)
 }
 
@@ -199,7 +199,7 @@ func XSView_ShowSBarV(hEle int, bShow bool) int {
 //
 // bEnable: 是否启用.
 func XSView_EnableAutoShowScrollBar(hEle int, bEnable bool) int {
-	r, _, _ := xSView_EnableAutoShowScrollBar.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xSView_EnableAutoShowScrollBar.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 

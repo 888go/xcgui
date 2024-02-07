@@ -12,26 +12,26 @@ import (
 )
 
 func main() {
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 430, 300, "Tree", 0, xcc.Window_Style_Default)
+	w := window.New(0, 0, 430, 300, "Tree", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建Tree
-	tree := widget.NewTree(12, 33, 400, 260, w.Handle)
+	tree := 炫彩组件类.NewTree(12, 33, 400, 260, w.Handle)
 	// 创建数据适配器, 这个是必须的, 存储数据的
 	tree.CreateAdapter()
 
 	// 循环添加数据
 	for i := 0; i < 5; i++ {
 		// 插入项
-		index := tree.InsertItemText(fmt.Sprintf("item%d", i), xcc.XC_ID_ROOT, xcc.XC_ID_LAST)
+		index := tree.InsertItemText(fmt.Sprintf("item%d", i), 炫彩常量类.XC_ID_ROOT, 炫彩常量类.XC_ID_LAST)
 		// 插入2个子项
-		tree.InsertItemText("subitem-1", index, xcc.XC_ID_LAST)
-		subitemIndex := tree.InsertItemText("subitem-2", index, xcc.XC_ID_LAST)
+		tree.InsertItemText("subitem-1", index, 炫彩常量类.XC_ID_LAST)
+		subitemIndex := tree.InsertItemText("subitem-2", index, 炫彩常量类.XC_ID_LAST)
 		// 给子项2插入2个子项
-		tree.InsertItemText("subitem-2-1", subitemIndex, xcc.XC_ID_LAST)
-		tree.InsertItemText("subitem-2-2", subitemIndex, xcc.XC_ID_LAST)
+		tree.InsertItemText("subitem-2-1", subitemIndex, 炫彩常量类.XC_ID_LAST)
+		tree.InsertItemText("subitem-2-2", subitemIndex, 炫彩常量类.XC_ID_LAST)
 	}
 
 	// 列表树元素-项模板创建完成.
@@ -48,14 +48,14 @@ func main() {
 			// 在默认的项模板里, 文本是一个形状文本元素, 它的itemID就是2.
 			hst := tree.GetTemplateObject(pItem.NID, 2)
 			// 设置文本字体
-			xc.XShapeText_SetFont(hst, font.NewEX("Arial", 12, xcc.FontStyle_Bold).Handle)
+			xc.XShapeText_SetFont(hst, 炫彩字体类.NewEX("Arial", 12, 炫彩常量类.FontStyle_Bold).Handle)
 			// 设置文本颜色
 			xc.XShapeText_SetTextColor(hst, xc.ABGR(255, 34, 33, 255))
 		}
 		return 0
 	})
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

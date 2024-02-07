@@ -46,7 +46,7 @@ func XShapeEllipse_SetFillColor(hShape int, color int) int {
 //
 // bEnable: 是否启用.
 func XShapeEllipse_EnableBorder(hShape int, bEnable bool) int {
-	r, _, _ := xShapeEllipse_EnableBorder.Call(uintptr(hShape), common.BoolPtr(bEnable))
+	r, _, _ := xShapeEllipse_EnableBorder.Call(uintptr(hShape), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -56,6 +56,6 @@ func XShapeEllipse_EnableBorder(hShape int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XShapeEllipse_EnableFill(hShape int, bEnable bool) int {
-	r, _, _ := xShapeEllipse_EnableFill.Call(uintptr(hShape), common.BoolPtr(bEnable))
+	r, _, _ := xShapeEllipse_EnableFill.Call(uintptr(hShape), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }

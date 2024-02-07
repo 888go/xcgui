@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -8,7 +8,7 @@ import (
 
 // Element 基础元素.
 type Element struct {
-	objectbase.Widget
+	炫彩对象基类.Widget
 }
 
 // 元素_创建, 创建基础元素.
@@ -71,7 +71,7 @@ func NewElementByUIDName(name string) *Element {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func (e *Element) RegEventC(nEvent xcc.XE_, pFun interface{}) bool {
+func (e *Element) RegEventC(nEvent 炫彩常量类.XE_, pFun interface{}) bool {
 	return xc.XEle_RegEventC(e.Handle, nEvent, pFun)
 }
 
@@ -80,7 +80,7 @@ func (e *Element) RegEventC(nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func (e *Element) RegEventC1(nEvent xcc.XE_, pFun interface{}) bool {
+func (e *Element) RegEventC1(nEvent 炫彩常量类.XE_, pFun interface{}) bool {
 	return xc.XEle_RegEventC1(e.Handle, nEvent, pFun)
 }
 
@@ -89,7 +89,7 @@ func (e *Element) RegEventC1(nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func (e *Element) RemoveEventC(nEvent xcc.XE_, pFun interface{}) bool {
+func (e *Element) RemoveEventC(nEvent 炫彩常量类.XE_, pFun interface{}) bool {
 	return xc.XEle_RemoveEventC(e.Handle, nEvent, pFun)
 }
 
@@ -98,7 +98,7 @@ func (e *Element) RemoveEventC(nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func (e *Element) RegEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
+func (e *Element) RegEventCEx(nEvent 炫彩常量类.XE_, pFun uintptr) bool {
 	return xc.XEle_RegEventCEx(e.Handle, nEvent, pFun)
 }
 
@@ -107,7 +107,7 @@ func (e *Element) RegEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func (e *Element) RegEventC1Ex(nEvent xcc.XE_, pFun uintptr) bool {
+func (e *Element) RegEventC1Ex(nEvent 炫彩常量类.XE_, pFun uintptr) bool {
 	return xc.XEle_RegEventC1Ex(e.Handle, nEvent, pFun)
 }
 
@@ -116,7 +116,7 @@ func (e *Element) RegEventC1Ex(nEvent xcc.XE_, pFun uintptr) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func (e *Element) RemoveEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
+func (e *Element) RemoveEventCEx(nEvent 炫彩常量类.XE_, pFun uintptr) bool {
 	return xc.XEle_RemoveEventCEx(e.Handle, nEvent, pFun)
 }
 
@@ -127,7 +127,7 @@ func (e *Element) RemoveEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
 // wParam: 参数.
 //
 // lParam: 参数.
-func (e *Element) SendEvent(nEvent xcc.XE_, wParam, lParam uint) int {
+func (e *Element) SendEvent(nEvent 炫彩常量类.XE_, wParam, lParam uint) int {
 	return xc.XEle_SendEvent(e.Handle, nEvent, wParam, lParam)
 }
 
@@ -138,7 +138,7 @@ func (e *Element) SendEvent(nEvent xcc.XE_, wParam, lParam uint) int {
 // wParam: 参数.
 //
 // lParam: 参数.
-func (e *Element) PostEvent(nEvent xcc.XE_, wParam, lParam uint) int {
+func (e *Element) PostEvent(nEvent 炫彩常量类.XE_, wParam, lParam uint) int {
 	return xc.XEle_PostEvent(e.Handle, nEvent, wParam, lParam)
 }
 
@@ -259,7 +259,7 @@ func (e *Element) InsertChild(hChild int, index int) bool {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	return xc.XEle_SetRect(e.Handle, pRect, bRedraw, nFlags, nAdjustNo)
 }
 
@@ -278,7 +278,7 @@ func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetRectEx(x int, y int, cx int, cy int, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func (e *Element) SetRectEx(x int, y int, cx int, cy int, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	return xc.XEle_SetRectEx(e.Handle, x, y, cx, cy, bRedraw, nFlags, nAdjustNo)
 }
 
@@ -291,7 +291,7 @@ func (e *Element) SetRectEx(x int, y int, cx int, cy int, bRedraw bool, nFlags x
 // nFlags: 调整布局标识位: xcc.AdjustLayout_. 此参数将会传入XE_SIZE ,XE_ADJUSTLAYOUT 事件回调.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	return xc.XEle_SetRectLogic(e.Handle, pRect, bRedraw, nFlags, nAdjustNo)
 }
 
@@ -306,7 +306,7 @@ func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLa
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	return xc.XEle_SetPosition(e.Handle, x, y, bRedraw, nFlags, nAdjustNo)
 }
 
@@ -321,7 +321,7 @@ func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetPositionLogic(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func (e *Element) SetPositionLogic(x, y int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	return xc.XEle_SetPositionLogic(e.Handle, x, y, bRedraw, nFlags, nAdjustNo)
 }
 
@@ -493,7 +493,7 @@ func (e *Element) SetZOrder(index int) bool {
 // hDestEle: 目标元素.
 //
 // nType: 类型, Zorder_.
-func (e *Element) SetZOrderEx(hDestEle int, nType xcc.Zorder_) bool {
+func (e *Element) SetZOrderEx(hDestEle int, nType 炫彩常量类.Zorder_) bool {
 	return xc.XEle_SetZOrderEx(e.Handle, hDestEle, nType)
 }
 
@@ -587,7 +587,7 @@ func (e *Element) GetPadding(pPadding *xc.RECT) int {
 // 元素_置拖动边框.
 //
 // nFlags: 边框位置组合, Element_Position_.
-func (e *Element) SetDragBorder(nFlags xcc.Element_Position_) int {
+func (e *Element) SetDragBorder(nFlags 炫彩常量类.Element_Position_) int {
 	return xc.XEle_SetDragBorder(e.Handle, nFlags)
 }
 
@@ -598,7 +598,7 @@ func (e *Element) SetDragBorder(nFlags xcc.Element_Position_) int {
 // hBindEle: 绑定元素.
 //
 // nSpace: 元素间隔大小.
-func (e *Element) SetDragBorderBindEle(nFlags xcc.Element_Position_, hBindEle int, nSpace int) int {
+func (e *Element) SetDragBorderBindEle(nFlags 炫彩常量类.Element_Position_, hBindEle int, nSpace int) int {
 	return xc.XEle_SetDragBorderBindEle(e.Handle, nFlags, hBindEle, nSpace)
 }
 
@@ -692,7 +692,7 @@ func (e *Element) Destroy() int {
 // color: ABGR 颜色.
 //
 // width: 线宽.
-func (e *Element) AddBkBorder(nState xcc.CombinedState, color int, width int) int {
+func (e *Element) AddBkBorder(nState 炫彩常量类.CombinedState, color int, width int) int {
 	return xc.XEle_AddBkBorder(e.Handle, nState, color, width)
 }
 
@@ -701,7 +701,7 @@ func (e *Element) AddBkBorder(nState xcc.CombinedState, color int, width int) in
 // nState: 组合状态.
 //
 // color: ABGR 颜色.
-func (e *Element) AddBkFill(nState xcc.CombinedState, color int) int {
+func (e *Element) AddBkFill(nState 炫彩常量类.CombinedState, color int) int {
 	return xc.XEle_AddBkFill(e.Handle, nState, color)
 }
 
@@ -710,7 +710,7 @@ func (e *Element) AddBkFill(nState xcc.CombinedState, color int) int {
 // nState: 组合状态.
 //
 // hImage: 图片句柄.
-func (e *Element) AddBkImage(nState xcc.CombinedState, hImage int) int {
+func (e *Element) AddBkImage(nState 炫彩常量类.CombinedState, hImage int) int {
 	return xc.XEle_AddBkImage(e.Handle, nState, hImage)
 }
 
@@ -742,7 +742,7 @@ func (e *Element) SetBkManager(hBkInfoM int) int {
 }
 
 // 元素_取状态, 获取组合状态.
-func (e *Element) GetStateFlags() xcc.CombinedState {
+func (e *Element) GetStateFlags() 炫彩常量类.CombinedState {
 	return xc.XEle_GetStateFlags(e.Handle)
 }
 
@@ -829,7 +829,7 @@ func (e *Element) SetToolTip(pText string) int {
 // pText: 工具提示内容.
 //
 // nTextAlign: 文本对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func (e *Element) SetToolTipEx(pText string, nTextAlign xcc.TextFormatFlag_) int {
+func (e *Element) SetToolTipEx(pText string, nTextAlign 炫彩常量类.TextFormatFlag_) int {
 	return xc.XEle_SetToolTipEx(e.Handle, pText, nTextAlign)
 }
 
@@ -859,7 +859,7 @@ func (e *Element) AdjustLayout(nAdjustNo uint32) int {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) AdjustLayoutEx(nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func (e *Element) AdjustLayoutEx(nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	return xc.XEle_AdjustLayoutEx(e.Handle, nFlags, nAdjustNo)
 }
 
@@ -888,7 +888,7 @@ func (e *Element) GetPosition(pOutX, pOutY *int32) int {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
+func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32) int {
 	return xc.XEle_SetSize(e.Handle, nWidth, nHeight, bRedraw, nFlags, nAdjustNo)
 }
 
@@ -984,7 +984,7 @@ func (e *Element) GetBottom() int32 {
 //
 // bRedraw: 是否重绘.
 func (e *Element) SetLeft(x int32, bRedraw bool) bool {
-	return xc.XEle_SetPosition(e.Handle, x, e.GetTop(), bRedraw, xcc.AdjustLayout_All, 0) != 0
+	return xc.XEle_SetPosition(e.Handle, x, e.GetTop(), bRedraw, 炫彩常量类.AdjustLayout_All, 0) != 0
 }
 
 // SetLeft 元素_置顶边.
@@ -993,7 +993,7 @@ func (e *Element) SetLeft(x int32, bRedraw bool) bool {
 //
 // bRedraw: 是否重绘.
 func (e *Element) SetTop(y int32, bRedraw bool) bool {
-	return xc.XEle_SetPosition(e.Handle, e.GetLeft(), y, bRedraw, xcc.AdjustLayout_All, 0) != 0
+	return xc.XEle_SetPosition(e.Handle, e.GetLeft(), y, bRedraw, 炫彩常量类.AdjustLayout_All, 0) != 0
 }
 
 /*
@@ -1040,7 +1040,7 @@ type XE_TOOLTIP_POPUP1 func(hEle int, hWindow int, pText uintptr, pbHandled *boo
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_ADJUSTLAYOUT_END func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_ADJUSTLAYOUT_END func(nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 // 调整布局完成事件.
 //
@@ -1049,7 +1049,7 @@ type XE_ADJUSTLAYOUT_END func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHand
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_ADJUSTLAYOUT_END1 func(hEle int, nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_ADJUSTLAYOUT_END1 func(hEle int, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 type XE_SETFOCUS func(pbHandled *bool) int               // 元素获得焦点事件.
 type XE_SETFOCUS1 func(hEle int, pbHandled *bool) int    // 元素获得焦点事件.
@@ -1065,7 +1065,7 @@ type XE_DESTROY_END1 func(hEle int, pbHandled *bool) int // 元素销毁完成�
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_SIZE func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_SIZE func(nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 // 元素大小改变事件1.
 //
@@ -1074,7 +1074,7 @@ type XE_SIZE func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) i
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_SIZE1 func(hEle int, nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_SIZE1 func(hEle int, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 type XE_SHOW func(bShow bool, pbHandled *bool) int                          // 元素显示隐藏事件.
 type XE_SHOW1 func(hEle int, bShow bool, pbHandled *bool) int               // 元素显示隐藏事件.
@@ -1097,322 +1097,322 @@ type XE_DROPFILES1 func(hEle int, hDropInfo uintptr, pbHandled *bool) int   // �
 
 // 元素处理过程事件.
 func (e *Element) Event_ELEPROCE(pFun XE_ELEPROCE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_ELEPROCE, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_ELEPROCE, pFun)
 }
 
 // 元素处理过程事件.
 func (e *Element) Event_ELEPROCE1(pFun XE_ELEPROCE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_ELEPROCE, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_ELEPROCE, pFun)
 }
 
 // 元素绘制事件.
 func (e *Element) Event_PAINT(pFun XE_PAINT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_PAINT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_PAINT, pFun)
 }
 
 // 元素绘制事件.
 func (e *Element) Event_PAINT1(pFun XE_PAINT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_PAINT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_PAINT, pFun)
 }
 
 // 该元素及子元素绘制完成事件.启用该功能需要调用XEle_EnableEvent_XE_PAINT_END().
 func (e *Element) Event_PAINT_END(pFun XE_PAINT_END) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_PAINT_END, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_PAINT_END, pFun)
 }
 
 // 该元素及子元素绘制完成事件.启用该功能需要调用XEle_EnableEvent_XE_PAINT_END().
 func (e *Element) Event_PAINT_END1(pFun XE_PAINT_END1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_PAINT_END, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_PAINT_END, pFun)
 }
 
 // 滚动视图绘制事件.
 func (e *Element) Event_PAINT_SCROLLVIEW(pFun XE_PAINT_SCROLLVIEW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_PAINT_SCROLLVIEW, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_PAINT_SCROLLVIEW, pFun)
 }
 
 // 滚动视图绘制事件.
 func (e *Element) Event_PAINT_SCROLLVIEW1(pFun XE_PAINT_SCROLLVIEW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_PAINT_SCROLLVIEW, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_PAINT_SCROLLVIEW, pFun)
 }
 
 // 元素鼠标移动事件.
 func (e *Element) Event_MOUSEMOVE(pFun XE_MOUSEMOVE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSEMOVE, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MOUSEMOVE, pFun)
 }
 
 // 元素鼠标移动事件.
 func (e *Element) Event_MOUSEMOVE1(pFun XE_MOUSEMOVE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSEMOVE, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MOUSEMOVE, pFun)
 }
 
 // 元素鼠标进入事件.
 func (e *Element) Event_MOUSESTAY(pFun XE_MOUSESTAY) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSESTAY, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MOUSESTAY, pFun)
 }
 
 // 元素鼠标进入事件.
 func (e *Element) Event_MOUSESTAY1(pFun XE_MOUSESTAY1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSESTAY, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MOUSESTAY, pFun)
 }
 
 // 元素鼠标悬停事件.
 func (e *Element) Event_MOUSEHOVER(pFun XE_MOUSEHOVER) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSEHOVER, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MOUSEHOVER, pFun)
 }
 
 // 元素鼠标悬停事件.
 func (e *Element) Event_MOUSEHOVER1(pFun XE_MOUSEHOVER1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSEHOVER, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MOUSEHOVER, pFun)
 }
 
 // 元素鼠标离开事件.
 func (e *Element) Event_MOUSELEAVE(pFun XE_MOUSELEAVE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSELEAVE, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MOUSELEAVE, pFun)
 }
 
 // 元素鼠标离开事件.
 func (e *Element) Event_MOUSELEAVE1(pFun XE_MOUSELEAVE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSELEAVE, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MOUSELEAVE, pFun)
 }
 
 // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL().
 func (e *Element) Event_MOUSEWHEEL(pFun XE_MOUSEWHEEL) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSEWHEEL, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MOUSEWHEEL, pFun)
 }
 
 // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL().
 func (e *Element) Event_MOUSEWHEEL1(pFun XE_MOUSEWHEEL1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSEWHEEL, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MOUSEWHEEL, pFun)
 }
 
 // 鼠标左键按下事件.
 func (e *Element) Event_LBUTTONDOWN(pFun XE_LBUTTONDOWN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_LBUTTONDOWN, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_LBUTTONDOWN, pFun)
 }
 
 // 鼠标左键按下事件.
 func (e *Element) Event_LBUTTONDOWN1(pFun XE_LBUTTONDOWN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_LBUTTONDOWN, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_LBUTTONDOWN, pFun)
 }
 
 // 鼠标左键弹起事件.
 func (e *Element) Event_LBUTTONUP(pFun XE_LBUTTONUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_LBUTTONUP, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_LBUTTONUP, pFun)
 }
 
 // 鼠标左键弹起事件.
 func (e *Element) Event_LBUTTONUP1(pFun XE_LBUTTONUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_LBUTTONUP, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_LBUTTONUP, pFun)
 }
 
 // 鼠标右键按下事件.
 func (e *Element) Event_RBUTTONDOWN(pFun XE_RBUTTONDOWN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_RBUTTONDOWN, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_RBUTTONDOWN, pFun)
 }
 
 // 鼠标右键按下事件.
 func (e *Element) Event_RBUTTONDOWN1(pFun XE_RBUTTONDOWN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_RBUTTONDOWN, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_RBUTTONDOWN, pFun)
 }
 
 // 鼠标右键弹起事件.
 func (e *Element) Event_RBUTTONUP(pFun XE_RBUTTONUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_RBUTTONUP, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_RBUTTONUP, pFun)
 }
 
 // 鼠标右键弹起事件.
 func (e *Element) Event_RBUTTONUP1(pFun XE_RBUTTONUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_RBUTTONUP, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_RBUTTONUP, pFun)
 }
 
 // 鼠标左键双击事件.
 func (e *Element) Event_LBUTTONDBCLICK(pFun XE_LBUTTONDBCLICK) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_LBUTTONDBCLICK, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_LBUTTONDBCLICK, pFun)
 }
 
 // 鼠标左键双击事件.
 func (e *Element) Event_LBUTTONDBCLICK1(pFun XE_LBUTTONDBCLICK1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_LBUTTONDBCLICK, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_LBUTTONDBCLICK, pFun)
 }
 
 // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
 func (e *Element) Event_XC_TIMER(pFun XE_XC_TIMER) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_XC_TIMER, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_XC_TIMER, pFun)
 }
 
 // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
 func (e *Element) Event_XC_TIMER1(pFun XE_XC_TIMER1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_XC_TIMER, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_XC_TIMER, pFun)
 }
 
 // 调整布局事件. 暂停使用.
 func (e *Element) Event_ADJUSTLAYOUT(pFun XE_ADJUSTLAYOUT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_ADJUSTLAYOUT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT, pFun)
 }
 
 // 调整布局事件. 暂停使用.
 func (e *Element) Event_ADJUSTLAYOUT1(pFun XE_ADJUSTLAYOUT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_ADJUSTLAYOUT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT, pFun)
 }
 
 // 调整布局完成事件.
 func (e *Element) Event_ADJUSTLAYOUT_END(pFun XE_ADJUSTLAYOUT_END) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_ADJUSTLAYOUT_END, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT_END, pFun)
 }
 
 // 调整布局完成事件.
 func (e *Element) Event_ADJUSTLAYOUT_END1(pFun XE_ADJUSTLAYOUT_END1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_ADJUSTLAYOUT_END, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT_END, pFun)
 }
 
 // 元素获得焦点事件.
 func (e *Element) Event_SETFOCUS(pFun XE_SETFOCUS) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETFOCUS, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_SETFOCUS, pFun)
 }
 
 // 元素获得焦点事件.
 func (e *Element) Event_SETFOCUS1(pFun XE_SETFOCUS1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETFOCUS, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_SETFOCUS, pFun)
 }
 
 // 元素失去焦点事件.
 func (e *Element) Event_KILLFOCUS(pFun XE_KILLFOCUS) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KILLFOCUS, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_KILLFOCUS, pFun)
 }
 
 // 元素失去焦点事件.
 func (e *Element) Event_KILLFOCUS1(pFun XE_KILLFOCUS1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KILLFOCUS, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_KILLFOCUS, pFun)
 }
 
 // 元素即将销毁事件. 在销毁子对象之前触发.
 func (e *Element) Event_DESTROY(pFun XE_DESTROY) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_DESTROY, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_DESTROY, pFun)
 }
 
 // 元素即将销毁事件. 在销毁子对象之前触发.
 func (e *Element) Event_DESTROY1(pFun XE_DESTROY1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_DESTROY, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_DESTROY, pFun)
 }
 
 // 元素销毁完成事件. 在销毁子对象之后触发.
 func (e *Element) Event_DESTROY_END(pFun XE_DESTROY_END) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_DESTROY_END, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_DESTROY_END, pFun)
 }
 
 // 元素销毁完成事件. 在销毁子对象之后触发.
 func (e *Element) Event_DESTROY_END1(pFun XE_DESTROY_END1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_DESTROY_END, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_DESTROY_END, pFun)
 }
 
 // 元素大小改变事件.
 func (e *Element) Event_SIZE(pFun XE_SIZE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SIZE, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_SIZE, pFun)
 }
 
 // 元素大小改变事件.
 func (e *Element) Event_SIZE1(pFun XE_SIZE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SIZE, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_SIZE, pFun)
 }
 
 // 元素显示隐藏事件.
 func (e *Element) Event_SHOW(pFun XE_SHOW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SHOW, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_SHOW, pFun)
 }
 
 // 元素显示隐藏事件.
 func (e *Element) Event_SHOW1(pFun XE_SHOW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SHOW, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_SHOW, pFun)
 }
 
 // 元素设置字体事件.
 func (e *Element) Event_SETFONT(pFun XE_SETFONT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETFONT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_SETFONT, pFun)
 }
 
 // 元素设置字体事件.
 func (e *Element) Event_SETFONT1(pFun XE_SETFONT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETFONT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_SETFONT, pFun)
 }
 
 // 元素按键事件.
 func (e *Element) Event_KEYDOWN(pFun XE_KEYDOWN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KEYDOWN, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_KEYDOWN, pFun)
 }
 
 // 元素按键事件.
 func (e *Element) Event_KEYDOWN1(pFun XE_KEYDOWN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KEYDOWN, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_KEYDOWN, pFun)
 }
 
 // 元素按键事件.
 func (e *Element) Event_KEYUP(pFun XE_KEYUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KEYUP, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_KEYUP, pFun)
 }
 
 // 元素按键事件.
 func (e *Element) Event_KEYUP1(pFun XE_KEYUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KEYUP, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_KEYUP, pFun)
 }
 
 // 通过TranslateMessage函数翻译的字符事件.
 func (e *Element) Event_CHAR(pFun XE_CHAR) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_CHAR, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_CHAR, pFun)
 }
 
 // 通过TranslateMessage函数翻译的字符事件.
 func (e *Element) Event_CHAR1(pFun XE_CHAR1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_CHAR, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_CHAR, pFun)
 }
 
 // 元素设置鼠标捕获.
 func (e *Element) Event_SETCAPTURE(pFun XE_SETCAPTURE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETCAPTURE, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_SETCAPTURE, pFun)
 }
 
 // 元素设置鼠标捕获.
 func (e *Element) Event_SETCAPTURE1(pFun XE_SETCAPTURE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETCAPTURE, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_SETCAPTURE, pFun)
 }
 
 // 元素失去鼠标捕获.
 func (e *Element) Event_KILLCAPTURE(pFun XE_KILLCAPTURE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KILLCAPTURE, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_KILLCAPTURE, pFun)
 }
 
 // 元素失去鼠标捕获.
 func (e *Element) Event_KILLCAPTURE1(pFun XE_KILLCAPTURE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KILLCAPTURE, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_KILLCAPTURE, pFun)
 }
 
 // 设置鼠标光标.
 func (e *Element) Event_SETCURSOR(pFun XE_SETCURSOR) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETCURSOR, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_SETCURSOR, pFun)
 }
 
 // 设置鼠标光标.
 func (e *Element) Event_SETCURSOR1(pFun XE_SETCURSOR1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETCURSOR, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_SETCURSOR, pFun)
 }
 
 // 文件拖放事件, 需先启用:XWnd_EnableDragFiles().
 func (e *Element) Event_DROPFILES(pFun XE_DROPFILES) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_DROPFILES, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_DROPFILES, pFun)
 }
 
 // 文件拖放事件, 需先启用:XWnd_EnableDragFiles().
 func (e *Element) Event_DROPFILES1(pFun XE_DROPFILES1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_DROPFILES, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_DROPFILES, pFun)
 }
 
 // 事件_元素工具提示弹出, 可使用 common.UintPtrToString 把uintptr转换到文本.
 func (e *Element) Event_TOOLTIP_POPUP(pFun XE_TOOLTIP_POPUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_TOOLTIP_POPUP, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_TOOLTIP_POPUP, pFun)
 }
 
 // 事件_元素工具提示弹出1, 可使用 common.UintPtrToString 把uintptr转换到文本.
 func (e *Element) Event_TOOLTIP_POPUP1(pFun XE_TOOLTIP_POPUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_TOOLTIP_POPUP, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_TOOLTIP_POPUP, pFun)
 }
 
 type XE_MENU_SELECT func(nID int32, pbHandled *bool) int                                          // 弹出菜单项选择事件.
@@ -1424,32 +1424,32 @@ type XE_MENU_DRAWITEM func(hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool)
 
 // 事件_弹出菜单项被选择.
 func (e *Element) Event_MENU_SELECT(pFun XE_MENU_SELECT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_SELECT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MENU_SELECT, pFun)
 }
 
 // 事件_菜单弹出.
 func (e *Element) Event_MENU_POPUP(pFun XE_MENU_POPUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_POPUP, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MENU_POPUP, pFun)
 }
 
 // 事件_菜单退出.
 func (e *Element) Event_MENU_EXIT(pFun XE_MENU_EXIT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_EXIT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MENU_EXIT, pFun)
 }
 
 // 菜单弹出窗口.
 func (e *Element) Event_MENU_POPUP_WND(pFun XE_MENU_POPUP_WND) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_POPUP_WND, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MENU_POPUP_WND, pFun)
 }
 
 // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
 func (e *Element) Event_MENU_DRAW_BACKGROUND(pFun XE_MENU_DRAW_BACKGROUND) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_DRAW_BACKGROUND, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MENU_DRAW_BACKGROUND, pFun)
 }
 
 // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
 func (e *Element) Event_MENU_DRAWITEM(pFun XE_MENU_DRAWITEM) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_DRAWITEM, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_MENU_DRAWITEM, pFun)
 }
 
 type XE_MENU_SELECT1 func(hEle int, nID int, pbHandled *bool) int                                            // 弹出菜单项选择事件.
@@ -1461,30 +1461,30 @@ type XE_MENU_DRAWITEM1 func(hEle int, hDraw int, pInfo *xc.Menu_DrawItem_, pbHan
 
 // 事件_弹出菜单项被选择.
 func (e *Element) Event_MENU_SELECT1(pFun XE_MENU_SELECT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_SELECT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MENU_SELECT, pFun)
 }
 
 // 事件_菜单弹出.
 func (e *Element) Event_MENU_POPUP1(pFun XE_MENU_POPUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_POPUP, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MENU_POPUP, pFun)
 }
 
 // 事件_菜单退出.
 func (e *Element) Event_MENU_EXIT1(pFun XE_MENU_EXIT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_EXIT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MENU_EXIT, pFun)
 }
 
 // 菜单弹出窗口.
 func (e *Element) Event_MENU_POPUP_WND1(pFun XE_MENU_POPUP_WND1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_POPUP_WND, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MENU_POPUP_WND, pFun)
 }
 
 // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
 func (e *Element) Event_MENU_DRAW_BACKGROUND1(pFun XE_MENU_DRAW_BACKGROUND1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_DRAW_BACKGROUND, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MENU_DRAW_BACKGROUND, pFun)
 }
 
 // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
 func (e *Element) Event_MENU_DRAWITEM1(pFun XE_MENU_DRAWITEM1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_DRAWITEM, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_MENU_DRAWITEM, pFun)
 }

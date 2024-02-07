@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	a *app.App
+	a *炫彩App类.App
 	w *window.Window
 
 	top int32 = 35
@@ -65,13 +65,13 @@ var (
 )
 
 func main() {
-	a = app.New(true)
+	a = 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
 	// a.ShowSvgFrame(true)
 	a.SetPaintFrequency(10)
 	// 创建窗口
-	w = window.New(0, 0, 970, 650, "炫彩界面库-动画特效-SVG特效", 0, xcc.Window_Style_Default)
+	w = window.New(0, 0, 970, 650, "炫彩界面库-动画特效-SVG特效", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建按钮, 注册按钮单击事件
 	CreateButton("1.下落 缩放 缓动").Event_BnClick(OnBtnClick1)
@@ -95,16 +95,16 @@ func main() {
 
 	w.Event_PAINT(OnWndDrawWindow)
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }
 
 // 创建按钮
-func CreateButton(name string) *widget.Button {
-	btn := widget.NewButton(10, top, 110, 30, name, w.Handle)
-	btn.SetTextAlign(xcc.TextAlignFlag_Left | xcc.TextAlignFlag_Vcenter)
-	btn.SetTypeEx(xcc.Button_Type_Radio)
+func CreateButton(name string) *炫彩组件类.Button {
+	btn := 炫彩组件类.NewButton(10, top, 110, 30, name, w.Handle)
+	btn.SetTextAlign(炫彩常量类.TextAlignFlag_Left | 炫彩常量类.TextAlignFlag_Vcenter)
+	btn.SetTypeEx(炫彩常量类.Button_Type_Radio)
 	btn.SetGroupID(1)
 	top += 31
 	return btn
@@ -177,7 +177,7 @@ func OnBtnClick1(pbHandled *bool) int {
 		// 将动画序列添加到动画组中
 		xc.XAnimaGroup_AddItem(hGroup, hAnimation)
 
-		xc.XAnima_Move(hAnimation, 500, float32(left), 22, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, false)
+		xc.XAnima_Move(hAnimation, 500, float32(left), 22, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, false)
 		xc.XAnima_Delay(hAnimation, 500)
 
 		xc.XAnima_Delay(hAnimation, 100*float32(k))
@@ -188,13 +188,13 @@ func OnBtnClick1(pbHandled *bool) int {
 		xc.XAnima_Alpha(hAnimation, 500, 255, 1, 0, false)
 		xc.XAnima_Delay(hAnimation, 1000)
 
-		xc.XAnima_Move(hAnimation, 2000, float32(left), 500, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, false)
+		xc.XAnima_Move(hAnimation, 2000, float32(left), 500, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, false)
 		xc.XAnima_Delay(hAnimation, 1000)
 		left += 130
 
 		hAnimation = xc.XAnima_Create(v, 0)
 		xc.XAnima_Delay(hAnimation, 6000+float32(k)*200)
-		xc.XAnima_Scale(hAnimation, 1200, 2, 2, 1, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_In, true)
+		xc.XAnima_Scale(hAnimation, 1200, 2, 2, 1, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_In, true)
 
 		xc.XAnimaGroup_AddItem(hGroup, hAnimation)
 	}
@@ -214,27 +214,27 @@ func OnBtnClick2(pbHandled *bool) int {
 	xc.XSvg_SetPosition(list_svg[0], left, top)
 
 	// 创建动画组
-	group := ani.NewAnimaGroup(0)
+	group := 炫彩动画类.NewAnimaGroup(0)
 	list_animation = append(list_animation, group.Handle)
 	group.Run(w.Handle)
 
 	// 下落
-	ani1 := ani.NewAnima(list_svg[0], 0)
+	ani1 := 炫彩动画类.NewAnima(list_svg[0], 0)
 	group.AddItem(ani1.Handle)
-	ani1.Move(2000, float32(left), 500, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, false)
+	ani1.Move(2000, float32(left), 500, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, false)
 
 	// 停留
 	ani1.Delay(2000)
 
 	// 返回顶部
-	ani1.Move(500, float32(left), 22, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, false)
+	ani1.Move(500, float32(left), 22, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, false)
 
 	// 缩放
-	ani2 := ani.NewAnima(list_svg[0], 1)
+	ani2 := 炫彩动画类.NewAnima(list_svg[0], 1)
 	group.AddItem(ani2.Handle)
 
 	ani2.Delay(2000)
-	ani2.Scale(1000, 2, 2, 0, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_In, true)
+	ani2.Scale(1000, 2, 2, 0, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_In, true)
 
 	/* 以下是纯函数方式实现
 		// 创建动画组
@@ -276,11 +276,11 @@ func OnBtnClick3(pbHandled *bool) int {
 	xc.XSvg_SetPosition(list_svg[0], left, top)
 
 	// 创建动画序列
-	ani1 := ani.NewAnima(list_svg[0], 1)
+	ani1 := 炫彩动画类.NewAnima(list_svg[0], 1)
 	list_animation = append(list_animation, ani1.Handle)
 
 	// 缩放
-	ani1.Scale(1500, 2, 2, 0, xcc.Ease_Flag_Quad|xcc.Ease_Flag_In, true)
+	ani1.Scale(1500, 2, 2, 0, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_In, true)
 	ani1.Run(w.Handle)
 
 	/* 以下是纯函数方式实现
@@ -386,21 +386,21 @@ func OnBtnClick5(pbHandled *bool) int {
 	top = 22
 
 	// 循环
-	ani1 := ani.NewAnima(list_svg[0], 1)
+	ani1 := 炫彩动画类.NewAnima(list_svg[0], 1)
 	list_animation = append(list_animation, ani1.Handle)
 	ani1.Run(w.Handle)
 	ani1.Move(2000, 750, float32(top), 10, 0, true)
 	top += 100
 
 	// 一次, 往返
-	ani2 := ani.NewAnima(list_svg[1], 1)
+	ani2 := 炫彩动画类.NewAnima(list_svg[1], 1)
 	list_animation = append(list_animation, ani2.Handle)
 	ani2.Run(w.Handle)
 	ani2.Move(2000, 750, float32(top), 1, 0, true)
 	top += 100
 
 	// 一次, 不往返
-	ani3 := ani.NewAnima(list_svg[2], 1)
+	ani3 := 炫彩动画类.NewAnima(list_svg[2], 1)
 	list_animation = append(list_animation, ani3.Handle)
 	ani3.Run(w.Handle)
 	ani3.Move(2000, 750, float32(top), 1, 0, false)
@@ -450,20 +450,20 @@ func OnBtnClick6(pbHandled *bool) int {
 	)
 	top = 100
 
-	ani1 := ani.NewAnima(hShapeText1, 0)
+	ani1 := 炫彩动画类.NewAnima(hShapeText1, 0)
 	list_animation = append(list_animation, ani1.Handle)
 	ani1.Run(w.Handle)
-	ani1.Move(3000, 750, float32(top), 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, true)
+	ani1.Move(3000, 750, float32(top), 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, true)
 
-	ani2 := ani.NewAnima(hShapeText2, 1)
+	ani2 := 炫彩动画类.NewAnima(hShapeText2, 1)
 	list_animation = append(list_animation, ani2.Handle)
 	ani2.Run(w.Handle)
-	ani2.Move(3000, 750, float32(top+50), 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, true)
+	ani2.Move(3000, 750, float32(top+50), 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, true)
 
-	ani3 := ani.NewAnima(hShapeText3, 1)
+	ani3 := 炫彩动画类.NewAnima(hShapeText3, 1)
 	list_animation = append(list_animation, ani3.Handle)
 	ani3.Run(w.Handle)
-	ani3.Move(1500, 750, float32(top+100), 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, true)
+	ani3.Move(1500, 750, float32(top+100), 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, true)
 
 	/* 	以下是纯函数方式实现
 	hAnimation := xc.XAnima_Create(hShapeText1, 0)
@@ -490,7 +490,7 @@ func OnBtnClick7(pbHandled *bool) int {
 	var left int32 = 125
 	top = 50
 
-	group1 := ani.NewAnimaGroup(0)
+	group1 := 炫彩动画类.NewAnimaGroup(0)
 	list_animation = append(list_animation, group1.Handle)
 	group1.Run(w.Handle)
 	for i := 0; i < 13; i++ {
@@ -509,7 +509,7 @@ func OnBtnClick7(pbHandled *bool) int {
 
 	left = 125
 	top = 100
-	group2 := ani.NewAnimaGroup(0)
+	group2 := 炫彩动画类.NewAnimaGroup(0)
 	list_animation = append(list_animation, group2.Handle)
 	group2.Run(w.Handle)
 	for i := 0; i < 7; i++ {
@@ -519,7 +519,7 @@ func OnBtnClick7(pbHandled *bool) int {
 		hAnimation := xc.XAnima_Create(hButton, 0)
 		group2.AddItem(hAnimation)
 
-		xc.XAnima_Move(hAnimation, 500, float32(left), float32(top), 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, false)
+		xc.XAnima_Move(hAnimation, 500, float32(left), float32(top), 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, false)
 		xc.XAnima_Delay(hAnimation, 500)
 
 		xc.XAnima_Delay(hAnimation, 100*float32(i))
@@ -530,13 +530,13 @@ func OnBtnClick7(pbHandled *bool) int {
 		xc.XAnima_AlphaEx(hAnimation, 500, 0, 255, 1, 0, false)
 		xc.XAnima_Delay(hAnimation, 1000)
 
-		xc.XAnima_Move(hAnimation, 2000, float32(left), 500, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, false)
+		xc.XAnima_Move(hAnimation, 2000, float32(left), 500, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, false)
 		xc.XAnima_Delay(hAnimation, 1000)
 
 		hAnimation = xc.XAnima_Create(hButton, 1)
 		xc.XAnimaGroup_AddItem(group2.Handle, hAnimation)
 		xc.XAnima_Delay(hAnimation, 6000+float32(i)*200)
-		xc.XAnima_Scale(hAnimation, 1200, 1.5, 2, 1, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_In, true)
+		xc.XAnima_Scale(hAnimation, 1200, 1.5, 2, 1, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_In, true)
 
 		left += 110
 	}
@@ -555,15 +555,15 @@ func OnBtnClick8(pbHandled *bool) int {
 
 		hShapeText := xc.XShapeText_Create(0, 0, 100, 100, "炫彩界面库-www.xcgui.com-鼠标移动到上面查看", hLayout_)
 		xc.XShapeText_SetTextColor(hShapeText, xc.ABGR(255, 255, 255, 255))
-		xc.XWidget_LayoutItem_SetWidth(hShapeText, xcc.Layout_Size_Fill, 0)
+		xc.XWidget_LayoutItem_SetWidth(hShapeText, 炫彩常量类.Layout_Size_Fill, 0)
 
 		list_xcgui = append(list_xcgui, hLayout_)
 		xc.XEle_EnableMouseThrough(hLayout_, false)
-		xc.XWidget_LayoutItem_SetWidth(hLayout_, xcc.Layout_Size_Weight, 100)
+		xc.XWidget_LayoutItem_SetWidth(hLayout_, 炫彩常量类.Layout_Size_Weight, 100)
 
 		xc.XBkM_SetBkInfo(xc.XEle_GetBkManager(hLayout_), "{99:1.9.9;98:16(0);5:2(15)20(1)21(3)26(1)22(-7839744)23(255)9(5,5,5,5);}")
-		xc.XEle_RegEventC1(hLayout_, xcc.XE_MOUSESTAY, OnMouseStay8)
-		xc.XEle_RegEventC1(hLayout_, xcc.XE_MOUSELEAVE, OnMouseLeave8)
+		xc.XEle_RegEventC1(hLayout_, 炫彩常量类.XE_MOUSESTAY, OnMouseStay8)
+		xc.XEle_RegEventC1(hLayout_, 炫彩常量类.XE_MOUSELEAVE, OnMouseLeave8)
 
 		switch i {
 		case 0:
@@ -597,7 +597,7 @@ func OnMouseStay8(hLayout int, pbHandled *bool) int {
 	hAnimation := xc.XAnima_Create(hLayout, 1)
 	list_animation = append(list_animation, hAnimation)
 	xc.XAnima_Run(hAnimation, w.Handle)
-	xc.XAnima_LayoutWidth(hAnimation, 300, xcc.Layout_Size_Weight, 200, 1, 0, false)
+	xc.XAnima_LayoutWidth(hAnimation, 300, 炫彩常量类.Layout_Size_Weight, 200, 1, 0, false)
 
 	return 0
 }
@@ -607,7 +607,7 @@ func OnMouseLeave8(hLayout, hEleStay int, pbHandled *bool) int {
 	hAnimation := xc.XAnima_Create(hLayout, 1)
 	list_animation = append(list_animation, hAnimation)
 	xc.XAnima_Run(hAnimation, w.Handle)
-	xc.XAnima_LayoutWidth(hAnimation, 300, xcc.Layout_Size_Weight, 100, 1, 0, false)
+	xc.XAnima_LayoutWidth(hAnimation, 300, 炫彩常量类.Layout_Size_Weight, 100, 1, 0, false)
 
 	xc.XEle_SetAlpha(hLayout1, 255)
 	xc.XEle_SetAlpha(hLayout2, 255)
@@ -632,17 +632,17 @@ func OnBtnClick9(pbHandled *bool) int {
 
 	for i := 0; i < 3; i++ {
 		hImage := xc.XImage_LoadMemory(imgMap[i*2+1])
-		xc.XImage_SetDrawType(hImage, xcc.Image_Draw_Type_Fixed_Ratio)
+		xc.XImage_SetDrawType(hImage, 炫彩常量类.Image_Draw_Type_Fixed_Ratio)
 
 		hEle := xc.XEle_Create(left, top, 212, 271, w.Handle)
-		xc.XEle_AddBkImage(hEle, xcc.Element_State_Flag_Leave, hImage)
+		xc.XEle_AddBkImage(hEle, 炫彩常量类.Element_State_Flag_Leave, hImage)
 		list_xcgui = append(list_xcgui, hEle)
 
 		hImage2 := xc.XImage_LoadMemory(imgMap[i*2+2])
-		xc.XImage_SetDrawType(hImage2, xcc.Image_Draw_Type_Fixed_Ratio)
+		xc.XImage_SetDrawType(hImage2, 炫彩常量类.Image_Draw_Type_Fixed_Ratio)
 
 		hEle2 := xc.XEle_Create(left, top, 212, 271, w.Handle)
-		xc.XEle_AddBkImage(hEle2, xcc.Element_State_Flag_Leave, hImage2)
+		xc.XEle_AddBkImage(hEle2, 炫彩常量类.Element_State_Flag_Leave, hImage2)
 		list_xcgui = append(list_xcgui, hEle2)
 
 		hText := xc.XShapeText_Create(left, top+280, 200, 30, "炫彩界面库-图片切换\r\n$66.66", w.Handle)
@@ -653,8 +653,8 @@ func OnBtnClick9(pbHandled *bool) int {
 		xc.XEle_SetUserData(hEle2, hEle)
 		xc.XWidget_Show(hEle2, false)
 
-		xc.XEle_RegEventC1(hEle, xcc.XE_MOUSESTAY, OnMouseStay9)
-		xc.XEle_RegEventC1(hEle2, xcc.XE_MOUSELEAVE, OnMouseLeave9)
+		xc.XEle_RegEventC1(hEle, 炫彩常量类.XE_MOUSESTAY, OnMouseStay9)
+		xc.XEle_RegEventC1(hEle2, 炫彩常量类.XE_MOUSELEAVE, OnMouseLeave9)
 
 		left += 212 + 10
 	}
@@ -747,10 +747,10 @@ func OnBtnClick10(pbHandled *bool) int {
 		list_xcgui = append(list_xcgui, hEle)
 
 		hImage := xc.XImage_LoadMemory(imgMap[i*2+1])
-		xc.XImage_SetDrawType(hImage, xcc.Image_Draw_Type_Fixed_Ratio)
+		xc.XImage_SetDrawType(hImage, 炫彩常量类.Image_Draw_Type_Fixed_Ratio)
 
 		hImage2 := xc.XImage_LoadMemory(imgMap[i*2+2])
-		xc.XImage_SetDrawType(hImage2, xcc.Image_Draw_Type_Fixed_Ratio)
+		xc.XImage_SetDrawType(hImage2, 炫彩常量类.Image_Draw_Type_Fixed_Ratio)
 
 		hShapePic := xc.XShapePic_Create(0, 0, 212, 271, hEle)
 		xc.XShapePic_SetImage(hShapePic, hImage)
@@ -762,8 +762,8 @@ func OnBtnClick10(pbHandled *bool) int {
 		xc.XShapeText_SetTextColor(hText, xc.ABGR(80, 80, 80, 255))
 		list_xcgui = append(list_xcgui, hText)
 
-		xc.XEle_RegEventC1(hEle, xcc.XE_MOUSESTAY, OnMouseStay10)
-		xc.XEle_RegEventC1(hEle, xcc.XE_MOUSELEAVE, OnMouseLeave10)
+		xc.XEle_RegEventC1(hEle, 炫彩常量类.XE_MOUSESTAY, OnMouseStay10)
+		xc.XEle_RegEventC1(hEle, 炫彩常量类.XE_MOUSELEAVE, OnMouseLeave10)
 
 		left += 212 + 10
 	}
@@ -789,14 +789,14 @@ func OnMouseStay10(hEle int, pbHandled *bool) int {
 	hAnimation := xc.XAnima_Create(hPic, 1)
 	list_animation = append(list_animation, hAnimation)
 	xc.XAnima_Run(hAnimation, hEle)
-	xc.XAnima_Move(hAnimation, 500, -(212 + 10), 0, 1, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_In, false)
+	xc.XAnima_Move(hAnimation, 500, -(212 + 10), 0, 1, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_In, false)
 
 	hPic = xc.XEle_GetChildByIndex(hEle, 1)
 
 	hAnimation = xc.XAnima_Create(hPic, 1)
 	list_animation = append(list_animation, hAnimation)
 	xc.XAnima_Run(hAnimation, hEle)
-	xc.XAnima_Move(hAnimation, 500, 0, 0, 1, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_In, false)
+	xc.XAnima_Move(hAnimation, 500, 0, 0, 1, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_In, false)
 
 	return 0
 }
@@ -818,14 +818,14 @@ func OnMouseLeave10(hEle, hEleStay int, pbHandled *bool) int {
 	hAnimation := xc.XAnima_Create(hPic, 1)
 	list_animation = append(list_animation, hAnimation)
 	xc.XAnima_Run(hAnimation, hEle)
-	xc.XAnima_Move(hAnimation, 500, 0, 0, 1, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_In, false)
+	xc.XAnima_Move(hAnimation, 500, 0, 0, 1, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_In, false)
 
 	hPic = xc.XEle_GetChildByIndex(hEle, 1)
 
 	hAnimation = xc.XAnima_Create(hPic, 1)
 	list_animation = append(list_animation, hAnimation)
 	xc.XAnima_Run(hAnimation, hEle)
-	xc.XAnima_Move(hAnimation, 500, 212+10, 0, 1, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_In, false)
+	xc.XAnima_Move(hAnimation, 500, 212+10, 0, 1, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_In, false)
 
 	return 0
 }
@@ -846,8 +846,8 @@ func OnBtnClick11(pbHandled *bool) int {
 
 	hAnimation := xc.XAnima_Create(hSvg, 1)
 	xc.XAnimaGroup_AddItem(hGroup, hAnimation)
-	xc.XAnima_Move(hAnimation, 1000, float32(left)+50, float32(top), 1, xcc.Ease_Flag_Sine|xcc.Ease_Flag_InOut, false)
-	xc.XAnima_Move(hAnimation, 1000, float32(left), float32(top), 1, xcc.Ease_Flag_Sine|xcc.Ease_Flag_InOut, false)
+	xc.XAnima_Move(hAnimation, 1000, float32(left)+50, float32(top), 1, 炫彩常量类.Ease_Flag_Sine|炫彩常量类.Ease_Flag_InOut, false)
+	xc.XAnima_Move(hAnimation, 1000, float32(left), float32(top), 1, 炫彩常量类.Ease_Flag_Sine|炫彩常量类.Ease_Flag_InOut, false)
 
 	hSvg = xc.XSvg_LoadStringW(svg12)
 	list_svg = append(list_svg, hSvg)
@@ -859,8 +859,8 @@ func OnBtnClick11(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 1)
 	xc.XAnimaGroup_AddItem(hGroup, hAnimation)
-	xc.XAnima_Move(hAnimation, 1000, float32(left), float32(top), 1, xcc.Ease_Flag_Sine|xcc.Ease_Flag_InOut, false)
-	xc.XAnima_Move(hAnimation, 1000, float32(left)+50, float32(top), 1, xcc.Ease_Flag_Sine|xcc.Ease_Flag_InOut, false)
+	xc.XAnima_Move(hAnimation, 1000, float32(left), float32(top), 1, 炫彩常量类.Ease_Flag_Sine|炫彩常量类.Ease_Flag_InOut, false)
+	xc.XAnima_Move(hAnimation, 1000, float32(left)+50, float32(top), 1, 炫彩常量类.Ease_Flag_Sine|炫彩常量类.Ease_Flag_InOut, false)
 
 	// 一排小球 缩放
 	left = 350
@@ -927,7 +927,7 @@ func OnBtnClick11(pbHandled *bool) int {
 		xc.XAnima_Run(hAnimation, w.Handle)
 
 		xc.XAnimaItem_EnableCompleteRelease(xc.XAnima_Delay(hAnimation, float32(i)*150), true)
-		xc.XAnima_Move(hAnimation, 1000, float32(x), float32(top)+50, 1, xcc.Ease_Flag_Sine|xcc.Ease_Flag_InOut, true)
+		xc.XAnima_Move(hAnimation, 1000, float32(x), float32(top)+50, 1, 炫彩常量类.Ease_Flag_Sine|炫彩常量类.Ease_Flag_InOut, true)
 	}
 
 	// 一排小球 跳动
@@ -944,7 +944,7 @@ func OnBtnClick11(pbHandled *bool) int {
 		xc.XAnima_Run(hAnimation, w.Handle)
 
 		xc.XAnimaItem_EnableCompleteRelease(xc.XAnima_Delay(hAnimation, float32(i)*200), true)
-		xc.XAnima_Move(hAnimation, 500, float32(x), float32(top)+50, 1, xcc.Ease_Flag_Quint|xcc.Ease_Flag_Out, true)
+		xc.XAnima_Move(hAnimation, 500, float32(x), float32(top)+50, 1, 炫彩常量类.Ease_Flag_Quint|炫彩常量类.Ease_Flag_Out, true)
 		xc.XAnima_Delay(hAnimation, 1700)
 	}
 
@@ -962,8 +962,8 @@ func OnBtnClick11(pbHandled *bool) int {
 		xc.XAnima_Run(hAnimation, w.Handle)
 
 		xc.XAnimaItem_EnableCompleteRelease(xc.XAnima_Delay(hAnimation, float32(i)*100), true)
-		xc.XAnima_Move(hAnimation, 2000, 550-(float32(i)+1)*25, float32(top), 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_Out, false)
-		xc.XAnima_Move(hAnimation, 2000, 900-(float32(i)+1)*25, float32(top), 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_In, false)
+		xc.XAnima_Move(hAnimation, 2000, 550-(float32(i)+1)*25, float32(top), 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_Out, false)
+		xc.XAnima_Move(hAnimation, 2000, 900-(float32(i)+1)*25, float32(top), 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_In, false)
 		xc.XAnima_Move(hAnimation, 0, 100-float32(i)*25, float32(top), 1, 0, false)
 		xc.XAnima_Delay(hAnimation, 500)
 
@@ -972,8 +972,8 @@ func OnBtnClick11(pbHandled *bool) int {
 		xc.XAnima_Run(hAnimation, w.Handle)
 
 		xc.XAnimaItem_EnableCompleteRelease(xc.XAnima_Delay(hAnimation, float32(i)*100), true)
-		xc.XAnima_AlphaEx(hAnimation, 2000, 0, 255, 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_Out, false)
-		xc.XAnima_AlphaEx(hAnimation, 2000, 255, 0, 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_In, false)
+		xc.XAnima_AlphaEx(hAnimation, 2000, 0, 255, 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_Out, false)
+		xc.XAnima_AlphaEx(hAnimation, 2000, 255, 0, 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_In, false)
 		xc.XAnima_Delay(hAnimation, 500)
 	}
 
@@ -1011,8 +1011,8 @@ func OnBtnClick12(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	xc.XAnima_Rotate(hAnimation, 1500, 45, 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_In, false)
-	xc.XAnima_Rotate(hAnimation, 1500, -45, 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_In, false)
+	xc.XAnima_Rotate(hAnimation, 1500, 45, 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_In, false)
+	xc.XAnima_Rotate(hAnimation, 1500, -45, 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_In, false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
@@ -1047,8 +1047,8 @@ func OnBtnClick13(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	xc.XAnima_Rotate(hAnimation, 1000, 360, 1, xcc.Ease_Flag_Expo|xcc.Ease_Flag_In, false)
-	xc.XAnima_Rotate(hAnimation, 0, 0, 1, xcc.Ease_Flag_Linear, false)
+	xc.XAnima_Rotate(hAnimation, 1000, 360, 1, 炫彩常量类.Ease_Flag_Expo|炫彩常量类.Ease_Flag_In, false)
+	xc.XAnima_Rotate(hAnimation, 0, 0, 1, 炫彩常量类.Ease_Flag_Linear, false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	// 两个叠加 悬挂摆动
@@ -1061,7 +1061,7 @@ func OnBtnClick13(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	hRotate := xc.XAnima_Rotate(hAnimation, 3000, 100, 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_InOut, true)
+	hRotate := xc.XAnima_Rotate(hAnimation, 3000, 100, 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_InOut, true)
 	xc.XAnimaRotate_SetCenter(hRotate, float32(left)+10, float32(top)+50, false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
@@ -1073,7 +1073,7 @@ func OnBtnClick13(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	hRotate = xc.XAnima_Rotate(hAnimation, 3000, 100, 1, xcc.Ease_Flag_Cubic|xcc.Ease_Flag_InOut, true)
+	hRotate = xc.XAnima_Rotate(hAnimation, 3000, 100, 1, 炫彩常量类.Ease_Flag_Cubic|炫彩常量类.Ease_Flag_InOut, true)
 	xc.XAnimaRotate_SetCenter(hRotate, float32(left)+10, float32(top)+50, false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
@@ -1088,7 +1088,7 @@ func OnBtnClick13(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	hRotate = xc.XAnima_Rotate(hAnimation, 1500, 0, 1, xcc.Ease_Flag_Expo|xcc.Ease_Flag_In, true)
+	hRotate = xc.XAnima_Rotate(hAnimation, 1500, 0, 1, 炫彩常量类.Ease_Flag_Expo|炫彩常量类.Ease_Flag_In, true)
 	xc.XAnimaRotate_SetCenter(hRotate, float32(left), float32(top), false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
@@ -1154,7 +1154,7 @@ func OnBtnClick15(pbHandled *bool) int {
 
 	hAnimation := xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	hRotate := xc.XAnima_Rotate(hAnimation, 2000, 0, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, true)
+	hRotate := xc.XAnima_Rotate(hAnimation, 2000, 0, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, true)
 	xc.XAnimaRotate_SetCenter(hRotate, float32(left), float32(top+height/2.0), false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
@@ -1168,7 +1168,7 @@ func OnBtnClick15(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	hRotate = xc.XAnima_Rotate(hAnimation, 2000, 0, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, true)
+	hRotate = xc.XAnima_Rotate(hAnimation, 2000, 0, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, true)
 	xc.XAnimaRotate_SetCenter(hRotate, float32(left), float32(top+height/2.0), false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
@@ -1184,7 +1184,7 @@ func OnBtnClick15(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	hRotate = xc.XAnima_Rotate(hAnimation, 2000, 0, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, true)
+	hRotate = xc.XAnima_Rotate(hAnimation, 2000, 0, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, true)
 	xc.XAnimaRotate_SetCenter(hRotate, float32(left+width), float32(top+height/2.0), false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
@@ -1199,7 +1199,7 @@ func OnBtnClick15(pbHandled *bool) int {
 
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
-	hRotate = xc.XAnima_Rotate(hAnimation, 2000, 0, 1, xcc.Ease_Flag_Bounce|xcc.Ease_Flag_Out, true)
+	hRotate = xc.XAnima_Rotate(hAnimation, 2000, 0, 1, 炫彩常量类.Ease_Flag_Bounce|炫彩常量类.Ease_Flag_Out, true)
 	xc.XAnimaRotate_SetCenter(hRotate, float32(left+width), float32(top+height/2.0), false)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
@@ -1253,7 +1253,7 @@ func OnBtnClick16(pbHandled *bool) int {
 	xc.XAnima_Color(hAnimation, 1500, xc.ABGR(0, 255, 255, 255), 1, 0, true)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
-	hFontx := xc.XFont_CreateEx("微软雅黑", 36, xcc.FontStyle_Bold)
+	hFontx := xc.XFont_CreateEx("微软雅黑", 36, 炫彩常量类.FontStyle_Bold)
 	hShapeText := xc.XShapeText_Create(500, 100, 300, 50, "炫彩界面库", w.Handle)
 	list_xcgui = append(list_xcgui, hShapeText)
 	xc.XShapeText_SetFont(hShapeText, hFontx)
@@ -1288,7 +1288,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation := xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale := xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_LeftTop)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_LeftTop)
 	xc.XAnima_Run(hAnimation, w.Handle)
 	top = top + 150
 	hSvg = xc.XSvg_LoadStringW(svg5)
@@ -1299,7 +1299,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_Left)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_Left)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	top = top + 150
@@ -1311,7 +1311,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_LeftBottom)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_LeftBottom)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	top = 50
@@ -1324,7 +1324,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_Top)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_Top)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	top = top + 150
@@ -1336,7 +1336,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_Center)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_Center)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	top = top + 150
@@ -1348,7 +1348,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_Bottom)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_Bottom)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	left = left + 150
@@ -1361,7 +1361,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_RightTop)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_RightTop)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	top = top + 150
@@ -1373,7 +1373,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_Right)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_Right)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	top = top + 150
@@ -1385,7 +1385,7 @@ func OnBtnClick17(pbHandled *bool) int {
 	hAnimation = xc.XAnima_Create(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	hScale = xc.XAnima_Scale(hAnimation, 3000, 0.5, 0.5, 1, 0, true)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_RightBottom)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_RightBottom)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	return 0
@@ -1399,8 +1399,8 @@ func OnBtnClick18(pbHandled *bool) int {
 	for i := 0; i < 5; i++ {
 		hButton := xc.XBtn_Create(left, top, 100, 50, "鼠标 停留 离开", w.Handle)
 		list_xcgui = append(list_xcgui, hButton)
-		xc.XEle_RegEventC1(hButton, xcc.XE_MOUSESTAY, OnMouseStay18)
-		xc.XEle_RegEventC1(hButton, xcc.XE_MOUSELEAVE, OnMouseLeave18)
+		xc.XEle_RegEventC1(hButton, 炫彩常量类.XE_MOUSESTAY, OnMouseStay18)
+		xc.XEle_RegEventC1(hButton, 炫彩常量类.XE_MOUSELEAVE, OnMouseLeave18)
 		top = top + 60
 	}
 	w.Redraw(false)
@@ -1422,8 +1422,8 @@ func OnMouseStay18(hButton int, pbHandled *bool) int {
 
 	hAnimation := xc.XAnima_Create(hButton, 1)
 	list_animation = append(list_animation, hAnimation)
-	hScale := xc.XAnima_ScaleSize(hAnimation, 400, 200, 50, 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_Out, false)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_Left)
+	hScale := xc.XAnima_ScaleSize(hAnimation, 400, 200, 50, 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_Out, false)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_Left)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	return 0
@@ -1443,8 +1443,8 @@ func OnMouseLeave18(hButton, hEleStay int, pbHandled *bool) int {
 
 	hAnimation := xc.XAnima_Create(hButton, 1)
 	list_animation = append(list_animation, hAnimation)
-	hScale := xc.XAnima_ScaleSize(hAnimation, 400, 100, 50, 1, xcc.Ease_Flag_Quad|xcc.Ease_Flag_In, false)
-	xc.XAnimaScale_SetPosition(hScale, xcc.Position_Flag_Left)
+	hScale := xc.XAnima_ScaleSize(hAnimation, 400, 100, 50, 1, 炫彩常量类.Ease_Flag_Quad|炫彩常量类.Ease_Flag_In, false)
+	xc.XAnimaScale_SetPosition(hScale, 炫彩常量类.Position_Flag_Left)
 	xc.XAnima_Run(hAnimation, w.Handle)
 
 	return 0

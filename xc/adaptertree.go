@@ -16,7 +16,7 @@ func XAdTree_Create() int {
 //
 // pName: 字段称.
 func XAdTree_AddColumn(hAdapter int, pName string) int {
-	r, _, _ := xAdTree_AddColumn.Call(uintptr(hAdapter), common.StrPtr(pName))
+	r, _, _ := xAdTree_AddColumn.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -26,7 +26,7 @@ func XAdTree_AddColumn(hAdapter int, pName string) int {
 //
 // pColName: 列名, 列名, 多个列名用逗号分开.
 func XAdTree_SetColumn(hAdapter int, pColName string) int {
-	r, _, _ := xAdTree_SetColumn.Call(uintptr(hAdapter), common.StrPtr(pColName))
+	r, _, _ := xAdTree_SetColumn.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pColName))
 	return int(r)
 }
 
@@ -40,7 +40,7 @@ func XAdTree_SetColumn(hAdapter int, pColName string) int {
 //
 // insertID: 插入位置ID.
 func XAdTree_InsertItemText(hAdapter int, pValue string, nParentID int, insertID int) int {
-	r, _, _ := xAdTree_InsertItemText.Call(uintptr(hAdapter), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
+	r, _, _ := xAdTree_InsertItemText.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
 	return int(r)
 }
 
@@ -56,7 +56,7 @@ func XAdTree_InsertItemText(hAdapter int, pValue string, nParentID int, insertID
 //
 // insertID: 插入位置ID.
 func XAdTree_InsertItemTextEx(hAdapter int, pName string, pValue string, nParentID int, insertID int) int {
-	r, _, _ := xAdTree_InsertItemTextEx.Call(uintptr(hAdapter), common.StrPtr(pName), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
+	r, _, _ := xAdTree_InsertItemTextEx.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
 	return int(r)
 }
 
@@ -86,7 +86,7 @@ func XAdTree_InsertItemImage(hAdapter int, hImage int, nParentID int, insertID i
 //
 // insertID: 插入位置ID.
 func XAdTree_InsertItemImageEx(hAdapter int, pName string, hImage int, nParentID int, insertID int) int {
-	r, _, _ := xAdTree_InsertItemImageEx.Call(uintptr(hAdapter), common.StrPtr(pName), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
+	r, _, _ := xAdTree_InsertItemImageEx.Call(uintptr(hAdapter), 炫彩工具类.StrPtr(pName), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
 	return int(r)
 }
 
@@ -116,7 +116,7 @@ func XAdTree_GetCountColumn(hAdapter int) int {
 //
 // pValue: 值.
 func XAdTree_SetItemText(hAdapter int, nID int, iColumn int, pValue string) bool {
-	r, _, _ := xAdTree_SetItemText.Call(uintptr(hAdapter), uintptr(nID), uintptr(iColumn), common.StrPtr(pValue))
+	r, _, _ := xAdTree_SetItemText.Call(uintptr(hAdapter), uintptr(nID), uintptr(iColumn), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -130,7 +130,7 @@ func XAdTree_SetItemText(hAdapter int, nID int, iColumn int, pValue string) bool
 //
 // pValue: 值.
 func XAdTree_SetItemTextEx(hAdapter int, nID int, pName string, pValue string) bool {
-	r, _, _ := xAdTree_SetItemTextEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName), common.StrPtr(pValue))
+	r, _, _ := xAdTree_SetItemTextEx.Call(uintptr(hAdapter), uintptr(nID), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -158,7 +158,7 @@ func XAdTree_SetItemImage(hAdapter int, nID int, iColumn int, hImage int) bool {
 //
 // hImage: 图片句柄.
 func XAdTree_SetItemImageEx(hAdapter int, nID int, pName string, hImage int) bool {
-	r, _, _ := xAdTree_SetItemImageEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xAdTree_SetItemImageEx.Call(uintptr(hAdapter), uintptr(nID), 炫彩工具类.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -171,7 +171,7 @@ func XAdTree_SetItemImageEx(hAdapter int, nID int, pName string, hImage int) boo
 // iColumn: 列索引.
 func XAdTree_GetItemText(hAdapter int, nID int, iColumn int) string {
 	r, _, _ := xAdTree_GetItemText.Call(uintptr(hAdapter), uintptr(nID), uintptr(iColumn))
-	return common.UintPtrToString(r)
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 数据适配器树_取项文本扩展, 获取项文本内容.
@@ -182,8 +182,8 @@ func XAdTree_GetItemText(hAdapter int, nID int, iColumn int) string {
 //
 // pName: 字段称.
 func XAdTree_GetItemTextEx(hAdapter int, nID int, pName string) string {
-	r, _, _ := xAdTree_GetItemTextEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName))
-	return common.UintPtrToString(r)
+	r, _, _ := xAdTree_GetItemTextEx.Call(uintptr(hAdapter), uintptr(nID), 炫彩工具类.StrPtr(pName))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 数据适配器树_取项图片, 获取项内容, 返回图片句柄.
@@ -206,7 +206,7 @@ func XAdTree_GetItemImage(hAdapter int, nID int, iColumn int) int {
 //
 // pName: 字段称.
 func XAdTree_GetItemImageEx(hAdapter int, nID int, pName string) int {
-	r, _, _ := xAdTree_GetItemImageEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName))
+	r, _, _ := xAdTree_GetItemImageEx.Call(uintptr(hAdapter), uintptr(nID), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 

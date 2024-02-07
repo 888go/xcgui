@@ -1,6 +1,5 @@
-package wnd_test
+package 炫彩WinApi窗口类_test
 
-//炫彩WinApi窗口类_test
 import (
 	"fmt"
 	"github.com/888go/xcgui/wapi"
@@ -9,15 +8,15 @@ import (
 )
 
 func TestGetWindowTitle(t *testing.T) {
-	hwnd := wapi.FindWindowExW(0, 0, "", "任务管理器")
-	fmt.Println(wnd.GetTitle(hwnd))
+	hwnd := 炫彩WinApi类.FindWindowExW(0, 0, "", "任务管理器")
+	fmt.Println(炫彩WinApi窗口类.GetTitle(hwnd))
 }
 
 func TestSetTop(t *testing.T) {
-	hwnd := wapi.FindWindowExW(0, 0, "", "任务管理器")
-	fmt.Println(wnd.SetTop(hwnd, true))
+	hwnd := 炫彩WinApi类.FindWindowExW(0, 0, "", "任务管理器")
+	fmt.Println(炫彩WinApi窗口类.SetTop(hwnd, true))
 }
 
 func TestGetWindowHWND(t *testing.T) {
-	fmt.Println(wnd.GetHWND("", "管理器"))
+	fmt.Println(炫彩WinApi窗口类.GetHWND("", "管理器"))
 }

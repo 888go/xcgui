@@ -15,8 +15,8 @@ func TestXInitXCGUI(t *testing.T) {
 		}*/
 	xc.LoadXCGUI()
 	xc.XInitXCGUI(true)
-	hWindow := xc.XWnd_Create(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
-	xc.XWnd_ShowWindow(hWindow, xcc.SW_SHOW)
+	hWindow := xc.XWnd_Create(0, 0, 500, 500, "", 0, 炫彩常量类.Window_Style_Default)
+	xc.XWnd_ShowWindow(hWindow, 炫彩常量类.SW_SHOW)
 	xc.XRunXCGUI()
 	xc.XExitXCGUI()
 }

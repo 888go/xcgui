@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -256,20 +256,20 @@ type XE_TABBAR_DELETE1 func(hEle int, iItem int32, pbHandled *bool) int // TabBa
 
 // TabBar标签按钮选择改变事件.
 func (t *TabBar) Event_TABBAR_SELECT(pFun XE_TABBAR_SELECT) bool {
-	return xc.XEle_RegEventC(t.Handle, xcc.XE_TABBAR_SELECT, pFun)
+	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TABBAR_SELECT, pFun)
 }
 
 // TabBar标签按钮选择改变事件.
 func (t *TabBar) Event_TABBAR_SELECT1(pFun XE_TABBAR_SELECT1) bool {
-	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TABBAR_SELECT, pFun)
+	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TABBAR_SELECT, pFun)
 }
 
 // TabBar标签按钮删除事件.
 func (t *TabBar) Event_TABBAR_DELETE(pFun XE_TABBAR_DELETE) bool {
-	return xc.XEle_RegEventC(t.Handle, xcc.XE_TABBAR_DELETE, pFun)
+	return xc.XEle_RegEventC(t.Handle, 炫彩常量类.XE_TABBAR_DELETE, pFun)
 }
 
 // TabBar标签按钮删除事件.
 func (t *TabBar) Event_TABBAR_DELETE1(pFun XE_TABBAR_DELETE1) bool {
-	return xc.XEle_RegEventC1(t.Handle, xcc.XE_TABBAR_DELETE, pFun)
+	return xc.XEle_RegEventC1(t.Handle, 炫彩常量类.XE_TABBAR_DELETE, pFun)
 }

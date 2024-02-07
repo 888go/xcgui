@@ -1,4 +1,4 @@
-package ani
+package 炫彩动画类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,7 +7,7 @@ import (
 
 // AnimaItem 动画项.
 type AnimaItem struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // 动画项_启用完成释放, 当动画项完成后自动释放.

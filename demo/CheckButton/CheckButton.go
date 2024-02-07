@@ -12,19 +12,19 @@ import (
 )
 
 func main() {
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 430, 300, "复选按钮", 0, xcc.Window_Style_Default)
+	w := window.New(0, 0, 430, 300, "复选按钮", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建按钮
-	Check1 := widget.NewButton(10, 35, 70, 30, "Check1", w.Handle)
-	Check2 := widget.NewButton(10, 75, 70, 30, "Check2", w.Handle)
-	Check3 := widget.NewButton(10, 115, 70, 30, "Check3", w.Handle)
+	Check1 := 炫彩组件类.NewButton(10, 35, 70, 30, "Check1", w.Handle)
+	Check2 := 炫彩组件类.NewButton(10, 75, 70, 30, "Check2", w.Handle)
+	Check3 := 炫彩组件类.NewButton(10, 115, 70, 30, "Check3", w.Handle)
 	// 设置按钮类型
-	Check1.SetTypeEx(xcc.Button_Type_Check)
-	Check2.SetTypeEx(xcc.Button_Type_Check)
-	Check3.SetTypeEx(xcc.Button_Type_Check)
+	Check1.SetTypeEx(炫彩常量类.Button_Type_Check)
+	Check2.SetTypeEx(炫彩常量类.Button_Type_Check)
+	Check3.SetTypeEx(炫彩常量类.Button_Type_Check)
 
 	// 设置选中
 	Check1.SetCheck(true)
@@ -34,7 +34,7 @@ func main() {
 	Check2.Event_BUTTON_CHECK1(btn_check)
 	Check3.Event_BUTTON_CHECK1(btn_check)
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

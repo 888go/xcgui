@@ -12,35 +12,35 @@ import (
 )
 
 func main() {
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 430, 300, "ScrollBar", 0, xcc.Window_Style_Default)
+	w := window.New(0, 0, 430, 300, "ScrollBar", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建滚动条
-	bar1 := widget.NewScrollBar(12, 33, 300, 20, w.Handle)
-	bar2 := widget.NewScrollBar(330, 33, 20, 240, w.Handle)
+	bar1 := 炫彩组件类.NewScrollBar(12, 33, 300, 20, w.Handle)
+	bar2 := 炫彩组件类.NewScrollBar(330, 33, 20, 240, w.Handle)
 
 	// 设置为垂直滚动条
 	bar2.EnableHorizon(false)
 	// 添加背景
-	bar2.AddBkFill(xcc.Element_State_Flag_Leave, xc.RGBA(247, 248, 250, 255))
+	bar2.AddBkFill(炫彩常量类.Element_State_Flag_Leave, xc.RGBA(247, 248, 250, 255))
 
 	// 获取滑块按钮
-	btnSlider := widget.NewButtonByHandle(bar2.GetButtonSlider())
-	btnSlider.AddBkFill(xcc.Button_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
-	btnSlider.AddBkFill(xcc.Button_State_Flag_Stay, xc.RGBA(202, 202, 204, 255))
-	btnSlider.AddBkFill(xcc.Button_State_Flag_Down, xc.RGBA(202, 202, 204, 255))
+	btnSlider := 炫彩组件类.NewButtonByHandle(bar2.GetButtonSlider())
+	btnSlider.AddBkFill(炫彩常量类.Button_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
+	btnSlider.AddBkFill(炫彩常量类.Button_State_Flag_Stay, xc.RGBA(202, 202, 204, 255))
+	btnSlider.AddBkFill(炫彩常量类.Button_State_Flag_Down, xc.RGBA(202, 202, 204, 255))
 	// 获取滚动条上按钮
-	btnUp := widget.NewButtonByHandle(bar2.GetButtonUp())
-	btnUp.AddBkFill(xcc.Button_State_Flag_Leave, xc.RGBA(137, 140, 151, 255))
-	btnUp.AddBkFill(xcc.Button_State_Flag_Stay, xc.RGBA(255, 135, 250, 255))
-	btnUp.AddBkFill(xcc.Button_State_Flag_Down, xc.RGBA(255, 75, 250, 255))
+	btnUp := 炫彩组件类.NewButtonByHandle(bar2.GetButtonUp())
+	btnUp.AddBkFill(炫彩常量类.Button_State_Flag_Leave, xc.RGBA(137, 140, 151, 255))
+	btnUp.AddBkFill(炫彩常量类.Button_State_Flag_Stay, xc.RGBA(255, 135, 250, 255))
+	btnUp.AddBkFill(炫彩常量类.Button_State_Flag_Down, xc.RGBA(255, 75, 250, 255))
 	// 获取滚动条下按钮
-	btnDown := widget.NewButtonByHandle(bar2.GetButtonDown())
-	btnDown.AddBkFill(xcc.Button_State_Flag_Leave, xc.RGBA(137, 140, 151, 255))
-	btnDown.AddBkFill(xcc.Button_State_Flag_Stay, xc.RGBA(255, 135, 250, 255))
-	btnDown.AddBkFill(xcc.Button_State_Flag_Down, xc.RGBA(255, 75, 250, 255))
+	btnDown := 炫彩组件类.NewButtonByHandle(bar2.GetButtonDown())
+	btnDown.AddBkFill(炫彩常量类.Button_State_Flag_Leave, xc.RGBA(137, 140, 151, 255))
+	btnDown.AddBkFill(炫彩常量类.Button_State_Flag_Stay, xc.RGBA(255, 135, 250, 255))
+	btnDown.AddBkFill(炫彩常量类.Button_State_Flag_Down, xc.RGBA(255, 75, 250, 255))
 	// 因为上下按钮背景改变了, 你可以自己准备图片设置到按钮上去
 	// btnDown.SetIcon()  或  btnDown.AddBkImage()
 
@@ -48,7 +48,7 @@ func main() {
 	bar1.Event_SBAR_SCROLL1(SBAR_SCROLL1)
 	bar2.Event_SBAR_SCROLL1(SBAR_SCROLL1)
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

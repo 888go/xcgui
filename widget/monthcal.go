@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -125,10 +125,10 @@ type XE_MONTHCAL_CHANGE1 func(hEle int, pbHandled *bool) int // 月历元素日�
 
 // 月历元素日期改变事件.
 func (m *MonthCal) Event_MONTHCAL_CHANGE(pFun XE_MONTHCAL_CHANGE) bool {
-	return xc.XEle_RegEventC(m.Handle, xcc.XE_MONTHCAL_CHANGE, pFun)
+	return xc.XEle_RegEventC(m.Handle, 炫彩常量类.XE_MONTHCAL_CHANGE, pFun)
 }
 
 // 月历元素日期改变事件.
 func (m *MonthCal) Event_MONTHCAL_CHANGE1(pFun XE_MONTHCAL_CHANGE1) bool {
-	return xc.XEle_RegEventC1(m.Handle, xcc.XE_MONTHCAL_CHANGE, pFun)
+	return xc.XEle_RegEventC1(m.Handle, 炫彩常量类.XE_MONTHCAL_CHANGE, pFun)
 }

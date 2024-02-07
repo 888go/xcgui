@@ -8,11 +8,11 @@ import (
 )
 
 func main() {
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 	w := window.NewByLayoutStringW(str, 0, 0)
 	w.AdjustLayout()
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

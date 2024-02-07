@@ -43,6 +43,6 @@ func XAd_Destroy(hAdapter int) int {
 //
 // bEnable: 是否启用.
 func XAd_EnableAutoDestroy(hAdapter int, bEnable bool) int {
-	r, _, _ := xAd_EnableAutoDestroy.Call(uintptr(hAdapter), common.BoolPtr(bEnable))
+	r, _, _ := xAd_EnableAutoDestroy.Call(uintptr(hAdapter), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }

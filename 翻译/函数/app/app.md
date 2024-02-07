@@ -436,7 +436,7 @@ X启用GDI绘制文本
 
 
 # <翻译开始>
-func (a *App) RectInRect(pRect1 *xc.RECT, pRect2
+func (a *App) RectInRect(pRect1 *炫彩基类.RECT, pRect2
 矩形2
 # <翻译结束>
 
@@ -452,12 +452,12 @@ X判断矩形相交
 
 
 # <翻译开始>
-func (a *App) CombineRect(pDest *xc.RECT, pSrc1 *xc.RECT, pSrc2
+func (a *App) CombineRect(pDest *炫彩基类.RECT, pSrc1 *炫彩基类.RECT, pSrc2
 源矩形2
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) CombineRect(pDest *xc.RECT, pSrc1
+func (a *App) CombineRect(pDest *炫彩基类.RECT, pSrc1
 源矩形1
 # <翻译结束>
 
@@ -680,32 +680,32 @@ X添加搜索路径
 
 
 # <翻译开始>
-func (a *App) InitFont(pFont *xc.LOGFONTW, pName string, size int, bBold bool, bItalic bool, bUnderline bool, bStrikeOut
+func (a *App) InitFont(pFont *炫彩基类.LOGFONTW, pName string, size int, bBold bool, bItalic bool, bUnderline bool, bStrikeOut
 是否有删除线
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) InitFont(pFont *xc.LOGFONTW, pName string, size int, bBold bool, bItalic bool, bUnderline
+func (a *App) InitFont(pFont *炫彩基类.LOGFONTW, pName string, size int, bBold bool, bItalic bool, bUnderline
 是否有下划线
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) InitFont(pFont *xc.LOGFONTW, pName string, size int, bBold bool, bItalic
+func (a *App) InitFont(pFont *炫彩基类.LOGFONTW, pName string, size int, bBold bool, bItalic
 是否为斜体
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) InitFont(pFont *xc.LOGFONTW, pName string, size int, bBold
+func (a *App) InitFont(pFont *炫彩基类.LOGFONTW, pName string, size int, bBold
 是否为粗体
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) InitFont(pFont *xc.LOGFONTW, pName string, size
+func (a *App) InitFont(pFont *炫彩基类.LOGFONTW, pName string, size
 字体大小
 # <翻译结束>
 
 # <翻译开始>
-func (a *App) InitFont(pFont *xc.LOGFONTW, pName
+func (a *App) InitFont(pFont *炫彩基类.LOGFONTW, pName
 字体名称
 # <翻译结束>
 

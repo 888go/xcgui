@@ -1,4 +1,4 @@
-package imagex
+package 炫彩图片类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,9 +7,9 @@ import (
 	"github.com/888go/xcgui/xcc"
 )
 
-// Image 炫彩图片类.
+// Image 图片操作.
 type Image struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // 图片_加载从图片源.
@@ -318,7 +318,7 @@ func NewByHandle(handle int) *Image {
 //
 // pName: 资源名称.
 func NewByName(name string) *Image {
-	handle := res.GetImage(name)
+	handle := 炫彩资源类.GetImage(name)
 	if handle > 0 {
 		p := &Image{}
 		p.SetHandle(handle)
@@ -333,7 +333,7 @@ func NewByName(name string) *Image {
 //
 // pName: 资源名称.
 func NewByNameEx(fileName, name string) *Image {
-	handle := res.GetImageEx(fileName, name)
+	handle := 炫彩资源类.GetImageEx(fileName, name)
 	if handle > 0 {
 		p := &Image{}
 		p.SetHandle(handle)
@@ -367,7 +367,7 @@ func (i *Image) IsTile() bool {
 // 图片_置绘制类型, 设置图片绘制类型.
 //
 // nType: 图片绘制类型, Image_Draw_Type_.
-func (i *Image) SetDrawType(nType xcc.Image_Draw_Type_) bool {
+func (i *Image) SetDrawType(nType 炫彩常量类.Image_Draw_Type_) bool {
 	return xc.XImage_SetDrawType(i.Handle, nType)
 }
 
@@ -443,7 +443,7 @@ func (i *Image) IsCenter() bool {
 }
 
 // 图片_取绘制类型, 获取图片绘制类型, 返回: xcc.Image_Draw_Type_.
-func (i *Image) GetDrawType() xcc.Image_Draw_Type_ {
+func (i *Image) GetDrawType() 炫彩常量类.Image_Draw_Type_ {
 	return xc.XImage_GetDrawType(i.Handle)
 }
 

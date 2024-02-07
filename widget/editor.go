@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -322,40 +322,40 @@ type XE_EDITOR_AUTOMATCH_SELECT1 func(hEle int, iRow int32, nRows int32, pbHandl
 
 // 多行内容改变事件 例如:区块注释操作, 区块缩进操作, 代码格式化.
 func (e *Editor) Event_EDITOR_MODIFY_ROWS(pFun XE_EDITOR_MODIFY_ROWS) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_MODIFY_ROWS, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDITOR_MODIFY_ROWS, pFun)
 }
 
 // 多行内容改变事件 例如:区块注释操作, 区块缩进操作, 代码格式化.
 func (e *Editor) Event_EDITOR_MODIFY_ROWS1(pFun XE_EDITOR_MODIFY_ROWS1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_MODIFY_ROWS, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDITOR_MODIFY_ROWS, pFun)
 }
 
 // 代码编辑框_设置断点.
 func (e *Editor) Event_EDITOR_SETBREAKPOINT(pFun XE_EDITOR_SETBREAKPOINT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_SETBREAKPOINT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDITOR_SETBREAKPOINT, pFun)
 }
 
 // 代码编辑框_设置断点.
 func (e *Editor) Event_EDITOR_SETBREAKPOINT1(pFun XE_EDITOR_SETBREAKPOINT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_SETBREAKPOINT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDITOR_SETBREAKPOINT, pFun)
 }
 
 // 代码编辑框_移除断点.
 func (e *Editor) Event_EDITOR_REMOVEBREAKPOINT(pFun XE_EDITOR_REMOVEBREAKPOINT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_REMOVEBREAKPOINT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDITOR_REMOVEBREAKPOINT, pFun)
 }
 
 // 代码编辑框_移除断点.
 func (e *Editor) Event_EDITOR_REMOVEBREAKPOINT1(pFun XE_EDITOR_REMOVEBREAKPOINT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_REMOVEBREAKPOINT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDITOR_REMOVEBREAKPOINT, pFun)
 }
 
 // 代码编辑框_自动匹配选择.
 func (e *Editor) Event_EDITOR_AUTOMATCH_SELECT(pFun XE_EDITOR_AUTOMATCH_SELECT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_AUTOMATCH_SELECT, pFun)
+	return xc.XEle_RegEventC(e.Handle, 炫彩常量类.XE_EDITOR_AUTOMATCH_SELECT, pFun)
 }
 
 // 代码编辑框_自动匹配选择.
 func (e *Editor) Event_EDITOR_AUTOMATCH_SELECT1(pFun XE_EDITOR_AUTOMATCH_SELECT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_AUTOMATCH_SELECT, pFun)
+	return xc.XEle_RegEventC1(e.Handle, 炫彩常量类.XE_EDITOR_AUTOMATCH_SELECT, pFun)
 }

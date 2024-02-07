@@ -16,10 +16,10 @@ import (
 )
 
 var (
-	a   *app.App
+	a   *炫彩App类.App
 	w   *window.Window
-	btn *widget.Button
-	ls  *widget.List
+	btn *炫彩组件类.Button
+	ls  *炫彩组件类.List
 
 	rwm sync.RWMutex
 	wg  sync.WaitGroup
@@ -29,15 +29,15 @@ var (
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	a = app.New(true)
+	a = 炫彩App类.New(true)
 	a.EnableDPI(true)
 	a.EnableAutoDPI(true)
-	w = window.New(0, 0, 550, 300, "MultithreadOperationUI", 0, xcc.Window_Style_Default)
+	w = window.New(0, 0, 550, 300, "MultithreadOperationUI", 0, 炫彩常量类.Window_Style_Default)
 	// 创建按钮
-	btn = widget.NewButton(15, 33, 70, 24, "click", w.Handle)
+	btn = 炫彩组件类.NewButton(15, 33, 70, 24, "click", w.Handle)
 	btn.Event_BnClick(onBnClick)
 	// 创建列表
-	ls = widget.NewList(10, 60, 530, 230, w.Handle)
+	ls = 炫彩组件类.NewList(10, 60, 530, 230, w.Handle)
 	ls.CreateAdapterHeader() // 创建表头数据适配器
 	ls.CreateAdapter(5)      // 创建数据适配器, 5列
 	// 添加列
@@ -95,7 +95,7 @@ func onBnClick(pbHandled *bool) int {
 
 			btn.Enable(true)
 			btn.Redraw(false)
-			w.MessageBox("提示", fmt.Sprintf("全部执行完毕, 耗时: %v", time.Since(t)), xcc.MessageBox_Flag_Ok, xcc.Window_Style_Default)
+			w.MessageBox("提示", fmt.Sprintf("全部执行完毕, 耗时: %v", time.Since(t)), 炫彩常量类.MessageBox_Flag_Ok, 炫彩常量类.Window_Style_Default)
 		})
 	}()
 	return 0

@@ -48,7 +48,7 @@ func XTree_CreateEx(x, y, cx, cy int32, hParent, col_extend_count int32) int {
 //
 // bEnable: 是否启用.
 func XTree_EnableDragItem(hEle int, bEnable bool) {
-	xTree_EnableDragItem.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	xTree_EnableDragItem.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 }
 
 // 列表树_启用连接线, 启用或禁用显示项的连接线.
@@ -59,7 +59,7 @@ func XTree_EnableDragItem(hEle int, bEnable bool) {
 //
 // bSolid: 实线或虚线; TRUE: 实线, FALSE: 虚线.
 func XTree_EnableConnectLine(hEle int, bEnable bool, bSolid bool) {
-	xTree_EnableConnectLine.Call(uintptr(hEle), common.BoolPtr(bEnable), common.BoolPtr(bSolid))
+	xTree_EnableConnectLine.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable), 炫彩工具类.BoolPtr(bSolid))
 }
 
 // 列表树_启用展开, 启动或关闭默认展开功能, 如果开启新插入的项将自动展开.
@@ -68,7 +68,7 @@ func XTree_EnableConnectLine(hEle int, bEnable bool, bSolid bool) {
 //
 // bEnable: 是否启用.
 func XTree_EnableExpand(hEle int, bEnable bool) {
-	xTree_EnableExpand.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	xTree_EnableExpand.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 }
 
 // 列表树_启用模板复用.
@@ -77,7 +77,7 @@ func XTree_EnableExpand(hEle int, bEnable bool) {
 //
 // bEnable: 是否启用.
 func XTree_EnableTemplateReuse(hEle int, bEnable bool) {
-	xTree_EnableTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	xTree_EnableTemplateReuse.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 }
 
 // 列表树_置连接线颜色.
@@ -124,7 +124,7 @@ func XTree_SetDragInsertPositionColor(hEle int, color int) {
 //
 // pXmlFile: 文件名.
 func XTree_SetItemTemplateXML(hEle int, pXmlFile string) bool {
-	r, _, _ := xTree_SetItemTemplateXML.Call(uintptr(hEle), common.StrPtr(pXmlFile))
+	r, _, _ := xTree_SetItemTemplateXML.Call(uintptr(hEle), 炫彩工具类.StrPtr(pXmlFile))
 	return r != 0
 }
 
@@ -134,7 +134,7 @@ func XTree_SetItemTemplateXML(hEle int, pXmlFile string) bool {
 //
 // pXmlFile: 文件名.
 func XTree_SetItemTemplateXMLSel(hEle int, pXmlFile string) bool {
-	r, _, _ := xTree_SetItemTemplateXMLSel.Call(uintptr(hEle), common.StrPtr(pXmlFile))
+	r, _, _ := xTree_SetItemTemplateXMLSel.Call(uintptr(hEle), 炫彩工具类.StrPtr(pXmlFile))
 	return r != 0
 }
 
@@ -183,7 +183,7 @@ func XTree_SetItemTemplateXMLSelFromString(hEle int, pStringXML string) bool {
 // hEle: 元素句柄.
 //
 // nFlags: 标志位: xcc.List_DrawItemBk_Flag_.
-func XTree_SetDrawItemBkFlags(hEle int, nFlags xcc.List_DrawItemBk_Flag_) {
+func XTree_SetDrawItemBkFlags(hEle int, nFlags 炫彩常量类.List_DrawItemBk_Flag_) {
 	xTree_SetDrawItemBkFlags.Call(uintptr(hEle), uintptr(nFlags))
 }
 
@@ -254,7 +254,7 @@ func XTree_IsExpand(hEle int, nID int32) bool {
 //
 // bExpand: 是否展开.
 func XTree_ExpandItem(hEle int, nID int32, bExpand bool) bool {
-	r, _, _ := xTree_ExpandItem.Call(uintptr(hEle), uintptr(nID), common.BoolPtr(bExpand))
+	r, _, _ := xTree_ExpandItem.Call(uintptr(hEle), uintptr(nID), 炫彩工具类.BoolPtr(bExpand))
 	return r != 0
 }
 
@@ -266,7 +266,7 @@ func XTree_ExpandItem(hEle int, nID int32, bExpand bool) bool {
 //
 // bExpand: 是否展开.
 func XTree_ExpandAllChildItem(hEle int, nID int32, bExpand bool) bool {
-	r, _, _ := xTree_ExpandAllChildItem.Call(uintptr(hEle), uintptr(nID), common.BoolPtr(bExpand))
+	r, _, _ := xTree_ExpandAllChildItem.Call(uintptr(hEle), uintptr(nID), 炫彩工具类.BoolPtr(bExpand))
 	return r != 0
 }
 
@@ -509,7 +509,7 @@ func XTree_GetItemIDFromHXCGUI(hEle int, hXCGUI int) int32 {
 //
 // insertID:.
 func XTree_InsertItemText(hEle int, pValue string, nParentID, insertID int32) int32 {
-	r, _, _ := xTree_InsertItemText.Call(uintptr(hEle), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
+	r, _, _ := xTree_InsertItemText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
 	return int32(r)
 }
 
@@ -525,7 +525,7 @@ func XTree_InsertItemText(hEle int, pValue string, nParentID, insertID int32) in
 //
 // insertID:.
 func XTree_InsertItemTextEx(hEle int, pName string, pValue string, nParentID, insertID int32) int32 {
-	r, _, _ := xTree_InsertItemTextEx.Call(uintptr(hEle), common.StrPtr(pName), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
+	r, _, _ := xTree_InsertItemTextEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
 	return int32(r)
 }
 
@@ -555,7 +555,7 @@ func XTree_InsertItemImage(hEle int, hImage int, nParentID, insertID int32) int3
 //
 // insertID:.
 func XTree_InsertItemImageEx(hEle int, pName string, hImage int, nParentID, insertID int32) int32 {
-	r, _, _ := xTree_InsertItemImageEx.Call(uintptr(hEle), common.StrPtr(pName), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
+	r, _, _ := xTree_InsertItemImageEx.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
 	return int32(r)
 }
 
@@ -585,7 +585,7 @@ func XTree_GetCountColumn(hEle int) int32 {
 //
 // pValue:.
 func XTree_SetItemText(hEle int, nID, iColumn int32, pValue string) bool {
-	r, _, _ := xTree_SetItemText.Call(uintptr(hEle), uintptr(nID), uintptr(iColumn), common.StrPtr(pValue))
+	r, _, _ := xTree_SetItemText.Call(uintptr(hEle), uintptr(nID), uintptr(iColumn), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -599,7 +599,7 @@ func XTree_SetItemText(hEle int, nID, iColumn int32, pValue string) bool {
 //
 // pValue:.
 func XTree_SetItemTextEx(hEle int, nID int32, pName string, pValue string) bool {
-	r, _, _ := xTree_SetItemTextEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName), common.StrPtr(pValue))
+	r, _, _ := xTree_SetItemTextEx.Call(uintptr(hEle), uintptr(nID), 炫彩工具类.StrPtr(pName), 炫彩工具类.StrPtr(pValue))
 	return r != 0
 }
 
@@ -627,7 +627,7 @@ func XTree_SetItemImage(hEle int, nID, iColumn int32, hImage int) bool {
 //
 // hImage:.
 func XTree_SetItemImageEx(hEle int, nID int32, pName string, hImage int) bool {
-	r, _, _ := xTree_SetItemImageEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName), uintptr(hImage))
+	r, _, _ := xTree_SetItemImageEx.Call(uintptr(hEle), uintptr(nID), 炫彩工具类.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -640,7 +640,7 @@ func XTree_SetItemImageEx(hEle int, nID int32, pName string, hImage int) bool {
 // iColumn:.
 func XTree_GetItemText(hEle int, nID, iColumn int32) string {
 	r, _, _ := xTree_GetItemText.Call(uintptr(hEle), uintptr(nID), uintptr(iColumn))
-	return common.UintPtrToString(r)
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表树_取项文本扩展.
@@ -651,8 +651,8 @@ func XTree_GetItemText(hEle int, nID, iColumn int32) string {
 //
 // pName:.
 func XTree_GetItemTextEx(hEle int, nID int32, pName string) string {
-	r, _, _ := xTree_GetItemTextEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName))
-	return common.UintPtrToString(r)
+	r, _, _ := xTree_GetItemTextEx.Call(uintptr(hEle), uintptr(nID), 炫彩工具类.StrPtr(pName))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表树_取项图片.
@@ -675,7 +675,7 @@ func XTree_GetItemImage(hEle int, nID, iColumn int32) int {
 //
 // pName:.
 func XTree_GetItemImageEx(hEle int, nID int32, pName string) int {
-	r, _, _ := xTree_GetItemImageEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName))
+	r, _, _ := xTree_GetItemImageEx.Call(uintptr(hEle), uintptr(nID), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -718,7 +718,7 @@ func XTree_SetSplitLineColor(hEle int, color int) {
 //
 // data: 模板数据.
 func XTree_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
-	r, _, _ := xTree_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+	r, _, _ := xTree_SetItemTemplateXMLFromMem.Call(uintptr(hEle), 炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)))
 	return r != 0
 }
 
@@ -734,7 +734,7 @@ func XTree_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
 //
 // hModule: 模块句柄, 可填0.
 func XTree_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xTree_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	r, _, _ := xTree_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), hModule)
 	return r != 0
 }
 

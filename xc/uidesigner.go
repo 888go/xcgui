@@ -12,7 +12,7 @@ import (
 //
 // hAttachWnd: 附加窗口句柄, 附加到指定的窗口, 可填0.
 func XC_LoadLayout(pFileName string, hParent int, hAttachWnd uintptr) int {
-	r, _, _ := xC_LoadLayout.Call(common.StrPtr(pFileName), uintptr(hParent), hAttachWnd)
+	r, _, _ := xC_LoadLayout.Call(炫彩工具类.StrPtr(pFileName), uintptr(hParent), hAttachWnd)
 	return int(r)
 }
 
@@ -28,7 +28,7 @@ func XC_LoadLayout(pFileName string, hParent int, hAttachWnd uintptr) int {
 //
 // hAttachWnd: 附加窗口句柄, 附加到指定的窗口, 可填0.
 func XC_LoadLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) int {
-	r, _, _ := xC_LoadLayoutEx.Call(common.StrPtr(pFileName), common.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
+	r, _, _ := xC_LoadLayoutEx.Call(炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
 	return int(r)
 }
 
@@ -44,7 +44,7 @@ func XC_LoadLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAt
 //
 // hAttachWnd: 附加窗口句柄, 附加到指定的窗口, 可填0.
 func XC_LoadLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) int {
-	r, _, _ := xC_LoadLayoutZip.Call(common.StrPtr(pZipFileName), common.StrPtr(pFileName), common.StrPtr(pPassword), uintptr(hParent), hAttachWnd)
+	r, _, _ := xC_LoadLayoutZip.Call(炫彩工具类.StrPtr(pZipFileName), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), uintptr(hParent), hAttachWnd)
 	return int(r)
 }
 
@@ -64,7 +64,7 @@ func XC_LoadLayoutZip(pZipFileName string, pFileName string, pPassword string, h
 //
 // hAttachWnd: 附加窗口句柄, 附加到指定的窗口, 可填0.
 func XC_LoadLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) int {
-	r, _, _ := xC_LoadLayoutZipEx.Call(common.StrPtr(pZipFileName), common.StrPtr(pFileName), common.StrPtr(pPassword), common.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
+	r, _, _ := xC_LoadLayoutZipEx.Call(炫彩工具类.StrPtr(pZipFileName), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), 炫彩工具类.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
 	return int(r)
 }
 
@@ -80,7 +80,7 @@ func XC_LoadLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefi
 //
 // hAttachWnd: 附加窗口句柄, 附加到指定的窗口, 可填0.
 func XC_LoadLayoutZipMem(data []byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) int {
-	r, _, _ := xC_LoadLayoutZipMem.Call(common.ByteSliceDataPtr(&data), uintptr(len(data)), common.StrPtr(pFileName), common.StrPtr(pPassword), uintptr(hParent), hAttachWnd)
+	r, _, _ := xC_LoadLayoutZipMem.Call(炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), uintptr(hParent), hAttachWnd)
 	return int(r)
 }
 
@@ -100,7 +100,7 @@ func XC_LoadLayoutZipMem(data []byte, pFileName string, pPassword string, hParen
 //
 // hAttachWnd: 附加窗口句柄, 附加到指定的窗口, 可填0.
 func XC_LoadLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) int {
-	r, _, _ := xC_LoadLayoutZipMemEx.Call(common.ByteSliceDataPtr(&data), uintptr(len(data)), common.StrPtr(pFileName), common.StrPtr(pPassword), common.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
+	r, _, _ := xC_LoadLayoutZipMemEx.Call(炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), 炫彩工具类.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
 	return int(r)
 }
 
@@ -140,7 +140,7 @@ func XC_LoadLayoutFromStringW(pStringXML string, hParent int, hAttachWnd uintptr
 //
 // hAttachWnd: 附加窗口句柄, 附加到指定的窗口, 可填0.
 func XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) int {
-	r, _, _ := xC_LoadLayoutFromStringUtf8Ex.Call(XC_wtoutf8(pStringXML), common.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
+	r, _, _ := xC_LoadLayoutFromStringUtf8Ex.Call(XC_wtoutf8(pStringXML), 炫彩工具类.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd)
 	return int(r)
 }
 
@@ -148,7 +148,7 @@ func XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName string, hParent int, hPa
 //
 // pFileName: 样式文件名称.
 func XC_LoadStyle(pFileName string) bool {
-	r, _, _ := xC_LoadStyle.Call(common.StrPtr(pFileName))
+	r, _, _ := xC_LoadStyle.Call(炫彩工具类.StrPtr(pFileName))
 	return r != 0
 }
 
@@ -160,7 +160,7 @@ func XC_LoadStyle(pFileName string) bool {
 //
 // pPassword: 密码.
 func XC_LoadStyleZip(pZipFile string, pFileName string, pPassword string) bool {
-	r, _, _ := xC_LoadStyleZip.Call(common.StrPtr(pZipFile), common.StrPtr(pFileName), common.StrPtr(pPassword))
+	r, _, _ := xC_LoadStyleZip.Call(炫彩工具类.StrPtr(pZipFile), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword))
 	return r != 0
 }
 
@@ -172,7 +172,7 @@ func XC_LoadStyleZip(pZipFile string, pFileName string, pPassword string) bool {
 //
 // pPassword: 密码.
 func XC_LoadStyleZipMem(data []byte, pFileName string, pPassword string) bool {
-	r, _, _ := xC_LoadStyleZipMem.Call(common.ByteSliceDataPtr(&data), uintptr(len(data)), common.StrPtr(pFileName), common.StrPtr(pPassword))
+	r, _, _ := xC_LoadStyleZipMem.Call(炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword))
 	return r != 0
 }
 
@@ -180,7 +180,7 @@ func XC_LoadStyleZipMem(data []byte, pFileName string, pPassword string) bool {
 //
 // pFileName: 资源文件名.
 func XC_LoadResource(pFileName string) bool {
-	r, _, _ := xC_LoadResource.Call(common.StrPtr(pFileName))
+	r, _, _ := xC_LoadResource.Call(炫彩工具类.StrPtr(pFileName))
 	return r != 0
 }
 
@@ -192,7 +192,7 @@ func XC_LoadResource(pFileName string) bool {
 //
 // pPassword: zip压缩包密码.
 func XC_LoadResourceZip(pZipFileName string, pFileName string, pPassword string) bool {
-	r, _, _ := xC_LoadResourceZip.Call(common.StrPtr(pZipFileName), common.StrPtr(pFileName), common.StrPtr(pPassword))
+	r, _, _ := xC_LoadResourceZip.Call(炫彩工具类.StrPtr(pZipFileName), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword))
 	return r != 0
 }
 
@@ -204,7 +204,7 @@ func XC_LoadResourceZip(pZipFileName string, pFileName string, pPassword string)
 //
 // pPassword: zip压缩包密码.
 func XC_LoadResourceZipMem(data []byte, pFileName string, pPassword string) bool {
-	r, _, _ := xC_LoadResourceZipMem.Call(common.ByteSliceDataPtr(&data), uintptr(len(data)), common.StrPtr(pFileName), common.StrPtr(pPassword))
+	r, _, _ := xC_LoadResourceZipMem.Call(炫彩工具类.ByteSliceDataPtr(&data), uintptr(len(data)), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword))
 	return r != 0
 }
 
@@ -214,7 +214,7 @@ func XC_LoadResourceZipMem(data []byte, pFileName string, pPassword string) bool
 //
 // pFileName: 资源文件名.
 func XC_LoadResourceFromStringW(pStringXML string, pFileName string) bool {
-	r, _, _ := xC_LoadResourceFromStringUtf8.Call(XC_wtoutf8(pStringXML), common.StrPtr(pFileName))
+	r, _, _ := xC_LoadResourceFromStringUtf8.Call(XC_wtoutf8(pStringXML), 炫彩工具类.StrPtr(pFileName))
 	return r != 0
 }
 
@@ -224,7 +224,7 @@ func XC_LoadResourceFromStringW(pStringXML string, pFileName string) bool {
 //
 // pString: 字符串.
 func XC_LoadStyleFromStringW(pFileName string, pString string) bool {
-	r, _, _ := xC_LoadStyleFromStringW.Call(common.StrPtr(pFileName), common.StrPtr(pString))
+	r, _, _ := xC_LoadStyleFromStringW.Call(炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pString))
 	return r != 0
 }
 
@@ -246,7 +246,7 @@ func XC_LoadStyleFromStringW(pFileName string, pString string) bool {
 //
 // hModule: 模块句柄, 可填0.
 func XC_LoadLayoutZipResEx(id int32, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) int {
-	r, _, _ := xC_LoadLayoutZipResEx.Call(uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), common.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd, hModule)
+	r, _, _ := xC_LoadLayoutZipResEx.Call(uintptr(id), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), 炫彩工具类.StrPtr(pPrefixName), uintptr(hParent), hParentWnd, hAttachWnd, hModule)
 	return int(r)
 }
 
@@ -260,7 +260,7 @@ func XC_LoadLayoutZipResEx(id int32, pFileName string, pPassword, pPrefixName st
 //
 // hModule: 模块句柄, 可填0.
 func XC_LoadResourceZipRes(id int, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xC_LoadResourceZipRes.Call(uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	r, _, _ := xC_LoadResourceZipRes.Call(uintptr(id), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), hModule)
 	return r != 0
 }
 
@@ -274,7 +274,7 @@ func XC_LoadResourceZipRes(id int, pFileName string, pPassword string, hModule u
 //
 // hModule: 模块句柄, 可填0.
 func XC_LoadStyleZipRes(id int, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xC_LoadStyleZipRes.Call(uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+	r, _, _ := xC_LoadStyleZipRes.Call(uintptr(id), 炫彩工具类.StrPtr(pFileName), 炫彩工具类.StrPtr(pPassword), hModule)
 	return r != 0
 }
 

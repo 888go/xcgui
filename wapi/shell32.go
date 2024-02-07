@@ -1,4 +1,4 @@
-package wapi
+package 炫彩WinApi类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -32,7 +32,7 @@ var (
 //	@return int 返回文件路径的字符数.
 func DragQueryFileW(hDrop uintptr, iFile uint32, lpszFile *string, cch uint32) int {
 	buf := make([]uint16, cch)
-	r, _, _ := dragQueryFileW.Call(hDrop, uintptr(iFile), common.Uint16SliceDataPtr(&buf), uintptr(cch))
+	r, _, _ := dragQueryFileW.Call(hDrop, uintptr(iFile), 炫彩工具类.Uint16SliceDataPtr(&buf), uintptr(cch))
 	*lpszFile = syscall.UTF16ToString(buf[0:])
 	return int(r)
 }
@@ -66,8 +66,8 @@ func DragQueryPoint(hDrop uintptr, ppt *xc.POINT) bool {
 //	@param lpDirectory 想使用的默认路径完整路径.
 //	@param nShowCmd 定义了如何显示启动程序的常数值, xcc.SW_.
 //	@return int 如果函数成功，则返回大于32的值。如果函数失败，则返回指示失败原因的错误值.
-func ShellExecuteW(hwnd uintptr, lpOperation, lpFile, lpParameters, lpDirectory string, nShowCmd xcc.SW_) int {
-	r, _, _ := shellExecuteW.Call(hwnd, common.StrPtr(lpOperation), common.StrPtr(lpFile), common.StrPtr(lpParameters), common.StrPtr(lpDirectory), uintptr(nShowCmd))
+func ShellExecuteW(hwnd uintptr, lpOperation, lpFile, lpParameters, lpDirectory string, nShowCmd 炫彩常量类.SW_) int {
+	r, _, _ := shellExecuteW.Call(hwnd, 炫彩工具类.StrPtr(lpOperation), 炫彩工具类.StrPtr(lpFile), 炫彩工具类.StrPtr(lpParameters), 炫彩工具类.StrPtr(lpDirectory), uintptr(nShowCmd))
 	return int(r)
 }
 
@@ -142,7 +142,7 @@ func SHBrowseForFolderW(browseInfo *BrowseInfoW) uintptr {
 //	@return bool
 func SHGetPathFromIDListW(pidl uintptr, pszPath *string) bool {
 	buf := make([]uint16, 260)
-	r, _, _ := sHGetPathFromIDListW.Call(pidl, common.Uint16SliceDataPtr(&buf))
+	r, _, _ := sHGetPathFromIDListW.Call(pidl, 炫彩工具类.Uint16SliceDataPtr(&buf))
 	*pszPath = syscall.UTF16ToString(buf)
 	return r != 0
 }

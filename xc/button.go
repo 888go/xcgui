@@ -19,7 +19,7 @@ import (
 //
 // hParent: 父为窗口句柄或元素句柄.
 func XBtn_Create(x, y, cx, cy int32, pName string, hParent int) int {
-	r, _, _ := xBtn_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
+	r, _, _ := xBtn_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), 炫彩工具类.StrPtr(pName), uintptr(hParent))
 	return int(r)
 }
 
@@ -37,7 +37,7 @@ func XBtn_IsCheck(hEle int) bool {
 //
 // bCheck: 是否选中.
 func XBtn_SetCheck(hEle int, bCheck bool) bool {
-	r, _, _ := xBtn_SetCheck.Call(uintptr(hEle), common.BoolPtr(bCheck))
+	r, _, _ := xBtn_SetCheck.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bCheck))
 	return r != 0
 }
 
@@ -46,7 +46,7 @@ func XBtn_SetCheck(hEle int, bCheck bool) bool {
 //	@param hEle 元素句柄.
 //	@param nState 按钮状态: xcc.Common_State3_
 //	@return int
-func XBtn_SetState(hEle int, nState xcc.Common_State3_) int {
+func XBtn_SetState(hEle int, nState 炫彩常量类.Common_State3_) int {
 	r, _, _ := xBtn_SetState.Call(uintptr(hEle), uintptr(nState))
 	return int(r)
 }
@@ -55,18 +55,18 @@ func XBtn_SetState(hEle int, nState xcc.Common_State3_) int {
 //
 //	@param hEle 元素句柄.
 //	@return xcc.Common_State3_
-func XBtn_GetState(hEle int) xcc.Common_State3_ {
+func XBtn_GetState(hEle int) 炫彩常量类.Common_State3_ {
 	r, _, _ := xBtn_GetState.Call(uintptr(hEle))
-	return xcc.Common_State3_(r)
+	return 炫彩常量类.Common_State3_(r)
 }
 
 // XBtn_GetStateEx 按钮_取状态扩展.
 //
 //	@param hEle 元素句柄.
 //	@return xcc.Button_State_
-func XBtn_GetStateEx(hEle int) xcc.Button_State_ {
+func XBtn_GetStateEx(hEle int) 炫彩常量类.Button_State_ {
 	r, _, _ := xBtn_GetStateEx.Call(uintptr(hEle))
-	return xcc.Button_State_(r)
+	return 炫彩常量类.Button_State_(r)
 }
 
 // 按钮_置类型扩展, 设置按钮类型并自动修改样式和文本对齐方式.
@@ -74,7 +74,7 @@ func XBtn_GetStateEx(hEle int) xcc.Button_State_ {
 // hEle: 元素句柄.
 //
 // nType: 按钮类型, Button_Type_ , element_type_ , xc_ex_error.
-func XBtn_SetTypeEx(hEle int, nType xcc.XC_OBJECT_TYPE_EX) int {
+func XBtn_SetTypeEx(hEle int, nType 炫彩常量类.XC_OBJECT_TYPE_EX) int {
 	r, _, _ := xBtn_SetTypeEx.Call(uintptr(hEle), uintptr(nType))
 	return int(r)
 }
@@ -120,7 +120,7 @@ func XBtn_GetBindEle(hEle int) int {
 // hEle: 元素句柄.
 //
 // nFlags: 对齐方式, TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
-func XBtn_SetTextAlign(hEle int, nFlags xcc.TextFormatFlag_) int {
+func XBtn_SetTextAlign(hEle int, nFlags 炫彩常量类.TextFormatFlag_) int {
 	r, _, _ := xBtn_SetTextAlign.Call(uintptr(hEle), uintptr(nFlags))
 	return int(r)
 }
@@ -128,9 +128,9 @@ func XBtn_SetTextAlign(hEle int, nFlags xcc.TextFormatFlag_) int {
 // 按钮_取文本对齐方式, 返回: TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
 //
 // hEle: 元素句柄.
-func XBtn_GetTextAlign(hEle int) xcc.TextFormatFlag_ {
+func XBtn_GetTextAlign(hEle int) 炫彩常量类.TextFormatFlag_ {
 	r, _, _ := xBtn_GetTextAlign.Call(uintptr(hEle))
-	return xcc.TextFormatFlag_(r)
+	return 炫彩常量类.TextFormatFlag_(r)
 }
 
 // 按钮_置图标对齐.
@@ -138,7 +138,7 @@ func XBtn_GetTextAlign(hEle int) xcc.TextFormatFlag_ {
 // hEle: 元素句柄.
 //
 // align: 对齐方式, Button_Icon_Align_.
-func XBtn_SetIconAlign(hEle int, align xcc.Button_Icon_Align_) int {
+func XBtn_SetIconAlign(hEle int, align 炫彩常量类.Button_Icon_Align_) int {
 	r, _, _ := xBtn_SetIconAlign.Call(uintptr(hEle), uintptr(align))
 	return int(r)
 }
@@ -183,7 +183,7 @@ func XBtn_SetIconSpace(hEle int, size int) int {
 //
 // pName: 文本内容.
 func XBtn_SetText(hEle int, pName string) int {
-	r, _, _ := xBtn_SetText.Call(uintptr(hEle), common.StrPtr(pName))
+	r, _, _ := xBtn_SetText.Call(uintptr(hEle), 炫彩工具类.StrPtr(pName))
 	return int(r)
 }
 
@@ -192,7 +192,7 @@ func XBtn_SetText(hEle int, pName string) int {
 // hEle: 元素句柄.
 func XBtn_GetText(hEle int) string {
 	r, _, _ := xBtn_GetText.Call(uintptr(hEle))
-	return common.UintPtrToString(r)
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 按钮_置图标.
@@ -245,6 +245,6 @@ func XBtn_AddAnimationFrame(hEle int, hImage int, uElapse int) int {
 //
 // bLoopPlay: 是否循环播放.
 func XBtn_EnableAnimation(hEle int, bEnable bool, bLoopPlay bool) int {
-	r, _, _ := xBtn_EnableAnimation.Call(uintptr(hEle), common.BoolPtr(bEnable), common.BoolPtr(bLoopPlay))
+	r, _, _ := xBtn_EnableAnimation.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable), 炫彩工具类.BoolPtr(bLoopPlay))
 	return int(r)
 }

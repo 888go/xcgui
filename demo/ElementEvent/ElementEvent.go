@@ -11,12 +11,12 @@ import (
 
 func main() {
 	// 1.初始化UI库
-	a := app.New(true)
+	a := 炫彩App类.New(true)
 	// 2.创建窗口
-	w := window.New(0, 0, 430, 300, "xc", 0, xcc.Window_Style_Simple|xcc.Window_Style_Btn_Close)
+	w := window.New(0, 0, 430, 300, "xc", 0, 炫彩常量类.Window_Style_Simple|炫彩常量类.Window_Style_Btn_Close)
 
 	// 创建一个按钮
-	btn := widget.NewButton(50, 50, 120, 40, "button", w.Handle)
+	btn := 炫彩组件类.NewButton(50, 50, 120, 40, "button", w.Handle)
 
 	// 所有的封装好的组件事件都是以Event_开头, 你跳转到事件定义的源码之后, 可以看到这个组件所有的事件
 	// 注册按钮被单击事件
@@ -51,7 +51,7 @@ func main() {
 	}) */
 
 	// 3.显示窗口
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	// 4.运行程序
 	a.Run()
 	// 5.释放UI库

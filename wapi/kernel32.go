@@ -1,4 +1,4 @@
-package wapi
+package 炫彩WinApi类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -30,7 +30,7 @@ var (
 //	@param lpModuleName 加载的模块的名称 (.dll 或 .exe 文件) 。 如果省略文件扩展名，则会追加默认库扩展名 .dll。 文件名字符串可以包含尾随点字符 (.) ，以指示模块名称没有扩展名。 字符串不必指定路径。 指定路径时，请务必使用反斜杠 (\) ，而不是使用 /) (正斜杠。 名称 (大小写独立比较，) 当前映射到调用进程的地址空间的模块的名称。如果此参数为空， 则 GetModuleHandleW 返回用于创建调用进程 (.exe 文件) 的文件的句柄。
 //	@return uintptr
 func GetModuleHandleW(lpModuleName string) uintptr {
-	r, _, _ := getModuleHandleW.Call(common.StrPtr(lpModuleName))
+	r, _, _ := getModuleHandleW.Call(炫彩工具类.StrPtr(lpModuleName))
 	return r
 }
 
@@ -55,7 +55,7 @@ func Sleep(ms uint32) {
 //	@param bAlertable 如果此参数为 FALSE，则函数在超时期限过后才会返回。 如果发生 I/O 完成回调，该函数不会立即返回，并且不会执行 I/O 完成函数。 如果 APC 已排队到线程，该函数不会立即返回，并且不会执行 APC 函数。如果 参数为 TRUE，并且调用此函数的线程与调用扩展 I/O 函数 (ReadFileEx 或 WriteFileEx) 的线程相同，则当超时期限已过或发生 I/O 完成回调函数时，函数将返回 。 如果发生 I/O 完成回调，则调用 I/O 完成函数。 如果将 APC 排队到 queueUserAPC) (线程，则当超时期限已过或调用 APC 函数时，函数将返回 。
 //	@return 如果指定的时间间隔过期，则返回值为零。如果函数由于一个或多个 I/O 完成回调函数而返回，则返回值WAIT_IO_COMPLETION。 仅当 bAlertable 为 TRUE，并且调用 SleepEx 函数的线程与调用扩展 I/O 函数的线程相同时，才会发生这种情况。
 func SleepEx(dwMilliseconds uint32, bAlertable bool) uint32 {
-	r, _, _ := sleepEx.Call(uintptr(dwMilliseconds), common.BoolPtr(bAlertable))
+	r, _, _ := sleepEx.Call(uintptr(dwMilliseconds), 炫彩工具类.BoolPtr(bAlertable))
 	return uint32(r)
 }
 

@@ -143,7 +143,7 @@ func XTable_SetItemPadding(hShape int, leftSize int, topSize int, rightSize int,
 //
 // pText: 文本.
 func XTable_SetItemText(hShape int, iRow int, iCol int, pText string) int {
-	r, _, _ := xTable_SetItemText.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), common.StrPtr(pText))
+	r, _, _ := xTable_SetItemText.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), 炫彩工具类.StrPtr(pText))
 	return int(r)
 }
 
@@ -170,7 +170,7 @@ func XTable_SetItemFont(hShape int, iRow int, iCol int, hFont int) int {
 // iCol: 列索引.
 //
 // nAlign: 对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func XTable_SetItemTextAlign(hShape int, iRow int, iCol int, nAlign xcc.TextFormatFlag_) int {
+func XTable_SetItemTextAlign(hShape int, iRow int, iCol int, nAlign 炫彩常量类.TextFormatFlag_) int {
 	r, _, _ := xTable_SetItemTextAlign.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(nAlign))
 	return int(r)
 }
@@ -187,7 +187,7 @@ func XTable_SetItemTextAlign(hShape int, iRow int, iCol int, nAlign xcc.TextForm
 //
 // bColor: 是否使用.
 func XTable_SetItemTextColor(hShape int, iRow int, iCol int, color int, bColor bool) int {
-	r, _, _ := xTable_SetItemTextColor.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(color), common.BoolPtr(bColor))
+	r, _, _ := xTable_SetItemTextColor.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(color), 炫彩工具类.BoolPtr(bColor))
 	return int(r)
 }
 
@@ -203,7 +203,7 @@ func XTable_SetItemTextColor(hShape int, iRow int, iCol int, color int, bColor b
 //
 // bColor: 是否使用.
 func XTable_SetItemBkColor(hShape int, iRow int, iCol int, color int, bColor bool) int {
-	r, _, _ := xTable_SetItemBkColor.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(color), common.BoolPtr(bColor))
+	r, _, _ := xTable_SetItemBkColor.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(color), 炫彩工具类.BoolPtr(bColor))
 	return int(r)
 }
 
@@ -236,7 +236,7 @@ func XTable_SetItemLine(hShape int, iRow1 int, iCol1 int, iRow2 int, iCol2 int, 
 // iCol: 列索引.
 //
 // flag: 标识, Table_Flag_.
-func XTable_SetItemFlag(hShape int, iRow int, iCol int, flag xcc.Table_Flag_) int {
+func XTable_SetItemFlag(hShape int, iRow int, iCol int, flag 炫彩常量类.Table_Flag_) int {
 	r, _, _ := xTable_SetItemFlag.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(flag))
 	return int(r)
 }

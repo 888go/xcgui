@@ -1,6 +1,5 @@
 package window
 
-//炫彩窗口基类
 import (
 	"github.com/888go/xcgui/xc"
 	"github.com/888go/xcgui/xcc"
@@ -26,7 +25,7 @@ type FrameWindow struct {
 // hWndParent: 父窗口真实句柄.
 //
 // XCStyle: GUI库窗口样式: Window_Style_.
-func NewFrameWindow(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *FrameWindow {
+func NewFrameWindow(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle 炫彩常量类.Window_Style_) *FrameWindow {
 	p := &FrameWindow{}
 	p.SetHandle(xc.XFrameWnd_Create(x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
@@ -53,7 +52,7 @@ func NewFrameWindow(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCSty
 // hWndParent: 父窗口.
 //
 // XCStyle: GUI库窗口样式: Window_Style_.
-func NewFrameWindowEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *FrameWindow {
+func NewFrameWindowEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle 炫彩常量类.Window_Style_) *FrameWindow {
 	p := &FrameWindow{}
 	p.SetHandle(xc.XFrameWnd_CreateEx(dwExStyle, dwStyle, lpClassName, x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
@@ -152,7 +151,7 @@ func (fw *FrameWindow) LoadLayoutFile(aPaneList []int, nPaneCount int32, pFileNa
 // hPaneNew: 当前窗格.
 //
 // align: 对齐方式, Pane_Align_.
-func (fw *FrameWindow) AddPane(hPaneDest int, hPaneNew int, align xcc.Pane_Align_) bool {
+func (fw *FrameWindow) AddPane(hPaneDest int, hPaneNew int, align 炫彩常量类.Pane_Align_) bool {
 	return xc.XFrameWnd_AddPane(fw.Handle, hPaneDest, hPaneNew, align)
 }
 
@@ -166,7 +165,7 @@ func (fw *FrameWindow) MergePane(hPaneDest int, hPaneNew int) bool {
 }
 
 // 框架窗口_取拖动浮动窗格停留位置标识, 返回 拖动窗格 所处框架窗口单元格标识: xcc.FrameWnd_Cell_Type_.
-func (fw *FrameWindow) GetDragFloatWndTopFlag() xcc.FrameWnd_Cell_Type_ {
+func (fw *FrameWindow) GetDragFloatWndTopFlag() 炫彩常量类.FrameWnd_Cell_Type_ {
 	return xc.XFrameWnd_GetDragFloatWndTopFlag(fw.Handle)
 }
 

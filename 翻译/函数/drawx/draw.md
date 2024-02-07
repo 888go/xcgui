@@ -163,12 +163,12 @@ X圆弧F
 
 
 # <翻译开始>
-func (d *Draw) DrawCurve(points []xc.POINT, count int, tension
+func (d *Draw) DrawCurve(points []炫彩基类.POINT, count int, tension
 曲线的张力
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawCurve(points []xc.POINT, count
+func (d *Draw) DrawCurve(points []炫彩基类.POINT, count
 数组大小
 # <翻译结束>
 
@@ -184,12 +184,12 @@ X曲线
 
 
 # <翻译开始>
-func (d *Draw) DrawCurveF(points []xc.POINTF, count int, tension
+func (d *Draw) DrawCurveF(points []炫彩基类.POINTF, count int, tension
 曲线的张力
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawCurveF(points []xc.POINTF, count
+func (d *Draw) DrawCurveF(points []炫彩基类.POINTF, count
 数组大小
 # <翻译结束>
 
@@ -257,7 +257,7 @@ X线条F
 
 
 # <翻译开始>
-func (d *Draw) DrawPolygon(points []xc.POINT, nCount
+func (d *Draw) DrawPolygon(points []炫彩基类.POINT, nCount
 顶点数量
 # <翻译结束>
 
@@ -273,7 +273,7 @@ X多边形
 
 
 # <翻译开始>
-func (d *Draw) DrawPolygonF(points []xc.POINTF, nCount
+func (d *Draw) DrawPolygonF(points []炫彩基类.POINTF, nCount
 顶点数量
 # <翻译结束>
 
@@ -576,12 +576,12 @@ X创建圆角矩形区域
 
 
 # <翻译开始>
-func (d *Draw) GDI_CreatePolygonRgn(pPt []xc.POINT, cPoints, fnPolyFillMode
+func (d *Draw) GDI_CreatePolygonRgn(pPt []炫彩基类.POINT, cPoints, fnPolyFillMode
 多边形填充模式
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GDI_CreatePolygonRgn(pPt []xc.POINT, cPoints
+func (d *Draw) GDI_CreatePolygonRgn(pPt []炫彩基类.POINT, cPoints
 数组大小
 # <翻译结束>
 
@@ -641,7 +641,7 @@ X填充矩形F
 
 
 # <翻译开始>
-func (d *Draw) FillRectColor(pRect *xc.RECT, color
+func (d *Draw) FillRectColor(pRect *炫彩基类.RECT, color
 ABGR颜色
 # <翻译结束>
 
@@ -657,7 +657,7 @@ X填充矩形指定颜色
 
 
 # <翻译开始>
-func (d *Draw) FillRectColorF(pRect *xc.RECTF, color
+func (d *Draw) FillRectColorF(pRect *炫彩基类.RECTF, color
 ABGR颜色
 # <翻译结束>
 
@@ -722,12 +722,12 @@ X圆形
 
 
 # <翻译开始>
-func (d *Draw) FillRoundRect(pRect *xc.RECT, nWidth, nHeight
+func (d *Draw) FillRoundRect(pRect *炫彩基类.RECT, nWidth, nHeight
 圆角高度
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRect(pRect *xc.RECT, nWidth
+func (d *Draw) FillRoundRect(pRect *炫彩基类.RECT, nWidth
 圆角宽度
 # <翻译结束>
 
@@ -743,12 +743,12 @@ X填充圆角矩形
 
 
 # <翻译开始>
-func (d *Draw) FillRoundRectF(pRect *xc.RECTF, nWidth, nHeight
+func (d *Draw) FillRoundRectF(pRect *炫彩基类.RECTF, nWidth, nHeight
 圆角高度
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRectF(pRect *xc.RECTF, nWidth
+func (d *Draw) FillRoundRectF(pRect *炫彩基类.RECTF, nWidth
 圆角宽度
 # <翻译结束>
 
@@ -764,12 +764,12 @@ X填充圆角矩形F
 
 
 # <翻译开始>
-func (d *Draw) DrawRoundRect(pRect *xc.RECT, nWidth int, nHeight
+func (d *Draw) DrawRoundRect(pRect *炫彩基类.RECT, nWidth int, nHeight
 圆角高度
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRect(pRect *xc.RECT, nWidth
+func (d *Draw) DrawRoundRect(pRect *炫彩基类.RECT, nWidth
 圆角宽度
 # <翻译结束>
 
@@ -785,12 +785,12 @@ X圆角矩形
 
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectF(pRect *xc.RECT, nWidth, nHeight
+func (d *Draw) DrawRoundRectF(pRect *炫彩基类.RECT, nWidth, nHeight
 圆角高度
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectF(pRect *xc.RECT, nWidth
+func (d *Draw) DrawRoundRectF(pRect *炫彩基类.RECT, nWidth
 圆角宽度
 # <翻译结束>
 
@@ -806,22 +806,22 @@ X圆角矩形F
 
 
 # <翻译开始>
-func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom, nLeftBottom
+func (d *Draw) FillRoundRectEx(pRect *炫彩基类.RECT, nLeftTop, nRightTop, nRightBottom, nLeftBottom
 左下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom
+func (d *Draw) FillRoundRectEx(pRect *炫彩基类.RECT, nLeftTop, nRightTop, nRightBottom
 右下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop, nRightTop
+func (d *Draw) FillRoundRectEx(pRect *炫彩基类.RECT, nLeftTop, nRightTop
 右上
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRectEx(pRect *xc.RECT, nLeftTop
+func (d *Draw) FillRoundRectEx(pRect *炫彩基类.RECT, nLeftTop
 左上
 # <翻译结束>
 
@@ -837,22 +837,22 @@ X填充圆角矩形EX
 
 
 # <翻译开始>
-func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop, nRightTop, nRightBottom, nLeftBottom
+func (d *Draw) FillRoundRectExF(pRect *炫彩基类.RECTF, nLeftTop, nRightTop, nRightBottom, nLeftBottom
 左下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop, nRightTop, nRightBottom
+func (d *Draw) FillRoundRectExF(pRect *炫彩基类.RECTF, nLeftTop, nRightTop, nRightBottom
 右下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop, nRightTop
+func (d *Draw) FillRoundRectExF(pRect *炫彩基类.RECTF, nLeftTop, nRightTop
 右上
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) FillRoundRectExF(pRect *xc.RECTF, nLeftTop
+func (d *Draw) FillRoundRectExF(pRect *炫彩基类.RECTF, nLeftTop
 左上
 # <翻译结束>
 
@@ -868,22 +868,22 @@ X填充圆角矩形EXF
 
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop int, nRightTop int, nRightBottom int, nLeftBottom
+func (d *Draw) DrawRoundRectEx(pRect *炫彩基类.RECT, nLeftTop int, nRightTop int, nRightBottom int, nLeftBottom
 左下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop int, nRightTop int, nRightBottom
+func (d *Draw) DrawRoundRectEx(pRect *炫彩基类.RECT, nLeftTop int, nRightTop int, nRightBottom
 右下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop int, nRightTop
+func (d *Draw) DrawRoundRectEx(pRect *炫彩基类.RECT, nLeftTop int, nRightTop
 右上
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectEx(pRect *xc.RECT, nLeftTop
+func (d *Draw) DrawRoundRectEx(pRect *炫彩基类.RECT, nLeftTop
 左上
 # <翻译结束>
 
@@ -899,22 +899,22 @@ X圆角矩形EX
 
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom, nLeftBottom
+func (d *Draw) DrawRoundRectExF(pRect *炫彩基类.RECT, nLeftTop, nRightTop, nRightBottom, nLeftBottom
 左下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop, nRightTop, nRightBottom
+func (d *Draw) DrawRoundRectExF(pRect *炫彩基类.RECT, nLeftTop, nRightTop, nRightBottom
 右下
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop, nRightTop
+func (d *Draw) DrawRoundRectExF(pRect *炫彩基类.RECT, nLeftTop, nRightTop
 右上
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) DrawRoundRectExF(pRect *xc.RECT, nLeftTop
+func (d *Draw) DrawRoundRectExF(pRect *炫彩基类.RECT, nLeftTop
 左上
 # <翻译结束>
 
@@ -956,17 +956,17 @@ X矩形
 
 
 # <翻译开始>
-func (d *Draw) GradientFill2(pRect *xc.RECT, color1 int, color2 int, mode
+func (d *Draw) GradientFill2(pRect *炫彩基类.RECT, color1 int, color2 int, mode
 模式
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill2(pRect *xc.RECT, color1 int, color2
+func (d *Draw) GradientFill2(pRect *炫彩基类.RECT, color1 int, color2
 结束颜色
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill2(pRect *xc.RECT, color1
+func (d *Draw) GradientFill2(pRect *炫彩基类.RECT, color1
 开始颜色
 # <翻译结束>
 
@@ -982,17 +982,17 @@ X渐变填充2
 
 
 # <翻译开始>
-func (d *Draw) GradientFill2F(pRect *xc.RECTF, color1 int, color2 int, mode
+func (d *Draw) GradientFill2F(pRect *炫彩基类.RECTF, color1 int, color2 int, mode
 模式
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill2F(pRect *xc.RECTF, color1 int, color2
+func (d *Draw) GradientFill2F(pRect *炫彩基类.RECTF, color1 int, color2
 结束颜色
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill2F(pRect *xc.RECTF, color1
+func (d *Draw) GradientFill2F(pRect *炫彩基类.RECTF, color1
 开始颜色
 # <翻译结束>
 
@@ -1008,27 +1008,27 @@ X渐变填充2F
 
 
 # <翻译开始>
-func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3 int, color4 int, mode
+func (d *Draw) GradientFill4(pRect *炫彩基类.RECT, color1 int, color2 int, color3 int, color4 int, mode
 模式
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3 int, color4
+func (d *Draw) GradientFill4(pRect *炫彩基类.RECT, color1 int, color2 int, color3 int, color4
 颜色4
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2 int, color3
+func (d *Draw) GradientFill4(pRect *炫彩基类.RECT, color1 int, color2 int, color3
 颜色3
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4(pRect *xc.RECT, color1 int, color2
+func (d *Draw) GradientFill4(pRect *炫彩基类.RECT, color1 int, color2
 颜色2
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4(pRect *xc.RECT, color1
+func (d *Draw) GradientFill4(pRect *炫彩基类.RECT, color1
 颜色1
 # <翻译结束>
 
@@ -1044,27 +1044,27 @@ X渐变填充4
 
 
 # <翻译开始>
-func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3 int, color4 int, mode
+func (d *Draw) GradientFill4F(pRect *炫彩基类.RECTF, color1 int, color2 int, color3 int, color4 int, mode
 模式
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3 int, color4
+func (d *Draw) GradientFill4F(pRect *炫彩基类.RECTF, color1 int, color2 int, color3 int, color4
 颜色4
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2 int, color3
+func (d *Draw) GradientFill4F(pRect *炫彩基类.RECTF, color1 int, color2 int, color3
 颜色3
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1 int, color2
+func (d *Draw) GradientFill4F(pRect *炫彩基类.RECTF, color1 int, color2
 颜色2
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) GradientFill4F(pRect *xc.RECTF, color1
+func (d *Draw) GradientFill4F(pRect *炫彩基类.RECTF, color1
 颜色1
 # <翻译结束>
 
@@ -1222,7 +1222,7 @@ X带透明复制
 
 
 # <翻译开始>
-func (d *Draw) FillPolygon(points []xc.POINT, nCount
+func (d *Draw) FillPolygon(points []炫彩基类.POINT, nCount
 顶点数量
 # <翻译结束>
 
@@ -1238,7 +1238,7 @@ X填充多边形
 
 
 # <翻译开始>
-func (d *Draw) FillPolygonF(points []xc.POINTF, nCount
+func (d *Draw) FillPolygonF(points []炫彩基类.POINTF, nCount
 顶点数量
 # <翻译结束>
 
@@ -1296,7 +1296,7 @@ X图片F
 
 
 # <翻译开始>
-func (d *Draw) ImageAdaptive(hImageFrame int, pRect *xc.RECT, bOnlyBorder
+func (d *Draw) ImageAdaptive(hImageFrame int, pRect *炫彩基类.RECT, bOnlyBorder
 是否只绘制边缘区域
 # <翻译结束>
 
@@ -1317,7 +1317,7 @@ X图片自适应
 
 
 # <翻译开始>
-func (d *Draw) ImageAdaptiveF(hImageFrame int, pRect *xc.RECTF, bOnlyBorder
+func (d *Draw) ImageAdaptiveF(hImageFrame int, pRect *炫彩基类.RECTF, bOnlyBorder
 是否只绘制边缘区域
 # <翻译结束>
 
@@ -1400,7 +1400,7 @@ X图片EXF
 
 
 # <翻译开始>
-func (d *Draw) ImageSuper(hImageFrame int, pRect *xc.RECT, bClip
+func (d *Draw) ImageSuper(hImageFrame int, pRect *炫彩基类.RECT, bClip
 是否裁剪区域
 # <翻译结束>
 
@@ -1421,7 +1421,7 @@ X图片增强
 
 
 # <翻译开始>
-func (d *Draw) ImageSuperF(hImageFrame int, pRect *xc.RECTF, bClip
+func (d *Draw) ImageSuperF(hImageFrame int, pRect *炫彩基类.RECTF, bClip
 是否裁剪区域
 # <翻译结束>
 
@@ -1442,7 +1442,7 @@ X图片增强F
 
 
 # <翻译开始>
-func (d *Draw) ImageSuperExF(hImageFrame int, prcDest *xc.RECTF, prcSrc
+func (d *Draw) ImageSuperExF(hImageFrame int, prcDest *炫彩基类.RECTF, prcSrc
 源坐标
 # <翻译结束>
 
@@ -1463,12 +1463,12 @@ X图片增强EXF
 
 
 # <翻译开始>
-func (d *Draw) ImageSuperMask(hImageFrame int, hImageFrameMask int, pRect *xc.RECT, pRectMask *xc.RECT, bClip
+func (d *Draw) ImageSuperMask(hImageFrame int, hImageFrameMask int, pRect *炫彩基类.RECT, pRectMask *炫彩基类.RECT, bClip
 是否裁剪区域
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) ImageSuperMask(hImageFrame int, hImageFrameMask int, pRect *xc.RECT, pRectMask
+func (d *Draw) ImageSuperMask(hImageFrame int, hImageFrameMask int, pRect *炫彩基类.RECT, pRectMask
 遮盖坐标
 # <翻译结束>
 
@@ -1494,7 +1494,7 @@ X图片增强遮盖
 
 
 # <翻译开始>
-func (d *Draw) ImageTile(hImageFrame int, hImageFrameMask int, pRect *xc.RECT, flag
+func (d *Draw) ImageTile(hImageFrame int, hImageFrameMask int, pRect *炫彩基类.RECT, flag
 标识
 # <翻译结束>
 
@@ -1515,7 +1515,7 @@ X图片平铺
 
 
 # <翻译开始>
-func (d *Draw) ImageTileF(hImageFrame int, hImageFrameMask int, pRect *xc.RECTF, flag
+func (d *Draw) ImageTileF(hImageFrame int, hImageFrameMask int, pRect *炫彩基类.RECTF, flag
 标识
 # <翻译结束>
 
@@ -1604,7 +1604,7 @@ X文本指定矩形F
 
 
 # <翻译开始>
-func (d *Draw) DrawTextUnderline(lpString string, lpRect *xc.RECT, colorLine
+func (d *Draw) DrawTextUnderline(lpString string, lpRect *炫彩基类.RECT, colorLine
 下划线颜色
 # <翻译结束>
 
@@ -1625,7 +1625,7 @@ X文本下划线
 
 
 # <翻译开始>
-func (d *Draw) DrawTextUnderlineF(lpString string, lpRect *xc.RECTF, colorLine
+func (d *Draw) DrawTextUnderlineF(lpString string, lpRect *炫彩基类.RECTF, colorLine
 下划线颜色
 # <翻译结束>
 
@@ -1783,12 +1783,12 @@ D2D清理
 
 
 # <翻译开始>
-func (d *Draw) ImageMaskRect(hImageFrame int, pRect *xc.RECT, pRcMask *xc.RECT, pRcRoundAngle
+func (d *Draw) ImageMaskRect(hImageFrame int, pRect *炫彩基类.RECT, pRcMask *炫彩基类.RECT, pRcRoundAngle
 遮罩圆角
 # <翻译结束>
 
 # <翻译开始>
-func (d *Draw) ImageMaskRect(hImageFrame int, pRect *xc.RECT, pRcMask
+func (d *Draw) ImageMaskRect(hImageFrame int, pRect *炫彩基类.RECT, pRcMask
 遮罩坐标
 # <翻译结束>
 
@@ -1809,7 +1809,7 @@ X图片遮盖矩形
 
 
 # <翻译开始>
-func (d *Draw) ImageMaskEllipse(hImageFrame int, pRect *xc.RECT, pRcMask
+func (d *Draw) ImageMaskEllipse(hImageFrame int, pRect *炫彩基类.RECT, pRcMask
 遮罩坐标
 # <翻译结束>
 
@@ -1836,7 +1836,7 @@ X取字体
 
 
 # <翻译开始>
-func (d *Draw) ImageSuperEx(hImageFrame int, prcDest *xc.RECT, prcSrc
+func (d *Draw) ImageSuperEx(hImageFrame int, prcDest *炫彩基类.RECT, prcSrc
 源坐标
 # <翻译结束>
 

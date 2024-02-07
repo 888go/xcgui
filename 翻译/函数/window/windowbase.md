@@ -278,7 +278,7 @@ X重绘
 
 
 # <翻译开始>
-func (w *windowBase) RedrawRect(pRect *xc.RECT, bImmediate
+func (w *windowBase) RedrawRect(pRect *炫彩基类.RECT, bImmediate
 TRUE立即重绘
 # <翻译结束>
 

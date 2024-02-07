@@ -1,4 +1,4 @@
-package wutil
+package 炫彩WinApi工具类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -18,14 +18,14 @@ func GetDropFiles(hDropInfo uintptr) []string {
 	files := make([]string, 0)
 	var i uint32
 	for {
-		length := wapi.DragQueryFileW(hDropInfo, i, &filePath, 260)
+		length := 炫彩WinApi类.DragQueryFileW(hDropInfo, i, &filePath, 260)
 		if length == 0 { // 返回值为0说明已经检索完所有拖放进来的文件了.
 			break
 		}
 		files = append(files, filePath)
 		i++ // 索引+1检索下一个文件
 	}
-	wapi.DragFinish(hDropInfo)
+	炫彩WinApi类.DragFinish(hDropInfo)
 	return files
 }
 
@@ -39,18 +39,18 @@ func OpenDir(hParent int) string {
 	if hParent > 0 {
 		hwnd = xc.XWnd_GetHWND(hParent)
 	}
-	bi := wapi.BrowseInfoW{
+	bi := 炫彩WinApi类.BrowseInfoW{
 		HwndOwner:      hwnd,
 		PidlRoot:       0,
-		PszDisplayName: common.Uint16SliceDataPtr(&buf),
-		LpszTitle:      common.StrPtr("请选择目录"),
-		UlFlags:        wapi.BIF_USENEWUI,
+		PszDisplayName: 炫彩工具类.Uint16SliceDataPtr(&buf),
+		LpszTitle:      炫彩工具类.StrPtr("请选择目录"),
+		UlFlags:        炫彩WinApi类.BIF_USENEWUI,
 		Lpfn:           0,
 		LParam:         0,
 		IImage:         0,
 	}
 	var pszPath string
-	wapi.SHGetPathFromIDListW(wapi.SHBrowseForFolderW(&bi), &pszPath)
+	炫彩WinApi类.SHGetPathFromIDListW(炫彩WinApi类.SHBrowseForFolderW(&bi), &pszPath)
 	return pszPath
 }
 
@@ -68,11 +68,11 @@ func OpenFile(hParent int, filters []string, defaultDir string) string {
 	// 拼接过滤器
 	var LpstrFilter *uint16 = nil
 	if len(filters) > 0 {
-		LpstrFilter = common.StringToUint16Ptr(strings.Join(filters, wapi.NULL) + wapi.NULL2)
+		LpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(filters, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
 	}
 
 	lpstrFile := make([]uint16, 260)
-	ofn := wapi.OpenFileNameW{
+	ofn := 炫彩WinApi类.OpenFileNameW{
 		LStructSize:       76,
 		HwndOwner:         hwnd,
 		HInstance:         0,
@@ -84,9 +84,9 @@ func OpenFile(hParent int, filters []string, defaultDir string) string {
 		NMaxFile:          260,
 		LpstrFileTitle:    nil,
 		NMaxFileTitle:     0,
-		LpstrInitialDir:   common.StrPtr(defaultDir),
-		LpstrTitle:        common.StrPtr("打开文件"),
-		Flags:             wapi.OFN_PATHMUTEXIST, // 用户只能键入有效的路径和文件名
+		LpstrInitialDir:   炫彩工具类.StrPtr(defaultDir),
+		LpstrTitle:        炫彩工具类.StrPtr("打开文件"),
+		Flags:             炫彩WinApi类.OFN_PATHMUTEXIST, // 用户只能键入有效的路径和文件名
 		NFileOffset:       0,
 		NFileExtension:    0,
 		LpstrDefExt:       0,
@@ -95,7 +95,7 @@ func OpenFile(hParent int, filters []string, defaultDir string) string {
 		LpTemplateName:    0,
 	}
 	ofn.LStructSize = uint32(unsafe.Sizeof(ofn))
-	if !wapi.GetOpenFileNameW(&ofn) {
+	if !炫彩WinApi类.GetOpenFileNameW(&ofn) {
 		return ""
 	}
 	return syscall.UTF16ToString(lpstrFile)
@@ -115,11 +115,11 @@ func OpenFiles(hParent int, filters []string, defaultDir string) []string {
 	// 拼接过滤器
 	var LpstrFilter *uint16 = nil
 	if len(filters) > 0 {
-		LpstrFilter = common.StringToUint16Ptr(strings.Join(filters, wapi.NULL) + wapi.NULL2)
+		LpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(filters, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
 	}
 
 	lpstrFile := make([]uint16, 512)
-	ofn := wapi.OpenFileNameW{
+	ofn := 炫彩WinApi类.OpenFileNameW{
 		LStructSize:       76,
 		HwndOwner:         hwnd,
 		HInstance:         0,
@@ -131,9 +131,9 @@ func OpenFiles(hParent int, filters []string, defaultDir string) []string {
 		NMaxFile:          512,
 		LpstrFileTitle:    nil,
 		NMaxFileTitle:     0,
-		LpstrInitialDir:   common.StrPtr(defaultDir),
-		LpstrTitle:        common.StrPtr("打开文件"),
-		Flags:             wapi.OFN_ALLOWMULTISELECT | wapi.OFN_EXPLORER | wapi.OFN_PATHMUTEXIST, // 允许文件多选 | 使用新界面 | 用户只能键入有效的路径和文件名
+		LpstrInitialDir:   炫彩工具类.StrPtr(defaultDir),
+		LpstrTitle:        炫彩工具类.StrPtr("打开文件"),
+		Flags:             炫彩WinApi类.OFN_ALLOWMULTISELECT | 炫彩WinApi类.OFN_EXPLORER | 炫彩WinApi类.OFN_PATHMUTEXIST, // 允许文件多选 | 使用新界面 | 用户只能键入有效的路径和文件名
 		NFileOffset:       0,
 		NFileExtension:    0,
 		LpstrDefExt:       0,
@@ -142,11 +142,11 @@ func OpenFiles(hParent int, filters []string, defaultDir string) []string {
 		LpTemplateName:    0,
 	}
 	ofn.LStructSize = uint32(unsafe.Sizeof(ofn))
-	if !wapi.GetOpenFileNameW(&ofn) {
+	if !炫彩WinApi类.GetOpenFileNameW(&ofn) {
 		return nil
 	}
 
-	slice := common.Uint16SliceToStringSlice(lpstrFile)
+	slice := 炫彩工具类.Uint16SliceToStringSlice(lpstrFile)
 	if len(slice) < 2 {
 		return nil
 	}
@@ -174,16 +174,16 @@ func SaveFile(hParent int, filters []string, defaultDir, defaultFileName string)
 	// 拼接过滤器
 	var lpstrFilter *uint16 = nil
 	if len(filters) > 0 {
-		lpstrFilter = common.StringToUint16Ptr(strings.Join(filters, wapi.NULL) + wapi.NULL2)
+		lpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(filters, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
 	}
 
 	var lpstrFile *uint16 = nil
 	if defaultFileName != "" {
-		lpstrFile = common.StringToUint16Ptr(strings.ReplaceAll(defaultFileName, " ", ""))
+		lpstrFile = 炫彩工具类.StringToUint16Ptr(strings.ReplaceAll(defaultFileName, " ", ""))
 	} else {
 		lpstrFile = &make([]uint16, 260)[0]
 	}
-	ofn := wapi.OpenFileNameW{
+	ofn := 炫彩WinApi类.OpenFileNameW{
 		LStructSize:       76,
 		HwndOwner:         hwnd,
 		HInstance:         0,
@@ -195,9 +195,9 @@ func SaveFile(hParent int, filters []string, defaultDir, defaultFileName string)
 		NMaxFile:          260,
 		LpstrFileTitle:    nil,
 		NMaxFileTitle:     0,
-		LpstrInitialDir:   common.StrPtr(defaultDir),
-		LpstrTitle:        common.StrPtr("保存文件"),
-		Flags:             wapi.OFN_OVERWRITEPROMPT | wapi.OFN_PATHMUTEXIST | wapi.OFN_PATHMUTEXIST, // 如果所选文件已存在，则使“另存为”对话框生成一个消息框。用户必须确认是否覆盖文件。| 检测文件路径是否合法
+		LpstrInitialDir:   炫彩工具类.StrPtr(defaultDir),
+		LpstrTitle:        炫彩工具类.StrPtr("保存文件"),
+		Flags:             炫彩WinApi类.OFN_OVERWRITEPROMPT | 炫彩WinApi类.OFN_PATHMUTEXIST | 炫彩WinApi类.OFN_PATHMUTEXIST, // 如果所选文件已存在，则使“另存为”对话框生成一个消息框。用户必须确认是否覆盖文件。| 检测文件路径是否合法
 		NFileOffset:       0,
 		NFileExtension:    0,
 		LpstrDefExt:       0, // 如果用户没有输入文件扩展名, 则默认使用这个
@@ -206,10 +206,10 @@ func SaveFile(hParent int, filters []string, defaultDir, defaultFileName string)
 		LpTemplateName:    0,
 	}
 	ofn.LStructSize = uint32(unsafe.Sizeof(ofn))
-	if !wapi.GetSaveFileNameW(&ofn) {
+	if !炫彩WinApi类.GetSaveFileNameW(&ofn) {
 		return ""
 	}
-	return common.UintPtrToString(uintptr(unsafe.Pointer(lpstrFile)))
+	return 炫彩工具类.UintPtrToString(uintptr(unsafe.Pointer(lpstrFile)))
 }
 
 // ChooseColor 选择颜色.
@@ -222,19 +222,19 @@ func ChooseColor(hParent int) int {
 		hwnd = xc.XWnd_GetHWND(hParent)
 	}
 	var lpCustColors [16]uint32
-	cc := wapi.ChooseColor{
+	cc := 炫彩WinApi类.ChooseColor{
 		LStructSize:    36,
 		HwndOwner:      hwnd,
 		HInstance:      0,
 		RgbResult:      0,
 		LpCustColors:   &lpCustColors[0],
-		Flags:          wapi.CC_FULLOPEN, // 默认打开自定义颜色
+		Flags:          炫彩WinApi类.CC_FULLOPEN, // 默认打开自定义颜色
 		LCustData:      0,
 		LpfnHook:       0,
 		LpTemplateName: 0,
 	}
 	cc.LStructSize = uint32(unsafe.Sizeof(cc))
-	if !wapi.ChooseColorW(&cc) {
+	if !炫彩WinApi类.ChooseColorW(&cc) {
 		return 0
 	}
 	return int(cc.RgbResult)

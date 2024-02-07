@@ -1,4 +1,4 @@
-package objectbase
+package 炫彩对象基类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -80,7 +80,7 @@ func (w *Widget) LayoutItem_EnableFloat(bFloat bool) int {
 // nType: 类型: xcc.Layout_Size_.
 //
 // nWidth: 宽度.
-func (w *Widget) LayoutItem_SetWidth(nType xcc.Layout_Size_, nWidth int32) int {
+func (w *Widget) LayoutItem_SetWidth(nType 炫彩常量类.Layout_Size_, nWidth int32) int {
 	return xc.XWidget_LayoutItem_SetWidth(w.Handle, nType, nWidth)
 }
 
@@ -89,7 +89,7 @@ func (w *Widget) LayoutItem_SetWidth(nType xcc.Layout_Size_, nWidth int32) int {
 // nType: 类型: xcc.Layout_Size_.
 //
 // nHeight: 高度.
-func (w *Widget) LayoutItem_SetHeight(nType xcc.Layout_Size_, nHeight int32) int {
+func (w *Widget) LayoutItem_SetHeight(nType 炫彩常量类.Layout_Size_, nHeight int32) int {
 	return xc.XWidget_LayoutItem_SetHeight(w.Handle, nType, nHeight)
 }
 
@@ -98,7 +98,7 @@ func (w *Widget) LayoutItem_SetHeight(nType xcc.Layout_Size_, nHeight int32) int
 // pType: 返回类型.
 //
 // pWidth: 返回宽度.
-func (w *Widget) LayoutItem_GetWidth(pType *xcc.Layout_Size_, pWidth *int32) int {
+func (w *Widget) LayoutItem_GetWidth(pType *炫彩常量类.Layout_Size_, pWidth *int32) int {
 	return xc.XWidget_LayoutItem_GetWidth(w.Handle, pType, pWidth)
 }
 
@@ -107,14 +107,14 @@ func (w *Widget) LayoutItem_GetWidth(pType *xcc.Layout_Size_, pWidth *int32) int
 // pType: 返回类型.
 //
 // pHeight: 返回高度.
-func (w *Widget) LayoutItem_GetHeight(pType *xcc.Layout_Size_, pHeight *int32) int {
+func (w *Widget) LayoutItem_GetHeight(pType *炫彩常量类.Layout_Size_, pHeight *int32) int {
 	return xc.XWidget_LayoutItem_GetHeight(w.Handle, pType, pHeight)
 }
 
 // 窗口组件_布局项_置对齐, 根据水平垂直轴变化对齐.
 //
 // nAlign: 对齐方式: xcc.Layout_Align_Axis_.
-func (w *Widget) LayoutItem_SetAlign(nAlign xcc.Layout_Align_Axis_) int {
+func (w *Widget) LayoutItem_SetAlign(nAlign 炫彩常量类.Layout_Align_Axis_) int {
 	return xc.XWidget_LayoutItem_SetAlign(w.Handle, nAlign)
 }
 

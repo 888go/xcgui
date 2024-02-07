@@ -20,7 +20,7 @@ type Window struct {
 //	@param hWndParent 父窗口.
 //	@param XCStyle 窗口样式: xcc.Window_Style_.
 //	@return *Window
-func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {
+func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle 炫彩常量类.Window_Style_) *Window {
 	p := &Window{}
 	p.SetHandle(xc.XWnd_Create(x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
@@ -39,7 +39,7 @@ func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Wind
 //	@param hWndParent 父窗口.
 //	@param XCStyle 窗口样式, xcc.Window_Style_.
 //	@return *Window
-func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int, cy int, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {
+func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int, cy int, pTitle string, hWndParent uintptr, XCStyle 炫彩常量类.Window_Style_) *Window {
 	p := &Window{}
 	p.SetHandle(xc.XWnd_CreateEx(dwExStyle, dwStyle, lpClassName, x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
@@ -50,7 +50,7 @@ func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int,
 //	@param hWnd 要附加的外部窗口句柄.
 //	@param XCStyle 窗口样式: xcc.Window_Style_.
 //	@return *Window
-func Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
+func Attach(hWnd uintptr, XCStyle 炫彩常量类.Window_Style_) *Window {
 	p := &Window{}
 	p.SetHandle(xc.XWnd_Attach(hWnd, XCStyle))
 	return p

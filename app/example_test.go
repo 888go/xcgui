@@ -1,4 +1,4 @@
-package app_test
+package 炫彩App类_test
 
 import (
 	"github.com/888go/xcgui/app"
@@ -12,16 +12,16 @@ func ExampleNew() {
 		if err != nil {
 			panic(err)
 		}*/
-	a := app.New(true)
-	w := window.New(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
-	w.ShowWindow(xcc.SW_SHOW)
+	a := 炫彩App类.New(true)
+	w := window.New(0, 0, 500, 500, "", 0, 炫彩常量类.Window_Style_Default)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }
 
 func ExampleApp_ShowAndRun() {
-	a := app.New(true)
-	w := window.New(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.New(true)
+	w := window.New(0, 0, 500, 500, "", 0, 炫彩常量类.Window_Style_Default)
 	a.ShowAndRun(w.Handle)
 	a.Exit()
 }

@@ -1,4 +1,4 @@
-package ani
+package 炫彩动画类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,7 +7,7 @@ import (
 
 // AnimaRotate 动画旋转项.
 type AnimaRotate struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // 动画旋转_置中心, 设置旋转中心点坐标.

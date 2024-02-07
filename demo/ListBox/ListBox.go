@@ -11,11 +11,11 @@ import (
 )
 
 func main() {
-	a := app.New(true)
-	w := window.New(0, 0, 430, 500, "ListBox", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.New(true)
+	w := window.New(0, 0, 430, 500, "ListBox", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建ListBox
-	lb := widget.NewListBox(12, 33, 400, 450, w.Handle)
+	lb := 炫彩组件类.NewListBox(12, 33, 400, 450, w.Handle)
 
 	// 创建数据适配器, 这个必须创建, 存储数据的
 	lb.CreateAdapter()
@@ -25,7 +25,7 @@ func main() {
 		lb.AddItemText(fmt.Sprintf("item-%d", i))
 	}
 
-	w.ShowWindow(xcc.SW_SHOW)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 	a.Run()
 	a.Exit()
 }

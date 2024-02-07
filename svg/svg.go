@@ -1,13 +1,13 @@
-package svg
+package 炫彩SVG类
 
 import (
 	"github.com/888go/xcgui/objectbase"
 	"github.com/888go/xcgui/xc"
 )
 
-// 炫彩SVG类  矢量图形.
+// SVG矢量图形.
 type Svg struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // SVG_加载从文件, 返回Svg对象.

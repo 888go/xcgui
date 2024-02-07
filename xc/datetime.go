@@ -45,7 +45,7 @@ func XDateTime_GetStyle(hEle int) int {
 //
 // bSlash: TRUE: 斜线, FALSE: 横线.
 func XDateTime_EnableSplitSlash(hEle int, bSlash bool) int {
-	r, _, _ := xDateTime_EnableSplitSlash.Call(uintptr(hEle), common.BoolPtr(bSlash))
+	r, _, _ := xDateTime_EnableSplitSlash.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bSlash))
 	return int(r)
 }
 

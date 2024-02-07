@@ -49,7 +49,7 @@ func XTrayIcon_SetIcon(hIcon uintptr) {
 //
 // pTips: 提示文本内容, 长度不能超过127个字符.
 func XTrayIcon_SetTips(pTips string) {
-	xTrayIcon_SetTips.Call(common.StrPtr(pTips))
+	xTrayIcon_SetTips.Call(炫彩工具类.StrPtr(pTips))
 }
 
 // 托盘图标_置回调消息. 设置用户自定义的回调消息类型, 触发事件后, 系统会发送到此消息.
@@ -68,6 +68,6 @@ func XTrayIcon_SetCallbackMessage(user_message uint32) {
 // hBalloonIcon: 气泡图标. 可填0.
 //
 // flags: 标识, 可设置默认图标类型, 禁用声音等: xcc.TrayIcon_Flag_
-func XTrayIcon_SetPopupBalloon(pTitle, pText string, hBalloonIcon uintptr, flags xcc.TrayIcon_Flag_) {
-	xTrayIcon_SetPopupBalloon.Call(common.StrPtr(pTitle), common.StrPtr(pText), hBalloonIcon, uintptr(flags))
+func XTrayIcon_SetPopupBalloon(pTitle, pText string, hBalloonIcon uintptr, flags 炫彩常量类.TrayIcon_Flag_) {
+	xTrayIcon_SetPopupBalloon.Call(炫彩工具类.StrPtr(pTitle), 炫彩工具类.StrPtr(pText), hBalloonIcon, uintptr(flags))
 }

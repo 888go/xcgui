@@ -12,15 +12,15 @@ import (
 )
 
 var (
-	a *app.App
+	a *炫彩App类.App
 	w *window.Window
 )
 
 func main() {
-	a = app.New(true)
+	a = 炫彩App类.New(true)
 	a.SetPaintFrequency(10)
-	w = window.New(0, 0, 400, 300, "", 0, xcc.Window_Style_Default)
-	w.ShowWindow(xcc.SW_SHOW)
+	w = window.New(0, 0, 400, 300, "", 0, 炫彩常量类.Window_Style_Default)
+	w.ShowWindow(炫彩常量类.SW_SHOW)
 
 	time.AfterFunc(time.Millisecond*3, func() {
 		// 获取窗口坐标
@@ -29,7 +29,7 @@ func main() {
 
 		// 缓动
 		for i := 1; i <= 30; i++ {
-			v := ease.Bounce(float32(i)/30.0, xcc.Ease_Type_Out)
+			v := 炫彩缓动类.Bounce(float32(i)/30.0, 炫彩常量类.Ease_Type_Out)
 			y := int32(v * float32(rect.Top))
 
 			w.SetPosition(rect.Left, y)

@@ -1,2 +1,2 @@
 // Package objectbase 对象基类.
-package objectbase
+package 炫彩对象基类

@@ -1,4 +1,4 @@
-package adapter
+package 炫彩数据适配器类
 
 import (
 	"github.com/888go/xcgui/xc"

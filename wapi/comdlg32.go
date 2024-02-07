@@ -1,6 +1,5 @@
-package wapi
+package 炫彩WinApi类
 
-//炫彩WinApi类
 import (
 	"syscall"
 	"unsafe"

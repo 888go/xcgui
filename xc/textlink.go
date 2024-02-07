@@ -18,7 +18,7 @@ import (
 //
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 func XTextLink_Create(x int, y int, cx int, cy int, pName string, hParent int) int {
-	r, _, _ := xTextLink_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
+	r, _, _ := xTextLink_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), 炫彩工具类.StrPtr(pName), uintptr(hParent))
 	return int(r)
 }
 
@@ -28,7 +28,7 @@ func XTextLink_Create(x int, y int, cx int, cy int, pName string, hParent int) i
 //
 // bEnable: 是否启用.
 func XTextLink_EnableUnderlineLeave(hEle int, bEnable bool) int {
-	r, _, _ := xTextLink_EnableUnderlineLeave.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xTextLink_EnableUnderlineLeave.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -38,7 +38,7 @@ func XTextLink_EnableUnderlineLeave(hEle int, bEnable bool) int {
 //
 // bEnable: 是否启用.
 func XTextLink_EnableUnderlineStay(hEle int, bEnable bool) int {
-	r, _, _ := xTextLink_EnableUnderlineStay.Call(uintptr(hEle), common.BoolPtr(bEnable))
+	r, _, _ := xTextLink_EnableUnderlineStay.Call(uintptr(hEle), 炫彩工具类.BoolPtr(bEnable))
 	return int(r)
 }
 
