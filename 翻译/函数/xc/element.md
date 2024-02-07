@@ -1688,8 +1688,8 @@ X元素_取内容大小
 
 
 # <翻译开始>
-func XEle_SetCapture(hEle int, b b
-TRUE设置
+func XEle_SetCapture(hEle int, b
+启用或关闭
 # <翻译结束>
 
 # <翻译开始>
