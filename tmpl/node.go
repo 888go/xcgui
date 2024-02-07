@@ -1,4 +1,4 @@
-package tmpl
+package 炫彩模板类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -13,16 +13,16 @@ type Node struct {
 // 模板_创建节点.
 //
 // nType: 对象类型: xcc.XC_OBJECT_TYPE : xcc.XC_.
-func NewNode(nType xcc.XC_OBJECT_TYPE) *Node {
+func X创建节点(对象类型 炫彩常量类.XC_OBJECT_TYPE) *Node {
 	p := &Node{
-		Handle: xc.XTemp_CreateNode(nType),
+		Handle: 炫彩基类.X模板_创建节点(对象类型),
 	}
 	return p
 }
 
 // 给本类的Handle赋值.
-func (n *Node) SetHandle(handle int) {
-	n.Handle = handle
+func (n *Node) X设置句柄(句柄 int) {
+	n.Handle = 句柄
 }
 
 // 模板_取节点, 获取节点, 根据itemID. 返回节点对象.
@@ -30,17 +30,17 @@ func (n *Node) SetHandle(handle int) {
 // pNode: 节点指针.
 //
 // itemID: ID.
-func (n *Node) GetNode(itemID int32) *Node {
+func (n *Node) X取节点(ID int32) *Node {
 	p := &Node{
-		Handle: xc.XTemp_GetNode(n.Handle, itemID),
+		Handle: 炫彩基类.X模板_取节点(n.Handle, ID),
 	}
 	return p
 }
 
 // 模板_克隆节点, 获取列表项模板类型, 返回节点对象.
-func (n *Node) CloneNode() *Node {
+func (n *Node) X取副本() *Node {
 	p := &Node{
-		Handle: xc.XTemp_CloneNode(n.Handle),
+		Handle: 炫彩基类.X模板_克隆节点(n.Handle),
 	}
 	return p
 }
@@ -48,8 +48,8 @@ func (n *Node) CloneNode() *Node {
 // 模板_添加子节点.
 //
 // pNode: 节点指针.
-func (n *Node) AddNode(pNode int) bool {
-	return xc.XTemp_AddNode(n.Handle, pNode)
+func (n *Node) X添加子节点(节点指针 int) bool {
+	return 炫彩基类.X模板_添加子节点(n.Handle, 节点指针)
 }
 
 // 模板_置节点属性.
@@ -57,8 +57,8 @@ func (n *Node) AddNode(pNode int) bool {
 // pName: 属性名.
 //
 // pAttr: 属性值.
-func (n *Node) SetNodeAttribute(pName string, pAttr string) bool {
-	return xc.XTemp_SetNodeAttribute(n.Handle, pName, pAttr)
+func (n *Node) X置节点属性(属性名 string, 属性值 string) bool {
+	return 炫彩基类.X模板_置节点属性(n.Handle, 属性名, 属性值)
 }
 
 // 模板_置节点属性扩展.
@@ -68,6 +68,6 @@ func (n *Node) SetNodeAttribute(pName string, pAttr string) bool {
 // pName: 属性名.
 //
 // pAttr: 属性值.
-func (n *Node) SetNodeAttributeEx(itemID int32, pName string, pAttr string) bool {
-	return xc.XTemp_SetNodeAttributeEx(n.Handle, itemID, pName, pAttr)
+func (n *Node) X置节点属性EX(模板项ID int32, 属性名 string, 属性值 string) bool {
+	return 炫彩基类.X模板_置节点属性EX(n.Handle, 模板项ID, 属性名, 属性值)
 }

@@ -16,18 +16,18 @@ var (
 )
 
 var (
-	a *app.App
-	w *window.Window
+	a *炫彩App类.App
+	w *炫彩窗口基类.Window
 )
 
 func main() {
-	a = app.New(false)
-	w = window.New(0, 0, 600, 400, "xcgui window", 0, xcc.Window_Style_Default)
+	a = 炫彩App类.X创建(false)
+	w = 炫彩窗口基类.X创建窗口(0, 0, 600, 400, "xcgui window", 0, 炫彩常量类.Window_Style_Default)
 
-	shapeGif := widget.NewShapeGif(0, 30, 600, 400, w.Handle)
-	shapeGif.SetImage(imagex.NewByMemAdaptive(bg1, 0, 0, 0, 0).Handle)
+	shapeGif := 炫彩组件类.X创建形状GIF(0, 30, 600, 400, w.Handle)
+	shapeGif.X置图片(炫彩图片类.X创建并按内存且自适应(bg1, 0, 0, 0, 0).Handle)
 
-	w.Show(true)
-	a.Run()
-	a.Exit()
+	w.X显示(true)
+	a.X运行()
+	a.X退出()
 }

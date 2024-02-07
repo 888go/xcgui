@@ -1,4 +1,4 @@
-package ani
+package 炫彩动画类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,72 +7,72 @@ import (
 
 // 动画特效基类.
 type animaBase struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // 动画_运行, 并且增加引用计数.
 //
 // hRedrawObjectUI: 当更新UI时重绘的UI层. UI对象句柄: 窗口句柄, 元素句柄, 形状句柄, SVG句柄.
-func (a *animaBase) Run(hRedrawObjectUI int) int {
-	return xc.XAnima_Run(a.Handle, hRedrawObjectUI)
+func (a *animaBase) X运行(当更新UI时重绘的UI层 int) int {
+	return 炫彩基类.X动画_运行(a.Handle, 当更新UI时重绘的UI层)
 }
 
 // 动画_释放, 停止动画, 并释放引用, 当引用计数为0时自动销毁.
 //
 // bEnd: 是否立即执行到终点.
-func (a *animaBase) Release(bEnd bool) bool {
-	return xc.XAnima_Release(a.Handle, bEnd)
+func (a *animaBase) X释放(是否立即执行到终点 bool) bool {
+	return 炫彩基类.X动画_释放(a.Handle, 是否立即执行到终点)
 }
 
 // 动画_释放扩展, 释放与指定UI对象关联的所有动画, 返回释放动画数量.
 //
 // bEnd: 是否立即执行到终点.
-func (a *animaBase) ReleaseEx(bEnd bool) int {
-	return xc.XAnima_ReleaseEx(a.Handle, bEnd)
+func (a *animaBase) X释放EX(是否立即执行到终点 bool) int {
+	return 炫彩基类.X动画_释放EX(a.Handle, 是否立即执行到终点)
 }
 
 // 动画_取UI对象, 获取动画关联的UI对象, 返回UI对象句柄.
-func (a *animaBase) GetObjectUI() int {
-	return xc.XAnima_GetObjectUI(a.Handle)
+func (a *animaBase) X取UI对象() int {
+	return 炫彩基类.X动画_取UI对象(a.Handle)
 }
 
 // 动画_启用自动销毁, TRUE: 当引用计数为0时自动销毁, FALSE: 手动销毁.
 //
 // bEnable: 是否启用.
-func (a *animaBase) EnableAutoDestroy(bEnable bool) int {
-	return xc.XAnima_EnableAutoDestroy(a.Handle, bEnable)
+func (a *animaBase) X启用自动销毁(是否启用 bool) int {
+	return 炫彩基类.X动画_启用自动销毁(a.Handle, 是否启用)
 }
 
 // 动画_置回调.
 //
 // callback: 回调函数.
-func (a *animaBase) SetCallBack(callback interface{}) int {
-	return xc.XAnima_SetCallBack(a.Handle, callback)
+func (a *animaBase) X置回调(回调函数 interface{}) int {
+	return 炫彩基类.X动画_置回调(a.Handle, 回调函数)
 }
 
 // 动画_置用户数据.
 //
 // nUserData: 用户数据.
-func (a *animaBase) SetUserData(nUserData int) int {
-	return xc.XAnima_SetUserData(a.Handle, nUserData)
+func (a *animaBase) X置用户数据(用户数据 int) int {
+	return 炫彩基类.X动画_置用户数据(a.Handle, 用户数据)
 }
 
 // 动画_取用户数据, 返回用户数据.
-func (a *animaBase) GetUserData() int {
-	return xc.XAnima_GetUserData(a.Handle)
+func (a *animaBase) X取用户数据() int {
+	return 炫彩基类.X动画_取用户数据(a.Handle)
 }
 
 // 动画_停止.
-func (a *animaBase) Stop() bool {
-	return xc.XAnima_Stop(a.Handle)
+func (a *animaBase) X停止() bool {
+	return 炫彩基类.X动画_停止(a.Handle)
 }
 
 // 动画_启动.
-func (a *animaBase) Start() bool {
-	return xc.XAnima_Start(a.Handle)
+func (a *animaBase) X启动() bool {
+	return 炫彩基类.X动画_启动(a.Handle)
 }
 
 // 动画_暂停.
-func (a *animaBase) Pause() bool {
-	return xc.XAnima_Pause(a.Handle)
+func (a *animaBase) X暂停() bool {
+	return 炫彩基类.X动画_暂停(a.Handle)
 }

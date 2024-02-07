@@ -12,21 +12,21 @@ import (
 )
 
 func main() {
-	a := app.New(true)
-	w := window.New(0, 0, 430, 300, "xc", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.X创建(true)
+	w := 炫彩窗口基类.X创建窗口(0, 0, 430, 300, "xc", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建一个按钮
-	btn := widget.NewButton(50, 50, 70, 30, "button", w.Handle)
+	btn := 炫彩组件类.X创建按钮(50, 50, 70, 30, "button", w.Handle)
 
 	// 一个事件可以注册多个处理函数，执行顺序为先执行最后注册的函数，最后执行第一个注册的函数.
 	// 当你想拦截当前事件或不想向后传递，只需要将参数(*pbHnadled=true)即可.
-	btn.Event_BnClick(event1)
-	btn.Event_BnClick(event2)
-	btn.Event_BnClick(event3)
+	btn.X事件_被单击(event1)
+	btn.X事件_被单击(event2)
+	btn.X事件_被单击(event3)
 
-	w.ShowWindow(xcc.SW_SHOW)
-	a.Run()
-	a.Exit()
+	w.X显示方式(炫彩常量类.SW_SHOW)
+	a.X运行()
+	a.X退出()
 }
 
 func event1(pbHandled *bool) int {

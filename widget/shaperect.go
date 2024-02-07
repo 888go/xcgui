@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -20,47 +20,47 @@ type ShapeRect struct {
 // cy: 高度.
 //
 // hParent: 父对象句柄.
-func NewShapeRect(x int, y int, cx int, cy int, hParent int) *ShapeRect {
+func X创建形状矩形(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 父对象句柄 int) *ShapeRect {
 	p := &ShapeRect{}
-	p.SetHandle(xc.XShapeRect_Create(x, y, cx, cy, hParent))
+	p.X设置句柄(炫彩基类.X形状矩形_创建(X坐标, Y坐标, 宽度, 高度, 父对象句柄))
 	return p
 }
 
 // 从句柄创建对象.
-func NewShapeRectByHandle(handle int) *ShapeRect {
+func X创建形状矩形并按句柄(handle int) *ShapeRect {
 	p := &ShapeRect{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func NewShapeRectByName(name string) *ShapeRect {
-	handle := xc.XC_GetObjectByName(name)
+func X创建形状矩形并按名称(name string) *ShapeRect {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &ShapeRect{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func NewShapeRectByUID(nUID int) *ShapeRect {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建形状矩形并按UID(nUID int) *ShapeRect {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &ShapeRect{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func NewShapeRectByUIDName(name string) *ShapeRect {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建形状矩形并按UID名称(name string) *ShapeRect {
+	handle := 炫彩基类.X取对象从UID名称(name)
 	if handle > 0 {
 		p := &ShapeRect{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -69,15 +69,15 @@ func NewShapeRectByUIDName(name string) *ShapeRect {
 // 形状矩形_置边框色, 设置边框颜色.
 //
 // color: ABGR 颜色值.
-func (s *ShapeRect) SetBorderColor(color int) int {
-	return xc.XShapeRect_SetBorderColor(s.Handle, color)
+func (s *ShapeRect) X置边框色(ABGR颜色值 int) int {
+	return 炫彩基类.X形状矩形_置边框色(s.Handle, ABGR颜色值)
 }
 
 // 形状矩形_置填充色, 设置填充颜色.
 //
 // color: ABGR 颜色值.
-func (s *ShapeRect) SetFillColor(color int) int {
-	return xc.XShapeRect_SetFillColor(s.Handle, color)
+func (s *ShapeRect) X置填充色(ABGR颜色值 int) int {
+	return 炫彩基类.X形状矩形_置填充色(s.Handle, ABGR颜色值)
 }
 
 // 形状矩形_置圆角大小, 设置圆角大小.
@@ -85,8 +85,8 @@ func (s *ShapeRect) SetFillColor(color int) int {
 // nWidth: 圆角宽度.
 //
 // nHeight: 圆角高度.
-func (s *ShapeRect) SetRoundAngle(nWidth int, nHeight int32) int {
-	return xc.XShapeRect_SetRoundAngle(s.Handle, nWidth, nHeight)
+func (s *ShapeRect) X置圆角大小(圆角宽度 int, 圆角高度 int32) int {
+	return 炫彩基类.X形状矩形_置圆角大小(s.Handle, 圆角宽度, 圆角高度)
 }
 
 // 形状矩形_取圆角大小, 获取圆角大小.
@@ -94,27 +94,27 @@ func (s *ShapeRect) SetRoundAngle(nWidth int, nHeight int32) int {
 // pWidth: 圆角宽度.
 //
 // pHeight: 圆角高度.
-func (s *ShapeRect) GetRoundAngle(pWidth *int, pHeight *int32) int {
-	return xc.XShapeRect_GetRoundAngle(s.Handle, pWidth, pHeight)
+func (s *ShapeRect) X取圆角大小(圆角宽度 *int, 圆角高度 *int32) int {
+	return 炫彩基类.X形状矩形_取圆角大小(s.Handle, 圆角宽度, 圆角高度)
 }
 
 // 形状矩形_启用边框, 启用绘制矩形边框.
 //
 // bEnable: 是否启用.
-func (s *ShapeRect) EnableBorder(bEnable bool) int {
-	return xc.XShapeRect_EnableBorder(s.Handle, bEnable)
+func (s *ShapeRect) X启用边框(是否启用 bool) int {
+	return 炫彩基类.X形状矩形_启用边框(s.Handle, 是否启用)
 }
 
 // 形状矩形_启用填充, 启用填充矩形.
 //
 // bEnable: 是否启用.
-func (s *ShapeRect) EnableFill(bEnable bool) int {
-	return xc.XShapeRect_EnableFill(s.Handle, bEnable)
+func (s *ShapeRect) X启用填充(是否启用 bool) int {
+	return 炫彩基类.X形状矩形_启用填充(s.Handle, 是否启用)
 }
 
 // 形状矩形_启用圆角.
 //
 // bEnable: 是否启用.
-func (s *ShapeRect) EnableRoundAngle(bEnable bool) int {
-	return xc.XShapeRect_EnableRoundAngle(s.Handle, bEnable)
+func (s *ShapeRect) X启用圆角(是否启用 bool) int {
+	return 炫彩基类.X形状矩形_启用圆角(s.Handle, 是否启用)
 }

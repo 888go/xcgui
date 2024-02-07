@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -16,8 +16,8 @@ import (
 // hIcon: 图标.
 //
 // skin: 外观类型, NotifyMsg_Skin_.
-func XNotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_) int {
-	r, _, _ := xNotifyMsg_Popup.Call(uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin))
+func X通知消息_弹出(位置 炫彩常量类.Position_Flag_, 标题, 内容 string, 图标 int, 外观类型 炫彩常量类.NotifyMsg_Skin_) int {
+	r, _, _ := xNotifyMsg_Popup.Call(uintptr(位置), 炫彩工具类.StrPtr(标题), 炫彩工具类.StrPtr(内容), uintptr(图标), uintptr(外观类型))
 	return int(r)
 }
 
@@ -40,8 +40,8 @@ func XNotifyMsg_Popup(position xcc.Position_Flag_, pTitle, pText string, hIcon i
 // nWidth: 自定义宽度, -1(使用默认值).
 //
 // nHeight: 自定义高度, -1(使用默认值).
-func XNotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
-	r, _, _ := xNotifyMsg_PopupEx.Call(uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin), common.BoolPtr(bBtnClose), common.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
+func X通知消息_弹出EX(位置 炫彩常量类.Position_Flag_, 标题, 内容 string, 图标 int, 外观类型 炫彩常量类.NotifyMsg_Skin_, 是否启用关闭按钮, 是否自动关闭 bool, 自定义宽度, 自定义高度 int) int {
+	r, _, _ := xNotifyMsg_PopupEx.Call(uintptr(位置), 炫彩工具类.StrPtr(标题), 炫彩工具类.StrPtr(内容), uintptr(图标), uintptr(外观类型), 炫彩工具类.BoolPtr(是否启用关闭按钮), 炫彩工具类.BoolPtr(是否自动关闭), uintptr(自定义宽度), uintptr(自定义高度))
 	return int(r)
 }
 
@@ -58,8 +58,8 @@ func XNotifyMsg_PopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon
 // hIcon: 图标.
 //
 // skin: 外观类型, NotifyMsg_Skin_.
-func XNotifyMsg_WindowPopup(hWindow int, position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_) int {
-	r, _, _ := xNotifyMsg_WindowPopup.Call(uintptr(hWindow), uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin))
+func X通知消息_窗口中弹出(窗口句柄 int, 位置 炫彩常量类.Position_Flag_, 标题, 内容 string, 图标 int, 外观类型 炫彩常量类.NotifyMsg_Skin_) int {
+	r, _, _ := xNotifyMsg_WindowPopup.Call(uintptr(窗口句柄), uintptr(位置), 炫彩工具类.StrPtr(标题), 炫彩工具类.StrPtr(内容), uintptr(图标), uintptr(外观类型))
 	return int(r)
 }
 
@@ -84,8 +84,8 @@ func XNotifyMsg_WindowPopup(hWindow int, position xcc.Position_Flag_, pTitle, pT
 // nWidth: 自定义宽度, -1(使用默认值).
 //
 // nHeight: 自定义高度, -1(使用默认值).
-func XNotifyMsg_WindowPopupEx(hWindow int, position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
-	r, _, _ := xNotifyMsg_WindowPopupEx.Call(uintptr(hWindow), uintptr(position), common.StrPtr(pTitle), common.StrPtr(pText), uintptr(hIcon), uintptr(skin), common.BoolPtr(bBtnClose), common.BoolPtr(bAutoClose), uintptr(nWidth), uintptr(nHeight))
+func X通知消息_窗口中弹出EX(窗口句柄 int, 位置 炫彩常量类.Position_Flag_, 标题, 内容 string, 图标 int, 外观类型 炫彩常量类.NotifyMsg_Skin_, 是否启用关闭按钮, 是否自动关闭 bool, 自定义宽度, 自定义高度 int) int {
+	r, _, _ := xNotifyMsg_WindowPopupEx.Call(uintptr(窗口句柄), uintptr(位置), 炫彩工具类.StrPtr(标题), 炫彩工具类.StrPtr(内容), uintptr(图标), uintptr(外观类型), 炫彩工具类.BoolPtr(是否启用关闭按钮), 炫彩工具类.BoolPtr(是否自动关闭), uintptr(自定义宽度), uintptr(自定义高度))
 	return int(r)
 }
 
@@ -94,8 +94,8 @@ func XNotifyMsg_WindowPopupEx(hWindow int, position xcc.Position_Flag_, pTitle, 
 // hWindow: 通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
 //
 // duration: 持续时间.
-func XNotifyMsg_SetDuration(hWindow, duration int) int {
-	r, _, _ := xNotifyMsg_SetDuration.Call(uintptr(hWindow), uintptr(duration))
+func X通知消息_置持续时间(窗口句柄, 持续时间 int) int {
+	r, _, _ := xNotifyMsg_SetDuration.Call(uintptr(窗口句柄), uintptr(持续时间))
 	return int(r)
 }
 
@@ -110,8 +110,8 @@ func XNotifyMsg_SetDuration(hWindow, duration int) int {
 // right: 右侧间隔.
 //
 // bottom: 底部间隔, 未实现, 预留功能.
-func XNotifyMsg_SetParentMargin(hWindow, left, top, right, bottom int) int {
-	r, _, _ := xNotifyMsg_SetParentMargin.Call(uintptr(hWindow), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
+func X通知消息_置父边距(窗口句柄, 左侧间隔, 顶部间隔, 右侧间隔, 底部间隔 int) int {
+	r, _, _ := xNotifyMsg_SetParentMargin.Call(uintptr(窗口句柄), uintptr(左侧间隔), uintptr(顶部间隔), uintptr(右侧间隔), uintptr(底部间隔))
 	return int(r)
 }
 
@@ -120,8 +120,8 @@ func XNotifyMsg_SetParentMargin(hWindow, left, top, right, bottom int) int {
 // hWindow: 通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
 //
 // nHeight: 高度.
-func XNotifyMsg_SetCaptionHeight(hWindow, nHeight int) int {
-	r, _, _ := xNotifyMsg_SetCaptionHeight.Call(uintptr(hWindow), uintptr(nHeight))
+func X通知消息_置标题高度(窗口句柄, 高度 int) int {
+	r, _, _ := xNotifyMsg_SetCaptionHeight.Call(uintptr(窗口句柄), uintptr(高度))
 	return int(r)
 }
 
@@ -130,8 +130,8 @@ func XNotifyMsg_SetCaptionHeight(hWindow, nHeight int) int {
 // hWindow: 通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
 //
 // nWidth: 宽度.
-func XNotifyMsg_SetWidth(hWindow, nWidth int) int {
-	r, _, _ := xNotifyMsg_SetWidth.Call(uintptr(hWindow), uintptr(nWidth))
+func X通知消息_置宽度(窗口句柄, 宽度 int) int {
+	r, _, _ := xNotifyMsg_SetWidth.Call(uintptr(窗口句柄), uintptr(宽度))
 	return int(r)
 }
 
@@ -140,8 +140,8 @@ func XNotifyMsg_SetWidth(hWindow, nWidth int) int {
 // hWindow: 通知消息所属窗口句柄, 如果未指定那么认为是桌面通知消息.
 //
 // nSpace: 间隔大小.
-func XNotifyMsg_SetSpace(hWindow, nSpace int) int {
-	r, _, _ := xNotifyMsg_SetSpace.Call(uintptr(hWindow), uintptr(nSpace))
+func X通知消息_置间隔(窗口句柄, 间隔大小 int) int {
+	r, _, _ := xNotifyMsg_SetSpace.Call(uintptr(窗口句柄), uintptr(间隔大小))
 	return int(r)
 }
 
@@ -156,7 +156,7 @@ func XNotifyMsg_SetSpace(hWindow, nSpace int) int {
 // right: 右边.
 //
 // bottom: 底边.
-func XNotifyMsg_SetBorderSize(hWindow, left, top, right, bottom int) int {
-	r, _, _ := xNotifyMsg_SetBorderSize.Call(uintptr(hWindow), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
+func X通知消息_置边大小(窗口句柄, 左边, 顶边, 右边, 底边 int) int {
+	r, _, _ := xNotifyMsg_SetBorderSize.Call(uintptr(窗口句柄), uintptr(左边), uintptr(顶边), uintptr(右边), uintptr(底边))
 	return int(r)
 }

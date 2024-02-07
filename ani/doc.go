@@ -1,2 +1,2 @@
 // Package ani 动画特效.
-package ani
+package 炫彩动画类

@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -8,7 +8,7 @@ import (
 
 // Element 基础元素.
 type Element struct {
-	objectbase.Widget
+	炫彩对象基类.Widget
 }
 
 // 元素_创建, 创建基础元素.
@@ -20,47 +20,47 @@ type Element struct {
 // cy: 高度.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func NewElement(x, y, cx, cy int32, hParent int) *Element {
+func X创建基础元素(x坐标, y坐标, 宽度, 高度 int32, 父窗口句柄或元素句柄 int) *Element {
 	p := &Element{}
-	p.SetHandle(xc.XEle_Create(x, y, cx, cy, hParent))
+	p.X设置句柄(炫彩基类.X元素_创建(x坐标, y坐标, 宽度, 高度, 父窗口句柄或元素句柄))
 	return p
 }
 
 // 从句柄创建对象.
-func NewElementByHandle(handle int) *Element {
+func X创建基础元素并按句柄(handle int) *Element {
 	p := &Element{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func NewElementByName(name string) *Element {
-	handle := xc.XC_GetObjectByName(name)
+func X创建基础元素并按名称(name string) *Element {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &Element{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func NewElementByUID(nUID int) *Element {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建基础元素并按UID(nUID int) *Element {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &Element{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func NewElementByUIDName(name string) *Element {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建基础元素并按UID名称(name string) *Element {
+	handle := 炫彩基类.X取对象从UID名称(name)
 	if handle > 0 {
 		p := &Element{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -71,8 +71,8 @@ func NewElementByUIDName(name string) *Element {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func (e *Element) RegEventC(nEvent xcc.XE_, pFun interface{}) bool {
-	return xc.XEle_RegEventC(e.Handle, nEvent, pFun)
+func (e *Element) X注册事件C(事件类型 炫彩常量类.XE_, 事件函数 interface{}) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 事件类型, 事件函数)
 }
 
 // 元素_注册事件C1, 注册事件C1方式, 省略1参数.
@@ -80,8 +80,8 @@ func (e *Element) RegEventC(nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func (e *Element) RegEventC1(nEvent xcc.XE_, pFun interface{}) bool {
-	return xc.XEle_RegEventC1(e.Handle, nEvent, pFun)
+func (e *Element) X注册事件C1(事件类型 炫彩常量类.XE_, 事件函数 interface{}) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 事件类型, 事件函数)
 }
 
 // 元素_移除事件C.
@@ -89,8 +89,8 @@ func (e *Element) RegEventC1(nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数.
-func (e *Element) RemoveEventC(nEvent xcc.XE_, pFun interface{}) bool {
-	return xc.XEle_RemoveEventC(e.Handle, nEvent, pFun)
+func (e *Element) X移除事件C(事件类型 炫彩常量类.XE_, 事件函数 interface{}) bool {
+	return 炫彩基类.X元素_移除事件C(e.Handle, 事件类型, 事件函数)
 }
 
 // 元素_注册事件CEx, 注册事件C方式, 省略2参数, 和非Ex版相比只是最后一个参数不同.
@@ -98,8 +98,8 @@ func (e *Element) RemoveEventC(nEvent xcc.XE_, pFun interface{}) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func (e *Element) RegEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
-	return xc.XEle_RegEventCEx(e.Handle, nEvent, pFun)
+func (e *Element) X注册事件CEx(事件类型 炫彩常量类.XE_, 事件函数指针 uintptr) bool {
+	return 炫彩基类.X元素_注册事件CEx(e.Handle, 事件类型, 事件函数指针)
 }
 
 // 元素_注册事件C1Ex, 注册事件C1方式, 省略1参数, 和非Ex版相比只是最后一个参数不同.
@@ -107,8 +107,8 @@ func (e *Element) RegEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func (e *Element) RegEventC1Ex(nEvent xcc.XE_, pFun uintptr) bool {
-	return xc.XEle_RegEventC1Ex(e.Handle, nEvent, pFun)
+func (e *Element) X注册事件C1Ex(事件类型 炫彩常量类.XE_, 事件函数指针 uintptr) bool {
+	return 炫彩基类.X元素_注册事件C1Ex(e.Handle, 事件类型, 事件函数指针)
 }
 
 // 元素_移除事件CEx, 和非Ex版相比只是最后一个参数不同.
@@ -116,8 +116,8 @@ func (e *Element) RegEventC1Ex(nEvent xcc.XE_, pFun uintptr) bool {
 // nEvent: 事件类型: xcc.XE_.
 //
 // pFun: 事件函数指针, 使用 syscall.NewCallback() 生成.
-func (e *Element) RemoveEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
-	return xc.XEle_RemoveEventCEx(e.Handle, nEvent, pFun)
+func (e *Element) X移除事件CEx(事件类型 炫彩常量类.XE_, 事件函数指针 uintptr) bool {
+	return 炫彩基类.X元素_移除事件CEx(e.Handle, 事件类型, 事件函数指针)
 }
 
 // 元素_发送事件.
@@ -127,8 +127,8 @@ func (e *Element) RemoveEventCEx(nEvent xcc.XE_, pFun uintptr) bool {
 // wParam: 参数.
 //
 // lParam: 参数.
-func (e *Element) SendEvent(nEvent xcc.XE_, wParam, lParam uint) int {
-	return xc.XEle_SendEvent(e.Handle, nEvent, wParam, lParam)
+func (e *Element) X发送事件(事件类型 炫彩常量类.XE_, 参数1, 参数2 uint) int {
+	return 炫彩基类.X元素_发送事件(e.Handle, 事件类型, 参数1, 参数2)
 }
 
 // 元素_投递事件.
@@ -138,107 +138,107 @@ func (e *Element) SendEvent(nEvent xcc.XE_, wParam, lParam uint) int {
 // wParam: 参数.
 //
 // lParam: 参数.
-func (e *Element) PostEvent(nEvent xcc.XE_, wParam, lParam uint) int {
-	return xc.XEle_PostEvent(e.Handle, nEvent, wParam, lParam)
+func (e *Element) X投递事件(事件类型 炫彩常量类.XE_, 参数1, 参数2 uint) int {
+	return 炫彩基类.X元素_投递事件(e.Handle, 事件类型, 参数1, 参数2)
 }
 
 // 元素_取坐标.
 //
 // pRect: 坐标.
-func (e *Element) GetRect(pRect *xc.RECT) int {
-	return xc.XEle_GetRect(e.Handle, pRect)
+func (e *Element) X取坐标(坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_取坐标(e.Handle, 坐标)
 }
 
 // 元素_取逻辑坐标, 获取元素坐标, 逻辑坐标, 包含滚动视图偏移.
 //
 // pRect: 坐标.
-func (e *Element) GetRectLogic(pRect *xc.RECT) int {
-	return xc.XEle_GetRectLogic(e.Handle, pRect)
+func (e *Element) X取逻辑坐标(坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_取逻辑坐标(e.Handle, 坐标)
 }
 
 // 元素_取客户区坐标.
 //
 // pRect: 坐标.
-func (e *Element) GetClientRect(pRect *xc.RECT) int {
-	return xc.XEle_GetClientRect(e.Handle, pRect)
+func (e *Element) X取客户区坐标(坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_取客户区坐标(e.Handle, 坐标)
 }
 
 // 元素_置宽度.
 //
 // nWidth: 宽度.
-func (e *Element) SetWidth(nWidth int) int {
-	return xc.XEle_SetWidth(e.Handle, nWidth)
+func (e *Element) X置宽度(宽度 int) int {
+	return 炫彩基类.X元素_置宽度(e.Handle, 宽度)
 }
 
 // 元素_置高度.
 //
 // nHeight: 高度.
-func (e *Element) SetHeight(nHeight int) int {
-	return xc.XEle_SetHeight(e.Handle, nHeight)
+func (e *Element) X置高度(高度 int) int {
+	return 炫彩基类.X元素_置高度(e.Handle, 高度)
 }
 
 // 元素_取宽度.
-func (e *Element) GetWidth() int {
-	return xc.XEle_GetWidth(e.Handle)
+func (e *Element) X取宽度() int {
+	return 炫彩基类.X元素_取宽度(e.Handle)
 }
 
 // 元素_取高度.
-func (e *Element) GetHeight() int {
-	return xc.XEle_GetHeight(e.Handle)
+func (e *Element) X取高度() int {
+	return 炫彩基类.X元素_取高度(e.Handle)
 }
 
 // 元素_窗口客户区坐标到元素客户区坐标, 窗口客户区坐标转换到元素客户区坐标.
 //
 // pRect: 坐标.
-func (e *Element) RectWndClientToEleClient(pRect *xc.RECT) int {
-	return xc.XEle_RectWndClientToEleClient(e.Handle, pRect)
+func (e *Element) X窗口客户区坐标到元素客户区坐标(坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_窗口客户区坐标到元素客户区坐标(e.Handle, 坐标)
 }
 
 // 元素_窗口客户区点到元素客户区, 窗口客户区坐标转换到元素客户区坐标.
 //
 // pPt: 坐标.
-func (e *Element) PointWndClientToEleClient(pPt *xc.POINT) int {
-	return xc.XEle_PointWndClientToEleClient(e.Handle, pPt)
+func (e *Element) X窗口客户区点到元素客户区(坐标 *炫彩基类.POINT) int {
+	return 炫彩基类.X元素_窗口客户区点到元素客户区(e.Handle, 坐标)
 }
 
 // 元素_客户区坐标到窗口客户区, 元素客户区坐标转换到窗口客户区坐标.
 //
 // pRect: 坐标.
-func (e *Element) RectClientToWndClient(pRect *xc.RECT) int {
-	return xc.XEle_RectClientToWndClient(e.Handle, pRect)
+func (e *Element) X客户区坐标到窗口客户区(坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_客户区坐标到窗口客户区(e.Handle, 坐标)
 }
 
 // 元素_客户区点到窗口客户区, 元素客户区坐标转换到窗口客户区坐标.
 //
 // pPt: 坐标.
-func (e *Element) PointClientToWndClient(pPt *xc.POINT) int {
-	return xc.XEle_PointClientToWndClient(e.Handle, pPt)
+func (e *Element) X客户区点到窗口客户区(坐标 *炫彩基类.POINT) int {
+	return 炫彩基类.X元素_客户区点到窗口客户区(e.Handle, 坐标)
 }
 
 // 元素_基于窗口客户区坐标.
 //
 // pRect: 坐标.
-func (e *Element) GetWndClientRect(pRect *xc.RECT) int {
-	return xc.XEle_GetWndClientRect(e.Handle, pRect)
+func (e *Element) X取窗口客户区坐标(坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_基于窗口客户区坐标(e.Handle, 坐标)
 }
 
 // 元素_取光标, 获取元素鼠标光标, 返回光标句柄.
-func (e *Element) GetCursor() int {
-	return xc.XEle_GetCursor(e.Handle)
+func (e *Element) X取光标() int {
+	return 炫彩基类.X元素_取光标(e.Handle)
 }
 
 // 元素_置光标, 设置元素鼠标光标.
 //
 // hCursor: 光标句柄.
-func (e *Element) SetCursor(hCursor int) int {
-	return xc.XEle_SetCursor(e.Handle, hCursor)
+func (e *Element) X置光标(光标句柄 int) int {
+	return 炫彩基类.X元素_置光标(e.Handle, 光标句柄)
 }
 
 // 元素_添加子对象.
 //
 // hChild: 要添加的子元素句柄或形状对象句柄.
-func (e *Element) AddChild(hChild int) bool {
-	return xc.XEle_AddChild(e.Handle, hChild)
+func (e *Element) X添加子对象(子元素句柄或形状对象句柄 int) bool {
+	return 炫彩基类.X元素_添加子对象(e.Handle, 子元素句柄或形状对象句柄)
 }
 
 // 元素_插入子对象, 插入子对象到指定位置.
@@ -246,8 +246,8 @@ func (e *Element) AddChild(hChild int) bool {
 // hChild: 要插入的元素句柄或形状对象句柄.
 //
 // index: 插入位置索引.
-func (e *Element) InsertChild(hChild int, index int) bool {
-	return xc.XEle_InsertChild(e.Handle, hChild, index)
+func (e *Element) X插入子对象(元素句柄或形状对象句柄 int, 插入位置索引 int) bool {
+	return 炫彩基类.X元素_插入子对象(e.Handle, 元素句柄或形状对象句柄, 插入位置索引)
 }
 
 // 元素_置坐标, 如果返回0坐标没有改变, 如果大小改变返回2(触发XE_SIZE), 否则返回1(仅改变left,top,没有改变大小).
@@ -259,8 +259,8 @@ func (e *Element) InsertChild(hChild int, index int) bool {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	return xc.XEle_SetRect(e.Handle, pRect, bRedraw, nFlags, nAdjustNo)
+func (e *Element) X置坐标(坐标 *炫彩基类.RECT, 是否重绘 bool, 标识 炫彩常量类.AdjustLayout_, 流水号 uint32) int {
+	return 炫彩基类.X元素_置坐标(e.Handle, 坐标, 是否重绘, 标识, 流水号)
 }
 
 // 元素_置坐标扩展, 如果坐标未改变返回0, 如果大小改变返回2(触发XE_SIZE), 否则返回1.
@@ -278,8 +278,8 @@ func (e *Element) SetRect(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetRectEx(x int, y int, cx int, cy int, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	return xc.XEle_SetRectEx(e.Handle, x, y, cx, cy, bRedraw, nFlags, nAdjustNo)
+func (e *Element) X置坐标EX(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 是否重绘 bool, 标识 炫彩常量类.AdjustLayout_, 流水号 uint32) int {
+	return 炫彩基类.X元素_置坐标EX(e.Handle, X坐标, Y坐标, 宽度, 高度, 是否重绘, 标识, 流水号)
 }
 
 // 元素_置逻辑坐标, 如果坐标未改变返回0, 如果大小改变返回2(触发XE_SIZE), 否则返回1.
@@ -291,8 +291,8 @@ func (e *Element) SetRectEx(x int, y int, cx int, cy int, bRedraw bool, nFlags x
 // nFlags: 调整布局标识位: xcc.AdjustLayout_. 此参数将会传入XE_SIZE ,XE_ADJUSTLAYOUT 事件回调.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	return xc.XEle_SetRectLogic(e.Handle, pRect, bRedraw, nFlags, nAdjustNo)
+func (e *Element) X置逻辑坐标(坐标 *炫彩基类.RECT, 是否重绘 bool, 标识 炫彩常量类.AdjustLayout_, 流水号 uint32) int {
+	return 炫彩基类.X元素_置逻辑坐标(e.Handle, 坐标, 是否重绘, 标识, 流水号)
 }
 
 // 元素_移动, 如果坐标未改变返回0, 如果大小改变返回2(触发XE_SIZE), 否则返回1.
@@ -306,8 +306,8 @@ func (e *Element) SetRectLogic(pRect *xc.RECT, bRedraw bool, nFlags xcc.AdjustLa
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	return xc.XEle_SetPosition(e.Handle, x, y, bRedraw, nFlags, nAdjustNo)
+func (e *Element) X移动(X坐标, Y坐标 int32, 是否重绘 bool, 标识 炫彩常量类.AdjustLayout_, 流水号 uint32) int {
+	return 炫彩基类.X元素_移动(e.Handle, X坐标, Y坐标, 是否重绘, 标识, 流水号)
 }
 
 // 元素_移动逻辑坐标, 移动元素坐标, 逻辑坐标, 包含滚动视图偏移. 如果坐标未改变返回0, 如果大小改变返回2(触发XE_SIZE), 否则返回1.
@@ -321,171 +321,171 @@ func (e *Element) SetPosition(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetPositionLogic(x, y int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	return xc.XEle_SetPositionLogic(e.Handle, x, y, bRedraw, nFlags, nAdjustNo)
+func (e *Element) X移动逻辑坐标(X坐标, Y坐标 int32, 是否重绘 bool, 标识 炫彩常量类.AdjustLayout_, 流水号 uint32) int {
+	return 炫彩基类.X元素_移动逻辑坐标(e.Handle, X坐标, Y坐标, 是否重绘, 标识, 流水号)
 }
 
 // 元素_判断绘制焦点.
-func (e *Element) IsDrawFocus() bool {
-	return xc.XEle_IsDrawFocus(e.Handle)
+func (e *Element) X判断绘制焦点() bool {
+	return 炫彩基类.X元素_判断绘制焦点(e.Handle)
 }
 
 // 元素_判断启用, 元素是否为启用状态.
-func (e *Element) IsEnable() bool {
-	return xc.XEle_IsEnable(e.Handle)
+func (e *Element) X判断启用() bool {
+	return 炫彩基类.X元素_判断启用(e.Handle)
 }
 
 // 元素_判断启用焦点, 元素是否启用焦点.
-func (e *Element) IsEnableFocus() bool {
-	return xc.XEle_IsEnableFocus(e.Handle)
+func (e *Element) X判断启用焦点() bool {
+	return 炫彩基类.X元素_判断启用焦点(e.Handle)
 }
 
 // 元素_判断鼠标穿透, 元素是否启用鼠标穿透.
-func (e *Element) IsMouseThrough() bool {
-	return xc.XEle_IsMouseThrough(e.Handle)
+func (e *Element) X判断鼠标穿透() bool {
+	return 炫彩基类.X元素_判断鼠标穿透(e.Handle)
 }
 
 // 元素_测试点击元素, 检测坐标点所在元素, 包含子元素的子元素.
 //
 // pPt: 坐标点.
-func (e *Element) HitChildEle(pPt *xc.POINT) int {
-	return xc.XEle_HitChildEle(e.Handle, pPt)
+func (e *Element) X测试点击元素(坐标点 *炫彩基类.POINT) int {
+	return 炫彩基类.X元素_测试点击元素(e.Handle, 坐标点)
 }
 
 // 元素_判断背景透明.
-func (e *Element) IsBkTransparent() bool {
-	return xc.XEle_IsBkTransparent(e.Handle)
+func (e *Element) X判断背景透明() bool {
+	return 炫彩基类.X元素_判断背景透明(e.Handle)
 }
 
 // 元素_判断启用事件_XE_PAINT_END, 是否启XE_PAINT_END用事件.
-func (e *Element) IsEnableEvent_XE_PAINT_END() bool {
-	return xc.XEle_IsEnableEvent_XE_PAINT_END(e.Handle)
+func (e *Element) X判断启用事件_XE_PAINT_END() bool {
+	return 炫彩基类.X元素_判断启用事件_XE_PAINT_END(e.Handle)
 }
 
 // 元素_判断接受TAB, 是否接受Tab键输入; 例如: XRichEdit, XEdit.
-func (e *Element) IsKeyTab() bool {
-	return xc.XEle_IsKeyTab(e.Handle)
+func (e *Element) X判断接受TAB() bool {
+	return 炫彩基类.X元素_判断接受TAB(e.Handle)
 }
 
 // 元素_判断接受切换焦点, 是否接受通过键盘切换焦点(方向键,TAB键).
-func (e *Element) IsSwitchFocus() bool {
-	return xc.XEle_IsSwitchFocus(e.Handle)
+func (e *Element) X判断接受切换焦点() bool {
+	return 炫彩基类.X元素_判断接受切换焦点(e.Handle)
 }
 
 // 元素_判断启用_XE_MOUSEWHEEL, 判断是否启用鼠标滚动事件, 如果禁用那么事件会发送给他的父元素.
-func (e *Element) IsEnable_XE_MOUSEWHEEL() bool {
-	return xc.XEle_IsEnable_XE_MOUSEWHEEL(e.Handle)
+func (e *Element) X判断启用_XE_MOUSEWHEEL() bool {
+	return 炫彩基类.X元素_判断启用_XE_MOUSEWHEEL(e.Handle)
 }
 
 // 元素_判断为子元素, 判断hChildEle是否为hEle的子元素.
 //
 // hChildEle: 子元素句柄.
-func (e *Element) IsChildEle(hChildEle int) bool {
-	return xc.XEle_IsChildEle(e.Handle, hChildEle)
+func (e *Element) X判断为子元素(子元素句柄 int) bool {
+	return 炫彩基类.X元素_判断为子元素(e.Handle, 子元素句柄)
 }
 
 // 元素_判断启用画布, 判断是否启用画布.
-func (e *Element) IsEnableCanvas() bool {
-	return xc.XEle_IsEnableCanvas(e.Handle)
+func (e *Element) X判断启用画布() bool {
+	return 炫彩基类.X元素_判断启用画布(e.Handle)
 }
 
 // 元素_判断焦点, 判断是否拥有焦点.
-func (e *Element) IsFocus() bool {
-	return xc.XEle_IsFocus(e.Handle)
+func (e *Element) X判断焦点() bool {
+	return 炫彩基类.X元素_判断焦点(e.Handle)
 }
 
 // 元素_判断焦点扩展, 判断该元素或该元素的子元素是否拥有焦点.
-func (e *Element) IsFocusEx() bool {
-	return xc.XEle_IsFocusEx(e.Handle)
+func (e *Element) X判断焦点EX() bool {
+	return 炫彩基类.X元素_判断焦点EX(e.Handle)
 }
 
 // 元素_启用, 启用或禁用元素.
 //
 // bEnable: 启用或禁用.
-func (e *Element) Enable(bEnable bool) int {
-	return xc.XEle_Enable(e.Handle, bEnable)
+func (e *Element) X启用(启用或禁用 bool) int {
+	return 炫彩基类.X元素_启用(e.Handle, 启用或禁用)
 }
 
 // 元素_启用焦点, 启用焦点.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableFocus(bEnable bool) int {
-	return xc.XEle_EnableFocus(e.Handle, bEnable)
+func (e *Element) X启用焦点(是否启用 bool) int {
+	return 炫彩基类.X元素_启用焦点(e.Handle, 是否启用)
 }
 
 // 元素_启用绘制焦点.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableDrawFocus(bEnable bool) int {
-	return xc.XEle_EnableDrawFocus(e.Handle, bEnable)
+func (e *Element) X启用绘制焦点(是否启用 bool) int {
+	return 炫彩基类.X元素_启用绘制焦点(e.Handle, 是否启用)
 }
 
 // 元素_启用绘制边框, 启用或禁用绘制默认边框.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableDrawBorder(bEnable bool) int {
-	return xc.XEle_EnableDrawBorder(e.Handle, bEnable)
+func (e *Element) X启用绘制边框(是否启用 bool) int {
+	return 炫彩基类.X元素_启用绘制边框(e.Handle, 是否启用)
 }
 
 // 元素_启用画布, 启用或禁用背景画布; 如果禁用那么将绘制在父的画布之上, 也就是说他没有自己的画布.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableCanvas(bEnable bool) int {
-	return xc.XEle_EnableCanvas(e.Handle, bEnable)
+func (e *Element) X启用画布(是否启用 bool) int {
+	return 炫彩基类.X元素_启用画布(e.Handle, 是否启用)
 }
 
 // 元素_启用事件_XE_PAINT_END.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableEvent_XE_PAINT_END(bEnable bool) int {
-	return xc.XEle_EnableEvent_XE_PAINT_END(e.Handle, bEnable)
+func (e *Element) X启用事件_XE_PAINT_END(是否启用 bool) int {
+	return 炫彩基类.X元素_启用事件_XE_PAINT_END(e.Handle, 是否启用)
 }
 
 // 元素_启用背景透明.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableBkTransparent(bEnable bool) int {
-	return xc.XEle_EnableBkTransparent(e.Handle, bEnable)
+func (e *Element) X启用背景透明(是否启用 bool) int {
+	return 炫彩基类.X元素_启用背景透明(e.Handle, 是否启用)
 }
 
 // 元素_启用鼠标穿透. 启用鼠标穿透, 如果启用, 那么该元素不能接收到鼠标事件, 但是他的子元素不受影响, 任然可以接收鼠标事件.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableMouseThrough(bEnable bool) int {
-	return xc.XEle_EnableMouseThrough(e.Handle, bEnable)
+func (e *Element) X启用鼠标穿透(是否启用 bool) int {
+	return 炫彩基类.X元素_启用鼠标穿透(e.Handle, 是否启用)
 }
 
 // 元素_启用接收TAB, 启用接收Tab输入.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableKeyTab(bEnable bool) int {
-	return xc.XEle_EnableKeyTab(e.Handle, bEnable)
+func (e *Element) X启用接收TAB(是否启用 bool) int {
+	return 炫彩基类.X元素_启用接收TAB(e.Handle, 是否启用)
 }
 
 // 元素_启用切换焦点, 启用接受通过键盘切换焦点.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableSwitchFocus(bEnable bool) int {
-	return xc.XEle_EnableSwitchFocus(e.Handle, bEnable)
+func (e *Element) X启用切换焦点(是否启用 bool) int {
+	return 炫彩基类.X元素_启用切换焦点(e.Handle, 是否启用)
 }
 
 // 元素_启用事件_XE_MOUSEWHEEL, 启用接收鼠标滚动事件, 如果禁用那么事件会传递给父元素.
 //
 // bEnable: 是否启用.
-func (e *Element) EnableEvent_XE_MOUSEWHEEL(bEnable bool) int {
-	return xc.XEle_EnableEvent_XE_MOUSEWHEEL(e.Handle, bEnable)
+func (e *Element) X启用事件_XE_MOUSEWHEEL(是否启用 bool) int {
+	return 炫彩基类.X元素_启用事件_XE_MOUSEWHEEL(e.Handle, 是否启用)
 }
 
 // 元素_移除, 移除元素, 但不销毁.
-func (e *Element) Remove() int {
-	return xc.XEle_Remove(e.Handle)
+func (e *Element) X移除() int {
+	return 炫彩基类.X元素_移除(e.Handle)
 }
 
 // 元素_置Z序, 设置元素Z序.
 //
 // index: 位置索引.
-func (e *Element) SetZOrder(index int) bool {
-	return xc.XEle_SetZOrder(e.Handle, index)
+func (e *Element) X置Z序(位置索引 int) bool {
+	return 炫彩基类.X元素_置Z序(e.Handle, 位置索引)
 }
 
 // 元素_置Z序扩展, 设置元素Z序.
@@ -493,27 +493,27 @@ func (e *Element) SetZOrder(index int) bool {
 // hDestEle: 目标元素.
 //
 // nType: 类型, Zorder_.
-func (e *Element) SetZOrderEx(hDestEle int, nType xcc.Zorder_) bool {
-	return xc.XEle_SetZOrderEx(e.Handle, hDestEle, nType)
+func (e *Element) X置Z序EX(目标元素 int, 类型 炫彩常量类.Zorder_) bool {
+	return 炫彩基类.X元素_置Z序EX(e.Handle, 目标元素, 类型)
 }
 
 // 元素_取Z序, 获取元素Z序索引, 位置索引.
-func (e *Element) GetZOrder() int {
-	return xc.XEle_GetZOrder(e.Handle)
+func (e *Element) X取Z序() int {
+	return 炫彩基类.X元素_取Z序(e.Handle)
 }
 
 // 元素_启用置顶, 设置元素置顶.
 //
 // bTopmost: 是否置顶显示.
-func (e *Element) EnableTopmost(bTopmost bool) bool {
-	return xc.XEle_EnableTopmost(e.Handle, bTopmost)
+func (e *Element) X启用置顶(是否置顶显示 bool) bool {
+	return 炫彩基类.X元素_启用置顶(e.Handle, 是否置顶显示)
 }
 
 // 元素_重绘.
 //
 // bImmediate: 是否立即重绘.
-func (e *Element) Redraw(bImmediate bool) int {
-	return xc.XEle_Redraw(e.Handle, bImmediate)
+func (e *Element) X重绘(是否立即重绘 bool) int {
+	return 炫彩基类.X元素_重绘(e.Handle, 是否立即重绘)
 }
 
 // 元素_重绘指定区域.
@@ -521,27 +521,27 @@ func (e *Element) Redraw(bImmediate bool) int {
 // pRect: 相对于元素客户区坐标.
 //
 // bImmediate: 是否立即重绘.
-func (e *Element) RedrawRect(pRect *xc.RECT, bImmediate bool) int {
-	return xc.XEle_RedrawRect(e.Handle, pRect, bImmediate)
+func (e *Element) X重绘指定区域(坐标 *炫彩基类.RECT, 是否立即重绘 bool) int {
+	return 炫彩基类.X元素_重绘指定区域(e.Handle, 坐标, 是否立即重绘)
 }
 
 // 元素_取子对象数量, 获取子对象(UI元素和形状对象)数量, 只检测当前层子对象.
-func (e *Element) GetChildCount() int {
-	return xc.XEle_GetChildCount(e.Handle)
+func (e *Element) X取子对象数量() int {
+	return 炫彩基类.X元素_取子对象数量(e.Handle)
 }
 
 // 元素_取子对象从索引, 获取子对象通过索引, 只检测当前层子对象.
 //
 // index: 索引.
-func (e *Element) GetChildByIndex(index int) int {
-	return xc.XEle_GetChildByIndex(e.Handle, index)
+func (e *Element) X取子对象并按索引(索引 int) int {
+	return 炫彩基类.X元素_取子对象从索引(e.Handle, 索引)
 }
 
 // 元素_取子对象从ID, 获取子对象通过ID, 只检测当前层子对象.
 //
 // nID: 元素ID.
-func (e *Element) GetChildByID(nID int) int {
-	return xc.XEle_GetChildByID(e.Handle, nID)
+func (e *Element) X取子对象并按ID(元素ID int) int {
+	return 炫彩基类.X元素_取子对象从ID(e.Handle, 元素ID)
 }
 
 // 元素_置边框大小.
@@ -553,15 +553,15 @@ func (e *Element) GetChildByID(nID int) int {
 // right: 右边大小.
 //
 // bottom: 下边大小.
-func (e *Element) SetBorderSize(left int, top int, right int, bottom int) int {
-	return xc.XEle_SetBorderSize(e.Handle, left, top, right, bottom)
+func (e *Element) X置边框大小(左边 int, 上边 int, 右边 int, 下边 int) int {
+	return 炫彩基类.X元素_置边框大小(e.Handle, 左边, 上边, 右边, 下边)
 }
 
 // 元素_取边框大小.
 //
 // pBorder: 大小.
-func (e *Element) GetBorderSize(pBorder *xc.RECT) int {
-	return xc.XEle_GetBorderSize(e.Handle, pBorder)
+func (e *Element) X取边框大小(大小 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_取边框大小(e.Handle, 大小)
 }
 
 // 元素_置内填充大小.
@@ -573,22 +573,22 @@ func (e *Element) GetBorderSize(pBorder *xc.RECT) int {
 // right: 右边大小.
 //
 // bottom: 下边大小.
-func (e *Element) SetPadding(left int, top int, right int, bottom int) int {
-	return xc.XEle_SetPadding(e.Handle, left, top, right, bottom)
+func (e *Element) X置内填充大小(左边 int, 上边 int, 右边 int, 下边 int) int {
+	return 炫彩基类.X元素_置内填充大小(e.Handle, 左边, 上边, 右边, 下边)
 }
 
 // 元素_取内填充大小.
 //
 // pPadding: 大小.
-func (e *Element) GetPadding(pPadding *xc.RECT) int {
-	return xc.XEle_GetPadding(e.Handle, pPadding)
+func (e *Element) X取内填充大小(大小 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_取内填充大小(e.Handle, 大小)
 }
 
 // 元素_置拖动边框.
 //
 // nFlags: 边框位置组合, Element_Position_.
-func (e *Element) SetDragBorder(nFlags xcc.Element_Position_) int {
-	return xc.XEle_SetDragBorder(e.Handle, nFlags)
+func (e *Element) X置拖动边框(边框位置组合 炫彩常量类.Element_Position_) int {
+	return 炫彩基类.X元素_置拖动边框(e.Handle, 边框位置组合)
 }
 
 // 元素_置拖动边框绑定元素, 设置拖动边框绑定元素, 当拖动边框时, 自动调整绑定元素的大小.
@@ -598,8 +598,8 @@ func (e *Element) SetDragBorder(nFlags xcc.Element_Position_) int {
 // hBindEle: 绑定元素.
 //
 // nSpace: 元素间隔大小.
-func (e *Element) SetDragBorderBindEle(nFlags xcc.Element_Position_, hBindEle int, nSpace int) int {
-	return xc.XEle_SetDragBorderBindEle(e.Handle, nFlags, hBindEle, nSpace)
+func (e *Element) X置拖动边框绑定元素(边框位置标识 炫彩常量类.Element_Position_, 绑定元素 int, 元素间隔大小 int) int {
+	return 炫彩基类.X元素_置拖动边框绑定元素(e.Handle, 边框位置标识, 绑定元素, 元素间隔大小)
 }
 
 // 元素_置最小大小.
@@ -607,8 +607,8 @@ func (e *Element) SetDragBorderBindEle(nFlags xcc.Element_Position_, hBindEle in
 // nWidth: 最小宽度.
 //
 // nHeight: 最小高度.
-func (e *Element) SetMinSize(nWidth int, nHeight int) int {
-	return xc.XEle_SetMinSize(e.Handle, nWidth, nHeight)
+func (e *Element) X置最小大小(最小宽度 int, 最小高度 int) int {
+	return 炫彩基类.X元素_置最小大小(e.Handle, 最小宽度, 最小高度)
 }
 
 // 元素_置最大大小.
@@ -616,8 +616,8 @@ func (e *Element) SetMinSize(nWidth int, nHeight int) int {
 // nWidth: 最大宽度.
 //
 // nHeight: 最大高度.
-func (e *Element) SetMaxSize(nWidth int, nHeight int) int {
-	return xc.XEle_SetMaxSize(e.Handle, nWidth, nHeight)
+func (e *Element) X置最大大小(最大宽度 int, 最大高度 int) int {
+	return 炫彩基类.X元素_置最大大小(e.Handle, 最大宽度, 最大高度)
 }
 
 // 元素_置锁定滚动, 设置锁定元素在滚动视图中跟随滚动, 如果设置TRUE将不跟随滚动.
@@ -625,64 +625,64 @@ func (e *Element) SetMaxSize(nWidth int, nHeight int) int {
 // bHorizon: 是否锁定水平滚动.
 //
 // bVertical: 是否锁定垂直滚动.
-func (e *Element) SetLockScroll(bHorizon bool, bVertical bool) int {
-	return xc.XEle_SetLockScroll(e.Handle, bHorizon, bVertical)
+func (e *Element) X置锁定滚动(是否锁定水平 bool, 是否锁定垂直 bool) int {
+	return 炫彩基类.X元素_置锁定滚动(e.Handle, 是否锁定水平, 是否锁定垂直)
 }
 
 // 元素_置文本颜色.
 //
 // color: ABGR 颜色值.
-func (e *Element) SetTextColor(color int) int {
-	return xc.XEle_SetTextColor(e.Handle, color)
+func (e *Element) X置文本颜色(ABGR颜色值 int) int {
+	return 炫彩基类.X元素_置文本颜色(e.Handle, ABGR颜色值)
 }
 
 // 元素_取文本颜色.
-func (e *Element) GetTextColor() int {
-	return xc.XEle_GetTextColor(e.Handle)
+func (e *Element) X取文本颜色() int {
+	return 炫彩基类.X元素_取文本颜色(e.Handle)
 }
 
 // 元素_取文本颜色扩展, 获取文本颜色, 优先从资源中获取.
-func (e *Element) GetTextColorEx() int {
-	return xc.XEle_GetTextColorEx(e.Handle)
+func (e *Element) X取文本颜色EX() int {
+	return 炫彩基类.X元素_取文本颜色EX(e.Handle)
 }
 
 // 元素_置焦点边框颜色.
 //
 // color: ABGR 颜色值.
-func (e *Element) SetFocusBorderColor(color int) int {
-	return xc.XEle_SetFocusBorderColor(e.Handle, color)
+func (e *Element) X置焦点边框颜色(ABGR颜色值 int) int {
+	return 炫彩基类.X元素_置焦点边框颜色(e.Handle, ABGR颜色值)
 }
 
 // 元素_取焦点边框颜色.
-func (e *Element) GetFocusBorderColor() int {
-	return xc.XEle_GetFocusBorderColor(e.Handle)
+func (e *Element) X取焦点边框颜色() int {
+	return 炫彩基类.X元素_取焦点边框颜色(e.Handle)
 }
 
 // 元素_置字体.
 //
 // hFontx: 炫彩字体.
-func (e *Element) SetFont(hFontx int) int {
-	return xc.XEle_SetFont(e.Handle, hFontx)
+func (e *Element) X置字体(炫彩字体 int) int {
+	return 炫彩基类.X元素_置字体(e.Handle, 炫彩字体)
 }
 
 // 元素_取字体.
-func (e *Element) GetFont() int {
-	return xc.XEle_GetFont(e.Handle)
+func (e *Element) X取字体() int {
+	return 炫彩基类.X元素_取字体(e.Handle)
 }
 
 // 元素_取字体扩展, 获取元素字体, 优先从资源中获取.
-func (e *Element) GetFontEx() int {
-	return xc.XEle_GetFontEx(e.Handle)
+func (e *Element) X取字体EX() int {
+	return 炫彩基类.X元素_取字体EX(e.Handle)
 }
 
 // 元素_置透明度.
-func (e *Element) SetAlpha(alpha uint8) int {
-	return xc.XEle_SetAlpha(e.Handle, alpha)
+func (e *Element) X置透明度(透明度 uint8) int {
+	return 炫彩基类.X元素_置透明度(e.Handle, 透明度)
 }
 
 // 元素_销毁.
-func (e *Element) Destroy() int {
-	return xc.XEle_Destroy(e.Handle)
+func (e *Element) X销毁() int {
+	return 炫彩基类.X元素_销毁(e.Handle)
 }
 
 // 元素_添加背景边框, 添加背景内容边框.
@@ -692,8 +692,8 @@ func (e *Element) Destroy() int {
 // color: ABGR 颜色.
 //
 // width: 线宽.
-func (e *Element) AddBkBorder(nState xcc.CombinedState, color int, width int) int {
-	return xc.XEle_AddBkBorder(e.Handle, nState, color, width)
+func (e *Element) X添加背景边框(组合状态 炫彩常量类.CombinedState, ABGR颜色 int, 线宽 int) int {
+	return 炫彩基类.X元素_添加背景边框(e.Handle, 组合状态, ABGR颜色, 线宽)
 }
 
 // 元素_添加背景填充, 添加背景内容填充.
@@ -701,8 +701,8 @@ func (e *Element) AddBkBorder(nState xcc.CombinedState, color int, width int) in
 // nState: 组合状态.
 //
 // color: ABGR 颜色.
-func (e *Element) AddBkFill(nState xcc.CombinedState, color int) int {
-	return xc.XEle_AddBkFill(e.Handle, nState, color)
+func (e *Element) X添加背景填充(组合状态 炫彩常量类.CombinedState, ABGR颜色 int) int {
+	return 炫彩基类.X元素_添加背景填充(e.Handle, 组合状态, ABGR颜色)
 }
 
 // 元素_添加背景图片, 添加背景内容图片.
@@ -710,40 +710,40 @@ func (e *Element) AddBkFill(nState xcc.CombinedState, color int) int {
 // nState: 组合状态.
 //
 // hImage: 图片句柄.
-func (e *Element) AddBkImage(nState xcc.CombinedState, hImage int) int {
-	return xc.XEle_AddBkImage(e.Handle, nState, hImage)
+func (e *Element) X添加背景图片(组合状态 炫彩常量类.CombinedState, 图片句柄 int) int {
+	return 炫彩基类.X元素_添加背景图片(e.Handle, 组合状态, 图片句柄)
 }
 
 // 元素_取背景对象数量, 获取背景内容数量.
-func (e *Element) GetBkInfoCount() int {
-	return xc.XEle_GetBkInfoCount(e.Handle)
+func (e *Element) X取背景对象数量() int {
+	return 炫彩基类.X元素_取背景对象数量(e.Handle)
 }
 
 // 元素_清空背景对象, 清空背景内容; 如果背景没有内容, 将使用系统默认内容, 以便保证背景正确.
-func (e *Element) ClearBkInfo() int {
-	return xc.XEle_ClearBkInfo(e.Handle)
+func (e *Element) X清空背景对象() int {
+	return 炫彩基类.X元素_清空背景对象(e.Handle)
 }
 
 // 元素_取背景管理器, 获取元素背景管理器.
-func (e *Element) GetBkManager() int {
-	return xc.XEle_GetBkManager(e.Handle)
+func (e *Element) X取背景管理器() int {
+	return 炫彩基类.X元素_取背景管理器(e.Handle)
 }
 
 // 元素_取背景管理器扩展, 获取元素背景管理器, 优先从资源中获取.
-func (e *Element) GetBkManagerEx() int {
-	return xc.XEle_GetBkManagerEx(e.Handle)
+func (e *Element) X取背景管理器EX() int {
+	return 炫彩基类.X元素_取背景管理器EX(e.Handle)
 }
 
 // 元素_置背景管理器.
 //
 // hBkInfoM: 背景管理器.
-func (e *Element) SetBkManager(hBkInfoM int) int {
-	return xc.XEle_SetBkManager(e.Handle, hBkInfoM)
+func (e *Element) X置背景管理器(背景管理器 int) int {
+	return 炫彩基类.X元素_置背景管理器(e.Handle, 背景管理器)
 }
 
 // 元素_取状态, 获取组合状态.
-func (e *Element) GetStateFlags() xcc.CombinedState {
-	return xc.XEle_GetStateFlags(e.Handle)
+func (e *Element) X取状态() 炫彩常量类.CombinedState {
+	return 炫彩基类.X元素_取状态(e.Handle)
 }
 
 // 元素_绘制焦点, 绘制元素焦点.
@@ -751,27 +751,27 @@ func (e *Element) GetStateFlags() xcc.CombinedState {
 // hDraw: 图形绘制句柄.
 //
 // pRect: 区域坐标.
-func (e *Element) DrawFocus(hDraw int, pRect *xc.RECT) bool {
-	return xc.XEle_DrawFocus(e.Handle, hDraw, pRect)
+func (e *Element) X绘制焦点(图形绘制句柄 int, 区域坐标 *炫彩基类.RECT) bool {
+	return 炫彩基类.X元素_绘制焦点(e.Handle, 图形绘制句柄, 区域坐标)
 }
 
 // 元素_绘制, 在自绘事件函数中, 用户手动调用绘制元素, 以便控制绘制顺序.
 //
 // hDraw: 图形绘制句柄.
-func (e *Element) DrawEle(hDraw int) int {
-	return xc.XEle_DrawEle(e.Handle, hDraw)
+func (e *Element) X绘制(图形绘制句柄 int) int {
+	return 炫彩基类.X元素_绘制(e.Handle, 图形绘制句柄)
 }
 
 // 元素_置用户数据.
 //
 // nData: 用户数据.
-func (e *Element) SetUserData(nData int) int {
-	return xc.XEle_SetUserData(e.Handle, nData)
+func (e *Element) X置用户数据(用户数据 int) int {
+	return 炫彩基类.X元素_置用户数据(e.Handle, 用户数据)
 }
 
 // 元素_取用户数据.
-func (e *Element) GetUserData() int {
-	return xc.XEle_GetUserData(e.Handle)
+func (e *Element) X取用户数据() int {
+	return 炫彩基类.X元素_取用户数据(e.Handle)
 }
 
 // 元素_取内容大小.
@@ -783,22 +783,22 @@ func (e *Element) GetUserData() int {
 // cy: 高度.
 //
 // pSize: 返回大小.
-func (e *Element) GetContentSize(bHorizon bool, cx int, cy int, pSize *xc.SIZE) int {
-	return xc.XEle_GetContentSize(e.Handle, bHorizon, cx, cy, pSize)
+func (e *Element) X取内容大小(水平或垂直 bool, 宽度 int, 高度 int, 返回大小 *炫彩基类.SIZE) int {
+	return 炫彩基类.X元素_取内容大小(e.Handle, 水平或垂直, 宽度, 高度, 返回大小)
 }
 
 // 元素_置鼠标捕获.
 //
 // b: TRUE设置.
-func (e *Element) SetCapture(b bool) int {
-	return xc.XEle_SetCapture(e.Handle, b)
+func (e *Element) X置鼠标捕获(开启 bool) int {
+	return 炫彩基类.X元素_置鼠标捕获(e.Handle, 开启)
 }
 
 // 元素_启用透明通道, 启用或关闭元素透明通道, 如果启用, 将强制设置元素背景不透明, 默认为启用, 此功能是为了兼容GDI不支持透明通道问题.
 //
 // bEnable: 启用或关闭.
-func (e *Element) EnableTransparentChannel(bEnable bool) int {
-	return xc.XEle_EnableTransparentChannel(e.Handle, bEnable)
+func (e *Element) X启用透明通道(启用或关闭 bool) int {
+	return 炫彩基类.X元素_启用透明通道(e.Handle, 启用或关闭)
 }
 
 // 元素_置炫彩定时器, 设置元素定时器.
@@ -806,22 +806,22 @@ func (e *Element) EnableTransparentChannel(bEnable bool) int {
 // nIDEvent: 事件ID.
 //
 // uElapse: 延时毫秒.
-func (e *Element) SetXCTimer(nIDEvent int, uElapse int) bool {
-	return xc.XEle_SetXCTimer(e.Handle, nIDEvent, uElapse)
+func (e *Element) X置炫彩定时器(事件ID int, 延时毫秒 int) bool {
+	return 炫彩基类.X元素_置炫彩定时器(e.Handle, 事件ID, 延时毫秒)
 }
 
 // 元素_关闭炫彩定时器, 关闭元素定时器.
 //
 // nIDEvent: 事件ID.
-func (e *Element) KillXCTimer(nIDEvent int) bool {
-	return xc.XEle_KillXCTimer(e.Handle, nIDEvent)
+func (e *Element) X关闭炫彩定时器(事件ID int) bool {
+	return 炫彩基类.X元素_关闭炫彩定时器(e.Handle, 事件ID)
 }
 
 // 元素_置工具提示, 设置工具提示内容.
 //
 // pText: 工具提示内容.
-func (e *Element) SetToolTip(pText string) int {
-	return xc.XEle_SetToolTip(e.Handle, pText)
+func (e *Element) X置工具提示(内容 string) int {
+	return 炫彩基类.X元素_置工具提示(e.Handle, 内容)
 }
 
 // 元素_置工具提示扩展, 设置工具提示内容.
@@ -829,13 +829,13 @@ func (e *Element) SetToolTip(pText string) int {
 // pText: 工具提示内容.
 //
 // nTextAlign: 文本对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func (e *Element) SetToolTipEx(pText string, nTextAlign xcc.TextFormatFlag_) int {
-	return xc.XEle_SetToolTipEx(e.Handle, pText, nTextAlign)
+func (e *Element) X置工具提示EX(内容 string, 对齐方式 炫彩常量类.TextFormatFlag_) int {
+	return 炫彩基类.X元素_置工具提示EX(e.Handle, 内容, 对齐方式)
 }
 
 // 元素_取工具提示, 获取工具提示内容.
-func (e *Element) GetToolTip() int {
-	return xc.XEle_GetToolTip(e.Handle)
+func (e *Element) X取工具提示() int {
+	return 炫彩基类.X元素_取工具提示(e.Handle)
 }
 
 // 元素_弹出工具提示, 弹出工具提示.
@@ -843,15 +843,15 @@ func (e *Element) GetToolTip() int {
 // x: X坐标.
 //
 // y: Y坐标.
-func (e *Element) PopupToolTip(x int, y int) int {
-	return xc.XEle_PopupToolTip(e.Handle, x, y)
+func (e *Element) X弹出工具提示(X坐标 int, Y坐标 int) int {
+	return 炫彩基类.X元素_弹出工具提示(e.Handle, X坐标, Y坐标)
 }
 
 // 元素_调整布局.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) AdjustLayout(nAdjustNo uint32) int {
-	return xc.XEle_AdjustLayout(e.Handle, nAdjustNo)
+func (e *Element) X调整布局(流水号 uint32) int {
+	return 炫彩基类.X元素_调整布局(e.Handle, 流水号)
 }
 
 // 元素_调整布局扩展.
@@ -859,13 +859,13 @@ func (e *Element) AdjustLayout(nAdjustNo uint32) int {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) AdjustLayoutEx(nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	return xc.XEle_AdjustLayoutEx(e.Handle, nFlags, nAdjustNo)
+func (e *Element) X调整布局EX(标识 炫彩常量类.AdjustLayout_, 流水号 uint32) int {
+	return 炫彩基类.X元素_调整布局EX(e.Handle, 标识, 流水号)
 }
 
 // 元素_取透明度, 返回透明度.
-func (e *Element) GetAlpha() byte {
-	return xc.XEle_GetAlpha(e.Handle)
+func (e *Element) X取透明度() byte {
+	return 炫彩基类.X元素_取透明度(e.Handle)
 }
 
 // 元素_取位置.
@@ -873,8 +873,8 @@ func (e *Element) GetAlpha() byte {
 // pOutX: 返回X坐标.
 //
 // pOutY: 返回Y坐标.
-func (e *Element) GetPosition(pOutX, pOutY *int32) int {
-	return xc.XEle_GetPosition(e.Handle, pOutX, pOutY)
+func (e *Element) X取位置(返回X坐标, 返回Y坐标 *int32) int {
+	return 炫彩基类.X元素_取位置(e.Handle, 返回X坐标, 返回Y坐标)
 }
 
 // 元素_置大小.
@@ -888,8 +888,8 @@ func (e *Element) GetPosition(pOutX, pOutY *int32) int {
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号, 可填0.
-func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags xcc.AdjustLayout_, nAdjustNo uint32) int {
-	return xc.XEle_SetSize(e.Handle, nWidth, nHeight, bRedraw, nFlags, nAdjustNo)
+func (e *Element) X置大小(宽度, 高度 int32, 是否重绘 bool, 标识 炫彩常量类.AdjustLayout_, 流水号 uint32) int {
+	return 炫彩基类.X元素_置大小(e.Handle, 宽度, 高度, 是否重绘, 标识, 流水号)
 }
 
 // 元素_取大小.
@@ -897,45 +897,45 @@ func (e *Element) SetSize(nWidth, nHeight int32, bRedraw bool, nFlags xcc.Adjust
 // pOutWidth: 返回宽度.
 //
 // pOutHeight: 返回高度.
-func (e *Element) GetSize(pOutWidth, pOutHeight *int32) int {
-	return xc.XEle_GetSize(e.Handle, pOutWidth, pOutHeight)
+func (e *Element) X取大小(返回宽度, 返回高度 *int32) int {
+	return 炫彩基类.X元素_取大小(e.Handle, 返回宽度, 返回高度)
 }
 
 // 元素_置背景, 设置背景内容, 返回设置的背景对象数量.
 //
 // pText: 背景内容字符串.
-func (e *Element) SetBkInfo(pText string) int {
-	return xc.XEle_SetBkInfo(e.Handle, pText)
+func (e *Element) X置背景(字符串 string) int {
+	return 炫彩基类.X元素_置背景(e.Handle, 字符串)
 }
 
 // 元素_取窗口客户区坐标DPI. 基于DPI缩放后的坐标.
 //
 // pRect: 接收返回坐标.
-func (e *Element) GetWndClientRectDPI(pRect *xc.RECT) int {
-	return xc.XEle_GetWndClientRectDPI(e.Handle, pRect)
+func (e *Element) X取窗口客户区坐标DPI(接收返回坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_取窗口客户区坐标DPI(e.Handle, 接收返回坐标)
 }
 
 // 元素_取窗口客户区坐标DPI. 基于DPI缩放后的坐标.
 //
 // pPt: 接收返回坐标点.
-func (e *Element) PointClientToWndClientDPI(pPt *xc.POINT) int {
-	return xc.XEle_PointClientToWndClientDPI(e.Handle, pPt)
+func (e *Element) X取窗口客户区坐标点DPI(接收返回坐标点 *炫彩基类.POINT) int {
+	return 炫彩基类.X元素_取窗口客户区坐标点DPI(e.Handle, 接收返回坐标点)
 }
 
 // 元素_客户区坐标到窗口客户区DPI. 基于DPI缩放后的坐标.
 //
 // pRect: 接收返回坐标.
-func (e *Element) RectClientToWndClientDPI(pRect *xc.RECT) int {
-	return xc.XEle_RectClientToWndClientDPI(e.Handle, pRect)
+func (e *Element) X客户区坐标到窗口客户区DPI(接收返回坐标 *炫彩基类.RECT) int {
+	return 炫彩基类.X元素_客户区坐标到窗口客户区DPI(e.Handle, 接收返回坐标)
 }
 
 // SetFocus 元素_置焦点.
-func (e *Element) SetFocus() bool {
+func (e *Element) X置焦点() bool {
 	hParent := 0
 	hEle := e.Handle
 	for {
-		hParent = xc.XWidget_GetParent(hEle)
-		if xc.XC_IsHWINDOW(hParent) {
+		hParent = 炫彩基类.X窗口组件_取父对象(hEle)
+		if 炫彩基类.X判断窗口(hParent) {
 			break
 		}
 
@@ -946,35 +946,35 @@ func (e *Element) SetFocus() bool {
 		hEle = hParent
 	}
 
-	xc.XWnd_SetFocusEle(hParent, e.Handle)
+	炫彩基类.X窗口_置焦点(hParent, e.Handle)
 	return true
 }
 
 // GetLeft 元素_取左边.
-func (e *Element) GetLeft() int32 {
-	var rc xc.RECT
-	xc.XEle_GetRect(e.Handle, &rc)
+func (e *Element) X取左边() int32 {
+	var rc 炫彩基类.RECT
+	炫彩基类.X元素_取坐标(e.Handle, &rc)
 	return rc.Left
 }
 
 // GetTop 元素_取顶边.
-func (e *Element) GetTop() int32 {
-	var rc xc.RECT
-	xc.XEle_GetRect(e.Handle, &rc)
+func (e *Element) X取顶边() int32 {
+	var rc 炫彩基类.RECT
+	炫彩基类.X元素_取坐标(e.Handle, &rc)
 	return rc.Top
 }
 
 // GetRight 元素_取右边.
-func (e *Element) GetRight() int32 {
-	var rc xc.RECT
-	xc.XEle_GetRect(e.Handle, &rc)
+func (e *Element) X取右边() int32 {
+	var rc 炫彩基类.RECT
+	炫彩基类.X元素_取坐标(e.Handle, &rc)
 	return rc.Right
 }
 
 // GetBottom 元素_取底边.
-func (e *Element) GetBottom() int32 {
-	var rc xc.RECT
-	xc.XEle_GetRect(e.Handle, &rc)
+func (e *Element) X取底边() int32 {
+	var rc 炫彩基类.RECT
+	炫彩基类.X元素_取坐标(e.Handle, &rc)
 	return rc.Bottom
 }
 
@@ -983,8 +983,8 @@ func (e *Element) GetBottom() int32 {
 // x: 左边x坐标.
 //
 // bRedraw: 是否重绘.
-func (e *Element) SetLeft(x int32, bRedraw bool) bool {
-	return xc.XEle_SetPosition(e.Handle, x, e.GetTop(), bRedraw, xcc.AdjustLayout_All, 0) != 0
+func (e *Element) X置左边(左边x坐标 int32, 是否重绘 bool) bool {
+	return 炫彩基类.X元素_移动(e.Handle, 左边x坐标, e.X取顶边(), 是否重绘, 炫彩常量类.AdjustLayout_All, 0) != 0
 }
 
 // SetLeft 元素_置顶边.
@@ -992,8 +992,8 @@ func (e *Element) SetLeft(x int32, bRedraw bool) bool {
 // y: 顶边y坐标.
 //
 // bRedraw: 是否重绘.
-func (e *Element) SetTop(y int32, bRedraw bool) bool {
-	return xc.XEle_SetPosition(e.Handle, e.GetLeft(), y, bRedraw, xcc.AdjustLayout_All, 0) != 0
+func (e *Element) X置顶边(顶边y坐标 int32, 是否重绘 bool) bool {
+	return 炫彩基类.X元素_移动(e.Handle, e.X取左边(), 顶边y坐标, 是否重绘, 炫彩常量类.AdjustLayout_All, 0) != 0
 }
 
 /*
@@ -1008,26 +1008,26 @@ type XE_PAINT_END func(hDraw int, pbHandled *bool) int                          
 type XE_PAINT_END1 func(hEle int, hDraw int, pbHandled *bool) int                         // 该元素及子元素绘制完成事件.启用该功能需要调用XEle_EnableEvent_XE_PAINT_END().
 type XE_PAINT_SCROLLVIEW func(hDraw int, pbHandled *bool) int                             // 滚动视图绘制事件.
 type XE_PAINT_SCROLLVIEW1 func(hEle int, hDraw int, pbHandled *bool) int                  // 滚动视图绘制事件.
-type XE_MOUSEMOVE func(nFlags int, pPt *xc.POINT, pbHandled *bool) int                    // 元素鼠标移动事件.
-type XE_MOUSEMOVE1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int         // 元素鼠标移动事件.
+type XE_MOUSEMOVE func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 元素鼠标移动事件.
+type XE_MOUSEMOVE1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 元素鼠标移动事件.
 type XE_MOUSESTAY func(pbHandled *bool) int                                               // 元素鼠标进入事件.
 type XE_MOUSESTAY1 func(hEle int, pbHandled *bool) int                                    // 元素鼠标进入事件.
-type XE_MOUSEHOVER func(nFlags int, pPt *xc.POINT, pbHandled *bool) int                   // 元素鼠标悬停事件.
-type XE_MOUSEHOVER1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int        // 元素鼠标悬停事件.
+type XE_MOUSEHOVER func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                 // 元素鼠标悬停事件.
+type XE_MOUSEHOVER1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int      // 元素鼠标悬停事件.
 type XE_MOUSELEAVE func(hEleStay int, pbHandled *bool) int                                // 元素鼠标离开事件.
 type XE_MOUSELEAVE1 func(hEle int, hEleStay int, pbHandled *bool) int                     // 元素鼠标离开事件.
-type XE_MOUSEWHEEL func(nFlags int, pPt *xc.POINT, pbHandled *bool) int                   // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
-type XE_MOUSEWHEEL1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int        // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
-type XE_LBUTTONDOWN func(nFlags int, pPt *xc.POINT, pbHandled *bool) int                  // 鼠标左键按下事件.
-type XE_LBUTTONDOWN1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int       // 鼠标左键按下事件.
-type XE_LBUTTONUP func(nFlags int, pPt *xc.POINT, pbHandled *bool) int                    // 鼠标左键弹起事件.
-type XE_LBUTTONUP1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int         // 鼠标左键弹起事件.
-type XE_RBUTTONDOWN func(nFlags int, pPt *xc.POINT, pbHandled *bool) int                  // 鼠标右键按下事件.
-type XE_RBUTTONDOWN1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int       // 鼠标右键按下事件.
-type XE_RBUTTONUP func(nFlags int, pPt *xc.POINT, pbHandled *bool) int                    // 鼠标右键弹起事件.
-type XE_RBUTTONUP1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int         // 鼠标右键弹起事件.
-type XE_LBUTTONDBCLICK func(nFlags int, pPt *xc.POINT, pbHandled *bool) int               // 鼠标左键双击事件.
-type XE_LBUTTONDBCLICK1 func(hEle int, nFlags int, pPt *xc.POINT, pbHandled *bool) int    // 鼠标左键双击事件.
+type XE_MOUSEWHEEL func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                 // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
+type XE_MOUSEWHEEL1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int      // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
+type XE_LBUTTONDOWN func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                // 鼠标左键按下事件.
+type XE_LBUTTONDOWN1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int     // 鼠标左键按下事件.
+type XE_LBUTTONUP func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 鼠标左键弹起事件.
+type XE_LBUTTONUP1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 鼠标左键弹起事件.
+type XE_RBUTTONDOWN func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                // 鼠标右键按下事件.
+type XE_RBUTTONDOWN1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int     // 鼠标右键按下事件.
+type XE_RBUTTONUP func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 鼠标右键弹起事件.
+type XE_RBUTTONUP1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 鼠标右键弹起事件.
+type XE_LBUTTONDBCLICK func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int             // 鼠标左键双击事件.
+type XE_LBUTTONDBCLICK1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int  // 鼠标左键双击事件.
 type XE_XC_TIMER func(nTimerID int, pbHandled *bool) int                                  // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
 type XE_XC_TIMER1 func(hEle int, nTimerID int, pbHandled *bool) int                       // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
 type XE_ADJUSTLAYOUT func(nFlags int32, nAdjustNo uint32, pbHandled *bool) int            // 调整布局事件. 暂停使用.
@@ -1040,7 +1040,7 @@ type XE_TOOLTIP_POPUP1 func(hEle int, hWindow int, pText uintptr, pbHandled *boo
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_ADJUSTLAYOUT_END func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_ADJUSTLAYOUT_END func(nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 // 调整布局完成事件.
 //
@@ -1049,7 +1049,7 @@ type XE_ADJUSTLAYOUT_END func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHand
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_ADJUSTLAYOUT_END1 func(hEle int, nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_ADJUSTLAYOUT_END1 func(hEle int, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 type XE_SETFOCUS func(pbHandled *bool) int               // 元素获得焦点事件.
 type XE_SETFOCUS1 func(hEle int, pbHandled *bool) int    // 元素获得焦点事件.
@@ -1065,7 +1065,7 @@ type XE_DESTROY_END1 func(hEle int, pbHandled *bool) int // 元素销毁完成�
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_SIZE func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_SIZE func(nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 // 元素大小改变事件1.
 //
@@ -1074,7 +1074,7 @@ type XE_SIZE func(nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) i
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 //
 // nAdjustNo: 调整布局流水号.
-type XE_SIZE1 func(hEle int, nFlags xcc.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
+type XE_SIZE1 func(hEle int, nFlags 炫彩常量类.AdjustLayout_, nAdjustNo uint32, pbHandled *bool) int
 
 type XE_SHOW func(bShow bool, pbHandled *bool) int                          // 元素显示隐藏事件.
 type XE_SHOW1 func(hEle int, bShow bool, pbHandled *bool) int               // 元素显示隐藏事件.
@@ -1096,395 +1096,395 @@ type XE_DROPFILES func(hDropInfo uintptr, pbHandled *bool) int              // �
 type XE_DROPFILES1 func(hEle int, hDropInfo uintptr, pbHandled *bool) int   // 文件拖放事件, 需先启用:XWnd_EnableDragFiles().
 
 // 元素处理过程事件.
-func (e *Element) Event_ELEPROCE(pFun XE_ELEPROCE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_ELEPROCE, pFun)
+func (e *Element) X事件_处理过程(pFun XE_ELEPROCE) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_ELEPROCE, pFun)
 }
 
 // 元素处理过程事件.
-func (e *Element) Event_ELEPROCE1(pFun XE_ELEPROCE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_ELEPROCE, pFun)
+func (e *Element) X事件_处理过程1(pFun XE_ELEPROCE1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_ELEPROCE, pFun)
 }
 
 // 元素绘制事件.
-func (e *Element) Event_PAINT(pFun XE_PAINT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_PAINT, pFun)
+func (e *Element) X事件_绘制事件(pFun XE_PAINT) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_PAINT, pFun)
 }
 
 // 元素绘制事件.
-func (e *Element) Event_PAINT1(pFun XE_PAINT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_PAINT, pFun)
+func (e *Element) X事件_绘制事件1(pFun XE_PAINT1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_PAINT, pFun)
 }
 
 // 该元素及子元素绘制完成事件.启用该功能需要调用XEle_EnableEvent_XE_PAINT_END().
-func (e *Element) Event_PAINT_END(pFun XE_PAINT_END) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_PAINT_END, pFun)
+func (e *Element) X事件_绘制完成(pFun XE_PAINT_END) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_PAINT_END, pFun)
 }
 
 // 该元素及子元素绘制完成事件.启用该功能需要调用XEle_EnableEvent_XE_PAINT_END().
-func (e *Element) Event_PAINT_END1(pFun XE_PAINT_END1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_PAINT_END, pFun)
+func (e *Element) X事件_绘制完成1(pFun XE_PAINT_END1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_PAINT_END, pFun)
 }
 
 // 滚动视图绘制事件.
-func (e *Element) Event_PAINT_SCROLLVIEW(pFun XE_PAINT_SCROLLVIEW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_PAINT_SCROLLVIEW, pFun)
+func (e *Element) X事件_滚动视图(pFun XE_PAINT_SCROLLVIEW) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_PAINT_SCROLLVIEW, pFun)
 }
 
 // 滚动视图绘制事件.
-func (e *Element) Event_PAINT_SCROLLVIEW1(pFun XE_PAINT_SCROLLVIEW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_PAINT_SCROLLVIEW, pFun)
+func (e *Element) X事件_滚动视图1(pFun XE_PAINT_SCROLLVIEW1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_PAINT_SCROLLVIEW, pFun)
 }
 
 // 元素鼠标移动事件.
-func (e *Element) Event_MOUSEMOVE(pFun XE_MOUSEMOVE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSEMOVE, pFun)
+func (e *Element) X事件_鼠标移动(pFun XE_MOUSEMOVE) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MOUSEMOVE, pFun)
 }
 
 // 元素鼠标移动事件.
-func (e *Element) Event_MOUSEMOVE1(pFun XE_MOUSEMOVE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSEMOVE, pFun)
+func (e *Element) X事件_鼠标移动1(pFun XE_MOUSEMOVE1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MOUSEMOVE, pFun)
 }
 
 // 元素鼠标进入事件.
-func (e *Element) Event_MOUSESTAY(pFun XE_MOUSESTAY) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSESTAY, pFun)
+func (e *Element) X事件_鼠标进入(pFun XE_MOUSESTAY) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MOUSESTAY, pFun)
 }
 
 // 元素鼠标进入事件.
-func (e *Element) Event_MOUSESTAY1(pFun XE_MOUSESTAY1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSESTAY, pFun)
+func (e *Element) X事件_鼠标进入1(pFun XE_MOUSESTAY1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MOUSESTAY, pFun)
 }
 
 // 元素鼠标悬停事件.
-func (e *Element) Event_MOUSEHOVER(pFun XE_MOUSEHOVER) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSEHOVER, pFun)
+func (e *Element) X事件_鼠标悬停(pFun XE_MOUSEHOVER) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MOUSEHOVER, pFun)
 }
 
 // 元素鼠标悬停事件.
-func (e *Element) Event_MOUSEHOVER1(pFun XE_MOUSEHOVER1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSEHOVER, pFun)
+func (e *Element) X事件_鼠标悬停1(pFun XE_MOUSEHOVER1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MOUSEHOVER, pFun)
 }
 
 // 元素鼠标离开事件.
-func (e *Element) Event_MOUSELEAVE(pFun XE_MOUSELEAVE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSELEAVE, pFun)
+func (e *Element) X事件_鼠标离开(pFun XE_MOUSELEAVE) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MOUSELEAVE, pFun)
 }
 
 // 元素鼠标离开事件.
-func (e *Element) Event_MOUSELEAVE1(pFun XE_MOUSELEAVE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSELEAVE, pFun)
+func (e *Element) X事件_鼠标离开1(pFun XE_MOUSELEAVE1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MOUSELEAVE, pFun)
 }
 
 // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL().
-func (e *Element) Event_MOUSEWHEEL(pFun XE_MOUSEWHEEL) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MOUSEWHEEL, pFun)
+func (e *Element) X事件_鼠标滚轮滚动(pFun XE_MOUSEWHEEL) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MOUSEWHEEL, pFun)
 }
 
 // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL().
-func (e *Element) Event_MOUSEWHEEL1(pFun XE_MOUSEWHEEL1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MOUSEWHEEL, pFun)
+func (e *Element) X事件_鼠标滚轮滚动1(pFun XE_MOUSEWHEEL1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MOUSEWHEEL, pFun)
 }
 
 // 鼠标左键按下事件.
-func (e *Element) Event_LBUTTONDOWN(pFun XE_LBUTTONDOWN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_LBUTTONDOWN, pFun)
+func (e *Element) X事件_左键按下(pFun XE_LBUTTONDOWN) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_LBUTTONDOWN, pFun)
 }
 
 // 鼠标左键按下事件.
-func (e *Element) Event_LBUTTONDOWN1(pFun XE_LBUTTONDOWN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_LBUTTONDOWN, pFun)
+func (e *Element) X事件_左键按下1(pFun XE_LBUTTONDOWN1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_LBUTTONDOWN, pFun)
 }
 
 // 鼠标左键弹起事件.
-func (e *Element) Event_LBUTTONUP(pFun XE_LBUTTONUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_LBUTTONUP, pFun)
+func (e *Element) X事件_左键弹起(pFun XE_LBUTTONUP) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_LBUTTONUP, pFun)
 }
 
 // 鼠标左键弹起事件.
-func (e *Element) Event_LBUTTONUP1(pFun XE_LBUTTONUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_LBUTTONUP, pFun)
+func (e *Element) X事件_左键弹起1(pFun XE_LBUTTONUP1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_LBUTTONUP, pFun)
 }
 
 // 鼠标右键按下事件.
-func (e *Element) Event_RBUTTONDOWN(pFun XE_RBUTTONDOWN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_RBUTTONDOWN, pFun)
+func (e *Element) X事件_右键按下(pFun XE_RBUTTONDOWN) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_RBUTTONDOWN, pFun)
 }
 
 // 鼠标右键按下事件.
-func (e *Element) Event_RBUTTONDOWN1(pFun XE_RBUTTONDOWN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_RBUTTONDOWN, pFun)
+func (e *Element) X事件_右键按下1(pFun XE_RBUTTONDOWN1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_RBUTTONDOWN, pFun)
 }
 
 // 鼠标右键弹起事件.
-func (e *Element) Event_RBUTTONUP(pFun XE_RBUTTONUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_RBUTTONUP, pFun)
+func (e *Element) X事件_右键弹起(pFun XE_RBUTTONUP) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_RBUTTONUP, pFun)
 }
 
 // 鼠标右键弹起事件.
-func (e *Element) Event_RBUTTONUP1(pFun XE_RBUTTONUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_RBUTTONUP, pFun)
+func (e *Element) X事件_右键弹起1(pFun XE_RBUTTONUP1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_RBUTTONUP, pFun)
 }
 
 // 鼠标左键双击事件.
-func (e *Element) Event_LBUTTONDBCLICK(pFun XE_LBUTTONDBCLICK) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_LBUTTONDBCLICK, pFun)
+func (e *Element) X事件_左键双击(pFun XE_LBUTTONDBCLICK) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_LBUTTONDBCLICK, pFun)
 }
 
 // 鼠标左键双击事件.
-func (e *Element) Event_LBUTTONDBCLICK1(pFun XE_LBUTTONDBCLICK1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_LBUTTONDBCLICK, pFun)
+func (e *Element) X事件_左键双击1(pFun XE_LBUTTONDBCLICK1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_LBUTTONDBCLICK, pFun)
 }
 
 // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
-func (e *Element) Event_XC_TIMER(pFun XE_XC_TIMER) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_XC_TIMER, pFun)
+func (e *Element) X事件_炫彩定时器(pFun XE_XC_TIMER) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_XC_TIMER, pFun)
 }
 
 // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
-func (e *Element) Event_XC_TIMER1(pFun XE_XC_TIMER1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_XC_TIMER, pFun)
+func (e *Element) X事件_炫彩定时器1(pFun XE_XC_TIMER1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_XC_TIMER, pFun)
 }
 
 // 调整布局事件. 暂停使用.
-func (e *Element) Event_ADJUSTLAYOUT(pFun XE_ADJUSTLAYOUT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_ADJUSTLAYOUT, pFun)
+func (e *Element) X事件_调整布局(pFun XE_ADJUSTLAYOUT) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT, pFun)
 }
 
 // 调整布局事件. 暂停使用.
-func (e *Element) Event_ADJUSTLAYOUT1(pFun XE_ADJUSTLAYOUT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_ADJUSTLAYOUT, pFun)
+func (e *Element) X事件_调整布局1(pFun XE_ADJUSTLAYOUT1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT, pFun)
 }
 
 // 调整布局完成事件.
-func (e *Element) Event_ADJUSTLAYOUT_END(pFun XE_ADJUSTLAYOUT_END) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_ADJUSTLAYOUT_END, pFun)
+func (e *Element) X事件_调整布局完成(pFun XE_ADJUSTLAYOUT_END) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT_END, pFun)
 }
 
 // 调整布局完成事件.
-func (e *Element) Event_ADJUSTLAYOUT_END1(pFun XE_ADJUSTLAYOUT_END1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_ADJUSTLAYOUT_END, pFun)
+func (e *Element) X事件_调整布局完成1(pFun XE_ADJUSTLAYOUT_END1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_ADJUSTLAYOUT_END, pFun)
 }
 
 // 元素获得焦点事件.
-func (e *Element) Event_SETFOCUS(pFun XE_SETFOCUS) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETFOCUS, pFun)
+func (e *Element) X事件_获得焦点(pFun XE_SETFOCUS) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_SETFOCUS, pFun)
 }
 
 // 元素获得焦点事件.
-func (e *Element) Event_SETFOCUS1(pFun XE_SETFOCUS1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETFOCUS, pFun)
+func (e *Element) X事件_获得焦点1(pFun XE_SETFOCUS1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_SETFOCUS, pFun)
 }
 
 // 元素失去焦点事件.
-func (e *Element) Event_KILLFOCUS(pFun XE_KILLFOCUS) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KILLFOCUS, pFun)
+func (e *Element) X事件_失去焦点(pFun XE_KILLFOCUS) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_KILLFOCUS, pFun)
 }
 
 // 元素失去焦点事件.
-func (e *Element) Event_KILLFOCUS1(pFun XE_KILLFOCUS1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KILLFOCUS, pFun)
+func (e *Element) X事件_失去焦点1(pFun XE_KILLFOCUS1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_KILLFOCUS, pFun)
 }
 
 // 元素即将销毁事件. 在销毁子对象之前触发.
-func (e *Element) Event_DESTROY(pFun XE_DESTROY) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_DESTROY, pFun)
+func (e *Element) X事件_即将销毁(pFun XE_DESTROY) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_DESTROY, pFun)
 }
 
 // 元素即将销毁事件. 在销毁子对象之前触发.
-func (e *Element) Event_DESTROY1(pFun XE_DESTROY1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_DESTROY, pFun)
+func (e *Element) X事件_即将销毁1(pFun XE_DESTROY1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_DESTROY, pFun)
 }
 
 // 元素销毁完成事件. 在销毁子对象之后触发.
-func (e *Element) Event_DESTROY_END(pFun XE_DESTROY_END) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_DESTROY_END, pFun)
+func (e *Element) X事件_销毁完成(pFun XE_DESTROY_END) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_DESTROY_END, pFun)
 }
 
 // 元素销毁完成事件. 在销毁子对象之后触发.
-func (e *Element) Event_DESTROY_END1(pFun XE_DESTROY_END1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_DESTROY_END, pFun)
+func (e *Element) X事件_销毁完成1(pFun XE_DESTROY_END1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_DESTROY_END, pFun)
 }
 
 // 元素大小改变事件.
-func (e *Element) Event_SIZE(pFun XE_SIZE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SIZE, pFun)
+func (e *Element) X事件_大小改变事件(pFun XE_SIZE) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_SIZE, pFun)
 }
 
 // 元素大小改变事件.
-func (e *Element) Event_SIZE1(pFun XE_SIZE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SIZE, pFun)
+func (e *Element) X事件_大小改变事件1(pFun XE_SIZE1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_SIZE, pFun)
 }
 
 // 元素显示隐藏事件.
-func (e *Element) Event_SHOW(pFun XE_SHOW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SHOW, pFun)
+func (e *Element) X事件_显示隐藏事件(pFun XE_SHOW) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_SHOW, pFun)
 }
 
 // 元素显示隐藏事件.
-func (e *Element) Event_SHOW1(pFun XE_SHOW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SHOW, pFun)
+func (e *Element) X事件_显示隐藏事件1(pFun XE_SHOW1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_SHOW, pFun)
 }
 
 // 元素设置字体事件.
-func (e *Element) Event_SETFONT(pFun XE_SETFONT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETFONT, pFun)
+func (e *Element) X事件_设置字体(pFun XE_SETFONT) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_SETFONT, pFun)
 }
 
 // 元素设置字体事件.
-func (e *Element) Event_SETFONT1(pFun XE_SETFONT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETFONT, pFun)
+func (e *Element) X事件_设置字体1(pFun XE_SETFONT1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_SETFONT, pFun)
 }
 
 // 元素按键事件.
-func (e *Element) Event_KEYDOWN(pFun XE_KEYDOWN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KEYDOWN, pFun)
+func (e *Element) X事件_按键按下(pFun XE_KEYDOWN) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_KEYDOWN, pFun)
 }
 
 // 元素按键事件.
-func (e *Element) Event_KEYDOWN1(pFun XE_KEYDOWN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KEYDOWN, pFun)
+func (e *Element) X事件_按键按下1(pFun XE_KEYDOWN1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_KEYDOWN, pFun)
 }
 
 // 元素按键事件.
-func (e *Element) Event_KEYUP(pFun XE_KEYUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KEYUP, pFun)
+func (e *Element) X事件_按键弹起(pFun XE_KEYUP) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_KEYUP, pFun)
 }
 
 // 元素按键事件.
-func (e *Element) Event_KEYUP1(pFun XE_KEYUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KEYUP, pFun)
+func (e *Element) X事件_按键弹起1(pFun XE_KEYUP1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_KEYUP, pFun)
 }
 
 // 通过TranslateMessage函数翻译的字符事件.
-func (e *Element) Event_CHAR(pFun XE_CHAR) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_CHAR, pFun)
+func (e *Element) X事件_CHAR(pFun XE_CHAR) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_CHAR, pFun)
 }
 
 // 通过TranslateMessage函数翻译的字符事件.
-func (e *Element) Event_CHAR1(pFun XE_CHAR1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_CHAR, pFun)
+func (e *Element) X事件_CHAR1(pFun XE_CHAR1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_CHAR, pFun)
 }
 
 // 元素设置鼠标捕获.
-func (e *Element) Event_SETCAPTURE(pFun XE_SETCAPTURE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETCAPTURE, pFun)
+func (e *Element) X事件_设置鼠标捕获(pFun XE_SETCAPTURE) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_SETCAPTURE, pFun)
 }
 
 // 元素设置鼠标捕获.
-func (e *Element) Event_SETCAPTURE1(pFun XE_SETCAPTURE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETCAPTURE, pFun)
+func (e *Element) X事件_设置鼠标捕获1(pFun XE_SETCAPTURE1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_SETCAPTURE, pFun)
 }
 
 // 元素失去鼠标捕获.
-func (e *Element) Event_KILLCAPTURE(pFun XE_KILLCAPTURE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_KILLCAPTURE, pFun)
+func (e *Element) X事件_失去鼠标捕获(pFun XE_KILLCAPTURE) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_KILLCAPTURE, pFun)
 }
 
 // 元素失去鼠标捕获.
-func (e *Element) Event_KILLCAPTURE1(pFun XE_KILLCAPTURE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_KILLCAPTURE, pFun)
+func (e *Element) X事件_失去鼠标捕获1(pFun XE_KILLCAPTURE1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_KILLCAPTURE, pFun)
 }
 
 // 设置鼠标光标.
-func (e *Element) Event_SETCURSOR(pFun XE_SETCURSOR) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_SETCURSOR, pFun)
+func (e *Element) X事件_设置鼠标光标(pFun XE_SETCURSOR) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_SETCURSOR, pFun)
 }
 
 // 设置鼠标光标.
-func (e *Element) Event_SETCURSOR1(pFun XE_SETCURSOR1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_SETCURSOR, pFun)
+func (e *Element) X事件_设置鼠标光标1(pFun XE_SETCURSOR1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_SETCURSOR, pFun)
 }
 
 // 文件拖放事件, 需先启用:XWnd_EnableDragFiles().
-func (e *Element) Event_DROPFILES(pFun XE_DROPFILES) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_DROPFILES, pFun)
+func (e *Element) X事件_文件拖放(pFun XE_DROPFILES) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_DROPFILES, pFun)
 }
 
 // 文件拖放事件, 需先启用:XWnd_EnableDragFiles().
-func (e *Element) Event_DROPFILES1(pFun XE_DROPFILES1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_DROPFILES, pFun)
+func (e *Element) X事件_文件拖放事件1(pFun XE_DROPFILES1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_DROPFILES, pFun)
 }
 
 // 事件_元素工具提示弹出, 可使用 common.UintPtrToString 把uintptr转换到文本.
-func (e *Element) Event_TOOLTIP_POPUP(pFun XE_TOOLTIP_POPUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_TOOLTIP_POPUP, pFun)
+func (e *Element) X事件_工具提示弹出(pFun XE_TOOLTIP_POPUP) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_TOOLTIP_POPUP, pFun)
 }
 
 // 事件_元素工具提示弹出1, 可使用 common.UintPtrToString 把uintptr转换到文本.
-func (e *Element) Event_TOOLTIP_POPUP1(pFun XE_TOOLTIP_POPUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_TOOLTIP_POPUP, pFun)
+func (e *Element) X事件_工具提示弹出1(pFun XE_TOOLTIP_POPUP1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_TOOLTIP_POPUP, pFun)
 }
 
-type XE_MENU_SELECT func(nID int32, pbHandled *bool) int                                          // 弹出菜单项选择事件.
-type XE_MENU_POPUP func(HMENUX int, pbHandled *bool) int                                          // 菜单弹出.
-type XE_MENU_EXIT func(pbHandled *bool) int                                                       // 弹出菜单退出事件.
-type XE_MENU_POPUP_WND func(hMenu int, pInfo *xc.Menu_PopupWnd_, pbHandled *bool) int             // 菜单弹出窗口.
-type XE_MENU_DRAW_BACKGROUND func(hDraw int, pInfo *xc.Menu_DrawBackground_, pbHandled *bool) int // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
-type XE_MENU_DRAWITEM func(hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool) int              // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
+type XE_MENU_SELECT func(nID int32, pbHandled *bool) int                                            // 弹出菜单项选择事件.
+type XE_MENU_POPUP func(HMENUX int, pbHandled *bool) int                                            // 菜单弹出.
+type XE_MENU_EXIT func(pbHandled *bool) int                                                         // 弹出菜单退出事件.
+type XE_MENU_POPUP_WND func(hMenu int, pInfo *炫彩基类.Menu_PopupWnd_, pbHandled *bool) int             // 菜单弹出窗口.
+type XE_MENU_DRAW_BACKGROUND func(hDraw int, pInfo *炫彩基类.Menu_DrawBackground_, pbHandled *bool) int // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
+type XE_MENU_DRAWITEM func(hDraw int, pInfo *炫彩基类.Menu_DrawItem_, pbHandled *bool) int              // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
 
 // 事件_弹出菜单项被选择.
-func (e *Element) Event_MENU_SELECT(pFun XE_MENU_SELECT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_SELECT, pFun)
+func (e *Element) X事件_弹出菜单项被选择(pFun XE_MENU_SELECT) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MENU_SELECT, pFun)
 }
 
 // 事件_菜单弹出.
-func (e *Element) Event_MENU_POPUP(pFun XE_MENU_POPUP) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_POPUP, pFun)
+func (e *Element) X事件_菜单弹出(pFun XE_MENU_POPUP) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MENU_POPUP, pFun)
 }
 
 // 事件_菜单退出.
-func (e *Element) Event_MENU_EXIT(pFun XE_MENU_EXIT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_EXIT, pFun)
+func (e *Element) X事件_菜单退出(pFun XE_MENU_EXIT) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MENU_EXIT, pFun)
 }
 
 // 菜单弹出窗口.
-func (e *Element) Event_MENU_POPUP_WND(pFun XE_MENU_POPUP_WND) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_POPUP_WND, pFun)
+func (e *Element) X事件_菜单弹出窗口(pFun XE_MENU_POPUP_WND) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MENU_POPUP_WND, pFun)
 }
 
 // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
-func (e *Element) Event_MENU_DRAW_BACKGROUND(pFun XE_MENU_DRAW_BACKGROUND) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_DRAW_BACKGROUND, pFun)
+func (e *Element) X事件_绘制菜单背景(pFun XE_MENU_DRAW_BACKGROUND) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MENU_DRAW_BACKGROUND, pFun)
 }
 
 // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
-func (e *Element) Event_MENU_DRAWITEM(pFun XE_MENU_DRAWITEM) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_MENU_DRAWITEM, pFun)
+func (e *Element) X事件_绘制菜单项事件(pFun XE_MENU_DRAWITEM) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MENU_DRAWITEM, pFun)
 }
 
-type XE_MENU_SELECT1 func(hEle int, nID int, pbHandled *bool) int                                            // 弹出菜单项选择事件.
-type XE_MENU_POPUP1 func(hEle int, HMENUX int, pbHandled *bool) int                                          // 菜单弹出.
-type XE_MENU_EXIT1 func(hEle int, pbHandled *bool) int                                                       // 弹出菜单退出事件.
-type XE_MENU_POPUP_WND1 func(hEle int, hMenu int, pInfo *xc.Menu_PopupWnd_, pbHandled *bool) int             // 菜单弹出窗口.
-type XE_MENU_DRAW_BACKGROUND1 func(hEle int, hDraw int, pInfo *xc.Menu_DrawBackground_, pbHandled *bool) int // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
-type XE_MENU_DRAWITEM1 func(hEle int, hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool) int              // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
+type XE_MENU_SELECT1 func(hEle int, nID int, pbHandled *bool) int                                              // 弹出菜单项选择事件.
+type XE_MENU_POPUP1 func(hEle int, HMENUX int, pbHandled *bool) int                                            // 菜单弹出.
+type XE_MENU_EXIT1 func(hEle int, pbHandled *bool) int                                                         // 弹出菜单退出事件.
+type XE_MENU_POPUP_WND1 func(hEle int, hMenu int, pInfo *炫彩基类.Menu_PopupWnd_, pbHandled *bool) int             // 菜单弹出窗口.
+type XE_MENU_DRAW_BACKGROUND1 func(hEle int, hDraw int, pInfo *炫彩基类.Menu_DrawBackground_, pbHandled *bool) int // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
+type XE_MENU_DRAWITEM1 func(hEle int, hDraw int, pInfo *炫彩基类.Menu_DrawItem_, pbHandled *bool) int              // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
 
 // 事件_弹出菜单项被选择.
-func (e *Element) Event_MENU_SELECT1(pFun XE_MENU_SELECT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_SELECT, pFun)
+func (e *Element) X事件_弹出菜单项被选择1(pFun XE_MENU_SELECT1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MENU_SELECT, pFun)
 }
 
 // 事件_菜单弹出.
-func (e *Element) Event_MENU_POPUP1(pFun XE_MENU_POPUP1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_POPUP, pFun)
+func (e *Element) X事件_菜单弹出1(pFun XE_MENU_POPUP1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MENU_POPUP, pFun)
 }
 
 // 事件_菜单退出.
-func (e *Element) Event_MENU_EXIT1(pFun XE_MENU_EXIT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_EXIT, pFun)
+func (e *Element) X事件_菜单退出1(pFun XE_MENU_EXIT1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MENU_EXIT, pFun)
 }
 
 // 菜单弹出窗口.
-func (e *Element) Event_MENU_POPUP_WND1(pFun XE_MENU_POPUP_WND1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_POPUP_WND, pFun)
+func (e *Element) X菜单弹出窗口1(pFun XE_MENU_POPUP_WND1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MENU_POPUP_WND, pFun)
 }
 
 // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
-func (e *Element) Event_MENU_DRAW_BACKGROUND1(pFun XE_MENU_DRAW_BACKGROUND1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_DRAW_BACKGROUND, pFun)
+func (e *Element) X事件_绘制菜单背景1(pFun XE_MENU_DRAW_BACKGROUND1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MENU_DRAW_BACKGROUND, pFun)
 }
 
 // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
-func (e *Element) Event_MENU_DRAWITEM1(pFun XE_MENU_DRAWITEM1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_MENU_DRAWITEM, pFun)
+func (e *Element) X事件_绘制菜单项1(pFun XE_MENU_DRAWITEM1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_MENU_DRAWITEM, pFun)
 }

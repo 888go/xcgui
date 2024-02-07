@@ -1995,7 +1995,7 @@ func XEle_PointClientToWndClientDPI(hEle
 
 # <翻译开始>
 func XEle_PointClientToWndClientDPI
-X元素_取窗口客户区坐标DPI
+X元素_取窗口客户区坐标点DPI
 # <翻译结束>
 
 

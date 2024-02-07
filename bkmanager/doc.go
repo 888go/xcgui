@@ -1,2 +1,2 @@
 // Package bkmanager 背景管理器.
-package bkmanager
+package 炫彩背景管理器类

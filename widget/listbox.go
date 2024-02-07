@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -21,9 +21,9 @@ type ListBox struct {
 // cy: 高度.
 //
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-func NewListBox(x int, y int, cx int, cy int, hParent int) *ListBox {
+func X创建列表框(元素x坐标 int, 元素y坐标 int, 宽度 int, 高度 int, 父窗口句柄或元素句柄 int) *ListBox {
 	p := &ListBox{}
-	p.SetHandle(xc.XListBox_Create(x, y, cx, cy, hParent))
+	p.X设置句柄(炫彩基类.X列表框_创建(元素x坐标, 元素y坐标, 宽度, 高度, 父窗口句柄或元素句柄))
 	return p
 }
 
@@ -40,47 +40,47 @@ func NewListBox(x int, y int, cx int, cy int, hParent int) *ListBox {
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 //
 // col_extend_count: 列数量. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
-func NewListBoxEx(x, y, cx, cy int32, hParent, col_extend_count int32) *ListBox {
+func X创建列表框Ex(元素x坐标, 元素y坐标, 宽度, 高度 int32, 父窗口句柄或元素句柄, 列数量 int32) *ListBox {
 	p := &ListBox{}
-	p.SetHandle(xc.XListBox_CreateEx(x, y, cx, cy, hParent, col_extend_count))
+	p.X设置句柄(炫彩基类.X列表框_创建Ex(元素x坐标, 元素y坐标, 宽度, 高度, 父窗口句柄或元素句柄, 列数量))
 	return p
 }
 
 // 从句柄创建对象.
-func NewListBoxByHandle(handle int) *ListBox {
+func X创建列表框并按句柄(handle int) *ListBox {
 	p := &ListBox{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func NewListBoxByName(name string) *ListBox {
-	handle := xc.XC_GetObjectByName(name)
+func X创建列表框并按名称(name string) *ListBox {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &ListBox{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func NewListBoxByUID(nUID int) *ListBox {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建列表框并按UID(nUID int) *ListBox {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &ListBox{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func NewListBoxByUIDName(name string) *ListBox {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建列表框并按UID名称(name string) *ListBox {
+	handle := 炫彩基类.X取对象从UID名称(name)
 	if handle > 0 {
 		p := &ListBox{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -89,36 +89,36 @@ func NewListBoxByUIDName(name string) *ListBox {
 // 列表框_启用固定行高.
 //
 // bEnable: 是否启用.
-func (l *ListBox) EnableFixedRowHeight(bEnable bool) int {
-	return xc.XListBox_EnableFixedRowHeight(l.Handle, bEnable)
+func (l *ListBox) X启用固定行高(是否启用 bool) int {
+	return 炫彩基类.X列表框_启用固定行高(l.Handle, 是否启用)
 }
 
 // 列表框_启用模板复用.
 //
 // bEnable: 是否启用.
-func (l *ListBox) EnableTemplateReuse(bEnable bool) int {
-	return xc.XListBox_EnableTemplateReuse(l.Handle, bEnable)
+func (l *ListBox) X启用模板复用(是否启用 bool) int {
+	return 炫彩基类.X列表框_启用模板复用(l.Handle, 是否启用)
 }
 
 // 列表框_启用虚表.
 //
 // bEnable: 是否启用.
-func (l *ListBox) EnableVirtualTable(bEnable bool) int {
-	return xc.XListBox_EnableVirtualTable(l.Handle, bEnable)
+func (l *ListBox) X启用虚表(是否启用 bool) int {
+	return 炫彩基类.X列表框_启用虚表(l.Handle, 是否启用)
 }
 
 // 列表框_置虚表行数.
 //
 // nRowCount: 行数.
-func (l *ListBox) SetVirtualRowCount(nRowCount int) int {
-	return xc.XListBox_SetVirtualRowCount(l.Handle, nRowCount)
+func (l *ListBox) X置虚表行数(行数 int) int {
+	return 炫彩基类.X列表框_置虚表行数(l.Handle, 行数)
 }
 
 // 列表框_置绘制项背景标志, 设置是否绘制指定状态下项的背景.
 //
 // nFlags: 标志位, List_DrawItemBk_Flag_.
-func (l *ListBox) SetDrawItemBkFlags(nFlags xcc.List_DrawItemBk_Flag_) int {
-	return xc.XListBox_SetDrawItemBkFlags(l.Handle, nFlags)
+func (l *ListBox) X置绘制项背景标志(标志位 炫彩常量类.List_DrawItemBk_Flag_) int {
+	return 炫彩基类.X列表框_置绘制项背景标志(l.Handle, 标志位)
 }
 
 // 列表框_置项数据, 设置项用户数据.
@@ -126,15 +126,15 @@ func (l *ListBox) SetDrawItemBkFlags(nFlags xcc.List_DrawItemBk_Flag_) int {
 // iItem: 想索引.
 //
 // nUserData: 用户数据.
-func (l *ListBox) SetItemData(iItem int, nUserData int) bool {
-	return xc.XListBox_SetItemData(l.Handle, iItem, nUserData)
+func (l *ListBox) X置项数据(想索引 int, 用户数据 int) bool {
+	return 炫彩基类.X列表框_置项数据(l.Handle, 想索引, 用户数据)
 }
 
 // 列表框_取项数据, 获取项用户数据.
 //
 // iItem: 项索引.
-func (l *ListBox) GetItemData(iItem int) int {
-	return xc.XListBox_GetItemData(l.Handle, iItem)
+func (l *ListBox) X取项数据(项索引 int) int {
+	return 炫彩基类.X列表框_取项数据(l.Handle, 项索引)
 }
 
 // 列表框_置项信息.
@@ -142,8 +142,8 @@ func (l *ListBox) GetItemData(iItem int) int {
 // iItem: 项索引.
 //
 // pItem: 项信息.
-func (l *ListBox) SetItemInfo(iItem int, pItem *xc.ListBox_Item_Info_) bool {
-	return xc.XListBox_SetItemInfo(l.Handle, iItem, pItem)
+func (l *ListBox) X置项信息(项索引 int, 项信息 *炫彩基类.ListBox_Item_Info_) bool {
+	return 炫彩基类.X列表框_置项信息(l.Handle, 项索引, 项信息)
 }
 
 // 列表框_取项背景信息, 获取项信息.
@@ -151,39 +151,39 @@ func (l *ListBox) SetItemInfo(iItem int, pItem *xc.ListBox_Item_Info_) bool {
 // iItem: 项索引.
 //
 // pItem: 项信息.
-func (l *ListBox) GetItemInfo(iItem int, pItem *xc.ListBox_Item_Info_) bool {
-	return xc.XListBox_GetItemInfo(l.Handle, iItem, pItem)
+func (l *ListBox) X取项背景信息(项索引 int, 项信息 *炫彩基类.ListBox_Item_Info_) bool {
+	return 炫彩基类.X列表框_取项背景信息(l.Handle, 项索引, 项信息)
 }
 
 // 列表框_置选择项, 设置选择选.
 //
 // iItem: 项索引.
-func (l *ListBox) SetSelectItem(iItem int) bool {
-	return xc.XListBox_SetSelectItem(l.Handle, iItem)
+func (l *ListBox) X置选择项(项索引 int) bool {
+	return 炫彩基类.X列表框_置选择项(l.Handle, 项索引)
 }
 
 // 列表框_取选择项, 返回项索引.
-func (l *ListBox) GetSelectItem() int {
-	return xc.XListBox_GetSelectItem(l.Handle)
+func (l *ListBox) X取选择项() int {
+	return 炫彩基类.X列表框_取选择项(l.Handle)
 }
 
 // 列表框_添加选择项.
 //
 // iItem: 项索引.
-func (l *ListBox) AddSelectItem(iItem int) bool {
-	return xc.XListBox_AddSelectItem(l.Handle, iItem)
+func (l *ListBox) X添加选择项(项索引 int) bool {
+	return 炫彩基类.X列表框_添加选择项(l.Handle, 项索引)
 }
 
 // 列表框_取消选择项.
 //
 // iItem: 项索引.
-func (l *ListBox) CancelSelectItem(iItem int) bool {
-	return xc.XListBox_CancelSelectItem(l.Handle, iItem)
+func (l *ListBox) X取消选择项(项索引 int) bool {
+	return 炫彩基类.X列表框_取消选择项(l.Handle, 项索引)
 }
 
 // 列表框_取消选择全部, 如果之前有选择状态的项返回TRUE, 此时可以更新UI, 否则返回FALSE.
-func (l *ListBox) CancelSelectAll() bool {
-	return xc.XListBox_CancelSelectAll(l.Handle)
+func (l *ListBox) X取消选择全部() bool {
+	return 炫彩基类.X列表框_取消选择全部(l.Handle)
 }
 
 // 列表框_取全部选择, 获取所有选择项, 返回接收数量.
@@ -191,30 +191,30 @@ func (l *ListBox) CancelSelectAll() bool {
 // pArray: 数组缓冲区.
 //
 // nArraySize: 数组大小.
-func (l *ListBox) GetSelectAll(pArray *[]int32, nArraySize int) int {
-	return xc.XListBox_GetSelectAll(l.Handle, pArray, nArraySize)
+func (l *ListBox) X取全部选择(数组缓冲区 *[]int32, 数组大小 int) int {
+	return 炫彩基类.X列表框_取全部选择(l.Handle, 数组缓冲区, 数组大小)
 }
 
 // 列表框_取选择项数量, 获取选择项数量.
-func (l *ListBox) GetSelectCount() int {
-	return xc.XListBox_GetSelectCount(l.Handle)
+func (l *ListBox) X取选择项数量() int {
+	return 炫彩基类.X列表框_取选择项数量(l.Handle)
 }
 
 // 列表框_取鼠标停留项, 返回鼠标所在项.
-func (l *ListBox) GetItemMouseStay() int {
-	return xc.XListBox_GetItemMouseStay(l.Handle)
+func (l *ListBox) X取鼠标停留项() int {
+	return 炫彩基类.X列表框_取鼠标停留项(l.Handle)
 }
 
 // 列表框_选择全部项.
-func (l *ListBox) SelectAll() bool {
-	return xc.XListBox_SelectAll(l.Handle)
+func (l *ListBox) X选择全部项() bool {
+	return 炫彩基类.X列表框_选择全部项(l.Handle)
 }
 
 // 列表框_显示指定项, 滚动视图让指定项可见.
 //
 // iItem: 项索引.
-func (l *ListBox) VisibleItem(iItem int) int {
-	return xc.XListBox_VisibleItem(l.Handle, iItem)
+func (l *ListBox) X显示指定项(项索引 int) int {
+	return 炫彩基类.X列表框_显示指定项(l.Handle, 项索引)
 }
 
 // 列表框_取可视行范围, 获取当前可见行范围.
@@ -222,8 +222,8 @@ func (l *ListBox) VisibleItem(iItem int) int {
 // piStart: 开始行索引.
 //
 // piEnd: 结束行索引.
-func (l *ListBox) GetVisibleRowRange(piStart *int32, piEnd *int32) int {
-	return xc.XListBox_GetVisibleRowRange(l.Handle, piStart, piEnd)
+func (l *ListBox) X取可视行范围(开始行索引 *int32, 结束行索引 *int32) int {
+	return 炫彩基类.X列表框_取可视行范围(l.Handle, 开始行索引, 结束行索引)
 }
 
 // 列表框_置项默认高度.
@@ -231,8 +231,8 @@ func (l *ListBox) GetVisibleRowRange(piStart *int32, piEnd *int32) int {
 // nHeight: 项高度.
 //
 // nSelHeight: 选中项高度.
-func (l *ListBox) SetItemHeightDefault(nHeight int32, nSelHeight int32) int {
-	return xc.XListBox_SetItemHeightDefault(l.Handle, nHeight, nSelHeight)
+func (l *ListBox) X置项默认高度(项高度 int32, 选中项高度 int32) int {
+	return 炫彩基类.X列表框_置项默认高度(l.Handle, 项高度, 选中项高度)
 }
 
 // 列表框_取项默认高度.
@@ -240,62 +240,62 @@ func (l *ListBox) SetItemHeightDefault(nHeight int32, nSelHeight int32) int {
 // pHeight: 高度.
 //
 // pSelHeight: 选中时高度.
-func (l *ListBox) GetItemHeightDefault(pHeight *int32, pSelHeight *int32) int {
-	return xc.XListBox_GetItemHeightDefault(l.Handle, pHeight, pSelHeight)
+func (l *ListBox) X取项默认高度(高度 *int32, 选中时高度 *int32) int {
+	return 炫彩基类.X列表框_取项默认高度(l.Handle, 高度, 选中时高度)
 }
 
 // 列表框_取所在行索引, 获取当前对象所在模板实例, 属于列表中哪一个项(行). 成功返回项索引, 否则返回XC_ID_ERROR.
 //
 // hXCGUI: 对象句柄, UI元素句柄或形状对象句柄.
-func (l *ListBox) GetItemIndexFromHXCGUI(hXCGUI int) int {
-	return xc.XListBox_GetItemIndexFromHXCGUI(l.Handle, hXCGUI)
+func (l *ListBox) X取所在行索引(对象句柄 int) int {
+	return 炫彩基类.X列表框_取所在行索引(l.Handle, 对象句柄)
 }
 
 // 列表框_置行间距.
 //
 // nSpace: 间距大小.
-func (l *ListBox) SetRowSpace(nSpace int) int {
-	return xc.XListBox_SetRowSpace(l.Handle, nSpace)
+func (l *ListBox) X置行间距(间距大小 int) int {
+	return 炫彩基类.X列表框_置行间距(l.Handle, 间距大小)
 }
 
 // 列表框_取行间距.
-func (l *ListBox) GetRowSpace() int {
-	return xc.XListBox_GetRowSpace(l.Handle)
+func (l *ListBox) X取行间距() int {
+	return 炫彩基类.X列表框_取行间距(l.Handle)
 }
 
 // 列表框_测试点击项, 检测坐标点所在项, 返回项索引.
 //
 // pPt: 坐标点.
-func (l *ListBox) HitTest(pPt *xc.POINT) int {
-	return xc.XListBox_HitTest(l.Handle, pPt)
+func (l *ListBox) X测试点击项(坐标点 *炫彩基类.POINT) int {
+	return 炫彩基类.X列表框_测试点击项(l.Handle, 坐标点)
 }
 
 // 列表框_测试点击项扩展, 检测坐标点所在项, 自动添加滚动视图偏移量, 返回项索引.
 //
 // pPt: 坐标点.
-func (l *ListBox) HitTestOffset(pPt *xc.POINT) int {
-	return xc.XListBox_HitTestOffset(l.Handle, pPt)
+func (l *ListBox) X测试点击项EX(坐标点 *炫彩基类.POINT) int {
+	return 炫彩基类.X列表框_测试点击项EX(l.Handle, 坐标点)
 }
 
 // 列表框_置项模板文件, 设置列表项模板文件.
 //
 // pXmlFile: 文件名.
-func (l *ListBox) SetItemTemplateXML(pXmlFile string) bool {
-	return xc.XListBox_SetItemTemplateXML(l.Handle, pXmlFile)
+func (l *ListBox) X置项模板文件(文件名 string) bool {
+	return 炫彩基类.X列表框_置项模板文件(l.Handle, 文件名)
 }
 
 // 列表框_置项模板, 设置列表项模板.
 //
 // hTemp: 模板句柄.
-func (l *ListBox) SetItemTemplate(hTemp int) bool {
-	return xc.XListBox_SetItemTemplate(l.Handle, hTemp)
+func (l *ListBox) X置项模板(模板句柄 int) bool {
+	return 炫彩基类.X列表框_置项模板(l.Handle, 模板句柄)
 }
 
 // 列表框_置项模板从字符串, 设置项布局模板文件.
 //
 // pStringXML: 字符串.
-func (l *ListBox) SetItemTemplateXMLFromString(pStringXML string) bool {
-	return xc.XListBox_SetItemTemplateXMLFromString(l.Handle, pStringXML)
+func (l *ListBox) X置项模板并按字符串(字符串 string) bool {
+	return 炫彩基类.X列表框_置项模板从字符串(l.Handle, 字符串)
 }
 
 // 列表框_取模板对象, 通过模板项ID, 获取实例化模板项ID对应的对象句柄, 成功返回对象句柄, 否则返回NULL.
@@ -303,32 +303,32 @@ func (l *ListBox) SetItemTemplateXMLFromString(pStringXML string) bool {
 // iItem: 项索引.
 //
 // nTempItemID: 模板项ID.
-func (l *ListBox) GetTemplateObject(iItem int, nTempItemID int) int {
-	return xc.XListBox_GetTemplateObject(l.Handle, iItem, nTempItemID)
+func (l *ListBox) X取模板对象(项索引 int, 模板项ID int) int {
+	return 炫彩基类.X列表框_取模板对象(l.Handle, 项索引, 模板项ID)
 }
 
 // 列表框_启用多选, 是否启用多行选择功能.
 //
 // bEnable: 是否启用.
-func (l *ListBox) EnableMultiSel(bEnable bool) int {
-	return xc.XListBox_EnableMultiSel(l.Handle, bEnable)
+func (l *ListBox) X启用多选(是否启用 bool) int {
+	return 炫彩基类.X列表框_启用多选(l.Handle, 是否启用)
 }
 
 // 列表框_创建数据适配器, 创建数据适配器并绑定, 根据绑定的项模板初始化数据适配器的列, 返回适配器句柄.
-func (l *ListBox) CreateAdapter() int {
-	return xc.XListBox_CreateAdapter(l.Handle)
+func (l *ListBox) X创建数据适配器() int {
+	return 炫彩基类.X列表框_创建数据适配器(l.Handle)
 }
 
 // 列表框_绑定数据适配器, 绑定数据适配器.
 //
 // hAdapter: 数据适配器句柄 XAdTable.
-func (l *ListBox) BindAdapter(hAdapter int) int {
-	return xc.XListBox_BindAdapter(l.Handle, hAdapter)
+func (l *ListBox) X绑定数据适配器(数据适配器句柄 int) int {
+	return 炫彩基类.X列表框_绑定数据适配器(l.Handle, 数据适配器句柄)
 }
 
 // 列表框_取数据适配器, 获取绑定的数据适配器, 返回数据适配器句柄.
-func (l *ListBox) GetAdapter() int {
-	return xc.XListBox_GetAdapter(l.Handle)
+func (l *ListBox) X取数据适配器() int {
+	return 炫彩基类.X列表框_取数据适配器(l.Handle)
 }
 
 // 列表框_排序.
@@ -336,27 +336,27 @@ func (l *ListBox) GetAdapter() int {
 // iColumnAdapter: 需要排序的数据在数据适配器中所属列索引.
 //
 // bAscending: 升序(TRUE)或降序(FALSE).
-func (l *ListBox) Sort(iColumnAdapter int, bAscending bool) int {
-	return xc.XListBox_Sort(l.Handle, iColumnAdapter, bAscending)
+func (l *ListBox) X排序(列索引 int, 升序 bool) int {
+	return 炫彩基类.X列表框_排序(l.Handle, 列索引, 升序)
 }
 
 // 列表框_刷新数据.
-func (l *ListBox) RefreshData() int {
-	return xc.XListBox_RefreshData(l.Handle)
+func (l *ListBox) X刷新数据() int {
+	return 炫彩基类.X列表框_刷新数据(l.Handle)
 }
 
 // 列表框_刷新指定项, 刷新指定项模板, 以便更新UI.
 //
 // iItem: 项索引.
-func (l *ListBox) RefreshItem(iItem int) int {
-	return xc.XListBox_RefreshItem(l.Handle, iItem)
+func (l *ListBox) X刷新指定项(项索引 int) int {
+	return 炫彩基类.X列表框_刷新指定项(l.Handle, 项索引)
 }
 
 // 列表框_添加项文本, XAdTable_AddItemText, 返回项索引.
 //
 // pText:.
-func (l *ListBox) AddItemText(pText string) int {
-	return xc.XListBox_AddItemText(l.Handle, pText)
+func (l *ListBox) X添加项文本(文本 string) int {
+	return 炫彩基类.X列表框_添加项文本(l.Handle, 文本)
 }
 
 // 列表框_添加项文本扩展, XAdTable_AddItemTextEx.
@@ -364,15 +364,15 @@ func (l *ListBox) AddItemText(pText string) int {
 // pName:.
 //
 // pText:.
-func (l *ListBox) AddItemTextEx(pName string, pText string) int {
-	return xc.XListBox_AddItemTextEx(l.Handle, pName, pText)
+func (l *ListBox) X添加项文本EX(名称 string, 文本 string) int {
+	return 炫彩基类.X列表框_添加项文本EX(l.Handle, 名称, 文本)
 }
 
 // 列表框_添加项图片, XAdTable_AddItemImage.
 //
 // hImage:.
-func (l *ListBox) AddItemImage(hImage int) int {
-	return xc.XListBox_AddItemImage(l.Handle, hImage)
+func (l *ListBox) X添加项图片(图片 int) int {
+	return 炫彩基类.X列表框_添加项图片(l.Handle, 图片)
 }
 
 // 列表框_添加项图片扩展, XAdTable_AddItemImageEx.
@@ -380,8 +380,8 @@ func (l *ListBox) AddItemImage(hImage int) int {
 // pName:.
 //
 // hImage:.
-func (l *ListBox) AddItemImageEx(pName string, hImage int) int {
-	return xc.XListBox_AddItemImageEx(l.Handle, pName, hImage)
+func (l *ListBox) X添加项图片EX(名称 string, 图片 int) int {
+	return 炫彩基类.X列表框_添加项图片EX(l.Handle, 名称, 图片)
 }
 
 // 列表框_插入项文本.
@@ -389,8 +389,8 @@ func (l *ListBox) AddItemImageEx(pName string, hImage int) int {
 // iItem:.
 //
 // pValue:.
-func (l *ListBox) InsertItemText(iItem int, pValue string) int {
-	return xc.XListBox_InsertItemText(l.Handle, iItem, pValue)
+func (l *ListBox) X插入项文本(项 int, 文本 string) int {
+	return 炫彩基类.X列表框_插入项文本(l.Handle, 项, 文本)
 }
 
 // 列表框_插入项文本扩展.
@@ -400,8 +400,8 @@ func (l *ListBox) InsertItemText(iItem int, pValue string) int {
 // pName:.
 //
 // pValue:.
-func (l *ListBox) InsertItemTextEx(iItem int, pName string, pValue string) int {
-	return xc.XListBox_InsertItemTextEx(l.Handle, iItem, pName, pValue)
+func (l *ListBox) X插入项文本EX(项 int, 名称 string, 文本 string) int {
+	return 炫彩基类.X列表框_插入项文本EX(l.Handle, 项, 名称, 文本)
 }
 
 // 列表框_插入项图片.
@@ -409,8 +409,8 @@ func (l *ListBox) InsertItemTextEx(iItem int, pName string, pValue string) int {
 // iItem:.
 //
 // hImage:.
-func (l *ListBox) InsertItemImage(iItem int, hImage int) int {
-	return xc.XListBox_InsertItemImage(l.Handle, iItem, hImage)
+func (l *ListBox) X插入项图片(项 int, 图片 int) int {
+	return 炫彩基类.X列表框_插入项图片(l.Handle, 项, 图片)
 }
 
 // 列表框_插入项图片扩展.
@@ -420,8 +420,8 @@ func (l *ListBox) InsertItemImage(iItem int, hImage int) int {
 // pName:.
 //
 // hImage:.
-func (l *ListBox) InsertItemImageEx(iItem int, pName string, hImage int) int {
-	return xc.XListBox_InsertItemImageEx(l.Handle, iItem, pName, hImage)
+func (l *ListBox) X插入项图片EX(项 int, 名称 string, 图片 int) int {
+	return 炫彩基类.X列表框_插入项图片EX(l.Handle, 项, 名称, 图片)
 }
 
 // 列表框_置项文本.
@@ -431,8 +431,8 @@ func (l *ListBox) InsertItemImageEx(iItem int, pName string, hImage int) int {
 // iColumn:.
 //
 // pText:.
-func (l *ListBox) SetItemText(iItem int, iColumn int, pText string) bool {
-	return xc.XListBox_SetItemText(l.Handle, iItem, iColumn, pText)
+func (l *ListBox) X置项文本(项 int, 列 int, 文本 string) bool {
+	return 炫彩基类.X列表框_置项文本(l.Handle, 项, 列, 文本)
 }
 
 // 列表框_置项文本扩展.
@@ -442,8 +442,8 @@ func (l *ListBox) SetItemText(iItem int, iColumn int, pText string) bool {
 // pName:.
 //
 // pText:.
-func (l *ListBox) SetItemTextEx(iItem int, pName string, pText string) bool {
-	return xc.XListBox_SetItemTextEx(l.Handle, iItem, pName, pText)
+func (l *ListBox) X置项文本EX(项 int, 名称 string, 文本 string) bool {
+	return 炫彩基类.X列表框_置项文本EX(l.Handle, 项, 名称, 文本)
 }
 
 // 列表框_置项图片.
@@ -453,8 +453,8 @@ func (l *ListBox) SetItemTextEx(iItem int, pName string, pText string) bool {
 // iColumn:.
 //
 // hImage:.
-func (l *ListBox) SetItemImage(iItem int, iColumn int, hImage int) bool {
-	return xc.XListBox_SetItemImage(l.Handle, iItem, iColumn, hImage)
+func (l *ListBox) X置项图片(项 int, 列 int, 图片 int) bool {
+	return 炫彩基类.X列表框_置项图片(l.Handle, 项, 列, 图片)
 }
 
 // 列表框_置项图片扩展.
@@ -464,8 +464,8 @@ func (l *ListBox) SetItemImage(iItem int, iColumn int, hImage int) bool {
 // pName:.
 //
 // hImage:.
-func (l *ListBox) SetItemImageEx(iItem int, pName string, hImage int) bool {
-	return xc.XListBox_SetItemImageEx(l.Handle, iItem, pName, hImage)
+func (l *ListBox) X置项图片EX(项 int, 名称 string, 图片 int) bool {
+	return 炫彩基类.X列表框_置项图片EX(l.Handle, 项, 名称, 图片)
 }
 
 // 列表框_置项整数值.
@@ -475,8 +475,8 @@ func (l *ListBox) SetItemImageEx(iItem int, pName string, hImage int) bool {
 // iColumn:.
 //
 // nValue:.
-func (l *ListBox) SetItemInt(iItem int, iColumn int, nValue int) bool {
-	return xc.XListBox_SetItemInt(l.Handle, iItem, iColumn, nValue)
+func (l *ListBox) X置项整数值(项 int, 列 int, 文本 int) bool {
+	return 炫彩基类.X列表框_置项整数值(l.Handle, 项, 列, 文本)
 }
 
 // 列表框_置项整数值扩展.
@@ -486,8 +486,8 @@ func (l *ListBox) SetItemInt(iItem int, iColumn int, nValue int) bool {
 // pName:.
 //
 // nValue:.
-func (l *ListBox) SetItemIntEx(iItem int, pName string, nValue int) bool {
-	return xc.XListBox_SetItemIntEx(l.Handle, iItem, pName, nValue)
+func (l *ListBox) X置项整数值EX(项 int, 名称 string, 文本 int) bool {
+	return 炫彩基类.X列表框_置项整数值EX(l.Handle, 项, 名称, 文本)
 }
 
 // 列表框_置项浮点值.
@@ -497,8 +497,8 @@ func (l *ListBox) SetItemIntEx(iItem int, pName string, nValue int) bool {
 // iColumn:.
 //
 // fFloat:.
-func (l *ListBox) SetItemFloat(iItem int, iColumn int, fFloat float32) bool {
-	return xc.XListBox_SetItemFloat(l.Handle, iItem, iColumn, fFloat)
+func (l *ListBox) X置项浮点值(项 int, 列 int, 小数值 float32) bool {
+	return 炫彩基类.X列表框_置项浮点值(l.Handle, 项, 列, 小数值)
 }
 
 // 列表框_置项浮点值扩展.
@@ -508,8 +508,8 @@ func (l *ListBox) SetItemFloat(iItem int, iColumn int, fFloat float32) bool {
 // pName:.
 //
 // fFloat:.
-func (l *ListBox) SetItemFloatEx(iItem int, pName string, fFloat float32) bool {
-	return xc.XListBox_SetItemFloatEx(l.Handle, iItem, pName, fFloat)
+func (l *ListBox) X置项浮点值EX(项 int, 名称 string, 小数值 float32) bool {
+	return 炫彩基类.X列表框_置项浮点值EX(l.Handle, 项, 名称, 小数值)
 }
 
 // 列表框_取项文本.
@@ -517,8 +517,8 @@ func (l *ListBox) SetItemFloatEx(iItem int, pName string, fFloat float32) bool {
 // iItem:.
 //
 // iColumn:.
-func (l *ListBox) GetItemText(iItem int, iColumn int) string {
-	return xc.XListBox_GetItemText(l.Handle, iItem, iColumn)
+func (l *ListBox) X取项文本(项 int, 列 int) string {
+	return 炫彩基类.X列表框_取项文本(l.Handle, 项, 列)
 }
 
 // 列表框_取项文本扩展.
@@ -526,8 +526,8 @@ func (l *ListBox) GetItemText(iItem int, iColumn int) string {
 // iItem:.
 //
 // pName:.
-func (l *ListBox) GetItemTextEx(iItem int, pName string) string {
-	return xc.XListBox_GetItemTextEx(l.Handle, iItem, pName)
+func (l *ListBox) X取项文本EX(项 int, 名称 string) string {
+	return 炫彩基类.X列表框_取项文本EX(l.Handle, 项, 名称)
 }
 
 // 列表框_取项图片.
@@ -535,8 +535,8 @@ func (l *ListBox) GetItemTextEx(iItem int, pName string) string {
 // iItem:.
 //
 // iColumn:.
-func (l *ListBox) GetItemImage(iItem int, iColumn int) int {
-	return xc.XListBox_GetItemImage(l.Handle, iItem, iColumn)
+func (l *ListBox) X取项图片(项 int, 列 int) int {
+	return 炫彩基类.X列表框_取项图片(l.Handle, 项, 列)
 }
 
 // 列表框_取项图片扩展.
@@ -544,8 +544,8 @@ func (l *ListBox) GetItemImage(iItem int, iColumn int) int {
 // iItem:.
 //
 // pName:.
-func (l *ListBox) GetItemImageEx(iItem int, pName string) int {
-	return xc.XListBox_GetItemImageEx(l.Handle, iItem, pName)
+func (l *ListBox) X取项图片EX(项 int, 名称 string) int {
+	return 炫彩基类.X列表框_取项图片EX(l.Handle, 项, 名称)
 }
 
 // 列表框_取项整数值.
@@ -555,8 +555,8 @@ func (l *ListBox) GetItemImageEx(iItem int, pName string) int {
 // iColumn:.
 //
 // pOutValue:.
-func (l *ListBox) GetItemInt(iItem int, iColumn int, pOutValue *int32) bool {
-	return xc.XListBox_GetItemInt(l.Handle, iItem, iColumn, pOutValue)
+func (l *ListBox) X取项整数值(项 int, 列 int, 值指针 *int32) bool {
+	return 炫彩基类.X列表框_取项整数值(l.Handle, 项, 列, 值指针)
 }
 
 // 列表框_取项整数值扩展.
@@ -566,8 +566,8 @@ func (l *ListBox) GetItemInt(iItem int, iColumn int, pOutValue *int32) bool {
 // pName:.
 //
 // pOutValue:.
-func (l *ListBox) GetItemIntEx(iItem int, pName string, pOutValue *int32) bool {
-	return xc.XListBox_GetItemIntEx(l.Handle, iItem, pName, pOutValue)
+func (l *ListBox) X取项整数值EX(项 int, 名称 string, 值指针 *int32) bool {
+	return 炫彩基类.X列表框_取项整数值EX(l.Handle, 项, 名称, 值指针)
 }
 
 // 列表框_取项浮点值.
@@ -577,8 +577,8 @@ func (l *ListBox) GetItemIntEx(iItem int, pName string, pOutValue *int32) bool {
 // iColumn:.
 //
 // pOutValue:.
-func (l *ListBox) GetItemFloat(iItem int, iColumn int, pOutValue *float32) bool {
-	return xc.XListBox_GetItemFloat(l.Handle, iItem, iColumn, pOutValue)
+func (l *ListBox) X取项浮点值(项 int, 列 int, 值指针 *float32) bool {
+	return 炫彩基类.X列表框_取项浮点值(l.Handle, 项, 列, 值指针)
 }
 
 // 列表框_取项浮点值扩展.
@@ -588,15 +588,15 @@ func (l *ListBox) GetItemFloat(iItem int, iColumn int, pOutValue *float32) bool 
 // pName:.
 //
 // pOutValue:.
-func (l *ListBox) GetItemFloatEx(iItem int, pName string, pOutValue *float32) bool {
-	return xc.XListBox_GetItemFloatEx(l.Handle, iItem, pName, pOutValue)
+func (l *ListBox) X取项浮点值EX(项 int, 名称 string, 值指针 *float32) bool {
+	return 炫彩基类.X列表框_取项浮点值EX(l.Handle, 项, 名称, 值指针)
 }
 
 // 列表框_删除项.
 //
 // iItem:.
-func (l *ListBox) DeleteItem(iItem int) bool {
-	return xc.XListBox_DeleteItem(l.Handle, iItem)
+func (l *ListBox) X删除项(项 int) bool {
+	return 炫彩基类.X列表框_删除项(l.Handle, 项)
 }
 
 // 列表框_删除项扩展.
@@ -604,35 +604,35 @@ func (l *ListBox) DeleteItem(iItem int) bool {
 // iItem:.
 //
 // nCount:.
-func (l *ListBox) DeleteItemEx(iItem int, nCount int) bool {
-	return xc.XListBox_DeleteItemEx(l.Handle, iItem, nCount)
+func (l *ListBox) X删除项EX(项 int, 计数 int) bool {
+	return 炫彩基类.X列表框_删除项EX(l.Handle, 项, 计数)
 }
 
 // 列表框_删除项全部.
-func (l *ListBox) DeleteItemAll() int {
-	return xc.XListBox_DeleteItemAll(l.Handle)
+func (l *ListBox) X删除项全部() int {
+	return 炫彩基类.X列表框_删除项全部(l.Handle)
 }
 
 // 列表框_删除列全部.
-func (l *ListBox) DeleteColumnAll() int {
-	return xc.XListBox_DeleteColumnAll(l.Handle)
+func (l *ListBox) X删除列全部() int {
+	return 炫彩基类.X列表框_删除列全部(l.Handle)
 }
 
 // 列表框_取项数量AD.
-func (l *ListBox) GetCount_AD() int {
-	return xc.XListBox_GetCount_AD(l.Handle)
+func (l *ListBox) X取项数量AD() int {
+	return 炫彩基类.X列表框_取项数量AD(l.Handle)
 }
 
 // 列表框_取列数量AD.
-func (l *ListBox) GetCountColumn_AD() int {
-	return xc.XListBox_GetCountColumn_AD(l.Handle)
+func (l *ListBox) X取列数量AD() int {
+	return 炫彩基类.X列表框_取列数量AD(l.Handle)
 }
 
 // 列表框_置分割线颜色.
 //
 // color: ABGR 颜色值.
-func (l *ListBox) SetSplitLineColor(color int) int {
-	return xc.XListBox_SetSplitLineColor(l.Handle, color)
+func (l *ListBox) X置分割线颜色(ABGR颜色值 int) int {
+	return 炫彩基类.X列表框_置分割线颜色(l.Handle, ABGR颜色值)
 }
 
 // 列表框_置拖动矩形颜色.
@@ -640,15 +640,15 @@ func (l *ListBox) SetSplitLineColor(color int) int {
 // color: ABGR 颜色值.
 //
 // width: 线宽度.
-func (l *ListBox) SetDragRectColor(color, width int) int {
-	return xc.XListBox_SetDragRectColor(l.Handle, color, width)
+func (l *ListBox) X置拖动矩形颜色(ABGR颜色值, 线宽度 int) int {
+	return 炫彩基类.X列表框_置拖动矩形颜色(l.Handle, ABGR颜色值, 线宽度)
 }
 
 // 列表框_置项模板从内存. 设置项模板文件.
 //
 // data: 模板数据.
-func (l *ListBox) SetItemTemplateXMLFromMem(data []byte) bool {
-	return xc.XListBox_SetItemTemplateXMLFromMem(l.Handle, data)
+func (l *ListBox) X置项模板从内存(模板数据 []byte) bool {
+	return 炫彩基类.X列表框_置项模板从内存(l.Handle, 模板数据)
 }
 
 // 列表框_置项模板从资源ZIP. 设置项模板文件.
@@ -660,13 +660,13 @@ func (l *ListBox) SetItemTemplateXMLFromMem(data []byte) bool {
 // pPassword: zip密码.
 //
 // hModule: 模块句柄, 可填0.
-func (l *ListBox) SetItemTemplateXMLFromZipRes(id int, pFileName string, pPassword string, hModule uintptr) bool {
-	return xc.XListBox_SetItemTemplateXMLFromZipRes(l.Handle, id, pFileName, pPassword, hModule)
+func (l *ListBox) X置项模板并按资源ZIP(RC资源ID int, 项模板文件名 string, zip密码 string, 模块句柄 uintptr) bool {
+	return 炫彩基类.X列表框_置项模板从资源ZIP(l.Handle, RC资源ID, 项模板文件名, zip密码, 模块句柄)
 }
 
 // 列表框_取项模板. 获取列表项模板, 返回项模板句柄.
-func (l *ListBox) GetItemTemplate() int {
-	return xc.XListBox_GetItemTemplate(l.Handle)
+func (l *ListBox) X取项模板() int {
+	return 炫彩基类.X列表框_取项模板(l.Handle)
 }
 
 /*
@@ -676,107 +676,107 @@ func (l *ListBox) GetItemTemplate() int {
 // 列表框元素-项模板创建事件, 模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复
 //
 // nFlag  0:状态改变; 1:新模板实例; 2:旧模板复用
-type XE_LISTBOX_TEMP_CREATE func(pItem *xc.ListBox_Item_, nFlag int32, pbHandled *bool) int
+type XE_LISTBOX_TEMP_CREATE func(pItem *炫彩基类.ListBox_Item_, nFlag int32, pbHandled *bool) int
 
 // 列表框元素-项模板创建事件, 模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复
 //
 // nFlag  0:状态改变; 1:新模板实例; 2:旧模板复用
-type XE_LISTBOX_TEMP_CREATE1 func(hEle int, pItem *xc.ListBox_Item_, nFlag int32, pbHandled *bool) int
+type XE_LISTBOX_TEMP_CREATE1 func(hEle int, pItem *炫彩基类.ListBox_Item_, nFlag int32, pbHandled *bool) int
 
 // 列表框元素-项模板创建完成事件,模板复用机制需先启用;不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用); 1:新模板实例; 2:旧模板复用
-type XE_LISTBOX_TEMP_CREATE_END func(pItem *xc.ListBox_Item_, nFlag int32, pbHandled *bool) int
+type XE_LISTBOX_TEMP_CREATE_END func(pItem *炫彩基类.ListBox_Item_, nFlag int32, pbHandled *bool) int
 
 // 列表框元素-项模板创建完成事件,模板复用机制需先启用;不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用); 1:新模板实例; 2:旧模板复用
-type XE_LISTBOX_TEMP_CREATE_END1 func(hEle int, pItem *xc.ListBox_Item_, nFlag int32, pbHandled *bool) int
+type XE_LISTBOX_TEMP_CREATE_END1 func(hEle int, pItem *炫彩基类.ListBox_Item_, nFlag int32, pbHandled *bool) int
 
 // 列表框元素,项模板销毁.
 //
 // nFlag   0:正常销毁;  1:移动到缓存(不会被销毁,临时缓存备用,当需要时被复用)
-type XE_LISTBOX_TEMP_DESTROY func(pItem *xc.ListBox_Item_, nFlag int, pbHandled *bool) int
+type XE_LISTBOX_TEMP_DESTROY func(pItem *炫彩基类.ListBox_Item_, nFlag int, pbHandled *bool) int
 
 // 列表框元素,项模板销毁.
 //
 // nFlag   0:正常销毁;  1:移动到缓存(不会被销毁,临时缓存备用,当需要时被复用)
-type XE_LISTBOX_TEMP_DESTROY1 func(hEle int, pItem *xc.ListBox_Item_, nFlag int, pbHandled *bool) int
-type XE_LISTBOX_TEMP_ADJUST_COORDINATE func(pItem *xc.ListBox_Item_, pbHandled *bool) int            // 列表框元素,项模板调整坐标. 已停用.
-type XE_LISTBOX_TEMP_ADJUST_COORDINATE1 func(hEle int, pItem *xc.ListBox_Item_, pbHandled *bool) int // 列表框元素,项模板调整坐标. 已停用.
-type XE_LISTBOX_DRAWITEM func(hDraw int, pItem *xc.ListBox_Item_, pbHandled *bool) int               // 列表框元素,项绘制事件.
-type XE_LISTBOX_DRAWITEM1 func(hEle int, hDraw int, pItem *xc.ListBox_Item_, pbHandled *bool) int    // 列表框元素,项绘制事件.
+type XE_LISTBOX_TEMP_DESTROY1 func(hEle int, pItem *炫彩基类.ListBox_Item_, nFlag int, pbHandled *bool) int
+type XE_LISTBOX_TEMP_ADJUST_COORDINATE func(pItem *炫彩基类.ListBox_Item_, pbHandled *bool) int            // 列表框元素,项模板调整坐标. 已停用.
+type XE_LISTBOX_TEMP_ADJUST_COORDINATE1 func(hEle int, pItem *炫彩基类.ListBox_Item_, pbHandled *bool) int // 列表框元素,项模板调整坐标. 已停用.
+type XE_LISTBOX_DRAWITEM func(hDraw int, pItem *炫彩基类.ListBox_Item_, pbHandled *bool) int               // 列表框元素,项绘制事件.
+type XE_LISTBOX_DRAWITEM1 func(hEle int, hDraw int, pItem *炫彩基类.ListBox_Item_, pbHandled *bool) int    // 列表框元素,项绘制事件.
 type XE_LISTBOX_SELECT func(iItem int32, pbHandled *bool) int                                        // 列表框元素,项选择事件.
 type XE_LISTBOX_SELECT1 func(hEle int, iItem int32, pbHandled *bool) int                             // 列表框元素,项选择事件.
 
 // 列表框元素-项模板创建事件, 模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复
 //
 // nFlag  0:状态改变; 1:新模板实例; 2:旧模板复用
-func (l *ListBox) Event_LISTBOX_TEMP_CREATE(pFun XE_LISTBOX_TEMP_CREATE) bool {
-	return xc.XEle_RegEventC(l.Handle, xcc.XE_LISTBOX_TEMP_CREATE, pFun)
+func (l *ListBox) X事件_项模板创建(pFun XE_LISTBOX_TEMP_CREATE) bool {
+	return 炫彩基类.X元素_注册事件C(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_CREATE, pFun)
 }
 
 // 列表框元素-项模板创建事件, 模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复
 //
 // nFlag  0:状态改变; 1:新模板实例; 2:旧模板复用
-func (l *ListBox) Event_LISTBOX_TEMP_CREATE1(pFun XE_LISTBOX_TEMP_CREATE1) bool {
-	return xc.XEle_RegEventC1(l.Handle, xcc.XE_LISTBOX_TEMP_CREATE, pFun)
+func (l *ListBox) X事件_项模板创建1(pFun XE_LISTBOX_TEMP_CREATE1) bool {
+	return 炫彩基类.X元素_注册事件C1(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_CREATE, pFun)
 }
 
 // 列表框元素-项模板创建完成事件,模板复用机制需先启用;不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用); 1:新模板实例; 2:旧模板复用
-func (l *ListBox) Event_LISTBOX_TEMP_CREATE_END(pFun XE_LISTBOX_TEMP_CREATE_END) bool {
-	return xc.XEle_RegEventC(l.Handle, xcc.XE_LISTBOX_TEMP_CREATE_END, pFun)
+func (l *ListBox) X事件_项模板创建完成(pFun XE_LISTBOX_TEMP_CREATE_END) bool {
+	return 炫彩基类.X元素_注册事件C(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_CREATE_END, pFun)
 }
 
 // 列表框元素-项模板创建完成事件,模板复用机制需先启用;不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用); 1:新模板实例; 2:旧模板复用
-func (l *ListBox) Event_LISTBOX_TEMP_CREATE_END1(pFun XE_LISTBOX_TEMP_CREATE_END1) bool {
-	return xc.XEle_RegEventC1(l.Handle, xcc.XE_LISTBOX_TEMP_CREATE_END, pFun)
+func (l *ListBox) X事件_项模板创建完成1(pFun XE_LISTBOX_TEMP_CREATE_END1) bool {
+	return 炫彩基类.X元素_注册事件C1(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_CREATE_END, pFun)
 }
 
 // 列表框元素,项模板销毁.
 //
 // nFlag   0:正常销毁;  1:移动到缓存(不会被销毁,临时缓存备用,当需要时被复用)
-func (l *ListBox) Event_LISTBOX_TEMP_DESTROY(pFun XE_LISTBOX_TEMP_DESTROY) bool {
-	return xc.XEle_RegEventC(l.Handle, xcc.XE_LISTBOX_TEMP_DESTROY, pFun)
+func (l *ListBox) X事件_项模板销毁(pFun XE_LISTBOX_TEMP_DESTROY) bool {
+	return 炫彩基类.X元素_注册事件C(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_DESTROY, pFun)
 }
 
 // 列表框元素,项模板销毁.
 //
 // nFlag   0:正常销毁;  1:移动到缓存(不会被销毁,临时缓存备用,当需要时被复用)
-func (l *ListBox) Event_LISTBOX_TEMP_DESTROY1(pFun XE_LISTBOX_TEMP_DESTROY1) bool {
-	return xc.XEle_RegEventC1(l.Handle, xcc.XE_LISTBOX_TEMP_DESTROY, pFun)
+func (l *ListBox) X事件_项模板销毁1(pFun XE_LISTBOX_TEMP_DESTROY1) bool {
+	return 炫彩基类.X元素_注册事件C1(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_DESTROY, pFun)
 }
 
 // 列表框元素,项模板调整坐标. 已停用.
-func (l *ListBox) Event_LISTBOX_TEMP_ADJUST_COORDINATE(pFun XE_LISTBOX_TEMP_ADJUST_COORDINATE) bool {
-	return xc.XEle_RegEventC(l.Handle, xcc.XE_LISTBOX_TEMP_ADJUST_COORDINATE, pFun)
+func (l *ListBox) X停用_项模板调整坐标(pFun XE_LISTBOX_TEMP_ADJUST_COORDINATE) bool {
+	return 炫彩基类.X元素_注册事件C(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_ADJUST_COORDINATE, pFun)
 }
 
 // 列表框元素,项模板调整坐标. 已停用.
-func (l *ListBox) Event_LISTBOX_TEMP_ADJUST_COORDINATE1(pFun XE_LISTBOX_TEMP_ADJUST_COORDINATE1) bool {
-	return xc.XEle_RegEventC1(l.Handle, xcc.XE_LISTBOX_TEMP_ADJUST_COORDINATE, pFun)
+func (l *ListBox) X停用_项模板调整坐标1(pFun XE_LISTBOX_TEMP_ADJUST_COORDINATE1) bool {
+	return 炫彩基类.X元素_注册事件C1(l.Handle, 炫彩常量类.XE_LISTBOX_TEMP_ADJUST_COORDINATE, pFun)
 }
 
 // 列表框元素,项绘制事件.
-func (l *ListBox) Event_LISTBOX_DRAWITEM(pFun XE_LISTBOX_DRAWITEM) bool {
-	return xc.XEle_RegEventC(l.Handle, xcc.XE_LISTBOX_DRAWITEM, pFun)
+func (l *ListBox) X事件_项绘制事件(pFun XE_LISTBOX_DRAWITEM) bool {
+	return 炫彩基类.X元素_注册事件C(l.Handle, 炫彩常量类.XE_LISTBOX_DRAWITEM, pFun)
 }
 
 // 列表框元素,项绘制事件.
-func (l *ListBox) Event_LISTBOX_DRAWITEM1(pFun XE_LISTBOX_DRAWITEM1) bool {
-	return xc.XEle_RegEventC1(l.Handle, xcc.XE_LISTBOX_DRAWITEM, pFun)
+func (l *ListBox) X事件_项绘制事件1(pFun XE_LISTBOX_DRAWITEM1) bool {
+	return 炫彩基类.X元素_注册事件C1(l.Handle, 炫彩常量类.XE_LISTBOX_DRAWITEM, pFun)
 }
 
 // 列表框元素,项选择事件.
-func (l *ListBox) Event_LISTBOX_SELECT(pFun XE_LISTBOX_SELECT) bool {
-	return xc.XEle_RegEventC(l.Handle, xcc.XE_LISTBOX_SELECT, pFun)
+func (l *ListBox) X事件_项选择事件(pFun XE_LISTBOX_SELECT) bool {
+	return 炫彩基类.X元素_注册事件C(l.Handle, 炫彩常量类.XE_LISTBOX_SELECT, pFun)
 }
 
 // 列表框元素,项选择事件.
-func (l *ListBox) Event_LISTBOX_SELECT1(pFun XE_LISTBOX_SELECT1) bool {
-	return xc.XEle_RegEventC1(l.Handle, xcc.XE_LISTBOX_SELECT, pFun)
+func (l *ListBox) X事件_项选择事件1(pFun XE_LISTBOX_SELECT1) bool {
+	return 炫彩基类.X元素_注册事件C1(l.Handle, 炫彩常量类.XE_LISTBOX_SELECT, pFun)
 }

@@ -1460,7 +1460,7 @@ func XEdit_GetSelectText_Temp(hEle
 
 # <翻译开始>
 func XEdit_GetSelectText_Temp
-X编辑框_取选择文本
+X编辑框_取选择文本Tmp
 # <翻译结束>
 
 

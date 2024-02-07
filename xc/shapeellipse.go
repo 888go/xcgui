@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -15,8 +15,8 @@ import (
 // cy: 高度.
 //
 // hParent: 父对象句柄.
-func XShapeEllipse_Create(x int, y int, cx int, cy int, hParent int) int {
-	r, _, _ := xShapeEllipse_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+func X形状圆_创建(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 父对象句柄 int) int {
+	r, _, _ := xShapeEllipse_Create.Call(uintptr(X坐标), uintptr(Y坐标), uintptr(宽度), uintptr(高度), uintptr(父对象句柄))
 	return int(r)
 }
 
@@ -25,8 +25,8 @@ func XShapeEllipse_Create(x int, y int, cx int, cy int, hParent int) int {
 // hShape: 形状对象句柄.
 //
 // color: ABGR 颜色值.
-func XShapeEllipse_SetBorderColor(hShape int, color int) int {
-	r, _, _ := xShapeEllipse_SetBorderColor.Call(uintptr(hShape), uintptr(color))
+func X形状圆_置边框色(形状对象句柄 int, ABGR颜色值 int) int {
+	r, _, _ := xShapeEllipse_SetBorderColor.Call(uintptr(形状对象句柄), uintptr(ABGR颜色值))
 	return int(r)
 }
 
@@ -35,8 +35,8 @@ func XShapeEllipse_SetBorderColor(hShape int, color int) int {
 // hShape: 形状对象句柄.
 //
 // color: ABGR 颜色值.
-func XShapeEllipse_SetFillColor(hShape int, color int) int {
-	r, _, _ := xShapeEllipse_SetFillColor.Call(uintptr(hShape), uintptr(color))
+func X形状圆_置填充色(形状对象句柄 int, ABGR颜色值 int) int {
+	r, _, _ := xShapeEllipse_SetFillColor.Call(uintptr(形状对象句柄), uintptr(ABGR颜色值))
 	return int(r)
 }
 
@@ -45,8 +45,8 @@ func XShapeEllipse_SetFillColor(hShape int, color int) int {
 // hShape: 形状对象句柄.
 //
 // bEnable: 是否启用.
-func XShapeEllipse_EnableBorder(hShape int, bEnable bool) int {
-	r, _, _ := xShapeEllipse_EnableBorder.Call(uintptr(hShape), common.BoolPtr(bEnable))
+func X形状圆_启用边框(形状对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xShapeEllipse_EnableBorder.Call(uintptr(形状对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
@@ -55,7 +55,7 @@ func XShapeEllipse_EnableBorder(hShape int, bEnable bool) int {
 // hShape: 形状对象句柄.
 //
 // bEnable: 是否启用.
-func XShapeEllipse_EnableFill(hShape int, bEnable bool) int {
-	r, _, _ := xShapeEllipse_EnableFill.Call(uintptr(hShape), common.BoolPtr(bEnable))
+func X形状圆_启用填充(形状对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xShapeEllipse_EnableFill.Call(uintptr(形状对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }

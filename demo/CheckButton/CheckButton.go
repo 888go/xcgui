@@ -12,39 +12,39 @@ import (
 )
 
 func main() {
-	a := app.New(true)
-	a.EnableDPI(true)
-	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 430, 300, "复选按钮", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.X创建(true)
+	a.X启用DPI(true)
+	a.X启用自动DPI(true)
+	w := 炫彩窗口基类.X创建窗口(0, 0, 430, 300, "复选按钮", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建按钮
-	Check1 := widget.NewButton(10, 35, 70, 30, "Check1", w.Handle)
-	Check2 := widget.NewButton(10, 75, 70, 30, "Check2", w.Handle)
-	Check3 := widget.NewButton(10, 115, 70, 30, "Check3", w.Handle)
+	Check1 := 炫彩组件类.X创建按钮(10, 35, 70, 30, "Check1", w.Handle)
+	Check2 := 炫彩组件类.X创建按钮(10, 75, 70, 30, "Check2", w.Handle)
+	Check3 := 炫彩组件类.X创建按钮(10, 115, 70, 30, "Check3", w.Handle)
 	// 设置按钮类型
-	Check1.SetTypeEx(xcc.Button_Type_Check)
-	Check2.SetTypeEx(xcc.Button_Type_Check)
-	Check3.SetTypeEx(xcc.Button_Type_Check)
+	Check1.X置类型EX(炫彩常量类.Button_Type_Check)
+	Check2.X置类型EX(炫彩常量类.Button_Type_Check)
+	Check3.X置类型EX(炫彩常量类.Button_Type_Check)
 
 	// 设置选中
-	Check1.SetCheck(true)
+	Check1.X置选中(true)
 
 	// 注册事件_按钮被选中
-	Check1.Event_BUTTON_CHECK1(btn_check)
-	Check2.Event_BUTTON_CHECK1(btn_check)
-	Check3.Event_BUTTON_CHECK1(btn_check)
+	Check1.X事件_选中1(btn_check)
+	Check2.X事件_选中1(btn_check)
+	Check3.X事件_选中1(btn_check)
 
-	w.ShowWindow(xcc.SW_SHOW)
-	a.Run()
-	a.Exit()
+	w.X显示方式(炫彩常量类.SW_SHOW)
+	a.X运行()
+	a.X退出()
 }
 
 // 事件_按钮被选中
 func btn_check(hEle int, bCheck bool, pbHandled *bool) int {
 	if bCheck {
-		fmt.Println(xc.XBtn_GetText(hEle), "Selected")
+		fmt.Println(炫彩基类.X按钮_取文本(hEle), "Selected")
 	} else {
-		fmt.Println(xc.XBtn_GetText(hEle), "Unselected")
+		fmt.Println(炫彩基类.X按钮_取文本(hEle), "Unselected")
 	}
 	return 0
 }

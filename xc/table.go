@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -18,8 +18,8 @@ import (
 // cy: 高度.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func XTable_Create(x int, y int, cx int, cy int, hParent int) int {
-	r, _, _ := xTable_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+func X表格_创建(按钮x坐标 int, 按钮y坐标 int, 宽度 int, 高度 int, 父窗口句柄或元素句柄 int) int {
+	r, _, _ := xTable_Create.Call(uintptr(按钮x坐标), uintptr(按钮y坐标), uintptr(宽度), uintptr(高度), uintptr(父窗口句柄或元素句柄))
 	return int(r)
 }
 
@@ -30,8 +30,8 @@ func XTable_Create(x int, y int, cx int, cy int, hParent int) int {
 // nRow: 行数量.
 //
 // nCol: 列数量.
-func XTable_Reset(hShape int, nRow int, nCol int) int {
-	r, _, _ := xTable_Reset.Call(uintptr(hShape), uintptr(nRow), uintptr(nCol))
+func X表格_重置(形状对象句柄 int, 行数量 int, 列数量 int) int {
+	r, _, _ := xTable_Reset.Call(uintptr(形状对象句柄), uintptr(行数量), uintptr(列数量))
 	return int(r)
 }
 
@@ -44,8 +44,8 @@ func XTable_Reset(hShape int, nRow int, nCol int) int {
 // iCol: 列索引.
 //
 // count: 数量.
-func XTable_ComboRow(hShape int, iRow int, iCol int, count int) int {
-	r, _, _ := xTable_ComboRow.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(count))
+func X表格_组合行(形状对象句柄 int, 行索引 int, 列索引 int, 数量 int) int {
+	r, _, _ := xTable_ComboRow.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(数量))
 	return int(r)
 }
 
@@ -58,8 +58,8 @@ func XTable_ComboRow(hShape int, iRow int, iCol int, count int) int {
 // iCol: 列索引.
 //
 // count: 数量.
-func XTable_ComboCol(hShape int, iRow int, iCol int, count int) int {
-	r, _, _ := xTable_ComboCol.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(count))
+func X表格_组合列(形状对象句柄 int, 行索引 int, 列索引 int, 数量 int) int {
+	r, _, _ := xTable_ComboCol.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(数量))
 	return int(r)
 }
 
@@ -70,8 +70,8 @@ func XTable_ComboCol(hShape int, iRow int, iCol int, count int) int {
 // iCol: 列索引.
 //
 // width: 宽度.
-func XTable_SetColWidth(hShape int, iCol int, width int) int {
-	r, _, _ := xTable_SetColWidth.Call(uintptr(hShape), uintptr(iCol), uintptr(width))
+func X表格_置列宽(形状对象句柄 int, 列索引 int, 宽度 int) int {
+	r, _, _ := xTable_SetColWidth.Call(uintptr(形状对象句柄), uintptr(列索引), uintptr(宽度))
 	return int(r)
 }
 
@@ -82,8 +82,8 @@ func XTable_SetColWidth(hShape int, iCol int, width int) int {
 // iRow: 行索引.
 //
 // height: 高度.
-func XTable_SetRowHeight(hShape int, iRow int, height int) int {
-	r, _, _ := xTable_SetRowHeight.Call(uintptr(hShape), uintptr(iRow), uintptr(height))
+func X表格_置行高(形状对象句柄 int, 行索引 int, 高度 int) int {
+	r, _, _ := xTable_SetRowHeight.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(高度))
 	return int(r)
 }
 
@@ -92,8 +92,8 @@ func XTable_SetRowHeight(hShape int, iRow int, height int) int {
 // hShape: 形状对象句柄.
 //
 // color: 颜色.
-func XTable_SetBorderColor(hShape int, color int) int {
-	r, _, _ := xTable_SetBorderColor.Call(uintptr(hShape), uintptr(color))
+func X表格_置边颜色(形状对象句柄 int, 颜色 int) int {
+	r, _, _ := xTable_SetBorderColor.Call(uintptr(形状对象句柄), uintptr(颜色))
 	return int(r)
 }
 
@@ -102,8 +102,8 @@ func XTable_SetBorderColor(hShape int, color int) int {
 // hShape: 形状对象句柄.
 //
 // color: 颜色.
-func XTable_SetTextColor(hShape int, color int) int {
-	r, _, _ := xTable_SetTextColor.Call(uintptr(hShape), uintptr(color))
+func X表格_置文本颜色(形状对象句柄 int, 颜色 int) int {
+	r, _, _ := xTable_SetTextColor.Call(uintptr(形状对象句柄), uintptr(颜色))
 	return int(r)
 }
 
@@ -112,8 +112,8 @@ func XTable_SetTextColor(hShape int, color int) int {
 // hShape: 形状对象句柄.
 //
 // hFont: 字体句柄.
-func XTable_SetFont(hShape int, hFont int) int {
-	r, _, _ := xTable_SetFont.Call(uintptr(hShape), uintptr(hFont))
+func X表格_置字体(形状对象句柄 int, 字体句柄 int) int {
+	r, _, _ := xTable_SetFont.Call(uintptr(形状对象句柄), uintptr(字体句柄))
 	return int(r)
 }
 
@@ -128,8 +128,8 @@ func XTable_SetFont(hShape int, hFont int) int {
 // rightSize: 内填充大小.
 //
 // bottomSize: 内填充大小.
-func XTable_SetItemPadding(hShape int, leftSize int, topSize int, rightSize int, bottomSize int) int {
-	r, _, _ := xTable_SetItemPadding.Call(uintptr(hShape), uintptr(leftSize), uintptr(topSize), uintptr(rightSize), uintptr(bottomSize))
+func X表格_置项内填充(形状对象句柄 int, 左 int, 上 int, 右 int, 下 int) int {
+	r, _, _ := xTable_SetItemPadding.Call(uintptr(形状对象句柄), uintptr(左), uintptr(上), uintptr(右), uintptr(下))
 	return int(r)
 }
 
@@ -142,8 +142,8 @@ func XTable_SetItemPadding(hShape int, leftSize int, topSize int, rightSize int,
 // iCol: 列索引.
 //
 // pText: 文本.
-func XTable_SetItemText(hShape int, iRow int, iCol int, pText string) int {
-	r, _, _ := xTable_SetItemText.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), common.StrPtr(pText))
+func X表格_置项文本(形状对象句柄 int, 行索引 int, 列索引 int, 文本 string) int {
+	r, _, _ := xTable_SetItemText.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), 炫彩工具类.StrPtr(文本))
 	return int(r)
 }
 
@@ -156,8 +156,8 @@ func XTable_SetItemText(hShape int, iRow int, iCol int, pText string) int {
 // iCol: 列索引.
 //
 // hFont: 字体句柄.
-func XTable_SetItemFont(hShape int, iRow int, iCol int, hFont int) int {
-	r, _, _ := xTable_SetItemFont.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(hFont))
+func X表格_置项字体(形状对象句柄 int, 行索引 int, 列索引 int, 字体句柄 int) int {
+	r, _, _ := xTable_SetItemFont.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(字体句柄))
 	return int(r)
 }
 
@@ -170,8 +170,8 @@ func XTable_SetItemFont(hShape int, iRow int, iCol int, hFont int) int {
 // iCol: 列索引.
 //
 // nAlign: 对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func XTable_SetItemTextAlign(hShape int, iRow int, iCol int, nAlign xcc.TextFormatFlag_) int {
-	r, _, _ := xTable_SetItemTextAlign.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(nAlign))
+func X表格_置项文本对齐(形状对象句柄 int, 行索引 int, 列索引 int, 对齐方式 炫彩常量类.TextFormatFlag_) int {
+	r, _, _ := xTable_SetItemTextAlign.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(对齐方式))
 	return int(r)
 }
 
@@ -186,8 +186,8 @@ func XTable_SetItemTextAlign(hShape int, iRow int, iCol int, nAlign xcc.TextForm
 // color: 颜色.
 //
 // bColor: 是否使用.
-func XTable_SetItemTextColor(hShape int, iRow int, iCol int, color int, bColor bool) int {
-	r, _, _ := xTable_SetItemTextColor.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(color), common.BoolPtr(bColor))
+func X表格_置项文本色(形状对象句柄 int, 行索引 int, 列索引 int, 颜色 int, 是否使用 bool) int {
+	r, _, _ := xTable_SetItemTextColor.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(颜色), 炫彩工具类.BoolPtr(是否使用))
 	return int(r)
 }
 
@@ -202,8 +202,8 @@ func XTable_SetItemTextColor(hShape int, iRow int, iCol int, color int, bColor b
 // color: 颜色.
 //
 // bColor: 是否使用.
-func XTable_SetItemBkColor(hShape int, iRow int, iCol int, color int, bColor bool) int {
-	r, _, _ := xTable_SetItemBkColor.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(color), common.BoolPtr(bColor))
+func X表格_置项背景色(形状对象句柄 int, 行索引 int, 列索引 int, 颜色 int, 是否使用 bool) int {
+	r, _, _ := xTable_SetItemBkColor.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(颜色), 炫彩工具类.BoolPtr(是否使用))
 	return int(r)
 }
 
@@ -222,8 +222,8 @@ func XTable_SetItemBkColor(hShape int, iRow int, iCol int, color int, bColor boo
 // nFlag: 标识, Table_Line_Flag_, 暂时没有, 填0.
 //
 // color: 颜色.
-func XTable_SetItemLine(hShape int, iRow1 int, iCol1 int, iRow2 int, iCol2 int, nFlag int, color int) int {
-	r, _, _ := xTable_SetItemLine.Call(uintptr(hShape), uintptr(iRow1), uintptr(iCol1), uintptr(iRow2), uintptr(iCol2), uintptr(nFlag), uintptr(color))
+func X表格_置项线(形状对象句柄 int, 行索引1 int, 列索引1 int, 行索引2 int, 列索引2 int, 标识 int, 颜色 int) int {
+	r, _, _ := xTable_SetItemLine.Call(uintptr(形状对象句柄), uintptr(行索引1), uintptr(列索引1), uintptr(行索引2), uintptr(列索引2), uintptr(标识), uintptr(颜色))
 	return int(r)
 }
 
@@ -236,8 +236,8 @@ func XTable_SetItemLine(hShape int, iRow1 int, iCol1 int, iRow2 int, iCol2 int, 
 // iCol: 列索引.
 //
 // flag: 标识, Table_Flag_.
-func XTable_SetItemFlag(hShape int, iRow int, iCol int, flag xcc.Table_Flag_) int {
-	r, _, _ := xTable_SetItemFlag.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(flag))
+func X表格_置项标识(形状对象句柄 int, 行索引 int, 列索引 int, 标识 炫彩常量类.Table_Flag_) int {
+	r, _, _ := xTable_SetItemFlag.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(标识))
 	return int(r)
 }
 
@@ -250,7 +250,7 @@ func XTable_SetItemFlag(hShape int, iRow int, iCol int, flag xcc.Table_Flag_) in
 // iCol: 列索引.
 //
 // pRect: 接收返回坐标.
-func XTable_GetItemRect(hShape int, iRow int, iCol int, pRect *RECT) bool {
-	r, _, _ := xTable_GetItemRect.Call(uintptr(hShape), uintptr(iRow), uintptr(iCol), uintptr(unsafe.Pointer(pRect)))
+func X表格_取项坐标(形状对象句柄 int, 行索引 int, 列索引 int, 接收返回坐标 *RECT) bool {
+	r, _, _ := xTable_GetItemRect.Call(uintptr(形状对象句柄), uintptr(行索引), uintptr(列索引), uintptr(unsafe.Pointer(接收返回坐标)))
 	return r != 0
 }

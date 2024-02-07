@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -18,16 +18,16 @@ import (
 // pName: 标题.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func XBtn_Create(x, y, cx, cy int32, pName string, hParent int) int {
-	r, _, _ := xBtn_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
+func X按钮_创建(x坐标, y坐标, 宽度, 高度 int32, 标题 string, 父窗口句柄或元素句柄 int) int {
+	r, _, _ := xBtn_Create.Call(uintptr(x坐标), uintptr(y坐标), uintptr(宽度), uintptr(高度), 炫彩工具类.StrPtr(标题), uintptr(父窗口句柄或元素句柄))
 	return int(r)
 }
 
 // 按钮_判断选中, 是否选中状态.
 //
 // hEle: 元素句柄.
-func XBtn_IsCheck(hEle int) bool {
-	r, _, _ := xBtn_IsCheck.Call(uintptr(hEle))
+func X按钮_判断选中(元素句柄 int) bool {
+	r, _, _ := xBtn_IsCheck.Call(uintptr(元素句柄))
 	return r != 0
 }
 
@@ -36,8 +36,8 @@ func XBtn_IsCheck(hEle int) bool {
 // hEle: 元素句柄.
 //
 // bCheck: 是否选中.
-func XBtn_SetCheck(hEle int, bCheck bool) bool {
-	r, _, _ := xBtn_SetCheck.Call(uintptr(hEle), common.BoolPtr(bCheck))
+func X按钮_置选中(元素句柄 int, 是否选中 bool) bool {
+	r, _, _ := xBtn_SetCheck.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否选中))
 	return r != 0
 }
 
@@ -46,8 +46,8 @@ func XBtn_SetCheck(hEle int, bCheck bool) bool {
 //	@param hEle 元素句柄.
 //	@param nState 按钮状态: xcc.Common_State3_
 //	@return int
-func XBtn_SetState(hEle int, nState xcc.Common_State3_) int {
-	r, _, _ := xBtn_SetState.Call(uintptr(hEle), uintptr(nState))
+func X按钮_置状态(元素句柄 int, 按钮状态 炫彩常量类.Common_State3_) int {
+	r, _, _ := xBtn_SetState.Call(uintptr(元素句柄), uintptr(按钮状态))
 	return int(r)
 }
 
@@ -55,18 +55,18 @@ func XBtn_SetState(hEle int, nState xcc.Common_State3_) int {
 //
 //	@param hEle 元素句柄.
 //	@return xcc.Common_State3_
-func XBtn_GetState(hEle int) xcc.Common_State3_ {
-	r, _, _ := xBtn_GetState.Call(uintptr(hEle))
-	return xcc.Common_State3_(r)
+func X按钮_取状态(元素句柄 int) 炫彩常量类.Common_State3_ {
+	r, _, _ := xBtn_GetState.Call(uintptr(元素句柄))
+	return 炫彩常量类.Common_State3_(r)
 }
 
 // XBtn_GetStateEx 按钮_取状态扩展.
 //
 //	@param hEle 元素句柄.
 //	@return xcc.Button_State_
-func XBtn_GetStateEx(hEle int) xcc.Button_State_ {
-	r, _, _ := xBtn_GetStateEx.Call(uintptr(hEle))
-	return xcc.Button_State_(r)
+func X按钮_取状态EX(元素句柄 int) 炫彩常量类.Button_State_ {
+	r, _, _ := xBtn_GetStateEx.Call(uintptr(元素句柄))
+	return 炫彩常量类.Button_State_(r)
 }
 
 // 按钮_置类型扩展, 设置按钮类型并自动修改样式和文本对齐方式.
@@ -74,8 +74,8 @@ func XBtn_GetStateEx(hEle int) xcc.Button_State_ {
 // hEle: 元素句柄.
 //
 // nType: 按钮类型, Button_Type_ , element_type_ , xc_ex_error.
-func XBtn_SetTypeEx(hEle int, nType xcc.XC_OBJECT_TYPE_EX) int {
-	r, _, _ := xBtn_SetTypeEx.Call(uintptr(hEle), uintptr(nType))
+func X按钮_置类型EX(元素句柄 int, 按钮类型 炫彩常量类.XC_OBJECT_TYPE_EX) int {
+	r, _, _ := xBtn_SetTypeEx.Call(uintptr(元素句柄), uintptr(按钮类型))
 	return int(r)
 }
 
@@ -84,16 +84,16 @@ func XBtn_SetTypeEx(hEle int, nType xcc.XC_OBJECT_TYPE_EX) int {
 // hEle: 元素句柄.
 //
 // nID: 组ID.
-func XBtn_SetGroupID(hEle int, nID int32) int {
-	r, _, _ := xBtn_SetGroupID.Call(uintptr(hEle), uintptr(nID))
+func X按钮_置组ID(元素句柄 int, 组ID int32) int {
+	r, _, _ := xBtn_SetGroupID.Call(uintptr(元素句柄), uintptr(组ID))
 	return int(r)
 }
 
 // 按钮_取组ID.
 //
 // hEle: 元素句柄.
-func XBtn_GetGroupID(hEle int) int32 {
-	r, _, _ := xBtn_GetGroupID.Call(uintptr(hEle))
+func X按钮_取组ID(元素句柄 int) int32 {
+	r, _, _ := xBtn_GetGroupID.Call(uintptr(元素句柄))
 	return int32(r)
 }
 
@@ -102,16 +102,16 @@ func XBtn_GetGroupID(hEle int) int32 {
 // hEle: 元素句柄.
 //
 // hBindEle: 将要绑定的元素.
-func XBtn_SetBindEle(hEle int, hBindEle int) int {
-	r, _, _ := xBtn_SetBindEle.Call(uintptr(hEle), uintptr(hBindEle))
+func X按钮_置绑定元素(元素句柄 int, 将要绑定的元素 int) int {
+	r, _, _ := xBtn_SetBindEle.Call(uintptr(元素句柄), uintptr(将要绑定的元素))
 	return int(r)
 }
 
 // 按钮_取绑定元素, 返回: 绑定的元素句柄.
 //
 // hEle: 元素句柄.
-func XBtn_GetBindEle(hEle int) int {
-	r, _, _ := xBtn_GetBindEle.Call(uintptr(hEle))
+func X按钮_取绑定元素(元素句柄 int) int {
+	r, _, _ := xBtn_GetBindEle.Call(uintptr(元素句柄))
 	return int(r)
 }
 
@@ -120,17 +120,17 @@ func XBtn_GetBindEle(hEle int) int {
 // hEle: 元素句柄.
 //
 // nFlags: 对齐方式, TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
-func XBtn_SetTextAlign(hEle int, nFlags xcc.TextFormatFlag_) int {
-	r, _, _ := xBtn_SetTextAlign.Call(uintptr(hEle), uintptr(nFlags))
+func X按钮_置文本对齐(元素句柄 int, 对齐方式 炫彩常量类.TextFormatFlag_) int {
+	r, _, _ := xBtn_SetTextAlign.Call(uintptr(元素句柄), uintptr(对齐方式))
 	return int(r)
 }
 
 // 按钮_取文本对齐方式, 返回: TextFormatFlag_ , TextAlignFlag_ , TextTrimming_.
 //
 // hEle: 元素句柄.
-func XBtn_GetTextAlign(hEle int) xcc.TextFormatFlag_ {
-	r, _, _ := xBtn_GetTextAlign.Call(uintptr(hEle))
-	return xcc.TextFormatFlag_(r)
+func X按钮_取文本对齐方式(元素句柄 int) 炫彩常量类.TextFormatFlag_ {
+	r, _, _ := xBtn_GetTextAlign.Call(uintptr(元素句柄))
+	return 炫彩常量类.TextFormatFlag_(r)
 }
 
 // 按钮_置图标对齐.
@@ -138,8 +138,8 @@ func XBtn_GetTextAlign(hEle int) xcc.TextFormatFlag_ {
 // hEle: 元素句柄.
 //
 // align: 对齐方式, Button_Icon_Align_.
-func XBtn_SetIconAlign(hEle int, align xcc.Button_Icon_Align_) int {
-	r, _, _ := xBtn_SetIconAlign.Call(uintptr(hEle), uintptr(align))
+func X按钮_置图标对齐(元素句柄 int, 对齐方式 炫彩常量类.Button_Icon_Align_) int {
+	r, _, _ := xBtn_SetIconAlign.Call(uintptr(元素句柄), uintptr(对齐方式))
 	return int(r)
 }
 
@@ -150,8 +150,8 @@ func XBtn_SetIconAlign(hEle int, align xcc.Button_Icon_Align_) int {
 // x: 偏移量.
 //
 // y: 偏移量.
-func XBtn_SetOffset(hEle int, x int, y int) int {
-	r, _, _ := xBtn_SetOffset.Call(uintptr(hEle), uintptr(x), uintptr(y))
+func X按钮_置偏移(元素句柄 int, 偏移量x int, 偏移量y int) int {
+	r, _, _ := xBtn_SetOffset.Call(uintptr(元素句柄), uintptr(偏移量x), uintptr(偏移量y))
 	return int(r)
 }
 
@@ -162,8 +162,8 @@ func XBtn_SetOffset(hEle int, x int, y int) int {
 // x: 偏移量.
 //
 // y: 偏移量.
-func XBtn_SetOffsetIcon(hEle int, x int, y int) int {
-	r, _, _ := xBtn_SetOffsetIcon.Call(uintptr(hEle), uintptr(x), uintptr(y))
+func X按钮_置图标偏移(元素句柄 int, 偏移量x int, 偏移量y int) int {
+	r, _, _ := xBtn_SetOffsetIcon.Call(uintptr(元素句柄), uintptr(偏移量x), uintptr(偏移量y))
 	return int(r)
 }
 
@@ -172,8 +172,8 @@ func XBtn_SetOffsetIcon(hEle int, x int, y int) int {
 // hEle: 元素句柄.
 //
 // size: 间隔大小.
-func XBtn_SetIconSpace(hEle int, size int) int {
-	r, _, _ := xBtn_SetIconSpace.Call(uintptr(hEle), uintptr(size))
+func X按钮_置图标间隔(元素句柄 int, 间隔大小 int) int {
+	r, _, _ := xBtn_SetIconSpace.Call(uintptr(元素句柄), uintptr(间隔大小))
 	return int(r)
 }
 
@@ -182,17 +182,17 @@ func XBtn_SetIconSpace(hEle int, size int) int {
 // hEle: 元素句柄.
 //
 // pName: 文本内容.
-func XBtn_SetText(hEle int, pName string) int {
-	r, _, _ := xBtn_SetText.Call(uintptr(hEle), common.StrPtr(pName))
+func X按钮_置文本(元素句柄 int, 文本内容 string) int {
+	r, _, _ := xBtn_SetText.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(文本内容))
 	return int(r)
 }
 
 // 按钮_取文本.
 //
 // hEle: 元素句柄.
-func XBtn_GetText(hEle int) string {
-	r, _, _ := xBtn_GetText.Call(uintptr(hEle))
-	return common.UintPtrToString(r)
+func X按钮_取文本(元素句柄 int) string {
+	r, _, _ := xBtn_GetText.Call(uintptr(元素句柄))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 按钮_置图标.
@@ -200,8 +200,8 @@ func XBtn_GetText(hEle int) string {
 // hEle: 元素句柄.
 //
 // hImage: 图片句柄.
-func XBtn_SetIcon(hEle int, hImage int) int {
-	r, _, _ := xBtn_SetIcon.Call(uintptr(hEle), uintptr(hImage))
+func X按钮_置图标(元素句柄 int, 图片句柄 int) int {
+	r, _, _ := xBtn_SetIcon.Call(uintptr(元素句柄), uintptr(图片句柄))
 	return int(r)
 }
 
@@ -210,8 +210,8 @@ func XBtn_SetIcon(hEle int, hImage int) int {
 // hEle: 元素句柄.
 //
 // hImage: 图片句柄.
-func XBtn_SetIconDisable(hEle int, hImage int) int {
-	r, _, _ := xBtn_SetIconDisable.Call(uintptr(hEle), uintptr(hImage))
+func X按钮_置禁用图标(元素句柄 int, 图片句柄 int) int {
+	r, _, _ := xBtn_SetIconDisable.Call(uintptr(元素句柄), uintptr(图片句柄))
 	return int(r)
 }
 
@@ -220,8 +220,8 @@ func XBtn_SetIconDisable(hEle int, hImage int) int {
 // hEle: 元素句柄.
 //
 // nType: 图标类型, 0:默认图标, 1:禁用状态图标.
-func XBtn_GetIcon(hEle int, nType int) int {
-	r, _, _ := xBtn_GetIcon.Call(uintptr(hEle), uintptr(nType))
+func X按钮_取图标(元素句柄 int, 图标类型 int) int {
+	r, _, _ := xBtn_GetIcon.Call(uintptr(元素句柄), uintptr(图标类型))
 	return int(r)
 }
 
@@ -232,8 +232,8 @@ func XBtn_GetIcon(hEle int, nType int) int {
 // hImage: 图片句柄.
 //
 // uElapse: 图片帧延时, 单位毫秒.
-func XBtn_AddAnimationFrame(hEle int, hImage int, uElapse int) int {
-	r, _, _ := xBtn_AddAnimationFrame.Call(uintptr(hEle), uintptr(hImage), uintptr(uElapse))
+func X按钮_添加动画帧(元素句柄 int, 图片句柄 int, 图片帧延时 int) int {
+	r, _, _ := xBtn_AddAnimationFrame.Call(uintptr(元素句柄), uintptr(图片句柄), uintptr(图片帧延时))
 	return int(r)
 }
 
@@ -244,7 +244,7 @@ func XBtn_AddAnimationFrame(hEle int, hImage int, uElapse int) int {
 // bEnable: 开始播放动画TRUE, 关闭播放动画FALSE.
 //
 // bLoopPlay: 是否循环播放.
-func XBtn_EnableAnimation(hEle int, bEnable bool, bLoopPlay bool) int {
-	r, _, _ := xBtn_EnableAnimation.Call(uintptr(hEle), common.BoolPtr(bEnable), common.BoolPtr(bLoopPlay))
+func X按钮_启用动画(元素句柄 int, 开始播放动画TRUE bool, 是否循环播放 bool) int {
+	r, _, _ := xBtn_EnableAnimation.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(开始播放动画TRUE), 炫彩工具类.BoolPtr(是否循环播放))
 	return int(r)
 }

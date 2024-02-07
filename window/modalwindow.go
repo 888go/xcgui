@@ -1,4 +1,4 @@
-package window
+package 炫彩窗口基类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -21,9 +21,9 @@ type ModalWindow struct {
 // hWndParent: 父窗口句柄.
 //
 // XCStyle: 炫彩窗口样式: Window_Style_.
-func NewModalWindow(nWidth, nHeight int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *ModalWindow {
+func X创建模态窗口(宽度, 高度 int32, 标题 string, 父窗口句柄 uintptr, 炫彩窗口样式 炫彩常量类.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(xc.XModalWnd_Create(nWidth, nHeight, pTitle, hWndParent, XCStyle))
+	p.X设置句柄(炫彩基类.X模态窗口_创建(宽度, 高度, 标题, 父窗口句柄, 炫彩窗口样式))
 	return p
 }
 
@@ -48,9 +48,9 @@ func NewModalWindow(nWidth, nHeight int32, pTitle string, hWndParent uintptr, XC
 // hWndParent: 父窗口.
 //
 // XCStyle: GUI库窗口样式: Window_Style_.
-func NewModalWindowEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *ModalWindow {
+func X创建模态窗口EX(扩展样式 int, 样式 int, 类名 string, x坐标, y坐标, 宽度, 高度 int32, 窗口名 string, 父窗口 uintptr, GUI库窗口样式 炫彩常量类.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(xc.XModalWnd_CreateEx(dwExStyle, dwStyle, pTitle, x, y, cx, cy, lpClassName, hWndParent, XCStyle))
+	p.X设置句柄(炫彩基类.X模态窗口_创建EX(扩展样式, 样式, 窗口名, x坐标, y坐标, 宽度, 高度, 类名, 父窗口, GUI库窗口样式))
 	return p
 }
 
@@ -60,11 +60,11 @@ func NewModalWindowEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, 
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-func NewModalWindowByLayout(pFileName string, hParent int, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
+func X创建模态窗口并按布局文件(布局文件名 string, 父对象句柄 int, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件(布局文件名, 父对象句柄, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -78,11 +78,11 @@ func NewModalWindowByLayout(pFileName string, hParent int, hAttachWnd uintptr) *
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-func NewModalWindowByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
+func X创建模态窗口并按压缩包布局文件(zip文件名 string, 布局文件名 string, zip密码 string, 父对象句柄 int, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件ZIP(zip文件名, 布局文件名, zip密码, 父对象句柄, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -96,11 +96,11 @@ func NewModalWindowByLayoutZip(pZipFileName string, pFileName string, pPassword 
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-func NewModalWindowByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
+func X创建模态窗口并按内存压缩包布局文件(布局文件数据 []byte, 布局文件名 string, zip密码 string, 父对象句柄 int, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件内存ZIP(布局文件数据, 布局文件名, zip密码, 父对象句柄, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -112,11 +112,11 @@ func NewModalWindowByLayoutZipMem(data []byte, pFileName string, pPassword strin
 //	@param hParent 父对象.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func NewModalWindowByLayoutStringW(pStringXML string, hParent int, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
+func X创建模态窗口并按布局文件字符串W(字符串 string, 父对象 int, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件从字符串W(字符串, 父对象, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -130,11 +130,11 @@ func NewModalWindowByLayoutStringW(pStringXML string, hParent int, hAttachWnd ui
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-func NewModalWindowByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
+func X创建模态窗口并按布局文件EX(布局文件名, 名称前缀 string, 父对象句柄 int, 父窗口句柄, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件Ex(布局文件名, 名称前缀, 父对象句柄, 父窗口句柄, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -151,11 +151,11 @@ func NewModalWindowByLayoutEx(pFileName, pPrefixName string, hParent int, hParen
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@param hModule 模块句柄, 可填0.
 //	@return *ModalWindow
-func NewModalWindowByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutZipResEx(id, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd, hModule)
+func X创建模态窗口并按RC资源zip压缩包布局文件EX(RC资源ID int32, 布局文件名, zip密码, 名称前缀 string, 父对象句柄 int, 父窗口句柄, 附加窗口句柄, 模块句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件资源ZIPEX(RC资源ID, 布局文件名, zip密码, 名称前缀, 父对象句柄, 父窗口句柄, 附加窗口句柄, 模块句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -171,11 +171,11 @@ func NewModalWindowByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName 
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-func NewModalWindowByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
+func X创建模态窗口并按压缩包布局文件EX(zip文件名 string, 布局文件名 string, zip密码, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件ZIPEx(zip文件名, 布局文件名, zip密码, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -191,11 +191,11 @@ func NewModalWindowByLayoutZipEx(pZipFileName string, pFileName string, pPasswor
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-func NewModalWindowByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
+func X创建模态窗口并按内存压缩包布局文件EX(布局文件数据 []byte, 布局文件名 string, zip密码, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件内存ZIPEx(布局文件数据, 布局文件名, zip密码, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -209,11 +209,11 @@ func NewModalWindowByLayoutZipMemEx(data []byte, pFileName string, pPassword, pP
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func NewModalWindowByLayoutStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
-	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
+func X创建模态窗口并按布局文件字符串WEX(字符串, 名称前缀 string, 父对象 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *ModalWindow {
+	handle := 炫彩基类.X炫彩_加载布局文件从字符串WEx(字符串, 名称前缀, 父对象, 父窗口句柄HWND, 附加窗口句柄)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -224,47 +224,47 @@ func NewModalWindowByLayoutStringWEx(pStringXML, pPrefixName string, hParent int
 // hWnd: 要附加的外部窗口句柄.
 //
 // XCStyle: 炫彩窗口样式: xcc.Window_Style_.
-func ModalWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
+func X模态窗口附加窗口(外部窗口句柄 uintptr, 炫彩窗口样式 炫彩常量类.Window_Style_) *Window {
 	p := &Window{}
-	p.SetHandle(xc.XModalWnd_Attach(hWnd, XCStyle))
+	p.X设置句柄(炫彩基类.X模态窗口_附加窗口(外部窗口句柄, 炫彩窗口样式))
 	return p
 }
 
 // 从句柄创建对象.
-func NewModalWindowByHandle(handle int) *ModalWindow {
+func X创建模态窗口并按句柄(handle int) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func NewModalWindowByName(name string) *ModalWindow {
-	handle := xc.XC_GetObjectByName(name)
+func X创建模态窗口并按名称(name string) *ModalWindow {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func NewModalWindowByUID(nUID int) *ModalWindow {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建模态窗口并按UID(nUID int) *ModalWindow {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func NewModalWindowByUIDName(name string) *ModalWindow {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建模态窗口并按UID名称(name string) *ModalWindow {
+	handle := 炫彩基类.X取对象从UID名称(name)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -273,25 +273,25 @@ func NewModalWindowByUIDName(name string) *ModalWindow {
 // 模态窗口_启用自动关闭, 是否自动关闭窗口, 当窗口失去焦点时.
 //
 // bEnable: 开启开关.
-func (m *ModalWindow) EnableAutoClose(bEnable bool) int {
-	return xc.XModalWnd_EnableAutoClose(m.Handle, bEnable)
+func (m *ModalWindow) X启用自动关闭(开启开关 bool) int {
+	return 炫彩基类.X模态窗口_启用自动关闭(m.Handle, 开启开关)
 }
 
 // 模态窗口_启用ESC关闭, 当用户按ESC键时自动关闭模态窗口.
 //
 // bEnable: 是否启用.
-func (m *ModalWindow) EnableEscClose(bEnable bool) int {
-	return xc.XModalWnd_EnableEscClose(m.Handle, bEnable)
+func (m *ModalWindow) X启用ESC关闭(是否启用 bool) int {
+	return 炫彩基类.X模态窗口_启用ESC关闭(m.Handle, 是否启用)
 }
 
 // 模态窗口_启动, 启动显示模态窗口, 当窗口关闭时返回: MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
-func (m *ModalWindow) DoModal() xcc.MessageBox_Flag_ {
-	return xc.XModalWnd_DoModal(m.Handle)
+func (m *ModalWindow) X启动() 炫彩常量类.MessageBox_Flag_ {
+	return 炫彩基类.X模态窗口_启动(m.Handle)
 }
 
 // 模态窗口_结束, 结束模态窗口.
 //
 // nResult: 用作XModalWnd_DoModal()的返回值. MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
-func (m *ModalWindow) EndModal(nResult xcc.MessageBox_Flag_) int {
-	return xc.XModalWnd_EndModal(m.Handle, nResult)
+func (m *ModalWindow) X结束(结果 炫彩常量类.MessageBox_Flag_) int {
+	return 炫彩基类.X模态窗口_结束(m.Handle, 结果)
 }

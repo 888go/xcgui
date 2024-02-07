@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 // XShapePic_Create 形状图片_创建, 创建形状对象-图片, 成功返回图片对象句柄, 否则返回NULL.
 //
@@ -11,8 +11,8 @@ package xc
 // cy: 高度.
 //
 // hParent: 父对象句柄.
-func XShapePic_Create(x int, y int, cx int, cy int, hParent int) int {
-	r, _, _ := xShapePic_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+func X形状图片_创建(x坐标 int, y坐标 int, 宽度 int, 高度 int, 父对象句柄 int) int {
+	r, _, _ := xShapePic_Create.Call(uintptr(x坐标), uintptr(y坐标), uintptr(宽度), uintptr(高度), uintptr(父对象句柄))
 	return int(r)
 }
 
@@ -21,15 +21,15 @@ func XShapePic_Create(x int, y int, cx int, cy int, hParent int) int {
 // hShape: 形状对象句柄.
 //
 // hImage: 图片句柄.
-func XShapePic_SetImage(hShape int, hImage int) int {
-	r, _, _ := xShapePic_SetImage.Call(uintptr(hShape), uintptr(hImage))
+func X形状图片_置图片(形状对象句柄 int, 图片句柄 int) int {
+	r, _, _ := xShapePic_SetImage.Call(uintptr(形状对象句柄), uintptr(图片句柄))
 	return int(r)
 }
 
 // XShapePic_GetImage 形状图片_取图片, 获取图片句柄.
 //
 // hShape: 形状对象句柄.
-func XShapePic_GetImage(hShape int) int {
-	r, _, _ := xShapePic_GetImage.Call(uintptr(hShape))
+func X形状图片_取图片(形状对象句柄 int) int {
+	r, _, _ := xShapePic_GetImage.Call(uintptr(形状对象句柄))
 	return int(r)
 }

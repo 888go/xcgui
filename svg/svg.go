@@ -1,4 +1,4 @@
-package svg
+package 炫彩SVG类
 
 import (
 	"github.com/888go/xcgui/objectbase"
@@ -7,42 +7,42 @@ import (
 
 // SVG矢量图形.
 type Svg struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // SVG_加载从文件, 返回Svg对象.
 //
 // pFileName: 文件名.
-func NewByFile(pFileName string) *Svg {
+func X创建并按文件(文件名 string) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadFile(pFileName))
+	p.X设置句柄(炫彩基类.XSVG_加载从文件(文件名))
 	return p
 }
 
 // SVG_加载从字符串, 返回Svg对象.
 //
 // pString: 字符串.
-func NewByString(pString string) *Svg {
+func X创建并按字符串(字符串 string) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadString(pString))
+	p.X设置句柄(炫彩基类.XSVG_加载从字符串(字符串))
 	return p
 }
 
 // SVG_加载从字符串W.
 //
 // pString: 字符串.
-func NewByStringW(pString string) *Svg {
+func X创建并按字符串W(字符串 string) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadStringW(pString))
+	p.X设置句柄(炫彩基类.XSVG_加载从字符串W(字符串))
 	return p
 }
 
 // SVG_加载从字符串UTF8.
 //
 // pString: 字符串.
-func NewByStringUtf8(pString string) *Svg {
+func X创建并按字符串UTF8(字符串 string) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadStringUtf8(pString))
+	p.X设置句柄(炫彩基类.XSVG_加载从字符串UTF8(字符串))
 	return p
 }
 
@@ -53,9 +53,9 @@ func NewByStringUtf8(pString string) *Svg {
 // pFileName: svg文件名.
 //
 // pPassword: zip密码.
-func NewByZip(pZipFileName, pFileName, pPassword string) *Svg {
+func X创建并按ZIP(zip文件名, svg文件名, zip密码 string) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadZip(pZipFileName, pFileName, pPassword))
+	p.X设置句柄(炫彩基类.XSVG_加载从ZIP(zip文件名, svg文件名, zip密码))
 	return p
 }
 
@@ -68,9 +68,9 @@ func NewByZip(pZipFileName, pFileName, pPassword string) *Svg {
 // pPassword: zip密码.
 //
 // hModule: 模块句柄, 可填0.
-func NewByZipRes(id int32, pFileName, pPassword string, hModule uintptr) *Svg {
+func X创建并按资源ZIP(资源ID int32, svg文件名, zip密码 string, 模块句柄 uintptr) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadZipRes(id, pFileName, pPassword, hModule))
+	p.X设置句柄(炫彩基类.XSVG_加载从资源ZIP(资源ID, svg文件名, zip密码, 模块句柄))
 	return p
 }
 
@@ -81,9 +81,9 @@ func NewByZipRes(id int32, pFileName, pPassword string, hModule uintptr) *Svg {
 // pFileName: svg文件名.
 //
 // pPassword: zip密码.
-func NewByZipMem(data []byte, pFileName, pPassword string) *Svg {
+func X创建并按内存ZIP(zip数据 []byte, svg文件名, zip密码 string) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadZipMem(data, pFileName, pPassword))
+	p.X设置句柄(炫彩基类.XSVG_加载从内存ZIP(zip数据, svg文件名, zip密码))
 	return p
 }
 
@@ -94,9 +94,9 @@ func NewByZipMem(data []byte, pFileName, pPassword string) *Svg {
 // pType: 资源类型.在rc资源文件中.
 //
 // hModule: 从指定模块加载.
-func NewByRes(id int32, pType string, hModule uintptr) *Svg {
+func X创建并按资源(资源ID int32, 资源类型 string, 从指定模块加载 uintptr) *Svg {
 	p := &Svg{}
-	p.SetHandle(xc.XSvg_LoadRes(id, pType, hModule))
+	p.X设置句柄(炫彩基类.XSVG_加载从资源(资源ID, 资源类型, 从指定模块加载))
 	return p
 }
 
@@ -105,8 +105,8 @@ func NewByRes(id int32, pType string, hModule uintptr) *Svg {
 // nWidth: 宽度.
 //
 // nHeight: 高度.
-func (s *Svg) SetSize(nWidth, nHeight int32) {
-	xc.XSvg_SetSize(s.Handle, nWidth, nHeight)
+func (s *Svg) X置大小(宽度, 高度 int32) {
+	炫彩基类.XSVG_置大小(s.Handle, 宽度, 高度)
 }
 
 // SVG_取大小.
@@ -114,18 +114,18 @@ func (s *Svg) SetSize(nWidth, nHeight int32) {
 // pWidth: 接收返回宽度.
 //
 // pHeight: 接收返回高度.
-func (s *Svg) GetSize(pWidth, pHeight *int32) {
-	xc.XSvg_GetSize(s.Handle, pWidth, pHeight)
+func (s *Svg) X取大小(接收返回宽度, 接收返回高度 *int32) {
+	炫彩基类.XSVG_取大小(s.Handle, 接收返回宽度, 接收返回高度)
 }
 
 // SVG_取宽度.
-func (s *Svg) GetWidth() int32 {
-	return xc.XSvg_GetWidth(s.Handle)
+func (s *Svg) X取宽度() int32 {
+	return 炫彩基类.XSVG_取宽度(s.Handle)
 }
 
 // SVG_取高度.
-func (s *Svg) GetHeight() int32 {
-	return xc.XSvg_GetHeight(s.Handle)
+func (s *Svg) X取高度() int32 {
+	return 炫彩基类.XSVG_取高度(s.Handle)
 }
 
 // SVG_置偏移.
@@ -133,8 +133,8 @@ func (s *Svg) GetHeight() int32 {
 // x: x轴偏移.
 //
 // y: y轴偏移.
-func (s *Svg) SetPosition(x, y int32) {
-	xc.XSvg_SetPosition(s.Handle, x, y)
+func (s *Svg) X置偏移(x轴偏移, y轴偏移 int32) {
+	炫彩基类.XSVG_置偏移(s.Handle, x轴偏移, y轴偏移)
 }
 
 // SVG_取偏移.
@@ -142,8 +142,8 @@ func (s *Svg) SetPosition(x, y int32) {
 // pX: x轴偏移.
 //
 // pY: y轴偏移.
-func (s *Svg) GetPosition(pX, pY *int32) {
-	xc.XSvg_GetPosition(s.Handle, pX, pY)
+func (s *Svg) X取偏移(x轴偏移, y轴偏移 *int32) {
+	炫彩基类.XSVG_取偏移(s.Handle, x轴偏移, y轴偏移)
 }
 
 // SVG_置偏移F.
@@ -151,8 +151,8 @@ func (s *Svg) GetPosition(pX, pY *int32) {
 // x: x轴偏移.
 //
 // y: y轴偏移.
-func (s *Svg) SetPositionF(x, y float32) {
-	xc.XSvg_SetPositionF(s.Handle, x, y)
+func (s *Svg) X置偏移F(x轴偏移, y轴偏移 float32) {
+	炫彩基类.XSVG_置偏移F(s.Handle, x轴偏移, y轴偏移)
 }
 
 // SVG_取偏移F.
@@ -160,54 +160,54 @@ func (s *Svg) SetPositionF(x, y float32) {
 // pX: x轴偏移.
 //
 // pY: y轴偏移.
-func (s *Svg) GetPositionF(pX, pY *float32) {
-	xc.XSvg_GetPositionF(s.Handle, pX, pY)
+func (s *Svg) X取偏移F(x轴偏移, y轴偏移 *float32) {
+	炫彩基类.XSVG_取偏移F(s.Handle, x轴偏移, y轴偏移)
 }
 
 // SVG_取视图框.
 //
 // pViewBox: 接收返回视图框.
-func (s *Svg) GetViewBox(pViewBox *xc.RECT) {
-	xc.XSvg_GetViewBox(s.Handle, pViewBox)
+func (s *Svg) X取视图框(接收返回视图框 *炫彩基类.RECT) {
+	炫彩基类.XSVG_取视图框(s.Handle, 接收返回视图框)
 }
 
 // SVG_启用自动销毁.
 //
 // bEnable: 是否自动销毁.
-func (s *Svg) EnableAutoDestroy(bEnable bool) {
-	xc.XSvg_EnableAutoDestroy(s.Handle, bEnable)
+func (s *Svg) X启用自动销毁(是否自动销毁 bool) {
+	炫彩基类.XSVG_启用自动销毁(s.Handle, 是否自动销毁)
 }
 
 // SVG_增加引用计数.
-func (s *Svg) AddRef() {
-	xc.XSvg_AddRef(s.Handle)
+func (s *Svg) X增加引用计数() {
+	炫彩基类.XSVG_增加引用计数(s.Handle)
 }
 
 // SVG_释放引用计数.
-func (s *Svg) Release() {
-	xc.XSvg_Release(s.Handle)
+func (s *Svg) X释放引用计数() {
+	炫彩基类.XSVG_释放引用计数(s.Handle)
 }
 
 // SVG_取引用计数.
-func (s *Svg) GetRefCount() int32 {
-	return xc.XSvg_GetRefCount(s.Handle)
+func (s *Svg) X取引用计数() int32 {
+	return 炫彩基类.XSVG_取引用计数(s.Handle)
 }
 
 // SVG_销毁.
-func (s *Svg) Destroy() {
-	xc.XSvg_Destroy(s.Handle)
+func (s *Svg) X销毁() {
+	炫彩基类.XSVG_销毁(s.Handle)
 }
 
 // SVG_置透明度.
 //
 // alpha: 透明度.
-func (s *Svg) SetAlpha(alpha byte) {
-	xc.XSvg_SetAlpha(s.Handle, alpha)
+func (s *Svg) X置透明度(透明度 byte) {
+	炫彩基类.XSVG_置透明度(s.Handle, 透明度)
 }
 
 // SVG_取透明度, 返回透明度.
-func (s *Svg) GetAlpha() byte {
-	return xc.XSvg_GetAlpha(s.Handle)
+func (s *Svg) X取透明度() byte {
+	return 炫彩基类.XSVG_取透明度(s.Handle)
 }
 
 // SVG_置用户填充颜色, 用户颜色将覆盖默认样式.
@@ -215,8 +215,8 @@ func (s *Svg) GetAlpha() byte {
 // color: 颜色, AGBR颜色.
 //
 // bEnable: 是否有效.
-func (s *Svg) SetUserFillColor(color int, bEnable bool) {
-	xc.XSvg_SetUserFillColor(s.Handle, color, bEnable)
+func (s *Svg) X置用户填充颜色(颜色 int, 是否有效 bool) {
+	炫彩基类.XSVG_置用户填充颜色(s.Handle, 颜色, 是否有效)
 }
 
 // SVG_置用户笔触颜色, 用户颜色将覆盖默认样式.
@@ -226,15 +226,15 @@ func (s *Svg) SetUserFillColor(color int, bEnable bool) {
 // strokeWidth: 笔触宽度.
 //
 // bEnable: 是否有效.
-func (s *Svg) SetUserStrokeColor(color int, strokeWidth float32, bEnable bool) {
-	xc.XSvg_SetUserStrokeColor(s.Handle, color, strokeWidth, bEnable)
+func (s *Svg) X置用户笔触颜色(颜色 int, 笔触宽度 float32, 是否有效 bool) {
+	炫彩基类.XSVG_置用户笔触颜色(s.Handle, 颜色, 笔触宽度, 是否有效)
 }
 
 // SVG_取用户填充颜色.
 //
 // pColor: 返回颜色值, AGBR颜色.
-func (s *Svg) GetUserFillColor(pColor *int) bool {
-	return xc.XSvg_GetUserFillColor(s.Handle, pColor)
+func (s *Svg) X取用户填充颜色(返回颜色值 *int) bool {
+	return 炫彩基类.XSVG_取用户填充颜色(s.Handle, 返回颜色值)
 }
 
 // SVG_取用户笔触颜色.
@@ -242,20 +242,20 @@ func (s *Svg) GetUserFillColor(pColor *int) bool {
 // pColor: 返回颜色值, AGBR颜色.
 //
 // pStrokeWidth: .
-func (s *Svg) GetUserStrokeColor(pColor *int, pStrokeWidth *float32) bool {
-	return xc.XSvg_GetUserStrokeColor(s.Handle, pColor, pStrokeWidth)
+func (s *Svg) X取用户笔触颜色(返回颜色值 *int, pStrokeWidth *float32) bool {
+	return 炫彩基类.XSVG_取用户笔触颜色(s.Handle, 返回颜色值, pStrokeWidth)
 }
 
 // SVG_置旋转角度, 默认以自身中心点旋转.
 //
 // angle: 转角度.
-func (s *Svg) SetRotateAngle(angle float32) {
-	xc.XSvg_SetRotateAngle(s.Handle, angle)
+func (s *Svg) X置旋转角度(转角度 float32) {
+	炫彩基类.XSVG_置旋转角度(s.Handle, 转角度)
 }
 
 // SVG_取旋转角度, 返回旋转角度.
-func (s *Svg) GetRotateAngle() float32 {
-	return xc.XSvg_GetRotateAngle(s.Handle)
+func (s *Svg) X取旋转角度() float32 {
+	return 炫彩基类.XSVG_取旋转角度(s.Handle)
 }
 
 // SVG_置旋转.
@@ -267,8 +267,8 @@ func (s *Svg) GetRotateAngle() float32 {
 // y: 旋转中心点Y.
 //
 // bOffset: TRUE: 旋转中心点相对于自身中心偏移, FALSE:使用绝对坐标.
-func (s *Svg) SetRotate(angle float32, x float32, y float32, bOffset bool) {
-	xc.XSvg_SetRotate(s.Handle, angle, x, y, bOffset)
+func (s *Svg) X置旋转(角度 float32, 旋转中心点X float32, 旋转中心点Y float32, 偏移方式 bool) {
+	炫彩基类.XSVG_置旋转(s.Handle, 角度, 旋转中心点X, 旋转中心点Y, 偏移方式)
 }
 
 // SVG_取旋转.
@@ -280,13 +280,13 @@ func (s *Svg) SetRotate(angle float32, x float32, y float32, bOffset bool) {
 // pY: 返回 旋转中心点Y.
 //
 // pbOffset: 返回TRUE: 旋转中心点相对于自身中心偏移, FALSE:使用绝对坐标.
-func (s *Svg) GetRotate(pAngle *float32, pX *float32, pY *float32, pbOffset *bool) {
-	xc.XSvg_GetRotate(s.Handle, pAngle, pX, pY, pbOffset)
+func (s *Svg) X取旋转(返回角度 *float32, 返回x *float32, 返回y *float32, 返回偏移方式 *bool) {
+	炫彩基类.XSVG_取旋转(s.Handle, 返回角度, 返回x, 返回y, 返回偏移方式)
 }
 
 // SVG_显示, 显示或隐藏.
 //
 // bShow: 是否显示.
-func (s *Svg) Show(bShow bool) {
-	xc.XSvg_Show(s.Handle, bShow)
+func (s *Svg) X显示(是否显示 bool) {
+	炫彩基类.XSVG_显示(s.Handle, 是否显示)
 }

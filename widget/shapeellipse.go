@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -20,47 +20,47 @@ type ShapeEllipse struct {
 // cy: 高度.
 //
 // hParent: 父对象句柄.
-func NewShapeEllipse(x int, y int, cx int, cy int, hParent int) *ShapeEllipse {
+func X创建形状圆(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 父对象句柄 int) *ShapeEllipse {
 	p := &ShapeEllipse{}
-	p.SetHandle(xc.XShapeEllipse_Create(x, y, cx, cy, hParent))
+	p.X设置句柄(炫彩基类.X形状圆_创建(X坐标, Y坐标, 宽度, 高度, 父对象句柄))
 	return p
 }
 
 // 从句柄创建对象.
-func NewShapeEllipseByHandle(handle int) *ShapeEllipse {
+func X创建形状圆并按句柄(handle int) *ShapeEllipse {
 	p := &ShapeEllipse{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func NewShapeEllipseByName(name string) *ShapeEllipse {
-	handle := xc.XC_GetObjectByName(name)
+func X创建形状圆并按名称(name string) *ShapeEllipse {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &ShapeEllipse{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func NewShapeEllipseByUID(nUID int) *ShapeEllipse {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建形状圆并按UID(nUID int) *ShapeEllipse {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &ShapeEllipse{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func NewShapeEllipseByUIDName(name string) *ShapeEllipse {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建形状圆并按UID名称(name string) *ShapeEllipse {
+	handle := 炫彩基类.X取对象从UID名称(name)
 	if handle > 0 {
 		p := &ShapeEllipse{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -69,27 +69,27 @@ func NewShapeEllipseByUIDName(name string) *ShapeEllipse {
 // 形状圆_置边框色.
 //
 // color: ABGR 颜色值.
-func (s *ShapeEllipse) SetBorderColor(color int) int {
-	return xc.XShapeEllipse_SetBorderColor(s.Handle, color)
+func (s *ShapeEllipse) X置边框色(ABGR颜色值 int) int {
+	return 炫彩基类.X形状圆_置边框色(s.Handle, ABGR颜色值)
 }
 
 // 形状圆_置填充色.
 //
 // color: ABGR 颜色值.
-func (s *ShapeEllipse) SetFillColor(color int) int {
-	return xc.XShapeEllipse_SetFillColor(s.Handle, color)
+func (s *ShapeEllipse) X置填充色(ABGR颜色值 int) int {
+	return 炫彩基类.X形状圆_置填充色(s.Handle, ABGR颜色值)
 }
 
 // 形状圆_启用边框, 启用绘制圆边框.
 //
 // bEnable: 是否启用.
-func (s *ShapeEllipse) EnableBorder(bEnable bool) int {
-	return xc.XShapeEllipse_EnableBorder(s.Handle, bEnable)
+func (s *ShapeEllipse) X启用边框(是否启用 bool) int {
+	return 炫彩基类.X形状圆_启用边框(s.Handle, 是否启用)
 }
 
 // 形状圆_启用填充, 启用填充圆.
 //
 // bEnable: 是否启用.
-func (s *ShapeEllipse) EnableFill(bEnable bool) int {
-	return xc.XShapeEllipse_EnableFill(s.Handle, bEnable)
+func (s *ShapeEllipse) X启用填充(是否启用 bool) int {
+	return 炫彩基类.X形状圆_启用填充(s.Handle, 是否启用)
 }

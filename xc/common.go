@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/xcc"
@@ -173,24 +173,24 @@ func HexRGB2RGB(str string) int {
 //	@param HXCGUI 炫彩窗口句柄或布局元素句柄.
 //	@param onBnClick 按钮单击事件回调函数.
 func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
-	if XC_IsHWINDOW(HXCGUI) {
-		for i := 0; i < XWnd_GetChildCount(HXCGUI); i++ {
-			hEle := XWnd_GetChildByIndex(HXCGUI, i)
-			switch XC_GetObjectType(hEle) {
-			case xcc.XC_ELE_LAYOUT:
+	if X判断窗口(HXCGUI) {
+		for i := 0; i < X窗口_取子对象数量(HXCGUI); i++ {
+			hEle := X窗口_取子对象从索引(HXCGUI, i)
+			switch X取对象类型(hEle) {
+			case 炫彩常量类.XC_ELE_LAYOUT:
 				SetBnClicks(hEle, onBnClick)
-			case xcc.XC_BUTTON:
-				XEle_RegEventC1(hEle, xcc.XE_BNCLICK, onBnClick)
+			case 炫彩常量类.XC_BUTTON:
+				X元素_注册事件C1(hEle, 炫彩常量类.XE_BNCLICK, onBnClick)
 			}
 		}
-	} else if XC_GetObjectType(HXCGUI) == xcc.XC_ELE_LAYOUT {
-		for i := 0; i < XEle_GetChildCount(HXCGUI); i++ {
-			hEle := XEle_GetChildByIndex(HXCGUI, i)
-			switch XC_GetObjectType(hEle) {
-			case xcc.XC_ELE_LAYOUT:
+	} else if X取对象类型(HXCGUI) == 炫彩常量类.XC_ELE_LAYOUT {
+		for i := 0; i < X元素_取子对象数量(HXCGUI); i++ {
+			hEle := X元素_取子对象从索引(HXCGUI, i)
+			switch X取对象类型(hEle) {
+			case 炫彩常量类.XC_ELE_LAYOUT:
 				SetBnClicks(hEle, onBnClick)
-			case xcc.XC_BUTTON:
-				XEle_RegEventC1(hEle, xcc.XE_BNCLICK, onBnClick)
+			case 炫彩常量类.XC_BUTTON:
+				X元素_注册事件C1(hEle, 炫彩常量类.XE_BNCLICK, onBnClick)
 			}
 		}
 	}
@@ -200,5 +200,5 @@ func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
 //
 // !已废弃, 请使用 xc.XWnd_ClientToScreen 或 wapi.ClientToScreen
 func ClientToScreen(hWindow int, pPoint *POINT) {
-	XWnd_ClientToScreen(hWindow, pPoint)
+	X窗口_客户区坐标点到屏幕坐标点(hWindow, pPoint)
 }

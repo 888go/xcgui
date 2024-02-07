@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -16,8 +16,8 @@ import (
 // hWndParent: 父窗口句柄.
 //
 // XCStyle: 炫彩窗口样式: Window_Style_.
-func XModalWnd_Create(nWidth, nHeight int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) int {
-	r, _, _ := xModalWnd_Create.Call(uintptr(nWidth), uintptr(nHeight), common.StrPtr(pTitle), hWndParent, uintptr(XCStyle))
+func X模态窗口_创建(宽度, 高度 int32, 标题内容 string, 父窗口句柄 uintptr, 炫彩窗口样式 炫彩常量类.Window_Style_) int {
+	r, _, _ := xModalWnd_Create.Call(uintptr(宽度), uintptr(高度), 炫彩工具类.StrPtr(标题内容), 父窗口句柄, uintptr(炫彩窗口样式))
 	return int(r)
 }
 
@@ -42,8 +42,8 @@ func XModalWnd_Create(nWidth, nHeight int32, pTitle string, hWndParent uintptr, 
 // hWndParent: 父窗口.
 //
 // XCStyle: GUI库窗口样式: Window_Style_.
-func XModalWnd_CreateEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) int {
-	r, _, _ := xModalWnd_CreateEx.Call(uintptr(dwExStyle), uintptr(dwStyle), common.StrPtr(lpClassName), uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pTitle), hWndParent, uintptr(XCStyle))
+func X模态窗口_创建EX(扩展样式 int, 样式 int, 类名 string, 左上角x坐标, 左上角y坐标, 宽度, 高度 int32, 窗口名 string, 父窗口 uintptr, GUI库窗口样式 炫彩常量类.Window_Style_) int {
+	r, _, _ := xModalWnd_CreateEx.Call(uintptr(扩展样式), uintptr(样式), 炫彩工具类.StrPtr(类名), uintptr(左上角x坐标), uintptr(左上角y坐标), uintptr(宽度), uintptr(高度), 炫彩工具类.StrPtr(窗口名), 父窗口, uintptr(GUI库窗口样式))
 	return int(r)
 }
 
@@ -52,8 +52,8 @@ func XModalWnd_CreateEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx
 // hWindow: 模态窗口句柄.
 //
 // bEnable: 开启开关.
-func XModalWnd_EnableAutoClose(hWindow int, bEnable bool) int {
-	r, _, _ := xModalWnd_EnableAutoClose.Call(uintptr(hWindow), common.BoolPtr(bEnable))
+func X模态窗口_启用自动关闭(模态窗口句柄 int, 开启开关 bool) int {
+	r, _, _ := xModalWnd_EnableAutoClose.Call(uintptr(模态窗口句柄), 炫彩工具类.BoolPtr(开启开关))
 	return int(r)
 }
 
@@ -62,17 +62,17 @@ func XModalWnd_EnableAutoClose(hWindow int, bEnable bool) int {
 // hWindow: 模态窗口句柄.
 //
 // bEnable: 是否启用.
-func XModalWnd_EnableEscClose(hWindow int, bEnable bool) int {
-	r, _, _ := xModalWnd_EnableEscClose.Call(uintptr(hWindow), common.BoolPtr(bEnable))
+func X模态窗口_启用ESC关闭(模态窗口句柄 int, 是否启用 bool) int {
+	r, _, _ := xModalWnd_EnableEscClose.Call(uintptr(模态窗口句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
 // 模态窗口_启动, 启动显示模态窗口, 当窗口关闭时返回: MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
 //
 // hWindow: 模态窗口句柄.
-func XModalWnd_DoModal(hWindow int) xcc.MessageBox_Flag_ {
-	r, _, _ := xModalWnd_DoModal.Call(uintptr(hWindow))
-	return xcc.MessageBox_Flag_(r)
+func X模态窗口_启动(模态窗口句柄 int) 炫彩常量类.MessageBox_Flag_ {
+	r, _, _ := xModalWnd_DoModal.Call(uintptr(模态窗口句柄))
+	return 炫彩常量类.MessageBox_Flag_(r)
 }
 
 // 模态窗口_结束, 结束模态窗口.
@@ -80,8 +80,8 @@ func XModalWnd_DoModal(hWindow int) xcc.MessageBox_Flag_ {
 // hWindow: 窗口句柄.
 //
 // nResult: 用作XModalWnd_DoModal()的返回值. MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
-func XModalWnd_EndModal(hWindow int, nResult xcc.MessageBox_Flag_) int {
-	r, _, _ := xModalWnd_EndModal.Call(uintptr(hWindow), uintptr(nResult))
+func X模态窗口_结束(窗口句柄 int, 用作XModalWnd_DoModal 炫彩常量类.MessageBox_Flag_) int {
+	r, _, _ := xModalWnd_EndModal.Call(uintptr(窗口句柄), uintptr(用作XModalWnd_DoModal))
 	return int(r)
 }
 
@@ -90,7 +90,7 @@ func XModalWnd_EndModal(hWindow int, nResult xcc.MessageBox_Flag_) int {
 // hWnd: 要附加的外部窗口句柄.
 //
 // XCStyle: 炫彩窗口样式: Window_Style_.
-func XModalWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) int {
-	r, _, _ := xModalWnd_Attach.Call(hWnd, uintptr(XCStyle))
+func X模态窗口_附加窗口(外部窗口句柄 uintptr, 炫彩窗口样式 炫彩常量类.Window_Style_) int {
+	r, _, _ := xModalWnd_Attach.Call(外部窗口句柄, uintptr(炫彩窗口样式))
 	return int(r)
 }

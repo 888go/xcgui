@@ -1819,7 +1819,7 @@ func XDraw_ImageSuperMask(hDraw int, hImageFrame int, hImageFrameMask int, pRect
 
 # <翻译开始>
 func XDraw_ImageSuperMask(hDraw int, hImageFrame int, hImageFrameMask int, pRect *RECT, pRectMask
-坐标
+遮盖坐标
 # <翻译结束>
 
 # <翻译开始>
@@ -1902,22 +1902,22 @@ X绘制_图片平铺F
 
 # <翻译开始>
 func XDraw_ImageMask(hDraw int, hImageFrame int, hImageFrameMask int, x int, y int, x2 int, y2
-hImageFrameMask
+坐标y2
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_ImageMask(hDraw int, hImageFrame int, hImageFrameMask int, x int, y int, x2
-hImageFrameMask
+坐标x2
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_ImageMask(hDraw int, hImageFrame int, hImageFrameMask int, x int, y
-hImageFrame
+坐标y
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_ImageMask(hDraw int, hImageFrame int, hImageFrameMask int, x
-hImageFrame
+坐标x
 # <翻译结束>
 
 # <翻译开始>

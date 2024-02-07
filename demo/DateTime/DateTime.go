@@ -11,20 +11,20 @@ import (
 )
 
 func main() {
-	a := app.New(true)
-	a.EnableDPI(true)
-	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 400, 300, "日期时间框", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.X创建(true)
+	a.X启用DPI(true)
+	a.X启用自动DPI(true)
+	w := 炫彩窗口基类.X创建窗口(0, 0, 400, 300, "日期时间框", 0, 炫彩常量类.Window_Style_Default)
 
-	dt := widget.NewDateTime(20, 50, 120, 26, w.Handle)
+	dt := 炫彩组件类.X创建日期(20, 50, 120, 26, w.Handle)
 	// 0为日期元素, 1为时间元素.
-	dt.SetStyle(0)
+	dt.X置样式(0)
 
-	dt2 := widget.NewDateTime(200, 50, 120, 26, w.Handle)
+	dt2 := 炫彩组件类.X创建日期(200, 50, 120, 26, w.Handle)
 	// 0为日期元素, 1为时间元素.
-	dt2.SetStyle(1)
+	dt2.X置样式(1)
 
-	w.ShowWindow(xcc.SW_SHOW)
-	a.Run()
-	a.Exit()
+	w.X显示方式(炫彩常量类.SW_SHOW)
+	a.X运行()
+	a.X退出()
 }

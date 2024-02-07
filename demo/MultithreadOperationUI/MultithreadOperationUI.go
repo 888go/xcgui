@@ -16,10 +16,10 @@ import (
 )
 
 var (
-	a   *app.App
-	w   *window.Window
-	btn *widget.Button
-	ls  *widget.List
+	a   *炫彩App类.App
+	w   *炫彩窗口基类.Window
+	btn *炫彩组件类.Button
+	ls  *炫彩组件类.List
 
 	rwm sync.RWMutex
 	wg  sync.WaitGroup
@@ -29,44 +29,44 @@ var (
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	a = app.New(true)
-	a.EnableDPI(true)
-	a.EnableAutoDPI(true)
-	w = window.New(0, 0, 550, 300, "MultithreadOperationUI", 0, xcc.Window_Style_Default)
+	a = 炫彩App类.X创建(true)
+	a.X启用DPI(true)
+	a.X启用自动DPI(true)
+	w = 炫彩窗口基类.X创建窗口(0, 0, 550, 300, "MultithreadOperationUI", 0, 炫彩常量类.Window_Style_Default)
 	// 创建按钮
-	btn = widget.NewButton(15, 33, 70, 24, "click", w.Handle)
-	btn.Event_BnClick(onBnClick)
+	btn = 炫彩组件类.X创建按钮(15, 33, 70, 24, "click", w.Handle)
+	btn.X事件_被单击(onBnClick)
 	// 创建列表
-	ls = widget.NewList(10, 60, 530, 230, w.Handle)
-	ls.CreateAdapterHeader() // 创建表头数据适配器
-	ls.CreateAdapter(5)      // 创建数据适配器, 5列
+	ls = 炫彩组件类.X创建列表(10, 60, 530, 230, w.Handle)
+	ls.X创建列表头数据适配器() // 创建表头数据适配器
+	ls.X创建数据适配器(5)      // 创建数据适配器, 5列
 	// 添加列
-	ls.AddColumnText(100, "name1", "column1")
-	ls.AddColumnText(100, "name2", "column2")
-	ls.AddColumnText(100, "name3", "column3")
-	ls.AddColumnText(100, "name4", "column4")
-	ls.AddColumnText(100, "name5", "column5")
+	ls.X添加列文本(100, "name1", "column1")
+	ls.X添加列文本(100, "name2", "column2")
+	ls.X添加列文本(100, "name3", "column3")
+	ls.X添加列文本(100, "name4", "column4")
+	ls.X添加列文本(100, "name5", "column5")
 	// 置列表数据
 	for i := 1; i < 10; i++ {
 		id := strconv.Itoa(i)
-		index := ls.AddItemText("item" + id + "-column" + id)
-		ls.SetItemText(index, 1, "item"+id+"-column"+id)
-		ls.SetItemText(index, 2, "item"+id+"-column"+id)
-		ls.SetItemText(index, 3, "item"+id+"-column"+id)
-		ls.SetItemText(index, 4, "item"+id+"-column"+id)
+		index := ls.X添加项文本("item" + id + "-column" + id)
+		ls.X置项文本(index, 1, "item"+id+"-column"+id)
+		ls.X置项文本(index, 2, "item"+id+"-column"+id)
+		ls.X置项文本(index, 3, "item"+id+"-column"+id)
+		ls.X置项文本(index, 4, "item"+id+"-column"+id)
 	}
 
-	a.ShowAndRun(w.Handle)
-	a.Exit()
+	a.X显示窗口并运行(w.Handle)
+	a.X退出()
 }
 
 // 按钮单击事件
 func onBnClick(pbHandled *bool) int {
-	if !btn.IsEnable() {
+	if !btn.X判断启用() {
 		return 0
 	}
-	btn.Enable(false)
-	btn.Redraw(false)
+	btn.X启用(false)
+	btn.X重绘(false)
 
 	go func() {
 		t = time.Now() // 记录开始的时间
@@ -81,7 +81,7 @@ func onBnClick(pbHandled *bool) int {
 			// 一个是在事件回调函数内, 例如: onBnClick. 这些回调函数都是在UI线程内执行的, 也就是消息循环内.
 			// 另一个就是 炫彩_调用界面线程 相关函数: a.CallUiThreadEx(), a.CallUT(), a.CallUiThreader().
 			go func() {
-				a.CallUiThreadEx(setText, 0) // 这样是在UI线程进行UI操作, 就不会崩溃了
+				a.X调用界面线程EX(setText, 0) // 这样是在UI线程进行UI操作, 就不会崩溃了
 			}()
 
 			wg.Done()
@@ -89,25 +89,25 @@ func onBnClick(pbHandled *bool) int {
 		wg.Wait()
 
 		// 如果不需要传参数进回调函数, 也不需要返回值时可以调用CallUT(), 回调函数写法能简单些.
-		a.CallUT(func() {
-			ls.RefreshData() // 刷新列表项数据, 不刷新的话修改的数据不会立即显示的
-			ls.Redraw(false) // 列表重绘
+		a.X简易调用界面线程(func() {
+			ls.X刷新项数据() // 刷新列表项数据, 不刷新的话修改的数据不会立即显示的
+			ls.X重绘(false) // 列表重绘
 
-			btn.Enable(true)
-			btn.Redraw(false)
-			w.MessageBox("提示", fmt.Sprintf("全部执行完毕, 耗时: %v", time.Since(t)), xcc.MessageBox_Flag_Ok, xcc.Window_Style_Default)
+			btn.X启用(true)
+			btn.X重绘(false)
+			w.X消息框("提示", fmt.Sprintf("全部执行完毕, 耗时: %v", time.Since(t)), 炫彩常量类.MessageBox_Flag_Ok, 炫彩常量类.Window_Style_Default)
 		})
 	}()
 	return 0
 }
 
 func setText(data int) int {
-	item := rand.Intn(ls.GetCount_AD())
-	col := rand.Intn(ls.GetColumnCount())
+	item := rand.Intn(ls.X取项数量AD())
+	col := rand.Intn(ls.X取列数量())
 	text := strconv.Itoa(rand.Intn(1000) + 1000)
 
 	rwm.RLock()
-	ls.SetItemText(item, col, text)
+	ls.X置项文本(item, col, text)
 	rwm.RUnlock()
 	return 0
 }

@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -23,47 +23,47 @@ type ShapeText struct {
 // pName: 文本内容.
 //
 // hParent: 父对象句柄.
-func NewShapeText(x, y, cx, cy int32, pName string, hParent int) *ShapeText {
+func X创建形状文本(X坐标, Y坐标, 宽度, 高度 int32, 文本内容 string, 父对象句柄 int) *ShapeText {
 	p := &ShapeText{}
-	p.SetHandle(xc.XShapeText_Create(x, y, cx, cy, pName, hParent))
+	p.X设置句柄(炫彩基类.X形状文本_创建(X坐标, Y坐标, 宽度, 高度, 文本内容, 父对象句柄))
 	return p
 }
 
 // 从句柄创建对象.
-func NewShapeTextByHandle(handle int) *ShapeText {
+func X创建形状文本并按句柄(handle int) *ShapeText {
 	p := &ShapeText{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func NewShapeTextByName(name string) *ShapeText {
-	handle := xc.XC_GetObjectByName(name)
+func X创建形状文本并按名称(name string) *ShapeText {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &ShapeText{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func NewShapeTextByUID(nUID int) *ShapeText {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建形状文本并按UID(nUID int) *ShapeText {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &ShapeText{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func NewShapeTextByUIDName(name string) *ShapeText {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建形状文本并按UID名称(name string) *ShapeText {
+	handle := 炫彩基类.X取对象从UID名称(name)
 	if handle > 0 {
 		p := &ShapeText{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -72,49 +72,49 @@ func NewShapeTextByUIDName(name string) *ShapeText {
 // 形状文本_置文本, 设置文本内容.
 //
 // pName: 文本内容.
-func (s *ShapeText) SetText(pName string) int {
-	return xc.XShapeText_SetText(s.Handle, pName)
+func (s *ShapeText) X置文本(文本内容 string) int {
+	return 炫彩基类.X形状文本_置文本(s.Handle, 文本内容)
 }
 
 // 形状文本_取文本, 获取文本内容.
-func (s *ShapeText) GetText() string {
-	return xc.XShapeText_GetText(s.Handle)
+func (s *ShapeText) X取文本() string {
+	return 炫彩基类.X形状文本_取文本(s.Handle)
 }
 
 // 形状文本_取文本长度, 获取文本长度.
-func (s *ShapeText) GetTextLength() int {
-	return xc.XShapeText_GetTextLength(s.Handle)
+func (s *ShapeText) X取文本长度() int {
+	return 炫彩基类.X形状文本_取文本长度(s.Handle)
 }
 
 // 形状文本_置字体.
 //
 // hFontx: 字体句柄.
-func (s *ShapeText) SetFont(hFontx int) int {
-	return xc.XShapeText_SetFont(s.Handle, hFontx)
+func (s *ShapeText) X置字体(字体句柄 int) int {
+	return 炫彩基类.X形状文本_置字体(s.Handle, 字体句柄)
 }
 
 // 形状文本_取字体, 返回字体句柄.
-func (s *ShapeText) GetFont() int {
-	return xc.XShapeText_GetFont(s.Handle)
+func (s *ShapeText) X取字体() int {
+	return 炫彩基类.X形状文本_取字体(s.Handle)
 }
 
 // 形状文本_置文本颜色, 设置文本颜色.
 //
 // color: ABGR 颜色值.
-func (s *ShapeText) SetTextColor(color int) int {
-	return xc.XShapeText_SetTextColor(s.Handle, color)
+func (s *ShapeText) X置文本颜色(ABGR颜色值 int) int {
+	return 炫彩基类.X形状文本_置文本颜色(s.Handle, ABGR颜色值)
 }
 
 // 形状文本_取文本颜色.
-func (s *ShapeText) GetTextColor() int {
-	return xc.XShapeText_GetTextColor(s.Handle)
+func (s *ShapeText) X取文本颜色() int {
+	return 炫彩基类.X形状文本_取文本颜色(s.Handle)
 }
 
 // 形状文本_置文本对齐.
 //
 // align: 文本对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
-func (s *ShapeText) SetTextAlign(align xcc.TextFormatFlag_) int {
-	return xc.XShapeText_SetTextAlign(s.Handle, align)
+func (s *ShapeText) X置文本对齐(文本对齐方式 炫彩常量类.TextFormatFlag_) int {
+	return 炫彩基类.X形状文本_置文本对齐(s.Handle, 文本对齐方式)
 }
 
 // 形状文本_置偏移, 设置内容偏移.
@@ -122,6 +122,6 @@ func (s *ShapeText) SetTextAlign(align xcc.TextFormatFlag_) int {
 // x: X坐标.
 //
 // y: Y坐标.
-func (s *ShapeText) SetOffset(x int, y int) int {
-	return xc.XShapeText_SetOffset(s.Handle, x, y)
+func (s *ShapeText) X置偏移(X坐标 int, Y坐标 int) int {
+	return 炫彩基类.X形状文本_置偏移(s.Handle, X坐标, Y坐标)
 }

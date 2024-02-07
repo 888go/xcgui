@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -16,8 +16,8 @@ import (
 // nHeight: 高度.
 //
 // hFrameWnd: 框架窗口.
-func XPane_Create(pName string, nWidth int, nHeight int, hFrameWnd int) int {
-	r, _, _ := xPane_Create.Call(common.StrPtr(pName), uintptr(nWidth), uintptr(nHeight), uintptr(hFrameWnd))
+func X窗格_创建(窗格标题 string, 宽度 int, 高度 int, 框架窗口 int) int {
+	r, _, _ := xPane_Create.Call(炫彩工具类.StrPtr(窗格标题), uintptr(宽度), uintptr(高度), uintptr(框架窗口))
 	return int(r)
 }
 
@@ -26,8 +26,8 @@ func XPane_Create(pName string, nWidth int, nHeight int, hFrameWnd int) int {
 // hEle: 元素句柄.
 //
 // hView: 绑定视图元素.
-func XPane_SetView(hEle int, hView int) int {
-	r, _, _ := xPane_SetView.Call(uintptr(hEle), uintptr(hView))
+func X窗格_置视图(元素句柄 int, 绑定视图元素 int) int {
+	r, _, _ := xPane_SetView.Call(uintptr(元素句柄), uintptr(绑定视图元素))
 	return int(r)
 }
 
@@ -36,17 +36,17 @@ func XPane_SetView(hEle int, hView int) int {
 // hEle: 元素句柄.
 //
 // pTitle: 文本内容.
-func XPane_SetTitle(hEle int, pTitle string) int {
-	r, _, _ := xPane_SetTitle.Call(uintptr(hEle), common.StrPtr(pTitle))
+func X窗格_置标题(元素句柄 int, 文本内容 string) int {
+	r, _, _ := xPane_SetTitle.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(文本内容))
 	return int(r)
 }
 
 // 窗格_取标题, 获取标题文本.
 //
 // hEle: 元素句柄.
-func XPane_GetTitle(hEle int) string {
-	r, _, _ := xPane_GetTitle.Call(uintptr(hEle))
-	return common.UintPtrToString(r)
+func X窗格_取标题(元素句柄 int) string {
+	r, _, _ := xPane_GetTitle.Call(uintptr(元素句柄))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 窗格_置标题栏高度, 设置标题栏高度.
@@ -54,24 +54,24 @@ func XPane_GetTitle(hEle int) string {
 // hEle: 元素句柄.
 //
 // nHeight: 高度.
-func XPane_SetCaptionHeight(hEle int, nHeight int) int {
-	r, _, _ := xPane_SetCaptionHeight.Call(uintptr(hEle), uintptr(nHeight))
+func X窗格_置标题栏高度(元素句柄 int, 高度 int) int {
+	r, _, _ := xPane_SetCaptionHeight.Call(uintptr(元素句柄), uintptr(高度))
 	return int(r)
 }
 
 // 窗格_取标题栏高度, 获取标题栏高度.
 //
 // hEle: 元素句柄.
-func XPane_GetCaptionHeight(hEle int) int {
-	r, _, _ := xPane_GetCaptionHeight.Call(uintptr(hEle))
+func X窗格_取标题栏高度(元素句柄 int) int {
+	r, _, _ := xPane_GetCaptionHeight.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 窗格_判断显示, 判断窗格是否显示.
 //
 // hEle: 元素句柄.
-func XPane_IsShowPane(hEle int) bool {
-	r, _, _ := xPane_IsShowPane.Call(uintptr(hEle))
+func X窗格_判断显示(元素句柄 int) bool {
+	r, _, _ := xPane_IsShowPane.Call(uintptr(元素句柄))
 	return r != 0
 }
 
@@ -82,17 +82,17 @@ func XPane_IsShowPane(hEle int) bool {
 // nWidth: 宽度.
 //
 // nHeight: 高度.
-func XPane_SetSize(hEle int, nWidth int, nHeight int) int {
-	r, _, _ := xPane_SetSize.Call(uintptr(hEle), uintptr(nWidth), uintptr(nHeight))
+func X窗格_置大小(元素句柄 int, 宽度 int, 高度 int) int {
+	r, _, _ := xPane_SetSize.Call(uintptr(元素句柄), uintptr(宽度), uintptr(高度))
 	return int(r)
 }
 
 // 窗格_取状态, 获取窗格停靠状态, 返回: Pane_State_.
 //
 // hEle: 元素句柄.
-func XPane_GetState(hEle int) xcc.Pane_State_ {
-	r, _, _ := xPane_GetState.Call(uintptr(hEle))
-	return xcc.Pane_State_(r)
+func X窗格_取状态(元素句柄 int) 炫彩常量类.Pane_State_ {
+	r, _, _ := xPane_GetState.Call(uintptr(元素句柄))
+	return 炫彩常量类.Pane_State_(r)
 }
 
 // 窗格_取视图坐标, 获取窗格视图坐标.
@@ -100,8 +100,8 @@ func XPane_GetState(hEle int) xcc.Pane_State_ {
 // hEle: 元素句柄.
 //
 // pRect: 接收返回的坐标值.
-func XPane_GetViewRect(hEle int, pRect *RECT) int {
-	r, _, _ := xPane_GetViewRect.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)))
+func X窗格_取视图坐标(元素句柄 int, 接收返回坐标 *RECT) int {
+	r, _, _ := xPane_GetViewRect.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(接收返回坐标)))
 	return int(r)
 }
 
@@ -110,8 +110,8 @@ func XPane_GetViewRect(hEle int, pRect *RECT) int {
 //	@param hEle 元素句柄.
 //	@param bGroupActivate 当为窗格组成员时, 延迟处理窗格组成员激活的切换.
 //	@return int
-func XPane_HidePane(hEle int, bGroupActivate bool) int {
-	r, _, _ := xPane_HidePane.Call(uintptr(hEle), common.BoolPtr(bGroupActivate))
+func X窗格_隐藏(元素句柄 int, 延迟组成员激活 bool) int {
+	r, _, _ := xPane_HidePane.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(延迟组成员激活))
 	return int(r)
 }
 
@@ -120,32 +120,32 @@ func XPane_HidePane(hEle int, bGroupActivate bool) int {
 //	@param hEle 元素句柄.
 //	@param bGroupActivate 如果是窗格组成员, 那么窗格组切换当前窗格为显示状态.
 //	@return int
-func XPane_ShowPane(hEle int, bGroupActivate bool) int {
-	r, _, _ := xPane_ShowPane.Call(uintptr(hEle), common.BoolPtr(bGroupActivate))
+func X窗格_显示(元素句柄 int, 延迟组成员激活 bool) int {
+	r, _, _ := xPane_ShowPane.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(延迟组成员激活))
 	return int(r)
 }
 
 // 窗格_停靠, 窗格停靠到码头.
 //
 // hEle: 元素句柄.
-func XPane_DockPane(hEle int) int {
-	r, _, _ := xPane_DockPane.Call(uintptr(hEle))
+func X窗格_停靠(元素句柄 int) int {
+	r, _, _ := xPane_DockPane.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 窗格_锁定, 锁定窗格.
 //
 // hEle: 元素句柄.
-func XPane_LockPane(hEle int) int {
-	r, _, _ := xPane_LockPane.Call(uintptr(hEle))
+func X窗格_锁定(元素句柄 int) int {
+	r, _, _ := xPane_LockPane.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 窗格_浮动.
 //
 // hEle: 元素句柄.
-func XPane_FloatPane(hEle int) int {
-	r, _, _ := xPane_FloatPane.Call(uintptr(hEle))
+func X窗格_浮动(元素句柄 int) int {
+	r, _, _ := xPane_FloatPane.Call(uintptr(元素句柄))
 	return int(r)
 }
 
@@ -154,23 +154,23 @@ func XPane_FloatPane(hEle int) int {
 // hEle: 元素句柄.
 //
 // hDraw: 图形绘制句柄.
-func XPane_DrawPane(hEle int, hDraw int) int {
-	r, _, _ := xPane_DrawPane.Call(uintptr(hEle), uintptr(hDraw))
+func X窗格_绘制(元素句柄 int, 图形绘制句柄 int) int {
+	r, _, _ := xPane_DrawPane.Call(uintptr(元素句柄), uintptr(图形绘制句柄))
 	return int(r)
 }
 
 // 窗口_置选中, 如果窗格是组成员, 设置选中当前窗格可见.
 //
 // hEle: 元素句柄.
-func XPane_SetSelect(hEle int) bool {
-	r, _, _ := xPane_SetSelect.Call(uintptr(hEle))
+func X窗口_置选中(元素句柄 int) bool {
+	r, _, _ := xPane_SetSelect.Call(uintptr(元素句柄))
 	return r != 0
 }
 
 // 窗格_是否激活. 判断窗格是否激活, 当为组成员时有效.
 //
 // hEle: 元素句柄.
-func XPane_IsGroupActivate(hEle int) bool {
-	r, _, _ := xPane_IsGroupActivate.Call(uintptr(hEle))
+func X窗格_是否激活(元素句柄 int) bool {
+	r, _, _ := xPane_IsGroupActivate.Call(uintptr(元素句柄))
 	return r != 0
 }

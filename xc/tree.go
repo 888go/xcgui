@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"unsafe"
@@ -19,8 +19,8 @@ import (
 // cy: 高度.
 //
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-func XTree_Create(x, y, cx, cy int32, hParent int) int {
-	r, _, _ := xTree_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+func X列表树_创建(元素x坐标, 元素y坐标, 宽度, 高度 int32, 父窗口句柄或元素句柄 int) int {
+	r, _, _ := xTree_Create.Call(uintptr(元素x坐标), uintptr(元素y坐标), uintptr(宽度), uintptr(高度), uintptr(父窗口句柄或元素句柄))
 	return int(r)
 }
 
@@ -37,8 +37,8 @@ func XTree_Create(x, y, cx, cy int32, hParent int) int {
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 //
 // col_extend_count: 列数量. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
-func XTree_CreateEx(x, y, cx, cy int32, hParent, col_extend_count int32) int {
-	r, _, _ := xTree_CreateEx.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent), uintptr(col_extend_count))
+func X列表树_创建Ex(元素x坐标, 元素y坐标, 宽度, 高度 int32, 父窗口句柄或元素句柄, 列数量 int32) int {
+	r, _, _ := xTree_CreateEx.Call(uintptr(元素x坐标), uintptr(元素y坐标), uintptr(宽度), uintptr(高度), uintptr(父窗口句柄或元素句柄), uintptr(列数量))
 	return int(r)
 }
 
@@ -47,8 +47,8 @@ func XTree_CreateEx(x, y, cx, cy int32, hParent, col_extend_count int32) int {
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func XTree_EnableDragItem(hEle int, bEnable bool) {
-	xTree_EnableDragItem.Call(uintptr(hEle), common.BoolPtr(bEnable))
+func X列表树_启用拖动项(元素句柄 int, 是否启用 bool) {
+	xTree_EnableDragItem.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用))
 }
 
 // 列表树_启用连接线, 启用或禁用显示项的连接线.
@@ -58,8 +58,8 @@ func XTree_EnableDragItem(hEle int, bEnable bool) {
 // bEnable: 是否启用.
 //
 // bSolid: 实线或虚线; TRUE: 实线, FALSE: 虚线.
-func XTree_EnableConnectLine(hEle int, bEnable bool, bSolid bool) {
-	xTree_EnableConnectLine.Call(uintptr(hEle), common.BoolPtr(bEnable), common.BoolPtr(bSolid))
+func X列表树_启用连接线(元素句柄 int, 是否启用 bool, 实线或虚线 bool) {
+	xTree_EnableConnectLine.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用), 炫彩工具类.BoolPtr(实线或虚线))
 }
 
 // 列表树_启用展开, 启动或关闭默认展开功能, 如果开启新插入的项将自动展开.
@@ -67,8 +67,8 @@ func XTree_EnableConnectLine(hEle int, bEnable bool, bSolid bool) {
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func XTree_EnableExpand(hEle int, bEnable bool) {
-	xTree_EnableExpand.Call(uintptr(hEle), common.BoolPtr(bEnable))
+func X列表树_启用展开(元素句柄 int, 是否启用 bool) {
+	xTree_EnableExpand.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用))
 }
 
 // 列表树_启用模板复用.
@@ -76,8 +76,8 @@ func XTree_EnableExpand(hEle int, bEnable bool) {
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func XTree_EnableTemplateReuse(hEle int, bEnable bool) {
-	xTree_EnableTemplateReuse.Call(uintptr(hEle), common.BoolPtr(bEnable))
+func X列表树_启用模板复用(元素句柄 int, 是否启用 bool) {
+	xTree_EnableTemplateReuse.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用))
 }
 
 // 列表树_置连接线颜色.
@@ -85,8 +85,8 @@ func XTree_EnableTemplateReuse(hEle int, bEnable bool) {
 // hEle: 元素句柄.
 //
 // color: ABGR 颜色.
-func XTree_SetConnectLineColor(hEle int, color int) {
-	xTree_SetConnectLineColor.Call(uintptr(hEle), uintptr(color))
+func X列表树_置连接线颜色(元素句柄 int, ABGR颜色 int) {
+	xTree_SetConnectLineColor.Call(uintptr(元素句柄), uintptr(ABGR颜色))
 }
 
 // 列表树_置展开按钮大小, 设置展开按钮占用空间大小.
@@ -96,8 +96,8 @@ func XTree_SetConnectLineColor(hEle int, color int) {
 // nWidth: 宽度.
 //
 // nHeight: 高度.
-func XTree_SetExpandButtonSize(hEle int, nWidth, nHeight int32) {
-	xTree_SetExpandButtonSize.Call(uintptr(hEle), uintptr(nWidth), uintptr(nHeight))
+func X列表树_置展开按钮大小(元素句柄 int, 宽度, 高度 int32) {
+	xTree_SetExpandButtonSize.Call(uintptr(元素句柄), uintptr(宽度), uintptr(高度))
 }
 
 // 列表树_置连接线长度, 设置连线绘制长度, 展开按钮与项内容之间的连线.
@@ -105,8 +105,8 @@ func XTree_SetExpandButtonSize(hEle int, nWidth, nHeight int32) {
 // hEle: 元素句柄.
 //
 // nLength: 连线绘制长度.
-func XTree_SetConnectLineLength(hEle int, nLength int32) {
-	xTree_SetConnectLineLength.Call(uintptr(hEle), uintptr(nLength))
+func X列表树_置连接线长度(元素句柄 int, 连线绘制长度 int32) {
+	xTree_SetConnectLineLength.Call(uintptr(元素句柄), uintptr(连线绘制长度))
 }
 
 // 列表树_置拖动项插入位置颜色, 设置拖动项插入位置颜色提示.
@@ -114,8 +114,8 @@ func XTree_SetConnectLineLength(hEle int, nLength int32) {
 // hEle: 元素句柄.
 //
 // color: ABGR 颜色.
-func XTree_SetDragInsertPositionColor(hEle int, color int) {
-	xTree_SetDragInsertPositionColor.Call(uintptr(hEle), uintptr(color))
+func X列表树_置拖动项插入位置颜色(元素句柄 int, ABGR颜色 int) {
+	xTree_SetDragInsertPositionColor.Call(uintptr(元素句柄), uintptr(ABGR颜色))
 }
 
 // 列表树_置项模板文件.
@@ -123,8 +123,8 @@ func XTree_SetDragInsertPositionColor(hEle int, color int) {
 // hEle: 元素句柄.
 //
 // pXmlFile: 文件名.
-func XTree_SetItemTemplateXML(hEle int, pXmlFile string) bool {
-	r, _, _ := xTree_SetItemTemplateXML.Call(uintptr(hEle), common.StrPtr(pXmlFile))
+func X列表树_置项模板文件(元素句柄 int, 文件名 string) bool {
+	r, _, _ := xTree_SetItemTemplateXML.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(文件名))
 	return r != 0
 }
 
@@ -133,8 +133,8 @@ func XTree_SetItemTemplateXML(hEle int, pXmlFile string) bool {
 // hEle: 元素句柄.
 //
 // pXmlFile: 文件名.
-func XTree_SetItemTemplateXMLSel(hEle int, pXmlFile string) bool {
-	r, _, _ := xTree_SetItemTemplateXMLSel.Call(uintptr(hEle), common.StrPtr(pXmlFile))
+func X列表树_置选择项模板文件(元素句柄 int, 文件名 string) bool {
+	r, _, _ := xTree_SetItemTemplateXMLSel.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(文件名))
 	return r != 0
 }
 
@@ -143,8 +143,8 @@ func XTree_SetItemTemplateXMLSel(hEle int, pXmlFile string) bool {
 // hEle: 元素句柄.
 //
 // hTemp: 模板句柄.
-func XTree_SetItemTemplate(hEle int, hTemp int) bool {
-	r, _, _ := xTree_SetItemTemplate.Call(uintptr(hEle), uintptr(hTemp))
+func X列表树_置项模板(元素句柄 int, 模板句柄 int) bool {
+	r, _, _ := xTree_SetItemTemplate.Call(uintptr(元素句柄), uintptr(模板句柄))
 	return r != 0
 }
 
@@ -153,8 +153,8 @@ func XTree_SetItemTemplate(hEle int, hTemp int) bool {
 // hEle: 元素句柄.
 //
 // hTemp: 模板句柄.
-func XTree_SetItemTemplateSel(hEle int, hTemp int) bool {
-	r, _, _ := xTree_SetItemTemplateSel.Call(uintptr(hEle), uintptr(hTemp))
+func X列表树_置选择项模板(元素句柄 int, 模板句柄 int) bool {
+	r, _, _ := xTree_SetItemTemplateSel.Call(uintptr(元素句柄), uintptr(模板句柄))
 	return r != 0
 }
 
@@ -163,8 +163,8 @@ func XTree_SetItemTemplateSel(hEle int, hTemp int) bool {
 // hEle: 元素句柄.
 //
 // pStringXML: 字符串.
-func XTree_SetItemTemplateXMLFromString(hEle int, pStringXML string) bool {
-	r, _, _ := xTree_SetItemTemplateXMLFromString.Call(uintptr(hEle), XC_wtoa(pStringXML))
+func X列表树_置项模板从字符串(元素句柄 int, 字符串 string) bool {
+	r, _, _ := xTree_SetItemTemplateXMLFromString.Call(uintptr(元素句柄), W2A(字符串))
 	return r != 0
 }
 
@@ -173,8 +173,8 @@ func XTree_SetItemTemplateXMLFromString(hEle int, pStringXML string) bool {
 // hEle: 元素句柄.
 //
 // pStringXML: 字符串.
-func XTree_SetItemTemplateXMLSelFromString(hEle int, pStringXML string) bool {
-	r, _, _ := xTree_SetItemTemplateXMLSelFromString.Call(uintptr(hEle), XC_wtoa(pStringXML))
+func X列表树_置选择项模板从字符串(元素句柄 int, 字符串 string) bool {
+	r, _, _ := xTree_SetItemTemplateXMLSelFromString.Call(uintptr(元素句柄), W2A(字符串))
 	return r != 0
 }
 
@@ -183,8 +183,8 @@ func XTree_SetItemTemplateXMLSelFromString(hEle int, pStringXML string) bool {
 // hEle: 元素句柄.
 //
 // nFlags: 标志位: xcc.List_DrawItemBk_Flag_.
-func XTree_SetDrawItemBkFlags(hEle int, nFlags xcc.List_DrawItemBk_Flag_) {
-	xTree_SetDrawItemBkFlags.Call(uintptr(hEle), uintptr(nFlags))
+func X列表树_置项背景绘制标志(元素句柄 int, 标志位 炫彩常量类.List_DrawItemBk_Flag_) {
+	xTree_SetDrawItemBkFlags.Call(uintptr(元素句柄), uintptr(标志位))
 }
 
 // 列表树_置项数据, 设置项用户数据.
@@ -194,8 +194,8 @@ func XTree_SetDrawItemBkFlags(hEle int, nFlags xcc.List_DrawItemBk_Flag_) {
 // nID: 项ID.
 //
 // nUserData: 用户数据.
-func XTree_SetItemData(hEle int, nID int32, nUserData int) bool {
-	r, _, _ := xTree_SetItemData.Call(uintptr(hEle), uintptr(nID), uintptr(nUserData))
+func X列表树_置项数据(元素句柄 int, 项ID int32, 用户数据 int) bool {
+	r, _, _ := xTree_SetItemData.Call(uintptr(元素句柄), uintptr(项ID), uintptr(用户数据))
 	return r != 0
 }
 
@@ -204,8 +204,8 @@ func XTree_SetItemData(hEle int, nID int32, nUserData int) bool {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_GetItemData(hEle int, nID int32) int {
-	r, _, _ := xTree_GetItemData.Call(uintptr(hEle), uintptr(nID))
+func X列表树_取项数据(元素句柄 int, 项ID int32) int {
+	r, _, _ := xTree_GetItemData.Call(uintptr(元素句柄), uintptr(项ID))
 	return int(r)
 }
 
@@ -214,16 +214,16 @@ func XTree_GetItemData(hEle int, nID int32) int {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_SetSelectItem(hEle int, nID int32) bool {
-	r, _, _ := xTree_SetSelectItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_置选择项(元素句柄 int, 项ID int32) bool {
+	r, _, _ := xTree_SetSelectItem.Call(uintptr(元素句柄), uintptr(项ID))
 	return r != 0
 }
 
 // 列表树_取选择项, 返回项ID.
 //
 // hEle: 元素句柄.
-func XTree_GetSelectItem(hEle int) int32 {
-	r, _, _ := xTree_GetSelectItem.Call(uintptr(hEle))
+func X列表树_取选择项(元素句柄 int) int32 {
+	r, _, _ := xTree_GetSelectItem.Call(uintptr(元素句柄))
 	return int32(r)
 }
 
@@ -232,8 +232,8 @@ func XTree_GetSelectItem(hEle int) int32 {
 // hEle: 元素句柄.
 //
 // nID: 项索引.
-func XTree_VisibleItem(hEle int, nID int32) {
-	xTree_VisibleItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_可视指定项(元素句柄 int, 项ID int32) {
+	xTree_VisibleItem.Call(uintptr(元素句柄), uintptr(项ID))
 }
 
 // 列表树_判断展开.
@@ -241,8 +241,8 @@ func XTree_VisibleItem(hEle int, nID int32) {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_IsExpand(hEle int, nID int32) bool {
-	r, _, _ := xTree_IsExpand.Call(uintptr(hEle), uintptr(nID))
+func X列表树_判断展开(元素句柄 int, 项ID int32) bool {
+	r, _, _ := xTree_IsExpand.Call(uintptr(元素句柄), uintptr(项ID))
 	return r != 0
 }
 
@@ -253,8 +253,8 @@ func XTree_IsExpand(hEle int, nID int32) bool {
 // nID: 项ID.
 //
 // bExpand: 是否展开.
-func XTree_ExpandItem(hEle int, nID int32, bExpand bool) bool {
-	r, _, _ := xTree_ExpandItem.Call(uintptr(hEle), uintptr(nID), common.BoolPtr(bExpand))
+func X列表树_展开项(元素句柄 int, 项ID int32, 是否展开 bool) bool {
+	r, _, _ := xTree_ExpandItem.Call(uintptr(元素句柄), uintptr(项ID), 炫彩工具类.BoolPtr(是否展开))
 	return r != 0
 }
 
@@ -265,8 +265,8 @@ func XTree_ExpandItem(hEle int, nID int32, bExpand bool) bool {
 // nID: 项ID.
 //
 // bExpand: 是否展开.
-func XTree_ExpandAllChildItem(hEle int, nID int32, bExpand bool) bool {
-	r, _, _ := xTree_ExpandAllChildItem.Call(uintptr(hEle), uintptr(nID), common.BoolPtr(bExpand))
+func X列表树_展开全部子项(元素句柄 int, 项ID int32, 是否展开 bool) bool {
+	r, _, _ := xTree_ExpandAllChildItem.Call(uintptr(元素句柄), uintptr(项ID), 炫彩工具类.BoolPtr(是否展开))
 	return r != 0
 }
 
@@ -275,8 +275,8 @@ func XTree_ExpandAllChildItem(hEle int, nID int32, bExpand bool) bool {
 // hEle: 元素句柄.
 //
 // pPt: 坐标点.
-func XTree_HitTest(hEle int, pPt *POINT) int32 {
-	r, _, _ := xTree_HitTest.Call(uintptr(hEle), uintptr(unsafe.Pointer(pPt)))
+func X列表树_测试点击项(元素句柄 int, 坐标点 *POINT) int32 {
+	r, _, _ := xTree_HitTest.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(坐标点)))
 	return int32(r)
 }
 
@@ -285,8 +285,8 @@ func XTree_HitTest(hEle int, pPt *POINT) int32 {
 // hEle: 元素句柄.
 //
 // pPt: 坐标点.
-func XTree_HitTestOffset(hEle int, pPt *POINT) int32 {
-	r, _, _ := xTree_HitTestOffset.Call(uintptr(hEle), uintptr(unsafe.Pointer(pPt)))
+func X列表树_测试点击项EX(元素句柄 int, 坐标点 *POINT) int32 {
+	r, _, _ := xTree_HitTestOffset.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(坐标点)))
 	return int32(r)
 }
 
@@ -295,8 +295,8 @@ func XTree_HitTestOffset(hEle int, pPt *POINT) int32 {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_GetFirstChildItem(hEle int, nID int32) int32 {
-	r, _, _ := xTree_GetFirstChildItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_取第一个子项(元素句柄 int, 项ID int32) int32 {
+	r, _, _ := xTree_GetFirstChildItem.Call(uintptr(元素句柄), uintptr(项ID))
 	return int32(r)
 }
 
@@ -305,8 +305,8 @@ func XTree_GetFirstChildItem(hEle int, nID int32) int32 {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_GetEndChildItem(hEle int, nID int32) int32 {
-	r, _, _ := xTree_GetEndChildItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_取末尾子项(元素句柄 int, 项ID int32) int32 {
+	r, _, _ := xTree_GetEndChildItem.Call(uintptr(元素句柄), uintptr(项ID))
 	return int32(r)
 }
 
@@ -315,8 +315,8 @@ func XTree_GetEndChildItem(hEle int, nID int32) int32 {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_GetPrevSiblingItem(hEle int, nID int32) int32 {
-	r, _, _ := xTree_GetPrevSiblingItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_取上一个兄弟项(元素句柄 int, 项ID int32) int32 {
+	r, _, _ := xTree_GetPrevSiblingItem.Call(uintptr(元素句柄), uintptr(项ID))
 	return int32(r)
 }
 
@@ -325,8 +325,8 @@ func XTree_GetPrevSiblingItem(hEle int, nID int32) int32 {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_GetNextSiblingItem(hEle int, nID int32) int32 {
-	r, _, _ := xTree_GetNextSiblingItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_取下一个兄弟项(元素句柄 int, 项ID int32) int32 {
+	r, _, _ := xTree_GetNextSiblingItem.Call(uintptr(元素句柄), uintptr(项ID))
 	return int32(r)
 }
 
@@ -335,16 +335,16 @@ func XTree_GetNextSiblingItem(hEle int, nID int32) int32 {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_GetParentItem(hEle int, nID int32) int32 {
-	r, _, _ := xTree_GetParentItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_取父项(元素句柄 int, 项ID int32) int32 {
+	r, _, _ := xTree_GetParentItem.Call(uintptr(元素句柄), uintptr(项ID))
 	return int32(r)
 }
 
 // 列表树_创建数据适配器, 创建数据适配器，根据绑定的项模板初始化数据适配器的列, 返回适配器句柄.
 //
 // hEle: 元素句柄.
-func XTree_CreateAdapter(hEle int) int {
-	r, _, _ := xTree_CreateAdapter.Call(uintptr(hEle))
+func X列表树_创建数据适配器(元素句柄 int) int {
+	r, _, _ := xTree_CreateAdapter.Call(uintptr(元素句柄))
 	return int(r)
 }
 
@@ -353,23 +353,23 @@ func XTree_CreateAdapter(hEle int) int {
 // hEle: 元素句柄.
 //
 // hAdapter: 数据适配器句柄, XAdTree.
-func XTree_BindAdapter(hEle int, hAdapter int) {
-	xTree_BindAdapter.Call(uintptr(hEle), uintptr(hAdapter))
+func X列表树_绑定数据适配器(元素句柄 int, 数据适配器句柄 int) {
+	xTree_BindAdapter.Call(uintptr(元素句柄), uintptr(数据适配器句柄))
 }
 
 // 列表树_取数据适配器, 返回数据适配器句柄.
 //
 // hEle: 元素句柄.
-func XTree_GetAdapter(hEle int) int {
-	r, _, _ := xTree_GetAdapter.Call(uintptr(hEle))
+func X列表树_取数据适配器(元素句柄 int) int {
+	r, _, _ := xTree_GetAdapter.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 列表树_刷新数据, 刷新所有项模板, 以便更新UI.
 //
 // hEle: 元素句柄.
-func XTree_RefreshData(hEle int) {
-	xTree_RefreshData.Call(uintptr(hEle))
+func X列表树_刷新数据(元素句柄 int) {
+	xTree_RefreshData.Call(uintptr(元素句柄))
 }
 
 // 列表树_刷新指定项, 刷新指定项模板, 以便更新UI.
@@ -377,8 +377,8 @@ func XTree_RefreshData(hEle int) {
 // hEle: 元素句柄.
 //
 // nID: 项ID.
-func XTree_RefreshItem(hEle int, nID int32) {
-	xTree_RefreshItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_刷新指定项(元素句柄 int, 项ID int32) {
+	xTree_RefreshItem.Call(uintptr(元素句柄), uintptr(项ID))
 }
 
 // 列表树_置缩进, 设置缩进大小.
@@ -386,15 +386,15 @@ func XTree_RefreshItem(hEle int, nID int32) {
 // hEle: 元素句柄.
 //
 // nWidth: 缩进宽度.
-func XTree_SetIndentation(hEle int, nWidth int32) {
-	xTree_SetIndentation.Call(uintptr(hEle), uintptr(nWidth))
+func X列表树_置缩进(元素句柄 int, 缩进宽度 int32) {
+	xTree_SetIndentation.Call(uintptr(元素句柄), uintptr(缩进宽度))
 }
 
 // 列表树_取缩进, 返回缩进值大小.
 //
 // hEle: 元素句柄.
-func XTree_GetIndentation(hEle int) int32 {
-	r, _, _ := xTree_GetIndentation.Call(uintptr(hEle))
+func X列表树_取缩进(元素句柄 int) int32 {
+	r, _, _ := xTree_GetIndentation.Call(uintptr(元素句柄))
 	return int32(r)
 }
 
@@ -405,8 +405,8 @@ func XTree_GetIndentation(hEle int) int32 {
 // nHeight: 高度.
 //
 // nSelHeight: 选中时高度.
-func XTree_SetItemHeightDefault(hEle int, nHeight, nSelHeight int32) {
-	xTree_SetItemHeightDefault.Call(uintptr(hEle), uintptr(nHeight), uintptr(nSelHeight))
+func X列表树_置项默认高度(元素句柄 int, 高度, 选中时高度 int32) {
+	xTree_SetItemHeightDefault.Call(uintptr(元素句柄), uintptr(高度), uintptr(选中时高度))
 }
 
 // 列表树_取项默认高度.
@@ -416,8 +416,8 @@ func XTree_SetItemHeightDefault(hEle int, nHeight, nSelHeight int32) {
 // pHeight: 接收返回高度.
 //
 // pSelHeight: 接收返回值, 当项选中时的高度.
-func XTree_GetItemHeightDefault(hEle int, pHeight, pSelHeight *int32) {
-	xTree_GetItemHeightDefault.Call(uintptr(hEle), uintptr(unsafe.Pointer(pHeight)), uintptr(unsafe.Pointer(pSelHeight)))
+func X列表树_取项默认高度(元素句柄 int, 接收返回高度, 接收返回值 *int32) {
+	xTree_GetItemHeightDefault.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(接收返回高度)), uintptr(unsafe.Pointer(接收返回值)))
 }
 
 // 列表树_置项高度.
@@ -429,8 +429,8 @@ func XTree_GetItemHeightDefault(hEle int, pHeight, pSelHeight *int32) {
 // nHeight: 高度.
 //
 // nSelHeight: 选中时高度.
-func XTree_SetItemHeight(hEle int, nID, nHeight, nSelHeight int32) {
-	xTree_SetItemHeight.Call(uintptr(hEle), uintptr(nID), uintptr(nHeight), uintptr(nSelHeight))
+func X列表树_置项高度(元素句柄 int, 项ID, 高度, 选中时高度 int32) {
+	xTree_SetItemHeight.Call(uintptr(元素句柄), uintptr(项ID), uintptr(高度), uintptr(选中时高度))
 }
 
 // 列表树_取项高度.
@@ -442,8 +442,8 @@ func XTree_SetItemHeight(hEle int, nID, nHeight, nSelHeight int32) {
 // pHeight: 接收返回高度.
 //
 // pSelHeight: 接收返回值, 当项选中时的高度.
-func XTree_GetItemHeight(hEle int, nID int32, pHeight, pSelHeight *int32) {
-	xTree_GetItemHeight.Call(uintptr(hEle), uintptr(nID), uintptr(unsafe.Pointer(pHeight)), uintptr(unsafe.Pointer(pSelHeight)))
+func X列表树_取项高度(元素句柄 int, 项ID int32, 接收返回高度, 接收返回值 *int32) {
+	xTree_GetItemHeight.Call(uintptr(元素句柄), uintptr(项ID), uintptr(unsafe.Pointer(接收返回高度)), uintptr(unsafe.Pointer(接收返回值)))
 }
 
 // 列表树_置行间距.
@@ -451,15 +451,15 @@ func XTree_GetItemHeight(hEle int, nID int32, pHeight, pSelHeight *int32) {
 // hEle: 元素句柄.
 //
 // nSpace: 行间隔大小.
-func XTree_SetRowSpace(hEle int, nSpace int32) {
-	xTree_SetRowSpace.Call(uintptr(hEle), uintptr(nSpace))
+func X列表树_置行间距(元素句柄 int, 行间隔大小 int32) {
+	xTree_SetRowSpace.Call(uintptr(元素句柄), uintptr(行间隔大小))
 }
 
 // 列表树_取行间距.
 //
 // hEle: 元素句柄.
-func XTree_GetRowSpace(hEle int) int32 {
-	r, _, _ := xTree_GetRowSpace.Call(uintptr(hEle))
+func X列表树_取行间距(元素句柄 int) int32 {
+	r, _, _ := xTree_GetRowSpace.Call(uintptr(元素句柄))
 	return int32(r)
 }
 
@@ -472,8 +472,8 @@ func XTree_GetRowSpace(hEle int) int32 {
 // nDestItem: 目标项ID, 参照位置.
 //
 // nFlag: 0:目标前面, 1:目标后面, 2:目标子项首, 3:目标子项尾.
-func XTree_MoveItem(hEle int, nMoveItem, nDestItem, nFlag int32) bool {
-	r, _, _ := xTree_MoveItem.Call(uintptr(hEle), uintptr(nMoveItem), uintptr(nDestItem), uintptr(nFlag))
+func X列表树_移动项(元素句柄 int, 要移动的项ID, 目标项ID, 移动方式 int32) bool {
+	r, _, _ := xTree_MoveItem.Call(uintptr(元素句柄), uintptr(要移动的项ID), uintptr(目标项ID), uintptr(移动方式))
 	return r != 0
 }
 
@@ -484,8 +484,8 @@ func XTree_MoveItem(hEle int, nMoveItem, nDestItem, nFlag int32) bool {
 // nID: 树项ID.
 //
 // nTempItemID: 模板项ID.
-func XTree_GetTemplateObject(hEle int, nID, nTempItemID int32) int {
-	r, _, _ := xTree_GetTemplateObject.Call(uintptr(hEle), uintptr(nID), uintptr(nTempItemID))
+func X列表树_取模板对象(元素句柄 int, 项ID, 模板项ID int32) int {
+	r, _, _ := xTree_GetTemplateObject.Call(uintptr(元素句柄), uintptr(项ID), uintptr(模板项ID))
 	return int(r)
 }
 
@@ -494,8 +494,8 @@ func XTree_GetTemplateObject(hEle int, nID, nTempItemID int32) int {
 // hEle: 元素句柄.
 //
 // hXCGUI: 对象句柄.
-func XTree_GetItemIDFromHXCGUI(hEle int, hXCGUI int) int32 {
-	r, _, _ := xTree_GetItemIDFromHXCGUI.Call(uintptr(hEle), uintptr(hXCGUI))
+func X列表树_取对象所在项(元素句柄 int, 对象句柄 int) int32 {
+	r, _, _ := xTree_GetItemIDFromHXCGUI.Call(uintptr(元素句柄), uintptr(对象句柄))
 	return int32(r)
 }
 
@@ -508,8 +508,8 @@ func XTree_GetItemIDFromHXCGUI(hEle int, hXCGUI int) int32 {
 // nParentID:.
 //
 // insertID:.
-func XTree_InsertItemText(hEle int, pValue string, nParentID, insertID int32) int32 {
-	r, _, _ := xTree_InsertItemText.Call(uintptr(hEle), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
+func X列表树_插入项文本(元素句柄 int, 值 string, 父ID, 插入位置ID int32) int32 {
+	r, _, _ := xTree_InsertItemText.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(值), uintptr(父ID), uintptr(插入位置ID))
 	return int32(r)
 }
 
@@ -524,8 +524,8 @@ func XTree_InsertItemText(hEle int, pValue string, nParentID, insertID int32) in
 // nParentID:.
 //
 // insertID:.
-func XTree_InsertItemTextEx(hEle int, pName string, pValue string, nParentID, insertID int32) int32 {
-	r, _, _ := xTree_InsertItemTextEx.Call(uintptr(hEle), common.StrPtr(pName), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
+func X列表树_插入项文本EX(元素句柄 int, 名称 string, 值 string, 父ID, 插入位置ID int32) int32 {
+	r, _, _ := xTree_InsertItemTextEx.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(名称), 炫彩工具类.StrPtr(值), uintptr(父ID), uintptr(插入位置ID))
 	return int32(r)
 }
 
@@ -538,8 +538,8 @@ func XTree_InsertItemTextEx(hEle int, pName string, pValue string, nParentID, in
 // nParentID:.
 //
 // insertID:.
-func XTree_InsertItemImage(hEle int, hImage int, nParentID, insertID int32) int32 {
-	r, _, _ := xTree_InsertItemImage.Call(uintptr(hEle), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
+func X列表树_插入项图片(元素句柄 int, 图片句柄 int, 父ID, 插入位置ID int32) int32 {
+	r, _, _ := xTree_InsertItemImage.Call(uintptr(元素句柄), uintptr(图片句柄), uintptr(父ID), uintptr(插入位置ID))
 	return int32(r)
 }
 
@@ -554,24 +554,24 @@ func XTree_InsertItemImage(hEle int, hImage int, nParentID, insertID int32) int3
 // nParentID:.
 //
 // insertID:.
-func XTree_InsertItemImageEx(hEle int, pName string, hImage int, nParentID, insertID int32) int32 {
-	r, _, _ := xTree_InsertItemImageEx.Call(uintptr(hEle), common.StrPtr(pName), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
+func X列表树_插入项图片EX(元素句柄 int, 名称 string, 图片句柄 int, 父ID, 插入位置ID int32) int32 {
+	r, _, _ := xTree_InsertItemImageEx.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(名称), uintptr(图片句柄), uintptr(父ID), uintptr(插入位置ID))
 	return int32(r)
 }
 
 // 列表树_取项数量.
 //
 // hEle:.
-func XTree_GetCount(hEle int) int32 {
-	r, _, _ := xTree_GetCount.Call(uintptr(hEle))
+func X列表树_取项数量(元素句柄 int) int32 {
+	r, _, _ := xTree_GetCount.Call(uintptr(元素句柄))
 	return int32(r)
 }
 
 // 列表树_取列数量.
 //
 // hEle:.
-func XTree_GetCountColumn(hEle int) int32 {
-	r, _, _ := xTree_GetCountColumn.Call(uintptr(hEle))
+func X列表树_取列数量(元素句柄 int) int32 {
+	r, _, _ := xTree_GetCountColumn.Call(uintptr(元素句柄))
 	return int32(r)
 }
 
@@ -584,8 +584,8 @@ func XTree_GetCountColumn(hEle int) int32 {
 // iColumn:.
 //
 // pValue:.
-func XTree_SetItemText(hEle int, nID, iColumn int32, pValue string) bool {
-	r, _, _ := xTree_SetItemText.Call(uintptr(hEle), uintptr(nID), uintptr(iColumn), common.StrPtr(pValue))
+func X列表树_置项文本(元素句柄 int, 项ID, 列索引 int32, 值 string) bool {
+	r, _, _ := xTree_SetItemText.Call(uintptr(元素句柄), uintptr(项ID), uintptr(列索引), 炫彩工具类.StrPtr(值))
 	return r != 0
 }
 
@@ -598,8 +598,8 @@ func XTree_SetItemText(hEle int, nID, iColumn int32, pValue string) bool {
 // pName:.
 //
 // pValue:.
-func XTree_SetItemTextEx(hEle int, nID int32, pName string, pValue string) bool {
-	r, _, _ := xTree_SetItemTextEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName), common.StrPtr(pValue))
+func X列表树_置项文本EX(元素句柄 int, 项ID int32, 名称 string, 值 string) bool {
+	r, _, _ := xTree_SetItemTextEx.Call(uintptr(元素句柄), uintptr(项ID), 炫彩工具类.StrPtr(名称), 炫彩工具类.StrPtr(值))
 	return r != 0
 }
 
@@ -612,8 +612,8 @@ func XTree_SetItemTextEx(hEle int, nID int32, pName string, pValue string) bool 
 // iColumn:.
 //
 // hImage:.
-func XTree_SetItemImage(hEle int, nID, iColumn int32, hImage int) bool {
-	r, _, _ := xTree_SetItemImage.Call(uintptr(hEle), uintptr(nID), uintptr(iColumn), uintptr(hImage))
+func X列表树_置项图片(元素句柄 int, 项ID, 列索引 int32, 图片句柄 int) bool {
+	r, _, _ := xTree_SetItemImage.Call(uintptr(元素句柄), uintptr(项ID), uintptr(列索引), uintptr(图片句柄))
 	return r != 0
 }
 
@@ -626,8 +626,8 @@ func XTree_SetItemImage(hEle int, nID, iColumn int32, hImage int) bool {
 // pName:.
 //
 // hImage:.
-func XTree_SetItemImageEx(hEle int, nID int32, pName string, hImage int) bool {
-	r, _, _ := xTree_SetItemImageEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName), uintptr(hImage))
+func X列表树_置项图片EX(元素句柄 int, 项ID int32, 名称 string, 图片句柄 int) bool {
+	r, _, _ := xTree_SetItemImageEx.Call(uintptr(元素句柄), uintptr(项ID), 炫彩工具类.StrPtr(名称), uintptr(图片句柄))
 	return r != 0
 }
 
@@ -638,9 +638,9 @@ func XTree_SetItemImageEx(hEle int, nID int32, pName string, hImage int) bool {
 // nID:.
 //
 // iColumn:.
-func XTree_GetItemText(hEle int, nID, iColumn int32) string {
-	r, _, _ := xTree_GetItemText.Call(uintptr(hEle), uintptr(nID), uintptr(iColumn))
-	return common.UintPtrToString(r)
+func X列表树_取项文本(元素句柄 int, 项ID, 列索引 int32) string {
+	r, _, _ := xTree_GetItemText.Call(uintptr(元素句柄), uintptr(项ID), uintptr(列索引))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表树_取项文本扩展.
@@ -650,9 +650,9 @@ func XTree_GetItemText(hEle int, nID, iColumn int32) string {
 // nID:.
 //
 // pName:.
-func XTree_GetItemTextEx(hEle int, nID int32, pName string) string {
-	r, _, _ := xTree_GetItemTextEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName))
-	return common.UintPtrToString(r)
+func X列表树_取项文本EX(元素句柄 int, 项ID int32, 名称 string) string {
+	r, _, _ := xTree_GetItemTextEx.Call(uintptr(元素句柄), uintptr(项ID), 炫彩工具类.StrPtr(名称))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 列表树_取项图片.
@@ -662,8 +662,8 @@ func XTree_GetItemTextEx(hEle int, nID int32, pName string) string {
 // nID:.
 //
 // iColumn:.
-func XTree_GetItemImage(hEle int, nID, iColumn int32) int {
-	r, _, _ := xTree_GetItemImage.Call(uintptr(hEle), uintptr(nID), uintptr(iColumn))
+func X列表树_取项图片(元素句柄 int, 项ID, 列索引 int32) int {
+	r, _, _ := xTree_GetItemImage.Call(uintptr(元素句柄), uintptr(项ID), uintptr(列索引))
 	return int(r)
 }
 
@@ -674,8 +674,8 @@ func XTree_GetItemImage(hEle int, nID, iColumn int32) int {
 // nID:.
 //
 // pName:.
-func XTree_GetItemImageEx(hEle int, nID int32, pName string) int {
-	r, _, _ := xTree_GetItemImageEx.Call(uintptr(hEle), uintptr(nID), common.StrPtr(pName))
+func X列表树_取项图片EX(元素句柄 int, 项ID int32, 名称 string) int {
+	r, _, _ := xTree_GetItemImageEx.Call(uintptr(元素句柄), uintptr(项ID), 炫彩工具类.StrPtr(名称))
 	return int(r)
 }
 
@@ -684,23 +684,23 @@ func XTree_GetItemImageEx(hEle int, nID int32, pName string) int {
 // hEle:.
 //
 // nID:.
-func XTree_DeleteItem(hEle int, nID int32) bool {
-	r, _, _ := xTree_DeleteItem.Call(uintptr(hEle), uintptr(nID))
+func X列表树_删除项(元素句柄 int, 项ID int32) bool {
+	r, _, _ := xTree_DeleteItem.Call(uintptr(元素句柄), uintptr(项ID))
 	return r != 0
 }
 
 // 列表树_删除全部项.
 //
 // hEle:.
-func XTree_DeleteItemAll(hEle int) {
-	xTree_DeleteItemAll.Call(uintptr(hEle))
+func X列表树_删除全部项(元素句柄 int) {
+	xTree_DeleteItemAll.Call(uintptr(元素句柄))
 }
 
 // 列表树_删除列全部.
 //
 // hEle:.
-func XTree_DeleteColumnAll(hEle int) {
-	xTree_DeleteColumnAll.Call(uintptr(hEle))
+func X列表树_删除列全部(元素句柄 int) {
+	xTree_DeleteColumnAll.Call(uintptr(元素句柄))
 }
 
 // 列表树_置分割线颜色.
@@ -708,8 +708,8 @@ func XTree_DeleteColumnAll(hEle int) {
 // hEle: 元素句柄.
 //
 // color: ABGR 颜色值.
-func XTree_SetSplitLineColor(hEle int, color int) {
-	xTree_SetSplitLineColor.Call(uintptr(hEle), uintptr(color))
+func X列表树_置分割线颜色(元素句柄 int, ABGR颜色值 int) {
+	xTree_SetSplitLineColor.Call(uintptr(元素句柄), uintptr(ABGR颜色值))
 }
 
 // 列表树_置项模板从内存.
@@ -717,8 +717,8 @@ func XTree_SetSplitLineColor(hEle int, color int) {
 // hEle: 元素句柄.
 //
 // data: 模板数据.
-func XTree_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
-	r, _, _ := xTree_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+func X列表树_置项模板从内存(元素句柄 int, 模板数据 []byte) bool {
+	r, _, _ := xTree_SetItemTemplateXMLFromMem.Call(uintptr(元素句柄), 炫彩工具类.ByteSliceDataPtr(&模板数据), uintptr(len(模板数据)))
 	return r != 0
 }
 
@@ -733,15 +733,15 @@ func XTree_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
 // pPassword: zip密码.
 //
 // hModule: 模块句柄, 可填0.
-func XTree_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xTree_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+func X列表树_置项模板从资源ZIP(元素句柄 int, RC资源ID int32, 文件名 string, zip密码 string, 模块句柄 uintptr) bool {
+	r, _, _ := xTree_SetItemTemplateXMLFromZipRes.Call(uintptr(元素句柄), uintptr(RC资源ID), 炫彩工具类.StrPtr(文件名), 炫彩工具类.StrPtr(zip密码), 模块句柄)
 	return r != 0
 }
 
 // 列表树_取项模板, 返回项模板句柄.
 //
 // hEle: 元素句柄.
-func XTree_GetItemTemplate(hEle int) int {
-	r, _, _ := xTree_GetItemTemplate.Call(uintptr(hEle))
+func X列表树_取项模板(元素句柄 int) int {
+	r, _, _ := xTree_GetItemTemplate.Call(uintptr(元素句柄))
 	return int(r)
 }

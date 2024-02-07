@@ -1,4 +1,4 @@
-package xc
+package 炫彩基类
 
 import (
 	"github.com/888go/xcgui/common"
@@ -16,8 +16,8 @@ import (
 // cy: 高度.
 //
 // hParent: 父对象句柄.
-func XShapeRect_Create(x int, y int, cx int, cy int, hParent int) int {
-	r, _, _ := xShapeRect_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+func X形状矩形_创建(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 父对象句柄 int) int {
+	r, _, _ := xShapeRect_Create.Call(uintptr(X坐标), uintptr(Y坐标), uintptr(宽度), uintptr(高度), uintptr(父对象句柄))
 	return int(r)
 }
 
@@ -26,8 +26,8 @@ func XShapeRect_Create(x int, y int, cx int, cy int, hParent int) int {
 // hShape: 形状对象句柄.
 //
 // color: ABGR 颜色值.
-func XShapeRect_SetBorderColor(hShape int, color int) int {
-	r, _, _ := xShapeRect_SetBorderColor.Call(uintptr(hShape), uintptr(color))
+func X形状矩形_置边框色(形状对象句柄 int, ABGR颜色值 int) int {
+	r, _, _ := xShapeRect_SetBorderColor.Call(uintptr(形状对象句柄), uintptr(ABGR颜色值))
 	return int(r)
 }
 
@@ -36,8 +36,8 @@ func XShapeRect_SetBorderColor(hShape int, color int) int {
 // hShape: 形状对象句柄.
 //
 // color: ABGR 颜色值.
-func XShapeRect_SetFillColor(hShape int, color int) int {
-	r, _, _ := xShapeRect_SetFillColor.Call(uintptr(hShape), uintptr(color))
+func X形状矩形_置填充色(形状对象句柄 int, ABGR颜色值 int) int {
+	r, _, _ := xShapeRect_SetFillColor.Call(uintptr(形状对象句柄), uintptr(ABGR颜色值))
 	return int(r)
 }
 
@@ -48,8 +48,8 @@ func XShapeRect_SetFillColor(hShape int, color int) int {
 // nWidth: 圆角宽度.
 //
 // nHeight: 圆角高度.
-func XShapeRect_SetRoundAngle(hShape int, nWidth int, nHeight int32) int {
-	r, _, _ := xShapeRect_SetRoundAngle.Call(uintptr(hShape), uintptr(nWidth), uintptr(nHeight))
+func X形状矩形_置圆角大小(形状对象句柄 int, 圆角宽度 int, 圆角高度 int32) int {
+	r, _, _ := xShapeRect_SetRoundAngle.Call(uintptr(形状对象句柄), uintptr(圆角宽度), uintptr(圆角高度))
 	return int(r)
 }
 
@@ -60,8 +60,8 @@ func XShapeRect_SetRoundAngle(hShape int, nWidth int, nHeight int32) int {
 // pWidth: 圆角宽度.
 //
 // pHeight: 圆角高度.
-func XShapeRect_GetRoundAngle(hShape int, pWidth *int, pHeight *int32) int {
-	r, _, _ := xShapeRect_GetRoundAngle.Call(uintptr(hShape), uintptr(unsafe.Pointer(pWidth)), uintptr(unsafe.Pointer(pHeight)))
+func X形状矩形_取圆角大小(形状对象句柄 int, 圆角宽度 *int, 圆角高度 *int32) int {
+	r, _, _ := xShapeRect_GetRoundAngle.Call(uintptr(形状对象句柄), uintptr(unsafe.Pointer(圆角宽度)), uintptr(unsafe.Pointer(圆角高度)))
 	return int(r)
 }
 
@@ -70,8 +70,8 @@ func XShapeRect_GetRoundAngle(hShape int, pWidth *int, pHeight *int32) int {
 // hShape: 形状对象句柄.
 //
 // bEnable: 是否启用.
-func XShapeRect_EnableBorder(hShape int, bEnable bool) int {
-	r, _, _ := xShapeRect_EnableBorder.Call(uintptr(hShape), common.BoolPtr(bEnable))
+func X形状矩形_启用边框(形状对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xShapeRect_EnableBorder.Call(uintptr(形状对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
@@ -80,8 +80,8 @@ func XShapeRect_EnableBorder(hShape int, bEnable bool) int {
 // hShape: 形状对象句柄.
 //
 // bEnable: 是否启用.
-func XShapeRect_EnableFill(hShape int, bEnable bool) int {
-	r, _, _ := xShapeRect_EnableFill.Call(uintptr(hShape), common.BoolPtr(bEnable))
+func X形状矩形_启用填充(形状对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xShapeRect_EnableFill.Call(uintptr(形状对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
@@ -90,7 +90,7 @@ func XShapeRect_EnableFill(hShape int, bEnable bool) int {
 // hShape: 形状对象句柄.
 //
 // bEnable: 是否启用.
-func XShapeRect_EnableRoundAngle(hShape int, bEnable bool) int {
-	r, _, _ := xShapeRect_EnableRoundAngle.Call(uintptr(hShape), common.BoolPtr(bEnable))
+func X形状矩形_启用圆角(形状对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xShapeRect_EnableRoundAngle.Call(uintptr(形状对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }

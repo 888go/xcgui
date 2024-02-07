@@ -1,4 +1,4 @@
-package wapi
+package 炫彩WinApi类
 
 import (
 	"syscall"
@@ -177,8 +177,8 @@ const (
 //	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew.
 //	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
 //	@return bool
-func GetOpenFileNameW(unnamedParam1 *OpenFileNameW) bool {
-	r, _, _ := getOpenFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
+func X创建打开对话框(选项结构指针 *OpenFileNameW) bool {
+	r, _, _ := getOpenFileNameW.Call(uintptr(unsafe.Pointer(选项结构指针)))
 	return r != 0
 }
 
@@ -187,8 +187,8 @@ func GetOpenFileNameW(unnamedParam1 *OpenFileNameW) bool {
 //	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-GetSaveFileNameW.
 //	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
 //	@return bool
-func GetSaveFileNameW(unnamedParam1 *OpenFileNameW) bool {
-	r, _, _ := getSaveFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
+func X创建保存对话框(选项结构指针 *OpenFileNameW) bool {
+	r, _, _ := getSaveFileNameW.Call(uintptr(unsafe.Pointer(选项结构指针)))
 	return r != 0
 }
 
@@ -255,7 +255,7 @@ const (
 //	@Description 详情: https://docs.microsoft.com/zh-cn/previous-versions/windows/desktop/legacy/ms646912(v=vs.85).
 //	@param lpcc 指向 wapi.ChooseColor 结构的指针，该结构包含用于初始化对话框的信息。当函数返回时，此结构包含有关用户颜色选择的信息。
 //	@return bool
-func ChooseColorW(lpcc *ChooseColor) bool {
-	r, _, _ := chooseColorW.Call(uintptr(unsafe.Pointer(lpcc)))
+func X创建颜色对话框(选项结构指针 *ChooseColor) bool {
+	r, _, _ := chooseColorW.Call(uintptr(unsafe.Pointer(选项结构指针)))
 	return r != 0
 }

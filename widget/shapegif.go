@@ -1,4 +1,4 @@
-package widget
+package 炫彩组件类
 
 import (
 	"github.com/888go/xcgui/xc"
@@ -20,47 +20,47 @@ type ShapeGif struct {
 // cy: 高度.
 //
 // hParent: 父对象句柄.
-func NewShapeGif(x int, y int, cx int, cy int, hParent int) *ShapeGif {
+func X创建形状GIF(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 父对象句柄 int) *ShapeGif {
 	p := &ShapeGif{}
-	p.SetHandle(xc.XShapeGif_Create(x, y, cx, cy, hParent))
+	p.X设置句柄(炫彩基类.X形状GIF_创建(X坐标, Y坐标, 宽度, 高度, 父对象句柄))
 	return p
 }
 
 // 从句柄创建对象.
-func NewShapeGifByHandle(handle int) *ShapeGif {
+func X创建形状GIF并按句柄(handle int) *ShapeGif {
 	p := &ShapeGif{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func NewShapeGifByName(name string) *ShapeGif {
-	handle := xc.XC_GetObjectByName(name)
+func X创建形状GIF并按名称(name string) *ShapeGif {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func NewShapeGifByUID(nUID int) *ShapeGif {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建形状GIF并按UID(nUID int) *ShapeGif {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func NewShapeGifByUIDName(name string) *ShapeGif {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建形状GIF并按UID名称(name string) *ShapeGif {
+	handle := 炫彩基类.X取对象从UID名称(name)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -69,11 +69,11 @@ func NewShapeGifByUIDName(name string) *ShapeGif {
 // 形状GIF_置图片, 设置GIF图片.
 //
 // hImage: 图片句柄.
-func (s *ShapeGif) SetImage(hImage int) int {
-	return xc.XShapeGif_SetImage(s.Handle, hImage)
+func (s *ShapeGif) X置图片(图片句柄 int) int {
+	return 炫彩基类.X形状GIF_置图片(s.Handle, 图片句柄)
 }
 
 // 形状GIF_取图片, 获取图片句柄.
-func (s *ShapeGif) GetImage() int {
-	return xc.XShapeGif_GetImage(s.Handle)
+func (s *ShapeGif) X取图片() int {
+	return 炫彩基类.X形状GIF_取图片(s.Handle)
 }
