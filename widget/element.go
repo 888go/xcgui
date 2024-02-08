@@ -1008,26 +1008,26 @@ type XE_PAINT_END func(hDraw int, pbHandled *bool) int                          
 type XE_PAINT_END1 func(hEle int, hDraw int, pbHandled *bool) int                         // 该元素及子元素绘制完成事件.启用该功能需要调用XEle_EnableEvent_XE_PAINT_END().
 type XE_PAINT_SCROLLVIEW func(hDraw int, pbHandled *bool) int                             // 滚动视图绘制事件.
 type XE_PAINT_SCROLLVIEW1 func(hEle int, hDraw int, pbHandled *bool) int                  // 滚动视图绘制事件.
-type XE_MOUSEMOVE func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 元素鼠标移动事件.
-type XE_MOUSEMOVE1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 元素鼠标移动事件.
+type XE_MOUSEMOVE func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                    // 元素鼠标移动事件.
+type XE_MOUSEMOVE1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int         // 元素鼠标移动事件.
 type XE_MOUSESTAY func(pbHandled *bool) int                                               // 元素鼠标进入事件.
 type XE_MOUSESTAY1 func(hEle int, pbHandled *bool) int                                    // 元素鼠标进入事件.
-type XE_MOUSEHOVER func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                 // 元素鼠标悬停事件.
-type XE_MOUSEHOVER1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int      // 元素鼠标悬停事件.
+type XE_MOUSEHOVER func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                   // 元素鼠标悬停事件.
+type XE_MOUSEHOVER1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int        // 元素鼠标悬停事件.
 type XE_MOUSELEAVE func(hEleStay int, pbHandled *bool) int                                // 元素鼠标离开事件.
 type XE_MOUSELEAVE1 func(hEle int, hEleStay int, pbHandled *bool) int                     // 元素鼠标离开事件.
-type XE_MOUSEWHEEL func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                 // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
-type XE_MOUSEWHEEL1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int      // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
-type XE_LBUTTONDOWN func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                // 鼠标左键按下事件.
-type XE_LBUTTONDOWN1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int     // 鼠标左键按下事件.
-type XE_LBUTTONUP func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 鼠标左键弹起事件.
-type XE_LBUTTONUP1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 鼠标左键弹起事件.
-type XE_RBUTTONDOWN func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                // 鼠标右键按下事件.
-type XE_RBUTTONDOWN1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int     // 鼠标右键按下事件.
-type XE_RBUTTONUP func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 鼠标右键弹起事件.
-type XE_RBUTTONUP1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 鼠标右键弹起事件.
-type XE_LBUTTONDBCLICK func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int             // 鼠标左键双击事件.
-type XE_LBUTTONDBCLICK1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int  // 鼠标左键双击事件.
+type XE_MOUSEWHEEL func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                   // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
+type XE_MOUSEWHEEL1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int        // 元素鼠标滚轮滚动事件. 如果非滚动视图需要调用 XEle_EnableEvent_XE_MOUSEWHEEL(). flags: 见MSDN中WM_MOUSEWHEEL消息wParam参数说明.
+type XE_LBUTTONDOWN func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 鼠标左键按下事件.
+type XE_LBUTTONDOWN1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 鼠标左键按下事件.
+type XE_LBUTTONUP func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                    // 鼠标左键弹起事件.
+type XE_LBUTTONUP1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int         // 鼠标左键弹起事件.
+type XE_RBUTTONDOWN func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                  // 鼠标右键按下事件.
+type XE_RBUTTONDOWN1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int       // 鼠标右键按下事件.
+type XE_RBUTTONUP func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int                    // 鼠标右键弹起事件.
+type XE_RBUTTONUP1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int         // 鼠标右键弹起事件.
+type XE_LBUTTONDBCLICK func(nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int               // 鼠标左键双击事件.
+type XE_LBUTTONDBCLICK1 func(hEle int, nFlags int, pPt *炫彩基类.POINT, pbHandled *bool) int    // 鼠标左键双击事件.
 type XE_XC_TIMER func(nTimerID int, pbHandled *bool) int                                  // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
 type XE_XC_TIMER1 func(hEle int, nTimerID int, pbHandled *bool) int                       // 炫彩定时器,非系统定时器,定时器消息 XM_TIMER.
 type XE_ADJUSTLAYOUT func(nFlags int32, nAdjustNo uint32, pbHandled *bool) int            // 调整布局事件. 暂停使用.
@@ -1415,9 +1415,9 @@ func (e *Element) X事件_工具提示弹出1(pFun XE_TOOLTIP_POPUP1) bool {
 	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_TOOLTIP_POPUP, pFun)
 }
 
-type XE_MENU_SELECT func(nID int32, pbHandled *bool) int                                            // 弹出菜单项选择事件.
-type XE_MENU_POPUP func(HMENUX int, pbHandled *bool) int                                            // 菜单弹出.
-type XE_MENU_EXIT func(pbHandled *bool) int                                                         // 弹出菜单退出事件.
+type XE_MENU_SELECT func(nID int32, pbHandled *bool) int                                          // 弹出菜单项选择事件.
+type XE_MENU_POPUP func(HMENUX int, pbHandled *bool) int                                          // 菜单弹出.
+type XE_MENU_EXIT func(pbHandled *bool) int                                                       // 弹出菜单退出事件.
 type XE_MENU_POPUP_WND func(hMenu int, pInfo *炫彩基类.Menu_PopupWnd_, pbHandled *bool) int             // 菜单弹出窗口.
 type XE_MENU_DRAW_BACKGROUND func(hDraw int, pInfo *炫彩基类.Menu_DrawBackground_, pbHandled *bool) int // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
 type XE_MENU_DRAWITEM func(hDraw int, pInfo *炫彩基类.Menu_DrawItem_, pbHandled *bool) int              // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
@@ -1452,9 +1452,9 @@ func (e *Element) X事件_绘制菜单项事件(pFun XE_MENU_DRAWITEM) bool {
 	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_MENU_DRAWITEM, pFun)
 }
 
-type XE_MENU_SELECT1 func(hEle int, nID int, pbHandled *bool) int                                              // 弹出菜单项选择事件.
-type XE_MENU_POPUP1 func(hEle int, HMENUX int, pbHandled *bool) int                                            // 菜单弹出.
-type XE_MENU_EXIT1 func(hEle int, pbHandled *bool) int                                                         // 弹出菜单退出事件.
+type XE_MENU_SELECT1 func(hEle int, nID int, pbHandled *bool) int                                            // 弹出菜单项选择事件.
+type XE_MENU_POPUP1 func(hEle int, HMENUX int, pbHandled *bool) int                                          // 菜单弹出.
+type XE_MENU_EXIT1 func(hEle int, pbHandled *bool) int                                                       // 弹出菜单退出事件.
 type XE_MENU_POPUP_WND1 func(hEle int, hMenu int, pInfo *炫彩基类.Menu_PopupWnd_, pbHandled *bool) int             // 菜单弹出窗口.
 type XE_MENU_DRAW_BACKGROUND1 func(hEle int, hDraw int, pInfo *炫彩基类.Menu_DrawBackground_, pbHandled *bool) int // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
 type XE_MENU_DRAWITEM1 func(hEle int, hDraw int, pInfo *炫彩基类.Menu_DrawItem_, pbHandled *bool) int              // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().

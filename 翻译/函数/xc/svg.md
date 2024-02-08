@@ -6,7 +6,7 @@ func XSvg_LoadFile(pFileName
 
 # <翻译开始>
 func XSvg_LoadFile
-XSVG_加载从文件
+SVG_加载从文件
 # <翻译结束>
 
 
@@ -17,7 +17,7 @@ func XSvg_LoadString(pString
 
 # <翻译开始>
 func XSvg_LoadString
-XSVG_加载从字符串
+SVG_加载从字符串
 # <翻译结束>
 
 
@@ -38,7 +38,7 @@ zip文件名
 
 # <翻译开始>
 func XSvg_LoadZip
-XSVG_加载从ZIP
+SVG_加载从ZIP
 # <翻译结束>
 
 
@@ -64,7 +64,7 @@ func XSvg_LoadZipRes(id
 
 # <翻译开始>
 func XSvg_LoadZipRes
-XSVG_加载从资源ZIP
+SVG_加载从资源ZIP
 # <翻译结束>
 
 
@@ -85,7 +85,7 @@ func XSvg_LoadRes(id
 
 # <翻译开始>
 func XSvg_LoadRes
-XSVG_加载从资源
+SVG_加载从资源
 # <翻译结束>
 
 
@@ -106,7 +106,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetSize
-XSVG_置大小
+SVG_置大小
 # <翻译结束>
 
 
@@ -127,7 +127,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetSize
-XSVG_取大小
+SVG_取大小
 # <翻译结束>
 
 
@@ -138,7 +138,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetWidth
-XSVG_取宽度
+SVG_取宽度
 # <翻译结束>
 
 
@@ -149,7 +149,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetHeight
-XSVG_取高度
+SVG_取高度
 # <翻译结束>
 
 
@@ -170,7 +170,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetPosition
-XSVG_置偏移
+SVG_置偏移
 # <翻译结束>
 
 
@@ -191,7 +191,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetPosition
-XSVG_取偏移
+SVG_取偏移
 # <翻译结束>
 
 
@@ -212,7 +212,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetPositionF
-XSVG_置偏移F
+SVG_置偏移F
 # <翻译结束>
 
 
@@ -233,7 +233,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetPositionF
-XSVG_取偏移F
+SVG_取偏移F
 # <翻译结束>
 
 
@@ -249,7 +249,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetViewBox
-XSVG_取视图框
+SVG_取视图框
 # <翻译结束>
 
 
@@ -265,7 +265,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_EnableAutoDestroy
-XSVG_启用自动销毁
+SVG_启用自动销毁
 # <翻译结束>
 
 
@@ -276,7 +276,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_AddRef
-XSVG_增加引用计数
+SVG_增加引用计数
 # <翻译结束>
 
 
@@ -287,7 +287,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_Release
-XSVG_释放引用计数
+SVG_释放引用计数
 # <翻译结束>
 
 
@@ -298,7 +298,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetRefCount
-XSVG_取引用计数
+SVG_取引用计数
 # <翻译结束>
 
 
@@ -309,7 +309,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_Destroy
-XSVG_销毁
+SVG_销毁
 # <翻译结束>
 
 
@@ -325,7 +325,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetAlpha
-XSVG_置透明度
+SVG_置透明度
 # <翻译结束>
 
 
@@ -336,7 +336,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetAlpha
-XSVG_取透明度
+SVG_取透明度
 # <翻译结束>
 
 
@@ -357,7 +357,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetUserFillColor
-XSVG_置用户填充颜色
+SVG_置用户填充颜色
 # <翻译结束>
 
 
@@ -383,7 +383,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetUserStrokeColor
-XSVG_置用户笔触颜色
+SVG_置用户笔触颜色
 # <翻译结束>
 
 
@@ -399,7 +399,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetUserFillColor
-XSVG_取用户填充颜色
+SVG_取用户填充颜色
 # <翻译结束>
 
 
@@ -415,7 +415,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetUserStrokeColor
-XSVG_取用户笔触颜色
+SVG_取用户笔触颜色
 # <翻译结束>
 
 
@@ -431,7 +431,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetRotateAngle
-XSVG_置旋转角度
+SVG_置旋转角度
 # <翻译结束>
 
 
@@ -442,7 +442,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetRotateAngle
-XSVG_取旋转角度
+SVG_取旋转角度
 # <翻译结束>
 
 
@@ -473,7 +473,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_SetRotate
-XSVG_置旋转
+SVG_置旋转
 # <翻译结束>
 
 
@@ -504,7 +504,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_GetRotate
-XSVG_取旋转
+SVG_取旋转
 # <翻译结束>
 
 
@@ -520,7 +520,7 @@ SVG句柄
 
 # <翻译开始>
 func XSvg_Show
-XSVG_显示
+SVG_显示
 # <翻译结束>
 
 
@@ -531,7 +531,7 @@ func XSvg_LoadStringW(pString
 
 # <翻译开始>
 func XSvg_LoadStringW
-XSVG_加载从字符串W
+SVG_加载从字符串W
 # <翻译结束>
 
 
@@ -542,7 +542,7 @@ func XSvg_LoadStringUtf8(pString
 
 # <翻译开始>
 func XSvg_LoadStringUtf8
-XSVG_加载从字符串UTF8
+SVG_加载从字符串UTF8
 # <翻译结束>
 
 
@@ -563,6 +563,6 @@ zip数据
 
 # <翻译开始>
 func XSvg_LoadZipMem
-XSVG_加载从内存ZIP
+SVG_加载从内存ZIP
 # <翻译结束>
 

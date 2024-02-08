@@ -2,9 +2,9 @@ package 炫彩基类
 
 import (
 	"unsafe"
-
+	
 	"github.com/888go/xcgui/common"
-
+	
 	"github.com/888go/xcgui/xcc"
 )
 
@@ -1158,8 +1158,8 @@ func X绘制_图片增强EXF(图形绘制句柄 int, 图片句柄 int, 目标坐
 // pRectMask: 坐标, 遮盖.
 //
 // bClip: 是否裁剪区域.
-func X绘制_图片增强遮盖(图形绘制句柄 int, 图片句柄 int, 图片遮盖句柄 int, 遮盖坐标 *RECT, 坐标 *RECT, 是否裁剪区域 bool) int {
-	r, _, _ := xDraw_ImageSuperMask.Call(uintptr(图形绘制句柄), uintptr(图片句柄), uintptr(图片遮盖句柄), uintptr(unsafe.Pointer(坐标)), uintptr(unsafe.Pointer(坐标)), 炫彩工具类.BoolPtr(是否裁剪区域))
+func X绘制_图片增强遮盖(图形绘制句柄 int, 图片句柄 int, 图片遮盖句柄 int, 坐标 *RECT, 遮盖坐标 *RECT, 是否裁剪区域 bool) int {
+	r, _, _ := xDraw_ImageSuperMask.Call(uintptr(图形绘制句柄), uintptr(图片句柄), uintptr(图片遮盖句柄), uintptr(unsafe.Pointer(坐标)), uintptr(unsafe.Pointer(遮盖坐标)), 炫彩工具类.BoolPtr(是否裁剪区域))
 	return int(r)
 }
 
@@ -1206,8 +1206,8 @@ func X绘制_图片平铺F(图形绘制句柄 int, 图片句柄 int, hImageFrame
 // x2: hImageFrameMask X坐标.
 //
 // y2: hImageFrameMask Y坐标.
-func X绘制_图片遮盖(图形绘制句柄 int, 图片句柄 int, 图片遮盖句柄 int, x int, y int, X坐标 int, Y坐标 int) int {
-	r, _, _ := xDraw_ImageMask.Call(uintptr(图形绘制句柄), uintptr(图片句柄), uintptr(图片遮盖句柄), uintptr(图片句柄), uintptr(图片句柄), uintptr(图片遮盖句柄), uintptr(图片遮盖句柄))
+func X绘制_图片遮盖(图形绘制句柄 int, 图片句柄 int, 图片遮盖句柄 int, 坐标x int, 坐标y int, 坐标x2 int, 坐标y2 int) int {
+	r, _, _ := xDraw_ImageMask.Call(uintptr(图形绘制句柄), uintptr(图片句柄), uintptr(图片遮盖句柄), uintptr(坐标x), uintptr(坐标y), uintptr(坐标x2), uintptr(坐标y2))
 	return int(r)
 }
 

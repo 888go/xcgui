@@ -717,7 +717,7 @@ func (e *Edit) X取行文本Tmp(行索引 int) string {
 
 // 编辑框_取选择文本, 不包含非文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
 func (e *Edit) X取选择文本Tmp() string {
-	return 炫彩基类.X编辑框_取选择文本tmp(e.Handle)
+	return 炫彩基类.X编辑框_取选择文本Tmp(e.Handle)
 }
 
 // 编辑框_插入气泡开始, 当前行开始.

@@ -116,7 +116,7 @@ func ReleaseAnimation() {
 	}
 
 	for _, v := range list_svg {
-		炫彩基类.XSVG_释放引用计数(v)
+		炫彩基类.SVG_释放引用计数(v)
 	}
 
 	for _, v := range list_xcgui {
@@ -154,12 +154,12 @@ func OnBtnClick1(pbHandled *bool) int {
 
 	// 加载svg图片
 	list_svg = append(list_svg,
-		炫彩基类.XSVG_加载从字符串W(svg1),
-		炫彩基类.XSVG_加载从字符串W(svg2),
-		炫彩基类.XSVG_加载从字符串W(svg3),
-		炫彩基类.XSVG_加载从字符串W(svg4),
-		炫彩基类.XSVG_加载从字符串W(svg5),
-		炫彩基类.XSVG_加载从字符串W(svg6),
+		炫彩基类.SVG_加载从字符串W(svg1),
+		炫彩基类.SVG_加载从字符串W(svg2),
+		炫彩基类.SVG_加载从字符串W(svg3),
+		炫彩基类.SVG_加载从字符串W(svg4),
+		炫彩基类.SVG_加载从字符串W(svg5),
+		炫彩基类.SVG_加载从字符串W(svg6),
 	)
 
 	// 创建动画组
@@ -169,8 +169,8 @@ func OnBtnClick1(pbHandled *bool) int {
 
 	for k, v := range list_svg {
 		// 设置svg图片大小和位置
-		炫彩基类.XSVG_置大小(v, 100, 100)
-		炫彩基类.XSVG_置偏移(v, left, top)
+		炫彩基类.SVG_置大小(v, 100, 100)
+		炫彩基类.SVG_置偏移(v, left, top)
 
 		// 创建动画序列
 		hAnimation := 炫彩基类.X动画_创建动画序列(v, 0)
@@ -208,10 +208,10 @@ func OnBtnClick2(pbHandled *bool) int {
 	ReleaseAnimation()
 
 	// 加载svg图片
-	list_svg = append(list_svg, 炫彩基类.XSVG_加载从字符串W(svg1))
+	list_svg = append(list_svg, 炫彩基类.SVG_加载从字符串W(svg1))
 	// 设置svg图片大小和位置
-	炫彩基类.XSVG_置大小(list_svg[0], 100, 100)
-	炫彩基类.XSVG_置偏移(list_svg[0], left, top)
+	炫彩基类.SVG_置大小(list_svg[0], 100, 100)
+	炫彩基类.SVG_置偏移(list_svg[0], left, top)
 
 	// 创建动画组
 	group := 炫彩动画类.X创建动画组(0)
@@ -270,10 +270,10 @@ func OnBtnClick3(pbHandled *bool) int {
 	top = 150
 
 	// 加载svg图片
-	list_svg = append(list_svg, 炫彩基类.XSVG_加载从字符串W(svg1))
+	list_svg = append(list_svg, 炫彩基类.SVG_加载从字符串W(svg1))
 	// 设置svg图片大小和位置
-	炫彩基类.XSVG_置大小(list_svg[0], 300, 300)
-	炫彩基类.XSVG_置偏移(list_svg[0], left, top)
+	炫彩基类.SVG_置大小(list_svg[0], 300, 300)
+	炫彩基类.SVG_置偏移(list_svg[0], left, top)
 
 	// 创建动画序列
 	ani1 := 炫彩动画类.X创建动画序列(list_svg[0], 1)
@@ -303,15 +303,15 @@ func OnBtnClick4(pbHandled *bool) int {
 
 	// 加载svg图片
 	list_svg = append(list_svg,
-		炫彩基类.XSVG_加载从字符串W(svg1),
-		炫彩基类.XSVG_加载从字符串W(svg1),
-		炫彩基类.XSVG_加载从字符串W(svg1),
+		炫彩基类.SVG_加载从字符串W(svg1),
+		炫彩基类.SVG_加载从字符串W(svg1),
+		炫彩基类.SVG_加载从字符串W(svg1),
 	)
 
 	// 设置svg图片大小和位置
 	for k, v := range list_svg {
-		炫彩基类.XSVG_置大小(v, 100, 100)
-		炫彩基类.XSVG_置偏移(v, left+int32(k)*100, top)
+		炫彩基类.SVG_置大小(v, 100, 100)
+		炫彩基类.SVG_置偏移(v, left+int32(k)*100, top)
 	}
 
 	// 创建动画序列
@@ -331,9 +331,9 @@ func OnBtnClick4(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = 100
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -342,9 +342,9 @@ func OnBtnClick4(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top += 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -353,9 +353,9 @@ func OnBtnClick4(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top += 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -373,15 +373,15 @@ func OnBtnClick5(pbHandled *bool) int {
 
 	// 加载svg图片
 	list_svg = append(list_svg,
-		炫彩基类.XSVG_加载从字符串W(svg1),
-		炫彩基类.XSVG_加载从字符串W(svg2),
-		炫彩基类.XSVG_加载从字符串W(svg3),
+		炫彩基类.SVG_加载从字符串W(svg1),
+		炫彩基类.SVG_加载从字符串W(svg2),
+		炫彩基类.SVG_加载从字符串W(svg3),
 	)
 
 	// 设置svg图片大小和位置
 	for k, v := range list_svg {
-		炫彩基类.XSVG_置大小(v, 100, 100)
-		炫彩基类.XSVG_置偏移(v, left, top+int32(k)*100)
+		炫彩基类.SVG_置大小(v, 100, 100)
+		炫彩基类.SVG_置偏移(v, left, top+int32(k)*100)
 	}
 	top = 22
 
@@ -836,9 +836,9 @@ func OnBtnClick11(pbHandled *bool) int {
 	top = 80
 
 	// 两个球型交替移动
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg11)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg11)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 
 	hGroup := 炫彩基类.X动画组_创建(0)
 	list_animation = append(list_animation, hGroup)
@@ -849,9 +849,9 @@ func OnBtnClick11(pbHandled *bool) int {
 	炫彩基类.X动画_移动(hAnimation, 1000, float32(left)+50, float32(top), 1, 炫彩常量类.Ease_Flag_Sine|炫彩常量类.Ease_Flag_InOut, false)
 	炫彩基类.X动画_移动(hAnimation, 1000, float32(left), float32(top), 1, 炫彩常量类.Ease_Flag_Sine|炫彩常量类.Ease_Flag_InOut, false)
 
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg12)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg12)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left+50, top)
+	炫彩基类.SVG_置偏移(hSvg, left+50, top)
 
 	hGroup = 炫彩基类.X动画组_创建(0)
 	list_animation = append(list_animation, hGroup)
@@ -869,9 +869,9 @@ func OnBtnClick11(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hGroup, w.Handle)
 
 	for i := 0; i < 10; i++ {
-		hSvg = 炫彩基类.XSVG_加载从字符串W(svg13)
+		hSvg = 炫彩基类.SVG_加载从字符串W(svg13)
 		list_svg = append(list_svg, hSvg)
-		炫彩基类.XSVG_置偏移(hSvg, left+int32(i)*50, top)
+		炫彩基类.SVG_置偏移(hSvg, left+int32(i)*50, top)
 
 		hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 		炫彩基类.X动画组_添加项(hGroup, hAnimation)
@@ -887,9 +887,9 @@ func OnBtnClick11(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hGroup, w.Handle)
 
 	for i := 0; i < 10; i++ {
-		hSvg = 炫彩基类.XSVG_加载从字符串W(svg13)
+		hSvg = 炫彩基类.SVG_加载从字符串W(svg13)
 		list_svg = append(list_svg, hSvg)
-		炫彩基类.XSVG_置偏移(hSvg, left+int32(i)*50, top)
+		炫彩基类.SVG_置偏移(hSvg, left+int32(i)*50, top)
 
 		hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 		炫彩基类.X动画组_添加项(hGroup, hAnimation)
@@ -902,10 +902,10 @@ func OnBtnClick11(pbHandled *bool) int {
 	left = 150
 	top = 200
 	for i := 0; i < 10; i++ {
-		hSvg = 炫彩基类.XSVG_加载从字符串W(svg13)
+		hSvg = 炫彩基类.SVG_加载从字符串W(svg13)
 		list_svg = append(list_svg, hSvg)
 		x := left + int32(i)*35
-		炫彩基类.XSVG_置偏移(hSvg, x, top)
+		炫彩基类.SVG_置偏移(hSvg, x, top)
 
 		hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 		list_animation = append(list_animation, hAnimation)
@@ -917,10 +917,10 @@ func OnBtnClick11(pbHandled *bool) int {
 
 	left = 550
 	for i := 0; i < 10; i++ {
-		hSvg = 炫彩基类.XSVG_加载从字符串W(svg13)
+		hSvg = 炫彩基类.SVG_加载从字符串W(svg13)
 		list_svg = append(list_svg, hSvg)
 		x := left + int32(i)*35
-		炫彩基类.XSVG_置偏移(hSvg, x, top)
+		炫彩基类.SVG_置偏移(hSvg, x, top)
 
 		hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 		list_animation = append(list_animation, hAnimation)
@@ -934,10 +934,10 @@ func OnBtnClick11(pbHandled *bool) int {
 	left = 150
 	top = 350
 	for i := 0; i < 10; i++ {
-		hSvg = 炫彩基类.XSVG_加载从字符串W(svg13)
+		hSvg = 炫彩基类.SVG_加载从字符串W(svg13)
 		list_svg = append(list_svg, hSvg)
 		x := left + int32(i)*35
-		炫彩基类.XSVG_置偏移(hSvg, x, top)
+		炫彩基类.SVG_置偏移(hSvg, x, top)
 
 		hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 		list_animation = append(list_animation, hAnimation)
@@ -952,10 +952,10 @@ func OnBtnClick11(pbHandled *bool) int {
 	left = 220
 	top = 600
 	for i := 0; i < 10; i++ {
-		hSvg = 炫彩基类.XSVG_加载从字符串W(svg14)
+		hSvg = 炫彩基类.SVG_加载从字符串W(svg14)
 		list_svg = append(list_svg, hSvg)
-		炫彩基类.XSVG_置偏移(hSvg, 100-int32(i)*25, top)
-		炫彩基类.XSVG_置透明度(hSvg, 0)
+		炫彩基类.SVG_置偏移(hSvg, 100-int32(i)*25, top)
+		炫彩基类.SVG_置透明度(hSvg, 0)
 
 		hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 		list_animation = append(list_animation, hAnimation)
@@ -986,10 +986,10 @@ func OnBtnClick12(pbHandled *bool) int {
 	var left int32 = 120
 	top = 100
 
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, 0)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, 0)
 
 	hAnimation := 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1003,11 +1003,11 @@ func OnBtnClick12(pbHandled *bool) int {
 
 	// 移动 往返旋转
 	top = 350
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, -45)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, -45)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1029,10 +1029,10 @@ func OnBtnClick13(pbHandled *bool) int {
 	top = 80
 
 	// 自身 摇摆 往返
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, -45)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, -45)
 
 	hAnimation := 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1041,9 +1041,9 @@ func OnBtnClick13(pbHandled *bool) int {
 
 	// 自身 旋转
 	left = 500
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1054,10 +1054,10 @@ func OnBtnClick13(pbHandled *bool) int {
 	// 两个叠加 悬挂摆动
 	left = 300
 	top = 250
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, 45)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, 45)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1065,11 +1065,11 @@ func OnBtnClick13(pbHandled *bool) int {
 	炫彩基类.X动画旋转_置中心(hRotate, float32(left)+10, float32(top)+50, false)
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, 45)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, 45)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1080,11 +1080,11 @@ func OnBtnClick13(pbHandled *bool) int {
 	// 砍东西效果
 	left = 500
 	top = 400
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, -45)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, -45)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1101,14 +1101,14 @@ func OnBtnClick14(pbHandled *bool) int {
 	top = 50
 
 	// 加载svg, 设置大小和填充颜色
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置大小(hSvg, 50, 50)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
+	炫彩基类.SVG_置大小(hSvg, 50, 50)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
 
 	// 移动 360度旋转
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, 0)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, 0)
 
 	// 创建动画组
 	hGroup := 炫彩基类.X动画组_创建(0)
@@ -1146,11 +1146,11 @@ func OnBtnClick15(pbHandled *bool) int {
 
 	// 砍东西效果
 
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	height = 炫彩基类.XSVG_取高度(hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, -45)
+	height = 炫彩基类.SVG_取高度(hSvg)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, -45)
 
 	hAnimation := 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1160,11 +1160,11 @@ func OnBtnClick15(pbHandled *bool) int {
 
 	// 砍东西效果
 	top = 300
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	height = 炫彩基类.XSVG_取高度(hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, 45)
+	height = 炫彩基类.SVG_取高度(hSvg)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, 45)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1175,12 +1175,12 @@ func OnBtnClick15(pbHandled *bool) int {
 	// 砍东西效果
 	left = 500
 	top = 200
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	width = 炫彩基类.XSVG_取宽度(hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, 45)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
+	width = 炫彩基类.SVG_取宽度(hSvg)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, 45)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1190,12 +1190,12 @@ func OnBtnClick15(pbHandled *bool) int {
 
 	// 砍东西效果
 	top = 300
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	width = 炫彩基类.XSVG_取宽度(hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置旋转角度(hSvg, -45)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
+	width = 炫彩基类.SVG_取宽度(hSvg)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置旋转角度(hSvg, -45)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1211,10 +1211,10 @@ func OnBtnClick16(pbHandled *bool) int {
 	var left int32 = 150
 	top = 50
 
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 0, 0, 255), true)
 
 	hAnimation := 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1222,10 +1222,10 @@ func OnBtnClick16(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = 225
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(0, 255, 0, 255), true)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(0, 255, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1233,20 +1233,20 @@ func OnBtnClick16(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = 400
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg7)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg7)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 255, 0, 255), true)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 255, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
 	炫彩基类.X动画_颜色(hAnimation, 1500, 炫彩基类.ABGR(0, 0, 255, 255), 1, 0, true)
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
-	hSvg = 炫彩基类.XSVG_加载从字符串(svg15)
+	hSvg = 炫彩基类.SVG_加载从字符串(svg15)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, 500, 300)
-	炫彩基类.XSVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 255, 0, 255), true)
+	炫彩基类.SVG_置偏移(hSvg, 500, 300)
+	炫彩基类.SVG_置用户填充颜色(hSvg, 炫彩基类.ABGR(255, 255, 0, 255), true)
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
 	list_animation = append(list_animation, hAnimation)
@@ -1280,9 +1280,9 @@ func OnBtnClick17(pbHandled *bool) int {
 	var left int32 = 150
 	top = 50
 
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_leftTop", w.Handle))
 
 	hAnimation := 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1291,9 +1291,9 @@ func OnBtnClick17(pbHandled *bool) int {
 	炫彩基类.X动画缩放_置延伸位置(hScale, 炫彩常量类.Position_Flag_LeftTop)
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 	top = top + 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_left", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1303,9 +1303,9 @@ func OnBtnClick17(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = top + 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_leftBottom", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1316,9 +1316,9 @@ func OnBtnClick17(pbHandled *bool) int {
 
 	top = 50
 	left = left + 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_top", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1328,9 +1328,9 @@ func OnBtnClick17(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = top + 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_center", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1340,9 +1340,9 @@ func OnBtnClick17(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = top + 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_bottom", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1353,9 +1353,9 @@ func OnBtnClick17(pbHandled *bool) int {
 
 	left = left + 150
 	top = 50
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_rightTop", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1365,9 +1365,9 @@ func OnBtnClick17(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = top + 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_right", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)
@@ -1377,9 +1377,9 @@ func OnBtnClick17(pbHandled *bool) int {
 	炫彩基类.X动画_运行(hAnimation, w.Handle)
 
 	top = top + 150
-	hSvg = 炫彩基类.XSVG_加载从字符串W(svg5)
+	hSvg = 炫彩基类.SVG_加载从字符串W(svg5)
 	list_svg = append(list_svg, hSvg)
-	炫彩基类.XSVG_置偏移(hSvg, left, top)
+	炫彩基类.SVG_置偏移(hSvg, left, top)
 	list_xcgui = append(list_xcgui, 炫彩基类.X形状文本_创建(left, top+65, 150, 20, "position_flag_rightBottom", w.Handle))
 
 	hAnimation = 炫彩基类.X动画_创建动画序列(hSvg, 0)

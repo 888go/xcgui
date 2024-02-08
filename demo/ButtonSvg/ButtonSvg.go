@@ -19,7 +19,7 @@ func main() {
 	// 加载svg1从string
 	svg1 := 炫彩图片类.X创建并按SVG字符串W(svgStr1)
 	// 设置svg1的大小
-	炫彩基类.XSVG_置大小(svg1.X取SVG(), 24, 24)
+	炫彩基类.SVG_置大小(svg1.X取SVG(), 24, 24)
 
 	// 创建按钮1
 	btn1 := 炫彩组件类.X创建按钮(30, 40, 130, 30, "Test Svg Icon", w.Handle)
@@ -29,7 +29,7 @@ func main() {
 	// 加载svg2从string
 	svg2 := 炫彩图片类.X创建并按SVG字符串W(svgStr2)
 	// 设置svg2的大小
-	炫彩基类.XSVG_置大小(svg2.X取SVG(), 100, 100)
+	炫彩基类.SVG_置大小(svg2.X取SVG(), 100, 100)
 
 	// 创建按钮2
 	btn2 := 炫彩组件类.X创建按钮(30, 80, 100, 100, "", w.Handle)

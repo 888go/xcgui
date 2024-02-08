@@ -50,7 +50,7 @@ func X对话框打开文件夹(炫彩窗口句柄 int) string {
 		IImage:         0,
 	}
 	var pszPath string
-	炫彩WinApi类.文件夹指针取实际路径(炫彩WinApi类.X对话框打开文件夹(&bi), &pszPath)
+	炫彩WinApi类.X文件夹指针取实际路径(炫彩WinApi类.X对话框打开文件夹(&bi), &pszPath)
 	return pszPath
 }
 

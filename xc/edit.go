@@ -3,9 +3,9 @@ package 炫彩基类
 import (
 	"syscall"
 	"unsafe"
-
+	
 	"github.com/888go/xcgui/common"
-
+	
 	"github.com/888go/xcgui/xcc"
 )
 
@@ -901,7 +901,7 @@ func X编辑框_取文本行Tmp(元素句柄 int, 行索引 int) string {
 // 编辑框_取选择文本, 不包含非文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
 //
 // hEle: 元素句柄.
-func X编辑框_取选择文本tmp(元素句柄 int) string {
+func X编辑框_取选择文本Tmp(元素句柄 int) string {
 	r, _, _ := xEdit_GetSelectText_Temp.Call(uintptr(元素句柄))
 	return 炫彩工具类.UintPtrToString(r)
 }
