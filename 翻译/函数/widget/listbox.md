@@ -251,12 +251,12 @@ X取消选择全部
 
 # <翻译开始>
 func (l *ListBox) GetSelectAll(pArray *[]int32, nArraySize
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func (l *ListBox) GetSelectAll(pArray
-数组缓冲区
+切片缓冲区
 # <翻译结束>
 
 # <翻译开始>

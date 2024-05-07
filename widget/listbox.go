@@ -188,11 +188,11 @@ func (l *ListBox) X取消选择全部() bool {
 
 // 列表框_取全部选择, 获取所有选择项, 返回接收数量.
 //
-// pArray: 数组缓冲区.
+// pArray: 切片缓冲区.
 //
-// nArraySize: 数组大小.
-func (l *ListBox) X取全部选择(数组缓冲区 *[]int32, 数组大小 int) int {
-	return 炫彩基类.X列表框_取全部选择(l.Handle, 数组缓冲区, 数组大小)
+// nArraySize: 切片大小.
+func (l *ListBox) X取全部选择(切片缓冲区 *[]int32, 切片大小 int) int {
+	return 炫彩基类.X列表框_取全部选择(l.Handle, 切片缓冲区, 切片大小)
 }
 
 // 列表框_取选择项数量, 获取选择项数量.
@@ -706,8 +706,8 @@ type XE_LISTBOX_TEMP_ADJUST_COORDINATE func(pItem *炫彩基类.ListBox_Item_, p
 type XE_LISTBOX_TEMP_ADJUST_COORDINATE1 func(hEle int, pItem *炫彩基类.ListBox_Item_, pbHandled *bool) int // 列表框元素,项模板调整坐标. 已停用.
 type XE_LISTBOX_DRAWITEM func(hDraw int, pItem *炫彩基类.ListBox_Item_, pbHandled *bool) int               // 列表框元素,项绘制事件.
 type XE_LISTBOX_DRAWITEM1 func(hEle int, hDraw int, pItem *炫彩基类.ListBox_Item_, pbHandled *bool) int    // 列表框元素,项绘制事件.
-type XE_LISTBOX_SELECT func(iItem int32, pbHandled *bool) int                                        // 列表框元素,项选择事件.
-type XE_LISTBOX_SELECT1 func(hEle int, iItem int32, pbHandled *bool) int                             // 列表框元素,项选择事件.
+type XE_LISTBOX_SELECT func(iItem int32, pbHandled *bool) int                                          // 列表框元素,项选择事件.
+type XE_LISTBOX_SELECT1 func(hEle int, iItem int32, pbHandled *bool) int                               // 列表框元素,项选择事件.
 
 // 列表框元素-项模板创建事件, 模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复
 //

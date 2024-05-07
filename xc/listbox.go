@@ -2,9 +2,9 @@ package 炫彩基类
 
 import (
 	"unsafe"
-	
+
 	"github.com/888go/xcgui/common"
-	
+
 	"github.com/888go/xcgui/xcc"
 )
 
@@ -188,15 +188,15 @@ func X列表框_取消选择全部(元素句柄 int) bool {
 //
 // hEle: 元素句柄.
 //
-// pArray: 数组缓冲区.
+// pArray: 切片缓冲区.
 //
-// nArraySize: 数组大小.
-func X列表框_取全部选择(元素句柄 int, 数组缓冲区 *[]int32, 数组大小 int) int {
-	if 数组大小 < 1 {
+// nArraySize: 切片大小.
+func X列表框_取全部选择(元素句柄 int, 切片缓冲区 *[]int32, 切片大小 int) int {
+	if 切片大小 < 1 {
 		return 0
 	}
-	*数组缓冲区 = make([]int32, 数组大小)
-	r, _, _ := xListBox_GetSelectAll.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(&(*数组缓冲区)[0])), uintptr(数组大小))
+	*切片缓冲区 = make([]int32, 切片大小)
+	r, _, _ := xListBox_GetSelectAll.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(&(*切片缓冲区)[0])), uintptr(切片大小))
 	return int(r)
 }
 

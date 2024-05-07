@@ -135,13 +135,13 @@ func (fw *FrameWindow) X保存布局到文件(文件名 string) bool {
 
 // 框架窗口_加载布局信息文件, 加载布局信息文件.
 //
-// aPaneList: 窗格句柄数组.
+// aPaneList: 窗格句柄切片.
 //
 // nPaneCount: 窗格数量.
 //
 // pFileName: 文件名，如果文件名为空，将使用默认文件名frameWnd_layout.xml.
-func (fw *FrameWindow) X加载布局信息文件(窗格句柄数组 []int, 窗格数量 int32, 文件名 string) bool {
-	return 炫彩基类.X框架窗口_加载布局信息文件(fw.Handle, 窗格句柄数组, 窗格数量, 文件名)
+func (fw *FrameWindow) X加载布局信息文件(窗格句柄切片 []int, 窗格数量 int32, 文件名 string) bool {
+	return 炫彩基类.X框架窗口_加载布局信息文件(fw.Handle, 窗格句柄切片, 窗格数量, 文件名)
 }
 
 // 框架窗口_添加窗格, 添加窗格到框架窗口.

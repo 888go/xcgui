@@ -266,11 +266,11 @@ func (l *List) X置选择全部() int {
 
 // 列表_取全部选择, 获取全部选择的行, 返回行数量.
 //
-// pArray: 接收行索引数组.
+// pArray: 接收行索引切片.
 //
-// nArraySize: 数组大小.
-func (l *List) X取全部选择(接收行索引数组 *[]int32, 数组大小 int) int {
-	return 炫彩基类.X列表_取全部选择(l.Handle, 接收行索引数组, 数组大小)
+// nArraySize: 切片大小.
+func (l *List) X取全部选择(接收行索引切片 *[]int32, 切片大小 int) int {
+	return 炫彩基类.X列表_取全部选择(l.Handle, 接收行索引切片, 切片大小)
 }
 
 // 列表_显示指定项, 滚动视图让指定项可见.
@@ -326,8 +326,8 @@ func (l *List) X列表头绑定数据适配器(数据适配器句柄 int) int {
 // 列表_创建数据适配器, 创建数据适配器，根据绑定的项模板初始化数据适配器的列, 返回适配器句柄.
 //
 // colExtend_count:	列延伸-预计列表总列数, 默认值0; 限制最大延伸范围, 避免超出范围, 增加不必要的字段.
-func (l *List) X创建数据适配器(	预计列表总列数 int) int {
-	return 炫彩基类.X列表_创建数据适配器(l.Handle, 	预计列表总列数)
+func (l *List) X创建数据适配器(预计列表总列数 int) int {
+	return 炫彩基类.X列表_创建数据适配器(l.Handle, 预计列表总列数)
 }
 
 // 列表_列表头创建数据适配器, 创建数据适配器，根据绑定的项模板初始化数据适配器的列, 返回适配器句柄.
@@ -921,14 +921,14 @@ type XE_LIST_TEMP_ADJUST_COORDINATE func(pItem *炫彩基类.List_Item_, pbHandl
 type XE_LIST_TEMP_ADJUST_COORDINATE1 func(hEle int, pItem *炫彩基类.List_Item_, pbHandled *bool) int               // 列表元素,项模板调整坐标. 已停用.
 type XE_LIST_DRAWITEM func(hDraw int, pItem *炫彩基类.List_Item_, pbHandled *bool) int                             // 列表元素,绘制项.
 type XE_LIST_DRAWITEM1 func(hEle int, hDraw int, pItem *炫彩基类.List_Item_, pbHandled *bool) int                  // 列表元素,绘制项.
-type XE_LIST_SELECT func(iItem int32, pbHandled *bool) int                                                   // 列表元素,项选择事件.
-type XE_LIST_SELECT1 func(hEle int, iItem int32, pbHandled *bool) int                                        // 列表元素,项选择事件.
+type XE_LIST_SELECT func(iItem int32, pbHandled *bool) int                                                     // 列表元素,项选择事件.
+type XE_LIST_SELECT1 func(hEle int, iItem int32, pbHandled *bool) int                                          // 列表元素,项选择事件.
 type XE_LIST_HEADER_DRAWITEM func(hDraw int, pItem *炫彩基类.List_Header_Item_, pbHandled *bool) int               // 列表元素绘制列表头项.
 type XE_LIST_HEADER_DRAWITEM1 func(hEle int, hDraw int, pItem *炫彩基类.List_Header_Item_, pbHandled *bool) int    // 列表元素绘制列表头项.
-type XE_LIST_HEADER_CLICK func(iItem int32, pbHandled *bool) int                                             // 列表元素,列表头项点击事件.
-type XE_LIST_HEADER_CLICK1 func(hEle int, iItem int32, pbHandled *bool) int                                  // 列表元素,列表头项点击事件.
-type XE_LIST_HEADER_WIDTH_CHANGE func(iItem int32, nWidth int32, pbHandled *bool) int                        // 列表元素,列表头项宽度改变事件.
-type XE_LIST_HEADER_WIDTH_CHANGE1 func(hEle int, iItem int32, nWidth int32, pbHandled *bool) int             // 列表元素,列表头项宽度改变事件.
+type XE_LIST_HEADER_CLICK func(iItem int32, pbHandled *bool) int                                               // 列表元素,列表头项点击事件.
+type XE_LIST_HEADER_CLICK1 func(hEle int, iItem int32, pbHandled *bool) int                                    // 列表元素,列表头项点击事件.
+type XE_LIST_HEADER_WIDTH_CHANGE func(iItem int32, nWidth int32, pbHandled *bool) int                          // 列表元素,列表头项宽度改变事件.
+type XE_LIST_HEADER_WIDTH_CHANGE1 func(hEle int, iItem int32, nWidth int32, pbHandled *bool) int               // 列表元素,列表头项宽度改变事件.
 type XE_LIST_HEADER_TEMP_CREATE func(pItem *炫彩基类.List_Header_Item_, pbHandled *bool) int                       // 列表元素,列表头项模板创建.
 type XE_LIST_HEADER_TEMP_CREATE1 func(hEle int, pItem *炫彩基类.List_Header_Item_, pbHandled *bool) int            // 列表元素,列表头项模板创建.
 type XE_LIST_HEADER_TEMP_CREATE_END func(pItem *炫彩基类.List_Header_Item_, pbHandled *bool) int                   // 列表元素,列表头项模板创建完成事件.

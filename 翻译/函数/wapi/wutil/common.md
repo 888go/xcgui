@@ -28,7 +28,7 @@ func OpenFile(hParent int, filters []string, defaultDir
 
 # <翻译开始>
 func OpenFile(hParent int, filters
-过滤器数组
+过滤器切片
 # <翻译结束>
 
 # <翻译开始>
@@ -49,7 +49,7 @@ func OpenFiles(hParent int, filters []string, defaultDir
 
 # <翻译开始>
 func OpenFiles(hParent int, filters
-过滤器数组
+过滤器切片
 # <翻译结束>
 
 # <翻译开始>
@@ -75,7 +75,7 @@ func SaveFile(hParent int, filters []string, defaultDir
 
 # <翻译开始>
 func SaveFile(hParent int, filters
-过滤器数组
+过滤器切片
 # <翻译结束>
 
 # <翻译开始>

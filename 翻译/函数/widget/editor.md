@@ -249,12 +249,12 @@ X取断点数量
 
 # <翻译开始>
 func (e *Editor) GetBreakpoints(aPoints *[]int32, nCount
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func (e *Editor) GetBreakpoints(aPoints
-接收断点数组
+接收断点切片
 # <翻译结束>
 
 # <翻译开始>

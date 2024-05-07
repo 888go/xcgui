@@ -381,12 +381,12 @@ X置选择全部
 
 # <翻译开始>
 func (l *List) GetSelectAll(pArray *[]int32, nArraySize
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func (l *List) GetSelectAll(pArray
-接收行索引数组
+接收行索引切片
 # <翻译结束>
 
 # <翻译开始>

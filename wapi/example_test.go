@@ -5,7 +5,7 @@ import (
 	"strings"
 	"syscall"
 	"unsafe"
-	
+
 	"github.com/888go/xcgui/app"
 	"github.com/888go/xcgui/common"
 	"github.com/888go/xcgui/wapi"
@@ -224,7 +224,7 @@ func ExampleChooseColorW() {
 	ret := 炫彩WinApi类.X创建颜色对话框(&cc)
 	fmt.Println(ret)
 	fmt.Println(cc.RgbResult) // rgb颜色
-	fmt.Println(lpCustColors) // 如果你添加了自定义颜色, 会保存在这个数组里面, 然后只要这个数组还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
+	fmt.Println(lpCustColors) // 如果你添加了自定义颜色, 会保存在这个切片里面, 然后只要这个切片还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
 }
 
 func ExampleGetCursorPos() {

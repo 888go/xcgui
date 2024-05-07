@@ -169,12 +169,12 @@ func (d *Draw) DrawCurve(points []炫彩基类.POINT, count int, tension
 
 # <翻译开始>
 func (d *Draw) DrawCurve(points []炫彩基类.POINT, count
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawCurve(points
-坐标点数组
+坐标点切片
 # <翻译结束>
 
 # <翻译开始>
@@ -190,12 +190,12 @@ func (d *Draw) DrawCurveF(points []炫彩基类.POINTF, count int, tension
 
 # <翻译开始>
 func (d *Draw) DrawCurveF(points []炫彩基类.POINTF, count
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) DrawCurveF(points
-坐标点数组
+坐标点切片
 # <翻译结束>
 
 # <翻译开始>
@@ -263,7 +263,7 @@ func (d *Draw) DrawPolygon(points []炫彩基类.POINT, nCount
 
 # <翻译开始>
 func (d *Draw) DrawPolygon(points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>
@@ -279,7 +279,7 @@ func (d *Draw) DrawPolygonF(points []炫彩基类.POINTF, nCount
 
 # <翻译开始>
 func (d *Draw) DrawPolygonF(points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>
@@ -582,12 +582,12 @@ func (d *Draw) GDI_CreatePolygonRgn(pPt []炫彩基类.POINT, cPoints, fnPolyFil
 
 # <翻译开始>
 func (d *Draw) GDI_CreatePolygonRgn(pPt []炫彩基类.POINT, cPoints
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func (d *Draw) GDI_CreatePolygonRgn(pPt
-POINT数组
+POINT切片
 # <翻译结束>
 
 # <翻译开始>
@@ -1228,7 +1228,7 @@ func (d *Draw) FillPolygon(points []炫彩基类.POINT, nCount
 
 # <翻译开始>
 func (d *Draw) FillPolygon(points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>
@@ -1244,7 +1244,7 @@ func (d *Draw) FillPolygonF(points []炫彩基类.POINTF, nCount
 
 # <翻译开始>
 func (d *Draw) FillPolygonF(points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>

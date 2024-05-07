@@ -2,9 +2,9 @@ package 炫彩基类
 
 import (
 	"unsafe"
-	
+
 	"github.com/888go/xcgui/common"
-	
+
 	"github.com/888go/xcgui/xcc"
 )
 
@@ -110,13 +110,13 @@ func X绘制_圆弧F(图形绘制句柄 int, 坐标x, 坐标y, 宽度, 高度, �
 //
 // hDraw: 图形绘制句柄.
 //
-// points: 坐标点数组.
+// points: 坐标点切片.
 //
-// count: 数组大小.
+// count: 切片大小.
 //
 // tension: 大于或等于0.0F的值，指定曲线的张力, D2D 忽略此参数.
-func X绘制_曲线(图形绘制句柄 int, 坐标点数组 []POINT, 数组大小 int, 曲线张力 float32) int {
-	r, _, _ := xDraw_DrawCurve.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&坐标点数组[0])), uintptr(数组大小), 炫彩工具类.Float32Ptr(曲线张力))
+func X绘制_曲线(图形绘制句柄 int, 坐标点切片 []POINT, 切片大小 int, 曲线张力 float32) int {
+	r, _, _ := xDraw_DrawCurve.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&坐标点切片[0])), uintptr(切片大小), 炫彩工具类.Float32Ptr(曲线张力))
 	return int(r)
 }
 
@@ -124,13 +124,13 @@ func X绘制_曲线(图形绘制句柄 int, 坐标点数组 []POINT, 数组大�
 //
 // hDraw: 图形绘制句柄.
 //
-// points: 坐标点数组.
+// points: 坐标点切片.
 //
-// count: 数组大小.
+// count: 切片大小.
 //
 // tension: 大于或等于0.0F的值，指定曲线的张力, D2D 忽略此参数.
-func X绘制_曲线F(图形绘制句柄 int, 坐标点数组 []POINTF, 数组大小 int, 曲线的张力 float32) int {
-	r, _, _ := xDraw_DrawCurveF.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&坐标点数组[0])), uintptr(数组大小), 炫彩工具类.Float32Ptr(曲线的张力))
+func X绘制_曲线F(图形绘制句柄 int, 坐标点切片 []POINTF, 切片大小 int, 曲线的张力 float32) int {
+	r, _, _ := xDraw_DrawCurveF.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&坐标点切片[0])), uintptr(切片大小), 炫彩工具类.Float32Ptr(曲线的张力))
 	return int(r)
 }
 
@@ -170,11 +170,11 @@ func X绘制_线条F(图形绘制句柄 int, x1, y1, x2, y2 float32) int {
 //
 // hDraw: 图形绘制句柄.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func X绘制_多边形(图形绘制句柄 int, 顶点坐标数组 []POINT, 顶点数量 int) int {
-	r, _, _ := xDraw_DrawPolygon.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标数组[0])), uintptr(顶点数量))
+func X绘制_多边形(图形绘制句柄 int, 顶点坐标切片 []POINT, 顶点数量 int) int {
+	r, _, _ := xDraw_DrawPolygon.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标切片[0])), uintptr(顶点数量))
 	return int(r)
 }
 
@@ -182,11 +182,11 @@ func X绘制_多边形(图形绘制句柄 int, 顶点坐标数组 []POINT, 顶�
 //
 // hDraw: 图形绘制句柄.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func X绘制_多边形F(图形绘制句柄 int, 顶点坐标数组 []POINTF, 顶点数量 int) int {
-	r, _, _ := xDraw_DrawPolygonF.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标数组[0])), uintptr(顶点数量))
+func X绘制_多边形F(图形绘制句柄 int, 顶点坐标切片 []POINTF, 顶点数量 int) int {
+	r, _, _ := xDraw_DrawPolygonF.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标切片[0])), uintptr(顶点数量))
 	return int(r)
 }
 
@@ -432,17 +432,17 @@ func X绘制_创建圆角矩形区域(图形绘制句柄 int, 左上角X坐标 i
 //
 // hDraw: 图形绘制句柄.
 //
-// pPt: POINT数组.
+// pPt: POINT切片.
 //
-// cPoints: 数组大小.
+// cPoints: 切片大小.
 //
 // fnPolyFillMode: 多边形填充模式, 指定用于确定在该地区的像素填充模式,这个参数可以是下列值之一.
 //
 // ALTERNATE Selects alternate mode (fills area between odd-numbered and even-numbered polygon sides on each scan line).
 //
 // WINDING Selects winding mode (fills any region with a nonzero winding value).
-func X绘制_创建多边形区域(图形绘制句柄 int, POINT数组 []POINT, 数组大小 int, 多边形填充模式 int) int {
-	r, _, _ := xDraw_GDI_CreatePolygonRgn.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&POINT数组[0])), uintptr(数组大小), uintptr(多边形填充模式))
+func X绘制_创建多边形区域(图形绘制句柄 int, POINT切片 []POINT, 切片大小 int, 多边形填充模式 int) int {
+	r, _, _ := xDraw_GDI_CreatePolygonRgn.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&POINT切片[0])), uintptr(切片大小), uintptr(多边形填充模式))
 	return int(r)
 }
 
@@ -978,11 +978,11 @@ func X绘制_GDI_椭圆(图形绘制句柄 int, 矩形区域 *RECT) bool {
 //
 // hDraw: 图形绘制句柄.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func X绘制_填充多边形(图形绘制句柄 int, 顶点坐标数组 []POINT, 顶点数量 int) int {
-	r, _, _ := xDraw_FillPolygon.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标数组[0])), uintptr(顶点数量))
+func X绘制_填充多边形(图形绘制句柄 int, 顶点坐标切片 []POINT, 顶点数量 int) int {
+	r, _, _ := xDraw_FillPolygon.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标切片[0])), uintptr(顶点数量))
 	return int(r)
 }
 
@@ -990,11 +990,11 @@ func X绘制_填充多边形(图形绘制句柄 int, 顶点坐标数组 []POINT,
 //
 // hDraw: 图形绘制句柄.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func X绘制_填充多边形F(图形绘制句柄 int, 顶点坐标数组 []POINTF, 顶点数量 int) int {
-	r, _, _ := xDraw_FillPolygonF.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标数组[0])), uintptr(顶点数量))
+func X绘制_填充多边形F(图形绘制句柄 int, 顶点坐标切片 []POINTF, 顶点数量 int) int {
+	r, _, _ := xDraw_FillPolygonF.Call(uintptr(图形绘制句柄), uintptr(unsafe.Pointer(&顶点坐标切片[0])), uintptr(顶点数量))
 	return int(r)
 }
 

@@ -208,7 +208,7 @@ type ChooseColor struct {
 	// 如果设置了 CC_RGBINIT 标志，则rgbResult指定创建对话框时最初选择的颜色。如果指定的颜色值不在可用颜色中，则系统选择最接近的可用纯色。如果rgbResult为零或未设置 CC_RGBINIT，则最初选择的颜色为黑色。如果用户单击OK按钮，则 rgbResult指定用户的颜色选择。要创建RGB颜色值，请使用: xc.RGB().
 	RgbResult uint32
 
-	// 指向包含对话框中自定义颜色框的红、绿、蓝 (RGB) 值的 16 个值的数组的指针。如果用户修改了这些颜色，系统将使用新的 RGB 值更新数组。要在调用 ChooseColorW 函数之间保留新的自定义颜色，您应该为数组分配静态内存。要创建RGB颜色值，请使用: xc.RGB().
+	// 指向包含对话框中自定义颜色框的红、绿、蓝 (RGB) 值的 16 个值的切片的指针。如果用户修改了这些颜色，系统将使用新的 RGB 值更新切片。要在调用 ChooseColorW 函数之间保留新的自定义颜色，您应该为切片分配静态内存。要创建RGB颜色值，请使用: xc.RGB().
 	//	例子:
 	//	var lpCustColors [16]uint32
 	//	然后填 &lpCustColors[0]

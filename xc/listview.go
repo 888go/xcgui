@@ -2,9 +2,9 @@ package 炫彩基类
 
 import (
 	"unsafe"
-	
+
 	"github.com/888go/xcgui/common"
-	
+
 	"github.com/888go/xcgui/xcc"
 )
 
@@ -298,15 +298,15 @@ func X列表视_取选择项数量(元素句柄 int) int {
 //
 // hEle: 元素句柄.
 //
-// pArray: 数组.
+// pArray: 切片.
 //
-// nArraySize: 数组大小.
-func X列表视_取选择项全部(元素句柄 int, 数组 *[]ListView_Item_Id_, 数组大小 int) int {
-	if 数组大小 < 1 {
+// nArraySize: 切片大小.
+func X列表视_取选择项全部(元素句柄 int, 切片 *[]ListView_Item_Id_, 切片大小 int) int {
+	if 切片大小 < 1 {
 		return 0
 	}
-	*数组 = make([]ListView_Item_Id_, 数组大小)
-	r, _, _ := xListView_GetSelectAll.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(&(*数组)[0])), uintptr(数组大小))
+	*切片 = make([]ListView_Item_Id_, 切片大小)
+	r, _, _ := xListView_GetSelectAll.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(&(*切片)[0])), uintptr(切片大小))
 	return int(r)
 }
 

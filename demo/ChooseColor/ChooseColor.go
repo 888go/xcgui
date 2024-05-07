@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/888go/xcgui/xc"
 	"unsafe"
-	
+
 	"github.com/888go/xcgui/app"
 	"github.com/888go/xcgui/wapi"
 	"github.com/888go/xcgui/widget"
@@ -14,7 +14,7 @@ import (
 )
 
 var w *炫彩窗口基类.Window
-var custColors [16]uint32 // 保存自定义颜色的数组
+var custColors [16]uint32 // 保存自定义颜色的切片
 
 func main() {
 	a := 炫彩App类.X创建(true)
@@ -57,7 +57,7 @@ func ExampleChooseColorW() {
 	abgr := 炫彩基类.RGB2ABGR(int(rgb), 255)
 	fmt.Println("rgb颜色:", rgb)
 	fmt.Println("abgr颜色:", abgr)
-	fmt.Println(custColors) // 如果你添加了自定义颜色, 会保存在这个数组里面, 然后只要这个数组还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
+	fmt.Println(custColors) // 如果你添加了自定义颜色, 会保存在这个切片里面, 然后只要这个切片还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
 
 	// 设置窗口背景颜色
 	w.X添加背景填充(炫彩常量类.Window_State_Flag_Leave, abgr)

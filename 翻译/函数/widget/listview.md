@@ -414,12 +414,12 @@ X取选择项数量
 
 # <翻译开始>
 func (l *ListView) GetSelectAll(pArray *[]炫彩基类.ListView_Item_Id_, nArraySize
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func (l *ListView) GetSelectAll(pArray
-数组
+切片
 # <翻译结束>
 
 # <翻译开始>

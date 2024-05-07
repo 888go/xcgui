@@ -179,9 +179,9 @@ func listDelSelectItem() {
 	}
 
 	var indexArr []int32
-	// 取选中行索引数组
+	// 取选中行索引切片
 	list.X取全部选择(&indexArr, count)
-	// 根据选中行索引数组倒着删, 正着删的话你每删1行下面的行索引就变了
+	// 根据选中行索引切片倒着删, 正着删的话你每删1行下面的行索引就变了
 	for i := count - 1; i > -1; i-- {
 		list.X删除项(int(indexArr[i]))
 		fmt.Printf("删除行索引: %d\n", indexArr[i])

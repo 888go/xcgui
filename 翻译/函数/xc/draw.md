@@ -188,12 +188,12 @@ func XDraw_DrawCurve(hDraw int, points []POINT, count int, tension
 
 # <翻译开始>
 func XDraw_DrawCurve(hDraw int, points []POINT, count
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_DrawCurve(hDraw int, points
-坐标点数组
+坐标点切片
 # <翻译结束>
 
 # <翻译开始>
@@ -214,12 +214,12 @@ func XDraw_DrawCurveF(hDraw int, points []POINTF, count int, tension
 
 # <翻译开始>
 func XDraw_DrawCurveF(hDraw int, points []POINTF, count
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_DrawCurveF(hDraw int, points
-坐标点数组
+坐标点切片
 # <翻译结束>
 
 # <翻译开始>
@@ -262,7 +262,7 @@ func XDraw_DrawPolygon(hDraw int, points []POINT, nCount
 
 # <翻译开始>
 func XDraw_DrawPolygon(hDraw int, points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>
@@ -283,7 +283,7 @@ func XDraw_DrawPolygonF(hDraw int, points []POINTF, nCount
 
 # <翻译开始>
 func XDraw_DrawPolygonF(hDraw int, points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>
@@ -691,12 +691,12 @@ func XDraw_GDI_CreatePolygonRgn(hDraw int, pPt []POINT, cPoints int, fnPolyFillM
 
 # <翻译开始>
 func XDraw_GDI_CreatePolygonRgn(hDraw int, pPt []POINT, cPoints
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func XDraw_GDI_CreatePolygonRgn(hDraw int, pPt
-POINT数组
+POINT切片
 # <翻译结束>
 
 # <翻译开始>
@@ -1497,7 +1497,7 @@ func XDraw_FillPolygon(hDraw int, points []POINT, nCount
 
 # <翻译开始>
 func XDraw_FillPolygon(hDraw int, points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>
@@ -1518,7 +1518,7 @@ func XDraw_FillPolygonF(hDraw int, points []POINTF, nCount
 
 # <翻译开始>
 func XDraw_FillPolygonF(hDraw int, points
-顶点坐标数组
+顶点坐标切片
 # <翻译结束>
 
 # <翻译开始>

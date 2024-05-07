@@ -193,11 +193,11 @@ func (e *Editor) X取断点数量() int {
 
 // 代码编辑框_取全部断点, 返回实际获取断点数量.
 //
-// aPoints: 接收断点数组.
+// aPoints: 接收断点切片.
 //
-// nCount: 数组大小.
-func (e *Editor) X取全部断点(接收断点数组 *[]int32, 数组大小 int) int {
-	return 炫彩基类.X代码编辑框_取全部断点(e.Handle, 接收断点数组, 数组大小)
+// nCount: 切片大小.
+func (e *Editor) X取全部断点(接收断点切片 *[]int32, 切片大小 int) int {
+	return 炫彩基类.X代码编辑框_取全部断点(e.Handle, 接收断点切片, 切片大小)
 }
 
 // 代码编辑框_设置当前行, 跳过收缩行.

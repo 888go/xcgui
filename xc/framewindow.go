@@ -3,7 +3,7 @@ package 炫彩基类
 import (
 	"github.com/888go/xcgui/common"
 	"unsafe"
-	
+
 	"github.com/888go/xcgui/xcc"
 )
 
@@ -107,13 +107,13 @@ func X框架窗口_保存布局到文件(窗口句柄 int, 文件名 string) boo
 //
 // hWindow: 窗口句柄.
 //
-// aPaneList: 窗格句柄数组.
+// aPaneList: 窗格句柄切片.
 //
 // nPaneCount: 窗格数量.
 //
 // pFileName: 文件名，如果文件名为空，将使用默认文件名frameWnd_layout.xml.
-func X框架窗口_加载布局信息文件(窗口句柄 int, 窗格句柄数组 []int, 窗格数量 int32, 文件名 string) bool {
-	r, _, _ := xFrameWnd_LoadLayoutFile.Call(uintptr(窗口句柄), uintptr(unsafe.Pointer(&窗格句柄数组[0])), uintptr(窗格数量), 炫彩工具类.StrPtr(文件名))
+func X框架窗口_加载布局信息文件(窗口句柄 int, 窗格句柄切片 []int, 窗格数量 int32, 文件名 string) bool {
+	r, _, _ := xFrameWnd_LoadLayoutFile.Call(uintptr(窗口句柄), uintptr(unsafe.Pointer(&窗格句柄切片[0])), uintptr(窗格数量), 炫彩工具类.StrPtr(文件名))
 	return r != 0
 }
 

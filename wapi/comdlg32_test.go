@@ -149,5 +149,5 @@ func TestChooseColorW(t *testing.T) {
 		return
 	}
 	fmt.Println(cc.RgbResult) // rgb颜色
-	fmt.Println(lpCustColors) // 如果你添加了自定义颜色, 会保存在这个数组里面, 然后只要这个数组还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
+	fmt.Println(lpCustColors) // 如果你添加了自定义颜色, 会保存在这个切片里面, 然后只要这个切片还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
 }

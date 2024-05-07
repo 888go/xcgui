@@ -297,12 +297,12 @@ X列表框_取消选择全部
 
 # <翻译开始>
 func XListBox_GetSelectAll(hEle int, pArray *[]int32, nArraySize
-数组大小
+切片大小
 # <翻译结束>
 
 # <翻译开始>
 func XListBox_GetSelectAll(hEle int, pArray
-数组缓冲区
+切片缓冲区
 # <翻译结束>
 
 # <翻译开始>

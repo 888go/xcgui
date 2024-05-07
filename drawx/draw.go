@@ -105,24 +105,24 @@ func (d *Draw) X圆弧F(x坐标, y坐标, 宽度, 高度, 起始角度, 绘制�
 
 // 绘制_曲线, D2D暂时留空.
 //
-// points: 坐标点数组.
+// points: 坐标点切片.
 //
-// count: 数组大小.
+// count: 切片大小.
 //
 // tension: 大于或等于0.0F的值，指定曲线的张力, D2D 忽略此参数。.
-func (d *Draw) X曲线(坐标点数组 []炫彩基类.POINT, 数组大小 int, 曲线的张力 float32) int {
-	return 炫彩基类.X绘制_曲线(d.Handle, 坐标点数组, 数组大小, 曲线的张力)
+func (d *Draw) X曲线(坐标点切片 []炫彩基类.POINT, 切片大小 int, 曲线的张力 float32) int {
+	return 炫彩基类.X绘制_曲线(d.Handle, 坐标点切片, 切片大小, 曲线的张力)
 }
 
 // 绘制_曲线F, D2D暂时留空.
 //
-// points: 坐标点数组.
+// points: 坐标点切片.
 //
-// count: 数组大小.
+// count: 切片大小.
 //
 // tension: 大于或等于0.0F的值，指定曲线的张力, D2D 忽略此参数。.
-func (d *Draw) X曲线F(坐标点数组 []炫彩基类.POINTF, 数组大小 int, 曲线的张力 float32) int {
-	return 炫彩基类.X绘制_曲线F(d.Handle, 坐标点数组, 数组大小, 曲线的张力)
+func (d *Draw) X曲线F(坐标点切片 []炫彩基类.POINTF, 切片大小 int, 曲线的张力 float32) int {
+	return 炫彩基类.X绘制_曲线F(d.Handle, 坐标点切片, 切片大小, 曲线的张力)
 }
 
 // 绘制_线条.
@@ -153,20 +153,20 @@ func (d *Draw) X线条F(x1坐标, y1坐标, x2坐标, y2坐标 float32) int {
 
 // 绘制_多边形, 绘制多边形.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func (d *Draw) X多边形(顶点坐标数组 []炫彩基类.POINT, 顶点数量 int) int {
-	return 炫彩基类.X绘制_多边形(d.Handle, 顶点坐标数组, 顶点数量)
+func (d *Draw) X多边形(顶点坐标切片 []炫彩基类.POINT, 顶点数量 int) int {
+	return 炫彩基类.X绘制_多边形(d.Handle, 顶点坐标切片, 顶点数量)
 }
 
 // 绘制_多边形F, 绘制多边形.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func (d *Draw) X多边形F(顶点坐标数组 []炫彩基类.POINTF, 顶点数量 int) int {
-	return 炫彩基类.X绘制_多边形F(d.Handle, 顶点坐标数组, 顶点数量)
+func (d *Draw) X多边形F(顶点坐标切片 []炫彩基类.POINTF, 顶点数量 int) int {
+	return 炫彩基类.X绘制_多边形F(d.Handle, 顶点坐标切片, 顶点数量)
 }
 
 // 绘制_矩形, 绘制矩形边框.
@@ -343,17 +343,17 @@ func (d *Draw) X创建圆角矩形区域(X坐标左上角 int, Y坐标左上角 
 
 // 绘制_创建多边形区域, GDI创建一个多边形区域, 成功返回区域句柄, 失败返回NULL.
 //
-// pPt: POINT数组.
+// pPt: POINT切片.
 //
-// cPoints: 数组大小.
+// cPoints: 切片大小.
 //
 // fnPolyFillMode: 多边形填充模式, 指定用于确定在该地区的像素填充模式,这个参数可以是下列值之一.
 //
 // ALTERNATE Selects alternate mode (fills area between odd-numbered and even-numbered polygon sides on each scan line).
 //
 // WINDING Selects winding mode (fills any region with a nonzero winding value).
-func (d *Draw) X创建多边形区域(POINT数组 []炫彩基类.POINT, 数组大小, 多边形填充模式 int) int {
-	return 炫彩基类.X绘制_创建多边形区域(d.Handle, POINT数组, 数组大小, 多边形填充模式)
+func (d *Draw) X创建多边形区域(POINT切片 []炫彩基类.POINT, 切片大小, 多边形填充模式 int) int {
+	return 炫彩基类.X绘制_创建多边形区域(d.Handle, POINT切片, 切片大小, 多边形填充模式)
 }
 
 // 绘制_GDI_椭圆.
@@ -781,20 +781,20 @@ func (d *Draw) X带透明复制(nXOriginDest, nYOriginDest, nWidthDest, nHeightD
 
 // 绘制_填充多边形, 填充多边形.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func (d *Draw) X填充多边形(顶点坐标数组 []炫彩基类.POINT, 顶点数量 int) int {
-	return 炫彩基类.X绘制_填充多边形(d.Handle, 顶点坐标数组, 顶点数量)
+func (d *Draw) X填充多边形(顶点坐标切片 []炫彩基类.POINT, 顶点数量 int) int {
+	return 炫彩基类.X绘制_填充多边形(d.Handle, 顶点坐标切片, 顶点数量)
 }
 
 // 绘制_填充多边形F, 填充多边形.
 //
-// points: 顶点坐标数组.
+// points: 顶点坐标切片.
 //
 // nCount: 顶点数量.
-func (d *Draw) X填充多边形F(顶点坐标数组 []炫彩基类.POINTF, 顶点数量 int) int {
-	return 炫彩基类.X绘制_填充多边形F(d.Handle, 顶点坐标数组, 顶点数量)
+func (d *Draw) X填充多边形F(顶点坐标切片 []炫彩基类.POINTF, 顶点数量 int) int {
+	return 炫彩基类.X绘制_填充多边形F(d.Handle, 顶点坐标切片, 顶点数量)
 }
 
 // 绘制_图片.

@@ -274,11 +274,11 @@ func (l *ListView) X取选择项数量() int {
 
 // 列表视_取选择项全部, 获取选择的项ID, 返回接收项数量.
 //
-// pArray: 数组.
+// pArray: 切片.
 //
-// nArraySize: 数组大小.
-func (l *ListView) X取选择项全部(数组 *[]炫彩基类.ListView_Item_Id_, 数组大小 int) int {
-	return 炫彩基类.X列表视_取选择项全部(l.Handle, 数组, 数组大小)
+// nArraySize: 切片大小.
+func (l *ListView) X取选择项全部(切片 *[]炫彩基类.ListView_Item_Id_, 切片大小 int) int {
+	return 炫彩基类.X列表视_取选择项全部(l.Handle, 切片, 切片大小)
 }
 
 // 列表视_置选择项全部, 选择所有的项.
@@ -810,10 +810,10 @@ type XE_LISTVIEW_TEMP_ADJUST_COORDINATE func(pItem *炫彩基类.ListView_Item_,
 type XE_LISTVIEW_TEMP_ADJUST_COORDINATE1 func(hEle int, pItem *炫彩基类.ListView_Item_, pbHandled *bool) int // 列表视元素,项模板调整坐标.已停用.
 type XE_LISTVIEW_DRAWITEM func(hDraw int, pItem *炫彩基类.ListView_Item_, pbHandled *bool) int               // 列表视元素,自绘项.
 type XE_LISTVIEW_DRAWITEM1 func(hEle int, hDraw int, pItem *炫彩基类.ListView_Item_, pbHandled *bool) int    // 列表视元素,自绘项.
-type XE_LISTVIEW_SELECT func(iGroup int32, iItem int32, pbHandled *bool) int                           // 列表视元素,项选择事件.
-type XE_LISTVIEW_SELECT1 func(hEle int, iGroup int32, iItem int32, pbHandled *bool) int                // 列表视元素,项选择事件.
-type XE_LISTVIEW_EXPAND func(iGroup int32, bExpand bool, pbHandled *bool) int                          // 列表视元素,组展开收缩事件.
-type XE_LISTVIEW_EXPAND1 func(hEle int, iGroup int32, bExpand bool, pbHandled *bool) int               // 列表视元素,组展开收缩事件.
+type XE_LISTVIEW_SELECT func(iGroup int32, iItem int32, pbHandled *bool) int                             // 列表视元素,项选择事件.
+type XE_LISTVIEW_SELECT1 func(hEle int, iGroup int32, iItem int32, pbHandled *bool) int                  // 列表视元素,项选择事件.
+type XE_LISTVIEW_EXPAND func(iGroup int32, bExpand bool, pbHandled *bool) int                            // 列表视元素,组展开收缩事件.
+type XE_LISTVIEW_EXPAND1 func(hEle int, iGroup int32, bExpand bool, pbHandled *bool) int                 // 列表视元素,组展开收缩事件.
 
 // 列表视元素-项模板创建事件,模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复.
 //

@@ -188,7 +188,7 @@ func XFrameWnd_LoadLayoutFile(hWindow int, aPaneList []int, nPaneCount
 
 # <翻译开始>
 func XFrameWnd_LoadLayoutFile(hWindow int, aPaneList
-窗格句柄数组
+窗格句柄切片
 # <翻译结束>
 
 # <翻译开始>

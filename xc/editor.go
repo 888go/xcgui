@@ -203,15 +203,15 @@ func X代码编辑框_取断点数量(元素句柄 int) int {
 //
 // hEle: 元素句柄.
 //
-// aPoints: 接收断点数组.
+// aPoints: 接收断点切片.
 //
-// nCount: 数组大小.
-func X代码编辑框_取全部断点(元素句柄 int, 接收断点数组 *[]int32, 数组大小 int) int {
-	if 数组大小 < 1 {
+// nCount: 切片大小.
+func X代码编辑框_取全部断点(元素句柄 int, 接收断点切片 *[]int32, 切片大小 int) int {
+	if 切片大小 < 1 {
 		return 0
 	}
-	*接收断点数组 = make([]int32, 数组大小)
-	r, _, _ := xEditor_GetBreakpoints.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(&(*接收断点数组)[0])), uintptr(数组大小))
+	*接收断点切片 = make([]int32, 切片大小)
+	r, _, _ := xEditor_GetBreakpoints.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(&(*接收断点切片)[0])), uintptr(切片大小))
 	return int(r)
 }
 

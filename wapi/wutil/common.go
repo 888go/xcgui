@@ -57,18 +57,18 @@ func X对话框打开文件夹(炫彩窗口句柄 int) string {
 // OpenFile 打开单个文件.
 //
 //	@param hParent 炫彩窗口句柄, 可为0.
-//	@param filters 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
+//	@param filters 过滤器切片, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir 初始目录, 即默认打开的目录.
 //	@return string 返回文件完整路径.
-func X对话框打开单个文件(炫彩窗口句柄 int, 过滤器数组 []string, 初始目录 string) string {
+func X对话框打开单个文件(炫彩窗口句柄 int, 过滤器切片 []string, 初始目录 string) string {
 	var hwnd uintptr
 	if 炫彩窗口句柄 > 0 {
 		hwnd = 炫彩基类.X窗口_取HWND(炫彩窗口句柄)
 	}
 	// 拼接过滤器
 	var LpstrFilter *uint16 = nil
-	if len(过滤器数组) > 0 {
-		LpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(过滤器数组, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
+	if len(过滤器切片) > 0 {
+		LpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(过滤器切片, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
 	}
 
 	lpstrFile := make([]uint16, 260)
@@ -104,18 +104,18 @@ func X对话框打开单个文件(炫彩窗口句柄 int, 过滤器数组 []stri
 // OpenFiles 打开多个文件.
 //
 //	@param hParent 炫彩窗口句柄, 可为0.
-//	@param filters 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
+//	@param filters 过滤器切片, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir 初始目录, 即默认打开的目录.
-//	@return string 返回文件完整路径数组.
-func X对话框打开多个文件(炫彩窗口句柄 int, 过滤器数组 []string, 初始目录 string) []string {
+//	@return string 返回文件完整路径切片.
+func X对话框打开多个文件(炫彩窗口句柄 int, 过滤器切片 []string, 初始目录 string) []string {
 	var hwnd uintptr
 	if 炫彩窗口句柄 > 0 {
 		hwnd = 炫彩基类.X窗口_取HWND(炫彩窗口句柄)
 	}
 	// 拼接过滤器
 	var LpstrFilter *uint16 = nil
-	if len(过滤器数组) > 0 {
-		LpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(过滤器数组, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
+	if len(过滤器切片) > 0 {
+		LpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(过滤器切片, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
 	}
 
 	lpstrFile := make([]uint16, 512)
@@ -162,19 +162,19 @@ func X对话框打开多个文件(炫彩窗口句柄 int, 过滤器数组 []stri
 // SaveFile 保存文件.
 //
 //	@param hParent 炫彩窗口句柄, 可为0.
-//	@param filters 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
+//	@param filters 过滤器切片, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir 初始目录, 即默认打开的目录.
 //	@param defaultFileName 默认文件名.
 //	@return string 返回文件完整路径.
-func X对话框保存文件(炫彩窗口句柄 int, 过滤器数组 []string, 初始目录, 默认文件名 string) string {
+func X对话框保存文件(炫彩窗口句柄 int, 过滤器切片 []string, 初始目录, 默认文件名 string) string {
 	var hwnd uintptr
 	if 炫彩窗口句柄 > 0 {
 		hwnd = 炫彩基类.X窗口_取HWND(炫彩窗口句柄)
 	}
 	// 拼接过滤器
 	var lpstrFilter *uint16 = nil
-	if len(过滤器数组) > 0 {
-		lpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(过滤器数组, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
+	if len(过滤器切片) > 0 {
+		lpstrFilter = 炫彩工具类.StringToUint16Ptr(strings.Join(过滤器切片, 炫彩WinApi类.NULL) + 炫彩WinApi类.NULL2)
 	}
 
 	var lpstrFile *uint16 = nil
