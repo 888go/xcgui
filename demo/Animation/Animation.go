@@ -101,7 +101,6 @@ func main() {
 }
 
 // 创建按钮
-
 // ff:
 // name:
 func CreateButton(name string) *widget.Button {
@@ -137,8 +136,8 @@ func ReleaseAnimation() {
 }
 
 // ff:
-// pbHandled:
 // hDraw:
+// pbHandled:
 func OnWndDrawWindow(hDraw int, pbHandled *bool) int {
 	*pbHandled = true
 	w.DrawWindow(hDraw)
@@ -604,10 +603,9 @@ func OnBtnClick8(pbHandled *bool) int {
 }
 
 // 鼠标进入事件8
-
 // ff:
-// pbHandled:
 // hLayout:
+// pbHandled:
 func OnMouseStay8(hLayout int, pbHandled *bool) int {
 	if hLayout1 != hLayout {
 		xc.XEle_SetAlpha(hLayout1, 200)
@@ -630,11 +628,10 @@ func OnMouseStay8(hLayout int, pbHandled *bool) int {
 }
 
 // 鼠标离开事件8
-
 // ff:
-// pbHandled:
-// hEleStay:
 // hLayout:
+// hEleStay:
+// pbHandled:
 func OnMouseLeave8(hLayout, hEleStay int, pbHandled *bool) int {
 	hAnimation := xc.XAnima_Create(hLayout, 1)
 	list_animation = append(list_animation, hAnimation)
@@ -698,10 +695,9 @@ func OnBtnClick9(pbHandled *bool) int {
 }
 
 // 鼠标进入事件9
-
 // ff:
-// pbHandled:
 // hEle:
+// pbHandled:
 func OnMouseStay9(hEle int, pbHandled *bool) int {
 	hEle2 := xc.XEle_GetUserData(hEle)
 	// 释放当前对象关联的动画
@@ -734,11 +730,10 @@ func OnMouseStay9(hEle int, pbHandled *bool) int {
 }
 
 // 鼠标离开事件9
-
 // ff:
-// pbHandled:
-// hEleStay:
 // hEle2:
+// hEleStay:
+// pbHandled:
 func OnMouseLeave9(hEle2, hEleStay int, pbHandled *bool) int {
 	hEle := xc.XEle_GetUserData(hEle2)
 	// 释放当前对象关联的动画
@@ -818,10 +813,9 @@ func OnBtnClick10(pbHandled *bool) int {
 }
 
 // 鼠标进入事件10
-
 // ff:
-// pbHandled:
 // hEle:
+// pbHandled:
 func OnMouseStay10(hEle int, pbHandled *bool) int {
 	// 释放当前对象关联的动画
 	for i := 0; i < len(list_animation); i++ {
@@ -851,11 +845,10 @@ func OnMouseStay10(hEle int, pbHandled *bool) int {
 }
 
 // 鼠标离开事件10
-
 // ff:
-// pbHandled:
-// hEleStay:
 // hEle:
+// hEleStay:
+// pbHandled:
 func OnMouseLeave10(hEle, hEleStay int, pbHandled *bool) int {
 	// 释放当前对象关联的动画
 	for i := 0; i < len(list_animation); i++ {
@@ -1479,10 +1472,9 @@ func OnBtnClick18(pbHandled *bool) int {
 }
 
 // 鼠标进入事件18
-
 // ff:
-// pbHandled:
 // hButton:
+// pbHandled:
 func OnMouseStay18(hButton int, pbHandled *bool) int {
 	// 释放当前对象关联的动画
 	for i := 0; i < len(list_animation); i++ {
@@ -1504,11 +1496,10 @@ func OnMouseStay18(hButton int, pbHandled *bool) int {
 }
 
 // 鼠标离开事件18
-
 // ff:
-// pbHandled:
-// hEleStay:
 // hButton:
+// hEleStay:
+// pbHandled:
 func OnMouseLeave18(hButton, hEleStay int, pbHandled *bool) int {
 	// 释放当前对象关联的动画
 	for i := 0; i < len(list_animation); i++ {

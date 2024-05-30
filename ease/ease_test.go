@@ -1,4 +1,4 @@
-package ease_test //bm:炫彩缓动类_test
+package ease_test
 
 import (
 	"github.com/twgh/xcgui/app"

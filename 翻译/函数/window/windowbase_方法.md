@@ -871,5 +871,6 @@ ff=线程_绘制菜单背景1
 
 [func (w *windowBase) Event_MENU_DRAWITEM(pFun XWM_MENU_DRAWITEM) bool {]
 ff=线程_绘制菜单项事件
+
 [func (w *windowBase) Event_MENU_DRAWITEM1(pFun XWM_MENU_DRAWITEM1) bool {]
 ff=线程_绘制菜单项事件1

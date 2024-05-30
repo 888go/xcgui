@@ -765,5 +765,6 @@ ff=菜单弹出窗口1
 
 [func (e *Element) Event_MENU_DRAW_BACKGROUND1(pFun XE_MENU_DRAW_BACKGROUND1) bool {]
 ff=事件_绘制菜单背景1
+
 [func (e *Element) Event_MENU_DRAWITEM1(pFun XE_MENU_DRAWITEM1) bool {]
 ff=事件_绘制菜单项1

@@ -48,5 +48,6 @@ bEnable=是否启用
 [func (u *UI) SetCssName(pName string) int {]
 ff=置CSS名称
 pName=套用样式名称
+
 [func (u *UI) GetCssName() string {]
 ff=取CSS名称

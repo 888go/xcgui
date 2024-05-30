@@ -1,4 +1,4 @@
-package wapi_test //bm:炫彩WinApi类_test
+package wapi_test
 
 import (
 	"fmt"

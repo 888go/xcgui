@@ -11,23 +11,17 @@ type ScrollView struct {
 }
 
 // 滚动视_创建, 创建滚动视图元素, 返回元素句柄.
-//
-// x: 元素x坐标.
-//
-// y: 元素y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-
+//.
+//.
+//.
+//.
+//. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 // ff:创建滚动视
-// hParent:父窗口句柄或元素句柄
-// cy:高度
-// cx:宽度
-// y:元素y坐标
 // x:元素x坐标
+// y:元素y坐标
+// cx:宽度
+// cy:高度
+// hParent:父窗口句柄或元素句柄
 func NewScrollView(x int, y int, cx int, cy int, hParent int) *ScrollView {
 	p := &ScrollView{}
 	p.SetHandle(xc.XSView_Create(x, y, cx, cy, hParent))
@@ -35,7 +29,6 @@ func NewScrollView(x int, y int, cx int, cy int, hParent int) *ScrollView {
 }
 
 // 从句柄创建对象.
-
 // ff:创建滚动视并按句柄
 // handle:
 func NewScrollViewByHandle(handle int) *ScrollView {
@@ -45,7 +38,6 @@ func NewScrollViewByHandle(handle int) *ScrollView {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建滚动视并按名称
 // name:
 func NewScrollViewByName(name string) *ScrollView {
@@ -59,7 +51,6 @@ func NewScrollViewByName(name string) *ScrollView {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建滚动视并按UID
 // nUID:
 func NewScrollViewByUID(nUID int) *ScrollView {
@@ -73,7 +64,6 @@ func NewScrollViewByUID(nUID int) *ScrollView {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建滚动视并按UID名称
 // name:
 func NewScrollViewByUIDName(name string) *ScrollView {
@@ -87,22 +77,17 @@ func NewScrollViewByUIDName(name string) *ScrollView {
 }
 
 // 滚动视_置视图大小, 设置内容大小, 如果内容改变返回TRUE否则返回FALSE.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-
+//.
+//.
 // ff:置视图大小
-// cy:高度
 // cx:宽度
+// cy:高度
 func (s *ScrollView) SetTotalSize(cx int, cy int) bool {
 	return xc.XSView_SetTotalSize(s.Handle, cx, cy)
 }
 
 // 滚动视_取视图大小, 获取内容总大小.
-//
-// pSize: 大小.
-
+//.
 // ff:取视图大小
 // pSize:大小
 func (s *ScrollView) GetTotalSize(pSize *xc.SIZE) int {
@@ -110,22 +95,17 @@ func (s *ScrollView) GetTotalSize(pSize *xc.SIZE) int {
 }
 
 // 滚动视_置滚动单位大小, 设置滚动单位大小, 如果内容改变返回TRUE否则返回FALSE.
-//
-// nWidth: 宽度.
-//
-// nHeight: 高度.
-
+//.
+//.
 // ff:置滚动单位大小
-// nHeight:高度
 // nWidth:宽度
+// nHeight:高度
 func (s *ScrollView) SetLineSize(nWidth int, nHeight int) bool {
 	return xc.XSView_SetLineSize(s.Handle, nWidth, nHeight)
 }
 
 // 滚动视_取滚动单位大小, 获取滚动单位大小.
-//
-// pSize: 返回大小.
-
+//.
 // ff:取滚动单位大小
 // pSize:返回大小
 func (s *ScrollView) GetLineSize(pSize *xc.SIZE) int {
@@ -133,9 +113,7 @@ func (s *ScrollView) GetLineSize(pSize *xc.SIZE) int {
 }
 
 // 滚动视_置滚动条大小.
-//
-// size: 滚动条大小.
-
+//.
 // ff:置滚动条大小
 // size:滚动条大小
 func (s *ScrollView) SetScrollBarSize(size int) int {
@@ -143,37 +121,31 @@ func (s *ScrollView) SetScrollBarSize(size int) int {
 }
 
 // 滚动视_取视口原点X, 获取视口原点X坐标.
-
 // ff:取视口原点X
 func (s *ScrollView) GetViewPosH() int {
 	return xc.XSView_GetViewPosH(s.Handle)
 }
 
 // 滚动视_取视口原点Y, 获取视口原点Y坐标.
-
 // ff:取视口原点Y
 func (s *ScrollView) GetViewPosV() int {
 	return xc.XSView_GetViewPosV(s.Handle)
 }
 
 // 滚动视_取视口宽度.
-
 // ff:取视口宽度
 func (s *ScrollView) GetViewWidth() int {
 	return xc.XSView_GetViewWidth(s.Handle)
 }
 
 // 滚动视_取视口高度.
-
 // ff:取视口高度
 func (s *ScrollView) GetViewHeight() int {
 	return xc.XSView_GetViewHeight(s.Handle)
 }
 
 // 滚动视_取视口坐标.
-//
-// pRect: 坐标.
-
+//.
 // ff:取视口坐标
 // pRect:坐标
 func (s *ScrollView) GetViewRect(pRect *xc.RECT) int {
@@ -181,23 +153,19 @@ func (s *ScrollView) GetViewRect(pRect *xc.RECT) int {
 }
 
 // 滚动视_取水平滚动条, 返回滚动条句柄.
-
 // ff:取水平滚动条
 func (s *ScrollView) GetScrollBarH() int {
 	return xc.XSView_GetScrollBarH(s.Handle)
 }
 
 // 滚动视_取垂直滚动条, 返回滚动条句柄.
-
 // ff:取垂直滚动条
 func (s *ScrollView) GetScrollBarV() int {
 	return xc.XSView_GetScrollBarV(s.Handle)
 }
 
 // 滚动视_水平滚动, 水平滚动条, 滚动到指定位置点.
-//
-// pos: 位置点.
-
+//.
 // ff:水平滚动
 // pos:位置点
 func (s *ScrollView) ScrollPosH(pos int) bool {
@@ -205,9 +173,7 @@ func (s *ScrollView) ScrollPosH(pos int) bool {
 }
 
 // 滚动视_垂直滚动, 垂直滚动条, 滚动到指定位置点.
-//
-// pos: 位置点.
-
+//.
 // ff:垂直滚动
 // pos:位置点
 func (s *ScrollView) ScrollPosV(pos int) bool {
@@ -215,9 +181,7 @@ func (s *ScrollView) ScrollPosV(pos int) bool {
 }
 
 // 滚动视_水平滚动到X, 水平滚动条, 滚动到指定坐标.
-//
-// posX: X坐标.
-
+//.
 // ff:水平滚动到X
 // posX:坐标
 func (s *ScrollView) ScrollPosXH(posX int) bool {
@@ -225,9 +189,7 @@ func (s *ScrollView) ScrollPosXH(posX int) bool {
 }
 
 // 滚动视_垂直滚动到Y, 垂直滚动条, 滚动到指定坐标.
-//
-// posY: Y坐标.
-
+//.
 // ff:垂直滚动到Y
 // posY:Y坐标
 func (s *ScrollView) ScrollPosYV(posY int) bool {
@@ -235,9 +197,7 @@ func (s *ScrollView) ScrollPosYV(posY int) bool {
 }
 
 // 滚动视_显示水平滚动条.
-//
-// bShow: 是否显示.
-
+//.
 // ff:显示水平滚动条
 // bShow:是否显示
 func (s *ScrollView) ShowSBarH(bShow bool) int {
@@ -245,9 +205,7 @@ func (s *ScrollView) ShowSBarH(bShow bool) int {
 }
 
 // 滚动视_显示垂直滚动条.
-//
-// bShow: 是否显示.
-
+//.
 // ff:显示垂直滚动条
 // bShow:是否显示
 func (s *ScrollView) ShowSBarV(bShow bool) int {
@@ -255,9 +213,7 @@ func (s *ScrollView) ShowSBarV(bShow bool) int {
 }
 
 // 滚动视_启用自动显示滚动条.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用自动显示滚动条
 // bEnable:是否启用
 func (s *ScrollView) EnableAutoShowScrollBar(bEnable bool) int {
@@ -265,56 +221,48 @@ func (s *ScrollView) EnableAutoShowScrollBar(bEnable bool) int {
 }
 
 // 滚动视_向左滚动.
-
 // ff:向左滚动
 func (s *ScrollView) ScrollLeftLine() bool {
 	return xc.XSView_ScrollLeftLine(s.Handle)
 }
 
 // 滚动视_向右滚动.
-
 // ff:向右滚动
 func (s *ScrollView) ScrollRightLine() bool {
 	return xc.XSView_ScrollRightLine(s.Handle)
 }
 
 // 滚动视_向上滚动.
-
 // ff:向上滚动
 func (s *ScrollView) ScrollTopLine() bool {
 	return xc.XSView_ScrollTopLine(s.Handle)
 }
 
 // 滚动视_向下滚动.
-
 // ff:向下滚动
 func (s *ScrollView) ScrollBottomLine() bool {
 	return xc.XSView_ScrollBottomLine(s.Handle)
 }
 
 // 滚动视_滚动到左侧, 水平滚动到左侧.
-
 // ff:滚动到左侧
 func (s *ScrollView) ScrollLeft() bool {
 	return xc.XSView_ScrollLeft(s.Handle)
 }
 
 // 滚动视_滚动到右侧, 水平滚动到右侧.
-
 // ff:滚动到右侧
 func (s *ScrollView) ScrollRight() bool {
 	return xc.XSView_ScrollRight(s.Handle)
 }
 
 // 滚动视_滚动到顶部, 垂直滚动到顶部.
-
 // ff:滚动到顶部
 func (s *ScrollView) ScrollTop() bool {
 	return xc.XSView_ScrollTop(s.Handle)
 }
 
 // 滚动视_滚动到底部, 垂直滚动到底部.
-
 // ff:滚动到底部
 func (s *ScrollView) ScrollBottom() bool {
 	return xc.XSView_ScrollBottom(s.Handle)
@@ -330,7 +278,6 @@ type XE_SCROLLVIEW_SCROLL_V func(pos int32, pbHandled *bool) int            // �
 type XE_SCROLLVIEW_SCROLL_V1 func(hEle int, pos int32, pbHandled *bool) int // 滚动视图元素垂直滚动事件,滚动视图触发.
 
 // 滚动视图元素水平滚动事件,滚动视图触发.
-
 // ff:事件_水平滚动
 // pFun:
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_H(pFun XE_SCROLLVIEW_SCROLL_H) bool {
@@ -338,7 +285,6 @@ func (s *ScrollView) Event_SCROLLVIEW_SCROLL_H(pFun XE_SCROLLVIEW_SCROLL_H) bool
 }
 
 // 滚动视图元素水平滚动事件,滚动视图触发.
-
 // ff:事件_水平滚动1
 // pFun:
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_H1(pFun XE_SCROLLVIEW_SCROLL_H1) bool {
@@ -346,7 +292,6 @@ func (s *ScrollView) Event_SCROLLVIEW_SCROLL_H1(pFun XE_SCROLLVIEW_SCROLL_H1) bo
 }
 
 // 滚动视图元素垂直滚动事件,滚动视图触发.
-
 // ff:事件_垂直滚动
 // pFun:
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_V(pFun XE_SCROLLVIEW_SCROLL_V) bool {
@@ -354,7 +299,6 @@ func (s *ScrollView) Event_SCROLLVIEW_SCROLL_V(pFun XE_SCROLLVIEW_SCROLL_V) bool
 }
 
 // 滚动视图元素垂直滚动事件,滚动视图触发.
-
 // ff:事件_垂直滚动1
 // pFun:
 func (s *ScrollView) Event_SCROLLVIEW_SCROLL_V1(pFun XE_SCROLLVIEW_SCROLL_V1) bool {

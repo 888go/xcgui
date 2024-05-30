@@ -111,5 +111,6 @@ ff=取滑块
 
 [func (s *ScrollBar) Event_SBAR_SCROLL(pFun XE_SBAR_SCROLL) bool {]
 ff=事件_滚动事件
+
 [func (s *ScrollBar) Event_SBAR_SCROLL1(pFun XE_SBAR_SCROLL1) bool {]
 ff=事件_滚动事件1

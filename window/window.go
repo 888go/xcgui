@@ -20,15 +20,14 @@ type Window struct {
 //	@param hWndParent 父窗口.
 //	@param XCStyle 窗口样式: xcc.Window_Style_.
 //	@return *Window
-
 // ff:创建窗口
-// XCStyle:窗口样式
-// hWndParent:父窗口
-// pTitle:窗口标题
-// cy:窗口高度
-// cx:窗口宽度
-// y:y坐标
 // x:x坐标
+// y:y坐标
+// cx:窗口宽度
+// cy:窗口高度
+// pTitle:窗口标题
+// hWndParent:父窗口
+// XCStyle:窗口样式
 func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
 	p.SetHandle(xc.XWnd_Create(x, y, cx, cy, pTitle, hWndParent, XCStyle))
@@ -48,18 +47,17 @@ func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Wind
 //	@param hWndParent 父窗口.
 //	@param XCStyle 窗口样式, xcc.Window_Style_.
 //	@return *Window
-
 // ff:创建窗口EX
-// XCStyle:窗口样式
-// hWndParent:父窗口
-// pTitle:窗口名
-// cy:高度
-// cx:宽度
-// y:y坐标
-// x:x坐标
-// lpClassName:类名
-// dwStyle:样式
 // dwExStyle:窗口扩展样式
+// dwStyle:样式
+// lpClassName:类名
+// x:x坐标
+// y:y坐标
+// cx:宽度
+// cy:高度
+// pTitle:窗口名
+// hWndParent:父窗口
+// XCStyle:窗口样式
 func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int, cy int, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
 	p.SetHandle(xc.XWnd_CreateEx(dwExStyle, dwStyle, lpClassName, x, y, cx, cy, pTitle, hWndParent, XCStyle))
@@ -71,10 +69,9 @@ func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int,
 //	@param hWnd 要附加的外部窗口句柄.
 //	@param XCStyle 窗口样式: xcc.Window_Style_.
 //	@return *Window
-
 // ff:窗口附加窗口
-// XCStyle:
 // hWnd:外部窗口句柄
+// XCStyle:
 func Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
 	p.SetHandle(xc.XWnd_Attach(hWnd, XCStyle))
@@ -85,7 +82,6 @@ func Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
 //
 //	@param hWindow 窗口资源句柄.
 //	@return *Window
-
 // ff:创建窗口并按句柄
 // hWindow:窗口资源句柄
 func NewByHandle(hWindow int) *Window {
@@ -100,11 +96,10 @@ func NewByHandle(hWindow int) *Window {
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
 // pFileName:布局文件名
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewByLayout(pFileName string, hParent int, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
 	if handle > 0 {
@@ -123,13 +118,12 @@ func NewByLayout(pFileName string, hParent int, hAttachWnd uintptr) *Window {
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按压缩包布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
-// pPassword:zip密码
-// pFileName:布局文件名
 // pZipFileName:zip文件名
+// pFileName:布局文件名
+// pPassword:zip密码
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
@@ -148,13 +142,12 @@ func NewByLayoutZip(pZipFileName string, pFileName string, pPassword string, hPa
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按内存压缩包布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
-// pPassword:zip密码
-// pFileName:布局文件名
 // data:布局文件数据
+// pFileName:布局文件名
+// pPassword:zip密码
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
@@ -171,11 +164,10 @@ func NewByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent 
 //	@param hParent 父对象.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按布局文件字符串W
-// hAttachWnd:附加窗口句柄
-// hParent:父对象
 // pStringXML:字符串
+// hParent:父对象
+// hAttachWnd:附加窗口句柄
 func NewByLayoutStringW(pStringXML string, hParent int, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
 	if handle > 0 {
@@ -194,13 +186,12 @@ func NewByLayoutStringW(pStringXML string, hParent int, hAttachWnd uintptr) *Win
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
 // pFileName:布局文件名
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -221,15 +212,14 @@ func NewByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAtta
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按压缩包布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
-// pPassword:zip密码
-// pFileName:布局文件名
 // pZipFileName:zip文件名
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -251,16 +241,15 @@ func NewByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixN
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@param hModule 模块句柄, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按RC资源zip压缩包布局文件EX
-// hModule:模块句柄
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
-// pPassword:zip密码
-// pFileName:布局文件名
 // id:RC资源ID
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
+// hModule:模块句柄
 func NewByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) *Window {
 	handle := xc.XC_LoadLayoutZipResEx(id, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd, hModule)
 	if handle > 0 {
@@ -281,15 +270,14 @@ func NewByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hPa
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按内存压缩包布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
-// pPassword:zip密码
-// pFileName:布局文件名
 // data:布局文件数据
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -308,13 +296,12 @@ func NewByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName s
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建窗口并按布局文件字符串WEX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象
-// pPrefixName:名称前缀
 // pStringXML:字符串
+// pPrefixName:名称前缀
+// hParent:父对象
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewByLayoutStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
 	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -329,7 +316,6 @@ func NewByLayoutStringWEx(pStringXML, pPrefixName string, hParent int, hParentWn
 //
 //	@param name
 //	@return *Window
-
 // ff:创建窗口并按名称
 // name:名称
 func NewByName(name string) *Window {
@@ -346,7 +332,6 @@ func NewByName(name string) *Window {
 //
 //	@param nUID
 //	@return *Window
-
 // ff:创建窗口并按UID
 // nUID:
 func NewByUID(nUID int) *Window {
@@ -363,7 +348,6 @@ func NewByUID(nUID int) *Window {
 //
 //	@param name
 //	@return *Window
-
 // ff:创建窗口并按UID名称
 // name:名称
 func NewByUIDName(name string) *Window {

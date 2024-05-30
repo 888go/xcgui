@@ -310,5 +310,6 @@ ff=事件_下拉列表弹出1
 
 [func (c *ComboBox) Event_COMBOBOX_EXIT_LIST(pFun XE_COMBOBOX_EXIT_LIST) bool {]
 ff=事件_下拉列表退出
+
 [func (c *ComboBox) Event_COMBOBOX_EXIT_LIST1(pFun XE_COMBOBOX_EXIT_LIST1) bool {]
 ff=事件_下拉列表退出1

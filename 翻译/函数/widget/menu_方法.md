@@ -190,5 +190,6 @@ nID=菜单项ID
 ff=置项宽度
 nWidth=宽度
 nID=项ID
+
 [func (m *Menu) GetMenuBar() int {]
 ff=取菜单条

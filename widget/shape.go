@@ -11,7 +11,6 @@ type Shape struct {
 }
 
 // 从句柄创建对象.
-
 // ff:创建形状对象基类并按句柄
 // handle:
 func NewShapeByHandle(handle int) *Shape {
@@ -21,7 +20,6 @@ func NewShapeByHandle(handle int) *Shape {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建形状对象基类并按名称
 // name:
 func NewShapeByName(name string) *Shape {
@@ -35,7 +33,6 @@ func NewShapeByName(name string) *Shape {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建形状对象基类并按UID
 // nUID:
 func NewShapeByUID(nUID int) *Shape {
@@ -49,7 +46,6 @@ func NewShapeByUID(nUID int) *Shape {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建形状对象基类并按UID名称
 // name:
 func NewShapeByUIDName(name string) *Shape {
@@ -63,57 +59,47 @@ func NewShapeByUIDName(name string) *Shape {
 }
 
 // 形状_移除, 从父UI元素或窗口,和父布局对象中移除.
-
 // ff:移除
 func (s *Shape) RemoveShape() int {
 	return xc.XShape_RemoveShape(s.Handle)
 }
 
 // 形状_取Z序, 获取形状对象Z序, 成功返回索引值, 否则返回 XC_ID_ERROR.
-
 // ff:取Z序
 func (s *Shape) GetZOrder() int {
 	return xc.XShape_GetZOrder(s.Handle)
 }
 
 // 形状_重绘, 重绘形状对象.
-
 // ff:重绘
 func (s *Shape) Redraw() int {
 	return xc.XShape_Redraw(s.Handle)
 }
 
 // 形状_取宽度, 获取内容宽度.
-
 // ff:取宽度
 func (s *Shape) GetWidth() int32 {
 	return xc.XShape_GetWidth(s.Handle)
 }
 
 // 形状_取高度, 获取内容高度.
-
 // ff:取高度
 func (s *Shape) GetHeight() int32 {
 	return xc.XShape_GetHeight(s.Handle)
 }
 
 // 形状_移动位置.
-//
-// x: x坐标.
-//
-// y: y坐标.
-
+//.
+//.
 // ff:移动位置
-// y:y坐标
 // x:x坐标
+// y:y坐标
 func (s *Shape) SetPosition(x, y int32) int {
 	return xc.XShape_SetPosition(s.Handle, x, y)
 }
 
 // 形状_取坐标.
-//
-// pRect: 接收返回坐标.
-
+//.
 // ff:取坐标
 // pRect:接收返回坐标
 func (s *Shape) GetRect(pRect *xc.RECT) int {
@@ -121,9 +107,7 @@ func (s *Shape) GetRect(pRect *xc.RECT) int {
 }
 
 // 形状_置坐标.
-//
-// pRect: 坐标.
-
+//.
 // ff:置坐标
 // pRect:坐标
 func (s *Shape) SetRect(pRect *xc.RECT) int {
@@ -131,22 +115,17 @@ func (s *Shape) SetRect(pRect *xc.RECT) int {
 }
 
 // 形状_置逻辑坐标, 设置元素坐标, 逻辑坐标, 包含滚动视图偏移.
-//
-// pRect: 坐标.
-//
-// bRedraw: 是否重绘.
-
+//.
+//.
 // ff:置逻辑坐标
-// bRedraw:
 // pRect:坐标
+// bRedraw:
 func (s *Shape) SetRectLogic(pRect *xc.RECT, bRedraw bool) bool {
 	return xc.XShape_SetRectLogic(s.Handle, pRect, bRedraw)
 }
 
 // 形状_取逻辑坐标, 获取元素坐标, 逻辑坐标, 包含滚动视图偏移.
-//
-// pRect: 坐标.
-
+//.
 // ff:取逻辑坐标
 // pRect:坐标
 func (s *Shape) GetRectLogic(pRect *xc.RECT) int {
@@ -154,9 +133,7 @@ func (s *Shape) GetRectLogic(pRect *xc.RECT) int {
 }
 
 // 形状_取基于窗口客户区坐标, 基于窗口客户区坐标.
-//
-// pRect: 坐标.
-
+//.
 // ff:取基于窗口客户区坐标
 // pRect:坐标
 func (s *Shape) GetWndClientRect(pRect *xc.RECT) int {
@@ -164,9 +141,7 @@ func (s *Shape) GetWndClientRect(pRect *xc.RECT) int {
 }
 
 // 形状_取内容大小 ,仅计算有效内容, 填充父, 权重依赖父级所以无法计算.
-//
-// pSize: 接收返回内容大小值.
-
+//.
 // ff:取内容大小
 // pSize:接收返回大小值
 func (s *Shape) GetContentSize(pSize *xc.SIZE) int {
@@ -174,9 +149,7 @@ func (s *Shape) GetContentSize(pSize *xc.SIZE) int {
 }
 
 // 形状_显示布局边界, 是否显示布局边界.
-//
-// bShow: 是否显示.
-
+//.
 // ff:显示布局边界
 // bShow:是否显示
 func (s *Shape) ShowLayout(bShow bool) int {
@@ -184,62 +157,49 @@ func (s *Shape) ShowLayout(bShow bool) int {
 }
 
 // 形状_调整布局.
-
 // ff:调整布局
 func (s *Shape) AdjustLayout() int {
 	return xc.XShape_AdjustLayout(s.Handle)
 }
 
 // 形状_销毁, 销毁形状对象.
-
 // ff:销毁
 func (s *Shape) Destroy() int {
 	return xc.XShape_Destroy(s.Handle)
 }
 
 // 形状_取位置.
-//
-// pOutX: 返回X坐标.
-//
-// pOutY: 返回Y坐标.
-
+//.
+//.
 // ff:取位置
-// pOutY:返回Y坐标
 // pOutX:返回X坐标
+// pOutY:返回Y坐标
 func (s *Shape) GetPosition(pOutX, pOutY *int32) int {
 	return xc.XShape_GetPosition(s.Handle, pOutX, pOutY)
 }
 
 // 形状_置大小.
-//
-// nWidth: 宽度.
-//
-// nHeight: 高度.
-
+//.
+//.
 // ff:置大小
-// nHeight:高度
 // nWidth:宽度
+// nHeight:高度
 func (s *Shape) SetSize(nWidth, nHeight int32) int {
 	return xc.XShape_SetSize(s.Handle, nWidth, nHeight)
 }
 
 // 形状_取大小.
-//
-// pOutWidth: 返回宽度.
-//
-// pOutHeight: 返回高度.
-
+//.
+//.
 // ff:取大小
-// pOutHeight:返回高度
 // pOutWidth:返回宽度
+// pOutHeight:返回高度
 func (s *Shape) GetSize(pOutWidth, pOutHeight *int32) int {
 	return xc.XShape_GetSize(s.Handle, pOutWidth, pOutHeight)
 }
 
 // 形状_置透明度.
-//
-// alpha: 透明度.
-
+//.
 // ff:置透明度
 // alpha:透明度
 func (s *Shape) SetAlpha(alpha uint8) int {
@@ -247,7 +207,6 @@ func (s *Shape) SetAlpha(alpha uint8) int {
 }
 
 // 形状_取透明度, 返回透明度.
-
 // ff:取透明度
 func (s *Shape) GetAlpha() int {
 	return xc.XShape_GetAlpha(s.Handle)

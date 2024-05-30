@@ -1,4 +1,4 @@
-package font //bm:炫彩字体类
+package font//bm:炫彩字体类
 
 import (
 	"github.com/twgh/xcgui/objectbase"
@@ -16,7 +16,6 @@ type Font struct {
 //
 //	@param size 字体大小,单位(pt,磅).
 //	@return *Font 返回字体对象.
-
 // ff:创建
 // size:字体大小
 func New(size int32) *Font {
@@ -31,11 +30,10 @@ func New(size int32) *Font {
 //	@param size 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return *Font 返回字体对象.
-
 // ff:创建EX
-// style:字体样式
-// size:字体大小
 // pName:字体名称
+// size:字体大小
+// style:字体样式
 func NewEX(pName string, size int32, style xcc.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateEx(pName, size, style))
@@ -46,7 +44,6 @@ func NewEX(pName string, size int32, style xcc.FontStyle_) *Font {
 //
 //	@param pFontInfo 字体信息.
 //	@return *Font 返回字体对象.
-
 // ff:创建并按选项
 // pFontInfo:字体选项
 func NewLOGFONTW(pFontInfo *xc.LOGFONTW) *Font {
@@ -59,7 +56,6 @@ func NewLOGFONTW(pFontInfo *xc.LOGFONTW) *Font {
 //
 //	@param hFont 字体句柄.
 //	@return *Font 返回字体对象.
-
 // ff:创建并按字体句柄
 // hFont:字体句柄
 func NewByHFONT(hFont uintptr) *Font {
@@ -72,7 +68,6 @@ func NewByHFONT(hFont uintptr) *Font {
 //
 //	@param pFont GDI+字体指针.
 //	@return *Font 返回字体对象.
-
 // ff:创建并按GDI字体指针
 // pFont:GDI字体指针
 func NewByFont(pFont uintptr) *Font {
@@ -87,11 +82,10 @@ func NewByFont(pFont uintptr) *Font {
 //	@param size 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return *Font 返回字体对象.
-
 // ff:创建并按文件
-// style:字体样式
-// size:字体大小
 // pFontFile:字体文件名
+// size:字体大小
+// style:字体样式
 func NewByFile(pFontFile string, size int32, style xcc.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromFile(pFontFile, size, style))
@@ -106,13 +100,12 @@ func NewByFile(pFontFile string, size int32, style xcc.FontStyle_) *Font {
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式: xcc.FontStyle_.
 //	@return *Font 返回炫彩字体对象.
-
 // ff:创建并按ZIP
-// style:字体样式
-// fontSize:字体大小
-// pPassword:zip密码
-// pFileName:字体文件名
 // pZipFileName:zip文件名
+// pFileName:字体文件名
+// pPassword:zip密码
+// fontSize:字体大小
+// style:字体样式
 func NewByZip(pZipFileName, pFileName, pPassword string, fontSize int32, style xcc.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromZip(pZipFileName, pFileName, pPassword, fontSize, style))
@@ -127,13 +120,12 @@ func NewByZip(pZipFileName, pFileName, pPassword string, fontSize int32, style x
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式: xcc.FontStyle_.
 //	@return *Font 返回炫彩字体对象.
-
 // ff:创建并按内存ZIP
-// style:字体样式
-// fontSize:字体大小
-// pPassword:zip密码
-// pFileName:字体文件名
 // data:zip数据
+// pFileName:字体文件名
+// pPassword:zip密码
+// fontSize:字体大小
+// style:字体样式
 func NewByZipMem(data []byte, pFileName, pPassword string, fontSize int32, style xcc.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromZipMem(data, pFileName, pPassword, fontSize, style))
@@ -146,11 +138,10 @@ func NewByZipMem(data []byte, pFileName, pPassword string, fontSize int32, style
 //	@param fontSize 字体大小, 单位(pt,磅).
 //	@param style 字体样式, xcc.FontStyle_.
 //	@return *Font 返回字体对象.
-
 // ff:创建并按内存
-// style:字体样式
-// fontSize:字体大小
 // data:字体文件数据
+// fontSize:字体大小
+// style:字体样式
 func NewByMem(data []byte, fontSize int32, style xcc.FontStyle_) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromMem(data, fontSize, style))
@@ -165,13 +156,12 @@ func NewByMem(data []byte, fontSize int32, style xcc.FontStyle_) *Font {
 //	@param style 字体样式, xcc.FontStyle_.
 //	@param hModule xx.
 //	@return *Font 返回字体对象.
-
 // ff:创建并按资源
-// hModule:
-// style:字体样式
-// fontSize:字体大小
-// pType:类型
 // id:
+// pType:类型
+// fontSize:字体大小
+// style:字体样式
+// hModule:
 func NewByRes(id int32, pType string, fontSize int32, style xcc.FontStyle_, hModule uintptr) *Font {
 	p := &Font{}
 	p.SetHandle(xc.XFont_CreateFromRes(id, pType, fontSize, style, hModule))
@@ -182,7 +172,6 @@ func NewByRes(id int32, pType string, fontSize int32, style xcc.FontStyle_, hMod
 //
 //	@param handle
 //	@return *Font
-
 // ff:创建并按句柄
 // handle:句柄
 func NewByHandle(handle int) *Font {
@@ -195,7 +184,6 @@ func NewByHandle(handle int) *Font {
 //
 //	@param name
 //	@return *Font
-
 // ff:创建并按名称
 // name:名称
 func NewByName(name string) *Font {
@@ -212,7 +200,6 @@ func NewByName(name string) *Font {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用自动销毁
 // bEnable:是否启用
 func (f *Font) EnableAutoDestroy(bEnable bool) int {
@@ -222,7 +209,6 @@ func (f *Font) EnableAutoDestroy(bEnable bool) int {
 // GetFont 字体_取Font. 获取字体.
 //
 //	@return int 返回GDI+ Font指针
-
 // ff:取字体指针
 func (f *Font) GetFont() int {
 	return xc.XFont_GetFont(f.Handle)
@@ -232,7 +218,6 @@ func (f *Font) GetFont() int {
 //
 //	@param pInfo 接收返回的字体信息.
 //	@return int
-
 // ff:取信息
 // pInfo:返回字体信息
 func (f *Font) GetFontInfo(pInfo *xc.Font_Info_) int {
@@ -244,10 +229,9 @@ func (f *Font) GetFontInfo(pInfo *xc.Font_Info_) int {
 //	@param hdc hdc句柄.
 //	@param pOut 接收返回信息.
 //	@return bool
-
 // ff:取属性
-// pOut:返回字体属性
 // hdc:hdc句柄
+// pOut:返回字体属性
 func (f *Font) GetLOGFONTW(hdc uintptr, pOut *xc.LOGFONTW) bool {
 	return xc.XFont_GetLOGFONTW(f.Handle, hdc, pOut)
 }
@@ -255,7 +239,6 @@ func (f *Font) GetLOGFONTW(hdc uintptr, pOut *xc.LOGFONTW) bool {
 // Destroy 字体_销毁. 强制销毁炫彩字体, 谨慎使用, 建议使用 Release() 释放.
 //
 //	@return int
-
 // ff:销毁
 func (f *Font) Destroy() {
 	xc.XFont_Destroy(f.Handle)
@@ -264,7 +247,6 @@ func (f *Font) Destroy() {
 // AddRef 字体_增加引用计数.
 //
 //	@return int
-
 // ff:增加引用计数
 func (f *Font) AddRef() {
 	xc.XFont_AddRef(f.Handle)
@@ -273,7 +255,6 @@ func (f *Font) AddRef() {
 // GetRefCount 字体_取引用计数.
 //
 //	@return int
-
 // ff:取引用计数
 func (f *Font) GetRefCount() int32 {
 	return xc.XFont_GetRefCount(f.Handle)
@@ -282,7 +263,6 @@ func (f *Font) GetRefCount() int32 {
 // Release 字体_释放引用计数. 释放引用计数, 当引用计数为0时自动销毁.
 //
 //	@return int
-
 // ff:释放引用计数
 func (f *Font) Release() {
 	xc.XFont_Release(f.Handle)

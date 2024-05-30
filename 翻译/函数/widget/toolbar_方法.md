@@ -88,5 +88,6 @@ nSize=间距大小
 [func (t *ToolBar) DeleteEle(index int) int {]
 ff=删除元素
 index=索引值
+
 [func (t *ToolBar) DeleteAllEle() int {]
 ff=删除全部

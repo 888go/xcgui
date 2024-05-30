@@ -11,9 +11,7 @@ type Node struct {
 }
 
 // 模板_创建节点.
-//
-// nType: 对象类型: xcc.XC_OBJECT_TYPE : xcc.XC_.
-
+//: xcc.XC_OBJECT_TYPE : xcc.XC_.
 // ff:创建节点
 // nType:对象类型
 func NewNode(nType xcc.XC_OBJECT_TYPE) *Node {
@@ -24,7 +22,6 @@ func NewNode(nType xcc.XC_OBJECT_TYPE) *Node {
 }
 
 // 给本类的Handle赋值.
-
 // ff:设置句柄
 // handle:句柄
 func (n *Node) SetHandle(handle int) {
@@ -32,11 +29,8 @@ func (n *Node) SetHandle(handle int) {
 }
 
 // 模板_取节点, 获取节点, 根据itemID. 返回节点对象.
-//
-// pNode: 节点指针.
-//
-// itemID: ID.
-
+//.
+//.
 // ff:取节点
 // itemID:ID
 func (n *Node) GetNode(itemID int32) *Node {
@@ -47,7 +41,6 @@ func (n *Node) GetNode(itemID int32) *Node {
 }
 
 // 模板_克隆节点, 获取列表项模板类型, 返回节点对象.
-
 // ff:取副本
 func (n *Node) CloneNode() *Node {
 	p := &Node{
@@ -57,9 +50,7 @@ func (n *Node) CloneNode() *Node {
 }
 
 // 模板_添加子节点.
-//
-// pNode: 节点指针.
-
+//.
 // ff:添加子节点
 // pNode:节点指针
 func (n *Node) AddNode(pNode int) bool {
@@ -67,30 +58,23 @@ func (n *Node) AddNode(pNode int) bool {
 }
 
 // 模板_置节点属性.
-//
-// pName: 属性名.
-//
-// pAttr: 属性值.
-
+//.
+//.
 // ff:置节点属性
-// pAttr:属性值
 // pName:属性名
+// pAttr:属性值
 func (n *Node) SetNodeAttribute(pName string, pAttr string) bool {
 	return xc.XTemp_SetNodeAttribute(n.Handle, pName, pAttr)
 }
 
 // 模板_置节点属性扩展.
-//
-// itemID: 模板项ID.
-//
-// pName: 属性名.
-//
-// pAttr: 属性值.
-
+//.
+//.
+//.
 // ff:置节点属性EX
-// pAttr:属性值
-// pName:属性名
 // itemID:模板项ID
+// pName:属性名
+// pAttr:属性值
 func (n *Node) SetNodeAttributeEx(itemID int32, pName string, pAttr string) bool {
 	return xc.XTemp_SetNodeAttributeEx(n.Handle, itemID, pName, pAttr)
 }

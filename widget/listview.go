@@ -11,23 +11,17 @@ type ListView struct {
 }
 
 // 列表视_创建.
-//
-// x: 元素x坐标.
-//
-// y: 元素y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-
+//.
+//.
+//.
+//.
+//. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 // ff:创建列表视
-// hParent:父窗口句柄或元素句柄
-// cy:高度
-// cx:宽度
-// y:元素y坐标
 // x:元素x坐标
+// y:元素y坐标
+// cx:宽度
+// cy:高度
+// hParent:父窗口句柄或元素句柄
 func NewListView(x int, y int, cx int, cy int, hParent int) *ListView {
 	p := &ListView{}
 	p.SetHandle(xc.XListView_Create(x, y, cx, cy, hParent))
@@ -35,26 +29,19 @@ func NewListView(x int, y int, cx int, cy int, hParent int) *ListView {
 }
 
 // 列表视_创建Ex. 创建列表视图元素, 使用内置项模板, 自动创建数据适配器.
-//
-// x: 元素x坐标.
-//
-// y: 元素y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-//
-// col_extend_count: 列数量. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
-
+//.
+//.
+//.
+//.
+//. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
+//. 例如: 内置模板是1列, 如果数据有5列, 那么此参数填5.
 // ff:创建列表视Ex
-// col_extend_count:列数量
-// hParent:父窗口句柄或元素句柄
-// cy:高度
-// cx:宽度
-// y:元素y坐标
 // x:元素x坐标
+// y:元素y坐标
+// cx:宽度
+// cy:高度
+// hParent:父窗口句柄或元素句柄
+// col_extend_count:列数量
 func NewListViewEx(x, y, cx, cy int32, hParent, col_extend_count int32) *ListView {
 	p := &ListView{}
 	p.SetHandle(xc.XListView_CreateEx(x, y, cx, cy, hParent, col_extend_count))
@@ -62,7 +49,6 @@ func NewListViewEx(x, y, cx, cy int32, hParent, col_extend_count int32) *ListVie
 }
 
 // 从句柄创建对象.
-
 // ff:创建列表视并按句柄
 // handle:
 func NewListViewByHandle(handle int) *ListView {
@@ -72,7 +58,6 @@ func NewListViewByHandle(handle int) *ListView {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建列表视并按名称
 // name:
 func NewListViewByName(name string) *ListView {
@@ -86,7 +71,6 @@ func NewListViewByName(name string) *ListView {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建列表视并按UID
 // nUID:
 func NewListViewByUID(nUID int) *ListView {
@@ -100,7 +84,6 @@ func NewListViewByUID(nUID int) *ListView {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建列表视并按UID名称
 // name:
 func NewListViewByUIDName(name string) *ListView {
@@ -114,16 +97,13 @@ func NewListViewByUIDName(name string) *ListView {
 }
 
 // 列表视_创建数据适配器, 创建数据适配器，根据绑定的项模板初始化数据适配器的列, 返回适配器句柄.
-
 // ff:创建数据适配器
 func (l *ListView) CreateAdapter() int {
 	return xc.XListView_CreateAdapter(l.Handle)
 }
 
 // 列表视_绑定数据适配器.
-//
-// hAdapter: 数据适配器XAdListView.
-
+//.
 // ff:绑定数据适配器
 // hAdapter:数据适配器
 func (l *ListView) BindAdapter(hAdapter int) int {
@@ -131,16 +111,13 @@ func (l *ListView) BindAdapter(hAdapter int) int {
 }
 
 // 列表视_取数据适配器, 返回数据适配器句柄.
-
 // ff:取数据适配器
 func (l *ListView) GetAdapter() int {
 	return xc.XListView_GetAdapter(l.Handle)
 }
 
 // 列表视_置项模板文件.
-//
-// pXmlFile: 文件名.
-
+//.
 // ff:置项模板文件
 // pXmlFile:文件名
 func (l *ListView) SetItemTemplateXML(pXmlFile string) bool {
@@ -148,9 +125,7 @@ func (l *ListView) SetItemTemplateXML(pXmlFile string) bool {
 }
 
 // 列表视_置项模板从字符串.
-//
-// pStringXML: 字符串.
-
+//.
 // ff:置项模板从字符串
 // pStringXML:字符串
 func (l *ListView) SetItemTemplateXMLFromString(pStringXML string) bool {
@@ -158,9 +133,7 @@ func (l *ListView) SetItemTemplateXMLFromString(pStringXML string) bool {
 }
 
 // 列表视_置项模板, 置列表项模板.
-//
-// hTemp: 模板句柄.
-
+//.
 // ff:置项模板
 // hTemp:模板句柄
 func (l *ListView) SetItemTemplate(hTemp int) bool {
@@ -168,86 +141,65 @@ func (l *ListView) SetItemTemplate(hTemp int) bool {
 }
 
 // 列表视_取模板对象, 通过模板项ID, 获取实例化模板项ID对应的对象句柄.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// nTempItemID: 模板项ID.
-
+//.
+//.
+//.
 // ff:取模板对象
-// nTempItemID:模板项ID
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// nTempItemID:模板项ID
 func (l *ListView) GetTemplateObject(iGroup int, iItem int, nTempItemID int) int {
 	return xc.XListView_GetTemplateObject(l.Handle, iGroup, iItem, nTempItemID)
 }
 
 // 列表视_取模板对象组, 通过模板项ID, 获取实例化模板项ID对应的对象句柄.
-//
-// iGroup: 组索引.
-//
-// nTempItemID: 模板项ID.
-
+//.
+//.
 // ff:取模板对象组
-// nTempItemID:模板项ID
 // iGroup:组索引
+// nTempItemID:模板项ID
 func (l *ListView) GetTemplateObjectGroup(iGroup int, nTempItemID int) int {
 	return xc.XListView_GetTemplateObjectGroup(l.Handle, iGroup, nTempItemID)
 }
 
 // 列表视_取对象所在项, 获取当前对象所在模板实例, 属于列表视中哪一个项.
-//
-// hXCGUI: 对象句柄, UI元素句柄或形状对象句柄.
-//
-// piGroup: 接收组索引.
-//
-// piItem: 接收项索引.
-
+//, UI元素句柄或形状对象句柄.
+//.
+//.
 // ff:取对象所在项
-// piItem:接收项索引
-// piGroup:接收组索引
 // hXCGUI:对象句柄
+// piGroup:接收组索引
+// piItem:接收项索引
 func (l *ListView) GetItemIDFromHXCGUI(hXCGUI int, piGroup *int32, piItem *int32) bool {
 	return xc.XListView_GetItemIDFromHXCGUI(l.Handle, hXCGUI, piGroup, piItem)
 }
 
 // 列表视_测试点击项, 检查坐标点所在项.
-//
-// pPt: 坐标点.
-//
-// pOutGroup: 接收组索引.
-//
-// pOutItem: 接收项索引.
-
+//.
+//.
+//.
 // ff:测试点击项
-// pOutItem:
-// pOutGroup:
 // pPt:坐标点
+// pOutGroup:
+// pOutItem:
 func (l *ListView) HitTest(pPt *xc.POINT, pOutGroup *int32, pOutItem *int32) bool {
 	return xc.XListView_HitTest(l.Handle, pPt, pOutGroup, pOutItem)
 }
 
 // 列表视_测试点击项扩展, 检查坐标点所在项, 自动添加滚动视图偏移量.
-//
-// pPt: 坐标点.
-//
-// pOutGroup: 接收做索引.
-//
-// pOutItem: 接收项索引.
-
+//.
+//.
+//.
 // ff:测试点击项EX
-// pOutItem:
-// pOutGroup:
 // pPt:坐标点
+// pOutGroup:
+// pOutItem:
 func (l *ListView) HitTestOffset(pPt *xc.POINT, pOutGroup *int32, pOutItem *int32) bool {
 	return xc.XListView_HitTestOffset(l.Handle, pPt, pOutGroup, pOutItem)
 }
 
 // 列表视_启用多选.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用多选
 // bEnable:是否启用
 func (l *ListView) EnableMultiSel(bEnable bool) int {
@@ -255,9 +207,7 @@ func (l *ListView) EnableMultiSel(bEnable bool) int {
 }
 
 // 列表视_启用模板复用.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用模板复用
 // bEnable:是否启用
 func (l *ListView) EnableTemplateReuse(bEnable bool) int {
@@ -265,9 +215,7 @@ func (l *ListView) EnableTemplateReuse(bEnable bool) int {
 }
 
 // 列表视_启用虚表.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用虚表
 // bEnable:是否启用
 func (l *ListView) EnableVirtualTable(bEnable bool) int {
@@ -275,22 +223,17 @@ func (l *ListView) EnableVirtualTable(bEnable bool) int {
 }
 
 // 列表视_置虚表项数量.
-//
-// iGroup: 组索引.
-//
-// nCount: 项数量.
-
+//.
+//.
 // ff:置虚表项数量
-// nCount:项数量
 // iGroup:组索引
+// nCount:项数量
 func (l *ListView) SetVirtualItemCount(iGroup int, nCount int) bool {
 	return xc.XListView_SetVirtualItemCount(l.Handle, iGroup, nCount)
 }
 
 // 列表视_置项背景绘制标志, 置是否绘制指定状态下项的背景.
-//
-// nFlags: 标志位: List_DrawItemBk_Flag_.
-
+//: List_DrawItemBk_Flag_.
 // ff:置项背景绘制标志
 // nFlags:标志位
 func (l *ListView) SetDrawItemBkFlags(nFlags xcc.List_DrawItemBk_Flag_) int {
@@ -298,120 +241,93 @@ func (l *ListView) SetDrawItemBkFlags(nFlags xcc.List_DrawItemBk_Flag_) int {
 }
 
 // 列表视_置选择项.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-
+//.
+//.
 // ff:置选择项
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
 func (l *ListView) SetSelectItem(iGroup int, iItem int) bool {
 	return xc.XListView_SetSelectItem(l.Handle, iGroup, iItem)
 }
 
 // 列表视_取选择项.
-//
-// piGroup: 接收组索引.
-//
-// piItem: 接收项索引.
-
+//.
+//.
 // ff:取选择项
-// piItem:接收项索引
 // piGroup:接收组索引
+// piItem:接收项索引
 func (l *ListView) GetSelectItem(piGroup *int32, piItem *int32) bool {
 	return xc.XListView_GetSelectItem(l.Handle, piGroup, piItem)
 }
 
 // 列表视_添加选择项.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-
+//.
+//.
 // ff:添加选择项
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
 func (l *ListView) AddSelectItem(iGroup int, iItem int) bool {
 	return xc.XListView_AddSelectItem(l.Handle, iGroup, iItem)
 }
 
 // 列表视_显示指定项.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-
+//.
+//.
 // ff:显示指定项
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
 func (l *ListView) VisibleItem(iGroup int, iItem int) int {
 	return xc.XListView_VisibleItem(l.Handle, iGroup, iItem)
 }
 
 // 列表视_取可视项范围, 获取当前可见项范围.
-//
-// piGroup1: 可视开始组.
-//
-// piGroup2: 可视结束组.
-//
-// piStartGroup: 可视开始组.
-//
-// piStartItem: 可视开始项.
-//
-// piEndGroup: 可视结束组.
-//
-// piEndItem: 可视结束项.
-
+//.
+//.
+//.
+//.
+//.
+//.
 // ff:取可视项范围
-// piEndItem:可视结束项
-// piEndGroup:可视结束组
-// piStartItem:可视开始项
-// piStartGroup:可视开始组
-// piGroup2:组2
 // piGroup1:组1
+// piGroup2:组2
+// piStartGroup:可视开始组
+// piStartItem:可视开始项
+// piEndGroup:可视结束组
+// piEndItem:可视结束项
 func (l *ListView) GetVisibleItemRange(piGroup1 *int32, piGroup2 *int32, piStartGroup *int32, piStartItem *int32, piEndGroup *int32, piEndItem *int32) int {
 	return xc.XListView_GetVisibleItemRange(l.Handle, piGroup1, piGroup2, piStartGroup, piStartItem, piEndGroup, piEndItem)
 }
 
 // 列表视_取选择项数量.
-
 // ff:取选择项数量
 func (l *ListView) GetSelectItemCount() int {
 	return xc.XListView_GetSelectItemCount(l.Handle)
 }
 
 // 列表视_取选择项全部, 获取选择的项ID, 返回接收项数量.
-//
-// pArray: 数组.
-//
-// nArraySize: 数组大小.
-
+//.
+//.
 // ff:取选择项全部
-// nArraySize:
 // pArray:切片
+// nArraySize:
 func (l *ListView) GetSelectAll(pArray *[]xc.ListView_Item_Id_, nArraySize int) int {
 	return xc.XListView_GetSelectAll(l.Handle, pArray, nArraySize)
 }
 
 // 列表视_置选择项全部, 选择所有的项.
-
 // ff:置选择项全部
 func (l *ListView) SetSelectAll() int {
 	return xc.XListView_SetSelectAll(l.Handle)
 }
 
 // 列表视_取消选择项全部, 取消选择所有项.
-
 // ff:取消选择项全部
 func (l *ListView) CancelSelectAll() int {
 	return xc.XListView_CancelSelectAll(l.Handle)
 }
 
 // 列表视_置列间隔, 置列间隔大小.
-//
-// space: 间隔大小.
-
+//.
 // ff:置列间隔
 // space:间隔大小
 func (l *ListView) SetColumnSpace(space int) int {
@@ -419,9 +335,7 @@ func (l *ListView) SetColumnSpace(space int) int {
 }
 
 // 列表视_置行间隔, 置行间隔大小.
-//
-// space: 间隔大小.
-
+//.
 // ff:置行间隔
 // space:间隔大小
 func (l *ListView) SetRowSpace(space int) int {
@@ -429,22 +343,17 @@ func (l *ListView) SetRowSpace(space int) int {
 }
 
 // 列表视_置项大小.
-//
-// width: 宽度.
-//
-// height: 高度.
-
+//.
+//.
 // ff:置项大小
-// height:高度
 // width:宽度
+// height:高度
 func (l *ListView) SetItemSize(width int, height int) int {
 	return xc.XListView_SetItemSize(l.Handle, width, height)
 }
 
 // 列表视_取项大小.
-//
-// pSize: 接收返回大小.
-
+//.
 // ff:取项大小
 // pSize:接收返回大小
 func (l *ListView) GetItemSize(pSize *xc.SIZE) int {
@@ -452,9 +361,7 @@ func (l *ListView) GetItemSize(pSize *xc.SIZE) int {
 }
 
 // 列表视_置组高度.
-//
-// height: 高度.
-
+//.
 // ff:置组高度
 // height:高度
 func (l *ListView) SetGroupHeight(height int) int {
@@ -462,45 +369,35 @@ func (l *ListView) SetGroupHeight(height int) int {
 }
 
 // 列表视_取组高度.
-
 // ff:取组高度
 func (l *ListView) GetGroupHeight() int {
 	return xc.XListView_GetGroupHeight(l.Handle)
 }
 
 // 列表视_置组用户数据.
-//
-// iGroup: 组索引.
-//
-// nData: 数据.
-
+//.
+//.
 // ff:置组用户数据
-// nData:数据
 // iGroup:组索引
+// nData:数据
 func (l *ListView) SetGroupUserData(iGroup int, nData int) int {
 	return xc.XListView_SetGroupUserData(l.Handle, iGroup, nData)
 }
 
 // 列表视_置项用户数据.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// nData: 数据.
-
+//.
+//.
+//.
 // ff:置项用户数据
-// nData:数据
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// nData:数据
 func (l *ListView) SetItemUserData(iGroup int, iItem int, nData int) int {
 	return xc.XListView_SetItemUserData(l.Handle, iGroup, iItem, nData)
 }
 
 // 列表视_取组用户数据.
-//
-// iGroup: 组索引.
-
+//.
 // ff:取组用户数据
 // iGroup:组索引
 func (l *ListView) GetGroupUserData(iGroup int) int {
@@ -508,55 +405,43 @@ func (l *ListView) GetGroupUserData(iGroup int) int {
 }
 
 // 列表视_取项用户数据.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-
+//.
+//.
 // ff:取项用户数据
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
 func (l *ListView) GetItemUserData(iGroup int, iItem int) int {
 	return xc.XListView_GetItemUserData(l.Handle, iGroup, iItem)
 }
 
 // 列表视_刷新项数据.
-
 // ff:刷新项数据
 func (l *ListView) RefreshData() int {
 	return xc.XListView_RefreshData(l.Handle)
 }
 
 // 列表视_刷新指定项, 刷新指定项模板, 以便更新UI.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引, 如果为-1, 代表为组.
-
+//.
+//, 如果为-1, 代表为组.
 // ff:刷新指定项
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
 func (l *ListView) RefreshItem(iGroup int, iItem int) int {
 	return xc.XListView_RefreshItem(l.Handle, iGroup, iItem)
 }
 
 // 列表视_展开组, 成功返回TRUE否则返回FALSE, 如果状态没有改变返回FALSE.
-//
-// iGroup: 组索引.
-//
-// bExpand: 是否展开.
-
+//.
+//.
 // ff:展开组
-// bExpand:是否展开
 // iGroup:组索引
+// bExpand:是否展开
 func (l *ListView) ExpandGroup(iGroup int, bExpand bool) bool {
 	return xc.XListView_ExpandGroup(l.Handle, iGroup, bExpand)
 }
 
 // 列表视_组添加列, 返回列索引.
-//
-// pName: 字段称.
-
+//.
 // ff:组添加列
 // pName:字段称
 func (l *ListView) Group_AddColumn(pName string) int {
@@ -564,138 +449,105 @@ func (l *ListView) Group_AddColumn(pName string) int {
 }
 
 // 列表视_组添加项文本, 返回组索引.
-//
-// pValue: 值.
-//
-// iPos: 插入位置.
-
+//.
+//.
 // ff:组添加项文本
-// iPos:插入位置
 // pValue:值
+// iPos:插入位置
 func (l *ListView) Group_AddItemText(pValue string, iPos int) int {
 	return xc.XListView_Group_AddItemText(l.Handle, pValue, iPos)
 }
 
 // 列表视_组添加项文本扩展, 返回组索引.
-//
-// pName: 字段称.
-//
-// pValue: 值.
-//
-// iPos: 插入位置.
-
+//.
+//.
+//.
 // ff:组添加项文本EX
-// iPos:插入位置
-// pValue:值
 // pName:字段称
+// pValue:值
+// iPos:插入位置
 func (l *ListView) Group_AddItemTextEx(pName string, pValue string, iPos int) int {
 	return xc.XListView_Group_AddItemTextEx(l.Handle, pName, pValue, iPos)
 }
 
 // 列表视_组添加项图片, 返回组索引.
-//
-// hImage: 图片句柄.
-//
-// iPos: 插入位置.
-
+//.
+//.
 // ff:组添加项图片
-// iPos:插入位置
 // hImage:图片句柄
+// iPos:插入位置
 func (l *ListView) Group_AddItemImage(hImage int, iPos int) int {
 	return xc.XListView_Group_AddItemImage(l.Handle, hImage, iPos)
 }
 
 // 列表视_组添加项图片扩展, 返回组索引.
-//
-// pName: 字段称.
-//
-// hImage: 图片句柄.
-//
-// iPos: 插入位置.
-
+//.
+//.
+//.
 // ff:组添加项图片EX
-// iPos:插入位置
-// hImage:图片句柄
 // pName:字段称
+// hImage:图片句柄
+// iPos:插入位置
 func (l *ListView) Group_AddItemImageEx(pName string, hImage int, iPos int) int {
 	return xc.XListView_Group_AddItemImageEx(l.Handle, pName, hImage, iPos)
 }
 
 // 列表视_组置文本.
-//
-// iGroup: 组索引.
-//
-// iColumn: 列索引.
-//
-// pValue: 值.
-
+//.
+//.
+//.
 // ff:组置文本
-// pValue:值
-// iColumn:列索引
 // iGroup:组索引
+// iColumn:列索引
+// pValue:值
 func (l *ListView) Group_SetText(iGroup int, iColumn int, pValue string) bool {
 	return xc.XListView_Group_SetText(l.Handle, iGroup, iColumn, pValue)
 }
 
 // 列表视_组置文本扩展.
-//
-// iGroup: 组索引.
-//
-// pName: 字段名.
-//
-// pValue: 值.
-
+//.
+//.
+//.
 // ff:组置文本EX
-// pValue:值
-// pName:字段名
 // iGroup:组索引
+// pName:字段名
+// pValue:值
 func (l *ListView) Group_SetTextEx(iGroup int, pName string, pValue string) bool {
 	return xc.XListView_Group_SetTextEx(l.Handle, iGroup, pName, pValue)
 }
 
 // 列表视_组置图片.
-//
-// iGroup: 组索引.
-//
-// iColumn: 列索引.
-//
-// hImage: 图片句柄.
-
+//.
+//.
+//.
 // ff:组置图片
-// hImage:图片句柄
-// iColumn:列索引
 // iGroup:组索引
+// iColumn:列索引
+// hImage:图片句柄
 func (l *ListView) Group_SetImage(iGroup int, iColumn int, hImage int) bool {
 	return xc.XListView_Group_SetImage(l.Handle, iGroup, iColumn, hImage)
 }
 
 // 列表视_组置图片扩展.
-//
-// iGroup: 组索引.
-//
-// pName: 字段名.
-//
-// hImage: 图片句柄.
-
+//.
+//.
+//.
 // ff:组置图片EX
-// hImage:图片句柄
-// pName:字段名
 // iGroup:组索引
+// pName:字段名
+// hImage:图片句柄
 func (l *ListView) Group_SetImageEx(iGroup int, pName string, hImage int) bool {
 	return xc.XListView_Group_SetImageEx(l.Handle, iGroup, pName, hImage)
 }
 
 // 列表视_组获取数量, 返回组数量.
-
 // ff:组获取数量
 func (l *ListView) Group_GetCount() int {
 	return xc.XListView_Group_GetCount(l.Handle)
 }
 
 // 列表视_项获取数量, 成功返回项数量, 否则返回 XC_ID_ERROR.
-//
-// iGroup: 组索引.
-
+//.
 // ff:项获取数量
 // iGroup:组索引
 func (l *ListView) Item_GetCount(iGroup int) int {
@@ -703,9 +555,7 @@ func (l *ListView) Item_GetCount(iGroup int) int {
 }
 
 // 列表视_项添加列, 返回列索引.
-//
-// pName: 字段名.
-
+//.
 // ff:项添加列
 // pName:字段名
 func (l *ListView) Item_AddColumn(pName string) int {
@@ -713,155 +563,115 @@ func (l *ListView) Item_AddColumn(pName string) int {
 }
 
 // 列表视_项添加文本, 返回项索引.
-//
-// iGroup: 组索引.
-//
-// pValue: 值.
-//
-// iPos: 插入位置, -1添加到末尾.
-
+//.
+//.
+//, -1添加到末尾.
 // ff:项添加文本
-// iPos:插入位置
-// pValue:值
 // iGroup:组索引
+// pValue:值
+// iPos:插入位置
 func (l *ListView) Item_AddItemText(iGroup int, pValue string, iPos int) int {
 	return xc.XListView_Item_AddItemText(l.Handle, iGroup, pValue, iPos)
 }
 
 // 列表视_项添加文本扩展, 返回项索引.
-//
-// iGroup: 组索引.
-//
-// pName: 字段名.
-//
-// pValue: 值.
-//
-// iPos: 插入位置, -1添加到末尾.
-
+//.
+//.
+//.
+//, -1添加到末尾.
 // ff:项添加文本EX
-// iPos:插入位置
-// pValue:值
-// pName:字段名
 // iGroup:组索引
+// pName:字段名
+// pValue:值
+// iPos:插入位置
 func (l *ListView) Item_AddItemTextEx(iGroup int, pName string, pValue string, iPos int) int {
 	return xc.XListView_Item_AddItemTextEx(l.Handle, iGroup, pName, pValue, iPos)
 }
 
 // 列表视_项添加图片, 返回项索引.
-//
-// iGroup: 组索引.
-//
-// hImage: 图片句柄.
-//
-// iPos: 插入位置, -1添加到末尾.
-
+//.
+//.
+//, -1添加到末尾.
 // ff:项添加图片
-// iPos:插入位置
-// hImage:图片句柄
 // iGroup:组索引
+// hImage:图片句柄
+// iPos:插入位置
 func (l *ListView) Item_AddItemImage(iGroup int, hImage int, iPos int) int {
 	return xc.XListView_Item_AddItemImage(l.Handle, iGroup, hImage, iPos)
 }
 
 // 列表视_项添加图片扩展, 返回项索引.
-//
-// iGroup: 组索引.
-//
-// pName: 字段名.
-//
-// hImage: 图片句柄.
-//
-// iPos: 插入位置, -1添加到末尾.
-
+//.
+//.
+//.
+//, -1添加到末尾.
 // ff:项添加图片EX
-// iPos:插入位置
-// hImage:图片句柄
-// pName:字段名
 // iGroup:组索引
+// pName:字段名
+// hImage:图片句柄
+// iPos:插入位置
 func (l *ListView) Item_AddItemImageEx(iGroup int, pName string, hImage int, iPos int) int {
 	return xc.XListView_Item_AddItemImageEx(l.Handle, iGroup, pName, hImage, iPos)
 }
 
 // 列表视_项置文本.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// iColumn: 列索引.
-//
-// pValue: 值.
-
+//.
+//.
+//.
+//.
 // ff:项置文本
-// pValue:值
-// iColumn:列索引
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// iColumn:列索引
+// pValue:值
 func (l *ListView) Item_SetText(iGroup int, iItem int, iColumn int, pValue string) bool {
 	return xc.XListView_Item_SetText(l.Handle, iGroup, iItem, iColumn, pValue)
 }
 
 // 列表视_项置文本扩展.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// pName: 字段名.
-//
-// pValue: 值.
-
+//.
+//.
+//.
+//.
 // ff:项置文本EX
-// pValue:值
-// pName:字段名
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// pName:字段名
+// pValue:值
 func (l *ListView) Item_SetTextEx(iGroup int, iItem int, pName string, pValue string) bool {
 	return xc.XListView_Item_SetTextEx(l.Handle, iGroup, iItem, pName, pValue)
 }
 
 // 列表视_项置图片.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// iColumn: 列索引.
-//
-// hImage: 图片句柄.
-
+//.
+//.
+//.
+//.
 // ff:项置图片
-// hImage:图片句柄
-// iColumn:列索引
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// iColumn:列索引
+// hImage:图片句柄
 func (l *ListView) Item_SetImage(iGroup int, iItem int, iColumn int, hImage int) bool {
 	return xc.XListView_Item_SetImage(l.Handle, iGroup, iItem, iColumn, hImage)
 }
 
 // 列表视_项置图片扩展.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// pName: 列名称.
-//
-// hImage: 图片句柄.
-
+//.
+//.
+//.
+//.
 // ff:项置图片EX
-// hImage:图片句柄
-// pName:列名称
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// pName:列名称
+// hImage:图片句柄
 func (l *ListView) Item_SetImageEx(iGroup int, iItem int, pName string, hImage int) bool {
 	return xc.XListView_Item_SetImageEx(l.Handle, iGroup, iItem, pName, hImage)
 }
 
 // 列表视_组删除项.
-//
-// iGroup: 组索引.
-
+//.
 // ff:组删除项
 // iGroup:组索引
 func (l *ListView) Group_DeleteItem(iGroup int) bool {
@@ -869,9 +679,7 @@ func (l *ListView) Group_DeleteItem(iGroup int) bool {
 }
 
 // 列表视_组删除全部子项.
-//
-// iGroup: 组索引.
-
+//.
 // ff:组删除全部子项
 // iGroup:组索引
 func (l *ListView) Group_DeleteAllChildItem(iGroup int) int {
@@ -879,43 +687,35 @@ func (l *ListView) Group_DeleteAllChildItem(iGroup int) int {
 }
 
 // 列表视_项删除.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-
+//.
+//.
 // ff:项删除
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
 func (l *ListView) Item_DeleteItem(iGroup int, iItem int) bool {
 	return xc.XListView_Item_DeleteItem(l.Handle, iGroup, iItem)
 }
 
 // 列表视_删除全部.
-
 // ff:删除全部
 func (l *ListView) DeleteAll() int {
 	return xc.XListView_DeleteAll(l.Handle)
 }
 
 // 列表视_删除全部组.
-
 // ff:删除全部组
 func (l *ListView) DeleteAllGroup() int {
 	return xc.XListView_DeleteAllGroup(l.Handle)
 }
 
 // 列表视_删除全部项.
-
 // ff:删除全部项
 func (l *ListView) DeleteAllItem() int {
 	return xc.XListView_DeleteAllItem(l.Handle)
 }
 
 // 列表视_组删除列.
-//
-// iColumn: 列索引.
-
+//.
 // ff:组删除列
 // iColumn:列索引
 func (l *ListView) DeleteColumnGroup(iColumn int) int {
@@ -923,9 +723,7 @@ func (l *ListView) DeleteColumnGroup(iColumn int) int {
 }
 
 // 列表视_项删除列.
-//
-// iColumn: 列索引.
-
+//.
 // ff:项删除列
 // iColumn:列索引
 func (l *ListView) DeleteColumnItem(iColumn int) int {
@@ -933,138 +731,105 @@ func (l *ListView) DeleteColumnItem(iColumn int) int {
 }
 
 // 列表视_项获取文本.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// pName: 字段称.
-
+//.
+//.
+//.
 // ff:项获取文本
-// pName:字段称
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// pName:字段称
 func (l *ListView) Item_GetTextEx(iGroup int, iItem int, pName string) string {
 	return xc.XListView_Item_GetTextEx(l.Handle, iGroup, iItem, pName)
 }
 
 // 列表视_项获取图片扩展, 返回图片句柄.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// pName: 字段称.
-
+//.
+//.
+//.
 // ff:项获取图片EX
-// pName:字段称
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// pName:字段称
 func (l *ListView) Item_GetImageEx(iGroup int, iItem int, pName string) int {
 	return xc.XListView_Item_GetImageEx(l.Handle, iGroup, iItem, pName)
 }
 
 // 列表视_组取文本, 返回文本内容.
-//
-// iGroup: 组索引.
-//
-// iColumn: 列索引.
-
+//.
+//.
 // ff:组取文本
-// iColumn:列索引
 // iGroup:组索引
+// iColumn:列索引
 func (l *ListView) Group_GetText(iGroup int, iColumn int) string {
 	return xc.XListView_Group_GetText(l.Handle, iGroup, iColumn)
 }
 
 // 列表视_组取文本扩展, 返回文本内容.
-//
-// iGroup: 组索引.
-//
-// pName: 字段名称.
-
+//.
+//称.
 // ff:组取文本EX
-// pName:字段名称
 // iGroup:组索引
+// pName:字段名称
 func (l *ListView) Group_GetTextEx(iGroup int, pName string) string {
 	return xc.XListView_Group_GetTextEx(l.Handle, iGroup, pName)
 }
 
 // 列表视_组取图片, 返回图片句柄.
-//
-// iGroup: 组索引.
-//
-// iColumn: 列索引.
-
+//.
+//.
 // ff:组取图片
-// iColumn:列索引
 // iGroup:组索引
+// iColumn:列索引
 func (l *ListView) Group_GetImage(iGroup int, iColumn int) int {
 	return xc.XListView_Group_GetImage(l.Handle, iGroup, iColumn)
 }
 
 // 列表视_组取图片扩展, 返回图片句柄.
-//
-// iGroup: 组索引.
-//
-// pName: 字段名称.
-
+//.
+//称.
 // ff:组取图片EX
-// pName:字段名称
 // iGroup:组索引
+// pName:字段名称
 func (l *ListView) Group_GetImageEx(iGroup int, pName string) int {
 	return xc.XListView_Group_GetImageEx(l.Handle, iGroup, pName)
 }
 
 // 列表视_项取文本, 返回文本内容.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// iColumn: 列索引.
-
+//.
+//.
+//.
 // ff:项取文本
-// iColumn:列索引
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// iColumn:列索引
 func (l *ListView) Item_GetText(iGroup int, iItem int, iColumn int) string {
 	return xc.XListView_Item_GetText(l.Handle, iGroup, iItem, iColumn)
 }
 
 // 列表视_项取图片, 返回图片句柄.
-//
-// iGroup: 组索引.
-//
-// iItem: 项索引.
-//
-// iColumn: 列索引.
-
+//.
+//.
+//.
 // ff:项取图片
-// iColumn:列索引
-// iItem:项索引
 // iGroup:组索引
+// iItem:项索引
+// iColumn:列索引
 func (l *ListView) Item_GetImage(iGroup int, iItem int, iColumn int) int {
 	return xc.XListView_Item_GetImage(l.Handle, iGroup, iItem, iColumn)
 }
 
 // 列表视_置拖动矩形颜色.
-//
-// color: ABGR 颜色.
-//
-// width: 线宽度.
-
+//.
+//.
 // ff:置拖动矩形颜色
-// width:线宽度
 // color:ABGR颜色
+// width:线宽度
 func (l *ListView) SetDragRectColor(color int, width int) int {
 	return xc.XListView_SetDragRectColor(l.Handle, color, width)
 }
 
 // 列表视_置项模板从内存.
-//
-// data: 模板数据.
-
+//.
 // ff:置项模板并按内存
 // data:模板数据
 func (l *ListView) SetItemTemplateXMLFromMem(data []byte) bool {
@@ -1072,33 +837,26 @@ func (l *ListView) SetItemTemplateXMLFromMem(data []byte) bool {
 }
 
 // 列表视_置项模板从资源ZIP.
-//
-// id: RC资源ID.
-//
-// pFileName: 文件名.
-//
-// pPassword: zip密码.
-//
-// hModule: 模块句柄, 可填0.
-
+//.
+//.
+//.
+//, 可填0.
 // ff:置项模板并按资源ZIP
-// hModule:模块句柄
-// pPassword:zip密码
-// pFileName:文件名
 // id:RC资源ID
+// pFileName:文件名
+// pPassword:zip密码
+// hModule:模块句柄
 func (l *ListView) SetItemTemplateXMLFromZipRes(id int32, pFileName string, pPassword string, hModule uintptr) bool {
 	return xc.XListView_SetItemTemplateXMLFromZipRes(l.Handle, id, pFileName, pPassword, hModule)
 }
 
 // 列表视_取项模板, 返回项模板句柄.
-
 // ff:取项模板
 func (l *ListView) GetItemTemplate() int {
 	return xc.XListView_GetItemTemplate(l.Handle)
 }
 
 // 列表视_取项模板组, 返回项模板组句柄.
-
 // ff:取项模板组
 func (l *ListView) GetItemTemplateGroup() int {
 	return xc.XListView_GetItemTemplateGroup(l.Handle)
@@ -1149,7 +907,6 @@ type XE_LISTVIEW_EXPAND1 func(hEle int, iGroup int32, bExpand bool, pbHandled *b
 // 列表视元素-项模板创建事件,模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复.
 //
 // nFlag  0:状态改变(当前未使用); 1新模板实例; 2旧模板复用
-
 // ff:事件_项模板创建
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_CREATE(pFun XE_LISTVIEW_TEMP_CREATE) bool {
@@ -1159,7 +916,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_CREATE(pFun XE_LISTVIEW_TEMP_CREATE) bool
 // 列表视元素-项模板创建事件,模板复用机制需先启用; 替换模板无效判断nFlag,因为内部会检查模板是否改变,不用担心重复.
 //
 // nFlag  0:状态改变(当前未使用); 1新模板实例; 2旧模板复用
-
 // ff:事件_项模板创建1
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_CREATE1(pFun XE_LISTVIEW_TEMP_CREATE1) bool {
@@ -1169,7 +925,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_CREATE1(pFun XE_LISTVIEW_TEMP_CREATE1) bo
 // 列表视元素-项模板创建完成事件,模板复用机制需先启用; 不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用,当前未使用); 1:新模板实例; 2:旧模板复用
-
 // ff:事件_项模板创建完成
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_CREATE_END(pFun XE_LISTVIEW_TEMP_CREATE_END) bool {
@@ -1179,7 +934,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_CREATE_END(pFun XE_LISTVIEW_TEMP_CREATE_E
 // 列表视元素-项模板创建完成事件,模板复用机制需先启用; 不管是新建还是复用,都需要更新数据, 当为复用时不要注册事件以免重复注册.
 //
 // nFlag  0:状态改变(复用,当前未使用); 1:新模板实例; 2:旧模板复用
-
 // ff:事件_项模板创建完成1
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_CREATE_END1(pFun XE_LISTVIEW_TEMP_CREATE_END1) bool {
@@ -1189,7 +943,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_CREATE_END1(pFun XE_LISTVIEW_TEMP_CREATE_
 // 列表视元素-项模板销毁, 模板复用机制需先启用;
 //
 // nFlag   0:正常销毁;  1:移动到缓存列表(不会被销毁, 临时缓存备用, 当需要时被复用)
-
 // ff:事件_项模板销毁
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_DESTROY(pFun XE_LISTVIEW_TEMP_DESTROY) bool {
@@ -1199,7 +952,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_DESTROY(pFun XE_LISTVIEW_TEMP_DESTROY) bo
 // 列表视元素-项模板销毁, 模板复用机制需先启用;
 //
 // nFlag   0:正常销毁;  1:移动到缓存列表(不会被销毁, 临时缓存备用, 当需要时被复用)
-
 // ff:事件_项模板销毁1
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_DESTROY1(pFun XE_LISTVIEW_TEMP_DESTROY1) bool {
@@ -1207,7 +959,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_DESTROY1(pFun XE_LISTVIEW_TEMP_DESTROY1) 
 }
 
 // 列表视元素,项模板调整坐标.已停用.
-
 // ff:事件_项模板调整坐标
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_ADJUST_COORDINATE(pFun XE_LISTVIEW_TEMP_ADJUST_COORDINATE) bool {
@@ -1215,7 +966,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_ADJUST_COORDINATE(pFun XE_LISTVIEW_TEMP_A
 }
 
 // 列表视元素,项模板调整坐标.已停用.
-
 // ff:事件_项模板调整坐标1
 // pFun:
 func (l *ListView) Event_LISTVIEW_TEMP_ADJUST_COORDINATE1(pFun XE_LISTVIEW_TEMP_ADJUST_COORDINATE1) bool {
@@ -1223,7 +973,6 @@ func (l *ListView) Event_LISTVIEW_TEMP_ADJUST_COORDINATE1(pFun XE_LISTVIEW_TEMP_
 }
 
 // 列表视元素,自绘项.
-
 // ff:事件_自绘项
 // pFun:
 func (l *ListView) Event_LISTVIEW_DRAWITEM(pFun XE_LISTVIEW_DRAWITEM) bool {
@@ -1231,7 +980,6 @@ func (l *ListView) Event_LISTVIEW_DRAWITEM(pFun XE_LISTVIEW_DRAWITEM) bool {
 }
 
 // 列表视元素,自绘项.
-
 // ff:事件_自绘项1
 // pFun:
 func (l *ListView) Event_LISTVIEW_DRAWITEM1(pFun XE_LISTVIEW_DRAWITEM1) bool {
@@ -1239,7 +987,6 @@ func (l *ListView) Event_LISTVIEW_DRAWITEM1(pFun XE_LISTVIEW_DRAWITEM1) bool {
 }
 
 // 列表视元素,项选择事件.
-
 // ff:事件_项选择
 // pFun:
 func (l *ListView) Event_LISTVIEW_SELECT(pFun XE_LISTVIEW_SELECT) bool {
@@ -1247,7 +994,6 @@ func (l *ListView) Event_LISTVIEW_SELECT(pFun XE_LISTVIEW_SELECT) bool {
 }
 
 // 列表视元素,项选择事件.
-
 // ff:事件_项选择1
 // pFun:
 func (l *ListView) Event_LISTVIEW_SELECT1(pFun XE_LISTVIEW_SELECT1) bool {
@@ -1255,7 +1001,6 @@ func (l *ListView) Event_LISTVIEW_SELECT1(pFun XE_LISTVIEW_SELECT1) bool {
 }
 
 // 列表视元素,组展开收缩事件.
-
 // ff:事件_组展开收缩
 // pFun:
 func (l *ListView) Event_LISTVIEW_EXPAND(pFun XE_LISTVIEW_EXPAND) bool {
@@ -1263,7 +1008,6 @@ func (l *ListView) Event_LISTVIEW_EXPAND(pFun XE_LISTVIEW_EXPAND) bool {
 }
 
 // 列表视元素,组展开收缩事件.
-
 // ff:事件_组展开收缩1
 // pFun:
 func (l *ListView) Event_LISTVIEW_EXPAND1(pFun XE_LISTVIEW_EXPAND1) bool {

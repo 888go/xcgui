@@ -90,5 +90,6 @@ color=ABGR颜色
 
 [func (p *ProgressBar) Event_PROGRESSBAR_CHANGE(pFun XE_PROGRESSBAR_CHANGE) bool {]
 ff=事件_进度改变事件
+
 [func (p *ProgressBar) Event_PROGRESSBAR_CHANGE1(pFun XE_PROGRESSBAR_CHANGE1) bool {]
 ff=事件_进度改变1

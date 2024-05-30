@@ -69,5 +69,6 @@ ff=停止
 
 [func (a *animaBase) Start() bool {]
 ff=启动
+
 [func (a *animaBase) Pause() bool {]
 ff=暂停

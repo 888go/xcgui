@@ -54,11 +54,10 @@ func main() {
 }
 
 // 滚动条元素滚动事件
-
 // ff:
-// pbHandled:
-// pos:
 // hEle:
+// pos:
+// pbHandled:
 func SBAR_SCROLL1(hEle int, pos int32, pbHandled *bool) int {
 	fmt.Println(pos)
 	// 为了鼠标滚轮滚动和点击两端按钮实时显示效果而刷新

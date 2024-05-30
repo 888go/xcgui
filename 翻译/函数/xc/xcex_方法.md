@@ -41,5 +41,6 @@ f=回调函数
 [func XC_CallUT(f func()) {]
 ff=炫彩_调用界面线程
 f=回调函数
+
 [func XC_CallUiThreader(u UiThreader, data int) int {]
 ff=炫彩_调用界面线程1

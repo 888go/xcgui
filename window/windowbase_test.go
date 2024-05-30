@@ -1,4 +1,4 @@
-package window_test//bm:炫彩窗口基类_test
+package window_test
 
 import (
 	"github.com/twgh/xcgui/app"

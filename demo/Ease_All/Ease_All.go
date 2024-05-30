@@ -117,14 +117,13 @@ func main() {
 }
 
 // 创建按钮
-
 // ff:
-// title:
-// cx:
-// y:
-// x:
-// id:
 // nGroup:
+// id:
+// x:
+// y:
+// cx:
+// title:
 func CreateButton(nGroup, id, x, y, cx int32, title string) {
 	btn := widget.NewButton(x, y, cx, 22, title, w.Handle)
 	// 设置为单选按钮
@@ -142,11 +141,10 @@ func CreateButton(nGroup, id, x, y, cx int32, title string) {
 }
 
 // 按钮选中事件
-
 // ff:
-// pbHandled:
-// bCheck:
 // hEle:
+// bCheck:
+// pbHandled:
 func OnButtonCheck(hEle int, bCheck bool, pbHandled *bool) int {
 	if !bCheck {
 		return 0
@@ -164,10 +162,9 @@ func OnButtonCheck(hEle int, bCheck bool, pbHandled *bool) int {
 }
 
 // 快速
-
 // ff:
-// pbHandled:
 // bCheck:
+// pbHandled:
 func OnBtnCheckSlow(bCheck bool, pbHandled *bool) int {
 	if bCheck {
 		m_time = 60
@@ -178,10 +175,9 @@ func OnBtnCheckSlow(bCheck bool, pbHandled *bool) int {
 }
 
 // 从左向右
-
 // ff:
-// pbHandled:
 // bCheck:
+// pbHandled:
 func OnBtnCheck_LeftToRight(bCheck bool, pbHandled *bool) int {
 	if bCheck {
 		m_windowType = 1
@@ -190,10 +186,9 @@ func OnBtnCheck_LeftToRight(bCheck bool, pbHandled *bool) int {
 }
 
 // 从上向下
-
 // ff:
-// pbHandled:
 // bCheck:
+// pbHandled:
 func OnBtnCheck_TopToBottom(bCheck bool, pbHandled *bool) int {
 	if bCheck {
 		m_windowType = 2
@@ -202,7 +197,6 @@ func OnBtnCheck_TopToBottom(bCheck bool, pbHandled *bool) int {
 }
 
 // 窗口缓动
-
 // ff:
 // pbHandled:
 func OnBtnStartWindow(pbHandled *bool) int {
@@ -250,7 +244,6 @@ func OnBtnStartWindow(pbHandled *bool) int {
 }
 
 // 缓动曲线
-
 // ff:
 // pbHandled:
 func OnBtnStart(pbHandled *bool) int {
@@ -294,10 +287,9 @@ func OnBtnStart(pbHandled *bool) int {
 }
 
 // 绘制
-
 // ff:
-// pbHandled:
 // hDraw:
+// pbHandled:
 func OnDrawWindow(hDraw int, pbHandled *bool) int {
 	*pbHandled = true
 

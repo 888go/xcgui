@@ -10,11 +10,10 @@ import (
 //
 //	@Description: 测试时使用的函数.
 //	@param f
-
 // ff:
 // f:
-// w:
 // a:
+// w:
 func TFunc(f func(a *app.App, w *window.Window)) {
 	a := app.New(true)
 	w := window.New(0, 0, 600, 400, "Test", 0, xcc.Window_Style_Default)

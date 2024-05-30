@@ -89,5 +89,6 @@ bHorizon=水平或垂直
 
 [func (s *SliderBar) Event_SLIDERBAR_CHANGE(pFun XE_SLIDERBAR_CHANGE) bool {]
 ff=事件_滑块位置改变
+
 [func (s *SliderBar) Event_SLIDERBAR_CHANGE1(pFun XE_SLIDERBAR_CHANGE1) bool {]
 ff=事件_滑块位置改变1

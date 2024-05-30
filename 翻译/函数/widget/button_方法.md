@@ -155,5 +155,6 @@ ff=事件_被单击1
 
 [func (b *Button) Event_BUTTON_CHECK(pFun XE_BUTTON_CHECK) bool {]
 ff=事件_选中
+
 [func (b *Button) Event_BUTTON_CHECK1(pFun XE_BUTTON_CHECK1) bool {]
 ff=事件_选中1

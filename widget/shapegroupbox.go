@@ -10,26 +10,19 @@ type ShapeGroupBox struct {
 }
 
 // 形状组框_创建, 创建组框形状对象.
-//
-// x: X坐标.
-//
-// y: Y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// pName: 名称.
-//
-// hParent: 父对象句柄.
-
+//.
+//.
+//.
+//.
+//.
+//.
 // ff:创建形状组框
-// hParent:父对象句柄
-// pName:名称
-// cy:高度
-// cx:宽度
-// y:Y坐标
 // x:坐标
+// y:Y坐标
+// cx:宽度
+// cy:高度
+// pName:名称
+// hParent:父对象句柄
 func NewShapeGroupBox(x int, y int, cx int, cy int, pName string, hParent int) *ShapeGroupBox {
 	p := &ShapeGroupBox{}
 	p.SetHandle(xc.XShapeGroupBox_Create(x, y, cx, cy, pName, hParent))
@@ -37,7 +30,6 @@ func NewShapeGroupBox(x int, y int, cx int, cy int, pName string, hParent int) *
 }
 
 // 从句柄创建对象.
-
 // ff:创建形状组框并按句柄
 // handle:
 func NewShapeGroupBoxByHandle(handle int) *ShapeGroupBox {
@@ -47,7 +39,6 @@ func NewShapeGroupBoxByHandle(handle int) *ShapeGroupBox {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建形状组框并按名称
 // name:
 func NewShapeGroupBoxByName(name string) *ShapeGroupBox {
@@ -61,7 +52,6 @@ func NewShapeGroupBoxByName(name string) *ShapeGroupBox {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建形状组框并按UID
 // nUID:
 func NewShapeGroupBoxByUID(nUID int) *ShapeGroupBox {
@@ -75,7 +65,6 @@ func NewShapeGroupBoxByUID(nUID int) *ShapeGroupBox {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建形状组框并按UID名称
 // name:
 func NewShapeGroupBoxByUIDName(name string) *ShapeGroupBox {
@@ -89,9 +78,7 @@ func NewShapeGroupBoxByUIDName(name string) *ShapeGroupBox {
 }
 
 // 形状组框_置边框颜色.
-//
-// color: ABGR 颜色值.
-
+//.
 // ff:置边框颜色
 // color:ABGR颜色值
 func (s *ShapeGroupBox) SetBorderColor(color int) int {
@@ -99,9 +86,7 @@ func (s *ShapeGroupBox) SetBorderColor(color int) int {
 }
 
 // 形状组框_置文本颜色.
-//
-// color: ABGR 颜色值.
-
+//.
 // ff:置文本颜色
 // color:ABGR颜色值
 func (s *ShapeGroupBox) SetTextColor(color int) int {
@@ -109,9 +94,7 @@ func (s *ShapeGroupBox) SetTextColor(color int) int {
 }
 
 // 形状组框_置字体.
-//
-// hFontX: 炫彩字体.
-
+//.
 // ff:置字体
 // hFontX:炫彩字体
 func (s *ShapeGroupBox) SetFontX(hFontX int) int {
@@ -119,35 +102,27 @@ func (s *ShapeGroupBox) SetFontX(hFontX int) int {
 }
 
 // 形状组框_置文本偏移, 设置文本偏移量.
-//
-// offsetX: 水平偏移.
-//
-// offsetY: 垂直偏移.
-
+//.
+//.
 // ff:置文本偏移
-// offsetY:垂直偏移
 // offsetX:水平偏移
+// offsetY:垂直偏移
 func (s *ShapeGroupBox) SetTextOffset(offsetX int32, offsetY int32) int {
 	return xc.XShapeGroupBox_SetTextOffset(s.Handle, offsetX, offsetY)
 }
 
 // 形状组框_置圆角大小.
-//
-// nWidth: 圆角宽度.
-//
-// nHeight: 圆角高度.
-
+//.
+//.
 // ff:置圆角大小
-// nHeight:圆角高度
 // nWidth:圆角宽度
+// nHeight:圆角高度
 func (s *ShapeGroupBox) SetRoundAngle(nWidth int32, nHeight int32) int {
 	return xc.XShapeGroupBox_SetRoundAngle(s.Handle, nWidth, nHeight)
 }
 
 // 形状组框_置文本.
-//
-// pText: 文本内容.
-
+//.
 // ff:置文本
 // pText:文本内容
 func (s *ShapeGroupBox) SetText(pText string) int {
@@ -155,35 +130,27 @@ func (s *ShapeGroupBox) SetText(pText string) int {
 }
 
 // 形状组框_取文本偏移, 获取文本偏移量.
-//
-// pOffsetX: X坐标偏移量.
-//
-// pOffsetY: Y坐标偏移量.
-
+//.
+//.
 // ff:取文本偏移
-// pOffsetY:Y坐标偏移量
 // pOffsetX:坐标偏移量
+// pOffsetY:Y坐标偏移量
 func (s *ShapeGroupBox) GetTextOffset(pOffsetX *int32, pOffsetY *int32) int {
 	return xc.XShapeGroupBox_GetTextOffset(s.Handle, pOffsetX, pOffsetY)
 }
 
 // 形状组框_取圆角大小.
-//
-// pWidth: 返回圆角宽度.
-//
-// pHeight: 返回圆角高度.
-
+//.
+//.
 // ff:取圆角大小
-// pHeight:返回圆角高度
 // pWidth:返回圆角宽度
+// pHeight:返回圆角高度
 func (s *ShapeGroupBox) GetRoundAngle(pWidth *int32, pHeight *int32) int {
 	return xc.XShapeGroupBox_GetRoundAngle(s.Handle, pWidth, pHeight)
 }
 
 // 形状组框_启用圆角.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用圆角
 // bEnable:是否启用
 func (s *ShapeGroupBox) EnableRoundAngle(bEnable bool) int {

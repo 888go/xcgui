@@ -18,13 +18,12 @@ type LayoutFrame struct {
 //	@param cy 高度.
 //	@param hParent 父为窗口句柄或元素句柄.
 //	@return *LayoutFrame
-
 // ff:创建布局框架
-// hParent:父窗口句柄或元素句柄
-// cy:高度
-// cx:宽度
-// y:元素y坐标
 // x:元素x坐标
+// y:元素y坐标
+// cx:宽度
+// cy:高度
+// hParent:父窗口句柄或元素句柄
 func NewLayoutFrame(x int, y int, cx int, cy int, hParent int) *LayoutFrame {
 	p := &LayoutFrame{}
 	p.SetHandle(xc.XLayoutFrame_Create(x, y, cx, cy, hParent))
@@ -35,7 +34,6 @@ func NewLayoutFrame(x int, y int, cx int, cy int, hParent int) *LayoutFrame {
 //
 //	@param handle
 //	@return *LayoutFrame
-
 // ff:创建布局框架并按句柄
 // handle:句柄
 func NewLayoutFrameByHandle(handle int) *LayoutFrame {
@@ -48,7 +46,6 @@ func NewLayoutFrameByHandle(handle int) *LayoutFrame {
 //
 //	@param name
 //	@return *LayoutFrame
-
 // ff:创建布局框架并按名称
 // name:名称
 func NewLayoutFrameByName(name string) *LayoutFrame {
@@ -65,7 +62,6 @@ func NewLayoutFrameByName(name string) *LayoutFrame {
 //
 //	@param nUID
 //	@return *LayoutFrame
-
 // ff:创建布局框架并按UID
 // nUID:
 func NewLayoutFrameByUID(nUID int) *LayoutFrame {
@@ -82,7 +78,6 @@ func NewLayoutFrameByUID(nUID int) *LayoutFrame {
 //
 //	@param name
 //	@return *LayoutFrame
-
 // ff:创建布局框架并按UID名称
 // name:名称
 func NewLayoutFrameByUIDName(name string) *LayoutFrame {
@@ -99,7 +94,6 @@ func NewLayoutFrameByUIDName(name string) *LayoutFrame {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:显示布局边界
 // bEnable:是否启用
 func (l *LayoutFrame) ShowLayoutFrame(bEnable bool) int {
@@ -114,7 +108,6 @@ LayoutBox-布局盒子
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用水平
 // bEnable:是否启用
 func (l *LayoutFrame) EnableHorizon(bEnable bool) int {
@@ -125,7 +118,6 @@ func (l *LayoutFrame) EnableHorizon(bEnable bool) int {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用自动换行
 // bEnable:是否启用
 func (l *LayoutFrame) EnableAutoWrap(bEnable bool) int {
@@ -136,7 +128,6 @@ func (l *LayoutFrame) EnableAutoWrap(bEnable bool) int {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用溢出隐藏
 // bEnable:是否启用
 func (l *LayoutFrame) EnableOverflowHide(bEnable bool) int {
@@ -147,7 +138,6 @@ func (l *LayoutFrame) EnableOverflowHide(bEnable bool) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-
 // ff:置水平对齐
 // nAlign:对齐方式
 func (l *LayoutFrame) SetAlignH(nAlign xcc.Layout_Align_) int {
@@ -158,7 +148,6 @@ func (l *LayoutFrame) SetAlignH(nAlign xcc.Layout_Align_) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-
 // ff:置垂直对齐
 // nAlign:对齐方式
 func (l *LayoutFrame) SetAlignV(nAlign xcc.Layout_Align_) int {
@@ -169,7 +158,6 @@ func (l *LayoutFrame) SetAlignV(nAlign xcc.Layout_Align_) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_Axis_.
 //	@return int
-
 // ff:置对齐基线
 // nAlign:对齐方式
 func (l *LayoutFrame) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
@@ -180,7 +168,6 @@ func (l *LayoutFrame) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
 //
 //	@param nSpace 项间距大小.
 //	@return int
-
 // ff:置间距
 // nSpace:项间距大小
 func (l *LayoutFrame) SetSpace(nSpace int) int {
@@ -191,7 +178,6 @@ func (l *LayoutFrame) SetSpace(nSpace int) int {
 //
 //	@param nSpace 行间距大小.
 //	@return int
-
 // ff:置行距
 // nSpace:行间距大小
 func (l *LayoutFrame) SetSpaceRow(nSpace int) int {

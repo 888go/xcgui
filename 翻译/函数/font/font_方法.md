@@ -122,5 +122,6 @@ ff=增加引用计数
 
 [func (f *Font) GetRefCount() int32 {]
 ff=取引用计数
+
 [func (f *Font) Release() {]
 ff=释放引用计数

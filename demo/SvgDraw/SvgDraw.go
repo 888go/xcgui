@@ -34,10 +34,9 @@ func main() {
 	a.Exit()
 }
 
-
 // ff:
-// pbHandled:
 // hDraw:
+// pbHandled:
 func OnWndDrawWindow(hDraw int, pbHandled *bool) int {
 	*pbHandled = true
 	// 在自绘事件函数中,用户手动调用绘制窗口, 以便控制绘制顺序

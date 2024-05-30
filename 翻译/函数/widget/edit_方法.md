@@ -493,5 +493,6 @@ ff=事件_回车TAB对齐1
 
 [func (e *Edit) Event_EDIT_ROW_CHANGED(pFun XE_EDIT_ROW_CHANGED) bool {]
 ff=事件_行被改变
+
 [func (e *Edit) Event_EDIT_ROW_CHANGED1(pFun XE_EDIT_ROW_CHANGED1) bool {]
 ff=事件_行被改变1

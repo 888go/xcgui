@@ -1,4 +1,4 @@
-package widget_test //bm:炫彩组件类_test
+package widget_test
 
 import (
 	"github.com/twgh/xcgui/app"

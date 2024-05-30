@@ -1,4 +1,4 @@
-package wnd_test//bm:炫彩WinApi窗口类_test
+package wnd_test
 
 import (
 	"fmt"

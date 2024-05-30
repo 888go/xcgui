@@ -48,5 +48,6 @@ ff=取已加载炫彩DLL
 
 [func WriteDll(dll #左中括号##右中括号#byte) error {]
 ff=写出炫彩dll到临时目录
+
 [func LoadXCGUI() *syscall.LazyDLL {]
 ff=XLoadXCGUI

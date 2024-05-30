@@ -581,5 +581,6 @@ ff=事件_列表头项模板销毁1
 
 [func (l *List) Event_LIST_HEADER_TEMP_ADJUST_COORDINATE(pFun XE_LIST_HEADER_TEMP_ADJUST_COORDINATE) bool {]
 ff=停用_列表头项模板调整坐标
+
 [func (l *List) Event_LIST_HEADER_TEMP_ADJUST_COORDINATE1(pFun XE_LIST_HEADER_TEMP_ADJUST_COORDINATE1) bool {]
 ff=停用_列表头项模板调整坐标1

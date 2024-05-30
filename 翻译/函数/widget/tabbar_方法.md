@@ -164,5 +164,6 @@ ff=事件_选择改变1
 
 [func (t *TabBar) Event_TABBAR_DELETE(pFun XE_TABBAR_DELETE) bool {]
 ff=事件_删除
+
 [func (t *TabBar) Event_TABBAR_DELETE1(pFun XE_TABBAR_DELETE1) bool {]
 ff=事件_删除1

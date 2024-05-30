@@ -109,5 +109,6 @@ hDraw=图形绘制句柄
 
 [func (p *Pane) SetSelect() bool {]
 ff=置选中
+
 [func (p *Pane) IsGroupActivate() bool {]
 ff=是否激活

@@ -479,5 +479,6 @@ ff=事件_项选择1
 
 [func (l *ListView) Event_LISTVIEW_EXPAND(pFun XE_LISTVIEW_EXPAND) bool {]
 ff=事件_组展开收缩
+
 [func (l *ListView) Event_LISTVIEW_EXPAND1(pFun XE_LISTVIEW_EXPAND1) bool {]
 ff=事件_组展开收缩1

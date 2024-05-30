@@ -14,7 +14,6 @@ type UI struct {
 //
 //	@param nStyle xcc.XC_OBJECT_STYLE, 样式值: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
 //	@return int
-
 // ff:置样式
 // nStyle:样式值
 func (u *UI) SetStyle(nStyle xcc.XC_OBJECT_STYLE) int {
@@ -24,7 +23,6 @@ func (u *UI) SetStyle(nStyle xcc.XC_OBJECT_STYLE) int {
 // GetStyle 可视对象_取样式, 获取UI对象样式.
 //
 //	@return xcc.XC_OBJECT_STYLE 返回: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
-
 // ff:取样式
 func (u *UI) GetStyle() xcc.XC_OBJECT_STYLE {
 	return xc.XUI_GetStyle(u.Handle)
@@ -34,7 +32,6 @@ func (u *UI) GetStyle() xcc.XC_OBJECT_STYLE {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用CSS
 // bEnable:是否启用
 func (u *UI) EnableCSS(bEnable bool) int {
@@ -45,7 +42,6 @@ func (u *UI) EnableCSS(bEnable bool) int {
 //
 //	@param pName 套用样式名称.
 //	@return int
-
 // ff:置CSS名称
 // pName:套用样式名称
 func (u *UI) SetCssName(pName string) int {
@@ -55,7 +51,6 @@ func (u *UI) SetCssName(pName string) int {
 // GetCssName 可视对象_取CSS名称, 获取CSS样式名称.
 //
 //	@return string
-
 // ff:取CSS名称
 func (u *UI) GetCssName() string {
 	return xc.XUI_GetCssName(u.Handle)

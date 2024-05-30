@@ -77,5 +77,6 @@ bEnable=是否启用
 [func (m *MenuBar) GetButton(nIndex int32) bool {]
 ff=取菜单按钮
 nIndex=按钮索引
+
 [func (m *MenuBar) GetSelect() int32 {]
 ff=取选择项

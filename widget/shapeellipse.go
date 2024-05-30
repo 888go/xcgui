@@ -10,23 +10,17 @@ type ShapeEllipse struct {
 }
 
 // 形状圆_创建, 创建圆形形状对象.
-//
-// x: X坐标.
-//
-// y: Y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// hParent: 父对象句柄.
-
+//.
+//.
+//.
+//.
+//.
 // ff:创建形状圆
-// hParent:父对象句柄
-// cy:高度
-// cx:宽度
-// y:Y坐标
 // x:坐标
+// y:Y坐标
+// cx:宽度
+// cy:高度
+// hParent:父对象句柄
 func NewShapeEllipse(x int, y int, cx int, cy int, hParent int) *ShapeEllipse {
 	p := &ShapeEllipse{}
 	p.SetHandle(xc.XShapeEllipse_Create(x, y, cx, cy, hParent))
@@ -34,7 +28,6 @@ func NewShapeEllipse(x int, y int, cx int, cy int, hParent int) *ShapeEllipse {
 }
 
 // 从句柄创建对象.
-
 // ff:创建形状圆并按句柄
 // handle:
 func NewShapeEllipseByHandle(handle int) *ShapeEllipse {
@@ -44,7 +37,6 @@ func NewShapeEllipseByHandle(handle int) *ShapeEllipse {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建形状圆并按名称
 // name:
 func NewShapeEllipseByName(name string) *ShapeEllipse {
@@ -58,7 +50,6 @@ func NewShapeEllipseByName(name string) *ShapeEllipse {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建形状圆并按UID
 // nUID:
 func NewShapeEllipseByUID(nUID int) *ShapeEllipse {
@@ -72,7 +63,6 @@ func NewShapeEllipseByUID(nUID int) *ShapeEllipse {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建形状圆并按UID名称
 // name:
 func NewShapeEllipseByUIDName(name string) *ShapeEllipse {
@@ -86,9 +76,7 @@ func NewShapeEllipseByUIDName(name string) *ShapeEllipse {
 }
 
 // 形状圆_置边框色.
-//
-// color: ABGR 颜色值.
-
+//.
 // ff:置边框色
 // color:ABGR颜色值
 func (s *ShapeEllipse) SetBorderColor(color int) int {
@@ -96,9 +84,7 @@ func (s *ShapeEllipse) SetBorderColor(color int) int {
 }
 
 // 形状圆_置填充色.
-//
-// color: ABGR 颜色值.
-
+//.
 // ff:置填充色
 // color:ABGR颜色值
 func (s *ShapeEllipse) SetFillColor(color int) int {
@@ -106,9 +92,7 @@ func (s *ShapeEllipse) SetFillColor(color int) int {
 }
 
 // 形状圆_启用边框, 启用绘制圆边框.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用边框
 // bEnable:是否启用
 func (s *ShapeEllipse) EnableBorder(bEnable bool) int {
@@ -116,9 +100,7 @@ func (s *ShapeEllipse) EnableBorder(bEnable bool) int {
 }
 
 // 形状圆_启用填充, 启用填充圆.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用填充
 // bEnable:是否启用
 func (s *ShapeEllipse) EnableFill(bEnable bool) int {

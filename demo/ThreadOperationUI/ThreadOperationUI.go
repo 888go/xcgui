@@ -90,7 +90,6 @@ type updateButton struct {
 	RedrawWindow bool
 }
 
-
 // ff:
 // data:
 func (u updateButton) UiThreadCallBack(data int) int {

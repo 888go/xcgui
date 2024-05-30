@@ -128,5 +128,6 @@ ff=取ID
 
 [func (w *Widget) GetUID() int32 {]
 ff=取UID
+
 [func (w *Widget) GetName() string {]
 ff=取名称

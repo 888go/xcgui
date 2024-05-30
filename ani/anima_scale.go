@@ -12,9 +12,7 @@ type AnimaScale struct {
 }
 
 // 动画缩放_置延伸位置, 设置缩放起点, 确定延伸方向.
-//
-// position: 位置, Position_Flag_.
-
+//, Position_Flag_.
 // ff:置延伸位置
 // position:位置
 func (a *AnimaScale) SetPosition(position xcc.Position_Flag_) bool {

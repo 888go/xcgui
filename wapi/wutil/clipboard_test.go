@@ -1,4 +1,4 @@
-package wutil_test //bm:炫彩WinApi工具类_test
+package wutil_test
 
 import (
 	"fmt"

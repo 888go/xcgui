@@ -83,5 +83,6 @@ nFlag=类型
 
 [func (m *MonthCal) Event_MONTHCAL_CHANGE(pFun XE_MONTHCAL_CHANGE) bool {]
 ff=事件_日期改变
+
 [func (m *MonthCal) Event_MONTHCAL_CHANGE1(pFun XE_MONTHCAL_CHANGE1) bool {]
 ff=事件_日期改变1

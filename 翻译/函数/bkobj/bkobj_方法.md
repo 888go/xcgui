@@ -141,5 +141,6 @@ ff=取文本
 
 [func (b *BkObj) GetFont() int {]
 ff=取字体
+
 [func (b *BkObj) GetTextAlign() xcc.TextFormatFlag_ {]
 ff=取文本对齐

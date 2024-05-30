@@ -130,5 +130,6 @@ nID=项ID
 
 [func (a *AdapterTree) DeleteItemAll() int {]
 ff=删除项全部
+
 [func (a *AdapterTree) DeleteColumnAll() int {]
 ff=删除列全部

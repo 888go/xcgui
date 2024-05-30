@@ -10,23 +10,17 @@ type ShapePicture struct {
 }
 
 // NewShapePicture 形状图片_创建, 创建形状对象-图片.
-//
-// x: x坐标.
-//
-// y: y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// hParent: 父对象句柄.
-
+//.
+//.
+//.
+//.
+//.
 // ff:创建形状图片
-// hParent:父对象句柄
-// cy:高度
-// cx:宽度
-// y:y坐标
 // x:x坐标
+// y:y坐标
+// cx:宽度
+// cy:高度
+// hParent:父对象句柄
 func NewShapePicture(x int, y int, cx int, cy int, hParent int) *ShapePicture {
 	p := &ShapePicture{}
 	p.SetHandle(xc.XShapePic_Create(x, y, cx, cy, hParent))
@@ -34,7 +28,6 @@ func NewShapePicture(x int, y int, cx int, cy int, hParent int) *ShapePicture {
 }
 
 // 从句柄创建对象.
-
 // ff:创建形状图片并按句柄
 // handle:
 func NewShapePictureByHandle(handle int) *ShapePicture {
@@ -44,7 +37,6 @@ func NewShapePictureByHandle(handle int) *ShapePicture {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建形状图片并按名称
 // name:
 func NewShapePictureByName(name string) *ShapePicture {
@@ -58,7 +50,6 @@ func NewShapePictureByName(name string) *ShapePicture {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建形状图片并按UID
 // nUID:
 func NewShapePictureByUID(nUID int) *ShapePicture {
@@ -72,7 +63,6 @@ func NewShapePictureByUID(nUID int) *ShapePicture {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建形状图片并按UID名称
 // name:
 func NewShapePictureByUIDName(name string) *ShapePicture {
@@ -86,9 +76,7 @@ func NewShapePictureByUIDName(name string) *ShapePicture {
 }
 
 // 形状图片_置图片, 设置图片.
-//
-// hImage: 图片句柄.
-
+//.
 // ff:置图片
 // hImage:图片句柄
 func (s *ShapePicture) SetImage(hImage int) int {
@@ -96,7 +84,6 @@ func (s *ShapePicture) SetImage(hImage int) int {
 }
 
 // 形状图片_取图片, 获取图片句柄.
-
 // ff:取图片
 func (s *ShapePicture) GetImage() int {
 	return xc.XShapePic_GetImage(s.Handle)

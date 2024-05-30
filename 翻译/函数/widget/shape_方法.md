@@ -118,5 +118,6 @@ pOutWidth=返回宽度
 [func (s *Shape) SetAlpha(alpha uint8) int {]
 ff=置透明度
 alpha=透明度
+
 [func (s *Shape) GetAlpha() int {]
 ff=取透明度

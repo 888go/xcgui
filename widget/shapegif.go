@@ -10,23 +10,17 @@ type ShapeGif struct {
 }
 
 // 形状GIF_创建, 创建形状对象GIF.
-//
-// x: X坐标.
-//
-// y: Y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// hParent: 父对象句柄.
-
+//.
+//.
+//.
+//.
+//.
 // ff:创建形状GIF
-// hParent:父对象句柄
-// cy:高度
-// cx:宽度
-// y:Y坐标
 // x:坐标
+// y:Y坐标
+// cx:宽度
+// cy:高度
+// hParent:父对象句柄
 func NewShapeGif(x int, y int, cx int, cy int, hParent int) *ShapeGif {
 	p := &ShapeGif{}
 	p.SetHandle(xc.XShapeGif_Create(x, y, cx, cy, hParent))
@@ -34,7 +28,6 @@ func NewShapeGif(x int, y int, cx int, cy int, hParent int) *ShapeGif {
 }
 
 // 从句柄创建对象.
-
 // ff:创建形状GIF并按句柄
 // handle:
 func NewShapeGifByHandle(handle int) *ShapeGif {
@@ -44,7 +37,6 @@ func NewShapeGifByHandle(handle int) *ShapeGif {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建形状GIF并按名称
 // name:
 func NewShapeGifByName(name string) *ShapeGif {
@@ -58,7 +50,6 @@ func NewShapeGifByName(name string) *ShapeGif {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建形状GIF并按UID
 // nUID:
 func NewShapeGifByUID(nUID int) *ShapeGif {
@@ -72,7 +63,6 @@ func NewShapeGifByUID(nUID int) *ShapeGif {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建形状GIF并按UID名称
 // name:
 func NewShapeGifByUIDName(name string) *ShapeGif {
@@ -86,9 +76,7 @@ func NewShapeGifByUIDName(name string) *ShapeGif {
 }
 
 // 形状GIF_置图片, 设置GIF图片.
-//
-// hImage: 图片句柄.
-
+//.
 // ff:置图片
 // hImage:图片句柄
 func (s *ShapeGif) SetImage(hImage int) int {
@@ -96,7 +84,6 @@ func (s *ShapeGif) SetImage(hImage int) int {
 }
 
 // 形状GIF_取图片, 获取图片句柄.
-
 // ff:取图片
 func (s *ShapeGif) GetImage() int {
 	return xc.XShapeGif_GetImage(s.Handle)

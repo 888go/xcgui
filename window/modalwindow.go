@@ -11,23 +11,17 @@ type ModalWindow struct {
 }
 
 // 模态窗口_创建, 创建模态窗口, 然后你需要调用DoModal()来显示窗口; 当模态窗口关闭时, 会自动销毁模态窗口资源句柄.
-//
-// nWidth: 宽度.
-//
-// nHeight: 高度.
-//
-// pTitle: 窗口标题内容.
-//
-// hWndParent: 父窗口句柄.
-//
-// XCStyle: 炫彩窗口样式: Window_Style_.
-
+//.
+//.
+//.
+//.
+//: Window_Style_.
 // ff:创建模态窗口
-// XCStyle:炫彩窗口样式
-// hWndParent:父窗口句柄
-// pTitle:标题
-// nHeight:高度
 // nWidth:宽度
+// nHeight:高度
+// pTitle:标题
+// hWndParent:父窗口句柄
+// XCStyle:炫彩窗口样式
 func NewModalWindow(nWidth, nHeight int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
 	p.SetHandle(xc.XModalWnd_Create(nWidth, nHeight, pTitle, hWndParent, XCStyle))
@@ -35,38 +29,27 @@ func NewModalWindow(nWidth, nHeight int32, pTitle string, hWndParent uintptr, XC
 }
 
 // 模态窗口_创建扩展, 创建模态窗口, 增强功能.
-//
-// dwExStyle: 窗口扩展样式.
-//
-// dwStyle: 窗口样式.
-//
-// lpClassName: 窗口类名.
-//
-// x: 窗口左上角x坐标.
-//
-// y: 窗口左上角y坐标.
-//
-// cx: 窗口宽度.
-//
-// cy: 窗口高度.
-//
-// pTitle: 窗口名.
-//
-// hWndParent: 父窗口.
-//
-// XCStyle: GUI库窗口样式: Window_Style_.
-
+//.
+//.
+//.
+//.
+//.
+//.
+//.
+//.
+//.
+//: Window_Style_.
 // ff:创建模态窗口EX
-// XCStyle:GUI库窗口样式
-// hWndParent:父窗口
-// pTitle:窗口名
-// cy:高度
-// cx:宽度
-// y:y坐标
-// x:x坐标
-// lpClassName:类名
-// dwStyle:样式
 // dwExStyle:扩展样式
+// dwStyle:样式
+// lpClassName:类名
+// x:x坐标
+// y:y坐标
+// cx:宽度
+// cy:高度
+// pTitle:窗口名
+// hWndParent:父窗口
+// XCStyle:GUI库窗口样式
 func NewModalWindowEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
 	p.SetHandle(xc.XModalWnd_CreateEx(dwExStyle, dwStyle, pTitle, x, y, cx, cy, lpClassName, hWndParent, XCStyle))
@@ -79,11 +62,10 @@ func NewModalWindowEx(dwExStyle int, dwStyle int, lpClassName string, x, y, cx, 
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-
 // ff:创建模态窗口并按布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
 // pFileName:布局文件名
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayout(pFileName string, hParent int, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
 	if handle > 0 {
@@ -102,13 +84,12 @@ func NewModalWindowByLayout(pFileName string, hParent int, hAttachWnd uintptr) *
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-
 // ff:创建模态窗口并按压缩包布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
-// pPassword:zip密码
-// pFileName:布局文件名
 // pZipFileName:zip文件名
+// pFileName:布局文件名
+// pPassword:zip密码
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
@@ -127,13 +108,12 @@ func NewModalWindowByLayoutZip(pZipFileName string, pFileName string, pPassword 
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-
 // ff:创建模态窗口并按内存压缩包布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
-// pPassword:zip密码
-// pFileName:布局文件名
 // data:布局文件数据
+// pFileName:布局文件名
+// pPassword:zip密码
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
@@ -150,11 +130,10 @@ func NewModalWindowByLayoutZipMem(data []byte, pFileName string, pPassword strin
 //	@param hParent 父对象.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建模态窗口并按布局文件字符串W
-// hAttachWnd:附加窗口句柄
-// hParent:父对象
 // pStringXML:字符串
+// hParent:父对象
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayoutStringW(pStringXML string, hParent int, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
 	if handle > 0 {
@@ -173,13 +152,12 @@ func NewModalWindowByLayoutStringW(pStringXML string, hParent int, hAttachWnd ui
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-
 // ff:创建模态窗口并按布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄
-// hParent:父对象句柄
-// pPrefixName:名称前缀
 // pFileName:布局文件名
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -201,16 +179,15 @@ func NewModalWindowByLayoutEx(pFileName, pPrefixName string, hParent int, hParen
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@param hModule 模块句柄, 可填0.
 //	@return *ModalWindow
-
 // ff:创建模态窗口并按RC资源zip压缩包布局文件EX
-// hModule:模块句柄
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄
-// hParent:父对象句柄
-// pPrefixName:名称前缀
-// pPassword:zip密码
-// pFileName:布局文件名
 // id:RC资源ID
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄
+// hAttachWnd:附加窗口句柄
+// hModule:模块句柄
 func NewModalWindowByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutZipResEx(id, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd, hModule)
 	if handle > 0 {
@@ -231,15 +208,14 @@ func NewModalWindowByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName 
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-
 // ff:创建模态窗口并按压缩包布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
-// pPassword:zip密码
-// pFileName:布局文件名
 // pZipFileName:zip文件名
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -260,15 +236,14 @@ func NewModalWindowByLayoutZipEx(pZipFileName string, pFileName string, pPasswor
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *ModalWindow
-
 // ff:创建模态窗口并按内存压缩包布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
-// pPassword:zip密码
-// pFileName:布局文件名
 // data:布局文件数据
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -287,13 +262,12 @@ func NewModalWindowByLayoutZipMemEx(data []byte, pFileName string, pPassword, pP
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-
 // ff:创建模态窗口并按布局文件字符串WEX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象
-// pPrefixName:名称前缀
 // pStringXML:字符串
+// pPrefixName:名称前缀
+// hParent:父对象
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewModalWindowByLayoutStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *ModalWindow {
 	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -305,14 +279,11 @@ func NewModalWindowByLayoutStringWEx(pStringXML, pPrefixName string, hParent int
 }
 
 // 模态窗口_附加窗口, 返回窗口对象.
-//
-// hWnd: 要附加的外部窗口句柄.
-//
-// XCStyle: 炫彩窗口样式: xcc.Window_Style_.
-
+//.
+//: xcc.Window_Style_.
 // ff:模态窗口附加窗口
-// XCStyle:炫彩窗口样式
 // hWnd:外部窗口句柄
+// XCStyle:炫彩窗口样式
 func ModalWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
 	p.SetHandle(xc.XModalWnd_Attach(hWnd, XCStyle))
@@ -320,7 +291,6 @@ func ModalWnd_Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
 }
 
 // 从句柄创建对象.
-
 // ff:创建模态窗口并按句柄
 // handle:
 func NewModalWindowByHandle(handle int) *ModalWindow {
@@ -330,7 +300,6 @@ func NewModalWindowByHandle(handle int) *ModalWindow {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建模态窗口并按名称
 // name:
 func NewModalWindowByName(name string) *ModalWindow {
@@ -344,7 +313,6 @@ func NewModalWindowByName(name string) *ModalWindow {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建模态窗口并按UID
 // nUID:
 func NewModalWindowByUID(nUID int) *ModalWindow {
@@ -358,7 +326,6 @@ func NewModalWindowByUID(nUID int) *ModalWindow {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建模态窗口并按UID名称
 // name:
 func NewModalWindowByUIDName(name string) *ModalWindow {
@@ -372,9 +339,7 @@ func NewModalWindowByUIDName(name string) *ModalWindow {
 }
 
 // 模态窗口_启用自动关闭, 是否自动关闭窗口, 当窗口失去焦点时.
-//
-// bEnable: 开启开关.
-
+//.
 // ff:启用自动关闭
 // bEnable:开启开关
 func (m *ModalWindow) EnableAutoClose(bEnable bool) int {
@@ -382,9 +347,7 @@ func (m *ModalWindow) EnableAutoClose(bEnable bool) int {
 }
 
 // 模态窗口_启用ESC关闭, 当用户按ESC键时自动关闭模态窗口.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用ESC关闭
 // bEnable:是否启用
 func (m *ModalWindow) EnableEscClose(bEnable bool) int {
@@ -392,16 +355,13 @@ func (m *ModalWindow) EnableEscClose(bEnable bool) int {
 }
 
 // 模态窗口_启动, 启动显示模态窗口, 当窗口关闭时返回: MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
-
 // ff:启动
 func (m *ModalWindow) DoModal() xcc.MessageBox_Flag_ {
 	return xc.XModalWnd_DoModal(m.Handle)
 }
 
 // 模态窗口_结束, 结束模态窗口.
-//
-// nResult: 用作XModalWnd_DoModal()的返回值. MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
-
+//()的返回值. MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
 // ff:结束
 // nResult:结果
 func (m *ModalWindow) EndModal(nResult xcc.MessageBox_Flag_) int {

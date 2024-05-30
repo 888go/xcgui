@@ -423,5 +423,6 @@ ff=事件_项绘制事件1
 
 [func (l *ListBox) Event_LISTBOX_SELECT(pFun XE_LISTBOX_SELECT) bool {]
 ff=事件_项选择事件
+
 [func (l *ListBox) Event_LISTBOX_SELECT1(pFun XE_LISTBOX_SELECT1) bool {]
 ff=事件_项选择事件1

@@ -13,7 +13,6 @@ import (
 // GetDropFiles 获取拖放进来的文件.
 //
 // hDropInfo 拖放信息句柄.
-
 // ff:拖放文件取路径
 // hDropInfo:拖放信息句柄
 func GetDropFiles(hDropInfo uintptr) []string {
@@ -36,7 +35,6 @@ func GetDropFiles(hDropInfo uintptr) []string {
 //
 //	@param hParent 炫彩窗口句柄, 可为0.
 //	@return string 返回选择的文件夹完整路径.
-
 // ff:对话框打开文件夹
 // hParent:炫彩窗口句柄
 func OpenDir(hParent int) string {
@@ -66,11 +64,10 @@ func OpenDir(hParent int) string {
 //	@param filters 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir 初始目录, 即默认打开的目录.
 //	@return string 返回文件完整路径.
-
 // ff:对话框打开单个文件
-// defaultDir:初始目录
-// filters:过滤器切片
 // hParent:炫彩窗口句柄
+// filters:过滤器切片
+// defaultDir:初始目录
 func OpenFile(hParent int, filters []string, defaultDir string) string {
 	var hwnd uintptr
 	if hParent > 0 {
@@ -118,11 +115,10 @@ func OpenFile(hParent int, filters []string, defaultDir string) string {
 //	@param filters 过滤器数组, 两个成员为一个过滤器, 前面是过滤器描述, 后面是过滤器类型. 填nil则不显示任何过滤器. 例: []string{"Text Files(*txt)", "*.txt", "All Files(*.*)", "*.*"}
 //	@param defaultDir 初始目录, 即默认打开的目录.
 //	@return string 返回文件完整路径数组.
-
 // ff:对话框打开多个文件
-// defaultDir:初始目录
-// filters:过滤器切片
 // hParent:炫彩窗口句柄
+// filters:过滤器切片
+// defaultDir:初始目录
 func OpenFiles(hParent int, filters []string, defaultDir string) []string {
 	var hwnd uintptr
 	if hParent > 0 {
@@ -182,12 +178,11 @@ func OpenFiles(hParent int, filters []string, defaultDir string) []string {
 //	@param defaultDir 初始目录, 即默认打开的目录.
 //	@param defaultFileName 默认文件名.
 //	@return string 返回文件完整路径.
-
 // ff:对话框保存文件
-// defaultFileName:默认文件名
-// defaultDir:初始目录
-// filters:过滤器切片
 // hParent:炫彩窗口句柄
+// filters:过滤器切片
+// defaultDir:初始目录
+// defaultFileName:默认文件名
 func SaveFile(hParent int, filters []string, defaultDir, defaultFileName string) string {
 	var hwnd uintptr
 	if hParent > 0 {
@@ -238,7 +233,6 @@ func SaveFile(hParent int, filters []string, defaultDir, defaultFileName string)
 //
 //	@param hParent 炫彩窗口句柄, 可为0.
 //	@return int 返回rgb颜色.
-
 // ff:对话框选择颜色
 // hParent:炫彩窗口句柄
 func ChooseColor(hParent int) int {

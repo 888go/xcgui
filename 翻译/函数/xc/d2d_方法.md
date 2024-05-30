@@ -39,5 +39,6 @@ ff=取D2D工厂
 
 [func XC_GetDWriteFactory() int {]
 ff=取DWrite工厂
+
 [func XC_GetWicFactory() int {]
 ff=取WIC工厂

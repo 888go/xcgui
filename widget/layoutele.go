@@ -18,13 +18,12 @@ type LayoutEle struct {
 //	@param cy 高度.
 //	@param hParent 父为窗口句柄或元素句柄.
 //	@return *LayoutEle
-
 // ff:创建布局
-// hParent:父窗口句柄或元素句柄
-// cy:高度
-// cx:宽度
-// y:元素y坐标
 // x:元素x坐标
+// y:元素y坐标
+// cx:宽度
+// cy:高度
+// hParent:父窗口句柄或元素句柄
 func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
 	p := &LayoutEle{}
 	p.SetHandle(xc.XLayout_Create(x, y, cx, cy, hParent))
@@ -35,7 +34,6 @@ func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
 //
 //	@param hParent 父为窗口句柄或元素句柄.
 //	@return *LayoutEle
-
 // ff:创建布局EX
 // hParent:父窗口句柄或元素句柄
 func NewLayoutEleEx(hParent int) *LayoutEle {
@@ -48,7 +46,6 @@ func NewLayoutEleEx(hParent int) *LayoutEle {
 //
 //	@param handle
 //	@return *LayoutEle
-
 // ff:创建布局并按句柄
 // handle:
 func NewLayoutEleByHandle(handle int) *LayoutEle {
@@ -63,11 +60,10 @@ func NewLayoutEleByHandle(handle int) *LayoutEle {
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
 // pFileName:布局文件名
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByLayout(pFileName string, hParent int, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
 	if handle > 0 {
@@ -86,13 +82,12 @@ func NewLayoutEleByLayout(pFileName string, hParent int, hAttachWnd uintptr) *La
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按压缩包中布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
-// pPassword:zip密码
-// pFileName:布局文件名
 // pZipFileName:zip文件名
+// pFileName:布局文件名
+// pPassword:zip密码
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
@@ -114,16 +109,15 @@ func NewLayoutEleByLayoutZip(pZipFileName string, pFileName string, pPassword st
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@param hModule 模块句柄, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按RC资源压缩包中布局文件
-// hModule:模块句柄
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称
-// pPassword:zip密码
-// pFileName:布局文件名
 // id:RC资源ID
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
+// hModule:模块句柄
 func NewLayoutEleByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutZipResEx(id, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd, hModule)
 	if handle > 0 {
@@ -142,13 +136,12 @@ func NewLayoutEleByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName st
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按内存压缩包中布局文件
-// hAttachWnd:附加窗口句柄
-// hParent:父对象句柄
-// pPassword:zip密码
-// pFileName:布局文件名
 // data:布局文件数据
+// pFileName:布局文件名
+// pPassword:zip密码
+// hParent:父对象句柄
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
@@ -165,11 +158,10 @@ func NewLayoutEleByLayoutZipMem(data []byte, pFileName string, pPassword string,
 //	@param hParent 父对象.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按布局文件字符串W
-// hAttachWnd:附加窗口句柄
-// hParent:父对象
 // pStringXML:xml字符串
+// hParent:父对象
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByStringW(pStringXML string, hParent int, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
 	if handle > 0 {
@@ -188,13 +180,12 @@ func NewLayoutEleByStringW(pStringXML string, hParent int, hAttachWnd uintptr) *
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
 // pFileName:布局文件名
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -215,15 +206,14 @@ func NewLayoutEleByLayoutEx(pFileName, pPrefixName string, hParent int, hParentW
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按压缩包中的布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称前缀
-// pPassword:zip密码
-// pFileName:布局文件名
 // pZipFileName:zip文件名
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称前缀
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -244,15 +234,14 @@ func NewLayoutEleByLayoutZipEx(pZipFileName string, pFileName string, pPassword,
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按内存压缩包中布局文件EX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象句柄
-// pPrefixName:名称
-// pPassword:zip密码
-// pFileName:布局文件名
 // data:布局文件数据
+// pFileName:布局文件名
+// pPassword:zip密码
+// pPrefixName:名称
+// hParent:父对象句柄
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -271,13 +260,12 @@ func NewLayoutEleByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPre
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
-
 // ff:创建布局并按布局文件字符串WEX
-// hAttachWnd:附加窗口句柄
-// hParentWnd:父窗口句柄HWND
-// hParent:父对象
-// pPrefixName:名称前缀
 // pStringXML:字符串
+// pPrefixName:名称前缀
+// hParent:父对象
+// hParentWnd:父窗口句柄HWND
+// hAttachWnd:附加窗口句柄
 func NewLayoutEleByStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
 	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
@@ -292,7 +280,6 @@ func NewLayoutEleByStringWEx(pStringXML, pPrefixName string, hParent int, hParen
 //
 //	@param name
 //	@return *LayoutEle
-
 // ff:创建布局并按名称
 // name:
 func NewLayoutEleByName(name string) *LayoutEle {
@@ -310,10 +297,9 @@ func NewLayoutEleByName(name string) *LayoutEle {
 //	@param hWindow 父窗口句柄
 //	@param nID
 //	@return *LayoutEle
-
 // ff:创建布局并按ID
-// nID:
 // hWindow:父窗口句柄
+// nID:
 func NewLayoutEleByID(hWindow, nID int) *LayoutEle {
 	handle := xc.XC_GetObjectByID(hWindow, nID)
 	if handle > 0 {
@@ -329,10 +315,9 @@ func NewLayoutEleByID(hWindow, nID int) *LayoutEle {
 //	@param hWindow 父窗口句柄
 //	@param name
 //	@return *LayoutEle
-
 // ff:创建布局并按ID名称
-// name:名称
 // hWindow:父窗口句柄
+// name:名称
 func NewLayoutEleByIDName(hWindow int, name string) *LayoutEle {
 	handle := xc.XC_GetObjectByIDName(hWindow, name)
 	if handle > 0 {
@@ -347,7 +332,6 @@ func NewLayoutEleByIDName(hWindow int, name string) *LayoutEle {
 //
 //	@param nUID
 //	@return *LayoutEle
-
 // ff:创建布局并按UID
 // nUID:
 func NewLayoutEleByUID(nUID int) *LayoutEle {
@@ -364,7 +348,6 @@ func NewLayoutEleByUID(nUID int) *LayoutEle {
 //
 //	@param name
 //	@return *LayoutEle
-
 // ff:创建布局并按UID名称
 // name:名称
 func NewLayoutEleByUIDName(name string) *LayoutEle {
@@ -380,7 +363,6 @@ func NewLayoutEleByUIDName(name string) *LayoutEle {
 // IsEnableLayout 布局_判断启用, 是否已经启用布局功能.
 //
 //	@return bool
-
 // ff:判断启用
 func (l *LayoutEle) IsEnableLayout() bool {
 	return xc.XLayout_IsEnableLayout(l.Handle)
@@ -390,7 +372,6 @@ func (l *LayoutEle) IsEnableLayout() bool {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用
 // bEnable:是否启用
 func (l *LayoutEle) EnableLayout(bEnable bool) int {
@@ -401,7 +382,6 @@ func (l *LayoutEle) EnableLayout(bEnable bool) int {
 //
 //	@param bEnable 是否显示.
 //	@return int
-
 // ff:显示布局边界
 // bEnable:是否显示
 func (l *LayoutEle) ShowLayoutFrame(bEnable bool) int {
@@ -411,7 +391,6 @@ func (l *LayoutEle) ShowLayoutFrame(bEnable bool) int {
 // GetWidthIn 布局_取内宽度, 获取宽度,不包含内边距大小.
 //
 //	@return int
-
 // ff:取内宽度
 func (l *LayoutEle) GetWidthIn() int {
 	return xc.XLayout_GetWidthIn(l.Handle)
@@ -420,7 +399,6 @@ func (l *LayoutEle) GetWidthIn() int {
 // GetHeightIn 布局_取内高度, 获取高度,不包含内边距大小.
 //
 //	@return int
-
 // ff:取内高度
 func (l *LayoutEle) GetHeightIn() int {
 	return xc.XLayout_GetHeightIn(l.Handle)
@@ -434,7 +412,6 @@ LayoutBox-布局盒子
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用水平
 // bEnable:是否启用
 func (l *LayoutEle) EnableHorizon(bEnable bool) int {
@@ -445,7 +422,6 @@ func (l *LayoutEle) EnableHorizon(bEnable bool) int {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用自动换行
 // bEnable:是否启用
 func (l *LayoutEle) EnableAutoWrap(bEnable bool) int {
@@ -456,7 +432,6 @@ func (l *LayoutEle) EnableAutoWrap(bEnable bool) int {
 //
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:启用溢出隐藏
 // bEnable:是否启用
 func (l *LayoutEle) EnableOverflowHide(bEnable bool) int {
@@ -467,7 +442,6 @@ func (l *LayoutEle) EnableOverflowHide(bEnable bool) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-
 // ff:置水平对齐
 // nAlign:对齐方式
 func (l *LayoutEle) SetAlignH(nAlign xcc.Layout_Align_) int {
@@ -478,7 +452,6 @@ func (l *LayoutEle) SetAlignH(nAlign xcc.Layout_Align_) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
-
 // ff:置垂直对齐
 // nAlign:对齐方式
 func (l *LayoutEle) SetAlignV(nAlign xcc.Layout_Align_) int {
@@ -489,7 +462,6 @@ func (l *LayoutEle) SetAlignV(nAlign xcc.Layout_Align_) int {
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_Axis_.
 //	@return int
-
 // ff:置对齐基线
 // nAlign:对齐方式
 func (l *LayoutEle) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
@@ -500,7 +472,6 @@ func (l *LayoutEle) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
 //
 //	@param nSpace 项间距大小.
 //	@return int
-
 // ff:置间距
 // nSpace:项间距大小
 func (l *LayoutEle) SetSpace(nSpace int) int {
@@ -511,7 +482,6 @@ func (l *LayoutEle) SetSpace(nSpace int) int {
 //
 //	@param nSpace 行间距大小.
 //	@return int
-
 // ff:置行距
 // nSpace:行间距大小
 func (l *LayoutEle) SetSpaceRow(nSpace int) int {

@@ -75,5 +75,6 @@ lpString1=文本指针1
 [func GlobalFree(hMem uintptr) uintptr {]
 ff=全局内存对象关闭
 hMem=内存对象句柄
+
 [func GetLastError() int32 {]
 ff=取最后一个错误

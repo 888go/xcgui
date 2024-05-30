@@ -210,5 +210,6 @@ ff=事件_移除断点1
 
 [func (e *Editor) Event_EDITOR_AUTOMATCH_SELECT(pFun XE_EDITOR_AUTOMATCH_SELECT) bool {]
 ff=事件_自动匹配选择
+
 [func (e *Editor) Event_EDITOR_AUTOMATCH_SELECT1(pFun XE_EDITOR_AUTOMATCH_SELECT1) bool {]
 ff=事件_自动匹配选择1

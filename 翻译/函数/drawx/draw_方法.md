@@ -527,5 +527,6 @@ hImageFrame=图片句柄
 ff=图片遮盖圆型
 pRect=矩形坐标
 hImageFrame=图片句柄
+
 [func (d *Draw) GetFont() int {]
 ff=取字体

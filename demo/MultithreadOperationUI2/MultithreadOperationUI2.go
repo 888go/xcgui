@@ -68,7 +68,6 @@ type updateList struct {
 }
 
 // 在这里面写操作UI的代码, 是在ui线程操作ui
-
 // ff:
 // data:
 func (l *updateList) UiThreadCallBack(data int) int {

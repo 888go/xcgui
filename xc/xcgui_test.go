@@ -1,4 +1,4 @@
-package xc_test //bm:炫彩基类_test
+package xc_test
 
 import (
 	"testing"

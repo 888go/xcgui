@@ -1,4 +1,4 @@
-package wutil //bm:炫彩WinApi工具类
+package wutil//bm:炫彩WinApi工具类
 
 import (
 	"errors"
@@ -29,7 +29,6 @@ func waitOpenClipboard() bool {
 //
 //	@return string
 //	@return error
-
 // ff:剪贴板取文本
 func GetClipboardText() (string, error) {
 	runtime.LockOSThread()
@@ -74,7 +73,6 @@ func GetClipboardText() (string, error) {
 //
 //	@param text 要置入的文本.
 //	@return error
-
 // ff:剪贴板置文本
 // text:文本
 func SetClipboardText(text string) error {

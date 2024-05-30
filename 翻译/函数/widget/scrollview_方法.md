@@ -158,5 +158,6 @@ ff=事件_水平滚动1
 
 [func (s *ScrollView) Event_SCROLLVIEW_SCROLL_V(pFun XE_SCROLLVIEW_SCROLL_V) bool {]
 ff=事件_垂直滚动
+
 [func (s *ScrollView) Event_SCROLLVIEW_SCROLL_V1(pFun XE_SCROLLVIEW_SCROLL_V1) bool {]
 ff=事件_垂直滚动1

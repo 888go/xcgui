@@ -10,23 +10,17 @@ type ShapeRect struct {
 }
 
 // 形状矩形_创建, 创建矩形形状对象.
-//
-// x: X坐标.
-//
-// y: Y坐标.
-//
-// cx: 宽度.
-//
-// cy: 高度.
-//
-// hParent: 父对象句柄.
-
+//.
+//.
+//.
+//.
+//.
 // ff:创建形状矩形
-// hParent:父对象句柄
-// cy:高度
-// cx:宽度
-// y:Y坐标
 // x:坐标
+// y:Y坐标
+// cx:宽度
+// cy:高度
+// hParent:父对象句柄
 func NewShapeRect(x int, y int, cx int, cy int, hParent int) *ShapeRect {
 	p := &ShapeRect{}
 	p.SetHandle(xc.XShapeRect_Create(x, y, cx, cy, hParent))
@@ -34,7 +28,6 @@ func NewShapeRect(x int, y int, cx int, cy int, hParent int) *ShapeRect {
 }
 
 // 从句柄创建对象.
-
 // ff:创建形状矩形并按句柄
 // handle:
 func NewShapeRectByHandle(handle int) *ShapeRect {
@@ -44,7 +37,6 @@ func NewShapeRectByHandle(handle int) *ShapeRect {
 }
 
 // 从name创建对象, 失败返回nil.
-
 // ff:创建形状矩形并按名称
 // name:
 func NewShapeRectByName(name string) *ShapeRect {
@@ -58,7 +50,6 @@ func NewShapeRectByName(name string) *ShapeRect {
 }
 
 // 从UID创建对象, 失败返回nil.
-
 // ff:创建形状矩形并按UID
 // nUID:
 func NewShapeRectByUID(nUID int) *ShapeRect {
@@ -72,7 +63,6 @@ func NewShapeRectByUID(nUID int) *ShapeRect {
 }
 
 // 从UID名称创建对象, 失败返回nil.
-
 // ff:创建形状矩形并按UID名称
 // name:
 func NewShapeRectByUIDName(name string) *ShapeRect {
@@ -86,9 +76,7 @@ func NewShapeRectByUIDName(name string) *ShapeRect {
 }
 
 // 形状矩形_置边框色, 设置边框颜色.
-//
-// color: ABGR 颜色值.
-
+//.
 // ff:置边框色
 // color:ABGR颜色值
 func (s *ShapeRect) SetBorderColor(color int) int {
@@ -96,9 +84,7 @@ func (s *ShapeRect) SetBorderColor(color int) int {
 }
 
 // 形状矩形_置填充色, 设置填充颜色.
-//
-// color: ABGR 颜色值.
-
+//.
 // ff:置填充色
 // color:ABGR颜色值
 func (s *ShapeRect) SetFillColor(color int) int {
@@ -106,35 +92,27 @@ func (s *ShapeRect) SetFillColor(color int) int {
 }
 
 // 形状矩形_置圆角大小, 设置圆角大小.
-//
-// nWidth: 圆角宽度.
-//
-// nHeight: 圆角高度.
-
+//.
+//.
 // ff:置圆角大小
-// nHeight:圆角高度
 // nWidth:圆角宽度
+// nHeight:圆角高度
 func (s *ShapeRect) SetRoundAngle(nWidth int, nHeight int32) int {
 	return xc.XShapeRect_SetRoundAngle(s.Handle, nWidth, nHeight)
 }
 
 // 形状矩形_取圆角大小, 获取圆角大小.
-//
-// pWidth: 圆角宽度.
-//
-// pHeight: 圆角高度.
-
+//.
+//.
 // ff:取圆角大小
-// pHeight:圆角高度
 // pWidth:圆角宽度
+// pHeight:圆角高度
 func (s *ShapeRect) GetRoundAngle(pWidth *int, pHeight *int32) int {
 	return xc.XShapeRect_GetRoundAngle(s.Handle, pWidth, pHeight)
 }
 
 // 形状矩形_启用边框, 启用绘制矩形边框.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用边框
 // bEnable:是否启用
 func (s *ShapeRect) EnableBorder(bEnable bool) int {
@@ -142,9 +120,7 @@ func (s *ShapeRect) EnableBorder(bEnable bool) int {
 }
 
 // 形状矩形_启用填充, 启用填充矩形.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用填充
 // bEnable:是否启用
 func (s *ShapeRect) EnableFill(bEnable bool) int {
@@ -152,9 +128,7 @@ func (s *ShapeRect) EnableFill(bEnable bool) int {
 }
 
 // 形状矩形_启用圆角.
-//
-// bEnable: 是否启用.
-
+//.
 // ff:启用圆角
 // bEnable:是否启用
 func (s *ShapeRect) EnableRoundAngle(bEnable bool) int {

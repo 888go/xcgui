@@ -57,5 +57,6 @@ ff=创建形状GIF并按UID名称
 [func (s *ShapeGif) SetImage(hImage int) int {]
 ff=置图片
 hImage=图片句柄
+
 [func (s *ShapeGif) GetImage() int {]
 ff=取图片

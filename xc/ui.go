@@ -10,10 +10,9 @@ import (
 //	@param hXCGUI 对象句柄.
 //	@param nStyle xcc.XC_OBJECT_STYLE, 样式值: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
 //	@return int
-
 // ff:可视对象_置样式
-// nStyle:样式
 // hXCGUI:对象句柄
+// nStyle:样式
 func XUI_SetStyle(hXCGUI int, nStyle xcc.XC_OBJECT_STYLE) int {
 	r, _, _ := xUI_SetStyle.Call(uintptr(hXCGUI), uintptr(nStyle))
 	return int(r)
@@ -23,7 +22,6 @@ func XUI_SetStyle(hXCGUI int, nStyle xcc.XC_OBJECT_STYLE) int {
 //
 //	@param hXCGUI 对象句柄.
 //	@return xcc.XC_OBJECT_STYLE 返回: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
-
 // ff:可视对象_取样式
 // hXCGUI:对象句柄
 func XUI_GetStyle(hXCGUI int) xcc.XC_OBJECT_STYLE {
@@ -36,10 +34,9 @@ func XUI_GetStyle(hXCGUI int) xcc.XC_OBJECT_STYLE {
 //	@param hXCGUI 对象句柄.
 //	@param bEnable 是否启用.
 //	@return int
-
 // ff:可视对象_启用CSS
-// bEnable:是否启用
 // hXCGUI:对象句柄
+// bEnable:是否启用
 func XUI_EnableCSS(hXCGUI int, bEnable bool) int {
 	r, _, _ := xUI_EnableCSS.Call(uintptr(hXCGUI), common.BoolPtr(bEnable))
 	return int(r)
@@ -50,10 +47,9 @@ func XUI_EnableCSS(hXCGUI int, bEnable bool) int {
 //	@param hXCGUI 对象句柄.
 //	@param pName 套用样式名称.
 //	@return int
-
 // ff:可视对象_置CSS名称
-// pName:套用样式名称
 // hXCGUI:对象句柄
+// pName:套用样式名称
 func XUI_SetCssName(hXCGUI int, pName string) int {
 	r, _, _ := xUI_SetCssName.Call(uintptr(hXCGUI), common.StrPtr(pName))
 	return int(r)
@@ -63,7 +59,6 @@ func XUI_SetCssName(hXCGUI int, pName string) int {
 //
 //	@param hXCGUI 对象句柄.
 //	@return string
-
 // ff:可视对象_取CSS名称
 // hXCGUI:对象句柄
 func XUI_GetCssName(hXCGUI int) string {

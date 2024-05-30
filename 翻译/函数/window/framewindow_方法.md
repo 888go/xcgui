@@ -121,5 +121,6 @@ pRect=返回坐标
 [func (fw *FrameWindow) SetPaneSplitBarWidth(nWidth int32) {]
 ff=置窗格分隔条宽度
 nWidth=宽度
+
 [func (fw *FrameWindow) GetPaneSplitBarWidth() int32 {]
 ff=取窗格分隔条宽度

@@ -12,7 +12,6 @@ import (
 //
 //	@param path 文件或文件夹.
 //	@return error 如果出错, 则不确定是否存在.
-
 // ff:
 // path:
 func PathExists(path string) (bool, error) {
@@ -31,7 +30,6 @@ func PathExists(path string) (bool, error) {
 //
 //	@param arr [32]uint16.
 //	@return string
-
 // ff:
 // arr:
 func Font_Info_Name(arr [32]uint16) string {
@@ -50,10 +48,9 @@ func Rect2RectF(rc RECT) RECTF {
 }
 
 // PointInRect 判断一个点是否在矩形范围内.
-
 // ff:
-// rc:
 // pt:
+// rc:
 func PointInRect(pt POINT, rc RECT) bool {
 	return pt.X <= rc.Right && pt.X >= rc.Left && pt.Y <= rc.Bottom && pt.Y >= rc.Top
 }
@@ -65,12 +62,11 @@ func PointInRect(pt POINT, rc RECT) bool {
 //	@param b 蓝色分量.
 //	@param a 透明度.
 //	@return int ABGR颜色.
-
 // ff:
-// a:
-// b:
-// g:
 // r:
+// g:
+// b:
+// a:
 func ABGR(r, g, b, a byte) int {
 	return int(uint32(r) | uint32(g)<<8 | uint32(b)<<16 | uint32(a)<<24)
 }
@@ -80,10 +76,9 @@ func ABGR(r, g, b, a byte) int {
 //	@param bgr BGR颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
-
 // ff:
-// a:
 // bgr:
+// a:
 func ABGR2(bgr int, a byte) int {
 	return int((uint32(bgr) & 16777215) | (uint32(a)&255)<<24)
 }
@@ -95,12 +90,11 @@ func ABGR2(bgr int, a byte) int {
 //	@param b 蓝色分量.
 //	@param a 透明度.
 //	@return int ABGR颜色.
-
 // ff:
-// a:
-// b:
-// g:
 // r:
+// g:
+// b:
+// a:
 func RGBA(r, g, b, a byte) int {
 	return int(uint32(r) | uint32(g)<<8 | uint32(b)<<16 | uint32(a)<<24)
 }
@@ -110,10 +104,9 @@ func RGBA(r, g, b, a byte) int {
 //	@param bgr BGR颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
-
 // ff:
-// a:
 // bgr:
+// a:
 func RGBA2(bgr int, a byte) int {
 	return int((uint32(bgr) & 16777215) | uint32(a)<<24)
 }
@@ -124,11 +117,10 @@ func RGBA2(bgr int, a byte) int {
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@return int BGR颜色.
-
 // ff:
-// b:
-// g:
 // r:
+// g:
+// b:
 func BGR(r, g, b byte) int {
 	return int(uint32(r) | uint32(g)<<8 | uint32(b)<<16)
 }
@@ -139,11 +131,10 @@ func BGR(r, g, b byte) int {
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@return int RGB颜色.
-
 // ff:
-// b:
-// g:
 // r:
+// g:
+// b:
 func RGB(r, g, b byte) int {
 	return int(uint32(b) | uint32(g)<<8 | uint32(r)<<16)
 }
@@ -153,10 +144,9 @@ func RGB(r, g, b byte) int {
 //	@param rgb RGB颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
-
 // ff:
-// a:
 // rgb:
+// a:
 func RGB2ABGR(rgb int, a byte) int {
 	r := rgb % 256
 	g := (rgb / 256) % 256
@@ -168,7 +158,6 @@ func RGB2ABGR(rgb int, a byte) int {
 //
 //	@param rgb RGB颜色.
 //	@return int BGR颜色.
-
 // ff:
 // rgb:
 func RGB2BGR(rgb int) int {
@@ -182,7 +171,6 @@ func RGB2BGR(rgb int) int {
 //
 //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@return int BGR颜色.
-
 // ff:
 // str:
 func HexRGB2BGR(str string) int {
@@ -198,10 +186,9 @@ func HexRGB2BGR(str string) int {
 //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@param a 透明度.
 //	@return int ABGR颜色.
-
 // ff:
-// a:
 // str:
+// a:
 func HexRGB2ABGR(str string, a byte) int {
 	s := strings.TrimLeft(str, "#")
 	r, _ := strconv.ParseInt(s[:2], 16, 10)
@@ -214,7 +201,6 @@ func HexRGB2ABGR(str string, a byte) int {
 //
 //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@return int RGB颜色.
-
 // ff:
 // str:
 func HexRGB2RGB(str string) int {
@@ -231,12 +217,11 @@ func HexRGB2RGB(str string) int {
 //
 //	@param HXCGUI 炫彩窗口句柄或布局元素句柄.
 //	@param onBnClick 按钮单击事件回调函数.
-
 // ff:
-// onBnClick:
-// pbHandled:
-// hEle:
 // HXCGUI:
+// onBnClick:
+// hEle:
+// pbHandled:
 func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
 	if XC_IsHWINDOW(HXCGUI) {
 		for i := 0; i < XWnd_GetChildCount(HXCGUI); i++ {
@@ -264,10 +249,9 @@ func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
 // Deprecated
 //
 // !已废弃, 请使用 xc.XWnd_ClientToScreen 或 wapi.ClientToScreen
-
 // ff:
-// pPoint:
 // hWindow:
+// pPoint:
 func ClientToScreen(hWindow int, pPoint *POINT) {
 	XWnd_ClientToScreen(hWindow, pPoint)
 }
