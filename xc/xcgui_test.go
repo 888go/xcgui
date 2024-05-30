@@ -1,10 +1,10 @@
-package 炫彩基类_test
+package xc_test //bm:炫彩基类_test
 
 import (
 	"testing"
-	
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 func TestXInitXCGUI(t *testing.T) {
@@ -13,80 +13,80 @@ func TestXInitXCGUI(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}*/
-	炫彩基类.XLoadXCGUI()
-	炫彩基类.X初始化(true)
-	hWindow := 炫彩基类.X窗口_创建(0, 0, 500, 500, "", 0, 炫彩常量类.Window_Style_Default)
-	炫彩基类.X窗口_显示方式(hWindow, 炫彩常量类.SW_SHOW)
-	炫彩基类.X运行()
-	炫彩基类.X退出()
+	xc.LoadXCGUI()
+	xc.XInitXCGUI(true)
+	hWindow := xc.XWnd_Create(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
+	xc.XWnd_ShowWindow(hWindow, xcc.SW_SHOW)
+	xc.XRunXCGUI()
+	xc.XExitXCGUI()
 }
 
 func TestWriteDll(t *testing.T) {
-	err := 炫彩基类.X写出炫彩dll到临时目录([]byte("0"))
+	err := xc.WriteDll([]byte("0"))
 	if err != nil {
 		t.Fatal(err)
 	}
-	t.Log(炫彩基类.X取炫彩DLL路径())
+	t.Log(xc.GetXcguiPath())
 }
 
 func TestABGR(t *testing.T) {
-	t.Log(炫彩基类.ABGR(255, 201, 100, 255))
+	t.Log(xc.ABGR(255, 201, 100, 255))
 }
 
 func TestRGBA(t *testing.T) {
-	t.Log(炫彩基类.RGBA(255, 201, 100, 255))
+	t.Log(xc.RGBA(255, 201, 100, 255))
 }
 
 func TestABGR2(t *testing.T) {
-	t.Log(炫彩基类.ABGR2(炫彩基类.BGR(255, 201, 100), 255))
+	t.Log(xc.ABGR2(xc.BGR(255, 201, 100), 255))
 }
 
 func TestRGB(t *testing.T) {
-	t.Log(炫彩基类.RGB(255, 201, 100))
+	t.Log(xc.RGB(255, 201, 100))
 }
 
 func TestGetXcgui(t *testing.T) {
-	炫彩基类.XLoadXCGUI()
-	dll := 炫彩基类.X取已加载炫彩DLL()
+	xc.LoadXCGUI()
+	dll := xc.GetXcgui()
 	t.Log(dll.Name, dll.Handle())
 }
 
 func TestGetXcgui1(t *testing.T) {
-	t.Log(炫彩基类.X取炫彩DLL路径())
+	t.Log(xc.GetXcguiPath())
 }
 
 func TestSetXcguiPath(t *testing.T) {
-	err := 炫彩基类.X设置炫彩DLL路径("C:\\xcgui.dll")
+	err := xc.SetXcguiPath("C:\\xcgui.dll")
 	if err != nil {
 		t.Log(err)
 		return
 	}
-	t.Log(炫彩基类.X取炫彩DLL路径())
+	t.Log(xc.GetXcguiPath())
 }
 
 func TestHexRGB2RGB(t *testing.T) {
-	t.Log(炫彩基类.HexRGB2RGB("#ffc964"))
-	t.Log(炫彩基类.HexRGB2RGB("ffc964"))
+	t.Log(xc.HexRGB2RGB("#ffc964"))
+	t.Log(xc.HexRGB2RGB("ffc964"))
 }
 
 func TestHexRGB2ABGR(t *testing.T) {
-	t.Log(炫彩基类.HexRGB2ABGR("#ffc964", 255))
-	t.Log(炫彩基类.HexRGB2ABGR("ffc964", 255))
+	t.Log(xc.HexRGB2ABGR("#ffc964", 255))
+	t.Log(xc.HexRGB2ABGR("ffc964", 255))
 }
 
 func TestHexRGB2BGR(t *testing.T) {
-	t.Log(炫彩基类.HexRGB2BGR("#ffc964"))
-	t.Log(炫彩基类.HexRGB2BGR("ffc964"))
+	t.Log(xc.HexRGB2BGR("#ffc964"))
+	t.Log(xc.HexRGB2BGR("ffc964"))
 }
 
 func TestRGB2ABGR(t *testing.T) {
-	t.Log(炫彩基类.RGB2ABGR(炫彩基类.HexRGB2RGB("ffc964"), 255))
+	t.Log(xc.RGB2ABGR(xc.HexRGB2RGB("ffc964"), 255))
 }
 
 func TestRGB2BGR(t *testing.T) {
-	t.Log(炫彩基类.RGB2BGR(炫彩基类.HexRGB2RGB("ffc964")))
+	t.Log(xc.RGB2BGR(xc.HexRGB2RGB("ffc964")))
 }
 
 func TestBGR(t *testing.T) {
-	t.Log(炫彩基类.BGR(255, 201, 100))
+	t.Log(xc.BGR(255, 201, 100))
 }

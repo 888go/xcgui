@@ -1,9 +1,9 @@
-package 炫彩App类_test
+package app_test
 
 import (
-	"github.com/888go/xcgui/app"
-	"github.com/888go/xcgui/window"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/app"
+	"github.com/twgh/xcgui/window"
+	"github.com/twgh/xcgui/xcc"
 )
 
 func ExampleNew() {
@@ -12,16 +12,16 @@ func ExampleNew() {
 		if err != nil {
 			panic(err)
 		}*/
-	a := 炫彩App类.X创建(true)
-	w := 炫彩窗口基类.X创建窗口(0, 0, 500, 500, "", 0, 炫彩常量类.Window_Style_Default)
-	w.X显示方式(炫彩常量类.SW_SHOW)
-	a.X运行()
-	a.X退出()
+	a := app.New(true)
+	w := window.New(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
+	w.ShowWindow(xcc.SW_SHOW)
+	a.Run()
+	a.Exit()
 }
 
 func ExampleApp_ShowAndRun() {
-	a := 炫彩App类.X创建(true)
-	w := 炫彩窗口基类.X创建窗口(0, 0, 500, 500, "", 0, 炫彩常量类.Window_Style_Default)
-	a.X显示窗口并运行(w.Handle)
-	a.X退出()
+	a := app.New(true)
+	w := window.New(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
+	a.ShowAndRun(w.Handle)
+	a.Exit()
 }

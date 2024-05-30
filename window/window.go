@@ -1,8 +1,8 @@
-package 炫彩窗口基类
+package window
 
 import (
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // Window 普通窗口.
@@ -20,9 +20,18 @@ type Window struct {
 //	@param hWndParent 父窗口.
 //	@param XCStyle 窗口样式: xcc.Window_Style_.
 //	@return *Window
-func X创建窗口(x坐标, y坐标, 窗口宽度, 窗口高度 int32, 窗口标题 string, 父窗口 uintptr, 窗口样式 炫彩常量类.Window_Style_) *Window {
+
+// ff:创建窗口
+// XCStyle:窗口样式
+// hWndParent:父窗口
+// pTitle:窗口标题
+// cy:窗口高度
+// cx:窗口宽度
+// y:y坐标
+// x:x坐标
+func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
-	p.X设置句柄(炫彩基类.X窗口_创建(x坐标, y坐标, 窗口宽度, 窗口高度, 窗口标题, 父窗口, 窗口样式))
+	p.SetHandle(xc.XWnd_Create(x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
 }
 
@@ -39,9 +48,21 @@ func X创建窗口(x坐标, y坐标, 窗口宽度, 窗口高度 int32, 窗口标
 //	@param hWndParent 父窗口.
 //	@param XCStyle 窗口样式, xcc.Window_Style_.
 //	@return *Window
-func X创建窗口EX(窗口扩展样式 int, 样式 int, 类名 string, x坐标 int, y坐标 int, 宽度 int, 高度 int, 窗口名 string, 父窗口 uintptr, 窗口样式 炫彩常量类.Window_Style_) *Window {
+
+// ff:创建窗口EX
+// XCStyle:窗口样式
+// hWndParent:父窗口
+// pTitle:窗口名
+// cy:高度
+// cx:宽度
+// y:y坐标
+// x:x坐标
+// lpClassName:类名
+// dwStyle:样式
+// dwExStyle:窗口扩展样式
+func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int, cy int, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
-	p.X设置句柄(炫彩基类.X窗口_创建EX(窗口扩展样式, 样式, 类名, x坐标, y坐标, 宽度, 高度, 窗口名, 父窗口, 窗口样式))
+	p.SetHandle(xc.XWnd_CreateEx(dwExStyle, dwStyle, lpClassName, x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
 }
 
@@ -50,9 +71,13 @@ func X创建窗口EX(窗口扩展样式 int, 样式 int, 类名 string, x坐标 
 //	@param hWnd 要附加的外部窗口句柄.
 //	@param XCStyle 窗口样式: xcc.Window_Style_.
 //	@return *Window
-func X窗口附加窗口(外部窗口句柄 uintptr, XCStyle 炫彩常量类.Window_Style_) *Window {
+
+// ff:窗口附加窗口
+// XCStyle:
+// hWnd:外部窗口句柄
+func Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
-	p.X设置句柄(炫彩基类.X窗口_附加窗口(外部窗口句柄, XCStyle))
+	p.SetHandle(xc.XWnd_Attach(hWnd, XCStyle))
 	return p
 }
 
@@ -60,9 +85,12 @@ func X窗口附加窗口(外部窗口句柄 uintptr, XCStyle 炫彩常量类.Win
 //
 //	@param hWindow 窗口资源句柄.
 //	@return *Window
-func X创建窗口并按句柄(窗口资源句柄 int) *Window {
+
+// ff:创建窗口并按句柄
+// hWindow:窗口资源句柄
+func NewByHandle(hWindow int) *Window {
 	p := &Window{}
-	p.X设置句柄(窗口资源句柄)
+	p.SetHandle(hWindow)
 	return p
 }
 
@@ -72,11 +100,16 @@ func X创建窗口并按句柄(窗口资源句柄 int) *Window {
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按布局文件(布局文件名 string, 父对象句柄 int, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件(布局文件名, 父对象句柄, 附加窗口句柄)
+
+// ff:创建窗口并按布局文件
+// hAttachWnd:附加窗口句柄
+// hParent:父对象句柄
+// pFileName:布局文件名
+func NewByLayout(pFileName string, hParent int, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -90,11 +123,18 @@ func X创建窗口并按布局文件(布局文件名 string, 父对象句柄 int
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按压缩包布局文件(zip文件名 string, 布局文件名 string, zip密码 string, 父对象句柄 int, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件ZIP(zip文件名, 布局文件名, zip密码, 父对象句柄, 附加窗口句柄)
+
+// ff:创建窗口并按压缩包布局文件
+// hAttachWnd:附加窗口句柄
+// hParent:父对象句柄
+// pPassword:zip密码
+// pFileName:布局文件名
+// pZipFileName:zip文件名
+func NewByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -108,11 +148,18 @@ func X创建窗口并按压缩包布局文件(zip文件名 string, 布局文件�
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按内存压缩包布局文件(布局文件数据 []byte, 布局文件名 string, zip密码 string, 父对象句柄 int, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件内存ZIP(布局文件数据, 布局文件名, zip密码, 父对象句柄, 附加窗口句柄)
+
+// ff:创建窗口并按内存压缩包布局文件
+// hAttachWnd:附加窗口句柄
+// hParent:父对象句柄
+// pPassword:zip密码
+// pFileName:布局文件名
+// data:布局文件数据
+func NewByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -124,11 +171,16 @@ func X创建窗口并按内存压缩包布局文件(布局文件数据 []byte, �
 //	@param hParent 父对象.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按布局文件字符串W(字符串 string, 父对象 int, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件从字符串W(字符串, 父对象, 附加窗口句柄)
+
+// ff:创建窗口并按布局文件字符串W
+// hAttachWnd:附加窗口句柄
+// hParent:父对象
+// pStringXML:字符串
+func NewByLayoutStringW(pStringXML string, hParent int, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -142,11 +194,18 @@ func X创建窗口并按布局文件字符串W(字符串 string, 父对象 int, 
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按布局文件EX(布局文件名, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件Ex(布局文件名, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
+
+// ff:创建窗口并按布局文件EX
+// hAttachWnd:附加窗口句柄
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称前缀
+// pFileName:布局文件名
+func NewByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -162,11 +221,20 @@ func X创建窗口并按布局文件EX(布局文件名, 名称前缀 string, 父
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按压缩包布局文件EX(zip文件名 string, 布局文件名 string, zip密码, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件ZIPEx(zip文件名, 布局文件名, zip密码, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
+
+// ff:创建窗口并按压缩包布局文件EX
+// hAttachWnd:附加窗口句柄
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称前缀
+// pPassword:zip密码
+// pFileName:布局文件名
+// pZipFileName:zip文件名
+func NewByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -183,11 +251,21 @@ func X创建窗口并按压缩包布局文件EX(zip文件名 string, 布局文�
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@param hModule 模块句柄, 可填0.
 //	@return *Window
-func X创建窗口并按RC资源zip压缩包布局文件EX(RC资源ID int32, 布局文件名, zip密码, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄, 模块句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件资源ZIPEX(RC资源ID, 布局文件名, zip密码, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄, 模块句柄)
+
+// ff:创建窗口并按RC资源zip压缩包布局文件EX
+// hModule:模块句柄
+// hAttachWnd:附加窗口句柄
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称前缀
+// pPassword:zip密码
+// pFileName:布局文件名
+// id:RC资源ID
+func NewByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) *Window {
+	handle := xc.XC_LoadLayoutZipResEx(id, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd, hModule)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -203,11 +281,20 @@ func X创建窗口并按RC资源zip压缩包布局文件EX(RC资源ID int32, 布
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按内存压缩包布局文件EX(布局文件数据 []byte, 布局文件名 string, zip密码, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件内存ZIPEx(布局文件数据, 布局文件名, zip密码, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
+
+// ff:创建窗口并按内存压缩包布局文件EX
+// hAttachWnd:附加窗口句柄
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称前缀
+// pPassword:zip密码
+// pFileName:布局文件名
+// data:布局文件数据
+func NewByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -221,11 +308,18 @@ func X创建窗口并按内存压缩包布局文件EX(布局文件数据 []byte,
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *Window
-func X创建窗口并按布局文件字符串WEX(字符串, 名称前缀 string, 父对象 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *Window {
-	handle := 炫彩基类.X炫彩_加载布局文件从字符串WEx(字符串, 名称前缀, 父对象, 父窗口句柄HWND, 附加窗口句柄)
+
+// ff:创建窗口并按布局文件字符串WEX
+// hAttachWnd:附加窗口句柄
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象
+// pPrefixName:名称前缀
+// pStringXML:字符串
+func NewByLayoutStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {
+	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -235,11 +329,14 @@ func X创建窗口并按布局文件字符串WEX(字符串, 名称前缀 string,
 //
 //	@param name
 //	@return *Window
-func X创建窗口并按名称(名称 string) *Window {
-	handle := 炫彩基类.X取对象从名称(名称)
+
+// ff:创建窗口并按名称
+// name:名称
+func NewByName(name string) *Window {
+	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -249,11 +346,14 @@ func X创建窗口并按名称(名称 string) *Window {
 //
 //	@param nUID
 //	@return *Window
-func X创建窗口并按UID(nUID int) *Window {
-	handle := 炫彩基类.X取对象从UID(nUID)
+
+// ff:创建窗口并按UID
+// nUID:
+func NewByUID(nUID int) *Window {
+	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -263,11 +363,14 @@ func X创建窗口并按UID(nUID int) *Window {
 //
 //	@param name
 //	@return *Window
-func X创建窗口并按UID名称(名称 string) *Window {
-	handle := 炫彩基类.X取对象从UID名称(名称)
+
+// ff:创建窗口并按UID名称
+// name:名称
+func NewByUIDName(name string) *Window {
+	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &Window{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil

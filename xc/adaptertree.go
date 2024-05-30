@@ -1,11 +1,11 @@
-package 炫彩基类
+package xc
 
-import (
-	"github.com/888go/xcgui/common"
-)
+import "github.com/twgh/xcgui/common"
 
 // 数据适配器树_创建, 创建树元素数据适配器, 返回数据适配器句柄.
-func X数据适配器树_创建() int {
+
+// ff:数据适配器树_创建
+func XAdTree_Create() int {
 	r, _, _ := xAdTree_Create.Call()
 	return int(r)
 }
@@ -15,8 +15,12 @@ func X数据适配器树_创建() int {
 // hAdapter: 数据适配器句柄.
 //
 // pName: 字段称.
-func X数据适配器树_添加列(数据适配器句柄 int, 字段称 string) int {
-	r, _, _ := xAdTree_AddColumn.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称))
+
+// ff:数据适配器树_添加列
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdTree_AddColumn(hAdapter int, pName string) int {
+	r, _, _ := xAdTree_AddColumn.Call(uintptr(hAdapter), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -25,8 +29,12 @@ func X数据适配器树_添加列(数据适配器句柄 int, 字段称 string) 
 // hAdapter: 数据适配器句柄.
 //
 // pColName: 列名, 列名, 多个列名用逗号分开.
-func X数据适配器树_置列(数据适配器句柄 int, 列名 string) int {
-	r, _, _ := xAdTree_SetColumn.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(列名))
+
+// ff:数据适配器树_置列
+// pColName:列名
+// hAdapter:数据适配器句柄
+func XAdTree_SetColumn(hAdapter int, pColName string) int {
+	r, _, _ := xAdTree_SetColumn.Call(uintptr(hAdapter), common.StrPtr(pColName))
 	return int(r)
 }
 
@@ -39,8 +47,14 @@ func X数据适配器树_置列(数据适配器句柄 int, 列名 string) int {
 // nParentID: 父ID.
 //
 // insertID: 插入位置ID.
-func X数据适配器树_插入项文本(数据适配器句柄 int, 值 string, 父ID int, 插入位置ID int) int {
-	r, _, _ := xAdTree_InsertItemText.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(值), uintptr(父ID), uintptr(插入位置ID))
+
+// ff:数据适配器树_插入项文本
+// insertID:插入位置ID
+// nParentID:父ID
+// pValue:值
+// hAdapter:数据适配器句柄
+func XAdTree_InsertItemText(hAdapter int, pValue string, nParentID int, insertID int) int {
+	r, _, _ := xAdTree_InsertItemText.Call(uintptr(hAdapter), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
 	return int(r)
 }
 
@@ -55,8 +69,15 @@ func X数据适配器树_插入项文本(数据适配器句柄 int, 值 string, 
 // nParentID: 父ID.
 //
 // insertID: 插入位置ID.
-func X数据适配器树_插入项文本EX(数据适配器句柄 int, 字段称 string, 值 string, 父ID int, 插入位置ID int) int {
-	r, _, _ := xAdTree_InsertItemTextEx.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称), 炫彩工具类.StrPtr(值), uintptr(父ID), uintptr(插入位置ID))
+
+// ff:数据适配器树_插入项文本EX
+// insertID:插入位置ID
+// nParentID:父ID
+// pValue:值
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdTree_InsertItemTextEx(hAdapter int, pName string, pValue string, nParentID int, insertID int) int {
+	r, _, _ := xAdTree_InsertItemTextEx.Call(uintptr(hAdapter), common.StrPtr(pName), common.StrPtr(pValue), uintptr(nParentID), uintptr(insertID))
 	return int(r)
 }
 
@@ -69,8 +90,14 @@ func X数据适配器树_插入项文本EX(数据适配器句柄 int, 字段称 
 // nParentID: 父ID.
 //
 // insertID: 插入位置ID.
-func X数据适配器树_插入项图片(数据适配器句柄 int, 图片句柄 int, 父ID int, 插入位置ID int) int {
-	r, _, _ := xAdTree_InsertItemImage.Call(uintptr(数据适配器句柄), uintptr(图片句柄), uintptr(父ID), uintptr(插入位置ID))
+
+// ff:数据适配器树_插入项图片
+// insertID:插入位置ID
+// nParentID:父ID
+// hImage:图片句柄
+// hAdapter:数据适配器句柄
+func XAdTree_InsertItemImage(hAdapter int, hImage int, nParentID int, insertID int) int {
+	r, _, _ := xAdTree_InsertItemImage.Call(uintptr(hAdapter), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
 	return int(r)
 }
 
@@ -85,24 +112,37 @@ func X数据适配器树_插入项图片(数据适配器句柄 int, 图片句柄
 // nParentID: 父ID.
 //
 // insertID: 插入位置ID.
-func X数据适配器树_插入项图片EX(数据适配器句柄 int, 字段称 string, 图片句柄 int, 父ID int, 插入位置ID int) int {
-	r, _, _ := xAdTree_InsertItemImageEx.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称), uintptr(图片句柄), uintptr(父ID), uintptr(插入位置ID))
+
+// ff:数据适配器树_插入项图片EX
+// insertID:插入位置ID
+// nParentID:父ID
+// hImage:图片句柄
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdTree_InsertItemImageEx(hAdapter int, pName string, hImage int, nParentID int, insertID int) int {
+	r, _, _ := xAdTree_InsertItemImageEx.Call(uintptr(hAdapter), common.StrPtr(pName), uintptr(hImage), uintptr(nParentID), uintptr(insertID))
 	return int(r)
 }
 
 // 数据适配器树_取项数量, 获取项数量.
 //
 // hAdapter: 数据适配器句柄.
-func X数据适配器树_取项数量(数据适配器句柄 int) int {
-	r, _, _ := xAdTree_GetCount.Call(uintptr(数据适配器句柄))
+
+// ff:数据适配器树_取项数量
+// hAdapter:数据适配器句柄
+func XAdTree_GetCount(hAdapter int) int {
+	r, _, _ := xAdTree_GetCount.Call(uintptr(hAdapter))
 	return int(r)
 }
 
 // 数据适配器树_取列数量, 获取列数量.
 //
 // hAdapter: 数据适配器句柄.
-func X数据适配器树_取列数量(数据适配器句柄 int) int {
-	r, _, _ := xAdTree_GetCountColumn.Call(uintptr(数据适配器句柄))
+
+// ff:数据适配器树_取列数量
+// hAdapter:数据适配器句柄
+func XAdTree_GetCountColumn(hAdapter int) int {
+	r, _, _ := xAdTree_GetCountColumn.Call(uintptr(hAdapter))
 	return int(r)
 }
 
@@ -115,8 +155,14 @@ func X数据适配器树_取列数量(数据适配器句柄 int) int {
 // iColumn: 列索引.
 //
 // pValue: 值.
-func X数据适配器树_置项文本(数据适配器句柄 int, 项ID int, 列索引 int, 值 string) bool {
-	r, _, _ := xAdTree_SetItemText.Call(uintptr(数据适配器句柄), uintptr(项ID), uintptr(列索引), 炫彩工具类.StrPtr(值))
+
+// ff:数据适配器树_置项文本
+// pValue:值
+// iColumn:列索引
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_SetItemText(hAdapter int, nID int, iColumn int, pValue string) bool {
+	r, _, _ := xAdTree_SetItemText.Call(uintptr(hAdapter), uintptr(nID), uintptr(iColumn), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -129,8 +175,14 @@ func X数据适配器树_置项文本(数据适配器句柄 int, 项ID int, 列�
 // pName: 字段称.
 //
 // pValue: 值.
-func X数据适配器树_置项文本EX(数据适配器句柄 int, 项ID int, 字段称 string, 值 string) bool {
-	r, _, _ := xAdTree_SetItemTextEx.Call(uintptr(数据适配器句柄), uintptr(项ID), 炫彩工具类.StrPtr(字段称), 炫彩工具类.StrPtr(值))
+
+// ff:数据适配器树_置项文本EX
+// pValue:值
+// pName:字段称
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_SetItemTextEx(hAdapter int, nID int, pName string, pValue string) bool {
+	r, _, _ := xAdTree_SetItemTextEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -143,8 +195,14 @@ func X数据适配器树_置项文本EX(数据适配器句柄 int, 项ID int, �
 // iColumn: 列索引.
 //
 // hImage: 图片句柄.
-func X数据适配器树_置项图片(数据适配器句柄 int, 项ID int, 列索引 int, 图片句柄 int) bool {
-	r, _, _ := xAdTree_SetItemImage.Call(uintptr(数据适配器句柄), uintptr(项ID), uintptr(列索引), uintptr(图片句柄))
+
+// ff:数据适配器树_置项图片
+// hImage:图片句柄
+// iColumn:列索引
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_SetItemImage(hAdapter int, nID int, iColumn int, hImage int) bool {
+	r, _, _ := xAdTree_SetItemImage.Call(uintptr(hAdapter), uintptr(nID), uintptr(iColumn), uintptr(hImage))
 	return r != 0
 }
 
@@ -157,8 +215,14 @@ func X数据适配器树_置项图片(数据适配器句柄 int, 项ID int, 列�
 // pName: 字段称.
 //
 // hImage: 图片句柄.
-func X数据适配器树_置项图片EX(数据适配器句柄 int, 项ID int, 字段称 string, 图片句柄 int) bool {
-	r, _, _ := xAdTree_SetItemImageEx.Call(uintptr(数据适配器句柄), uintptr(项ID), 炫彩工具类.StrPtr(字段称), uintptr(图片句柄))
+
+// ff:数据适配器树_置项图片EX
+// hImage:图片句柄
+// pName:字段称
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_SetItemImageEx(hAdapter int, nID int, pName string, hImage int) bool {
+	r, _, _ := xAdTree_SetItemImageEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -169,9 +233,14 @@ func X数据适配器树_置项图片EX(数据适配器句柄 int, 项ID int, �
 // nID: 项ID.
 //
 // iColumn: 列索引.
-func X数据适配器树_取项文本(数据适配器句柄 int, 项ID int, 列索引 int) string {
-	r, _, _ := xAdTree_GetItemText.Call(uintptr(数据适配器句柄), uintptr(项ID), uintptr(列索引))
-	return 炫彩工具类.UintPtrToString(r)
+
+// ff:数据适配器树_取项文本
+// iColumn:列索引
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_GetItemText(hAdapter int, nID int, iColumn int) string {
+	r, _, _ := xAdTree_GetItemText.Call(uintptr(hAdapter), uintptr(nID), uintptr(iColumn))
+	return common.UintPtrToString(r)
 }
 
 // 数据适配器树_取项文本扩展, 获取项文本内容.
@@ -181,9 +250,14 @@ func X数据适配器树_取项文本(数据适配器句柄 int, 项ID int, 列�
 // nID: 项ID.
 //
 // pName: 字段称.
-func X数据适配器树_取项文本EX(数据适配器句柄 int, 项ID int, 字段称 string) string {
-	r, _, _ := xAdTree_GetItemTextEx.Call(uintptr(数据适配器句柄), uintptr(项ID), 炫彩工具类.StrPtr(字段称))
-	return 炫彩工具类.UintPtrToString(r)
+
+// ff:数据适配器树_取项文本EX
+// pName:字段称
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_GetItemTextEx(hAdapter int, nID int, pName string) string {
+	r, _, _ := xAdTree_GetItemTextEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName))
+	return common.UintPtrToString(r)
 }
 
 // 数据适配器树_取项图片, 获取项内容, 返回图片句柄.
@@ -193,8 +267,13 @@ func X数据适配器树_取项文本EX(数据适配器句柄 int, 项ID int, �
 // nID: 项ID.
 //
 // iColumn: 列索引.
-func X数据适配器树_取项图片(数据适配器句柄 int, 项ID int, 列索引 int) int {
-	r, _, _ := xAdTree_GetItemImage.Call(uintptr(数据适配器句柄), uintptr(项ID), uintptr(列索引))
+
+// ff:数据适配器树_取项图片
+// iColumn:列索引
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_GetItemImage(hAdapter int, nID int, iColumn int) int {
+	r, _, _ := xAdTree_GetItemImage.Call(uintptr(hAdapter), uintptr(nID), uintptr(iColumn))
 	return int(r)
 }
 
@@ -205,8 +284,13 @@ func X数据适配器树_取项图片(数据适配器句柄 int, 项ID int, 列�
 // nID: 项ID.
 //
 // pName: 字段称.
-func X数据适配器树_取项图片EX(数据适配器句柄 int, 项ID int, 字段称 string) int {
-	r, _, _ := xAdTree_GetItemImageEx.Call(uintptr(数据适配器句柄), uintptr(项ID), 炫彩工具类.StrPtr(字段称))
+
+// ff:数据适配器树_取项图片EX
+// pName:字段称
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_GetItemImageEx(hAdapter int, nID int, pName string) int {
+	r, _, _ := xAdTree_GetItemImageEx.Call(uintptr(hAdapter), uintptr(nID), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -215,23 +299,33 @@ func X数据适配器树_取项图片EX(数据适配器句柄 int, 项ID int, �
 // hAdapter: 数据适配器句柄.
 //
 // nID: 项ID.
-func X数据适配器树_删除项(数据适配器句柄 int, 项ID int) bool {
-	r, _, _ := xAdTree_DeleteItem.Call(uintptr(数据适配器句柄), uintptr(项ID))
+
+// ff:数据适配器树_删除项
+// nID:项ID
+// hAdapter:数据适配器句柄
+func XAdTree_DeleteItem(hAdapter int, nID int) bool {
+	r, _, _ := xAdTree_DeleteItem.Call(uintptr(hAdapter), uintptr(nID))
 	return r != 0
 }
 
 // 数据适配器树_删除项全部, 删除所有项.
 //
 // hAdapter: 数据适配器句柄.
-func X数据适配器树_删除项全部(数据适配器句柄 int) int {
-	r, _, _ := xAdTree_DeleteItemAll.Call(uintptr(数据适配器句柄))
+
+// ff:数据适配器树_删除项全部
+// hAdapter:数据适配器句柄
+func XAdTree_DeleteItemAll(hAdapter int) int {
+	r, _, _ := xAdTree_DeleteItemAll.Call(uintptr(hAdapter))
 	return int(r)
 }
 
 // 数据适配器树_删除列全部, 删除所有列, 并且清空数据.
 //
 // hAdapter: 数据适配器句柄.
-func X数据适配器树_删除列全部(数据适配器句柄 int) int {
-	r, _, _ := xAdTree_DeleteColumnAll.Call(uintptr(数据适配器句柄))
+
+// ff:数据适配器树_删除列全部
+// hAdapter:数据适配器句柄
+func XAdTree_DeleteColumnAll(hAdapter int) int {
+	r, _, _ := xAdTree_DeleteColumnAll.Call(uintptr(hAdapter))
 	return int(r)
 }

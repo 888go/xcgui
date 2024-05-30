@@ -1,15 +1,18 @@
-package 炫彩缓动类
+package ease //bm:炫彩缓动类
 
 import (
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 缓动_Linear, 线性.
 //
 // p: 位置, 0.0f - 1.0f.
-func X缓动线性(位置 float32) float32 {
-	return 炫彩基类.X缓动_线性(位置)
+
+// ff:缓动线性
+// p:位置
+func Linear(p float32) float32 {
+	return xc.XEase_Linear(p)
 }
 
 // 缓动_Quad, 二次方曲线.
@@ -17,8 +20,12 @@ func X缓动线性(位置 float32) float32 {
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动二次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_二次方曲线(位置, 缓动类型)
+
+// ff:缓动二次方曲线
+// flag:缓动类型
+// p:位置
+func Quad(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Quad(p, flag)
 }
 
 // 缓动_Cubic, 三次方曲线, 圆弧.
@@ -26,8 +33,12 @@ func X缓动二次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Ty
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动三次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_三次方曲线(位置, 缓动类型)
+
+// ff:缓动三次方曲线
+// flag:缓动类型
+// p:位置
+func Cubic(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Cubic(p, flag)
 }
 
 // 缓动_Quart, 四次方曲线.
@@ -35,8 +46,12 @@ func X缓动三次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Ty
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动四次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_四次方曲线(位置, 缓动类型)
+
+// ff:缓动四次方曲线
+// flag:缓动类型
+// p:位置
+func Quart(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Quart(p, flag)
 }
 
 // 缓动_Quint, 五次方曲线.
@@ -44,8 +59,12 @@ func X缓动四次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Ty
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动五次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_五次方曲线(位置, 缓动类型)
+
+// ff:缓动五次方曲线
+// flag:缓动类型
+// p:位置
+func Quint(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Quint(p, flag)
 }
 
 // 缓动_Sine, 正弦曲线, 在末端变化.
@@ -53,8 +72,12 @@ func X缓动五次方曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Ty
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动正弦曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_正弦曲线(位置, 缓动类型)
+
+// ff:缓动正弦曲线
+// flag:缓动类型
+// p:位置
+func Sine(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Sine(p, flag)
 }
 
 // 缓动_Expo, 突击曲线, 突然一下.
@@ -62,8 +85,12 @@ func X缓动正弦曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动突击曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_突击曲线(位置, 缓动类型)
+
+// ff:缓动突击曲线
+// flag:缓动类型
+// p:位置
+func Expo(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Expo(p, flag)
 }
 
 // 缓动_Circ, 圆环, 好比绕过一个圆环.
@@ -71,8 +98,12 @@ func X缓动突击曲线(位置 float32, 缓动类型 炫彩常量类.Ease_Type_
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动圆环(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_圆环(位置, 缓动类型)
+
+// ff:缓动圆环
+// flag:缓动类型
+// p:位置
+func Circ(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Circ(p, flag)
 }
 
 // 缓动_Elastic, 强力回弹.
@@ -80,8 +111,12 @@ func X缓动圆环(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) floa
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动强力回弹(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_强力回弹(位置, 缓动类型)
+
+// ff:缓动强力回弹
+// flag:缓动类型
+// p:位置
+func Elastic(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Elastic(p, flag)
 }
 
 // 缓动_Back, 回弹, 比较缓慢.
@@ -89,8 +124,12 @@ func X缓动强力回弹(位置 float32, 缓动类型 炫彩常量类.Ease_Type_
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动回弹(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_回弹(位置, 缓动类型)
+
+// ff:缓动回弹
+// flag:缓动类型
+// p:位置
+func Back(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Back(p, flag)
 }
 
 // 缓动_Bounce.
@@ -98,8 +137,12 @@ func X缓动回弹(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) floa
 // p: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动类型, Ease_Type_.
-func X缓动弹跳(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) float32 {
-	return 炫彩基类.X缓动_弹跳(位置, 缓动类型)
+
+// ff:缓动弹跳
+// flag:缓动类型
+// p:位置
+func Bounce(p float32, flag xcc.Ease_Type_) float32 {
+	return xc.XEase_Bounce(p, flag)
 }
 
 // 缓动_扩展, 全部缓动类型.
@@ -107,6 +150,10 @@ func X缓动弹跳(位置 float32, 缓动类型 炫彩常量类.Ease_Type_) floa
 // pos: 位置, 0.0f - 1.0f.
 //
 // flag: 缓动标识, Ease_Flag_.
-func X缓动EX(位置 float32, 缓动标识 炫彩常量类.Ease_Flag_) float32 {
-	return 炫彩基类.X缓动_全部缓动类型(位置, 缓动标识)
+
+// ff:缓动EX
+// flag:缓动标识
+// pos:位置
+func Ex(pos float32, flag xcc.Ease_Flag_) float32 {
+	return xc.XEase_Ex(pos, flag)
 }

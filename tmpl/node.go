@@ -1,8 +1,8 @@
-package 炫彩模板类
+package tmpl
 
 import (
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 节点.
@@ -13,16 +13,22 @@ type Node struct {
 // 模板_创建节点.
 //
 // nType: 对象类型: xcc.XC_OBJECT_TYPE : xcc.XC_.
-func X创建节点(对象类型 炫彩常量类.XC_OBJECT_TYPE) *Node {
+
+// ff:创建节点
+// nType:对象类型
+func NewNode(nType xcc.XC_OBJECT_TYPE) *Node {
 	p := &Node{
-		Handle: 炫彩基类.X模板_创建节点(对象类型),
+		Handle: xc.XTemp_CreateNode(nType),
 	}
 	return p
 }
 
 // 给本类的Handle赋值.
-func (n *Node) X设置句柄(句柄 int) {
-	n.Handle = 句柄
+
+// ff:设置句柄
+// handle:句柄
+func (n *Node) SetHandle(handle int) {
+	n.Handle = handle
 }
 
 // 模板_取节点, 获取节点, 根据itemID. 返回节点对象.
@@ -30,17 +36,22 @@ func (n *Node) X设置句柄(句柄 int) {
 // pNode: 节点指针.
 //
 // itemID: ID.
-func (n *Node) X取节点(ID int32) *Node {
+
+// ff:取节点
+// itemID:ID
+func (n *Node) GetNode(itemID int32) *Node {
 	p := &Node{
-		Handle: 炫彩基类.X模板_取节点(n.Handle, ID),
+		Handle: xc.XTemp_GetNode(n.Handle, itemID),
 	}
 	return p
 }
 
 // 模板_克隆节点, 获取列表项模板类型, 返回节点对象.
-func (n *Node) X取副本() *Node {
+
+// ff:取副本
+func (n *Node) CloneNode() *Node {
 	p := &Node{
-		Handle: 炫彩基类.X模板_克隆节点(n.Handle),
+		Handle: xc.XTemp_CloneNode(n.Handle),
 	}
 	return p
 }
@@ -48,8 +59,11 @@ func (n *Node) X取副本() *Node {
 // 模板_添加子节点.
 //
 // pNode: 节点指针.
-func (n *Node) X添加子节点(节点指针 int) bool {
-	return 炫彩基类.X模板_添加子节点(n.Handle, 节点指针)
+
+// ff:添加子节点
+// pNode:节点指针
+func (n *Node) AddNode(pNode int) bool {
+	return xc.XTemp_AddNode(n.Handle, pNode)
 }
 
 // 模板_置节点属性.
@@ -57,8 +71,12 @@ func (n *Node) X添加子节点(节点指针 int) bool {
 // pName: 属性名.
 //
 // pAttr: 属性值.
-func (n *Node) X置节点属性(属性名 string, 属性值 string) bool {
-	return 炫彩基类.X模板_置节点属性(n.Handle, 属性名, 属性值)
+
+// ff:置节点属性
+// pAttr:属性值
+// pName:属性名
+func (n *Node) SetNodeAttribute(pName string, pAttr string) bool {
+	return xc.XTemp_SetNodeAttribute(n.Handle, pName, pAttr)
 }
 
 // 模板_置节点属性扩展.
@@ -68,6 +86,11 @@ func (n *Node) X置节点属性(属性名 string, 属性值 string) bool {
 // pName: 属性名.
 //
 // pAttr: 属性值.
-func (n *Node) X置节点属性EX(模板项ID int32, 属性名 string, 属性值 string) bool {
-	return 炫彩基类.X模板_置节点属性EX(n.Handle, 模板项ID, 属性名, 属性值)
+
+// ff:置节点属性EX
+// pAttr:属性值
+// pName:属性名
+// itemID:模板项ID
+func (n *Node) SetNodeAttributeEx(itemID int32, pName string, pAttr string) bool {
+	return xc.XTemp_SetNodeAttributeEx(n.Handle, itemID, pName, pAttr)
 }

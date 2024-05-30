@@ -1,7 +1,7 @@
-package 炫彩基类
+package xc
 
 import (
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/xcc"
 	"os"
 	"strconv"
 	"strings"
@@ -12,6 +12,9 @@ import (
 //
 //	@param path 文件或文件夹.
 //	@return error 如果出错, 则不确定是否存在.
+
+// ff:
+// path:
 func PathExists(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil { // 如果返回的错误为nil,说明文件或文件夹存在
@@ -28,10 +31,15 @@ func PathExists(path string) (bool, error) {
 //
 //	@param arr [32]uint16.
 //	@return string
+
+// ff:
+// arr:
 func Font_Info_Name(arr [32]uint16) string {
 	return syscall.UTF16ToString(arr[0:])
 }
 
+// ff:
+// rc:
 func Rect2RectF(rc RECT) RECTF {
 	return RECTF{
 		Left:   float32(rc.Left),
@@ -42,6 +50,10 @@ func Rect2RectF(rc RECT) RECTF {
 }
 
 // PointInRect 判断一个点是否在矩形范围内.
+
+// ff:
+// rc:
+// pt:
 func PointInRect(pt POINT, rc RECT) bool {
 	return pt.X <= rc.Right && pt.X >= rc.Left && pt.Y <= rc.Bottom && pt.Y >= rc.Top
 }
@@ -53,6 +65,12 @@ func PointInRect(pt POINT, rc RECT) bool {
 //	@param b 蓝色分量.
 //	@param a 透明度.
 //	@return int ABGR颜色.
+
+// ff:
+// a:
+// b:
+// g:
+// r:
 func ABGR(r, g, b, a byte) int {
 	return int(uint32(r) | uint32(g)<<8 | uint32(b)<<16 | uint32(a)<<24)
 }
@@ -62,6 +80,10 @@ func ABGR(r, g, b, a byte) int {
 //	@param bgr BGR颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
+
+// ff:
+// a:
+// bgr:
 func ABGR2(bgr int, a byte) int {
 	return int((uint32(bgr) & 16777215) | (uint32(a)&255)<<24)
 }
@@ -73,6 +95,12 @@ func ABGR2(bgr int, a byte) int {
 //	@param b 蓝色分量.
 //	@param a 透明度.
 //	@return int ABGR颜色.
+
+// ff:
+// a:
+// b:
+// g:
+// r:
 func RGBA(r, g, b, a byte) int {
 	return int(uint32(r) | uint32(g)<<8 | uint32(b)<<16 | uint32(a)<<24)
 }
@@ -82,6 +110,10 @@ func RGBA(r, g, b, a byte) int {
 //	@param bgr BGR颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
+
+// ff:
+// a:
+// bgr:
 func RGBA2(bgr int, a byte) int {
 	return int((uint32(bgr) & 16777215) | uint32(a)<<24)
 }
@@ -92,6 +124,11 @@ func RGBA2(bgr int, a byte) int {
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@return int BGR颜色.
+
+// ff:
+// b:
+// g:
+// r:
 func BGR(r, g, b byte) int {
 	return int(uint32(r) | uint32(g)<<8 | uint32(b)<<16)
 }
@@ -102,6 +139,11 @@ func BGR(r, g, b byte) int {
 //	@param g 绿色分量.
 //	@param b 蓝色分量.
 //	@return int RGB颜色.
+
+// ff:
+// b:
+// g:
+// r:
 func RGB(r, g, b byte) int {
 	return int(uint32(b) | uint32(g)<<8 | uint32(r)<<16)
 }
@@ -111,6 +153,10 @@ func RGB(r, g, b byte) int {
 //	@param rgb RGB颜色.
 //	@param a 透明度.
 //	@return int ABGR颜色.
+
+// ff:
+// a:
+// rgb:
 func RGB2ABGR(rgb int, a byte) int {
 	r := rgb % 256
 	g := (rgb / 256) % 256
@@ -122,6 +168,9 @@ func RGB2ABGR(rgb int, a byte) int {
 //
 //	@param rgb RGB颜色.
 //	@return int BGR颜色.
+
+// ff:
+// rgb:
 func RGB2BGR(rgb int) int {
 	r := byte(rgb % 256)
 	g := byte((rgb / 256) % 256)
@@ -133,6 +182,9 @@ func RGB2BGR(rgb int) int {
 //
 //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@return int BGR颜色.
+
+// ff:
+// str:
 func HexRGB2BGR(str string) int {
 	s := strings.TrimLeft(str, "#")
 	r, _ := strconv.ParseInt(s[:2], 16, 10)
@@ -146,6 +198,10 @@ func HexRGB2BGR(str string) int {
 //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@param a 透明度.
 //	@return int ABGR颜色.
+
+// ff:
+// a:
+// str:
 func HexRGB2ABGR(str string, a byte) int {
 	s := strings.TrimLeft(str, "#")
 	r, _ := strconv.ParseInt(s[:2], 16, 10)
@@ -158,6 +214,9 @@ func HexRGB2ABGR(str string, a byte) int {
 //
 //	@param str 十六进制RGB颜色, 开头有没有#都可以.
 //	@return int RGB颜色.
+
+// ff:
+// str:
 func HexRGB2RGB(str string) int {
 	s := strings.TrimLeft(str, "#")
 	r, _ := strconv.ParseInt(s[:2], 16, 10)
@@ -172,25 +231,31 @@ func HexRGB2RGB(str string) int {
 //
 //	@param HXCGUI 炫彩窗口句柄或布局元素句柄.
 //	@param onBnClick 按钮单击事件回调函数.
+
+// ff:
+// onBnClick:
+// pbHandled:
+// hEle:
+// HXCGUI:
 func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
-	if X判断窗口(HXCGUI) {
-		for i := 0; i < X窗口_取子对象数量(HXCGUI); i++ {
-			hEle := X窗口_取子对象从索引(HXCGUI, i)
-			switch X取对象类型(hEle) {
-			case 炫彩常量类.XC_ELE_LAYOUT:
+	if XC_IsHWINDOW(HXCGUI) {
+		for i := 0; i < XWnd_GetChildCount(HXCGUI); i++ {
+			hEle := XWnd_GetChildByIndex(HXCGUI, i)
+			switch XC_GetObjectType(hEle) {
+			case xcc.XC_ELE_LAYOUT:
 				SetBnClicks(hEle, onBnClick)
-			case 炫彩常量类.XC_BUTTON:
-				X元素_注册事件C1(hEle, 炫彩常量类.XE_BNCLICK, onBnClick)
+			case xcc.XC_BUTTON:
+				XEle_RegEventC1(hEle, xcc.XE_BNCLICK, onBnClick)
 			}
 		}
-	} else if X取对象类型(HXCGUI) == 炫彩常量类.XC_ELE_LAYOUT {
-		for i := 0; i < X元素_取子对象数量(HXCGUI); i++ {
-			hEle := X元素_取子对象从索引(HXCGUI, i)
-			switch X取对象类型(hEle) {
-			case 炫彩常量类.XC_ELE_LAYOUT:
+	} else if XC_GetObjectType(HXCGUI) == xcc.XC_ELE_LAYOUT {
+		for i := 0; i < XEle_GetChildCount(HXCGUI); i++ {
+			hEle := XEle_GetChildByIndex(HXCGUI, i)
+			switch XC_GetObjectType(hEle) {
+			case xcc.XC_ELE_LAYOUT:
 				SetBnClicks(hEle, onBnClick)
-			case 炫彩常量类.XC_BUTTON:
-				X元素_注册事件C1(hEle, 炫彩常量类.XE_BNCLICK, onBnClick)
+			case xcc.XC_BUTTON:
+				XEle_RegEventC1(hEle, xcc.XE_BNCLICK, onBnClick)
 			}
 		}
 	}
@@ -199,6 +264,10 @@ func SetBnClicks(HXCGUI int, onBnClick func(hEle int, pbHandled *bool) int) {
 // Deprecated
 //
 // !已废弃, 请使用 xc.XWnd_ClientToScreen 或 wapi.ClientToScreen
+
+// ff:
+// pPoint:
+// hWindow:
 func ClientToScreen(hWindow int, pPoint *POINT) {
-	X窗口_客户区坐标点到屏幕坐标点(hWindow, pPoint)
+	XWnd_ClientToScreen(hWindow, pPoint)
 }

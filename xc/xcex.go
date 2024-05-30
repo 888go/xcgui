@@ -1,4 +1,4 @@
-package 炫彩基类
+package xc
 
 import (
 	"sync"
@@ -7,12 +7,12 @@ import (
 
 var (
 	uiThreadCallBackFunc func(data int) int
-	uiThreadCallBackPtr  = syscall.NewCallback(XUI线程回调函数)
+	uiThreadCallBackPtr  = syscall.NewCallback(uiThreadCallBack)
 	rwm                  sync.RWMutex
 )
 
 // uiThreadCallBack UI线程回调函数
-func XUI线程回调函数(data int) int {
+func uiThreadCallBack(data int) int {
 	return uiThreadCallBackFunc(data)
 }
 
@@ -22,9 +22,14 @@ func XUI线程回调函数(data int) int {
 //	@param f 回调函数.
 //	@param data 传进回调函数的用户自定义数据.
 //	@return int
-func X炫彩_调用界面线程Ex(回调函数 func(data int) int, data int) int {
+
+// ff:炫彩_调用界面线程Ex
+// data:
+// f:回调函数
+// data:
+func XC_CallUiThreadEx(f func(data int) int, data int) int {
 	rwm.Lock()
-	uiThreadCallBackFunc = 回调函数
+	uiThreadCallBackFunc = f
 	r, _, _ := xC_CallUiThread.Call(uiThreadCallBackPtr, uintptr(data))
 	rwm.Unlock()
 	return int(r)
@@ -34,10 +39,13 @@ func X炫彩_调用界面线程Ex(回调函数 func(data int) int, data int) int
 //
 //	@Description: 与 xc.XC_CallUiThread 的区别是: 本函数没有2000个回调上限的限制, 回调函数可以直接使用匿名函数. 回调函数没有参数也没有返回值.
 //	@param f 回调函数, 没有参数也没有返回值, 可以直接使用匿名函数.
-func X炫彩_调用界面线程(回调函数 func()) {
+
+// ff:炫彩_调用界面线程
+// f:回调函数
+func XC_CallUT(f func()) {
 	rwm.Lock()
 	uiThreadCallBackFunc = func(data int) int {
-		回调函数()
+		f()
 		return 0
 	}
 	xC_CallUiThread.Call(uiThreadCallBackPtr, uintptr(0))
@@ -55,7 +63,11 @@ type UiThreader interface {
 //	@param u xc.UiThreader.
 //	@param data 传进回调函数的用户自定义数据.
 //	@return int
-func X炫彩_调用界面线程1(u UiThreader, data int) int {
+
+// ff:炫彩_调用界面线程1
+// data:
+// u:
+func XC_CallUiThreader(u UiThreader, data int) int {
 	rwm.Lock()
 	uiThreadCallBackFunc = u.UiThreadCallBack
 	r, _, _ := xC_CallUiThread.Call(uiThreadCallBackPtr, uintptr(data))

@@ -1,23 +1,29 @@
-package 炫彩基类
+package xc
 
 import (
-	"github.com/888go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"unsafe"
 )
 
 // SVG_加载从文件, 返回SVG句柄.
 //
 // pFileName: 文件名.
-func SVG_加载从文件(文件名 string) int {
-	r, _, _ := xSvg_LoadFile.Call(炫彩工具类.StrPtr(文件名))
+
+// ff:SVG_加载从文件
+// pFileName:文件名
+func XSvg_LoadFile(pFileName string) int {
+	r, _, _ := xSvg_LoadFile.Call(common.StrPtr(pFileName))
 	return int(r)
 }
 
 // SVG_加载从字符串, 返回SVG句柄.
 //
 // pString: 字符串.
-func SVG_加载从字符串(字符串 string) int {
-	r, _, _ := xSvg_LoadString.Call(W2A(字符串))
+
+// ff:SVG_加载从字符串
+// pString:字符串
+func XSvg_LoadString(pString string) int {
+	r, _, _ := xSvg_LoadString.Call(XC_wtoa(pString))
 	return int(r)
 }
 
@@ -28,8 +34,13 @@ func SVG_加载从字符串(字符串 string) int {
 // pFileName: svg文件名.
 //
 // pPassword: zip密码.
-func SVG_加载从ZIP(zip文件名, svg文件名, zip密码 string) int {
-	r, _, _ := xSvg_LoadZip.Call(炫彩工具类.StrPtr(zip文件名), 炫彩工具类.StrPtr(svg文件名), 炫彩工具类.StrPtr(zip密码))
+
+// ff:SVG_加载从ZIP
+// pPassword:zip密码
+// pFileName:svg文件名
+// pZipFileName:zip文件名
+func XSvg_LoadZip(pZipFileName, pFileName, pPassword string) int {
+	r, _, _ := xSvg_LoadZip.Call(common.StrPtr(pZipFileName), common.StrPtr(pFileName), common.StrPtr(pPassword))
 	return int(r)
 }
 
@@ -42,8 +53,14 @@ func SVG_加载从ZIP(zip文件名, svg文件名, zip密码 string) int {
 // pPassword: zip密码.
 //
 // hModule: 模块句柄, 可填0.
-func SVG_加载从资源ZIP(资源ID int32, svg文件名, zip密码 string, 模块句柄 uintptr) int {
-	r, _, _ := xSvg_LoadZipRes.Call(uintptr(资源ID), 炫彩工具类.StrPtr(svg文件名), 炫彩工具类.StrPtr(zip密码), 模块句柄)
+
+// ff:SVG_加载从资源ZIP
+// hModule:模块句柄
+// pPassword:zip密码
+// pFileName:svg文件名
+// id:资源ID
+func XSvg_LoadZipRes(id int32, pFileName, pPassword string, hModule uintptr) int {
+	r, _, _ := xSvg_LoadZipRes.Call(uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
 	return int(r)
 }
 
@@ -54,8 +71,13 @@ func SVG_加载从资源ZIP(资源ID int32, svg文件名, zip密码 string, 模�
 // pType: 资源类型.在rc资源文件中.
 //
 // hModule: 从指定模块加载.
-func SVG_加载从资源(资源ID int32, 资源类型 string, 从指定模块加载 uintptr) int {
-	r, _, _ := xSvg_LoadRes.Call(uintptr(资源ID), 炫彩工具类.StrPtr(资源类型), 从指定模块加载)
+
+// ff:SVG_加载从资源
+// hModule:从指定模块加载
+// pType:资源类型
+// id:资源ID
+func XSvg_LoadRes(id int32, pType string, hModule uintptr) int {
+	r, _, _ := xSvg_LoadRes.Call(uintptr(id), common.StrPtr(pType), hModule)
 	return int(r)
 }
 
@@ -66,8 +88,13 @@ func SVG_加载从资源(资源ID int32, 资源类型 string, 从指定模块加
 // nWidth: 宽度.
 //
 // nHeight: 高度.
-func SVG_置大小(SVG句柄 int, 宽度, 高度 int32) {
-	xSvg_SetSize.Call(uintptr(SVG句柄), uintptr(宽度), uintptr(高度))
+
+// ff:SVG_置大小
+// nHeight:高度
+// nWidth:宽度
+// hSvg:SVG句柄
+func XSvg_SetSize(hSvg int, nWidth, nHeight int32) {
+	xSvg_SetSize.Call(uintptr(hSvg), uintptr(nWidth), uintptr(nHeight))
 }
 
 // SVG_取大小.
@@ -77,23 +104,34 @@ func SVG_置大小(SVG句柄 int, 宽度, 高度 int32) {
 // pWidth: 接收返回宽度.
 //
 // pHeight: 接收返回高度.
-func SVG_取大小(SVG句柄 int, 接收返回宽度, 接收返回高度 *int32) {
-	xSvg_GetSize.Call(uintptr(SVG句柄), uintptr(unsafe.Pointer(接收返回宽度)), uintptr(unsafe.Pointer(接收返回高度)))
+
+// ff:SVG_取大小
+// pHeight:接收返回高度
+// pWidth:接收返回宽度
+// hSvg:SVG句柄
+func XSvg_GetSize(hSvg int, pWidth, pHeight *int32) {
+	xSvg_GetSize.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pWidth)), uintptr(unsafe.Pointer(pHeight)))
 }
 
 // SVG_取宽度.
 //
 // hSvg: SVG句柄.
-func SVG_取宽度(SVG句柄 int) int32 {
-	r, _, _ := xSvg_GetWidth.Call(uintptr(SVG句柄))
+
+// ff:SVG_取宽度
+// hSvg:SVG句柄
+func XSvg_GetWidth(hSvg int) int32 {
+	r, _, _ := xSvg_GetWidth.Call(uintptr(hSvg))
 	return int32(r)
 }
 
 // SVG_取高度.
 //
 // hSvg: SVG句柄.
-func SVG_取高度(SVG句柄 int) int32 {
-	r, _, _ := xSvg_GetHeight.Call(uintptr(SVG句柄))
+
+// ff:SVG_取高度
+// hSvg:SVG句柄
+func XSvg_GetHeight(hSvg int) int32 {
+	r, _, _ := xSvg_GetHeight.Call(uintptr(hSvg))
 	return int32(r)
 }
 
@@ -104,8 +142,13 @@ func SVG_取高度(SVG句柄 int) int32 {
 // x: x轴偏移.
 //
 // y: y轴偏移.
-func SVG_置偏移(SVG句柄 int, x轴偏移, y轴偏移 int32) {
-	xSvg_SetPosition.Call(uintptr(SVG句柄), uintptr(x轴偏移), uintptr(y轴偏移))
+
+// ff:SVG_置偏移
+// y:y轴偏移
+// x:x轴偏移
+// hSvg:SVG句柄
+func XSvg_SetPosition(hSvg int, x, y int32) {
+	xSvg_SetPosition.Call(uintptr(hSvg), uintptr(x), uintptr(y))
 }
 
 // SVG_取偏移.
@@ -115,8 +158,13 @@ func SVG_置偏移(SVG句柄 int, x轴偏移, y轴偏移 int32) {
 // pX: x轴偏移.
 //
 // pY: y轴偏移.
-func SVG_取偏移(SVG句柄 int, x轴偏移, y轴偏移 *int32) {
-	xSvg_GetPosition.Call(uintptr(SVG句柄), uintptr(unsafe.Pointer(x轴偏移)), uintptr(unsafe.Pointer(y轴偏移)))
+
+// ff:SVG_取偏移
+// pY:y轴偏移
+// pX:x轴偏移
+// hSvg:SVG句柄
+func XSvg_GetPosition(hSvg int, pX, pY *int32) {
+	xSvg_GetPosition.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pX)), uintptr(unsafe.Pointer(pY)))
 }
 
 // SVG_置偏移F.
@@ -126,8 +174,13 @@ func SVG_取偏移(SVG句柄 int, x轴偏移, y轴偏移 *int32) {
 // x: x轴偏移.
 //
 // y: y轴偏移.
-func SVG_置偏移F(SVG句柄 int, x轴偏移, y轴偏移 float32) {
-	xSvg_SetPositionF.Call(uintptr(SVG句柄), 炫彩工具类.Float32Ptr(x轴偏移), 炫彩工具类.Float32Ptr(y轴偏移))
+
+// ff:SVG_置偏移F
+// y:y轴偏移
+// x:x轴偏移
+// hSvg:SVG句柄
+func XSvg_SetPositionF(hSvg int, x, y float32) {
+	xSvg_SetPositionF.Call(uintptr(hSvg), common.Float32Ptr(x), common.Float32Ptr(y))
 }
 
 // SVG_取偏移F.
@@ -137,8 +190,13 @@ func SVG_置偏移F(SVG句柄 int, x轴偏移, y轴偏移 float32) {
 // pX: x轴偏移.
 //
 // pY: y轴偏移.
-func SVG_取偏移F(SVG句柄 int, x轴偏移, y轴偏移 *float32) {
-	xSvg_GetPositionF.Call(uintptr(SVG句柄), uintptr(unsafe.Pointer(x轴偏移)), uintptr(unsafe.Pointer(y轴偏移)))
+
+// ff:SVG_取偏移F
+// pY:y轴偏移
+// pX:x轴偏移
+// hSvg:SVG句柄
+func XSvg_GetPositionF(hSvg int, pX, pY *float32) {
+	xSvg_GetPositionF.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pX)), uintptr(unsafe.Pointer(pY)))
 }
 
 // SVG_取视图框.
@@ -146,8 +204,12 @@ func SVG_取偏移F(SVG句柄 int, x轴偏移, y轴偏移 *float32) {
 // hSvg: SVG句柄.
 //
 // pViewBox: 接收返回视图框.
-func SVG_取视图框(SVG句柄 int, 接收返回视图框 *RECT) {
-	xSvg_GetViewBox.Call(uintptr(SVG句柄), uintptr(unsafe.Pointer(接收返回视图框)))
+
+// ff:SVG_取视图框
+// pViewBox:接收返回视图框
+// hSvg:SVG句柄
+func XSvg_GetViewBox(hSvg int, pViewBox *RECT) {
+	xSvg_GetViewBox.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pViewBox)))
 }
 
 // SVG_启用自动销毁.
@@ -155,37 +217,53 @@ func SVG_取视图框(SVG句柄 int, 接收返回视图框 *RECT) {
 // hSvg: SVG句柄.
 //
 // bEnable: 是否自动销毁.
-func SVG_启用自动销毁(SVG句柄 int, 是否自动销毁 bool) {
-	xSvg_EnableAutoDestroy.Call(uintptr(SVG句柄), 炫彩工具类.BoolPtr(是否自动销毁))
+
+// ff:SVG_启用自动销毁
+// bEnable:是否自动销毁
+// hSvg:SVG句柄
+func XSvg_EnableAutoDestroy(hSvg int, bEnable bool) {
+	xSvg_EnableAutoDestroy.Call(uintptr(hSvg), common.BoolPtr(bEnable))
 }
 
 // SVG_增加引用计数.
 //
 // hSvg: SVG句柄.
-func SVG_增加引用计数(SVG句柄 int) {
-	xSvg_AddRef.Call(uintptr(SVG句柄))
+
+// ff:SVG_增加引用计数
+// hSvg:SVG句柄
+func XSvg_AddRef(hSvg int) {
+	xSvg_AddRef.Call(uintptr(hSvg))
 }
 
 // SVG_释放引用计数.
 //
 // hSvg: SVG句柄.
-func SVG_释放引用计数(SVG句柄 int) {
-	xSvg_Release.Call(uintptr(SVG句柄))
+
+// ff:SVG_释放引用计数
+// hSvg:SVG句柄
+func XSvg_Release(hSvg int) {
+	xSvg_Release.Call(uintptr(hSvg))
 }
 
 // SVG_取引用计数.
 //
 // hSvg: SVG句柄.
-func SVG_取引用计数(SVG句柄 int) int32 {
-	r, _, _ := xSvg_GetRefCount.Call(uintptr(SVG句柄))
+
+// ff:SVG_取引用计数
+// hSvg:SVG句柄
+func XSvg_GetRefCount(hSvg int) int32 {
+	r, _, _ := xSvg_GetRefCount.Call(uintptr(hSvg))
 	return int32(r)
 }
 
 // SVG_销毁.
 //
 // hSvg: SVG句柄.
-func SVG_销毁(SVG句柄 int) {
-	xSvg_Destroy.Call(uintptr(SVG句柄))
+
+// ff:SVG_销毁
+// hSvg:SVG句柄
+func XSvg_Destroy(hSvg int) {
+	xSvg_Destroy.Call(uintptr(hSvg))
 }
 
 // SVG_置透明度.
@@ -193,15 +271,22 @@ func SVG_销毁(SVG句柄 int) {
 // hSvg: SVG句柄.
 //
 // alpha: 透明度.
-func SVG_置透明度(SVG句柄 int, 透明度 byte) {
-	xSvg_SetAlpha.Call(uintptr(SVG句柄), uintptr(透明度))
+
+// ff:SVG_置透明度
+// alpha:透明度
+// hSvg:SVG句柄
+func XSvg_SetAlpha(hSvg int, alpha byte) {
+	xSvg_SetAlpha.Call(uintptr(hSvg), uintptr(alpha))
 }
 
 // SVG_取透明度, 返回透明度.
 //
 // hSvg: SVG句柄.
-func SVG_取透明度(SVG句柄 int) byte {
-	r, _, _ := xSvg_GetAlpha.Call(uintptr(SVG句柄))
+
+// ff:SVG_取透明度
+// hSvg:SVG句柄
+func XSvg_GetAlpha(hSvg int) byte {
+	r, _, _ := xSvg_GetAlpha.Call(uintptr(hSvg))
 	return byte(r)
 }
 
@@ -212,8 +297,13 @@ func SVG_取透明度(SVG句柄 int) byte {
 // color: 颜色, AGBR颜色.
 //
 // bEnable: 是否有效.
-func SVG_置用户填充颜色(SVG句柄 int, AGBR颜色 int, 是否有效 bool) {
-	xSvg_SetUserFillColor.Call(uintptr(SVG句柄), uintptr(AGBR颜色), 炫彩工具类.BoolPtr(是否有效))
+
+// ff:SVG_置用户填充颜色
+// bEnable:是否有效
+// color:AGBR颜色
+// hSvg:SVG句柄
+func XSvg_SetUserFillColor(hSvg int, color int, bEnable bool) {
+	xSvg_SetUserFillColor.Call(uintptr(hSvg), uintptr(color), common.BoolPtr(bEnable))
 }
 
 // SVG_置用户笔触颜色, 用户颜色将覆盖默认样式.
@@ -225,8 +315,14 @@ func SVG_置用户填充颜色(SVG句柄 int, AGBR颜色 int, 是否有效 bool)
 // strokeWidth: 笔触宽度.
 //
 // bEnable: 是否有效.
-func SVG_置用户笔触颜色(SVG句柄 int, AGBR颜色 int, 笔触宽度 float32, 是否有效 bool) {
-	xSvg_SetUserStrokeColor.Call(uintptr(SVG句柄), uintptr(AGBR颜色), 炫彩工具类.Float32Ptr(笔触宽度), 炫彩工具类.BoolPtr(是否有效))
+
+// ff:SVG_置用户笔触颜色
+// bEnable:是否有效
+// strokeWidth:笔触宽度
+// color:AGBR颜色
+// hSvg:SVG句柄
+func XSvg_SetUserStrokeColor(hSvg int, color int, strokeWidth float32, bEnable bool) {
+	xSvg_SetUserStrokeColor.Call(uintptr(hSvg), uintptr(color), common.Float32Ptr(strokeWidth), common.BoolPtr(bEnable))
 }
 
 // SVG_取用户填充颜色.
@@ -234,8 +330,12 @@ func SVG_置用户笔触颜色(SVG句柄 int, AGBR颜色 int, 笔触宽度 float
 // hSvg: SVG句柄.
 //
 // pColor: 返回颜色值, AGBR颜色.
-func SVG_取用户填充颜色(SVG句柄 int, 返回颜色值 *int) bool {
-	r, _, _ := xSvg_GetUserFillColor.Call(uintptr(SVG句柄), uintptr(unsafe.Pointer(返回颜色值)))
+
+// ff:SVG_取用户填充颜色
+// pColor:返回颜色值
+// hSvg:SVG句柄
+func XSvg_GetUserFillColor(hSvg int, pColor *int) bool {
+	r, _, _ := xSvg_GetUserFillColor.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pColor)))
 	return r != 0
 }
 
@@ -246,8 +346,13 @@ func SVG_取用户填充颜色(SVG句柄 int, 返回颜色值 *int) bool {
 // pColor: 返回颜色值, AGBR颜色.
 //
 // pStrokeWidth: .
-func SVG_取用户笔触颜色(SVG句柄 int, 返回颜色值 *int, pStrokeWidth *float32) bool {
-	r, _, _ := xSvg_GetUserStrokeColor.Call(uintptr(SVG句柄), uintptr(unsafe.Pointer(返回颜色值)), uintptr(unsafe.Pointer(pStrokeWidth)))
+
+// ff:SVG_取用户笔触颜色
+// pStrokeWidth:
+// pColor:返回颜色值
+// hSvg:SVG句柄
+func XSvg_GetUserStrokeColor(hSvg int, pColor *int, pStrokeWidth *float32) bool {
+	r, _, _ := xSvg_GetUserStrokeColor.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pColor)), uintptr(unsafe.Pointer(pStrokeWidth)))
 	return r != 0
 }
 
@@ -256,16 +361,23 @@ func SVG_取用户笔触颜色(SVG句柄 int, 返回颜色值 *int, pStrokeWidth
 // hSvg: SVG句柄.
 //
 // angle: 转角度.
-func SVG_置旋转角度(SVG句柄 int, 转角度 float32) {
-	xSvg_SetRotateAngle.Call(uintptr(SVG句柄), 炫彩工具类.Float32Ptr(转角度))
+
+// ff:SVG_置旋转角度
+// angle:转角度
+// hSvg:SVG句柄
+func XSvg_SetRotateAngle(hSvg int, angle float32) {
+	xSvg_SetRotateAngle.Call(uintptr(hSvg), common.Float32Ptr(angle))
 }
 
 // SVG_取旋转角度, 返回旋转角度.
 //
 // hSvg: SVG句柄.
-func SVG_取旋转角度(SVG句柄 int) float32 {
-	_, r, _ := xSvg_GetRotateAngle.Call(uintptr(SVG句柄))
-	return 炫彩工具类.UintPtrToFloat32(r)
+
+// ff:SVG_取旋转角度
+// hSvg:SVG句柄
+func XSvg_GetRotateAngle(hSvg int) float32 {
+	_, r, _ := xSvg_GetRotateAngle.Call(uintptr(hSvg))
+	return common.UintPtrToFloat32(r)
 }
 
 // SVG_置旋转.
@@ -279,8 +391,15 @@ func SVG_取旋转角度(SVG句柄 int) float32 {
 // y: 旋转中心点Y.
 //
 // bOffset: TRUE: 旋转中心点相对于自身中心偏移, FALSE:使用绝对坐标.
-func SVG_置旋转(SVG句柄 int, 角度 float32, 旋转中心点X float32, 旋转中心点Y float32, TRUE bool) {
-	xSvg_SetRotate.Call(uintptr(SVG句柄), 炫彩工具类.Float32Ptr(角度), 炫彩工具类.Float32Ptr(旋转中心点X), 炫彩工具类.Float32Ptr(旋转中心点Y), 炫彩工具类.BoolPtr(TRUE))
+
+// ff:SVG_置旋转
+// bOffset:TRUE
+// y:旋转中心点Y
+// x:旋转中心点X
+// angle:角度
+// hSvg:SVG句柄
+func XSvg_SetRotate(hSvg int, angle float32, x float32, y float32, bOffset bool) {
+	xSvg_SetRotate.Call(uintptr(hSvg), common.Float32Ptr(angle), common.Float32Ptr(x), common.Float32Ptr(y), common.BoolPtr(bOffset))
 }
 
 // SVG_取旋转.
@@ -294,8 +413,15 @@ func SVG_置旋转(SVG句柄 int, 角度 float32, 旋转中心点X float32, 旋�
 // pY: 返回 旋转中心点Y.
 //
 // pbOffset: 返回TRUE: 旋转中心点相对于自身中心偏移, FALSE:使用绝对坐标.
-func SVG_取旋转(SVG句柄 int, 返回角度 *float32, 返回旋转中心点X *float32, 返回旋转中心点Y *float32, 返回TRUE *bool) {
-	xSvg_GetRotate.Call(uintptr(SVG句柄), uintptr(unsafe.Pointer(返回角度)), uintptr(unsafe.Pointer(返回旋转中心点X)), uintptr(unsafe.Pointer(返回旋转中心点Y)), uintptr(unsafe.Pointer(返回TRUE)))
+
+// ff:SVG_取旋转
+// pbOffset:返回TRUE
+// pY:返回旋转中心点Y
+// pX:返回旋转中心点X
+// pAngle:返回角度
+// hSvg:SVG句柄
+func XSvg_GetRotate(hSvg int, pAngle *float32, pX *float32, pY *float32, pbOffset *bool) {
+	xSvg_GetRotate.Call(uintptr(hSvg), uintptr(unsafe.Pointer(pAngle)), uintptr(unsafe.Pointer(pX)), uintptr(unsafe.Pointer(pY)), uintptr(unsafe.Pointer(pbOffset)))
 }
 
 // SVG_显示, 显示或隐藏.
@@ -303,23 +429,33 @@ func SVG_取旋转(SVG句柄 int, 返回角度 *float32, 返回旋转中心点X 
 // hSvg: SVG句柄.
 //
 // bShow: 是否显示.
-func SVG_显示(SVG句柄 int, 是否显示 bool) {
-	xSvg_Show.Call(uintptr(SVG句柄), 炫彩工具类.BoolPtr(是否显示))
+
+// ff:SVG_显示
+// bShow:是否显示
+// hSvg:SVG句柄
+func XSvg_Show(hSvg int, bShow bool) {
+	xSvg_Show.Call(uintptr(hSvg), common.BoolPtr(bShow))
 }
 
 // SVG_加载从字符串W.
 //
 // pString: 字符串.
-func SVG_加载从字符串W(字符串 string) int {
-	r, _, _ := xSvg_LoadStringW.Call(炫彩工具类.StrPtr(字符串))
+
+// ff:SVG_加载从字符串W
+// pString:字符串
+func XSvg_LoadStringW(pString string) int {
+	r, _, _ := xSvg_LoadStringW.Call(common.StrPtr(pString))
 	return int(r)
 }
 
 // SVG_加载从字符串UTF8.
 //
 // pString: 字符串.
-func SVG_加载从字符串UTF8(字符串 string) int {
-	r, _, _ := xSvg_LoadStringUtf8.Call(X文本W到UTF8(字符串))
+
+// ff:SVG_加载从字符串UTF8
+// pString:字符串
+func XSvg_LoadStringUtf8(pString string) int {
+	r, _, _ := xSvg_LoadStringUtf8.Call(XC_wtoutf8(pString))
 	return int(r)
 }
 
@@ -330,7 +466,12 @@ func SVG_加载从字符串UTF8(字符串 string) int {
 // pFileName: svg文件名.
 //
 // pPassword: zip密码.
-func SVG_加载从内存ZIP(zip数据 []byte, svg文件名, zip密码 string) int {
-	r, _, _ := xSvg_LoadZipMem.Call(炫彩工具类.ByteSliceDataPtr(&zip数据), uintptr(len(zip数据)), 炫彩工具类.StrPtr(svg文件名), 炫彩工具类.StrPtr(zip密码))
+
+// ff:SVG_加载从内存ZIP
+// pPassword:zip密码
+// pFileName:svg文件名
+// data:zip数据
+func XSvg_LoadZipMem(data []byte, pFileName, pPassword string) int {
+	r, _, _ := xSvg_LoadZipMem.Call(common.ByteSliceDataPtr(&data), uintptr(len(data)), common.StrPtr(pFileName), common.StrPtr(pPassword))
 	return int(r)
 }

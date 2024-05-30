@@ -1,8 +1,8 @@
-package 炫彩对象基类
+package objectbase
 
 import (
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // UI 可视对象.
@@ -14,36 +14,49 @@ type UI struct {
 //
 //	@param nStyle xcc.XC_OBJECT_STYLE, 样式值: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
 //	@return int
-func (u *UI) X置样式(样式值 炫彩常量类.XC_OBJECT_STYLE) int {
-	return 炫彩基类.X可视对象_置样式(u.Handle, 样式值)
+
+// ff:置样式
+// nStyle:样式值
+func (u *UI) SetStyle(nStyle xcc.XC_OBJECT_STYLE) int {
+	return xc.XUI_SetStyle(u.Handle, nStyle)
 }
 
 // GetStyle 可视对象_取样式, 获取UI对象样式.
 //
 //	@return xcc.XC_OBJECT_STYLE 返回: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
-func (u *UI) X取样式() 炫彩常量类.XC_OBJECT_STYLE {
-	return 炫彩基类.X可视对象_取样式(u.Handle)
+
+// ff:取样式
+func (u *UI) GetStyle() xcc.XC_OBJECT_STYLE {
+	return xc.XUI_GetStyle(u.Handle)
 }
 
 // EnableCSS 可视对象_启用CSS, 启用或禁用样式.
 //
 //	@param bEnable 是否启用.
 //	@return int
-func (u *UI) X启用CSS(是否启用 bool) int {
-	return 炫彩基类.X可视对象_启用CSS(u.Handle, 是否启用)
+
+// ff:启用CSS
+// bEnable:是否启用
+func (u *UI) EnableCSS(bEnable bool) int {
+	return xc.XUI_EnableCSS(u.Handle, bEnable)
 }
 
 // SetCssName 可视对象_置CSS名称, 设置CSS[套用样式]名称.
 //
 //	@param pName 套用样式名称.
 //	@return int
-func (u *UI) X置CSS名称(套用样式名称 string) int {
-	return 炫彩基类.X可视对象_置CSS名称(u.Handle, 套用样式名称)
+
+// ff:置CSS名称
+// pName:套用样式名称
+func (u *UI) SetCssName(pName string) int {
+	return xc.XUI_SetCssName(u.Handle, pName)
 }
 
 // GetCssName 可视对象_取CSS名称, 获取CSS样式名称.
 //
 //	@return string
-func (u *UI) X取CSS名称() string {
-	return 炫彩基类.X可视对象_取CSS名称(u.Handle)
+
+// ff:取CSS名称
+func (u *UI) GetCssName() string {
+	return xc.XUI_GetCssName(u.Handle)
 }

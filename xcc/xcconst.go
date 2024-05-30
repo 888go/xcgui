@@ -1,4 +1,4 @@
-package 炫彩常量类
+package xcc
 
 // XC_NAME
 
@@ -363,7 +363,6 @@ const (
 type Element_Position_ int
 
 const (
-
 	Element_Position_No     Element_Position_ = 0x00 // 无效
 	Element_Position_Left   Element_Position_ = 0x01 // 左边
 	Element_Position_Top    Element_Position_ = 0x02 // 上边
@@ -482,6 +481,7 @@ const (
 	Edit_TextAlign_Flag_Left   Edit_TextAlign_Flag_ = 0x0 // 左侧
 	Edit_TextAlign_Flag_Right  Edit_TextAlign_Flag_ = 0x1 // 右侧
 	Edit_TextAlign_Flag_Center Edit_TextAlign_Flag_ = 0x2 // 水平居中
+
 	Edit_TextAlign_Flag_Top      Edit_TextAlign_Flag_ = 0x0 // 顶部
 	Edit_TextAlign_Flag_Bottom   Edit_TextAlign_Flag_ = 0x4 // 底部
 	Edit_TextAlign_Flag_Center_V Edit_TextAlign_Flag_ = 0x8 // 垂直居中

@@ -1,3 +1,3 @@
-module github.com/888go/xcgui
+module github.com/twgh/xcgui
 
 go 1.16

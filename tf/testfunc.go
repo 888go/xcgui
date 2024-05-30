@@ -1,20 +1,25 @@
 package tf
 
 import (
-	"github.com/888go/xcgui/app"
-	"github.com/888go/xcgui/window"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/app"
+	"github.com/twgh/xcgui/window"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // TFunc 测试用程序.
 //
 //	@Description: 测试时使用的函数.
 //	@param f
-func TFunc(f func(a *炫彩App类.App, w *炫彩窗口基类.Window)) {
-	a := 炫彩App类.X创建(true)
-	w := 炫彩窗口基类.X创建窗口(0, 0, 600, 400, "Test", 0, 炫彩常量类.Window_Style_Default)
+
+// ff:
+// f:
+// w:
+// a:
+func TFunc(f func(a *app.App, w *window.Window)) {
+	a := app.New(true)
+	w := window.New(0, 0, 600, 400, "Test", 0, xcc.Window_Style_Default)
 	f(a, w)
-	w.X显示(true)
-	a.X运行()
-	a.X退出()
+	w.Show(true)
+	a.Run()
+	a.Exit()
 }

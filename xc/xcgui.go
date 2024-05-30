@@ -1,4 +1,4 @@
-package 炫彩基类
+package xc
 
 import (
 	"errors"
@@ -9,7 +9,9 @@ import (
 )
 
 // GetVer 获取当前库版本所需的 xcgui.dll 的版本号.
-func X取当前炫彩版本() string {
+
+// ff:取当前炫彩版本
+func GetVer() string {
 	return "3.3.8.1"
 }
 
@@ -22,7 +24,10 @@ var xcguiPath = "xcgui.dll"
 //
 //	@param XcguiPath dll完整路径（目录+文件名）, 也可以是相对路径.
 //	@return error 如果出错, 要么你输入的文件不存在, 要么你输入的不是dll文件.
-func X设置炫彩DLL路径(XcguiPath string) error {
+
+// ff:设置炫彩DLL路径
+// XcguiPath:
+func SetXcguiPath(XcguiPath string) error {
 	// 判断是否为dll文件
 	if len(XcguiPath) < 5 {
 		return errors.New("XcguiPath 必须是一个dll文件")
@@ -44,23 +49,30 @@ func X设置炫彩DLL路径(XcguiPath string) error {
 // GetXcguiPath 获取设置的xcgui.dll的路径.
 //
 //	@return string
-func X取炫彩DLL路径() string {
+
+// ff:取炫彩DLL路径
+func GetXcguiPath() string {
 	return xcguiPath
 }
 
 // GetXcgui 获取加载的炫彩dll, 用途是你可以利用这个来封装dll中的函数, 因为我有时候可能更新不及时, 如果你恰巧需要最新版本dll中的函数, 那么你可以自己封装最新版本dll中的函数.
 //
 //	@return *syscall.LazyDLL
-func X取已加载炫彩DLL() *syscall.LazyDLL {
+
+// ff:取已加载炫彩DLL
+func GetXcgui() *syscall.LazyDLL {
 	return xcgui
 }
 
 // WriteDll 把 xcgui.dll 写出到windows临时目录中版本号文件夹里, 如果检测到dll已存在则不会写出.
 //
 // 使用完本函数后无需再调用 xc.SetXcguiPath(), 内部已自动操作.
-func X写出炫彩dll到临时目录(dll []byte) error {
+
+// ff:写出炫彩dll到临时目录
+// dll:
+func WriteDll(dll []byte) error {
 	tmpDir := os.TempDir()
-	tmpPath := filepath.Join(tmpDir, "xcgui"+X取当前炫彩版本())
+	tmpPath := filepath.Join(tmpDir, "xcgui"+GetVer())
 	dllPath := filepath.Join(tmpPath, "xcgui.dll")
 
 	b, err := PathExists(tmpPath)
@@ -1879,7 +1891,9 @@ var once = sync.Once{}
 //
 //	注意: app.New() 函数内部会自动调用 xc.LoadXCGUI().
 //	所以一般是不需要手动调用的, 除非你没有使用 app.New() 函数, 而是使用了 xc.XInitXCGUI(), 那么你需要在 xc.XInitXCGUI() 之前调用 xc.LoadXCGUI().
-func XLoadXCGUI() *syscall.LazyDLL {
+
+// ff:XLoadXCGUI
+func LoadXCGUI() *syscall.LazyDLL {
 	once.Do(_loadXCGUI)
 	return xcgui
 }

@@ -1,4 +1,4 @@
-package 炫彩常量类
+package xcc
 
 // 元素事件
 type XE_ uint32

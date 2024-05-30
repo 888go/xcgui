@@ -1,8 +1,6 @@
-package 炫彩基类
+package xc
 
-import (
-	"github.com/888go/xcgui/common"
-)
+import "github.com/twgh/xcgui/common"
 
 // 文本链接_创建, 创建静态文本链接元素, 返回元素句柄.
 //
@@ -17,8 +15,16 @@ import (
 // pName: 文本内容.
 //
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-func X文本链接_创建(元素x坐标 int, 元素y坐标 int, 宽度 int, 高度 int, 文本内容 string, 父窗口句柄或元素句柄 int) int {
-	r, _, _ := xTextLink_Create.Call(uintptr(元素x坐标), uintptr(元素y坐标), uintptr(宽度), uintptr(高度), 炫彩工具类.StrPtr(文本内容), uintptr(父窗口句柄或元素句柄))
+
+// ff:文本链接_创建
+// hParent:父窗口句柄或元素句柄
+// pName:文本内容
+// cy:高度
+// cx:宽度
+// y:元素y坐标
+// x:元素x坐标
+func XTextLink_Create(x int, y int, cx int, cy int, pName string, hParent int) int {
+	r, _, _ := xTextLink_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
 	return int(r)
 }
 
@@ -27,8 +33,12 @@ func X文本链接_创建(元素x坐标 int, 元素y坐标 int, 宽度 int, 高�
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func X文本链接_启用离开状态下划线(元素句柄 int, 是否启用 bool) int {
-	r, _, _ := xTextLink_EnableUnderlineLeave.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用))
+
+// ff:文本链接_启用离开状态下划线
+// bEnable:是否启用
+// hEle:元素句柄
+func XTextLink_EnableUnderlineLeave(hEle int, bEnable bool) int {
+	r, _, _ := xTextLink_EnableUnderlineLeave.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -37,8 +47,12 @@ func X文本链接_启用离开状态下划线(元素句柄 int, 是否启用 bo
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func X文本链接_停留状态下划线(元素句柄 int, 是否启用 bool) int {
-	r, _, _ := xTextLink_EnableUnderlineStay.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用))
+
+// ff:文本链接_停留状态下划线
+// bEnable:是否启用
+// hEle:元素句柄
+func XTextLink_EnableUnderlineStay(hEle int, bEnable bool) int {
+	r, _, _ := xTextLink_EnableUnderlineStay.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -47,8 +61,12 @@ func X文本链接_停留状态下划线(元素句柄 int, 是否启用 bool) in
 // hEle: 元素句柄.
 //
 // color: ABGR 颜色值.
-func X文本链接_置停留状态文本颜色(元素句柄 int, ABGR颜色值 int) int {
-	r, _, _ := xTextLink_SetTextColorStay.Call(uintptr(元素句柄), uintptr(ABGR颜色值))
+
+// ff:文本链接_置停留状态文本颜色
+// color:ABGR颜色值
+// hEle:元素句柄
+func XTextLink_SetTextColorStay(hEle int, color int) int {
+	r, _, _ := xTextLink_SetTextColorStay.Call(uintptr(hEle), uintptr(color))
 	return int(r)
 }
 
@@ -57,8 +75,12 @@ func X文本链接_置停留状态文本颜色(元素句柄 int, ABGR颜色值 i
 // hEle: 元素句柄.
 //
 // color: ABGR 颜色值.
-func X文本链接_置离开状态下划线颜色(元素句柄 int, ABGR颜色值 int) int {
-	r, _, _ := xTextLink_SetUnderlineColorLeave.Call(uintptr(元素句柄), uintptr(ABGR颜色值))
+
+// ff:文本链接_置离开状态下划线颜色
+// color:ABGR颜色值
+// hEle:元素句柄
+func XTextLink_SetUnderlineColorLeave(hEle int, color int) int {
+	r, _, _ := xTextLink_SetUnderlineColorLeave.Call(uintptr(hEle), uintptr(color))
 	return int(r)
 }
 
@@ -67,7 +89,11 @@ func X文本链接_置离开状态下划线颜色(元素句柄 int, ABGR颜色�
 // hEle: 元素句柄.
 //
 // color: ABGR 颜色值.
-func X文本链接_置停留状态下划线颜色(元素句柄 int, ABGR颜色值 int) int {
-	r, _, _ := xTextLink_SetUnderlineColorStay.Call(uintptr(元素句柄), uintptr(ABGR颜色值))
+
+// ff:文本链接_置停留状态下划线颜色
+// color:ABGR颜色值
+// hEle:元素句柄
+func XTextLink_SetUnderlineColorStay(hEle int, color int) int {
+	r, _, _ := xTextLink_SetUnderlineColorStay.Call(uintptr(hEle), uintptr(color))
 	return int(r)
 }

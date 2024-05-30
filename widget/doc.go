@@ -4,4 +4,4 @@
 //	Menu, MenuBar, MonthCal, Pane, ProgressBar, ScrollBar, ScrollView, Shape, ShapeEllipse, ShapeGif,
 //	ShapeGroupBox, ShapeLine, ShapePicture, ShapeRect, ShapeText, SliderBar, TabBar, Table, TextLink,
 //	ToolBar, Tree.
-package 炫彩组件类
+package widget

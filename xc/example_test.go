@@ -1,8 +1,8 @@
-package 炫彩基类_test
+package xc_test
 
 import (
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 func ExampleXInitXCGUI() {
@@ -11,10 +11,10 @@ func ExampleXInitXCGUI() {
 		if err != nil {
 			panic(err)
 		}*/
-	炫彩基类.XLoadXCGUI()
-	炫彩基类.X初始化(true)
-	hWindow := 炫彩基类.X窗口_创建(0, 0, 500, 500, "", 0, 炫彩常量类.Window_Style_Default)
-	炫彩基类.X窗口_显示方式(hWindow, 炫彩常量类.SW_SHOW)
-	炫彩基类.X运行()
-	炫彩基类.X退出()
+	xc.LoadXCGUI()
+	xc.XInitXCGUI(true)
+	hWindow := xc.XWnd_Create(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
+	xc.XWnd_ShowWindow(hWindow, xcc.SW_SHOW)
+	xc.XRunXCGUI()
+	xc.XExitXCGUI()
 }

@@ -1,5 +1,2 @@
-
-# <翻译开始>
-package res
-炫彩资源类
-# <翻译结束>
+[package res]
+bm=炫彩资源类

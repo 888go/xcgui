@@ -1,0 +1,152 @@
+# 备注开始
+# **_方法.md 文件备注:
+# ff= 方法,重命名方法名称
+# 如://ff:取文本
+#
+# yx=true,此方法优先翻译
+# 如: //yx=true
+
+# **_package.md 文件备注:
+# bm= 包名,更换新的包名称 
+# 如: package gin //bm:gin类
+
+# **_其他.md 文件备注:
+# qm= 前面,跳转到前面进行重命名.文档内如果有多个相同的,会一起重命名.
+# hm= 后面,跳转到后面进行重命名.文档内如果有多个相同的,会一起重命名.
+# cz= 查找,配合前面/后面使用,
+# 如: type Regexp struct {//qm:正则 cz:Regexp struct
+#
+# th= 替换,用于替换文本,文档内如果有多个相同的,会一起替换
+# 如:
+# type Regexp struct {//th:type Regexp222 struct
+#
+# cf= 重复,用于重命名多次,
+# 如: 
+# 一个文档内有2个"One(result interface{}) error"需要重命名.
+# 但是要注意,多个新名称要保持一致. 如:"X取一条(result interface{})"
+
+# **_追加.md 文件备注:
+# 在代码内追加代码,如:
+# //zj:
+# func (re *Regexp) X取文本() string { 
+# re.F.String()
+# }
+# //zj:
+# 备注结束
+
+[func New(x, y, cx, cy int32, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {]
+ff=创建窗口
+XCStyle=窗口样式
+hWndParent=父窗口
+pTitle=窗口标题
+cy=窗口高度
+cx=窗口宽度
+y=y坐标
+x=x坐标
+
+[func NewEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int, cy int, pTitle string, hWndParent uintptr, XCStyle xcc.Window_Style_) *Window {]
+ff=创建窗口EX
+XCStyle=窗口样式
+hWndParent=父窗口
+pTitle=窗口名
+cy=高度
+cx=宽度
+y=y坐标
+x=x坐标
+lpClassName=类名
+dwStyle=样式
+dwExStyle=窗口扩展样式
+
+[func Attach(hWnd uintptr, XCStyle xcc.Window_Style_) *Window {]
+ff=窗口附加窗口
+hWnd=外部窗口句柄
+
+[func NewByHandle(hWindow int) *Window {]
+ff=创建窗口并按句柄
+hWindow=窗口资源句柄
+
+[func NewByLayout(pFileName string, hParent int, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按布局文件
+hAttachWnd=附加窗口句柄
+hParent=父对象句柄
+pFileName=布局文件名
+
+[func NewByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按压缩包布局文件
+hAttachWnd=附加窗口句柄
+hParent=父对象句柄
+pPassword=zip密码
+pFileName=布局文件名
+pZipFileName=zip文件名
+
+[func NewByLayoutZipMem(data #左中括号##右中括号#byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按内存压缩包布局文件
+hAttachWnd=附加窗口句柄
+hParent=父对象句柄
+pPassword=zip密码
+pFileName=布局文件名
+data=布局文件数据
+
+[func NewByLayoutStringW(pStringXML string, hParent int, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按布局文件字符串W
+hAttachWnd=附加窗口句柄
+hParent=父对象
+pStringXML=字符串
+
+[func NewByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按布局文件EX
+hAttachWnd=附加窗口句柄
+hParentWnd=父窗口句柄HWND
+hParent=父对象句柄
+pPrefixName=名称前缀
+pFileName=布局文件名
+
+[func NewByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按压缩包布局文件EX
+hAttachWnd=附加窗口句柄
+hParentWnd=父窗口句柄HWND
+hParent=父对象句柄
+pPrefixName=名称前缀
+pPassword=zip密码
+pFileName=布局文件名
+pZipFileName=zip文件名
+
+[func NewByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) *Window {]
+ff=创建窗口并按RC资源zip压缩包布局文件EX
+hModule=模块句柄
+hAttachWnd=附加窗口句柄
+hParentWnd=父窗口句柄HWND
+hParent=父对象句柄
+pPrefixName=名称前缀
+pPassword=zip密码
+pFileName=布局文件名
+id=RC资源ID
+
+[func NewByLayoutZipMemEx(data #左中括号##右中括号#byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按内存压缩包布局文件EX
+hAttachWnd=附加窗口句柄
+hParentWnd=父窗口句柄HWND
+hParent=父对象句柄
+pPrefixName=名称前缀
+pPassword=zip密码
+pFileName=布局文件名
+data=布局文件数据
+
+[func NewByLayoutStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *Window {]
+ff=创建窗口并按布局文件字符串WEX
+hAttachWnd=附加窗口句柄
+hParentWnd=父窗口句柄HWND
+hParent=父对象
+pPrefixName=名称前缀
+pStringXML=字符串
+
+[func NewByName(name string) *Window {]
+ff=创建窗口并按名称
+name=名称
+
+[func NewByUID(nUID int) *Window {]
+ff=创建窗口并按UID
+
+[func NewByUIDName(name string) *Window {]
+ff=创建窗口并按UID名称
+name=名称

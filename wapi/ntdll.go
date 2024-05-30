@@ -1,8 +1,6 @@
-package 炫彩WinApi类
+package wapi
 
-import (
-	"syscall"
-)
+import "syscall"
 
 var (
 	// Library.
@@ -18,6 +16,11 @@ var (
 //	@param Destination 指向要复制字节的目标内存块的指针.
 //	@param Source 指向要复制字节的源内存块的指针.
 //	@param Length 从源复制到目标中的字节数.
-func X内存复制(目标内存块指针 uintptr, 源内存块指针 uintptr, 字节数 uint) {
-	rtlMoveMemory.Call(目标内存块指针, 源内存块指针, uintptr(字节数))
+
+// ff:内存复制
+// Length:字节数
+// Source:源内存块指针
+// Destination:目标内存块指针
+func RtlMoveMemory(Destination uintptr, Source uintptr, Length uint) {
+	rtlMoveMemory.Call(Destination, Source, uintptr(Length))
 }

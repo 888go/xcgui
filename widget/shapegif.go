@@ -1,7 +1,7 @@
-package 炫彩组件类
+package widget
 
 import (
-	"github.com/888go/xcgui/xc"
+	"github.com/twgh/xcgui/xc"
 )
 
 // ShapeGif 形状对象GIF.
@@ -20,47 +20,66 @@ type ShapeGif struct {
 // cy: 高度.
 //
 // hParent: 父对象句柄.
-func X创建形状GIF(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 父对象句柄 int) *ShapeGif {
+
+// ff:创建形状GIF
+// hParent:父对象句柄
+// cy:高度
+// cx:宽度
+// y:Y坐标
+// x:坐标
+func NewShapeGif(x int, y int, cx int, cy int, hParent int) *ShapeGif {
 	p := &ShapeGif{}
-	p.X设置句柄(炫彩基类.X形状GIF_创建(X坐标, Y坐标, 宽度, 高度, 父对象句柄))
+	p.SetHandle(xc.XShapeGif_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
-func X创建形状GIF并按句柄(handle int) *ShapeGif {
+
+// ff:创建形状GIF并按句柄
+// handle:
+func NewShapeGifByHandle(handle int) *ShapeGif {
 	p := &ShapeGif{}
-	p.X设置句柄(handle)
+	p.SetHandle(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func X创建形状GIF并按名称(name string) *ShapeGif {
-	handle := 炫彩基类.X取对象从名称(name)
+
+// ff:创建形状GIF并按名称
+// name:
+func NewShapeGifByName(name string) *ShapeGif {
+	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func X创建形状GIF并按UID(nUID int) *ShapeGif {
-	handle := 炫彩基类.X取对象从UID(nUID)
+
+// ff:创建形状GIF并按UID
+// nUID:
+func NewShapeGifByUID(nUID int) *ShapeGif {
+	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func X创建形状GIF并按UID名称(name string) *ShapeGif {
-	handle := 炫彩基类.X取对象从UID名称(name)
+
+// ff:创建形状GIF并按UID名称
+// name:
+func NewShapeGifByUIDName(name string) *ShapeGif {
+	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -69,11 +88,16 @@ func X创建形状GIF并按UID名称(name string) *ShapeGif {
 // 形状GIF_置图片, 设置GIF图片.
 //
 // hImage: 图片句柄.
-func (s *ShapeGif) X置图片(图片句柄 int) int {
-	return 炫彩基类.X形状GIF_置图片(s.Handle, 图片句柄)
+
+// ff:置图片
+// hImage:图片句柄
+func (s *ShapeGif) SetImage(hImage int) int {
+	return xc.XShapeGif_SetImage(s.Handle, hImage)
 }
 
 // 形状GIF_取图片, 获取图片句柄.
-func (s *ShapeGif) X取图片() int {
-	return 炫彩基类.X形状GIF_取图片(s.Handle)
+
+// ff:取图片
+func (s *ShapeGif) GetImage() int {
+	return xc.XShapeGif_GetImage(s.Handle)
 }

@@ -1,11 +1,11 @@
-package 炫彩基类
+package xc
 
-import (
-	"github.com/888go/xcgui/common"
-)
+import "github.com/twgh/xcgui/common"
 
 // 数据适配器MAP_创建, 创建数据适配器, 单列数据, 返回数据适配器句柄.
-func X数据适配器MAP_创建() int {
+
+// ff:数据适配器MAP_创建
+func XAdMap_Create() int {
 	r, _, _ := xAdMap_Create.Call()
 	return int(r)
 }
@@ -17,8 +17,13 @@ func X数据适配器MAP_创建() int {
 // pName: 字段称.
 //
 // pValue: 值.
-func X数据适配器MAP_添加项文本(数据适配器句柄 int, 字段称 string, 值 string) bool {
-	r, _, _ := xAdMap_AddItemText.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称), 炫彩工具类.StrPtr(值))
+
+// ff:数据适配器MAP_添加项文本
+// pValue:值
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdMap_AddItemText(hAdapter int, pName string, pValue string) bool {
+	r, _, _ := xAdMap_AddItemText.Call(uintptr(hAdapter), common.StrPtr(pName), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -29,8 +34,13 @@ func X数据适配器MAP_添加项文本(数据适配器句柄 int, 字段称 st
 // pName: 字段称.
 //
 // hImage: 图片句柄.
-func X数据适配器MAP_添加项图片(数据适配器句柄 int, 字段称 string, 图片句柄 int) bool {
-	r, _, _ := xAdMap_AddItemImage.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称), uintptr(图片句柄))
+
+// ff:数据适配器MAP_添加项图片
+// hImage:图片句柄
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdMap_AddItemImage(hAdapter int, pName string, hImage int) bool {
+	r, _, _ := xAdMap_AddItemImage.Call(uintptr(hAdapter), common.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }
 
@@ -39,16 +49,23 @@ func X数据适配器MAP_添加项图片(数据适配器句柄 int, 字段称 st
 // hAdapter: 数据适配器句柄.
 //
 // pName: 字段称.
-func X数据适配器MAP_删除项(数据适配器句柄 int, 字段称 string) bool {
-	r, _, _ := xAdMap_DeleteItem.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称))
+
+// ff:数据适配器MAP_删除项
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdMap_DeleteItem(hAdapter int, pName string) bool {
+	r, _, _ := xAdMap_DeleteItem.Call(uintptr(hAdapter), common.StrPtr(pName))
 	return r != 0
 }
 
 // 数据适配器MAP_取项数量, 返回项数量.
 //
 // hAdapter: 数据适配器句柄.
-func X数据适配器MAP_取项数量(数据适配器句柄 int) int {
-	r, _, _ := xAdMap_GetCount.Call(uintptr(数据适配器句柄))
+
+// ff:数据适配器MAP_取项数量
+// hAdapter:数据适配器句柄
+func XAdMap_GetCount(hAdapter int) int {
+	r, _, _ := xAdMap_GetCount.Call(uintptr(hAdapter))
 	return int(r)
 }
 
@@ -57,9 +74,13 @@ func X数据适配器MAP_取项数量(数据适配器句柄 int) int {
 // hAdapter: 数据适配器句柄.
 //
 // pName: 字段称.
-func X数据适配器MAP_取项文本(数据适配器句柄 int, 字段称 string) string {
-	r, _, _ := xAdMap_GetItemText.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称))
-	return 炫彩工具类.UintPtrToString(r)
+
+// ff:数据适配器MAP_取项文本
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdMap_GetItemText(hAdapter int, pName string) string {
+	r, _, _ := xAdMap_GetItemText.Call(uintptr(hAdapter), common.StrPtr(pName))
+	return common.UintPtrToString(r)
 }
 
 // 数据适配器MAP_取项图片, 获取项内容, 如果内容为图片句柄, 返回图片句柄.
@@ -67,8 +88,12 @@ func X数据适配器MAP_取项文本(数据适配器句柄 int, 字段称 strin
 // hAdapter: 数据适配器句柄.
 //
 // pName: 字段称.
-func X数据适配器MAP_取项图片(数据适配器句柄 int, 字段称 string) int {
-	r, _, _ := xAdMap_GetItemImage.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称))
+
+// ff:数据适配器MAP_取项图片
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdMap_GetItemImage(hAdapter int, pName string) int {
+	r, _, _ := xAdMap_GetItemImage.Call(uintptr(hAdapter), common.StrPtr(pName))
 	return int(r)
 }
 
@@ -79,8 +104,13 @@ func X数据适配器MAP_取项图片(数据适配器句柄 int, 字段称 strin
 // pName: 字段称.
 //
 // pValue: 值.
-func X数据适配器MAP_置项文本(数据适配器句柄 int, 字段称 string, 值 string) bool {
-	r, _, _ := xAdMap_SetItemText.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称), 炫彩工具类.StrPtr(值))
+
+// ff:数据适配器MAP_置项文本
+// pValue:值
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdMap_SetItemText(hAdapter int, pName string, pValue string) bool {
+	r, _, _ := xAdMap_SetItemText.Call(uintptr(hAdapter), common.StrPtr(pName), common.StrPtr(pValue))
 	return r != 0
 }
 
@@ -91,7 +121,12 @@ func X数据适配器MAP_置项文本(数据适配器句柄 int, 字段称 strin
 // pName: 字段称.
 //
 // hImage: 值.
-func X数据适配器MAP_置项图片(数据适配器句柄 int, 字段称 string, 值 int) bool {
-	r, _, _ := xAdMap_SetItemImage.Call(uintptr(数据适配器句柄), 炫彩工具类.StrPtr(字段称), uintptr(值))
+
+// ff:数据适配器MAP_置项图片
+// hImage:值
+// pName:字段称
+// hAdapter:数据适配器句柄
+func XAdMap_SetItemImage(hAdapter int, pName string, hImage int) bool {
+	r, _, _ := xAdMap_SetItemImage.Call(uintptr(hAdapter), common.StrPtr(pName), uintptr(hImage))
 	return r != 0
 }

@@ -3,45 +3,45 @@ package main
 
 import (
 	"strconv"
-	
-	"github.com/888go/xcgui/app"
-	"github.com/888go/xcgui/widget"
-	"github.com/888go/xcgui/window"
-	"github.com/888go/xcgui/xcc"
+
+	"github.com/twgh/xcgui/app"
+	"github.com/twgh/xcgui/widget"
+	"github.com/twgh/xcgui/window"
+	"github.com/twgh/xcgui/xcc"
 )
 
 func main() {
-	a := 炫彩App类.X创建(true)
-	a.X启用DPI(true)
-	a.X启用自动DPI(true)
-	w := 炫彩窗口基类.X创建窗口(0, 0, 430, 300, "ComboBox", 0, 炫彩常量类.Window_Style_Default)
+	a := app.New(true)
+	a.EnableDPI(true)
+	a.EnableAutoDPI(true)
+	w := window.New(0, 0, 430, 300, "ComboBox", 0, xcc.Window_Style_Default)
 
 	// 创建组合框
-	cbb := 炫彩组件类.X创建组合框(24, 50, 100, 30, w.Handle)
+	cbb := widget.NewComboBox(24, 50, 100, 30, w.Handle)
 	// 创建数据适配器, 这个是必须创建的, 存储数据的
-	cbb.X创建数据适配器()
+	cbb.CreateAdapter()
 	// 组合框加入项
 	for i := 1; i <= 5; i++ {
-		cbb.X添加项文本("item" + strconv.Itoa(i))
+		cbb.AddItemText("item" + strconv.Itoa(i))
 	}
 
 	// 组合框选中项
-	cbb.X置选择项(0)
+	cbb.SetSelItem(0)
 	// 组合框禁止编辑项
-	cbb.X启用编辑(false)
+	cbb.EnableEdit(false)
 
 	// 创建编辑框
-	edit := 炫彩组件类.X创建编辑框(138, 50, 100, 30, w.Handle)
-	edit.X置文本("hello")
+	edit := widget.NewEdit(138, 50, 100, 30, w.Handle)
+	edit.SetText("hello")
 
 	// 注册组合框被选择事件
-	cbb.X事件_下拉列表项选择完成(func(iItem int32, pbHandled *bool) int {
-		edit.X置文本(cbb.X取项文本(iItem, 0))
-		edit.X重绘(false)
+	cbb.Event_ComboBox_Select_End(func(iItem int32, pbHandled *bool) int {
+		edit.SetText(cbb.GetItemText(iItem, 0))
+		edit.Redraw(false)
 		return 0
 	})
 
-	w.X显示方式(炫彩常量类.SW_SHOW)
-	a.X运行()
-	a.X退出()
+	w.ShowWindow(xcc.SW_SHOW)
+	a.Run()
+	a.Exit()
 }

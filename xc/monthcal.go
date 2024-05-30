@@ -1,8 +1,6 @@
-package 炫彩基类
+package xc
 
-import (
-	"unsafe"
-)
+import "unsafe"
 
 // 月历_创建, 创建日期时间元素, 返回元素句柄.
 //
@@ -15,8 +13,15 @@ import (
 // cy: 高度.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func X月历_创建(x坐标 int, y坐标 int, 宽度 int, 高度 int, 父窗口句柄或元素句柄 int) int {
-	r, _, _ := xMonthCal_Create.Call(uintptr(x坐标), uintptr(y坐标), uintptr(宽度), uintptr(高度), uintptr(父窗口句柄或元素句柄))
+
+// ff:月历_创建
+// hParent:父窗口句柄或元素句柄
+// cy:高度
+// cx:宽度
+// y:y坐标
+// x:x坐标
+func XMonthCal_Create(x int, y int, cx int, cy int, hParent int) int {
+	r, _, _ := xMonthCal_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)
 }
 
@@ -25,8 +30,12 @@ func X月历_创建(x坐标 int, y坐标 int, 宽度 int, 高度 int, 父窗口�
 // hEle: 元素句柄.
 //
 // nType: 按钮类型.
-func X月历_取内部按钮(元素句柄 int, 按钮类型 int) int {
-	r, _, _ := xMonthCal_GetButton.Call(uintptr(元素句柄), uintptr(按钮类型))
+
+// ff:月历_取内部按钮
+// nType:按钮类型
+// hEle:元素句柄
+func XMonthCal_GetButton(hEle int, nType int) int {
+	r, _, _ := xMonthCal_GetButton.Call(uintptr(hEle), uintptr(nType))
 	return int(r)
 }
 
@@ -39,8 +48,14 @@ func X月历_取内部按钮(元素句柄 int, 按钮类型 int) int {
 // nMonth: 月.
 //
 // nDay: 日.
-func X月历_置当前日期(元素句柄 int, 年 int32, 月 int32, 日 int32) int {
-	r, _, _ := xMonthCal_SetToday.Call(uintptr(元素句柄), uintptr(年), uintptr(月), uintptr(日))
+
+// ff:月历_置当前日期
+// nDay:日
+// nMonth:月
+// nYear:年
+// hEle:元素句柄
+func XMonthCal_SetToday(hEle int, nYear int32, nMonth int32, nDay int32) int {
+	r, _, _ := xMonthCal_SetToday.Call(uintptr(hEle), uintptr(nYear), uintptr(nMonth), uintptr(nDay))
 	return int(r)
 }
 
@@ -53,8 +68,14 @@ func X月历_置当前日期(元素句柄 int, 年 int32, 月 int32, 日 int32) 
 // pnMonth: 月.[INT.
 //
 // pnDay: 日.[INT.
-func X月历_取当前日期(元素句柄 int, 年指针 *int32, 月指针 *int32, 日指针 *int32) int {
-	r, _, _ := xMonthCal_GetToday.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(年指针)), uintptr(unsafe.Pointer(月指针)), uintptr(unsafe.Pointer(日指针)))
+
+// ff:月历_取当前日期
+// pnDay:日指针
+// pnMonth:月指针
+// pnYear:年指针
+// hEle:元素句柄
+func XMonthCal_GetToday(hEle int, pnYear *int32, pnMonth *int32, pnDay *int32) int {
+	r, _, _ := xMonthCal_GetToday.Call(uintptr(hEle), uintptr(unsafe.Pointer(pnYear)), uintptr(unsafe.Pointer(pnMonth)), uintptr(unsafe.Pointer(pnDay)))
 	return int(r)
 }
 
@@ -67,8 +88,14 @@ func X月历_取当前日期(元素句柄 int, 年指针 *int32, 月指针 *int3
 // pnMonth: 月.[INT.
 //
 // pnDay: 日.[INT.
-func X月历_取选择日期(元素句柄 int, 年指针 *int32, 月指针 *int32, 日指针 *int32) int {
-	r, _, _ := xMonthCal_GetSelDate.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(年指针)), uintptr(unsafe.Pointer(月指针)), uintptr(unsafe.Pointer(日指针)))
+
+// ff:月历_取选择日期
+// pnDay:日指针
+// pnMonth:月指针
+// pnYear:年指针
+// hEle:元素句柄
+func XMonthCal_GetSelDate(hEle int, pnYear *int32, pnMonth *int32, pnDay *int32) int {
+	r, _, _ := xMonthCal_GetSelDate.Call(uintptr(hEle), uintptr(unsafe.Pointer(pnYear)), uintptr(unsafe.Pointer(pnMonth)), uintptr(unsafe.Pointer(pnDay)))
 	return int(r)
 }
 
@@ -79,7 +106,12 @@ func X月历_取选择日期(元素句柄 int, 年指针 *int32, 月指针 *int3
 // nFlag: 1:周六, 周日文字颜色, 2:日期文字的颜色; 其它周文字颜色, 使用元素自身颜色.
 //
 // color: ABGR 颜色值.
-func X月历_置文本颜色(元素句柄 int, 类型 int32, ABGR颜色值 int) int {
-	r, _, _ := xMonthCal_SetTextColor.Call(uintptr(元素句柄), uintptr(类型), uintptr(ABGR颜色值))
+
+// ff:月历_置文本颜色
+// color:ABGR颜色值
+// nFlag:类型
+// hEle:元素句柄
+func XMonthCal_SetTextColor(hEle int, nFlag int32, color int) int {
+	r, _, _ := xMonthCal_SetTextColor.Call(uintptr(hEle), uintptr(nFlag), uintptr(color))
 	return int(r)
 }

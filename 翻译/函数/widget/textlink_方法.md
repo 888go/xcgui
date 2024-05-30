@@ -1,0 +1,76 @@
+# 备注开始
+# **_方法.md 文件备注:
+# ff= 方法,重命名方法名称
+# 如://ff:取文本
+#
+# yx=true,此方法优先翻译
+# 如: //yx=true
+
+# **_package.md 文件备注:
+# bm= 包名,更换新的包名称 
+# 如: package gin //bm:gin类
+
+# **_其他.md 文件备注:
+# qm= 前面,跳转到前面进行重命名.文档内如果有多个相同的,会一起重命名.
+# hm= 后面,跳转到后面进行重命名.文档内如果有多个相同的,会一起重命名.
+# cz= 查找,配合前面/后面使用,
+# 如: type Regexp struct {//qm:正则 cz:Regexp struct
+#
+# th= 替换,用于替换文本,文档内如果有多个相同的,会一起替换
+# 如:
+# type Regexp struct {//th:type Regexp222 struct
+#
+# cf= 重复,用于重命名多次,
+# 如: 
+# 一个文档内有2个"One(result interface{}) error"需要重命名.
+# 但是要注意,多个新名称要保持一致. 如:"X取一条(result interface{})"
+
+# **_追加.md 文件备注:
+# 在代码内追加代码,如:
+# //zj:
+# func (re *Regexp) X取文本() string { 
+# re.F.String()
+# }
+# //zj:
+# 备注结束
+
+[func NewTextLink(x int, y int, cx int, cy int, pName string, hParent int) *TextLink {]
+ff=创建文本链接
+hParent=父窗口句柄或元素句柄
+pName=文本内容
+cy=高度
+cx=宽度
+y=y坐标
+x=x坐标
+
+[func NewTextLinkByHandle(handle int) *TextLink {]
+ff=创建文本链接并按句柄
+
+[func NewTextLinkByName(name string) *TextLink {]
+ff=创建文本链接并按名称
+
+[func NewTextLinkByUID(nUID int) *TextLink {]
+ff=创建文本链接并按UID
+
+[func NewTextLinkByUIDName(name string) *TextLink {]
+ff=创建文本链接并按UID名称
+
+[func (t *TextLink) EnableUnderlineLeave(bEnable bool) int {]
+ff=启用离开状态下划线
+bEnable=是否启用
+
+[func (t *TextLink) EnableUnderlineStay(bEnable bool) int {]
+ff=停留状态下划线
+bEnable=是否启用
+
+[func (t *TextLink) SetTextColorStay(color int) int {]
+ff=置停留状态文本颜色
+color=ABGR颜色值
+
+[func (t *TextLink) SetUnderlineColorLeave(color int) int {]
+ff=置离开状态下划线颜色
+color=ABGR颜色值
+
+[func (t *TextLink) SetUnderlineColorStay(color int) int {]
+ff=置停留状态下划线颜色
+color=ABGR颜色值

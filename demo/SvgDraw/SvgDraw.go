@@ -2,56 +2,60 @@
 package main
 
 import (
-	"github.com/888go/xcgui/app"
-	"github.com/888go/xcgui/drawx"
-	"github.com/888go/xcgui/svg"
-	"github.com/888go/xcgui/window"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/app"
+	"github.com/twgh/xcgui/drawx"
+	"github.com/twgh/xcgui/svg"
+	"github.com/twgh/xcgui/window"
+	"github.com/twgh/xcgui/xcc"
 )
 
 var (
-	w    *炫彩窗口基类.Window
-	svg1 *炫彩SVG类.Svg
+	w    *window.Window
+	svg1 *svg.Svg
 )
 
 func main() {
-	a := 炫彩App类.X创建(true)
-	a.X启用DPI(true)
-	a.X启用自动DPI(true)
-	w = 炫彩窗口基类.X创建窗口(0, 0, 350, 200, "svg绘制", 0, 炫彩常量类.Window_Style_Default)
+	a := app.New(true)
+	a.EnableDPI(true)
+	a.EnableAutoDPI(true)
+	w = window.New(0, 0, 350, 200, "svg绘制", 0, xcc.Window_Style_Default)
 
 	// SVG_加载从字符串
-	svg1 = 炫彩SVG类.X创建并按字符串W(svgStr)
+	svg1 = svg.NewByStringW(svgStr)
 	if svg1.Handle == 0 {
 		panic("svg1.Handle = 0")
 	}
 
 	// 窗口绘制消息
-	w.X线程_绘制消息(OnWndDrawWindow)
+	w.Event_PAINT(OnWndDrawWindow)
 
-	w.X显示方式(炫彩常量类.SW_SHOW)
-	a.X运行()
-	a.X退出()
+	w.ShowWindow(xcc.SW_SHOW)
+	a.Run()
+	a.Exit()
 }
 
+
+// ff:
+// pbHandled:
+// hDraw:
 func OnWndDrawWindow(hDraw int, pbHandled *bool) int {
 	*pbHandled = true
 	// 在自绘事件函数中,用户手动调用绘制窗口, 以便控制绘制顺序
-	w.X绘制(hDraw)
+	w.DrawWindow(hDraw)
 	// 创建绘制对象
-	draw := 炫彩绘制类.X创建并按图形绘制模块句柄(hDraw)
+	draw := drawx.NewByHandle(hDraw)
 
 	left := 20
 	top := 50
-	draw.SVGEX(svg1.Handle, left, top, 100, 100)
+	draw.DrawSvgEx(svg1.Handle, left, top, 100, 100)
 	left += 100
-	draw.SVGEX(svg1.Handle, left, top+(100-72)/2, 72, 72)
+	draw.DrawSvgEx(svg1.Handle, left, top+(100-72)/2, 72, 72)
 	left += 72
-	draw.SVGEX(svg1.Handle, left, top+(100-48)/2, 48, 48)
+	draw.DrawSvgEx(svg1.Handle, left, top+(100-48)/2, 48, 48)
 	left += 48
-	draw.SVGEX(svg1.Handle, left, top+(100-32)/2, 32, 32)
+	draw.DrawSvgEx(svg1.Handle, left, top+(100-32)/2, 32, 32)
 	left += 32
-	draw.SVGEX(svg1.Handle, left, top+(100-24)/2, 24, 24)
+	draw.DrawSvgEx(svg1.Handle, left, top+(100-24)/2, 24, 24)
 	left += 24
 	return 0
 }

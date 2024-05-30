@@ -1,14 +1,14 @@
-package 炫彩WinApi类_test
+package wapi_test
 
 import (
 	"fmt"
-	"github.com/888go/xcgui/wapi"
+	"github.com/twgh/xcgui/wapi"
 	"testing"
 )
 
 func TestSleep(t *testing.T) {
 	for i := 0; i < 5; i++ {
 		fmt.Println(i)
-		炫彩WinApi类.X延时(1000)
+		wapi.Sleep(1000)
 	}
 }

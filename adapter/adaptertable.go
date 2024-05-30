@@ -1,8 +1,8 @@
-package 炫彩数据适配器类
+package adapter
 
 import (
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 )
 
 // AdapterTable 数据适配器-XList-XListBox.
@@ -11,16 +11,21 @@ type AdapterTable struct {
 }
 
 // 数据适配器表_创建, 创建列表框元素数据适配器.
-func X创建适配器表() *AdapterTable {
+
+// ff:创建适配器表
+func NewAdapterTable() *AdapterTable {
 	p := &AdapterTable{}
-	p.X设置句柄(炫彩基类.X数据适配器表_创建())
+	p.SetHandle(xc.XAdTable_Create())
 	return p
 }
 
 // 从句柄创建对象.
-func X创建适配器表并按句柄(handle int) *AdapterTable {
+
+// ff:创建适配器表并按句柄
+// handle:
+func NewAdapterTableByHandle(handle int) *AdapterTable {
 	p := &AdapterTable{}
-	p.X设置句柄(handle)
+	p.SetHandle(handle)
 	return p
 }
 
@@ -29,8 +34,12 @@ func X创建适配器表并按句柄(handle int) *AdapterTable {
 // iColumn: 要排序的列索引。.
 //
 // bAscending: 是否按照升序方式排序.
-func (a *AdapterTable) X排序(要排序的列索引 int, 升序排序 bool) int {
-	return 炫彩基类.X数据适配器表_排序(a.Handle, 要排序的列索引, 升序排序)
+
+// ff:排序
+// bAscending:升序排序
+// iColumn:要排序的列索引
+func (a *AdapterTable) Sort(iColumn int, bAscending bool) int {
+	return xc.XAdTable_Sort(a.Handle, iColumn, bAscending)
 }
 
 // 数据适配器表_取项数据类型, 获取项数据类型, 返回: Adapter_Date_Type_.
@@ -38,8 +47,12 @@ func (a *AdapterTable) X排序(要排序的列索引 int, 升序排序 bool) int
 // iItem: 项索引.
 //
 // iColumn: 列索引.
-func (a *AdapterTable) X取项数据类型(项索引 int, 列索引 int) 炫彩常量类.Adapter_Date_Type_ {
-	return 炫彩基类.X数据适配器表_取项数据类型(a.Handle, 项索引, 列索引)
+
+// ff:取项数据类型
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) GetItemDataType(iItem int, iColumn int) xcc.Adapter_Date_Type_ {
+	return xc.XAdTable_GetItemDataType(a.Handle, iItem, iColumn)
 }
 
 // 数据适配器表_取项数据类型扩展, 返回: Adapter_Date_Type_.
@@ -47,29 +60,42 @@ func (a *AdapterTable) X取项数据类型(项索引 int, 列索引 int) 炫彩�
 // iItem: 项索引.
 //
 // pName: 字段称.
-func (a *AdapterTable) X取项数据类型EX(项索引 int, 字段称 string) 炫彩常量类.Adapter_Date_Type_ {
-	return 炫彩基类.X数据适配器表_取项数据类型EX(a.Handle, 项索引, 字段称)
+
+// ff:取项数据类型EX
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) GetItemDataTypeEx(iItem int, pName string) xcc.Adapter_Date_Type_ {
+	return xc.XAdTable_GetItemDataTypeEx(a.Handle, iItem, pName)
 }
 
 // 数据适配器表_添加列, 添加数据列.
 //
 // pName: 字段称.
-func (a *AdapterTable) X添加列(字段称 string) int {
-	return 炫彩基类.X数据适配器表_添加列(a.Handle, 字段称)
+
+// ff:添加列
+// pName:字段称
+func (a *AdapterTable) AddColumn(pName string) int {
+	return xc.XAdTable_AddColumn(a.Handle, pName)
 }
 
 // 数据适配器表_置列, 设置列, 返回列数量.
 //
 // pColName: 列名, 多个列名用逗号分开.
-func (a *AdapterTable) X置列(列名 string) int {
-	return 炫彩基类.X数据适配器表_置列(a.Handle, 列名)
+
+// ff:置列
+// pColName:列名
+func (a *AdapterTable) SetColumn(pColName string) int {
+	return xc.XAdTable_SetColumn(a.Handle, pColName)
 }
 
 // 数据适配器表_添加项文本, 添加数据项, 默认值放到第一列, 返回项索引值.
 //
 // pValue: 值.
-func (a *AdapterTable) X添加项文本(值 string) int {
-	return 炫彩基类.X数据适配器表_添加项文本(a.Handle, 值)
+
+// ff:添加项文本
+// pValue:值
+func (a *AdapterTable) AddItemText(pValue string) int {
+	return xc.XAdTable_AddItemText(a.Handle, pValue)
 }
 
 // 数据适配器表_添加项文本扩展, 添加数据项, 填充指定列数据, 返回项索引.
@@ -77,15 +103,22 @@ func (a *AdapterTable) X添加项文本(值 string) int {
 // pName: 字段称.
 //
 // pValue: 值.
-func (a *AdapterTable) X添加项文本EX(字段称 string, 值 string) int {
-	return 炫彩基类.X数据适配器表_添加项文本EX(a.Handle, 字段称, 值)
+
+// ff:添加项文本EX
+// pValue:值
+// pName:字段称
+func (a *AdapterTable) AddItemTextEx(pName string, pValue string) int {
+	return xc.XAdTable_AddItemTextEx(a.Handle, pName, pValue)
 }
 
 // 数据适配器表_添加项图片, 添加数据项, 默认值放到第一列, 返回项索引值.
 //
 // hImage: 图片句柄.
-func (a *AdapterTable) X添加项图片(图片句柄 int) int {
-	return 炫彩基类.X数据适配器表_添加项图片(a.Handle, 图片句柄)
+
+// ff:添加项图片
+// hImage:图片句柄
+func (a *AdapterTable) AddItemImage(hImage int) int {
+	return xc.XAdTable_AddItemImage(a.Handle, hImage)
 }
 
 // 数据适配器表_添加项图片扩展, 添加数据项, 并填充指定列数据.
@@ -93,8 +126,12 @@ func (a *AdapterTable) X添加项图片(图片句柄 int) int {
 // pName: 字段称.
 //
 // hImage: 图片句柄.
-func (a *AdapterTable) X添加项图片EX(字段称 string, 图片句柄 int) int {
-	return 炫彩基类.X数据适配器表_添加项图片EX(a.Handle, 字段称, 图片句柄)
+
+// ff:添加项图片EX
+// hImage:图片句柄
+// pName:字段称
+func (a *AdapterTable) AddItemImageEx(pName string, hImage int) int {
+	return xc.XAdTable_AddItemImageEx(a.Handle, pName, hImage)
 }
 
 // 数据适配器表_插入项文本, 插入数据项, 填充第一列数据, 返回项索引.
@@ -102,8 +139,12 @@ func (a *AdapterTable) X添加项图片EX(字段称 string, 图片句柄 int) in
 // iItem: 插入位置索引.
 //
 // pValue: 值.
-func (a *AdapterTable) X插入项文本(插入位置索引 int, 值 string) int {
-	return 炫彩基类.X数据适配器表_插入项文本(a.Handle, 插入位置索引, 值)
+
+// ff:插入项文本
+// pValue:值
+// iItem:插入位置索引
+func (a *AdapterTable) InsertItemText(iItem int, pValue string) int {
+	return xc.XAdTable_InsertItemText(a.Handle, iItem, pValue)
 }
 
 // 数据适配器表_插入项文本扩展, 插入数据项, 并填充指定列数据, 返回项索引.
@@ -113,8 +154,13 @@ func (a *AdapterTable) X插入项文本(插入位置索引 int, 值 string) int 
 // pName: 字段称.
 //
 // pValue: 值.
-func (a *AdapterTable) X插入项文本EX(插入位置索引 int, 字段称 string, 值 string) int {
-	return 炫彩基类.X数据适配器表_插入项文本EX(a.Handle, 插入位置索引, 字段称, 值)
+
+// ff:插入项文本EX
+// pValue:值
+// pName:字段称
+// iItem:插入位置索引
+func (a *AdapterTable) InsertItemTextEx(iItem int, pName string, pValue string) int {
+	return xc.XAdTable_InsertItemTextEx(a.Handle, iItem, pName, pValue)
 }
 
 // 数据适配器表_插入项图片, 插入数据项, 填充第一列数据, 返回项索引.
@@ -122,8 +168,12 @@ func (a *AdapterTable) X插入项文本EX(插入位置索引 int, 字段称 stri
 // iItem: 插入位置索引.
 //
 // hImage: 图片句柄.
-func (a *AdapterTable) X插入项图片(插入位置索引 int, 图片句柄 int) int {
-	return 炫彩基类.X数据适配器表_插入项图片(a.Handle, 插入位置索引, 图片句柄)
+
+// ff:插入项图片
+// hImage:图片句柄
+// iItem:插入位置索引
+func (a *AdapterTable) InsertItemImage(iItem int, hImage int) int {
+	return xc.XAdTable_InsertItemImage(a.Handle, iItem, hImage)
 }
 
 // 数据适配器表_插入项图片扩展, 插入数据项, 并填充指定列数据, 返回项索引.
@@ -133,8 +183,13 @@ func (a *AdapterTable) X插入项图片(插入位置索引 int, 图片句柄 int
 // pName: 字段称.
 //
 // hImage: 图片句柄.
-func (a *AdapterTable) X插入项图片EX(插入位置索引 int, 字段称 string, 图片句柄 int) int {
-	return 炫彩基类.X数据适配器表_插入项图片EX(a.Handle, 插入位置索引, 字段称, 图片句柄)
+
+// ff:插入项图片EX
+// hImage:图片句柄
+// pName:字段称
+// iItem:插入位置索引
+func (a *AdapterTable) InsertItemImageEx(iItem int, pName string, hImage int) int {
+	return xc.XAdTable_InsertItemImageEx(a.Handle, iItem, pName, hImage)
 }
 
 // 数据适配器表_置项文本, 设置项数据.
@@ -144,8 +199,13 @@ func (a *AdapterTable) X插入项图片EX(插入位置索引 int, 字段称 stri
 // iColumn: 列索引.
 //
 // pValue: 值.
-func (a *AdapterTable) X置项文本(项索引 int, 列索引 int, 值 string) bool {
-	return 炫彩基类.X数据适配器表_置项文本(a.Handle, 项索引, 列索引, 值)
+
+// ff:置项文本
+// pValue:值
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) SetItemText(iItem int, iColumn int, pValue string) bool {
+	return xc.XAdTable_SetItemText(a.Handle, iItem, iColumn, pValue)
 }
 
 // 数据适配器表_置项文本扩展, 设置项数据.
@@ -155,8 +215,13 @@ func (a *AdapterTable) X置项文本(项索引 int, 列索引 int, 值 string) b
 // pName: 字段称.
 //
 // pValue: 值.
-func (a *AdapterTable) X置项文本EX(项索引 int, 字段称 string, 值 string) bool {
-	return 炫彩基类.X数据适配器表_置项文本EX(a.Handle, 项索引, 字段称, 值)
+
+// ff:置项文本EX
+// pValue:值
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) SetItemTextEx(iItem int, pName string, pValue string) bool {
+	return xc.XAdTable_SetItemTextEx(a.Handle, iItem, pName, pValue)
 }
 
 // 数据适配器表_置项整数值, 设置项数据.
@@ -166,8 +231,13 @@ func (a *AdapterTable) X置项文本EX(项索引 int, 字段称 string, 值 stri
 // iColumn: 列索引.
 //
 // nValue: 值.
-func (a *AdapterTable) X置项整数值(项索引 int, 列索引 int, 值 int32) bool {
-	return 炫彩基类.X数据适配器表_置项整数值(a.Handle, 项索引, 列索引, 值)
+
+// ff:置项整数值
+// nValue:值
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) SetItemInt(iItem int, iColumn int, nValue int32) bool {
+	return xc.XAdTable_SetItemInt(a.Handle, iItem, iColumn, nValue)
 }
 
 // 数据适配器表_置项整数值扩展, 设置项数据.
@@ -177,8 +247,13 @@ func (a *AdapterTable) X置项整数值(项索引 int, 列索引 int, 值 int32)
 // pName: 字段称.
 //
 // nValue: 值.
-func (a *AdapterTable) X置项整数值EX(项索引 int, 字段称 string, 值 int32) bool {
-	return 炫彩基类.X数据适配器表_置项整数值EX(a.Handle, 项索引, 字段称, 值)
+
+// ff:置项整数值EX
+// nValue:值
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) SetItemIntEx(iItem int, pName string, nValue int32) bool {
+	return xc.XAdTable_SetItemIntEx(a.Handle, iItem, pName, nValue)
 }
 
 // 数据适配器表_置项浮点值, 设置项数据.
@@ -188,8 +263,13 @@ func (a *AdapterTable) X置项整数值EX(项索引 int, 字段称 string, 值 i
 // iColumn: 列索引.
 //
 // fValue: 值.
-func (a *AdapterTable) X置项浮点值(项索引 int, 列索引 int, 值 float32) bool {
-	return 炫彩基类.X数据适配器表_置项浮点值(a.Handle, 项索引, 列索引, 值)
+
+// ff:置项浮点值
+// fValue:值
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) SetItemFloat(iItem int, iColumn int, fValue float32) bool {
+	return xc.XAdTable_SetItemFloat(a.Handle, iItem, iColumn, fValue)
 }
 
 // 数据适配器表_置项浮点值扩展, 设置项数据.
@@ -199,8 +279,13 @@ func (a *AdapterTable) X置项浮点值(项索引 int, 列索引 int, 值 float3
 // pName: 字段称.
 //
 // fValue: 值.
-func (a *AdapterTable) X置项浮点值EX(项索引 int, 字段称 string, 值 float32) bool {
-	return 炫彩基类.X数据适配器表_置项浮点值EX(a.Handle, 项索引, 字段称, 值)
+
+// ff:置项浮点值EX
+// fValue:值
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) SetItemFloatEx(iItem int, pName string, fValue float32) bool {
+	return xc.XAdTable_SetItemFloatEx(a.Handle, iItem, pName, fValue)
 }
 
 // 数据适配器表_置项图片, 设置项数据.
@@ -210,8 +295,13 @@ func (a *AdapterTable) X置项浮点值EX(项索引 int, 字段称 string, 值 f
 // iColumn: 列索引.
 //
 // hImage: 图片句柄.
-func (a *AdapterTable) X置项图片(项索引 int, 列索引 int, 图片句柄 int) bool {
-	return 炫彩基类.X数据适配器表_置项图片(a.Handle, 项索引, 列索引, 图片句柄)
+
+// ff:置项图片
+// hImage:图片句柄
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) SetItemImage(iItem int, iColumn int, hImage int) bool {
+	return xc.XAdTable_SetItemImage(a.Handle, iItem, iColumn, hImage)
 }
 
 // 数据适配器表_置项图片扩展, 设置项数据.
@@ -221,15 +311,23 @@ func (a *AdapterTable) X置项图片(项索引 int, 列索引 int, 图片句柄 
 // pName: 字段称.
 //
 // hImage: 图片句柄.
-func (a *AdapterTable) X置项图片EX(项索引 int, 字段称 string, 图片句柄 int) bool {
-	return 炫彩基类.X数据适配器表_置项图片EX(a.Handle, 项索引, 字段称, 图片句柄)
+
+// ff:置项图片EX
+// hImage:图片句柄
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) SetItemImageEx(iItem int, pName string, hImage int) bool {
+	return xc.XAdTable_SetItemImageEx(a.Handle, iItem, pName, hImage)
 }
 
 // 数据适配器表_删除项, 删除项.
 //
 // iItem: 项索引.
-func (a *AdapterTable) X删除项(项索引 int) bool {
-	return 炫彩基类.X数据适配器表_删除项(a.Handle, 项索引)
+
+// ff:删除项
+// iItem:项索引
+func (a *AdapterTable) DeleteItem(iItem int) bool {
+	return xc.XAdTable_DeleteItem(a.Handle, iItem)
 }
 
 // 数据适配器表_删除项扩展, 删除多个项.
@@ -237,28 +335,40 @@ func (a *AdapterTable) X删除项(项索引 int) bool {
 // iItem: 项起始索引.
 //
 // nCount: 删除项数量.
-func (a *AdapterTable) X删除项EX(项起始索引 int, 删除项数量 int) bool {
-	return 炫彩基类.X数据适配器表_删除项EX(a.Handle, 项起始索引, 删除项数量)
+
+// ff:删除项EX
+// nCount:删除项数量
+// iItem:项起始索引
+func (a *AdapterTable) DeleteItemEx(iItem int, nCount int) bool {
+	return xc.XAdTable_DeleteItemEx(a.Handle, iItem, nCount)
 }
 
 // 数据适配器表_删除项全部, 删除所有项.
-func (a *AdapterTable) X删除项全部() int {
-	return 炫彩基类.X数据适配器表_删除项全部(a.Handle)
+
+// ff:删除项全部
+func (a *AdapterTable) DeleteItemAll() int {
+	return xc.XAdTable_DeleteItemAll(a.Handle)
 }
 
 // 数据适配器表_删除列全部, 删除所有列, 并且清空所有数据.
-func (a *AdapterTable) X删除列全部() int {
-	return 炫彩基类.X数据适配器表_删除列全部(a.Handle)
+
+// ff:删除列全部
+func (a *AdapterTable) DeleteColumnAll() int {
+	return xc.XAdTable_DeleteColumnAll(a.Handle)
 }
 
 // 数据适配器表_取项数量, 获取项数量.
-func (a *AdapterTable) X取项数量() int {
-	return 炫彩基类.X数据适配器表_取项数量(a.Handle)
+
+// ff:取项数量
+func (a *AdapterTable) GetCount() int {
+	return xc.XAdTable_GetCount(a.Handle)
 }
 
 // 数据适配器表_取列数量, 获取列数量.
-func (a *AdapterTable) X取列数量() int {
-	return 炫彩基类.X数据适配器表_取列数量(a.Handle)
+
+// ff:取列数量
+func (a *AdapterTable) GetCountColumn() int {
+	return xc.XAdTable_GetCountColumn(a.Handle)
 }
 
 // 数据适配器表_取项文本, 获取项文本内容.
@@ -266,8 +376,12 @@ func (a *AdapterTable) X取列数量() int {
 // iItem: 项索引.
 //
 // iColumn: 列索引.
-func (a *AdapterTable) X取项文本(项索引 int, 列索引 int) string {
-	return 炫彩基类.X数据适配器表_取项文本(a.Handle, 项索引, 列索引)
+
+// ff:取项文本
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) GetItemText(iItem int, iColumn int) string {
+	return xc.XAdTable_GetItemText(a.Handle, iItem, iColumn)
 }
 
 // 数据适配器表_取项文本扩展, 获取项文本内容.
@@ -275,8 +389,12 @@ func (a *AdapterTable) X取项文本(项索引 int, 列索引 int) string {
 // iItem: 项索引.
 //
 // pName: 字段称.
-func (a *AdapterTable) X取项文本EX(项索引 int, 字段称 string) string {
-	return 炫彩基类.X数据适配器表_取项文本EX(a.Handle, 项索引, 字段称)
+
+// ff:取项文本EX
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) GetItemTextEx(iItem int, pName string) string {
+	return xc.XAdTable_GetItemTextEx(a.Handle, iItem, pName)
 }
 
 // 数据适配器表_取项图片, 获取项图片句柄.
@@ -284,8 +402,12 @@ func (a *AdapterTable) X取项文本EX(项索引 int, 字段称 string) string {
 // iItem: 项索引.
 //
 // iColumn: 列索引.
-func (a *AdapterTable) X取项图片(项索引 int, 列索引 int) int {
-	return 炫彩基类.X数据适配器表_取项图片(a.Handle, 项索引, 列索引)
+
+// ff:取项图片
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) GetItemImage(iItem int, iColumn int) int {
+	return xc.XAdTable_GetItemImage(a.Handle, iItem, iColumn)
 }
 
 // 数据适配器表_取项图片扩展, 获取项图片句柄.
@@ -293,8 +415,12 @@ func (a *AdapterTable) X取项图片(项索引 int, 列索引 int) int {
 // iItem: 项索引.
 //
 // pName: 字段称.
-func (a *AdapterTable) X取项图片EX(项索引 int, 字段称 string) int {
-	return 炫彩基类.X数据适配器表_取项图片EX(a.Handle, 项索引, 字段称)
+
+// ff:取项图片EX
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) GetItemImageEx(iItem int, pName string) int {
+	return xc.XAdTable_GetItemImageEx(a.Handle, iItem, pName)
 }
 
 // 数据适配器表_取项整数值, 获取项值.
@@ -304,8 +430,13 @@ func (a *AdapterTable) X取项图片EX(项索引 int, 字段称 string) int {
 // iColumn: 列索引.
 //
 // pOutValue: 接收返还值.
-func (a *AdapterTable) X取项整数值(项索引 int, 列索引 int, 接收返还值 *int32) bool {
-	return 炫彩基类.X数据适配器表_取项整数值(a.Handle, 项索引, 列索引, 接收返还值)
+
+// ff:取项整数值
+// pOutValue:接收返还值
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) GetItemInt(iItem int, iColumn int, pOutValue *int32) bool {
+	return xc.XAdTable_GetItemInt(a.Handle, iItem, iColumn, pOutValue)
 }
 
 // 数据适配器表_取项整数值扩展, 获取项值.
@@ -315,8 +446,13 @@ func (a *AdapterTable) X取项整数值(项索引 int, 列索引 int, 接收返�
 // pName: 字段称.
 //
 // pOutValue: 接收返还值.
-func (a *AdapterTable) X取项整数值EX(项索引 int, 字段称 string, 接收返还值 *int32) bool {
-	return 炫彩基类.X数据适配器表_取项整数值EX(a.Handle, 项索引, 字段称, 接收返还值)
+
+// ff:取项整数值EX
+// pOutValue:接收返还值
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) GetItemIntEx(iItem int, pName string, pOutValue *int32) bool {
+	return xc.XAdTable_GetItemIntEx(a.Handle, iItem, pName, pOutValue)
 }
 
 // 数据适配器表_取项浮点值, 获取项值.
@@ -326,8 +462,13 @@ func (a *AdapterTable) X取项整数值EX(项索引 int, 字段称 string, 接�
 // iColumn: 列索引.
 //
 // pOutValue: 接收返还值.
-func (a *AdapterTable) X取项浮点值(项索引 int, 列索引 int, 接收返还值 *float32) bool {
-	return 炫彩基类.X数据适配器表_取项浮点值(a.Handle, 项索引, 列索引, 接收返还值)
+
+// ff:取项浮点值
+// pOutValue:接收返还值
+// iColumn:列索引
+// iItem:项索引
+func (a *AdapterTable) GetItemFloat(iItem int, iColumn int, pOutValue *float32) bool {
+	return xc.XAdTable_GetItemFloat(a.Handle, iItem, iColumn, pOutValue)
 }
 
 // 数据适配器表_取项浮点值扩展, 获取项值.
@@ -337,6 +478,11 @@ func (a *AdapterTable) X取项浮点值(项索引 int, 列索引 int, 接收返�
 // pName: 字段称.
 //
 // pOutValue: 接收返还值.
-func (a *AdapterTable) X取项浮点值EX(项索引 int, 字段称 string, 接收返还值 *float32) bool {
-	return 炫彩基类.X数据适配器表_取项浮点值EX(a.Handle, 项索引, 字段称, 接收返还值)
+
+// ff:取项浮点值EX
+// pOutValue:接收返还值
+// pName:字段称
+// iItem:项索引
+func (a *AdapterTable) GetItemFloatEx(iItem int, pName string, pOutValue *float32) bool {
+	return xc.XAdTable_GetItemFloatEx(a.Handle, iItem, pName, pOutValue)
 }

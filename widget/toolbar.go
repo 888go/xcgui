@@ -1,8 +1,6 @@
-package 炫彩组件类
+package widget
 
-import (
-	"github.com/888go/xcgui/xc"
-)
+import "github.com/twgh/xcgui/xc"
 
 // 工具条.
 type ToolBar struct {
@@ -20,47 +18,66 @@ type ToolBar struct {
 // cy: 高度.
 //
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-func X创建工具条(x坐标, y坐标, 宽度, 高度 int32, 父窗口句柄或元素句柄 int) *ToolBar {
+
+// ff:创建工具条
+// hParent:父窗口句柄或元素句柄
+// cy:高度
+// cx:宽度
+// y:y坐标
+// x:x坐标
+func NewToolBar(x, y, cx, cy int32, hParent int) *ToolBar {
 	p := &ToolBar{}
-	p.X设置句柄(炫彩基类.X工具条_创建(x坐标, y坐标, 宽度, 高度, 父窗口句柄或元素句柄))
+	p.SetHandle(xc.XToolBar_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
-func X创建工具条并按句柄(handle int) *ToolBar {
+
+// ff:创建工具条并按句柄
+// handle:
+func NewToolBarByHandle(handle int) *ToolBar {
 	p := &ToolBar{}
-	p.X设置句柄(handle)
+	p.SetHandle(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func X创建工具条并按名称(name string) *ToolBar {
-	handle := 炫彩基类.X取对象从名称(name)
+
+// ff:创建工具条并按名称
+// name:
+func NewToolBarByName(name string) *ToolBar {
+	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &ToolBar{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func X创建工具条并按UID(nUID int) *ToolBar {
-	handle := 炫彩基类.X取对象从UID(nUID)
+
+// ff:创建工具条并按UID
+// nUID:
+func NewToolBarByUID(nUID int) *ToolBar {
+	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &ToolBar{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func X创建工具条并按UID名称(name string) *ToolBar {
-	handle := 炫彩基类.X取对象从UID名称(name)
+
+// ff:创建工具条并按UID名称
+// name:
+func NewToolBarByUIDName(name string) *ToolBar {
+	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &ToolBar{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -71,8 +88,12 @@ func X创建工具条并按UID名称(name string) *ToolBar {
 // hNewEle: 将要插入的元素.
 //
 // index: 插入位置索引, (-1)插入末尾.
-func (t *ToolBar) X插入元素(将要插入的元素 int, 插入位置索引 int) int {
-	return 炫彩基类.X工具条_插入元素(t.Handle, 将要插入的元素, 插入位置索引)
+
+// ff:插入元素
+// index:插入位置索引
+// hNewEle:将要插入的元素
+func (t *ToolBar) InsertEle(hNewEle int, index int) int {
+	return xc.XToolBar_InsertEle(t.Handle, hNewEle, index)
 }
 
 // 工具条_插入分割栏, 插入分隔符到工具条, 返回插入位置索引.
@@ -80,54 +101,78 @@ func (t *ToolBar) X插入元素(将要插入的元素 int, 插入位置索引 in
 // index: 插入位置索引, (-1)插入末尾.
 //
 // color: ABGR 颜色.
-func (t *ToolBar) X插入分割栏(插入位置索引 int, ABGR颜色 int) int {
-	return 炫彩基类.X工具条_插入分割栏(t.Handle, 插入位置索引, ABGR颜色)
+
+// ff:插入分割栏
+// color:ABGR颜色
+// index:插入位置索引
+func (t *ToolBar) InsertSeparator(index int, color int) int {
+	return xc.XToolBar_InsertSeparator(t.Handle, index, color)
 }
 
 // 工具条_启用下拉菜单, 启用下拉菜单, 显示隐藏的项.
 //
 // bEnable: 是否启用.
-func (t *ToolBar) X启用下拉菜单(是否启用 bool) int {
-	return 炫彩基类.X工具条_启用下拉菜单(t.Handle, 是否启用)
+
+// ff:启用下拉菜单
+// bEnable:是否启用
+func (t *ToolBar) EnableButtonMenu(bEnable bool) int {
+	return xc.XToolBar_EnableButtonMenu(t.Handle, bEnable)
 }
 
 // 工具条_取元素, 获取工具条上指定元素, 返回元素句柄.
 //
 // index: 索引值.
-func (t *ToolBar) X取元素(索引值 int) int {
-	return 炫彩基类.X工具条_取元素(t.Handle, 索引值)
+
+// ff:取元素
+// index:索引值
+func (t *ToolBar) GetEle(index int) int {
+	return xc.XToolBar_GetEle(t.Handle, index)
 }
 
 // 工具条_取左滚动按钮, 获取左滚动按钮句柄.
-func (t *ToolBar) X取左滚动按钮() int {
-	return 炫彩基类.X工具条_取左滚动按钮(t.Handle)
+
+// ff:取左滚动按钮
+func (t *ToolBar) GetButtonLeft() int {
+	return xc.XToolBar_GetButtonLeft(t.Handle)
 }
 
 // 工具条_取右滚动按钮, 获取右滚动按钮句柄.
-func (t *ToolBar) X取右滚动按钮() int {
-	return 炫彩基类.X工具条_取右滚动按钮(t.Handle)
+
+// ff:取右滚动按钮
+func (t *ToolBar) GetButtonRight() int {
+	return xc.XToolBar_GetButtonRight(t.Handle)
 }
 
 // 工具条_取菜单按钮, 获取菜单按钮句柄.
-func (t *ToolBar) X取菜单按钮() int {
-	return 炫彩基类.X工具条_取菜单按钮(t.Handle)
+
+// ff:取菜单按钮
+func (t *ToolBar) GetButtonMenu() int {
+	return xc.XToolBar_GetButtonMenu(t.Handle)
 }
 
 // 工具条_置间距, 设置对象之间的间距.
 //
 // nSize: 间距大小.
-func (t *ToolBar) X置间距(间距大小 int) int {
-	return 炫彩基类.X工具条_置间距(t.Handle, 间距大小)
+
+// ff:置间距
+// nSize:间距大小
+func (t *ToolBar) SetSpace(nSize int) int {
+	return xc.XToolBar_SetSpace(t.Handle, nSize)
 }
 
 // 工具条_删除元素, 删除元素, 并且销毁.
 //
 // index: 索引值.
-func (t *ToolBar) X删除元素(索引值 int) int {
-	return 炫彩基类.X工具条_删除元素(t.Handle, 索引值)
+
+// ff:删除元素
+// index:索引值
+func (t *ToolBar) DeleteEle(index int) int {
+	return xc.XToolBar_DeleteEle(t.Handle, index)
 }
 
 // 工具条_删除全部, 删除所有元素, 并且销毁.
-func (t *ToolBar) X删除全部() int {
-	return 炫彩基类.X工具条_删除全部(t.Handle)
+
+// ff:删除全部
+func (t *ToolBar) DeleteAllEle() int {
+	return xc.XToolBar_DeleteAllEle(t.Handle)
 }

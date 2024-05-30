@@ -1,10 +1,10 @@
-package 炫彩基类
+package xc
 
 import (
-	"github.com/888go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"syscall"
-	
-	"github.com/888go/xcgui/xcc"
+
+	"github.com/twgh/xcgui/xcc"
 )
 
 // 动画_运行, 并且增加引用计数.
@@ -12,8 +12,12 @@ import (
 // hAnimation: 动画序列或动画组句柄.
 //
 // hRedrawObjectUI: 当更新UI时重绘的UI层. UI对象句柄: 窗口句柄, 元素句柄, 形状句柄, SVG句柄.
-func X动画_运行(动画序列或动画组句柄 int, 重绘的UI层 int) int {
-	r, _, _ := xAnima_Run.Call(uintptr(动画序列或动画组句柄), uintptr(重绘的UI层))
+
+// ff:动画_运行
+// hRedrawObjectUI:重绘的UI层
+// hAnimation:动画序列或动画组句柄
+func XAnima_Run(hAnimation int, hRedrawObjectUI int) int {
+	r, _, _ := xAnima_Run.Call(uintptr(hAnimation), uintptr(hRedrawObjectUI))
 	return int(r)
 }
 
@@ -22,8 +26,12 @@ func X动画_运行(动画序列或动画组句柄 int, 重绘的UI层 int) int 
 // hAnimation: 动画序列或动画组句柄.
 //
 // bEnd: 是否立即执行到终点.
-func X动画_释放(动画序列或动画组句柄 int, 是否立即执行到终点 bool) bool {
-	r, _, _ := xAnima_Release.Call(uintptr(动画序列或动画组句柄), 炫彩工具类.BoolPtr(是否立即执行到终点))
+
+// ff:动画_释放
+// bEnd:是否立即执行到终点
+// hAnimation:动画序列或动画组句柄
+func XAnima_Release(hAnimation int, bEnd bool) bool {
+	r, _, _ := xAnima_Release.Call(uintptr(hAnimation), common.BoolPtr(bEnd))
 	return r != 0
 }
 
@@ -32,8 +40,12 @@ func X动画_释放(动画序列或动画组句柄 int, 是否立即执行到终
 // hObjectUI: 指定UI对象句柄.
 //
 // bEnd: 是否立即执行到终点.
-func X动画_释放EX(指定UI对象句柄 int, 是否立即执行到终点 bool) int {
-	r, _, _ := xAnima_ReleaseEx.Call(uintptr(指定UI对象句柄), 炫彩工具类.BoolPtr(是否立即执行到终点))
+
+// ff:动画_释放EX
+// bEnd:是否立即执行到终点
+// hObjectUI:指定UI对象句柄
+func XAnima_ReleaseEx(hObjectUI int, bEnd bool) int {
+	r, _, _ := xAnima_ReleaseEx.Call(uintptr(hObjectUI), common.BoolPtr(bEnd))
 	return int(r)
 }
 
@@ -42,8 +54,12 @@ func X动画_释放EX(指定UI对象句柄 int, 是否立即执行到终点 bool
 // hObjectUI: 绑定的UI对象. UI对象句柄: 窗口句柄, 元素句柄, 形状句柄, SVG句柄.
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
-func X动画_创建动画序列(绑定的UI对象 int, 动画循环次数 int) int {
-	r, _, _ := xAnima_Create.Call(uintptr(绑定的UI对象), uintptr(动画循环次数))
+
+// ff:动画_创建动画序列
+// nLoopCount:动画循环次数
+// hObjectUI:绑定的UI对象
+func XAnima_Create(hObjectUI int, nLoopCount int) int {
+	r, _, _ := xAnima_Create.Call(uintptr(hObjectUI), uintptr(nLoopCount))
 	return int(r)
 }
 
@@ -62,8 +78,17 @@ func X动画_创建动画序列(绑定的UI对象 int, 动画循环次数 int) i
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_移动(动画序列句柄 int, 持续时间 int, 终点位置X float32, 终点位置Y float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_Move.Call(uintptr(动画序列句柄), uintptr(持续时间), 炫彩工具类.Float32Ptr(终点位置X), 炫彩工具类.Float32Ptr(终点位置Y), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_移动
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// y:终点位置Y
+// x:终点位置X
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_Move(hSequence int, duration int, x float32, y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_Move.Call(uintptr(hSequence), uintptr(duration), common.Float32Ptr(x), common.Float32Ptr(y), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -86,8 +111,19 @@ func X动画_移动(动画序列句柄 int, 持续时间 int, 终点位置X floa
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_移动EX(动画序列句柄 int, 持续时间 int, 起点位置X float32, 起点位置Y float32, 终点位置X float32, 终点位置Y float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_MoveEx.Call(uintptr(动画序列句柄), uintptr(持续时间), 炫彩工具类.Float32Ptr(起点位置X), 炫彩工具类.Float32Ptr(起点位置Y), 炫彩工具类.Float32Ptr(终点位置X), 炫彩工具类.Float32Ptr(终点位置Y), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_移动EX
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// to_y:终点位置Y
+// to_x:终点位置X
+// from_y:起点位置Y
+// from_x:起点位置X
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_MoveEx(hSequence int, duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_MoveEx.Call(uintptr(hSequence), uintptr(duration), common.Float32Ptr(from_x), common.Float32Ptr(from_y), common.Float32Ptr(to_x), common.Float32Ptr(to_y), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -104,8 +140,16 @@ func X动画_移动EX(动画序列句柄 int, 持续时间 int, 起点位置X fl
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_旋转(动画序列句柄 int, 持续时间 int, 角度 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_Rotate.Call(uintptr(动画序列句柄), uintptr(持续时间), 炫彩工具类.Float32Ptr(角度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_旋转
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// angle:角度
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_Rotate(hSequence int, duration int, angle float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_Rotate.Call(uintptr(hSequence), uintptr(duration), common.Float32Ptr(angle), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -124,8 +168,17 @@ func X动画_旋转(动画序列句柄 int, 持续时间 int, 角度 float32, �
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_旋转EX(动画序列句柄 int, 持续时间 int, 起点角度 float32, 终点角度 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_RotateEx.Call(uintptr(动画序列句柄), uintptr(持续时间), 炫彩工具类.Float32Ptr(起点角度), 炫彩工具类.Float32Ptr(终点角度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_旋转EX
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// to:终点角度
+// from:起点角度
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_RotateEx(hSequence int, duration int, from float32, to float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_RotateEx.Call(uintptr(hSequence), uintptr(duration), common.Float32Ptr(from), common.Float32Ptr(to), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -144,8 +197,17 @@ func X动画_旋转EX(动画序列句柄 int, 持续时间 int, 起点角度 flo
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_缩放(动画序列句柄 int, 持续时间 int, X轴缩放比例 float32, Y轴缩放比例 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_Scale.Call(uintptr(动画序列句柄), uintptr(持续时间), 炫彩工具类.Float32Ptr(X轴缩放比例), 炫彩工具类.Float32Ptr(Y轴缩放比例), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_缩放
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// scaleY:Y轴缩放比例
+// scaleX:轴缩放比例
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_Scale(hSequence int, duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_Scale.Call(uintptr(hSequence), uintptr(duration), common.Float32Ptr(scaleX), common.Float32Ptr(scaleY), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -164,8 +226,17 @@ func X动画_缩放(动画序列句柄 int, 持续时间 int, X轴缩放比例 f
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_缩放大小(动画序列句柄 int, 持续时间 int, 宽度 float32, 高度 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_ScaleSize.Call(uintptr(动画序列句柄), uintptr(持续时间), 炫彩工具类.Float32Ptr(宽度), 炫彩工具类.Float32Ptr(高度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_缩放大小
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// height:高度
+// width:宽度
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_ScaleSize(hSequence int, duration int, width float32, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_ScaleSize.Call(uintptr(hSequence), uintptr(duration), common.Float32Ptr(width), common.Float32Ptr(height), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -182,8 +253,16 @@ func X动画_缩放大小(动画序列句柄 int, 持续时间 int, 宽度 float
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_透明度(动画序列句柄 int, 持续时间 int, 透明度 uint8, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_Alpha.Call(uintptr(动画序列句柄), uintptr(持续时间), uintptr(透明度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_透明度
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// alpha:透明度
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_Alpha(hSequence int, duration int, alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_Alpha.Call(uintptr(hSequence), uintptr(duration), uintptr(alpha), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -202,8 +281,17 @@ func X动画_透明度(动画序列句柄 int, 持续时间 int, 透明度 uint8
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_透明度EX(动画序列句柄 int, 持续时间 int, 起始透明度 uint8, 终止透明度 uint8, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_AlphaEx.Call(uintptr(动画序列句柄), uintptr(持续时间), uintptr(起始透明度), uintptr(终止透明度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_透明度EX
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// to_alpha:终止透明度
+// from_alpha:起始透明度
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_AlphaEx(hSequence int, duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_AlphaEx.Call(uintptr(hSequence), uintptr(duration), uintptr(from_alpha), uintptr(to_alpha), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -220,8 +308,16 @@ func X动画_透明度EX(动画序列句柄 int, 持续时间 int, 起始透明�
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_颜色(动画序列句柄 int, 持续时间 int, ABGR int, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_Color.Call(uintptr(动画序列句柄), uintptr(持续时间), uintptr(ABGR), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_颜色
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// color:ABGR
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_Color(hSequence int, duration int, color int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_Color.Call(uintptr(hSequence), uintptr(duration), uintptr(color), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -240,8 +336,17 @@ func X动画_颜色(动画序列句柄 int, 持续时间 int, ABGR int, 动画�
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_颜色EX(动画序列句柄 int, 持续时间 int, 起点颜色 int, 终点颜色 int, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_ColorEx.Call(uintptr(动画序列句柄), uintptr(持续时间), uintptr(起点颜色), uintptr(终点颜色), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_颜色EX
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// to:终点颜色
+// from:起点颜色
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_ColorEx(hSequence int, duration int, from int, to int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_ColorEx.Call(uintptr(hSequence), uintptr(duration), uintptr(from), uintptr(to), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -260,8 +365,17 @@ func X动画_颜色EX(动画序列句柄 int, 持续时间 int, 起点颜色 int
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_布局宽度(动画序列句柄 int, 持续时间 int, 布局宽度类型 炫彩常量类.Layout_Size_, 布局宽度 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_LayoutWidth.Call(uintptr(动画序列句柄), uintptr(持续时间), uintptr(布局宽度类型), 炫彩工具类.Float32Ptr(布局宽度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_布局宽度
+// bGoBack:
+// ease_flag:
+// nLoopCount:
+// width:
+// nType:布局宽度类型
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_LayoutWidth(hSequence int, duration int, nType xcc.Layout_Size_, width float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_LayoutWidth.Call(uintptr(hSequence), uintptr(duration), uintptr(nType), common.Float32Ptr(width), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -280,8 +394,17 @@ func X动画_布局宽度(动画序列句柄 int, 持续时间 int, 布局宽度
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_布局高度(动画序列句柄 int, 持续时间 int, 布局高度类型 炫彩常量类.Layout_Size_, 布局高度 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_LayoutHeight.Call(uintptr(动画序列句柄), uintptr(持续时间), uintptr(布局高度类型), 炫彩工具类.Float32Ptr(布局高度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_布局高度
+// bGoBack:
+// ease_flag:
+// nLoopCount:
+// height:
+// nType:布局高度类型
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_LayoutHeight(hSequence int, duration int, nType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_LayoutHeight.Call(uintptr(hSequence), uintptr(duration), uintptr(nType), common.Float32Ptr(height), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -304,8 +427,19 @@ func X动画_布局高度(动画序列句柄 int, 持续时间 int, 布局高度
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_布局大小(动画序列句柄 int, 持续时间 int, 布局宽度类型 炫彩常量类.Layout_Size_, 布局宽度 float32, 布局大小类型 炫彩常量类.Layout_Size_, 布局高度 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_LayoutSize.Call(uintptr(动画序列句柄), uintptr(持续时间), uintptr(布局宽度类型), 炫彩工具类.Float32Ptr(布局宽度), uintptr(布局大小类型), 炫彩工具类.Float32Ptr(布局高度), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_布局大小
+// bGoBack:
+// ease_flag:
+// nLoopCount:
+// height:
+// nHeightType:
+// width:
+// nWidthType:布局宽度类型
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_LayoutSize(hSequence int, duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_LayoutSize.Call(uintptr(hSequence), uintptr(duration), uintptr(nWidthType), common.Float32Ptr(width), uintptr(nHeightType), common.Float32Ptr(height), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -314,8 +448,12 @@ func X动画_布局大小(动画序列句柄 int, 持续时间 int, 布局宽度
 // hSequence: 动画序列句柄.
 //
 // duration: 持续时间.
-func X动画_延迟(动画序列句柄 int, 持续时间 float32) int {
-	r, _, _ := xAnima_Delay.Call(uintptr(动画序列句柄), 炫彩工具类.Float32Ptr(持续时间))
+
+// ff:动画_延迟
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_Delay(hSequence int, duration float32) int {
+	r, _, _ := xAnima_Delay.Call(uintptr(hSequence), common.Float32Ptr(duration))
 	return int(r)
 }
 
@@ -326,8 +464,13 @@ func X动画_延迟(动画序列句柄 int, 持续时间 float32) int {
 // duration: 持续时间.
 //
 // bShow: 显示或隐藏.
-func X动画_显示(动画序列句柄 int, 持续时间 float32, 显示或隐藏 bool) int {
-	r, _, _ := xAnima_Show.Call(uintptr(动画序列句柄), 炫彩工具类.Float32Ptr(持续时间), 炫彩工具类.BoolPtr(显示或隐藏))
+
+// ff:动画_显示
+// bShow:显示或隐藏
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_Show(hSequence int, duration float32, bShow bool) int {
+	r, _, _ := xAnima_Show.Call(uintptr(hSequence), common.Float32Ptr(duration), common.BoolPtr(bShow))
 	return int(r)
 }
 
@@ -336,8 +479,11 @@ func X动画_显示(动画序列句柄 int, 持续时间 float32, 显示或隐�
 // 当遇到无限循环项时, 直至其他序列完成后终止循环, 避免出现无法到达终点, 无法返回头部进行同步, 返回动画组句柄.
 //
 // nLoopCount: 动画循环次数, 0: 无限循环.
-func X动画组_创建(循环次数 int) int {
-	r, _, _ := xAnimaGroup_Create.Call(uintptr(循环次数))
+
+// ff:动画组_创建
+// nLoopCount:循环次数
+func XAnimaGroup_Create(nLoopCount int) int {
+	r, _, _ := xAnimaGroup_Create.Call(uintptr(nLoopCount))
 	return int(r)
 }
 
@@ -346,8 +492,12 @@ func X动画组_创建(循环次数 int) int {
 // hGroup: 动画组句柄.
 //
 // hSequence: 动画序列句柄.
-func X动画组_添加项(动画组句柄 int, 动画序列句柄 int) int {
-	r, _, _ := xAnimaGroup_AddItem.Call(uintptr(动画组句柄), uintptr(动画序列句柄))
+
+// ff:动画组_添加项
+// hSequence:动画序列句柄
+// hGroup:动画组句柄
+func XAnimaGroup_AddItem(hGroup int, hSequence int) int {
+	r, _, _ := xAnimaGroup_AddItem.Call(uintptr(hGroup), uintptr(hSequence))
 	return int(r)
 }
 
@@ -360,8 +510,14 @@ func X动画组_添加项(动画组句柄 int, 动画序列句柄 int) int {
 // y: 坐标Y.
 //
 // bOffset: TRUE: 相对于自身中心点偏移, FALSE: 绝对坐标.
-func X动画旋转_置中心(动画旋转项句柄 int, 坐标X float32, 坐标Y float32, TRUE bool) bool {
-	r, _, _ := xAnimaRotate_SetCenter.Call(uintptr(动画旋转项句柄), 炫彩工具类.Float32Ptr(坐标X), 炫彩工具类.Float32Ptr(坐标Y), 炫彩工具类.BoolPtr(TRUE))
+
+// ff:动画旋转_置中心
+// bOffset:TRUE
+// y:坐标Y
+// x:坐标X
+// hAnimationRotate:动画旋转项句柄
+func XAnimaRotate_SetCenter(hAnimationRotate int, x float32, y float32, bOffset bool) bool {
+	r, _, _ := xAnimaRotate_SetCenter.Call(uintptr(hAnimationRotate), common.Float32Ptr(x), common.Float32Ptr(y), common.BoolPtr(bOffset))
 	return r != 0
 }
 
@@ -370,16 +526,23 @@ func X动画旋转_置中心(动画旋转项句柄 int, 坐标X float32, 坐标Y
 // hAnimationScale: 动画缩放项句柄.
 //
 // position: 位置, Position_Flag_.
-func X动画缩放_置延伸位置(动画缩放项句柄 int, 位置 炫彩常量类.Position_Flag_) bool {
-	r, _, _ := xAnimaScale_SetPosition.Call(uintptr(动画缩放项句柄), uintptr(位置))
+
+// ff:动画缩放_置延伸位置
+// position:位置
+// hAnimationScale:动画缩放项句柄
+func XAnimaScale_SetPosition(hAnimationScale int, position xcc.Position_Flag_) bool {
+	r, _, _ := xAnimaScale_SetPosition.Call(uintptr(hAnimationScale), uintptr(position))
 	return r != 0
 }
 
 // 动画_取UI对象, 获取动画关联的UI对象, 返回UI对象句柄.
 //
 // hAnimation: 动画序列或动画组句柄.
-func X动画_取UI对象(动画序列或动画组句柄 int) int {
-	r, _, _ := xAnima_GetObjectUI.Call(uintptr(动画序列或动画组句柄))
+
+// ff:动画_取UI对象
+// hAnimation:动画序列或动画组句柄
+func XAnima_GetObjectUI(hAnimation int) int {
+	r, _, _ := xAnima_GetObjectUI.Call(uintptr(hAnimation))
 	return int(r)
 }
 
@@ -390,8 +553,12 @@ func X动画_取UI对象(动画序列或动画组句柄 int) int {
 // hAnimationItem: 动画项句柄.
 //
 // bEnable: 是否启用.
-func X动画项_启用完成释放(动画项句柄 int, 是否启用 bool) int {
-	r, _, _ := xAnimaItem_EnableCompleteRelease.Call(uintptr(动画项句柄), 炫彩工具类.BoolPtr(是否启用))
+
+// ff:动画项_启用完成释放
+// bEnable:是否启用
+// hAnimationItem:动画项句柄
+func XAnimaItem_EnableCompleteRelease(hAnimationItem int, bEnable bool) int {
+	r, _, _ := xAnimaItem_EnableCompleteRelease.Call(uintptr(hAnimationItem), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -400,8 +567,12 @@ func X动画项_启用完成释放(动画项句柄 int, 是否启用 bool) int {
 // hAnimation: 动画项或动画序列或动画组句柄.
 //
 // bEnable: 是否启用.
-func X动画_启用自动销毁(动画项或动画序列或动画组句柄 int, 是否启用 bool) int {
-	r, _, _ := xAnima_EnableAutoDestroy.Call(uintptr(动画项或动画序列或动画组句柄), 炫彩工具类.BoolPtr(是否启用))
+
+// ff:动画_启用自动销毁
+// bEnable:是否启用
+// hAnimation:动画项或动画序列或动画组句柄
+func XAnima_EnableAutoDestroy(hAnimation int, bEnable bool) int {
+	r, _, _ := xAnima_EnableAutoDestroy.Call(uintptr(hAnimation), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -410,8 +581,12 @@ func X动画_启用自动销毁(动画项或动画序列或动画组句柄 int, 
 // hSequence: 动画序列句柄.
 //
 // duration: 持续时间.
-func X动画_销毁UI对象(动画序列句柄 int, 持续时间 float32) int {
-	r, _, _ := xAnima_DestroyObjectUI.Call(uintptr(动画序列句柄), 炫彩工具类.Float32Ptr(持续时间))
+
+// ff:动画_销毁UI对象
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_DestroyObjectUI(hSequence int, duration float32) int {
+	r, _, _ := xAnima_DestroyObjectUI.Call(uintptr(hSequence), common.Float32Ptr(duration))
 	return int(r)
 }
 
@@ -420,8 +595,12 @@ func X动画_销毁UI对象(动画序列句柄 int, 持续时间 float32) int {
 // hAnimationEx: 动画序列或动画组句柄.
 //
 // callback: 回调函数.
-func X动画_置回调(动画序列或动画组句柄 int, 回调函数 interface{}) int {
-	r, _, _ := xAnima_SetCallBack.Call(uintptr(动画序列或动画组句柄), syscall.NewCallback(回调函数))
+
+// ff:动画_置回调
+// callback:回调函数
+// hAnimationEx:动画序列或动画组句柄
+func XAnima_SetCallBack(hAnimationEx int, callback interface{}) int {
+	r, _, _ := xAnima_SetCallBack.Call(uintptr(hAnimationEx), syscall.NewCallback(callback))
 	return int(r)
 }
 
@@ -430,40 +609,56 @@ func X动画_置回调(动画序列或动画组句柄 int, 回调函数 interfac
 // hAnimationEx: 动画序列或动画组句柄.
 //
 // nUserData: 用户数据.
-func X动画_置用户数据(动画序列或动画组句柄, 用户数据 int) int {
-	r, _, _ := xAnima_SetUserData.Call(uintptr(动画序列或动画组句柄), uintptr(用户数据))
+
+// ff:动画_置用户数据
+// nUserData:用户数据
+// hAnimationEx:动画序列或动画组句柄
+func XAnima_SetUserData(hAnimationEx, nUserData int) int {
+	r, _, _ := xAnima_SetUserData.Call(uintptr(hAnimationEx), uintptr(nUserData))
 	return int(r)
 }
 
 // 动画_取用户数据, 返回用户数据.
 //
 // hAnimationEx: 动画序列或动画组句柄.
-func X动画_取用户数据(动画序列或动画组句柄 int) int {
-	r, _, _ := xAnima_GetUserData.Call(uintptr(动画序列或动画组句柄))
+
+// ff:动画_取用户数据
+// hAnimationEx:动画序列或动画组句柄
+func XAnima_GetUserData(hAnimationEx int) int {
+	r, _, _ := xAnima_GetUserData.Call(uintptr(hAnimationEx))
 	return int(r)
 }
 
 // 动画_停止.
 //
 // hAnimationEx: 动画序列或动画组句柄.
-func X动画_停止(动画序列或动画组句柄 int) bool {
-	r, _, _ := xAnima_Stop.Call(uintptr(动画序列或动画组句柄))
+
+// ff:动画_停止
+// hAnimationEx:动画序列或动画组句柄
+func XAnima_Stop(hAnimationEx int) bool {
+	r, _, _ := xAnima_Stop.Call(uintptr(hAnimationEx))
 	return r != 0
 }
 
 // 动画_启动.
 //
 // hAnimationEx: 动画序列或动画组句柄.
-func X动画_启动(动画序列或动画组句柄 int) bool {
-	r, _, _ := xAnima_Start.Call(uintptr(动画序列或动画组句柄))
+
+// ff:动画_启动
+// hAnimationEx:动画序列或动画组句柄
+func XAnima_Start(hAnimationEx int) bool {
+	r, _, _ := xAnima_Start.Call(uintptr(hAnimationEx))
 	return r != 0
 }
 
 // 动画_暂停.
 //
 // hAnimationEx: 动画序列或动画组句柄.
-func X动画_暂停(动画序列或动画组句柄 int) bool {
-	r, _, _ := xAnima_Pause.Call(uintptr(动画序列或动画组句柄))
+
+// ff:动画_暂停
+// hAnimationEx:动画序列或动画组句柄
+func XAnima_Pause(hAnimationEx int) bool {
+	r, _, _ := xAnima_Pause.Call(uintptr(hAnimationEx))
 	return r != 0
 }
 
@@ -472,8 +667,12 @@ func X动画_暂停(动画序列或动画组句柄 int) bool {
 // hAnimationItem: 动画项句柄.
 //
 // callback: 回调函数.
-func X动画项_置回调(动画项句柄 int, 回调函数 interface{}) int {
-	r, _, _ := xAnimaItem_SetCallback.Call(uintptr(动画项句柄), syscall.NewCallback(回调函数))
+
+// ff:动画项_置回调
+// callback:回调函数
+// hAnimationItem:动画项句柄
+func XAnimaItem_SetCallback(hAnimationItem int, callback interface{}) int {
+	r, _, _ := xAnimaItem_SetCallback.Call(uintptr(hAnimationItem), syscall.NewCallback(callback))
 	return int(r)
 }
 
@@ -482,16 +681,23 @@ func X动画项_置回调(动画项句柄 int, 回调函数 interface{}) int {
 // hAnimationItem: 动画项句柄.
 //
 // nUserData: 用户数据.
-func X动画项_置用户数据(动画项句柄, 用户数据 int) int {
-	r, _, _ := xAnimaItem_SetUserData.Call(uintptr(动画项句柄), uintptr(用户数据))
+
+// ff:动画项_置用户数据
+// nUserData:用户数据
+// hAnimationItem:动画项句柄
+func XAnimaItem_SetUserData(hAnimationItem, nUserData int) int {
+	r, _, _ := xAnimaItem_SetUserData.Call(uintptr(hAnimationItem), uintptr(nUserData))
 	return int(r)
 }
 
 // 动画项_取用户数据, 返回用户数据.
 //
 // hAnimationItem: 动画项句柄.
-func X动画项_取用户数据(动画项句柄 int) int {
-	r, _, _ := xAnimaItem_GetUserData.Call(uintptr(动画项句柄))
+
+// ff:动画项_取用户数据
+// hAnimationItem:动画项句柄
+func XAnimaItem_GetUserData(hAnimationItem int) int {
+	r, _, _ := xAnimaItem_GetUserData.Call(uintptr(hAnimationItem))
 	return int(r)
 }
 
@@ -500,8 +706,12 @@ func X动画项_取用户数据(动画项句柄 int) int {
 // hAnimationItem: 动画项句柄.
 //
 // bEnable: 是否启用.
-func X动画项_启用自动销毁(动画项句柄 int, 是否启用 bool) int {
-	r, _, _ := xAnimaItem_EnableAutoDestroy.Call(uintptr(动画项句柄), 炫彩工具类.BoolPtr(是否启用))
+
+// ff:动画项_启用自动销毁
+// bEnable:是否启用
+// hAnimationItem:动画项句柄
+func XAnimaItem_EnableAutoDestroy(hAnimationItem int, bEnable bool) int {
+	r, _, _ := xAnimaItem_EnableAutoDestroy.Call(uintptr(hAnimationItem), common.BoolPtr(bEnable))
 	return int(r)
 }
 
@@ -516,8 +726,15 @@ func X动画项_启用自动销毁(动画项句柄 int, 是否启用 bool) int {
 // ease_flag: 缓动标识, Ease_Flag_.
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
-func X动画_延迟EX(动画序列句柄 int, 持续时间 float32, 动画循环次数 int, 缓动标识 炫彩常量类.Ease_Flag_, 是否返回 bool) int {
-	r, _, _ := xAnima_DelayEx.Call(uintptr(动画序列句柄), 炫彩工具类.Float32Ptr(持续时间), uintptr(动画循环次数), uintptr(缓动标识), 炫彩工具类.BoolPtr(是否返回))
+
+// ff:动画_延迟EX
+// bGoBack:
+// ease_flag:缓动标识
+// nLoopCount:动画循环次数
+// duration:持续时间
+// hSequence:动画序列句柄
+func XAnima_DelayEx(hSequence int, duration float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
+	r, _, _ := xAnima_DelayEx.Call(uintptr(hSequence), common.Float32Ptr(duration), uintptr(nLoopCount), uintptr(ease_flag), common.BoolPtr(bGoBack))
 	return int(r)
 }
 
@@ -528,7 +745,11 @@ func X动画_延迟EX(动画序列句柄 int, 持续时间 float32, 动画循环
 // flags: 动画移动标识, 可组合使用, Animation_Move_.
 //
 // TODO: 此函数尚未封装到类中.
-func X动画移动_置标识(动画移动项句柄 int, 动画移动标识 炫彩常量类.Animation_Move_) int {
-	r, _, _ := xAnimaMove_SetFlag.Call(uintptr(动画移动项句柄), uintptr(动画移动标识))
+
+// ff:动画移动_置标识
+// flags:动画移动标识
+// hAnimationMove:动画移动项句柄
+func XAnimaMove_SetFlag(hAnimationMove int, flags xcc.Animation_Move_) int {
+	r, _, _ := xAnimaMove_SetFlag.Call(uintptr(hAnimationMove), uintptr(flags))
 	return int(r)
 }

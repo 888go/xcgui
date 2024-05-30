@@ -1,4 +1,4 @@
-package 炫彩WinApi类
+package wapi //bm:炫彩WinApi类
 
 import (
 	"syscall"
@@ -177,8 +177,11 @@ const (
 //	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew.
 //	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
 //	@return bool
-func X创建打开对话框(选项结构指针 *OpenFileNameW) bool {
-	r, _, _ := getOpenFileNameW.Call(uintptr(unsafe.Pointer(选项结构指针)))
+
+// ff:创建打开对话框
+// unnamedParam1:选项结构指针
+func GetOpenFileNameW(unnamedParam1 *OpenFileNameW) bool {
+	r, _, _ := getOpenFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
 	return r != 0
 }
 
@@ -187,8 +190,11 @@ func X创建打开对话框(选项结构指针 *OpenFileNameW) bool {
 //	@Description 详情: https://docs.microsoft.com/zh-cn/windows/win32/api/commdlg/nf-commdlg-GetSaveFileNameW.
 //	@param unnamedParam1 指向包含用于初始化对话框的信息的 wapi.OpenFileNameW 结构的指针。当函数返回时，此结构包含有关用户文件选择的信息。
 //	@return bool
-func X创建保存对话框(选项结构指针 *OpenFileNameW) bool {
-	r, _, _ := getSaveFileNameW.Call(uintptr(unsafe.Pointer(选项结构指针)))
+
+// ff:创建保存对话框
+// unnamedParam1:选项结构指针
+func GetSaveFileNameW(unnamedParam1 *OpenFileNameW) bool {
+	r, _, _ := getSaveFileNameW.Call(uintptr(unsafe.Pointer(unnamedParam1)))
 	return r != 0
 }
 
@@ -208,7 +214,7 @@ type ChooseColor struct {
 	// 如果设置了 CC_RGBINIT 标志，则rgbResult指定创建对话框时最初选择的颜色。如果指定的颜色值不在可用颜色中，则系统选择最接近的可用纯色。如果rgbResult为零或未设置 CC_RGBINIT，则最初选择的颜色为黑色。如果用户单击OK按钮，则 rgbResult指定用户的颜色选择。要创建RGB颜色值，请使用: xc.RGB().
 	RgbResult uint32
 
-	// 指向包含对话框中自定义颜色框的红、绿、蓝 (RGB) 值的 16 个值的切片的指针。如果用户修改了这些颜色，系统将使用新的 RGB 值更新切片。要在调用 ChooseColorW 函数之间保留新的自定义颜色，您应该为切片分配静态内存。要创建RGB颜色值，请使用: xc.RGB().
+	// 指向包含对话框中自定义颜色框的红、绿、蓝 (RGB) 值的 16 个值的数组的指针。如果用户修改了这些颜色，系统将使用新的 RGB 值更新数组。要在调用 ChooseColorW 函数之间保留新的自定义颜色，您应该为数组分配静态内存。要创建RGB颜色值，请使用: xc.RGB().
 	//	例子:
 	//	var lpCustColors [16]uint32
 	//	然后填 &lpCustColors[0]
@@ -255,7 +261,10 @@ const (
 //	@Description 详情: https://docs.microsoft.com/zh-cn/previous-versions/windows/desktop/legacy/ms646912(v=vs.85).
 //	@param lpcc 指向 wapi.ChooseColor 结构的指针，该结构包含用于初始化对话框的信息。当函数返回时，此结构包含有关用户颜色选择的信息。
 //	@return bool
-func X创建颜色对话框(选项结构指针 *ChooseColor) bool {
-	r, _, _ := chooseColorW.Call(uintptr(unsafe.Pointer(选项结构指针)))
+
+// ff:创建颜色对话框
+// lpcc:选项结构指针
+func ChooseColorW(lpcc *ChooseColor) bool {
+	r, _, _ := chooseColorW.Call(uintptr(unsafe.Pointer(lpcc)))
 	return r != 0
 }

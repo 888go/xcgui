@@ -1,5 +1,2 @@
-
-# <翻译开始>
-package adapter
-炫彩数据适配器类
-# <翻译结束>
+[package adapter]
+bm=炫彩数据适配器类

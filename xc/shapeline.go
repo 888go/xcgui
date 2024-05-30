@@ -1,4 +1,4 @@
-package 炫彩基类
+package xc
 
 // 形状线_创建.
 //
@@ -11,8 +11,15 @@ package 炫彩基类
 // y2: 坐标.
 //
 // hParent: 父对象句柄.
-func X形状线_创建(x1 int, y1 int, x2 int, y2 int, 父对象句柄 int) int {
-	r, _, _ := xShapeLine_Create.Call(uintptr(x1), uintptr(y1), uintptr(x2), uintptr(y2), uintptr(父对象句柄))
+
+// ff:形状线_创建
+// hParent:父对象句柄
+// y2:
+// x2:
+// y1:
+// x1:
+func XShapeLine_Create(x1 int, y1 int, x2 int, y2 int, hParent int) int {
+	r, _, _ := xShapeLine_Create.Call(uintptr(x1), uintptr(y1), uintptr(x2), uintptr(y2), uintptr(hParent))
 	return int(r)
 }
 
@@ -27,8 +34,15 @@ func X形状线_创建(x1 int, y1 int, x2 int, y2 int, 父对象句柄 int) int 
 // x2: 坐标.
 //
 // y2: 坐标.
-func X形状线_置位置(形状对象句柄 int, x1 int, y1 int, x2 int, y2 int) int {
-	r, _, _ := xShapeLine_SetPosition.Call(uintptr(形状对象句柄), uintptr(x1), uintptr(y1), uintptr(x2), uintptr(y2))
+
+// ff:形状线_置位置
+// y2:
+// x2:
+// y1:
+// x1:
+// hShape:形状对象句柄
+func XShapeLine_SetPosition(hShape int, x1 int, y1 int, x2 int, y2 int) int {
+	r, _, _ := xShapeLine_SetPosition.Call(uintptr(hShape), uintptr(x1), uintptr(y1), uintptr(x2), uintptr(y2))
 	return int(r)
 }
 
@@ -37,7 +51,11 @@ func X形状线_置位置(形状对象句柄 int, x1 int, y1 int, x2 int, y2 int
 // hShape: 形状对象句柄.
 //
 // color: ABGR 颜色值.
-func X形状线_置颜色(形状对象句柄 int, ABGR颜色值 int) int {
-	r, _, _ := xShapeLine_SetColor.Call(uintptr(形状对象句柄), uintptr(ABGR颜色值))
+
+// ff:形状线_置颜色
+// color:ABGR颜色值
+// hShape:形状对象句柄
+func XShapeLine_SetColor(hShape int, color int) int {
+	r, _, _ := xShapeLine_SetColor.Call(uintptr(hShape), uintptr(color))
 	return int(r)
 }

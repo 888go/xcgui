@@ -1,8 +1,6 @@
-package 炫彩基类
+package xc
 
-import (
-	"github.com/888go/xcgui/common"
-)
+import "github.com/twgh/xcgui/common"
 
 // 布局框架_创建.
 //
@@ -15,8 +13,15 @@ import (
 // cy: 高度.
 //
 // hParent: 父为窗口句柄或元素句柄.
-func X布局框架_创建(左 int, 右 int, 宽度 int, 高度 int, 父窗口句柄或元素句柄 int) int {
-	r, _, _ := xLayoutFrame_Create.Call(uintptr(左), uintptr(右), uintptr(宽度), uintptr(高度), uintptr(父窗口句柄或元素句柄))
+
+// ff:布局框架_创建
+// hParent:父窗口句柄或元素句柄
+// cy:高度
+// cx:宽度
+// y:右
+// x:左
+func XLayoutFrame_Create(x int, y int, cx int, cy int, hParent int) int {
+	r, _, _ := xLayoutFrame_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
 	return int(r)
 }
 
@@ -25,7 +30,11 @@ func X布局框架_创建(左 int, 右 int, 宽度 int, 高度 int, 父窗口句
 // hEle: 元素句柄.
 //
 // bEnable: 是否启用.
-func X布局框架_显示布局边界(元素句柄 int, 是否启用 bool) int {
-	r, _, _ := xLayoutFrame_ShowLayoutFrame.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用))
+
+// ff:布局框架_显示布局边界
+// bEnable:是否启用
+// hEle:元素句柄
+func XLayoutFrame_ShowLayoutFrame(hEle int, bEnable bool) int {
+	r, _, _ := xLayoutFrame_ShowLayoutFrame.Call(uintptr(hEle), common.BoolPtr(bEnable))
 	return int(r)
 }

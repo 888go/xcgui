@@ -1,7 +1,7 @@
-package 炫彩组件类
+package widget
 
 import (
-	"github.com/888go/xcgui/xc"
+	"github.com/twgh/xcgui/xc"
 )
 
 // 静态文本链接按钮.
@@ -22,47 +22,67 @@ type TextLink struct {
 // pName: 文本内容.
 //
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
-func X创建文本链接(x坐标 int, y坐标 int, 宽度 int, 高度 int, 文本内容 string, 父窗口句柄或元素句柄 int) *TextLink {
+
+// ff:创建文本链接
+// hParent:父窗口句柄或元素句柄
+// pName:文本内容
+// cy:高度
+// cx:宽度
+// y:y坐标
+// x:x坐标
+func NewTextLink(x int, y int, cx int, cy int, pName string, hParent int) *TextLink {
 	p := &TextLink{}
-	p.X设置句柄(炫彩基类.X文本链接_创建(x坐标, y坐标, 宽度, 高度, 文本内容, 父窗口句柄或元素句柄))
+	p.SetHandle(xc.XTextLink_Create(x, y, cx, cy, pName, hParent))
 	return p
 }
 
 // 从句柄创建对象.
-func X创建文本链接并按句柄(handle int) *TextLink {
+
+// ff:创建文本链接并按句柄
+// handle:
+func NewTextLinkByHandle(handle int) *TextLink {
 	p := &TextLink{}
-	p.X设置句柄(handle)
+	p.SetHandle(handle)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
-func X创建文本链接并按名称(name string) *TextLink {
-	handle := 炫彩基类.X取对象从名称(name)
+
+// ff:创建文本链接并按名称
+// name:
+func NewTextLinkByName(name string) *TextLink {
+	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &TextLink{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
-func X创建文本链接并按UID(nUID int) *TextLink {
-	handle := 炫彩基类.X取对象从UID(nUID)
+
+// ff:创建文本链接并按UID
+// nUID:
+func NewTextLinkByUID(nUID int) *TextLink {
+	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &TextLink{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
-func X创建文本链接并按UID名称(name string) *TextLink {
-	handle := 炫彩基类.X取对象从UID名称(name)
+
+// ff:创建文本链接并按UID名称
+// name:
+func NewTextLinkByUIDName(name string) *TextLink {
+	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &TextLink{}
-		p.X设置句柄(handle)
+		p.SetHandle(handle)
 		return p
 	}
 	return nil
@@ -71,34 +91,49 @@ func X创建文本链接并按UID名称(name string) *TextLink {
 // 文本链接_启用离开状态下划线, 启用下划线, 鼠标离开状态.
 //
 // bEnable: 是否启用.
-func (t *TextLink) X启用离开状态下划线(是否启用 bool) int {
-	return 炫彩基类.X文本链接_启用离开状态下划线(t.Handle, 是否启用)
+
+// ff:启用离开状态下划线
+// bEnable:是否启用
+func (t *TextLink) EnableUnderlineLeave(bEnable bool) int {
+	return xc.XTextLink_EnableUnderlineLeave(t.Handle, bEnable)
 }
 
 // 文本链接_停留状态下划线, 启用下划线, 鼠标停留状态.
 //
 // bEnable: 是否启用.
-func (t *TextLink) X停留状态下划线(是否启用 bool) int {
-	return 炫彩基类.X文本链接_停留状态下划线(t.Handle, 是否启用)
+
+// ff:停留状态下划线
+// bEnable:是否启用
+func (t *TextLink) EnableUnderlineStay(bEnable bool) int {
+	return xc.XTextLink_EnableUnderlineStay(t.Handle, bEnable)
 }
 
 // 文本链接_置停留状态文本颜色, 设置文本颜色, 鼠标停留状态.
 //
 // color: ABGR 颜色值.
-func (t *TextLink) X置停留状态文本颜色(ABGR颜色值 int) int {
-	return 炫彩基类.X文本链接_置停留状态文本颜色(t.Handle, ABGR颜色值)
+
+// ff:置停留状态文本颜色
+// color:ABGR颜色值
+func (t *TextLink) SetTextColorStay(color int) int {
+	return xc.XTextLink_SetTextColorStay(t.Handle, color)
 }
 
 // 文本链接_置离开状态下划线颜色, 设置下划线颜色, 鼠标离开状态.
 //
 // color: ABGR 颜色值.
-func (t *TextLink) X置离开状态下划线颜色(ABGR颜色值 int) int {
-	return 炫彩基类.X文本链接_置离开状态下划线颜色(t.Handle, ABGR颜色值)
+
+// ff:置离开状态下划线颜色
+// color:ABGR颜色值
+func (t *TextLink) SetUnderlineColorLeave(color int) int {
+	return xc.XTextLink_SetUnderlineColorLeave(t.Handle, color)
 }
 
 // 文本链接_置停留状态下划线颜色, 置下划线颜色, 鼠标停留状态.
 //
 // color: ABGR 颜色值.
-func (t *TextLink) X置停留状态下划线颜色(ABGR颜色值 int) int {
-	return 炫彩基类.X文本链接_置停留状态下划线颜色(t.Handle, ABGR颜色值)
+
+// ff:置停留状态下划线颜色
+// color:ABGR颜色值
+func (t *TextLink) SetUnderlineColorStay(color int) int {
+	return xc.XTextLink_SetUnderlineColorStay(t.Handle, color)
 }

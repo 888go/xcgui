@@ -3,13 +3,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/888go/xcgui/app"
-	"github.com/888go/xcgui/wapi"
-	"github.com/888go/xcgui/wapi/wnd"
-	"github.com/888go/xcgui/widget"
-	"github.com/888go/xcgui/window"
-	"github.com/888go/xcgui/xc"
-	"github.com/888go/xcgui/xcc"
+	"github.com/twgh/xcgui/app"
+	"github.com/twgh/xcgui/wapi"
+	"github.com/twgh/xcgui/wapi/wnd"
+	"github.com/twgh/xcgui/widget"
+	"github.com/twgh/xcgui/window"
+	"github.com/twgh/xcgui/xc"
+	"github.com/twgh/xcgui/xcc"
 	"math/rand"
 	"strconv"
 	"syscall"
@@ -18,100 +18,100 @@ import (
 
 func main() {
 	// 1.初始化UI库
-	a := 炫彩App类.X创建(true)
-	defer a.X退出()
-	a.X启用DPI(true)
-	a.X启用自动DPI(true)
+	a := app.New(true)
+	defer a.Exit()
+	a.EnableDPI(true)
+	a.EnableAutoDPI(true)
 	// 2.创建窗口
-	w := 炫彩窗口基类.X创建窗口(0, 0, 430, 300, "TrayIcon", 0, 炫彩常量类.Window_Style_Default|炫彩常量类.Window_Style_Drag_Window)
-	w.X置边大小(1, 30, 1, 1)
+	w := window.New(0, 0, 430, 300, "TrayIcon", 0, xcc.Window_Style_Default|xcc.Window_Style_Drag_Window)
+	w.SetBorderSize(1, 30, 1, 1)
 
 	// 加载icon
-	hIcon := 炫彩WinApi类.X加载图像W(0, "TrayIcon/icon.ico", 炫彩WinApi类.IMAGE_ICON, 0, 0, 炫彩WinApi类.LR_LOADFROMFILE|炫彩WinApi类.LR_DEFAULTSIZE|炫彩WinApi类.LR_SHARED)
+	hIcon := wapi.LoadImageW(0, "TrayIcon/icon.ico", wapi.IMAGE_ICON, 0, 0, wapi.LR_LOADFROMFILE|wapi.LR_DEFAULTSIZE|wapi.LR_SHARED)
 	fmt.Println("hIcon:", hIcon)
 	fmt.Println("LastErr:", syscall.GetLastError())
 
 	// 托盘图标_置图标
-	炫彩基类.X托盘图标_置图标(hIcon)
+	xc.XTrayIcon_SetIcon(hIcon)
 	// 托盘图标_置提示文本
-	炫彩基类.X托盘图标_置提示文本("托盘提示信息")
+	xc.XTrayIcon_SetTips("托盘提示信息")
 	// 置弹出气泡
 	// xc.XTrayIcon_SetPopupBalloon("弹出气泡", "弹出气泡内容测试", 0, xcc.TrayIcon_Flag_Icon_Info)
 
 	// 添加
-	btn1 := 炫彩组件类.X创建按钮(50, 135, 80, 30, "添加", w.Handle)
-	btn1.X事件_被单击(func(pbHandled *bool) int {
-		炫彩基类.X托盘图标_添加(w.Handle, 111) // 自定义的id会传到托盘事件里
+	btn1 := widget.NewButton(50, 135, 80, 30, "添加", w.Handle)
+	btn1.Event_BnClick(func(pbHandled *bool) int {
+		xc.XTrayIcon_Add(w.Handle, 111) // 自定义的id会传到托盘事件里
 		return 0
 	})
 
 	// 修改
-	btn2 := 炫彩组件类.X创建按钮(150, 135, 80, 30, "修改", w.Handle)
-	btn2.X事件_被单击(func(pbHandled *bool) int {
+	btn2 := widget.NewButton(150, 135, 80, 30, "修改", w.Handle)
+	btn2.Event_BnClick(func(pbHandled *bool) int {
 		rand.Seed(time.Now().Unix())
-		炫彩基类.X托盘图标_置提示文本("修改了托盘提示信息: " + strconv.Itoa(rand.Int()))
-		炫彩基类.X托盘图标_修改()
+		xc.XTrayIcon_SetTips("修改了托盘提示信息: " + strconv.Itoa(rand.Int()))
+		xc.XTrayIcon_Modify()
 		return 0
 	})
 
 	// 删除
-	btn3 := 炫彩组件类.X创建按钮(250, 135, 80, 30, "删除", w.Handle)
-	btn3.X事件_被单击(func(pbHandled *bool) int {
-		炫彩基类.X托盘图标_删除()
+	btn3 := widget.NewButton(250, 135, 80, 30, "删除", w.Handle)
+	btn3.Event_BnClick(func(pbHandled *bool) int {
+		xc.XTrayIcon_Del()
 		return 0
 	})
 
 	// 注册托盘图标事件
-	w.X线程_托盘图标事件(func(wParam, lParam uint, pbHandled *bool) int {
-		switch 炫彩常量类.WM_(lParam) {
-		case 炫彩常量类.WM_LBUTTONDOWN:
-			w.X显示方式(炫彩常量类.SW_SHOWNORMAL)
-		case 炫彩常量类.WM_RBUTTONDOWN:
+	w.Event_TRAYICON(func(wParam, lParam uint, pbHandled *bool) int {
+		switch xcc.WM_(lParam) {
+		case xcc.WM_LBUTTONDOWN:
+			w.ShowWindow(xcc.SW_SHOWNORMAL)
+		case xcc.WM_RBUTTONDOWN:
 			// 创建菜单
-			menu := 炫彩组件类.X创建菜单()
+			menu := widget.NewMenu()
 			// 一级菜单
-			menu.X添加项(10001, "窗口置顶", 0, 炫彩常量类.Menu_Item_Flag_Select)
+			menu.AddItem(10001, "窗口置顶", 0, xcc.Menu_Item_Flag_Select)
 			// 获取自己 SetProperty 的值, 这不是读写元素的属性, 只是对元素里内置的一个map进行读写
 			// 这样可以不用另外声明变量, 能用到很多地方记录一些东西
-			if a.X取属性(w.Handle, "窗口置顶") == "1" {
-				menu.X置项勾选(10001, true)
+			if a.GetProperty(w.Handle, "窗口置顶") == "1" {
+				menu.SetItemCheck(10001, true)
 			} else {
-				menu.X置项勾选(10001, false)
+				menu.SetItemCheck(10001, false)
 			}
 
-			menu.X添加项(99999, "退出", 0, 炫彩常量类.Menu_Item_Flag_Normal)
+			menu.AddItem(99999, "退出", 0, xcc.Menu_Item_Flag_Normal)
 
 			// 获取鼠标光标的屏幕坐标
-			var pt 炫彩WinApi类.POINT
-			炫彩WinApi类.X鼠标取光标坐标(&pt)
+			var pt wapi.POINT
+			wapi.GetCursorPos(&pt)
 			// 弹出菜单
-			menu.X弹出(w.X取HWND(), pt.X+10, pt.Y-30, 0, 炫彩常量类.Menu_Popup_Position_Left_Top)
+			menu.Popup(w.GetHWND(), pt.X+10, pt.Y-30, 0, xcc.Menu_Popup_Position_Left_Top)
 		}
 		return 0
 	})
 
 	// 菜单被选择事件
-	w.X线程_菜单选择(func(nID int32, pbHandled *bool) int {
+	w.Event_MENU_SELECT(func(nID int32, pbHandled *bool) int {
 		fmt.Println("托盘菜单被选择:", nID)
 		switch nID {
 		case 10001:
-			if a.X取属性(w.Handle, "窗口置顶") == "1" {
-				a.X置属性(w.Handle, "窗口置顶", "0")
-				炫彩WinApi窗口类.X窗口置顶(w.X取HWND(), false)
+			if a.GetProperty(w.Handle, "窗口置顶") == "1" {
+				a.SetProperty(w.Handle, "窗口置顶", "0")
+				wnd.SetTop(w.GetHWND(), false)
 				fmt.Println("窗口已取消置顶")
 			} else {
-				a.X置属性(w.Handle, "窗口置顶", "1")
-				炫彩WinApi窗口类.X窗口置顶(w.X取HWND(), true)
+				a.SetProperty(w.Handle, "窗口置顶", "1")
+				wnd.SetTop(w.GetHWND(), true)
 				fmt.Println("窗口已被置顶")
 			}
 		case 99999:
-			w.X关闭()
-			a.X发送WM_QUIT消息退出消息循环(0)
+			w.CloseWindow()
+			a.PostQuitMessage(0)
 		}
 		return 0
 	})
 
 	// 3.显示窗口
-	w.X显示(true)
-	a.X运行()
+	w.Show(true)
+	a.Run()
 }

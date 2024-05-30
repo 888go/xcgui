@@ -1,7 +1,7 @@
-package 炫彩基类
+package xc
 
 import (
-	"github.com/888go/xcgui/common"
+	"github.com/twgh/xcgui/common"
 	"unsafe"
 )
 
@@ -18,8 +18,16 @@ import (
 // pName: 名称.
 //
 // hParent: 父对象句柄.
-func X形状组框_创建(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 名称 string, 父对象句柄 int) int {
-	r, _, _ := xShapeGroupBox_Create.Call(uintptr(X坐标), uintptr(Y坐标), uintptr(宽度), uintptr(高度), 炫彩工具类.StrPtr(名称), uintptr(父对象句柄))
+
+// ff:形状组框_创建
+// hParent:父对象句柄
+// pName:名称
+// cy:高度
+// cx:宽度
+// y:Y坐标
+// x:坐标
+func XShapeGroupBox_Create(x int, y int, cx int, cy int, pName string, hParent int) int {
+	r, _, _ := xShapeGroupBox_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), common.StrPtr(pName), uintptr(hParent))
 	return int(r)
 }
 
@@ -28,8 +36,12 @@ func X形状组框_创建(X坐标 int, Y坐标 int, 宽度 int, 高度 int, 名�
 // hShape: 形状对象句柄.
 //
 // color: ABGR 颜色值.
-func X形状组框_置边框颜色(形状对象句柄 int, ABGR颜色值 int) int {
-	r, _, _ := xShapeGroupBox_SetBorderColor.Call(uintptr(形状对象句柄), uintptr(ABGR颜色值))
+
+// ff:形状组框_置边框颜色
+// color:ABGR颜色值
+// hShape:形状对象句柄
+func XShapeGroupBox_SetBorderColor(hShape int, color int) int {
+	r, _, _ := xShapeGroupBox_SetBorderColor.Call(uintptr(hShape), uintptr(color))
 	return int(r)
 }
 
@@ -38,8 +50,12 @@ func X形状组框_置边框颜色(形状对象句柄 int, ABGR颜色值 int) in
 // hShape: 形状对象句柄.
 //
 // color: ABGR 颜色值.
-func X形状组框_置文本颜色(形状对象句柄 int, ABGR颜色值 int) int {
-	r, _, _ := xShapeGroupBox_SetTextColor.Call(uintptr(形状对象句柄), uintptr(ABGR颜色值))
+
+// ff:形状组框_置文本颜色
+// color:ABGR颜色值
+// hShape:形状对象句柄
+func XShapeGroupBox_SetTextColor(hShape int, color int) int {
+	r, _, _ := xShapeGroupBox_SetTextColor.Call(uintptr(hShape), uintptr(color))
 	return int(r)
 }
 
@@ -48,8 +64,12 @@ func X形状组框_置文本颜色(形状对象句柄 int, ABGR颜色值 int) in
 // hShape: 形状对象句柄.
 //
 // hFontX: 炫彩字体.
-func X形状组框_置字体(形状对象句柄 int, 炫彩字体 int) int {
-	r, _, _ := xShapeGroupBox_SetFontX.Call(uintptr(形状对象句柄), uintptr(炫彩字体))
+
+// ff:形状组框_置字体
+// hFontX:炫彩字体
+// hShape:形状对象句柄
+func XShapeGroupBox_SetFontX(hShape int, hFontX int) int {
+	r, _, _ := xShapeGroupBox_SetFontX.Call(uintptr(hShape), uintptr(hFontX))
 	return int(r)
 }
 
@@ -60,8 +80,13 @@ func X形状组框_置字体(形状对象句柄 int, 炫彩字体 int) int {
 // offsetX: 水平偏移.
 //
 // offsetY: 垂直偏移.
-func X形状组框_置文本偏移(形状对象句柄 int, 水平偏移 int32, 垂直偏移 int32) int {
-	r, _, _ := xShapeGroupBox_SetTextOffset.Call(uintptr(形状对象句柄), uintptr(水平偏移), uintptr(垂直偏移))
+
+// ff:形状组框_置文本偏移
+// offsetY:垂直偏移
+// offsetX:水平偏移
+// hShape:形状对象句柄
+func XShapeGroupBox_SetTextOffset(hShape int, offsetX int32, offsetY int32) int {
+	r, _, _ := xShapeGroupBox_SetTextOffset.Call(uintptr(hShape), uintptr(offsetX), uintptr(offsetY))
 	return int(r)
 }
 
@@ -72,8 +97,13 @@ func X形状组框_置文本偏移(形状对象句柄 int, 水平偏移 int32, �
 // nWidth: 圆角宽度.
 //
 // nHeight: 圆角高度.
-func X形状组框_置圆角大小(形状对象句柄 int, 圆角宽度 int32, 圆角高度 int32) int {
-	r, _, _ := xShapeGroupBox_SetRoundAngle.Call(uintptr(形状对象句柄), uintptr(圆角宽度), uintptr(圆角高度))
+
+// ff:形状组框_置圆角大小
+// nHeight:圆角高度
+// nWidth:圆角宽度
+// hShape:形状对象句柄
+func XShapeGroupBox_SetRoundAngle(hShape int, nWidth int32, nHeight int32) int {
+	r, _, _ := xShapeGroupBox_SetRoundAngle.Call(uintptr(hShape), uintptr(nWidth), uintptr(nHeight))
 	return int(r)
 }
 
@@ -82,8 +112,12 @@ func X形状组框_置圆角大小(形状对象句柄 int, 圆角宽度 int32, �
 // hShape: 形状对象句柄.
 //
 // pText: 文本内容.
-func X形状组框_置文本(形状对象句柄 int, 文本内容 string) int {
-	r, _, _ := xShapeGroupBox_SetText.Call(uintptr(形状对象句柄), 炫彩工具类.StrPtr(文本内容))
+
+// ff:形状组框_置文本
+// pText:文本内容
+// hShape:形状对象句柄
+func XShapeGroupBox_SetText(hShape int, pText string) int {
+	r, _, _ := xShapeGroupBox_SetText.Call(uintptr(hShape), common.StrPtr(pText))
 	return int(r)
 }
 
@@ -94,8 +128,13 @@ func X形状组框_置文本(形状对象句柄 int, 文本内容 string) int {
 // pOffsetX: X坐标偏移量.
 //
 // pOffsetY: Y坐标偏移量.
-func X形状组框_取文本偏移(形状对象句柄 int, X坐标偏移量 *int32, Y坐标偏移量 *int32) int {
-	r, _, _ := xShapeGroupBox_GetTextOffset.Call(uintptr(形状对象句柄), uintptr(unsafe.Pointer(X坐标偏移量)), uintptr(unsafe.Pointer(Y坐标偏移量)))
+
+// ff:形状组框_取文本偏移
+// pOffsetY:Y坐标偏移量
+// pOffsetX:坐标偏移量
+// hShape:形状对象句柄
+func XShapeGroupBox_GetTextOffset(hShape int, pOffsetX *int32, pOffsetY *int32) int {
+	r, _, _ := xShapeGroupBox_GetTextOffset.Call(uintptr(hShape), uintptr(unsafe.Pointer(pOffsetX)), uintptr(unsafe.Pointer(pOffsetY)))
 	return int(r)
 }
 
@@ -106,8 +145,13 @@ func X形状组框_取文本偏移(形状对象句柄 int, X坐标偏移量 *int
 // pWidth: 返回圆角宽度.
 //
 // pHeight: 返回圆角高度.
-func X形状组框_取圆角大小(形状对象句柄 int, 返回圆角宽度 *int32, 返回圆角高度 *int32) int {
-	r, _, _ := xShapeGroupBox_GetRoundAngle.Call(uintptr(形状对象句柄), uintptr(unsafe.Pointer(返回圆角宽度)), uintptr(unsafe.Pointer(返回圆角高度)))
+
+// ff:形状组框_取圆角大小
+// pHeight:返回圆角高度
+// pWidth:返回圆角宽度
+// hShape:形状对象句柄
+func XShapeGroupBox_GetRoundAngle(hShape int, pWidth *int32, pHeight *int32) int {
+	r, _, _ := xShapeGroupBox_GetRoundAngle.Call(uintptr(hShape), uintptr(unsafe.Pointer(pWidth)), uintptr(unsafe.Pointer(pHeight)))
 	return int(r)
 }
 
@@ -116,7 +160,11 @@ func X形状组框_取圆角大小(形状对象句柄 int, 返回圆角宽度 *i
 // hShape: 形状对象句柄.
 //
 // bEnable: 是否启用.
-func X形状组框_启用圆角(形状对象句柄 int, 是否启用 bool) int {
-	r, _, _ := xShapeGroupBox_EnableRoundAngle.Call(uintptr(形状对象句柄), 炫彩工具类.BoolPtr(是否启用))
+
+// ff:形状组框_启用圆角
+// bEnable:是否启用
+// hShape:形状对象句柄
+func XShapeGroupBox_EnableRoundAngle(hShape int, bEnable bool) int {
+	r, _, _ := xShapeGroupBox_EnableRoundAngle.Call(uintptr(hShape), common.BoolPtr(bEnable))
 	return int(r)
 }

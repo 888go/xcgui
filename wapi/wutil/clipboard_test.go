@@ -1,17 +1,17 @@
-package 炫彩WinApi工具类_test
+package wutil_test //bm:炫彩WinApi工具类_test
 
 import (
 	"fmt"
-	"github.com/888go/xcgui/wapi/wutil"
+	"github.com/twgh/xcgui/wapi/wutil"
 	"testing"
 )
 
 func TestSetClipboardText(t *testing.T) {
-	err := 炫彩WinApi工具类.X剪贴板置文本("SetClipboardText")
+	err := wutil.SetClipboardText("SetClipboardText")
 	if err != nil {
 		fmt.Println(err)
 	}
-	text, err := 炫彩WinApi工具类.X剪贴板取文本()
+	text, err := wutil.GetClipboardText()
 	if err != nil {
 		fmt.Println(err)
 	}

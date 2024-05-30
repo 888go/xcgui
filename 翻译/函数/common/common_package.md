@@ -1,5 +1,2 @@
-
-# <翻译开始>
-package common
-炫彩工具类
-# <翻译结束>
+[package common]
+bm=炫彩工具类
