@@ -1,2 +1,2 @@
 // Package wapi 封装了windows系统的api.
-package wapi
+package 炫彩WinApi类

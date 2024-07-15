@@ -1,294 +1,370 @@
-package xc
+package 炫彩基类
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/888go/xcgui/common"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/xcc"
 )
 
 // 窗口组件_判断显示, 判断UI对象是否显示.
-//.
+//
+// hXCGUI: 对象句柄.
+
 // ff:窗口组件_判断显示
 // hXCGUI:对象句柄
-func XWidget_IsShow(hXCGUI int) bool {
-	r, _, _ := xWidget_IsShow.Call(uintptr(hXCGUI))
+func X窗口组件_判断显示(对象句柄 int) bool {
+	r, _, _ := xWidget_IsShow.Call(uintptr(对象句柄))
 	return r != 0
 }
 
 // 窗口组件_显示.
-//.
-//.
+//
+// hXCGUI: 对象句柄.
+//
+// bShow: 是否显示.
+
 // ff:窗口组件_显示
-// hXCGUI:对象句柄
 // bShow:是否显示
-func XWidget_Show(hXCGUI int, bShow bool) int {
-	r, _, _ := xWidget_Show.Call(uintptr(hXCGUI), common.BoolPtr(bShow))
+// hXCGUI:对象句柄
+func X窗口组件_显示(对象句柄 int, 是否显示 bool) int {
+	r, _, _ := xWidget_Show.Call(uintptr(对象句柄), 炫彩工具类.BoolPtr(是否显示))
 	return int(r)
 }
 
 // 窗口组件_启用布局控制.
-//.
-//.
+//
+// hXCGUI:.
+//
+// bEnable:.
+
 // ff:窗口组件_启用布局控制
-// hXCGUI:对象句柄
 // bEnable:是否启用
-func XWidget_EnableLayoutControl(hXCGUI int, bEnable bool) int {
-	r, _, _ := xWidget_EnableLayoutControl.Call(uintptr(hXCGUI), common.BoolPtr(bEnable))
+// hXCGUI:对象句柄
+func X窗口组件_启用布局控制(对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xWidget_EnableLayoutControl.Call(uintptr(对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
 // 窗口组件_是否布局控制.
-//.
+//
+// hXCGUI:.
+
 // ff:窗口组件_是否布局控制
 // hXCGUI:对象句柄
-func XWidget_IsLayoutControl(hXCGUI int) bool {
-	r, _, _ := xWidget_IsLayoutControl.Call(uintptr(hXCGUI))
+func X窗口组件_是否布局控制(对象句柄 int) bool {
+	r, _, _ := xWidget_IsLayoutControl.Call(uintptr(对象句柄))
 	return r != 0
 }
 
 // 窗口组件_取父元素.
-//.
+//
+// hXCGUI: 对象句柄.
+
 // ff:窗口组件_取父元素
 // hXCGUI:对象句柄
-func XWidget_GetParentEle(hXCGUI int) int {
-	r, _, _ := xWidget_GetParentEle.Call(uintptr(hXCGUI))
+func X窗口组件_取父元素(对象句柄 int) int {
+	r, _, _ := xWidget_GetParentEle.Call(uintptr(对象句柄))
 	return int(r)
 }
 
 // 窗口组件_取父对象, 获取父对象, 父可能是元素或窗口, 通过此函数可以检查是否有父.
-//.
+//
+// hXCGUI: 对象句柄.
+
 // ff:窗口组件_取父对象
 // hXCGUI:对象句柄
-func XWidget_GetParent(hXCGUI int) int {
-	r, _, _ := xWidget_GetParent.Call(uintptr(hXCGUI))
+func X窗口组件_取父对象(对象句柄 int) int {
+	r, _, _ := xWidget_GetParent.Call(uintptr(对象句柄))
 	return int(r)
 }
 
 // 窗口组件_取HWND.
-//.
+//
+// hXCGUI: 对象句柄.
+
 // ff:窗口组件_取HWND
 // hXCGUI:对象句柄
-func XWidget_GetHWND(hXCGUI int) uintptr {
-	r, _, _ := xWidget_GetHWND.Call(uintptr(hXCGUI))
+func X窗口组件_取HWND(对象句柄 int) uintptr {
+	r, _, _ := xWidget_GetHWND.Call(uintptr(对象句柄))
 	return r
 }
 
 // 窗口组件_取HWINDOW.
-//.
+//
+// hXCGUI: 对象句柄.
+
 // ff:窗口组件_取HWINDOW
 // hXCGUI:对象句柄
-func XWidget_GetHWINDOW(hXCGUI int) int {
-	r, _, _ := xWidget_GetHWINDOW.Call(uintptr(hXCGUI))
+func X窗口组件_取HWINDOW(对象句柄 int) int {
+	r, _, _ := xWidget_GetHWINDOW.Call(uintptr(对象句柄))
 	return int(r)
 }
 
 // 窗口组件_布局项_启用换行, 强制换行.
-// UI对象句柄.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// bWrap: 是否换行.
+
 // ff:窗口组件_布局项_启用换行
-// hXCGUI:对象句柄
 // bWrap:是否换行
-func XWidget_LayoutItem_EnableWrap(hXCGUI int, bWrap bool) int {
-	r, _, _ := xWidget_LayoutItem_EnableWrap.Call(uintptr(hXCGUI), common.BoolPtr(bWrap))
+// hXCGUI:对象句柄
+func X窗口组件_布局项_启用换行(对象句柄 int, 是否换行 bool) int {
+	r, _, _ := xWidget_LayoutItem_EnableWrap.Call(uintptr(对象句柄), 炫彩工具类.BoolPtr(是否换行))
 	return int(r)
 }
 
 // 窗口组件_布局项_启用交换, 根据水平垂直布局变换, 交换属性(宽度,高度,最小宽度,最小高度).
-// UI对象句柄.
-// 是否启用.
+//
+// hXCGUI: UI对象句柄.
+//
+// bEnable: 是否启用.
+
 // ff:窗口组件_布局项_启用交换
-// hXCGUI:对象句柄
 // bEnable:是否启用
-func XWidget_LayoutItem_EnableSwap(hXCGUI int, bEnable bool) int {
-	r, _, _ := xWidget_LayoutItem_EnableSwap.Call(uintptr(hXCGUI), common.BoolPtr(bEnable))
+// hXCGUI:对象句柄
+func X窗口组件_布局项_启用交换(对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xWidget_LayoutItem_EnableSwap.Call(uintptr(对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
 // 窗口组件_布局项_启用浮动, 向反方向对齐.
-// UI对象句柄.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// bFloat: 是否浮动.
+
 // ff:窗口组件_布局项_启用浮动
-// hXCGUI:对象句柄
 // bFloat:是否浮动
-func XWidget_LayoutItem_EnableFloat(hXCGUI int, bFloat bool) int {
-	r, _, _ := xWidget_LayoutItem_EnableFloat.Call(uintptr(hXCGUI), common.BoolPtr(bFloat))
+// hXCGUI:对象句柄
+func X窗口组件_布局项_启用浮动(对象句柄 int, 是否浮动 bool) int {
+	r, _, _ := xWidget_LayoutItem_EnableFloat.Call(uintptr(对象句柄), 炫彩工具类.BoolPtr(是否浮动))
 	return int(r)
 }
 
 // 窗口组件_布局项_置宽度.
-// UI对象句柄.
-//: xcc.Layout_Size_.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// nType: 类型: xcc.Layout_Size_.
+//
+// nWidth: 宽度.
+
 // ff:窗口组件_布局项_置宽度
-// hXCGUI:对象句柄
-// nType:类型
 // nWidth:
-func XWidget_LayoutItem_SetWidth(hXCGUI int, nType xcc.Layout_Size_, nWidth int32) int {
-	r, _, _ := xWidget_LayoutItem_SetWidth.Call(uintptr(hXCGUI), uintptr(nType), uintptr(nWidth))
+// nType:类型
+// hXCGUI:对象句柄
+func X窗口组件_布局项_置宽度(对象句柄 int, 类型 炫彩常量类.Layout_Size_, nWidth int32) int {
+	r, _, _ := xWidget_LayoutItem_SetWidth.Call(uintptr(对象句柄), uintptr(类型), uintptr(nWidth))
 	return int(r)
 }
 
 // 窗口组件_布局项_置高度.
-// UI对象句柄.
-//: xcc.Layout_Size_.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// nType: 类型: xcc.Layout_Size_.
+//
+// nHeight: 高度.
+
 // ff:窗口组件_布局项_置高度
-// hXCGUI:对象句柄
-// nType:类型
 // nHeight:
-func XWidget_LayoutItem_SetHeight(hXCGUI int, nType xcc.Layout_Size_, nHeight int32) int {
-	r, _, _ := xWidget_LayoutItem_SetHeight.Call(uintptr(hXCGUI), uintptr(nType), uintptr(nHeight))
+// nType:类型
+// hXCGUI:对象句柄
+func X窗口组件_布局项_置高度(对象句柄 int, 类型 炫彩常量类.Layout_Size_, nHeight int32) int {
+	r, _, _ := xWidget_LayoutItem_SetHeight.Call(uintptr(对象句柄), uintptr(类型), uintptr(nHeight))
 	return int(r)
 }
 
 // 窗口组件_布局项_取宽度.
-// UI对象句柄.
-//.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// pType: 返回类型.
+//
+// pWidth: 返回宽度.
+
 // ff:窗口组件_布局项_取宽度
-// hXCGUI:对象句柄
-// pType:返回类型
 // pWidth:
-func XWidget_LayoutItem_GetWidth(hXCGUI int, pType *xcc.Layout_Size_, pWidth *int32) int {
-	r, _, _ := xWidget_LayoutItem_GetWidth.Call(uintptr(hXCGUI), uintptr(unsafe.Pointer(pType)), uintptr(unsafe.Pointer(pWidth)))
+// pType:返回类型
+// hXCGUI:对象句柄
+func X窗口组件_布局项_取宽度(对象句柄 int, 返回类型 *炫彩常量类.Layout_Size_, pWidth *int32) int {
+	r, _, _ := xWidget_LayoutItem_GetWidth.Call(uintptr(对象句柄), uintptr(unsafe.Pointer(返回类型)), uintptr(unsafe.Pointer(pWidth)))
 	return int(r)
 }
 
 // 窗口组件_布局项_取高度.
-// UI对象句柄.
-//.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// pType: 返回类型.
+//
+// pHeight: 返回高度.
+
 // ff:窗口组件_布局项_取高度
-// hXCGUI:对象句柄
-// pType:返回类型
 // pHeight:
-func XWidget_LayoutItem_GetHeight(hXCGUI int, pType *xcc.Layout_Size_, pHeight *int32) int {
-	r, _, _ := xWidget_LayoutItem_GetHeight.Call(uintptr(hXCGUI), uintptr(unsafe.Pointer(pType)), uintptr(unsafe.Pointer(pHeight)))
+// pType:返回类型
+// hXCGUI:对象句柄
+func X窗口组件_布局项_取高度(对象句柄 int, 返回类型 *炫彩常量类.Layout_Size_, pHeight *int32) int {
+	r, _, _ := xWidget_LayoutItem_GetHeight.Call(uintptr(对象句柄), uintptr(unsafe.Pointer(返回类型)), uintptr(unsafe.Pointer(pHeight)))
 	return int(r)
 }
 
 // 窗口组件_布局项_置对齐, 根据水平垂直轴变化对齐.
-// UI对象句柄.
-//: xcc.Layout_Align_Axis_.
+//
+// hXCGUI: UI对象句柄.
+//
+// nAlign: 对齐方式: xcc.Layout_Align_Axis_.
+
 // ff:窗口组件_布局项_置对齐
-// hXCGUI:对象句柄
 // nAlign:对齐方式
-func XWidget_LayoutItem_SetAlign(hXCGUI int, nAlign xcc.Layout_Align_Axis_) int {
-	r, _, _ := xWidget_LayoutItem_SetAlign.Call(uintptr(hXCGUI), uintptr(nAlign))
+// hXCGUI:对象句柄
+func X窗口组件_布局项_置对齐(对象句柄 int, 对齐方式 炫彩常量类.Layout_Align_Axis_) int {
+	r, _, _ := xWidget_LayoutItem_SetAlign.Call(uintptr(对象句柄), uintptr(对齐方式))
 	return int(r)
 }
 
 // 窗口组件_布局项_置外间距.
-// UI对象句柄.
+//
+// hXCGUI: UI对象句柄.
+
 // ff:窗口组件_布局项_置外间距
-// hXCGUI:对象句柄
-// left:
-// top:
-// right:
 // bottom:
-func XWidget_LayoutItem_SetMargin(hXCGUI, left, top, right, bottom int) int {
-	r, _, _ := xWidget_LayoutItem_SetMargin.Call(uintptr(hXCGUI), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
+// right:
+// top:
+// left:
+// hXCGUI:对象句柄
+func X窗口组件_布局项_置外间距(对象句柄, left, top, right, bottom int) int {
+	r, _, _ := xWidget_LayoutItem_SetMargin.Call(uintptr(对象句柄), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
 	return int(r)
 }
 
 // 窗口组件_布局项_置对齐.
-// UI对象句柄.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// pMargin: 接收返回.
+
 // ff:窗口组件_布局项_取外间距
-// hXCGUI:对象句柄
 // pMargin:接收返回
-func XWidget_LayoutItem_GetMargin(hXCGUI int, pMargin *RECT) int {
-	r, _, _ := xWidget_LayoutItem_GetMargin.Call(uintptr(hXCGUI), uintptr(unsafe.Pointer(pMargin)))
+// hXCGUI:对象句柄
+func X窗口组件_布局项_取外间距(对象句柄 int, 接收返回 *RECT) int {
+	r, _, _ := xWidget_LayoutItem_GetMargin.Call(uintptr(对象句柄), uintptr(unsafe.Pointer(接收返回)))
 	return int(r)
 }
 
 // 窗口组件_布局项_置最小大小, 限制大小仅针对缩放有效(自动, 填充父, 比例, 百分比).
-// UI对象句柄.
-//.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// width: 最小宽度.
+//
+// height: 最小高度.
+
 // ff:窗口组件_布局项_置最小大小
-// hXCGUI:对象句柄
-// width:最小宽度
 // height:最小高度
-func XWidget_LayoutItem_SetMinSize(hXCGUI, width, height int) int {
-	r, _, _ := xWidget_LayoutItem_SetMinSize.Call(uintptr(hXCGUI), uintptr(width), uintptr(height))
+// width:最小宽度
+// hXCGUI:对象句柄
+func X窗口组件_布局项_置最小大小(对象句柄, 最小宽度, 最小高度 int) int {
+	r, _, _ := xWidget_LayoutItem_SetMinSize.Call(uintptr(对象句柄), uintptr(最小宽度), uintptr(最小高度))
 	return int(r)
 }
 
 // 窗口组件_布局项_置位置, 相对位置, 值大于等于0有效.
-// UI对象句柄.
-//.
-//.
-//.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// left: 左边距离.
+//
+// top: 上边距离.
+//
+// right: 右边距离.
+//
+// bottom: 下边距离.
+
 // ff:窗口组件_布局项_置位置
-// hXCGUI:对象句柄
-// left:左边距离
-// top:上边距离
-// right:右边距离
 // bottom:下边距离
-func XWidget_LayoutItem_SetPosition(hXCGUI, left, top, right, bottom int) int {
-	r, _, _ := xWidget_LayoutItem_SetPosition.Call(uintptr(hXCGUI), uintptr(left), uintptr(top), uintptr(right), uintptr(bottom))
+// right:右边距离
+// top:上边距离
+// left:左边距离
+// hXCGUI:对象句柄
+func X窗口组件_布局项_置位置(对象句柄, 左边距离, 上边距离, 右边距离, 下边距离 int) int {
+	r, _, _ := xWidget_LayoutItem_SetPosition.Call(uintptr(对象句柄), uintptr(左边距离), uintptr(上边距离), uintptr(右边距离), uintptr(下边距离))
 	return int(r)
 }
 
 // 窗口组件_置ID, 设置元素ID.
-// UI对象句柄.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// nID: ID值.
+
 // ff:窗口组件_置ID
-// hXCGUI:对象句柄
 // nID:ID值
-func XWidget_SetID(hXCGUI int, nID int32) int {
-	r, _, _ := xWidget_SetID.Call(uintptr(hXCGUI), uintptr(nID))
+// hXCGUI:对象句柄
+func X窗口组件_置ID(对象句柄 int, ID值 int32) int {
+	r, _, _ := xWidget_SetID.Call(uintptr(对象句柄), uintptr(ID值))
 	return int(r)
 }
 
 // 窗口组件_置UID, 设置元素UID, 全局唯一标识符.
-// UI对象句柄.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// nUID: UID值.
+
 // ff:窗口组件_置UID
-// hXCGUI:对象句柄
 // nUID:UID值
-func XWidget_SetUID(hXCGUI int, nUID int32) int {
-	r, _, _ := xWidget_SetUID.Call(uintptr(hXCGUI), uintptr(nUID))
+// hXCGUI:对象句柄
+func X窗口组件_置UID(对象句柄 int, UID值 int32) int {
+	r, _, _ := xWidget_SetUID.Call(uintptr(对象句柄), uintptr(UID值))
 	return int(r)
 }
 
 // 窗口组件_置名称 设置元素name.
-// UI对象句柄.
-//.
+//
+// hXCGUI: UI对象句柄.
+//
+// pName: name值.
+
 // ff:窗口组件_置名称
-// hXCGUI:对象句柄
 // pName:名称
-func XWidget_SetName(hXCGUI int, pName string) int {
-	r, _, _ := xWidget_SetName.Call(uintptr(hXCGUI), common.StrPtr(pName))
+// hXCGUI:对象句柄
+func X窗口组件_置名称(对象句柄 int, 名称 string) int {
+	r, _, _ := xWidget_SetName.Call(uintptr(对象句柄), 炫彩工具类.StrPtr(名称))
 	return int(r)
 }
 
 // 窗口组件_取ID, 获取元素ID.
-// UI对象句柄.
+//
+// hXCGUI: UI对象句柄.
+
 // ff:窗口组件_取ID
 // hXCGUI:对象句柄
-func XWidget_GetID(hXCGUI int) int32 {
-	r, _, _ := xWidget_GetID.Call(uintptr(hXCGUI))
+func X窗口组件_取ID(对象句柄 int) int32 {
+	r, _, _ := xWidget_GetID.Call(uintptr(对象句柄))
 	return int32(r)
 }
 
 // 窗口组件_取UID, 获取元素UID, 全局唯一标识符.
-// UI对象句柄.
+//
+// hXCGUI: UI对象句柄.
+
 // ff:窗口组件_取UID
 // hXCGUI:对象句柄
-func XWidget_GetUID(hXCGUI int) int32 {
-	r, _, _ := xWidget_GetUID.Call(uintptr(hXCGUI))
+func X窗口组件_取UID(对象句柄 int) int32 {
+	r, _, _ := xWidget_GetUID.Call(uintptr(对象句柄))
 	return int32(r)
 }
 
 // 窗口组件_取名称 获取元素name.
-// UI对象句柄.
+//
+// hXCGUI: UI对象句柄.
+
 // ff:窗口组件_取名称
 // hXCGUI:对象句柄
-func XWidget_GetName(hXCGUI int) string {
-	r, _, _ := xWidget_GetName.Call(uintptr(hXCGUI))
-	return common.UintPtrToString(r)
+func X窗口组件_取名称(对象句柄 int) string {
+	r, _, _ := xWidget_GetName.Call(uintptr(对象句柄))
+	return 炫彩工具类.UintPtrToString(r)
 }

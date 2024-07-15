@@ -2,74 +2,74 @@
 package main
 
 import (
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xcc"
 )
 
 var (
-	a *app.App
-	w *window.Window
+	a *炫彩App类.App
+	w *炫彩窗口基类.Window
 
-	layoutTab *widget.LayoutEle
-	tabBtn1   *widget.Button
-	tabBtn2   *widget.Button
-	tabBtn3   *widget.Button
+	layoutTab *炫彩组件类.LayoutEle
+	tabBtn1   *炫彩组件类.Button
+	tabBtn2   *炫彩组件类.Button
+	tabBtn3   *炫彩组件类.Button
 
-	layoutBody  *widget.LayoutEle
-	layoutPage1 *widget.LayoutEle
-	layoutPage2 *widget.LayoutEle
-	layoutPage3 *widget.LayoutEle
+	layoutBody  *炫彩组件类.LayoutEle
+	layoutPage1 *炫彩组件类.LayoutEle
+	layoutPage2 *炫彩组件类.LayoutEle
+	layoutPage3 *炫彩组件类.LayoutEle
 )
 
 func main() {
-	a = app.New(true)
-	a.EnableDPI(true)
-	a.EnableAutoDPI(true)
-	w = window.New(0, 0, 600, 400, "选择夹切换页面", 0, xcc.Window_Style_Default)
+	a = 炫彩App类.X创建(true)
+	a.X启用DPI(true)
+	a.X启用自动DPI(true)
+	w = 炫彩窗口基类.X创建窗口(0, 0, 600, 400, "选择夹切换页面", 0, 炫彩常量类.Window_Style_Default)
 
 	// 我是喜欢创建一个水平布局元素, tab按钮都放在里面
-	layoutTab = widget.NewLayoutEle(14, 35, 500, 30, w.Handle)
+	layoutTab = 炫彩组件类.X创建布局(14, 35, 500, 30, w.Handle)
 	// 放在水平布局元素中的组件, x, y绝对坐标是无效的
-	tabBtn1 = widget.NewButton(0, 0, 100, 30, "页面1", layoutTab.Handle)
-	tabBtn2 = widget.NewButton(0, 0, 100, 30, "页面2", layoutTab.Handle)
-	tabBtn3 = widget.NewButton(0, 0, 100, 30, "页面3", layoutTab.Handle)
+	tabBtn1 = 炫彩组件类.X创建按钮(0, 0, 100, 30, "页面1", layoutTab.Handle)
+	tabBtn2 = 炫彩组件类.X创建按钮(0, 0, 100, 30, "页面2", layoutTab.Handle)
+	tabBtn3 = 炫彩组件类.X创建按钮(0, 0, 100, 30, "页面3", layoutTab.Handle)
 
 	// 设为单选类型按钮
-	tabBtn1.SetTypeEx(xcc.Button_Type_Radio)
-	tabBtn2.SetTypeEx(xcc.Button_Type_Radio)
-	tabBtn3.SetTypeEx(xcc.Button_Type_Radio)
+	tabBtn1.X置类型EX(炫彩常量类.Button_Type_Radio)
+	tabBtn2.X置类型EX(炫彩常量类.Button_Type_Radio)
+	tabBtn3.X置类型EX(炫彩常量类.Button_Type_Radio)
 	// 设置为默认按钮样式, 就不会是单选按钮样式了
-	tabBtn1.SetStyle(xcc.Button_Style_Default)
-	tabBtn2.SetStyle(xcc.Button_Style_Default)
-	tabBtn3.SetStyle(xcc.Button_Style_Default)
+	tabBtn1.X置样式(炫彩常量类.Button_Style_Default)
+	tabBtn2.X置样式(炫彩常量类.Button_Style_Default)
+	tabBtn3.X置样式(炫彩常量类.Button_Style_Default)
 	// 默认选中第一个
-	tabBtn1.SetCheck(true)
+	tabBtn1.X置选中(true)
 
 	// 主体部分, 页面都放进这里面, 我是喜欢这样设计, 不是必须
-	layoutBody = widget.NewLayoutEle(14, 65, 500, 350, w.Handle)
+	layoutBody = 炫彩组件类.X创建布局(14, 65, 500, 350, w.Handle)
 	// 第一页
-	layoutPage1 = widget.NewLayoutEle(0, 0, 500, 350, layoutBody.Handle)
+	layoutPage1 = 炫彩组件类.X创建布局(0, 0, 500, 350, layoutBody.Handle)
 	// 第二页
-	layoutPage2 = widget.NewLayoutEle(0, 0, 500, 350, layoutBody.Handle)
+	layoutPage2 = 炫彩组件类.X创建布局(0, 0, 500, 350, layoutBody.Handle)
 	// 第三页
-	layoutPage3 = widget.NewLayoutEle(0, 0, 500, 350, layoutBody.Handle)
+	layoutPage3 = 炫彩组件类.X创建布局(0, 0, 500, 350, layoutBody.Handle)
 	// 只让第一页显示, 其他页都设为不显示
-	layoutPage2.Show(false)
-	layoutPage3.Show(false)
+	layoutPage2.X显示(false)
+	layoutPage3.X显示(false)
 
 	// 给按钮绑定页面, 绑定后切换页面的原理就是: 你点哪个按钮就显示哪个页面
-	tabBtn1.SetBindEle(layoutPage1.Handle)
-	tabBtn2.SetBindEle(layoutPage2.Handle)
-	tabBtn3.SetBindEle(layoutPage3.Handle)
+	tabBtn1.X置绑定元素(layoutPage1.Handle)
+	tabBtn2.X置绑定元素(layoutPage2.Handle)
+	tabBtn3.X置绑定元素(layoutPage3.Handle)
 
 	// 页面中放置内容
-	widget.NewShapeText(0, 0, 100, 30, "我是第一页", layoutPage1.Handle)
-	widget.NewShapeText(0, 0, 100, 30, "我是第二页", layoutPage2.Handle)
-	widget.NewShapeText(0, 0, 100, 30, "我是第三页", layoutPage3.Handle)
+	炫彩组件类.X创建形状文本(0, 0, 100, 30, "我是第一页", layoutPage1.Handle)
+	炫彩组件类.X创建形状文本(0, 0, 100, 30, "我是第二页", layoutPage2.Handle)
+	炫彩组件类.X创建形状文本(0, 0, 100, 30, "我是第三页", layoutPage3.Handle)
 
-	w.Show(true)
-	a.Run()
-	a.Exit()
+	w.X显示(true)
+	a.X运行()
+	a.X退出()
 }

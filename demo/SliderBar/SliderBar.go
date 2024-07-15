@@ -4,37 +4,37 @@ package main
 import (
 	"fmt"
 
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xcc"
 )
 
 func main() {
-	a := app.New(true)
-	a.EnableDPI(true)
-	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 430, 300, "SliderBar", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.X创建(true)
+	a.X启用DPI(true)
+	a.X启用自动DPI(true)
+	w := 炫彩窗口基类.X创建窗口(0, 0, 430, 300, "SliderBar", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建SliderBar
-	sb := widget.NewSliderBar(12, 33, 300, 60, w.Handle)
+	sb := 炫彩组件类.X创建滑动条(12, 33, 300, 60, w.Handle)
 	// 设置滑动范围
-	sb.SetRange(10)
+	sb.X置范围(10)
 
 	// 设置滑块按钮高度和宽度
-	sb.SetButtonHeight(27)
-	sb.SetButtonWidth(27)
+	sb.X置滑块高度(27)
+	sb.X置滑块宽度(27)
 
 	// 启用背景透明
-	sb.EnableBkTransparent(true)
+	sb.X启用背景透明(true)
 
 	// 注册滑块位置改变事件
-	sb.Event_SLIDERBAR_CHANGE(func(pos int32, pbHandled *bool) int {
+	sb.X事件_滑块位置改变(func(pos int32, pbHandled *bool) int {
 		fmt.Println(pos)
 		return 0
 	})
 
-	w.ShowWindow(xcc.SW_SHOW)
-	a.Run()
-	a.Exit()
+	w.X显示方式(炫彩常量类.SW_SHOW)
+	a.X运行()
+	a.X退出()
 }

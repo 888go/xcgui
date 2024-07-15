@@ -3,80 +3,80 @@ package main
 
 import (
 	_ "embed"
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/imagex"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/imagex"
+	"github.com/888go/xcgui/widget"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 var (
-	bar    *widget.ProgressBar
-	bar2   *widget.ProgressBar
-	btnAdd *widget.Button
-	btnSub *widget.Button
+	bar    *炫彩组件类.ProgressBar
+	bar2   *炫彩组件类.ProgressBar
+	btnAdd *炫彩组件类.Button
+	btnSub *炫彩组件类.Button
 )
 
 //go:embed jindu.png
 var img []byte
 
 func main() {
-	a := app.New(true)
-	a.EnableDPI(true)
-	a.EnableAutoDPI(true)
-	w := window.New(0, 0, 436, 450, "ProgressBar", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.X创建(true)
+	a.X启用DPI(true)
+	a.X启用自动DPI(true)
+	w := 炫彩窗口基类.X创建窗口(0, 0, 436, 450, "ProgressBar", 0, 炫彩常量类.Window_Style_Default)
 
 	// 创建一个水平进度条
-	bar = widget.NewProgressBar(24, 60, 200, 10, w.Handle)
+	bar = 炫彩组件类.X创建进度条(24, 60, 200, 10, w.Handle)
 	// 设置进度条边框大小
-	bar.SetBorderSize(1, 1, 1, 1)
+	bar.X置边框大小(1, 1, 1, 1)
 	// 设置进度条不显示进度文字
-	bar.EnableShowText(false)
+	bar.X启用进度文本(false)
 	// 设置进度条最大值
-	bar.SetRange(100)
+	bar.X置范围(100)
 	// 设置进度条进度
-	bar.SetPos(40)
+	bar.X置进度(40)
 	// 置进度颜色
-	bar.SetColorLoad(xc.RGBA(43, 170, 255, 255))
+	bar.X置进度颜色(炫彩基类.RGBA(43, 170, 255, 255))
 	// 置进度条背景颜色
-	bar.AddBkFill(xcc.Element_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
+	bar.X添加背景填充(炫彩常量类.Element_State_Flag_Leave, 炫彩基类.RGBA(221, 221, 223, 255))
 
-	bar2 = widget.NewProgressBar(24, 200, 24, 200, w.Handle)
+	bar2 = 炫彩组件类.X创建进度条(24, 200, 24, 200, w.Handle)
 	// 设置为垂直进度条
-	bar2.EnableHorizon(false)
+	bar2.X置水平(false)
 	// 设置进度条边框大小
-	bar2.SetBorderSize(0, 0, 0, 0)
+	bar2.X置边框大小(0, 0, 0, 0)
 	// 不显示进度文本
-	bar2.EnableShowText(false)
+	bar2.X启用进度文本(false)
 	// 置进度图片
-	bar2.SetImageLoad(imagex.NewByMemAdaptive(img, 0, 0, 0, 0).Handle)
+	bar2.X置进度图片(炫彩图片类.X创建并按内存且自适应(img, 0, 0, 0, 0).Handle)
 	// 置进度条背景颜色
-	bar2.AddBkFill(xcc.Element_State_Flag_Leave, xc.RGBA(221, 221, 223, 255))
+	bar2.X添加背景填充(炫彩常量类.Element_State_Flag_Leave, 炫彩基类.RGBA(221, 221, 223, 255))
 
 	// 创建按钮_进度加
-	btnAdd = widget.NewButton(238, 50, 70, 30, "+", w.Handle)
-	btnAdd.Event_BnClick1(onBtnClick)
+	btnAdd = 炫彩组件类.X创建按钮(238, 50, 70, 30, "+", w.Handle)
+	btnAdd.X事件_被单击1(onBtnClick)
 	// 创建按钮_进度减
-	btnSub = widget.NewButton(318, 50, 70, 30, "-", w.Handle)
-	btnSub.Event_BnClick1(onBtnClick)
+	btnSub = 炫彩组件类.X创建按钮(318, 50, 70, 30, "-", w.Handle)
+	btnSub.X事件_被单击1(onBtnClick)
 
-	w.ShowWindow(xcc.SW_SHOW)
-	a.Run()
-	a.Exit()
+	w.X显示方式(炫彩常量类.SW_SHOW)
+	a.X运行()
+	a.X退出()
 }
 
 // 事件_按钮被单击
 func onBtnClick(hEle int, pbHandled *bool) int {
 	switch hEle {
 	case btnAdd.Handle:
-		bar.SetPos(bar.GetPos() + 10)
-		bar2.SetPos(bar.GetPos() + 10)
+		bar.X置进度(bar.X取进度() + 10)
+		bar2.X置进度(bar.X取进度() + 10)
 	case btnSub.Handle:
-		bar.SetPos(bar.GetPos() - 10)
-		bar2.SetPos(bar.GetPos() - 10)
+		bar.X置进度(bar.X取进度() - 10)
+		bar2.X置进度(bar.X取进度() - 10)
 	}
-	bar.Redraw(true)
-	bar2.Redraw(true)
+	bar.X重绘(true)
+	bar2.X重绘(true)
 	return 0
 }

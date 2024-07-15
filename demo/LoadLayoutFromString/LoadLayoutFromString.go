@@ -2,19 +2,19 @@
 package main
 
 import (
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xcc"
 )
 
 func main() {
-	a := app.New(true)
-	w := window.NewByLayoutStringW(str, 0, 0)
-	w.AdjustLayout()
+	a := 炫彩App类.X创建(true)
+	w := 炫彩窗口基类.X创建窗口并按布局文件字符串W(str, 0, 0)
+	w.X调整布局()
 
-	w.ShowWindow(xcc.SW_SHOW)
-	a.Run()
-	a.Exit()
+	w.X显示方式(炫彩常量类.SW_SHOW)
+	a.X运行()
+	a.X退出()
 }
 
 const str = `<?xml version="1.0" encoding="UTF-8"?>

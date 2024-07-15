@@ -1,4 +1,4 @@
-package wapi_test
+package 炫彩WinApi类_test
 
 import (
 	"fmt"
@@ -6,27 +6,27 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/common"
-	"github.com/twgh/xcgui/wapi"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/app"
+	"github.com/888go/xcgui/common"
+	"github.com/888go/xcgui/wapi"
+	"github.com/888go/xcgui/window"
+	"github.com/888go/xcgui/xcc"
 )
 
 func ExampleLoadImageW() {
-	hIcon := wapi.LoadImageW(0, "C:\\Windows\\System32\\OneDrive.ico", wapi.IMAGE_ICON, 0, 0, wapi.LR_LOADFROMFILE|wapi.LR_DEFAULTSIZE|wapi.LR_SHARED)
+	hIcon := 炫彩WinApi类.X加载图像W(0, "C:\\Windows\\System32\\OneDrive.ico", 炫彩WinApi类.IMAGE_ICON, 0, 0, 炫彩WinApi类.LR_LOADFROMFILE|炫彩WinApi类.LR_DEFAULTSIZE|炫彩WinApi类.LR_SHARED)
 	fmt.Println("hIcon:", hIcon)
 	fmt.Println("LastErr:", syscall.GetLastError())
 }
 
 func ExampleMessageBoxW() {
-	id := wapi.MessageBoxW(0, "context", "title", wapi.MB_CanaelTryContinue|wapi.MB_IconInformation)
+	id := 炫彩WinApi类.X窗口消息框W(0, "context", "title", 炫彩WinApi类.MB_CanaelTryContinue|炫彩WinApi类.MB_IconInformation)
 	switch id {
-	case wapi.ID_Cancel:
+	case 炫彩WinApi类.ID_Cancel:
 		fmt.Println("Cancel")
-	case wapi.ID_TryAgain:
+	case 炫彩WinApi类.ID_TryAgain:
 		fmt.Println("TryAgain")
-	case wapi.ID_Continue:
+	case 炫彩WinApi类.ID_Continue:
 		fmt.Println("Continue")
 	default:
 		fmt.Println(id)
@@ -34,44 +34,44 @@ func ExampleMessageBoxW() {
 }
 
 func ExampleFindWindowExW() {
-	fmt.Println(wapi.FindWindowExW(0, 0, "", "任务管理器"))
-	fmt.Println(wapi.FindWindowExW(0, 0, "TaskManagerWindow", ""))
-	fmt.Println(wapi.FindWindowExW(0, 0, "TaskManagerWindow", "任务管理器"))
+	fmt.Println(炫彩WinApi类.X窗口模糊搜索子窗口(0, 0, "", "任务管理器"))
+	fmt.Println(炫彩WinApi类.X窗口模糊搜索子窗口(0, 0, "TaskManagerWindow", ""))
+	fmt.Println(炫彩WinApi类.X窗口模糊搜索子窗口(0, 0, "TaskManagerWindow", "任务管理器"))
 }
 
 func ExampleClientToScreen() {
-	a := app.New(true)
-	w := window.New(0, 0, 300, 300, "", 0, xcc.Window_Style_Default)
+	a := 炫彩App类.X创建(true)
+	w := 炫彩窗口基类.X创建窗口(0, 0, 300, 300, "", 0, 炫彩常量类.Window_Style_Default)
 
-	pt := wapi.POINT{X: 0, Y: 0}
-	wapi.ClientToScreen(w.GetHWND(), &pt)
+	pt := 炫彩WinApi类.POINT{X: 0, Y: 0}
+	炫彩WinApi类.X窗口取屏幕坐标(w.X取HWND(), &pt)
 	fmt.Println(pt)
 
-	a.ShowAndRun(w.Handle)
-	a.Exit()
+	a.X显示窗口并运行(w.Handle)
+	a.X退出()
 }
 
 func ExampleShellExecuteW() {
 	// 打开指定网址
-	wapi.ShellExecuteW(0, "open", "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew", "", "", xcc.SW_SHOWNORMAL)
+	炫彩WinApi类.X对指定文件执行操作(0, "open", "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew", "", "", 炫彩常量类.SW_SHOWNORMAL)
 	// 打开指定文件
-	wapi.ShellExecuteW(0, "open", "C:\\Windows\\System32\\calc.exe", "", "", xcc.SW_SHOWNORMAL)
+	炫彩WinApi类.X对指定文件执行操作(0, "open", "C:\\Windows\\System32\\calc.exe", "", "", 炫彩常量类.SW_SHOWNORMAL)
 }
 
 func ExampleSHBrowseForFolderW() {
 	buf := make([]uint16, 260)
-	bi := wapi.BrowseInfoW{
+	bi := 炫彩WinApi类.BrowseInfoW{
 		HwndOwner:      0,
 		PidlRoot:       0,
-		PszDisplayName: common.Uint16SliceDataPtr(&buf),
-		LpszTitle:      common.StrPtr("显示在对话框中树视图控件上方的文本"),
-		UlFlags:        wapi.BIF_USENEWUI,
+		PszDisplayName: 炫彩工具类.Uint16SliceDataPtr(&buf),
+		LpszTitle:      炫彩工具类.StrPtr("显示在对话框中树视图控件上方的文本"),
+		UlFlags:        炫彩WinApi类.BIF_USENEWUI,
 		Lpfn:           0,
 		LParam:         0,
 		IImage:         0,
 	}
 	var pszPath string
-	ret := wapi.SHGetPathFromIDListW(wapi.SHBrowseForFolderW(&bi), &pszPath)
+	ret := 炫彩WinApi类.X文件夹指针取实际路径(炫彩WinApi类.X对话框打开文件夹(&bi), &pszPath)
 	fmt.Println(ret)
 	fmt.Println("pszPath:", pszPath)                           // 用户选择的文件夹完整路径
 	fmt.Println("PszDisplayName:", syscall.UTF16ToString(buf)) // 用户选择的文件夹的名称
@@ -79,18 +79,18 @@ func ExampleSHBrowseForFolderW() {
 
 func ExampleSHGetPathFromIDListW() {
 	buf := make([]uint16, 260)
-	bi := wapi.BrowseInfoW{
+	bi := 炫彩WinApi类.BrowseInfoW{
 		HwndOwner:      0,
 		PidlRoot:       0,
-		PszDisplayName: common.Uint16SliceDataPtr(&buf),
-		LpszTitle:      common.StrPtr("显示在对话框中树视图控件上方的文本"),
-		UlFlags:        wapi.BIF_USENEWUI,
+		PszDisplayName: 炫彩工具类.Uint16SliceDataPtr(&buf),
+		LpszTitle:      炫彩工具类.StrPtr("显示在对话框中树视图控件上方的文本"),
+		UlFlags:        炫彩WinApi类.BIF_USENEWUI,
 		Lpfn:           0,
 		LParam:         0,
 		IImage:         0,
 	}
 	var pszPath string
-	wapi.SHGetPathFromIDListW(wapi.SHBrowseForFolderW(&bi), &pszPath)
+	炫彩WinApi类.X文件夹指针取实际路径(炫彩WinApi类.X对话框打开文件夹(&bi), &pszPath)
 	fmt.Println("pszPath:", pszPath)                           // 用户选择的文件夹完整路径
 	fmt.Println("PszDisplayName:", syscall.UTF16ToString(buf)) // 用户选择的文件夹的名称
 }
@@ -103,11 +103,11 @@ func ExampleGetOpenFileNameW() {
 	lpstrFile := make([]uint16, 260)
 	lpstrFileTitle := make([]uint16, 260)
 
-	ofn := wapi.OpenFileNameW{
+	ofn := 炫彩WinApi类.OpenFileNameW{
 		LStructSize:       76,
 		HwndOwner:         0,
 		HInstance:         0,
-		LpstrFilter:       common.StringToUint16Ptr(lpstrFilter),
+		LpstrFilter:       炫彩工具类.StringToUint16Ptr(lpstrFilter),
 		LpstrCustomFilter: nil,
 		NMaxCustFilter:    0,
 		NFilterIndex:      1,
@@ -115,9 +115,9 @@ func ExampleGetOpenFileNameW() {
 		NMaxFile:          260,
 		LpstrFileTitle:    &lpstrFileTitle[0],
 		NMaxFileTitle:     260,
-		LpstrInitialDir:   common.StrPtr("D:"),
-		LpstrTitle:        common.StrPtr("打开文件"),
-		Flags:             wapi.OFN_PATHMUTEXIST, // 用户只能键入有效的路径和文件名
+		LpstrInitialDir:   炫彩工具类.StrPtr("D:"),
+		LpstrTitle:        炫彩工具类.StrPtr("打开文件"),
+		Flags:             炫彩WinApi类.OFN_PATHMUTEXIST, // 用户只能键入有效的路径和文件名
 		NFileOffset:       0,
 		NFileExtension:    0,
 		LpstrDefExt:       0,
@@ -126,7 +126,7 @@ func ExampleGetOpenFileNameW() {
 		LpTemplateName:    0,
 	}
 	ofn.LStructSize = uint32(unsafe.Sizeof(ofn))
-	ret := wapi.GetOpenFileNameW(&ofn)
+	ret := 炫彩WinApi类.X创建打开对话框(&ofn)
 	fmt.Println(ret)
 	fmt.Println("lpstrFile:", syscall.UTF16ToString(lpstrFile))
 	fmt.Println("lpstrFileTitle:", syscall.UTF16ToString(lpstrFileTitle))
@@ -139,11 +139,11 @@ func ExampleGetOpenFileNameW_2() {
 
 	lpstrFile := make([]uint16, 512)
 
-	ofn := wapi.OpenFileNameW{
+	ofn := 炫彩WinApi类.OpenFileNameW{
 		LStructSize:       76,
 		HwndOwner:         0,
 		HInstance:         0,
-		LpstrFilter:       common.StringToUint16Ptr(lpstrFilter),
+		LpstrFilter:       炫彩工具类.StringToUint16Ptr(lpstrFilter),
 		LpstrCustomFilter: nil,
 		NMaxCustFilter:    0,
 		NFilterIndex:      2,
@@ -151,9 +151,9 @@ func ExampleGetOpenFileNameW_2() {
 		NMaxFile:          512,
 		LpstrFileTitle:    nil,
 		NMaxFileTitle:     0,
-		LpstrInitialDir:   common.StrPtr("D:"),
-		LpstrTitle:        common.StrPtr("打开文件(可选多个)"),
-		Flags:             wapi.OFN_ALLOWMULTISELECT | wapi.OFN_EXPLORER | wapi.OFN_PATHMUTEXIST, // 允许文件多选 | 使用新界面 | 用户只能键入有效的路径和文件名
+		LpstrInitialDir:   炫彩工具类.StrPtr("D:"),
+		LpstrTitle:        炫彩工具类.StrPtr("打开文件(可选多个)"),
+		Flags:             炫彩WinApi类.OFN_ALLOWMULTISELECT | 炫彩WinApi类.OFN_EXPLORER | 炫彩WinApi类.OFN_PATHMUTEXIST, // 允许文件多选 | 使用新界面 | 用户只能键入有效的路径和文件名
 		NFileOffset:       0,
 		NFileExtension:    0,
 		LpstrDefExt:       0,
@@ -162,10 +162,10 @@ func ExampleGetOpenFileNameW_2() {
 		LpTemplateName:    0,
 	}
 	ofn.LStructSize = uint32(unsafe.Sizeof(ofn))
-	ret := wapi.GetOpenFileNameW(&ofn)
+	ret := 炫彩WinApi类.X创建打开对话框(&ofn)
 	fmt.Println(ret)
 
-	s := common.Uint16SliceToStringSlice(lpstrFile)
+	s := 炫彩工具类.Uint16SliceToStringSlice(lpstrFile)
 	fmt.Println("选择的文件个数:", len(s)-1) // -1是因为切片中第一个元素是文件目录, 不是文件
 	fmt.Println("lpstrFile:", s)
 }
@@ -178,11 +178,11 @@ func ExampleGetSaveFileNameW() {
 	lpstrFile := make([]uint16, 260)
 	lpstrFileTitle := make([]uint16, 260)
 
-	ofn := wapi.OpenFileNameW{
+	ofn := 炫彩WinApi类.OpenFileNameW{
 		LStructSize:       76,
 		HwndOwner:         0,
 		HInstance:         0,
-		LpstrFilter:       common.StringToUint16Ptr(lpstrFilter),
+		LpstrFilter:       炫彩工具类.StringToUint16Ptr(lpstrFilter),
 		LpstrCustomFilter: nil,
 		NMaxCustFilter:    0,
 		NFilterIndex:      1,
@@ -190,18 +190,18 @@ func ExampleGetSaveFileNameW() {
 		NMaxFile:          260,
 		LpstrFileTitle:    &lpstrFileTitle[0],
 		NMaxFileTitle:     260,
-		LpstrInitialDir:   common.StrPtr("D:"),
-		LpstrTitle:        common.StrPtr("保存文件"),
-		Flags:             wapi.OFN_OVERWRITEPROMPT, // 如果所选文件已存在，则使“另存为”对话框生成一个消息框。用户必须确认是否覆盖文件。
+		LpstrInitialDir:   炫彩工具类.StrPtr("D:"),
+		LpstrTitle:        炫彩工具类.StrPtr("保存文件"),
+		Flags:             炫彩WinApi类.OFN_OVERWRITEPROMPT, // 如果所选文件已存在，则使“另存为”对话框生成一个消息框。用户必须确认是否覆盖文件。
 		NFileOffset:       0,
 		NFileExtension:    0,
-		LpstrDefExt:       common.StrPtr("txt"), // 如果用户没有输入文件扩展名, 则默认使用这个
+		LpstrDefExt:       炫彩工具类.StrPtr("txt"), // 如果用户没有输入文件扩展名, 则默认使用这个
 		LCustData:         0,
 		LpfnHook:          0,
 		LpTemplateName:    0,
 	}
 	ofn.LStructSize = uint32(unsafe.Sizeof(ofn))
-	ret := wapi.GetSaveFileNameW(&ofn)
+	ret := 炫彩WinApi类.X创建保存对话框(&ofn)
 	fmt.Println(ret)
 	fmt.Println("lpstrFile:", syscall.UTF16ToString(lpstrFile))
 	fmt.Println("lpstrFileTitle:", syscall.UTF16ToString(lpstrFileTitle))
@@ -209,26 +209,26 @@ func ExampleGetSaveFileNameW() {
 
 func ExampleChooseColorW() {
 	var lpCustColors [16]uint32
-	cc := wapi.ChooseColor{
+	cc := 炫彩WinApi类.ChooseColor{
 		LStructSize:    36,
 		HwndOwner:      0,
 		HInstance:      0,
 		RgbResult:      0,
 		LpCustColors:   &lpCustColors[0],
-		Flags:          wapi.CC_FULLOPEN, // 默认打开自定义颜色
+		Flags:          炫彩WinApi类.CC_FULLOPEN, // 默认打开自定义颜色
 		LCustData:      0,
 		LpfnHook:       0,
 		LpTemplateName: 0,
 	}
 	cc.LStructSize = uint32(unsafe.Sizeof(cc))
-	ret := wapi.ChooseColorW(&cc)
+	ret := 炫彩WinApi类.X创建颜色对话框(&cc)
 	fmt.Println(ret)
 	fmt.Println(cc.RgbResult) // rgb颜色
 	fmt.Println(lpCustColors) // 如果你添加了自定义颜色, 会保存在这个数组里面, 然后只要这个数组还在, 再次打开选择颜色界面时, 之前添加的自定义颜色还会存在
 }
 
 func ExampleGetCursorPos() {
-	var pt wapi.POINT
-	wapi.GetCursorPos(&pt)
+	var pt 炫彩WinApi类.POINT
+	炫彩WinApi类.X鼠标取光标坐标(&pt)
 	fmt.Println(pt)
 }

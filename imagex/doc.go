@@ -1,2 +1,2 @@
 // Package imagex 图片操作.
-package imagex
+package 炫彩图片类

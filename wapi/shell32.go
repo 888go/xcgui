@@ -1,12 +1,12 @@
-package wapi
+package 炫彩WinApi类
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/888go/xcgui/common"
 	"syscall"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 var (
@@ -30,14 +30,15 @@ var (
 //	@param lpszFile 返回的文件路径.
 //	@param cch 接收的文件路径的字符数, 通常为260.
 //	@return int 返回文件路径的字符数.
+
 // ff:拖放文件取路径
-// hDrop:
-// iFile:
-// lpszFile:
 // cch:
-func DragQueryFileW(hDrop uintptr, iFile uint32, lpszFile *string, cch uint32) int {
+// lpszFile:
+// iFile:
+// hDrop:
+func X拖放文件取路径(hDrop uintptr, iFile uint32, lpszFile *string, cch uint32) int {
 	buf := make([]uint16, cch)
-	r, _, _ := dragQueryFileW.Call(hDrop, uintptr(iFile), common.Uint16SliceDataPtr(&buf), uintptr(cch))
+	r, _, _ := dragQueryFileW.Call(hDrop, uintptr(iFile), 炫彩工具类.Uint16SliceDataPtr(&buf), uintptr(cch))
 	*lpszFile = syscall.UTF16ToString(buf[0:])
 	return int(r)
 }
@@ -46,6 +47,7 @@ func DragQueryFileW(hDrop uintptr, iFile uint32, lpszFile *string, cch uint32) i
 //
 //	@Description 详见: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-DragFinish.
 //	@param hDrop 句柄.
+
 // ff:
 // hDrop:
 func DragFinish(hDrop uintptr) {
@@ -58,11 +60,12 @@ func DragFinish(hDrop uintptr) {
 //	@param hDrop 句柄.
 //	@param ppt 接收鼠标指针的坐标.
 //	@return bool 如果拖放发生在窗口的客户区, 返回true；否则返回false.
+
 // ff:拖放文件取鼠标位置
-// hDrop:句柄
 // ppt:接收鼠标指针的坐标
-func DragQueryPoint(hDrop uintptr, ppt *xc.POINT) bool {
-	r, _, _ := dragQueryPoint.Call(hDrop, uintptr(unsafe.Pointer(ppt)))
+// hDrop:句柄
+func X拖放文件取鼠标位置(句柄 uintptr, 接收鼠标指针的坐标 *炫彩基类.POINT) bool {
+	r, _, _ := dragQueryPoint.Call(句柄, uintptr(unsafe.Pointer(接收鼠标指针的坐标)))
 	return r != 0
 }
 
@@ -76,15 +79,16 @@ func DragQueryPoint(hDrop uintptr, ppt *xc.POINT) bool {
 //	@param lpDirectory 想使用的默认路径完整路径.
 //	@param nShowCmd 定义了如何显示启动程序的常数值, xcc.SW_.
 //	@return int 如果函数成功，则返回大于32的值。如果函数失败，则返回指示失败原因的错误值.
+
 // ff:对指定文件执行操作
-// hwnd:父窗口句柄
-// lpOperation:操作类型
-// lpFile:文件名
-// lpParameters:参数
-// lpDirectory:默认完整路径
 // nShowCmd:显示Cmd
-func ShellExecuteW(hwnd uintptr, lpOperation, lpFile, lpParameters, lpDirectory string, nShowCmd xcc.SW_) int {
-	r, _, _ := shellExecuteW.Call(hwnd, common.StrPtr(lpOperation), common.StrPtr(lpFile), common.StrPtr(lpParameters), common.StrPtr(lpDirectory), uintptr(nShowCmd))
+// lpDirectory:默认完整路径
+// lpParameters:参数
+// lpFile:文件名
+// lpOperation:操作类型
+// hwnd:父窗口句柄
+func X对指定文件执行操作(父窗口句柄 uintptr, 操作类型, 文件名, 参数, 默认完整路径 string, 显示Cmd 炫彩常量类.SW_) int {
+	r, _, _ := shellExecuteW.Call(父窗口句柄, 炫彩工具类.StrPtr(操作类型), 炫彩工具类.StrPtr(文件名), 炫彩工具类.StrPtr(参数), 炫彩工具类.StrPtr(默认完整路径), uintptr(显示Cmd))
 	return int(r)
 }
 
@@ -146,10 +150,11 @@ const (
 //	@Description 详见: https://docs.microsoft.com/zh-cn/windows/win32/api/shlobj_core/nf-shlobj_core-shbrowseforfolderw.
 //	@param browseInfo 指向 wapi.BrowseInfoW 结构的指针，该结构包含用于显示对话框的信息。
 //	@return uintptr 返回一个 PIDL，它指定所选文件夹相对于命名空间根的位置。如果用户在对话框中选择取消按钮，则返回值为NULL。返回的 PIDL 可能是文件夹快捷方式而不是文件夹。
+
 // ff:对话框打开文件夹
 // browseInfo:对话框选项
-func SHBrowseForFolderW(browseInfo *BrowseInfoW) uintptr {
-	r, _, _ := sHBrowseForFolderW.Call(uintptr(unsafe.Pointer(browseInfo)))
+func X对话框打开文件夹(对话框选项 *BrowseInfoW) uintptr {
+	r, _, _ := sHBrowseForFolderW.Call(uintptr(unsafe.Pointer(对话框选项)))
 	return r
 }
 
@@ -159,12 +164,13 @@ func SHBrowseForFolderW(browseInfo *BrowseInfoW) uintptr {
 //	@param pidl SHBrowseForFolderW 的返回值.
 //	@param pszPath 返回的文件路径。
 //	@return bool
+
 // ff:文件夹指针取实际路径
-// pidl:文件夹指针
 // pszPath:返回文件路径
-func SHGetPathFromIDListW(pidl uintptr, pszPath *string) bool {
+// pidl:文件夹指针
+func X文件夹指针取实际路径(文件夹指针 uintptr, 返回文件路径 *string) bool {
 	buf := make([]uint16, 260)
-	r, _, _ := sHGetPathFromIDListW.Call(pidl, common.Uint16SliceDataPtr(&buf))
-	*pszPath = syscall.UTF16ToString(buf)
+	r, _, _ := sHGetPathFromIDListW.Call(文件夹指针, 炫彩工具类.Uint16SliceDataPtr(&buf))
+	*返回文件路径 = syscall.UTF16ToString(buf)
 	return r != 0
 }

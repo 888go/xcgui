@@ -1,8 +1,8 @@
-package xc
+package 炫彩基类
 
 import (
-	"github.com/twgh/xcgui/common"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/common"
+	"github.com/888go/xcgui/xcc"
 )
 
 // XUI_SetStyle 可视对象_置样式, 设置UI对象样式.
@@ -10,11 +10,12 @@ import (
 //	@param hXCGUI 对象句柄.
 //	@param nStyle xcc.XC_OBJECT_STYLE, 样式值: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
 //	@return int
+
 // ff:可视对象_置样式
-// hXCGUI:对象句柄
 // nStyle:样式
-func XUI_SetStyle(hXCGUI int, nStyle xcc.XC_OBJECT_STYLE) int {
-	r, _, _ := xUI_SetStyle.Call(uintptr(hXCGUI), uintptr(nStyle))
+// hXCGUI:对象句柄
+func X可视对象_置样式(对象句柄 int, 样式 炫彩常量类.XC_OBJECT_STYLE) int {
+	r, _, _ := xUI_SetStyle.Call(uintptr(对象句柄), uintptr(样式))
 	return int(r)
 }
 
@@ -22,11 +23,12 @@ func XUI_SetStyle(hXCGUI int, nStyle xcc.XC_OBJECT_STYLE) int {
 //
 //	@param hXCGUI 对象句柄.
 //	@return xcc.XC_OBJECT_STYLE 返回: xcc.Button_Style_ , xcc.Element_Style_ , xcc.ListBox_Style_.
+
 // ff:可视对象_取样式
 // hXCGUI:对象句柄
-func XUI_GetStyle(hXCGUI int) xcc.XC_OBJECT_STYLE {
-	r, _, _ := xUI_GetStyle.Call(uintptr(hXCGUI))
-	return xcc.XC_OBJECT_STYLE(r)
+func X可视对象_取样式(对象句柄 int) 炫彩常量类.XC_OBJECT_STYLE {
+	r, _, _ := xUI_GetStyle.Call(uintptr(对象句柄))
+	return 炫彩常量类.XC_OBJECT_STYLE(r)
 }
 
 // XUI_EnableCSS 可视对象_启用CSS, 启用或禁用样式.
@@ -34,11 +36,12 @@ func XUI_GetStyle(hXCGUI int) xcc.XC_OBJECT_STYLE {
 //	@param hXCGUI 对象句柄.
 //	@param bEnable 是否启用.
 //	@return int
+
 // ff:可视对象_启用CSS
-// hXCGUI:对象句柄
 // bEnable:是否启用
-func XUI_EnableCSS(hXCGUI int, bEnable bool) int {
-	r, _, _ := xUI_EnableCSS.Call(uintptr(hXCGUI), common.BoolPtr(bEnable))
+// hXCGUI:对象句柄
+func X可视对象_启用CSS(对象句柄 int, 是否启用 bool) int {
+	r, _, _ := xUI_EnableCSS.Call(uintptr(对象句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
@@ -47,11 +50,12 @@ func XUI_EnableCSS(hXCGUI int, bEnable bool) int {
 //	@param hXCGUI 对象句柄.
 //	@param pName 套用样式名称.
 //	@return int
+
 // ff:可视对象_置CSS名称
-// hXCGUI:对象句柄
 // pName:套用样式名称
-func XUI_SetCssName(hXCGUI int, pName string) int {
-	r, _, _ := xUI_SetCssName.Call(uintptr(hXCGUI), common.StrPtr(pName))
+// hXCGUI:对象句柄
+func X可视对象_置CSS名称(对象句柄 int, 套用样式名称 string) int {
+	r, _, _ := xUI_SetCssName.Call(uintptr(对象句柄), 炫彩工具类.StrPtr(套用样式名称))
 	return int(r)
 }
 
@@ -59,9 +63,10 @@ func XUI_SetCssName(hXCGUI int, pName string) int {
 //
 //	@param hXCGUI 对象句柄.
 //	@return string
+
 // ff:可视对象_取CSS名称
 // hXCGUI:对象句柄
-func XUI_GetCssName(hXCGUI int) string {
-	r, _, _ := xUI_GetCssName.Call(uintptr(hXCGUI))
-	return common.UintPtrToString(r)
+func X可视对象_取CSS名称(对象句柄 int) string {
+	r, _, _ := xUI_GetCssName.Call(uintptr(对象句柄))
+	return 炫彩工具类.UintPtrToString(r)
 }

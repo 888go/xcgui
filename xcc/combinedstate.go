@@ -1,4 +1,4 @@
-package xcc//bm:炫彩常量类
+package 炫彩常量类//bm:炫彩常量类
 
 // CombinedState 组合状态.
 type CombinedState uint32

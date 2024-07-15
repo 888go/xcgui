@@ -1,8 +1,8 @@
-package widget
+package 炫彩组件类
 
 import (
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 // LayoutEle 布局元素.
@@ -18,15 +18,16 @@ type LayoutEle struct {
 //	@param cy 高度.
 //	@param hParent 父为窗口句柄或元素句柄.
 //	@return *LayoutEle
+
 // ff:创建布局
-// x:元素x坐标
-// y:元素y坐标
-// cx:宽度
-// cy:高度
 // hParent:父窗口句柄或元素句柄
-func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
+// cy:高度
+// cx:宽度
+// y:元素y坐标
+// x:元素x坐标
+func X创建布局(元素x坐标 int, 元素y坐标 int, 宽度 int, 高度 int, 父窗口句柄或元素句柄 int) *LayoutEle {
 	p := &LayoutEle{}
-	p.SetHandle(xc.XLayout_Create(x, y, cx, cy, hParent))
+	p.X设置句柄(炫彩基类.X布局_创建(元素x坐标, 元素y坐标, 宽度, 高度, 父窗口句柄或元素句柄))
 	return p
 }
 
@@ -34,11 +35,12 @@ func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
 //
 //	@param hParent 父为窗口句柄或元素句柄.
 //	@return *LayoutEle
+
 // ff:创建布局EX
 // hParent:父窗口句柄或元素句柄
-func NewLayoutEleEx(hParent int) *LayoutEle {
+func X创建布局EX(父窗口句柄或元素句柄 int) *LayoutEle {
 	p := &LayoutEle{}
-	p.SetHandle(xc.XLayout_CreateEx(hParent))
+	p.X设置句柄(炫彩基类.X布局_创建EX(父窗口句柄或元素句柄))
 	return p
 }
 
@@ -46,11 +48,12 @@ func NewLayoutEleEx(hParent int) *LayoutEle {
 //
 //	@param handle
 //	@return *LayoutEle
+
 // ff:创建布局并按句柄
 // handle:
-func NewLayoutEleByHandle(handle int) *LayoutEle {
+func X创建布局并按句柄(handle int) *LayoutEle {
 	p := &LayoutEle{}
-	p.SetHandle(handle)
+	p.X设置句柄(handle)
 	return p
 }
 
@@ -60,15 +63,16 @@ func NewLayoutEleByHandle(handle int) *LayoutEle {
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按布局文件
-// pFileName:布局文件名
-// hParent:父对象句柄
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByLayout(pFileName string, hParent int, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
+// hParent:父对象句柄
+// pFileName:布局文件名
+func X创建布局并按布局文件(布局文件名 string, 父对象句柄 int, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件(布局文件名, 父对象句柄, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -82,17 +86,18 @@ func NewLayoutEleByLayout(pFileName string, hParent int, hAttachWnd uintptr) *La
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按压缩包中布局文件
-// pZipFileName:zip文件名
-// pFileName:布局文件名
-// pPassword:zip密码
-// hParent:父对象句柄
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByLayoutZip(pZipFileName string, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
+// hParent:父对象句柄
+// pPassword:zip密码
+// pFileName:布局文件名
+// pZipFileName:zip文件名
+func X创建布局并按压缩包中布局文件(zip文件名 string, 布局文件名 string, zip密码 string, 父对象句柄 int, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件ZIP(zip文件名, 布局文件名, zip密码, 父对象句柄, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -109,20 +114,21 @@ func NewLayoutEleByLayoutZip(pZipFileName string, pFileName string, pPassword st
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@param hModule 模块句柄, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按RC资源压缩包中布局文件
-// id:RC资源ID
-// pFileName:布局文件名
-// pPassword:zip密码
-// pPrefixName:名称
-// hParent:父对象句柄
-// hParentWnd:父窗口句柄HWND
-// hAttachWnd:附加窗口句柄
 // hModule:模块句柄
-func NewLayoutEleByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd, hModule uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutZipResEx(id, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd, hModule)
+// hAttachWnd:附加窗口句柄
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称
+// pPassword:zip密码
+// pFileName:布局文件名
+// id:RC资源ID
+func X创建布局并按RC资源压缩包中布局文件(RC资源ID int32, 布局文件名, zip密码, 名称 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄, 模块句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件资源ZIPEX(RC资源ID, 布局文件名, zip密码, 名称, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄, 模块句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -136,17 +142,18 @@ func NewLayoutEleByLayoutZipResEx(id int32, pFileName, pPassword, pPrefixName st
 //	@param hParent 父对象句柄.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按内存压缩包中布局文件
-// data:布局文件数据
-// pFileName:布局文件名
-// pPassword:zip密码
-// hParent:父对象句柄
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByLayoutZipMem(data []byte, pFileName string, pPassword string, hParent int, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
+// hParent:父对象句柄
+// pPassword:zip密码
+// pFileName:布局文件名
+// data:布局文件数据
+func X创建布局并按内存压缩包中布局文件(布局文件数据 []byte, 布局文件名 string, zip密码 string, 父对象句柄 int, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件内存ZIP(布局文件数据, 布局文件名, zip密码, 父对象句柄, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -158,15 +165,16 @@ func NewLayoutEleByLayoutZipMem(data []byte, pFileName string, pPassword string,
 //	@param hParent 父对象.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按布局文件字符串W
-// pStringXML:xml字符串
-// hParent:父对象
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByStringW(pStringXML string, hParent int, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
+// hParent:父对象
+// pStringXML:xml字符串
+func X创建布局并按布局文件字符串W(xml字符串 string, 父对象 int, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件从字符串W(xml字符串, 父对象, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -180,17 +188,18 @@ func NewLayoutEleByStringW(pStringXML string, hParent int, hAttachWnd uintptr) *
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按布局文件EX
-// pFileName:布局文件名
-// pPrefixName:名称前缀
-// hParent:父对象句柄
-// hParentWnd:父窗口句柄HWND
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByLayoutEx(pFileName, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称前缀
+// pFileName:布局文件名
+func X创建布局并按布局文件EX(布局文件名, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件Ex(布局文件名, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -206,19 +215,20 @@ func NewLayoutEleByLayoutEx(pFileName, pPrefixName string, hParent int, hParentW
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按压缩包中的布局文件EX
-// pZipFileName:zip文件名
-// pFileName:布局文件名
-// pPassword:zip密码
-// pPrefixName:名称前缀
-// hParent:父对象句柄
-// hParentWnd:父窗口句柄HWND
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByLayoutZipEx(pZipFileName string, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称前缀
+// pPassword:zip密码
+// pFileName:布局文件名
+// pZipFileName:zip文件名
+func X创建布局并按压缩包中的布局文件EX(zip文件名 string, 布局文件名 string, zip密码, 名称前缀 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件ZIPEx(zip文件名, 布局文件名, zip密码, 名称前缀, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -234,19 +244,20 @@ func NewLayoutEleByLayoutZipEx(pZipFileName string, pFileName string, pPassword,
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按内存压缩包中布局文件EX
-// data:布局文件数据
-// pFileName:布局文件名
-// pPassword:zip密码
-// pPrefixName:名称
-// hParent:父对象句柄
-// hParentWnd:父窗口句柄HWND
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象句柄
+// pPrefixName:名称
+// pPassword:zip密码
+// pFileName:布局文件名
+// data:布局文件数据
+func X创建布局并按内存压缩包中布局文件EX(布局文件数据 []byte, 布局文件名 string, zip密码, 名称 string, 父对象句柄 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件内存ZIPEx(布局文件数据, 布局文件名, zip密码, 名称, 父对象句柄, 父窗口句柄HWND, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -260,17 +271,18 @@ func NewLayoutEleByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPre
 //	@param hParentWnd 父窗口句柄HWND, 提供给第三方窗口使用.
 //	@param hAttachWnd 附加窗口句柄, 附加到指定的窗口, 可填0.
 //	@return *LayoutEle
+
 // ff:创建布局并按布局文件字符串WEX
-// pStringXML:字符串
-// pPrefixName:名称前缀
-// hParent:父对象
-// hParentWnd:父窗口句柄HWND
 // hAttachWnd:附加窗口句柄
-func NewLayoutEleByStringWEx(pStringXML, pPrefixName string, hParent int, hParentWnd, hAttachWnd uintptr) *LayoutEle {
-	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
+// hParentWnd:父窗口句柄HWND
+// hParent:父对象
+// pPrefixName:名称前缀
+// pStringXML:字符串
+func X创建布局并按布局文件字符串WEX(字符串, 名称前缀 string, 父对象 int, 父窗口句柄HWND, 附加窗口句柄 uintptr) *LayoutEle {
+	handle := 炫彩基类.X炫彩_加载布局文件从字符串WEx(字符串, 名称前缀, 父对象, 父窗口句柄HWND, 附加窗口句柄)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -280,13 +292,14 @@ func NewLayoutEleByStringWEx(pStringXML, pPrefixName string, hParent int, hParen
 //
 //	@param name
 //	@return *LayoutEle
+
 // ff:创建布局并按名称
 // name:
-func NewLayoutEleByName(name string) *LayoutEle {
-	handle := xc.XC_GetObjectByName(name)
+func X创建布局并按名称(name string) *LayoutEle {
+	handle := 炫彩基类.X取对象从名称(name)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -297,14 +310,15 @@ func NewLayoutEleByName(name string) *LayoutEle {
 //	@param hWindow 父窗口句柄
 //	@param nID
 //	@return *LayoutEle
+
 // ff:创建布局并按ID
-// hWindow:父窗口句柄
 // nID:
-func NewLayoutEleByID(hWindow, nID int) *LayoutEle {
-	handle := xc.XC_GetObjectByID(hWindow, nID)
+// hWindow:父窗口句柄
+func X创建布局并按ID(父窗口句柄, nID int) *LayoutEle {
+	handle := 炫彩基类.X取对象从ID(父窗口句柄, nID)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -315,14 +329,15 @@ func NewLayoutEleByID(hWindow, nID int) *LayoutEle {
 //	@param hWindow 父窗口句柄
 //	@param name
 //	@return *LayoutEle
+
 // ff:创建布局并按ID名称
-// hWindow:父窗口句柄
 // name:名称
-func NewLayoutEleByIDName(hWindow int, name string) *LayoutEle {
-	handle := xc.XC_GetObjectByIDName(hWindow, name)
+// hWindow:父窗口句柄
+func X创建布局并按ID名称(父窗口句柄 int, 名称 string) *LayoutEle {
+	handle := 炫彩基类.X取对象从ID名称(父窗口句柄, 名称)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -332,13 +347,14 @@ func NewLayoutEleByIDName(hWindow int, name string) *LayoutEle {
 //
 //	@param nUID
 //	@return *LayoutEle
+
 // ff:创建布局并按UID
 // nUID:
-func NewLayoutEleByUID(nUID int) *LayoutEle {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建布局并按UID(nUID int) *LayoutEle {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -348,13 +364,14 @@ func NewLayoutEleByUID(nUID int) *LayoutEle {
 //
 //	@param name
 //	@return *LayoutEle
+
 // ff:创建布局并按UID名称
 // name:名称
-func NewLayoutEleByUIDName(name string) *LayoutEle {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建布局并按UID名称(名称 string) *LayoutEle {
+	handle := 炫彩基类.X取对象从UID名称(名称)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
@@ -363,45 +380,50 @@ func NewLayoutEleByUIDName(name string) *LayoutEle {
 // IsEnableLayout 布局_判断启用, 是否已经启用布局功能.
 //
 //	@return bool
+
 // ff:判断启用
-func (l *LayoutEle) IsEnableLayout() bool {
-	return xc.XLayout_IsEnableLayout(l.Handle)
+func (l *LayoutEle) X判断启用() bool {
+	return 炫彩基类.X布局_判断启用(l.Handle)
 }
 
 // EnableLayout 布局_启用, 启用布局功能.
 //
 //	@param bEnable 是否启用.
 //	@return int
+
 // ff:启用
 // bEnable:是否启用
-func (l *LayoutEle) EnableLayout(bEnable bool) int {
-	return xc.XLayout_EnableLayout(l.Handle, bEnable)
+func (l *LayoutEle) X启用(是否启用 bool) int {
+	return 炫彩基类.X布局_启用(l.Handle, 是否启用)
 }
 
 // ShowLayoutFrame 布局_显示布局边界, 显示布局边界.
 //
 //	@param bEnable 是否显示.
 //	@return int
+
 // ff:显示布局边界
 // bEnable:是否显示
-func (l *LayoutEle) ShowLayoutFrame(bEnable bool) int {
-	return xc.XLayout_ShowLayoutFrame(l.Handle, bEnable)
+func (l *LayoutEle) X显示布局边界(是否显示 bool) int {
+	return 炫彩基类.X布局_显示布局边界(l.Handle, 是否显示)
 }
 
 // GetWidthIn 布局_取内宽度, 获取宽度,不包含内边距大小.
 //
 //	@return int
+
 // ff:取内宽度
-func (l *LayoutEle) GetWidthIn() int {
-	return xc.XLayout_GetWidthIn(l.Handle)
+func (l *LayoutEle) X取内宽度() int {
+	return 炫彩基类.X布局_取内宽度(l.Handle)
 }
 
 // GetHeightIn 布局_取内高度, 获取高度,不包含内边距大小.
 //
 //	@return int
+
 // ff:取内高度
-func (l *LayoutEle) GetHeightIn() int {
-	return xc.XLayout_GetHeightIn(l.Handle)
+func (l *LayoutEle) X取内高度() int {
+	return 炫彩基类.X布局_取内高度(l.Handle)
 }
 
 /*
@@ -412,78 +434,86 @@ LayoutBox-布局盒子
 //
 //	@param bEnable 是否启用.
 //	@return int
+
 // ff:启用水平
 // bEnable:是否启用
-func (l *LayoutEle) EnableHorizon(bEnable bool) int {
-	return xc.XLayoutBox_EnableHorizon(l.Handle, bEnable)
+func (l *LayoutEle) X启用水平(是否启用 bool) int {
+	return 炫彩基类.X布局盒子_启用水平(l.Handle, 是否启用)
 }
 
 // EnableAutoWrap 布局盒子_启用自动换行.
 //
 //	@param bEnable 是否启用.
 //	@return int
+
 // ff:启用自动换行
 // bEnable:是否启用
-func (l *LayoutEle) EnableAutoWrap(bEnable bool) int {
-	return xc.XLayoutBox_EnableAutoWrap(l.Handle, bEnable)
+func (l *LayoutEle) X启用自动换行(是否启用 bool) int {
+	return 炫彩基类.X布局盒子_启用自动换行(l.Handle, 是否启用)
 }
 
 // EnableOverflowHide 布局盒子_启用溢出隐藏.
 //
 //	@param bEnable 是否启用.
 //	@return int
+
 // ff:启用溢出隐藏
 // bEnable:是否启用
-func (l *LayoutEle) EnableOverflowHide(bEnable bool) int {
-	return xc.XLayoutBox_EnableOverflowHide(l.Handle, bEnable)
+func (l *LayoutEle) X启用溢出隐藏(是否启用 bool) int {
+	return 炫彩基类.X布局盒子_启用溢出隐藏(l.Handle, 是否启用)
 }
 
 // SetAlignH 布局盒子_置水平对齐.
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
+
 // ff:置水平对齐
 // nAlign:对齐方式
-func (l *LayoutEle) SetAlignH(nAlign xcc.Layout_Align_) int {
-	return xc.XLayoutBox_SetAlignH(l.Handle, nAlign)
+func (l *LayoutEle) X置水平对齐(对齐方式 炫彩常量类.Layout_Align_) int {
+	return 炫彩基类.X布局盒子_置水平对齐(l.Handle, 对齐方式)
 }
 
 // SetAlignV 布局盒子_置垂直对齐.
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
+
 // ff:置垂直对齐
 // nAlign:对齐方式
-func (l *LayoutEle) SetAlignV(nAlign xcc.Layout_Align_) int {
-	return xc.XLayoutBox_SetAlignV(l.Handle, nAlign)
+func (l *LayoutEle) X置垂直对齐(对齐方式 炫彩常量类.Layout_Align_) int {
+	return 炫彩基类.X布局盒子_置垂直对齐(l.Handle, 对齐方式)
 }
 
 // SetAlignBaseline 布局盒子_置对齐基线.
 //
 //	@param nAlign 对齐方式: xcc.Layout_Align_Axis_.
 //	@return int
+
 // ff:置对齐基线
 // nAlign:对齐方式
-func (l *LayoutEle) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
-	return xc.XLayoutBox_SetAlignBaseline(l.Handle, nAlign)
+func (l *LayoutEle) X置对齐基线(对齐方式 炫彩常量类.Layout_Align_Axis_) int {
+	return 炫彩基类.X布局盒子_置对齐基线(l.Handle, 对齐方式)
 }
 
 // SetSpace 布局盒子_置间距.
 //
 //	@param nSpace 项间距大小.
 //	@return int
+
 // ff:置间距
 // nSpace:项间距大小
-func (l *LayoutEle) SetSpace(nSpace int) int {
-	return xc.XLayoutBox_SetSpace(l.Handle, nSpace)
+func (l *LayoutEle) X置间距(项间距大小 int) int {
+	return 炫彩基类.X布局盒子_置间距(l.Handle, 项间距大小)
 }
 
 // SetSpaceRow 布局盒子_置行距.
 //
 //	@param nSpace 行间距大小.
 //	@return int
+
 // ff:置行距
 // nSpace:行间距大小
-func (l *LayoutEle) SetSpaceRow(nSpace int) int {
-	return xc.XLayoutBox_SetSpaceRow(l.Handle, nSpace)
+func (l *LayoutEle) X置行距(行间距大小 int) int {
+	return 炫彩基类.X布局盒子_置行距(l.Handle, 行间距大小)
 }

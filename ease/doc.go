@@ -1,2 +1,2 @@
 // Package ease 缓动.
-package ease
+package 炫彩缓动类

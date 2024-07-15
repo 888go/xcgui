@@ -1,8 +1,8 @@
-package widget
+package 炫彩组件类
 
 import (
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 // 编辑框(常规, 富文本, 聊天气泡).
@@ -11,536 +11,663 @@ type Edit struct {
 }
 
 // 编辑框_创建.
-//.
-//.
-//.
-//.
-//.
+//
+// x: 元素x坐标.
+//
+// y: 元素y坐标.
+//
+// cx: 宽度.
+//
+// cy: 高度.
+//
+// hParent: 父为窗口句柄或元素句柄.
+
 // ff:创建编辑框
-// x:元素x坐标
-// y:元素y坐标
-// cx:宽度
-// cy:高度
 // hParent:父窗口句柄或元素句柄
-func NewEdit(x int, y int, cx int, cy int, hParent int) *Edit {
+// cy:高度
+// cx:宽度
+// y:元素y坐标
+// x:元素x坐标
+func X创建编辑框(元素x坐标 int, 元素y坐标 int, 宽度 int, 高度 int, 父窗口句柄或元素句柄 int) *Edit {
 	p := &Edit{}
-	p.SetHandle(xc.XEdit_Create(x, y, cx, cy, hParent))
+	p.X设置句柄(炫彩基类.X编辑框_创建(元素x坐标, 元素y坐标, 宽度, 高度, 父窗口句柄或元素句柄))
 	return p
 }
 
 // 编辑框_创建扩展.
-//.
-//.
-//.
-//.
-//, Edit_Type_.
-//.
+//
+// x: 元素x坐标.
+//
+// y: 元素y坐标.
+//
+// cx: 宽度.
+//
+// cy: 高度.
+//
+// nType: 类型, Edit_Type_.
+//
+// hParent: 父为窗口句柄或元素句柄.
+
 // ff:创建编辑框EX
-// x:元素x坐标
-// y:元素y坐标
-// cx:宽度
-// cy:高度
-// nType:类型
 // hParent:
-func NewEditEx(x int, y int, cx int, cy int, nType xcc.Edit_Type_, hParent int) *Edit {
+// nType:类型
+// cy:高度
+// cx:宽度
+// y:元素y坐标
+// x:元素x坐标
+func X创建编辑框EX(元素x坐标 int, 元素y坐标 int, 宽度 int, 高度 int, 类型 炫彩常量类.Edit_Type_, hParent int) *Edit {
 	p := &Edit{}
-	p.Handle = xc.XEdit_CreateEx(x, y, cx, cy, nType, hParent)
+	p.Handle = 炫彩基类.X编辑框_创建EX(元素x坐标, 元素y坐标, 宽度, 高度, 类型, hParent)
 	return p
 }
 
 // 从句柄创建对象.
+
 // ff:创建编辑框并按句柄
 // handle:句柄
-func NewEditByHandle(handle int) *Edit {
+func X创建编辑框并按句柄(句柄 int) *Edit {
 	p := &Edit{}
-	p.SetHandle(handle)
+	p.X设置句柄(句柄)
 	return p
 }
 
 // 从name创建对象, 失败返回nil.
+
 // ff:创建编辑框并按名称
 // name:名称
-func NewEditByName(name string) *Edit {
-	handle := xc.XC_GetObjectByName(name)
+func X创建编辑框并按名称(名称 string) *Edit {
+	handle := 炫彩基类.X取对象从名称(名称)
 	if handle > 0 {
 		p := &Edit{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID创建对象, 失败返回nil.
+
 // ff:创建编辑框并按UID
 // nUID:
-func NewEditByUID(nUID int) *Edit {
-	handle := xc.XC_GetObjectByUID(nUID)
+func X创建编辑框并按UID(nUID int) *Edit {
+	handle := 炫彩基类.X取对象从UID(nUID)
 	if handle > 0 {
 		p := &Edit{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 从UID名称创建对象, 失败返回nil.
+
 // ff:创建编辑框并按UID名称
 // name:UID名称
-func NewEditByUIDName(name string) *Edit {
-	handle := xc.XC_GetObjectByUIDName(name)
+func X创建编辑框并按UID名称(UID名称 string) *Edit {
+	handle := 炫彩基类.X取对象从UID名称(UID名称)
 	if handle > 0 {
 		p := &Edit{}
-		p.SetHandle(handle)
+		p.X设置句柄(handle)
 		return p
 	}
 	return nil
 }
 
 // 编辑框_启用自动换行.
-//.
+//
+// bEnable: 是否启用.
+
 // ff:启用自动换行
 // bEnable:是否启用
-func (e *Edit) EnableAutoWrap(bEnable bool) int {
-	return xc.XEdit_EnableAutoWrap(e.Handle, bEnable)
+func (e *Edit) X启用自动换行(是否启用 bool) int {
+	return 炫彩基类.X编辑框_启用自动换行(e.Handle, 是否启用)
 }
 
 // 编辑框_启用只读.
-//.
+//
+// bEnable: 是否启用.
+
 // ff:启用只读
 // bEnable:是否启用
-func (e *Edit) EnableReadOnly(bEnable bool) int {
-	return xc.XEdit_EnableReadOnly(e.Handle, bEnable)
+func (e *Edit) X启用只读(是否启用 bool) int {
+	return 炫彩基类.X编辑框_启用只读(e.Handle, 是否启用)
 }
 
 // 编辑框_启用多行.
-//.
+//
+// bEnable:.
+
 // ff:启用多行
 // bEnable:是否启用
-func (e *Edit) EnableMultiLine(bEnable bool) int {
-	return xc.XEdit_EnableMultiLine(e.Handle, bEnable)
+func (e *Edit) X启用多行(是否启用 bool) int {
+	return 炫彩基类.X编辑框_启用多行(e.Handle, 是否启用)
 }
 
 // 编辑框_启用密码, 启用密码模式(只支持默认类型编辑框).
-//.
+//
+// bEnable: 是否启用.
+
 // ff:启用密码
 // bEnable:是否启用
-func (e *Edit) EnablePassword(bEnable bool) int {
-	return xc.XEdit_EnablePassword(e.Handle, bEnable)
+func (e *Edit) X启用密码(是否启用 bool) int {
+	return 炫彩基类.X编辑框_启用密码(e.Handle, 是否启用)
 }
 
 // 编辑框_启用自动选择, 当获得焦点时,自动选择所有内容.
-//.
+//
+// bEnable: 是否启用.
+
 // ff:启用自动选择
 // bEnable:是否启用
-func (e *Edit) EnableAutoSelAll(bEnable bool) int {
-	return xc.XEdit_EnableAutoSelAll(e.Handle, bEnable)
+func (e *Edit) X启用自动选择(是否启用 bool) int {
+	return 炫彩基类.X编辑框_启用自动选择(e.Handle, 是否启用)
 }
 
 // 编辑框_启用自动取消选择, 当失去焦点时自动取消选择.
-//.
+//
+// bEnable: 是否启用.
+
 // ff:启用自动取消选择
 // bEnable:是否启用
-func (e *Edit) EnableAutoCancelSel(bEnable bool) int {
-	return xc.XEdit_EnableAutoCancelSel(e.Handle, bEnable)
+func (e *Edit) X启用自动取消选择(是否启用 bool) int {
+	return 炫彩基类.X编辑框_启用自动取消选择(e.Handle, 是否启用)
 }
 
 // 编辑框_是否只读.
+
 // ff:是否只读
-func (e *Edit) IsReadOnly() bool {
-	return xc.XEdit_IsReadOnly(e.Handle)
+func (e *Edit) X是否只读() bool {
+	return 炫彩基类.X编辑框_是否只读(e.Handle)
 }
 
 // 编辑框_是否多行.
+
 // ff:是否多行
-func (e *Edit) IsMultiLine() bool {
-	return xc.XEdit_IsMultiLine(e.Handle)
+func (e *Edit) X是否多行() bool {
+	return 炫彩基类.X编辑框_是否多行(e.Handle)
 }
 
 // 编辑框_是否密码.
+
 // ff:是否密码
-func (e *Edit) IsPassword() bool {
-	return xc.XEdit_IsPassword(e.Handle)
+func (e *Edit) X是否密码() bool {
+	return 炫彩基类.X编辑框_是否密码(e.Handle)
 }
 
 // 编辑框_是否自动换行.
+
 // ff:是否自动换行
-func (e *Edit) IsAutoWrap() bool {
-	return xc.XEdit_IsAutoWrap(e.Handle)
+func (e *Edit) X是否自动换行() bool {
+	return 炫彩基类.X编辑框_是否自动换行(e.Handle)
 }
 
 // 编辑框_判断为空.
+
 // ff:判断为空
-func (e *Edit) IsEmpty() bool {
-	return xc.XEdit_IsEmpty(e.Handle)
+func (e *Edit) X判断为空() bool {
+	return 炫彩基类.X编辑框_判断为空(e.Handle)
 }
 
 // 编辑框_是否在选择区域.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+
 // ff:是否在选择区域
-// iRow:行索引
 // iCol:列索引
-func (e *Edit) IsInSelect(iRow int, iCol int) bool {
-	return xc.XEdit_IsInSelect(e.Handle, iRow, iCol)
+// iRow:行索引
+func (e *Edit) X是否在选择区域(行索引 int, 列索引 int) bool {
+	return 炫彩基类.X编辑框_是否在选择区域(e.Handle, 行索引, 列索引)
 }
 
 // 编辑框_取总行数.
+
 // ff:取总行数
-func (e *Edit) GetRowCount() int {
-	return xc.XEdit_GetRowCount(e.Handle)
+func (e *Edit) X取总行数() int {
+	return 炫彩基类.X编辑框_取总行数(e.Handle)
 }
 
 // 编辑框_取数据, 包含文本或非文本内容.
+
 // ff:取数据
-func (e *Edit) GetData() xc.Edit_Data_Copy_ {
-	return xc.XEdit_GetData(e.Handle)
+func (e *Edit) X取数据() 炫彩基类.Edit_Data_Copy_ {
+	return 炫彩基类.X编辑框_取数据(e.Handle)
 }
 
 // 编辑框_添加数据.
-//.
-//.
-//.
+//
+// pData: 数据结构.
+//
+// styleTable: 样式表.
+//
+// nStyleCount: 样式数量.
+
 // ff:添加数据
-// pData:数据结构
-// styleTable:
 // nStyleCount:
-func (e *Edit) AddData(pData *xc.Edit_Data_Copy_, styleTable []uint16, nStyleCount int) int {
-	return xc.XEdit_AddData(e.Handle, pData, styleTable, nStyleCount)
+// styleTable:
+// pData:数据结构
+func (e *Edit) X添加数据(数据结构 *炫彩基类.Edit_Data_Copy_, styleTable []uint16, nStyleCount int) int {
+	return 炫彩基类.X编辑框_添加数据(e.Handle, 数据结构, styleTable, nStyleCount)
 }
 
 // 编辑框_释放数据.
+
 // ff:释放数据
 // pData:
-func (e *Edit) FreeData(pData *xc.Edit_Data_Copy_) int {
-	return xc.XEdit_FreeData(pData)
+func (e *Edit) X释放数据(pData *炫彩基类.Edit_Data_Copy_) int {
+	return 炫彩基类.X编辑框_释放数据(pData)
 }
 
 // 编辑框_置默认文本, 当内容为空时, 显示默认文本.
-//.
+//
+// pString: 文本内容.
+
 // ff:置默认文本
 // pString:文本内容
-func (e *Edit) SetDefaultText(pString string) int {
-	return xc.XEdit_SetDefaultText(e.Handle, pString)
+func (e *Edit) X置默认文本(文本内容 string) int {
+	return 炫彩基类.X编辑框_置默认文本(e.Handle, 文本内容)
 }
 
 // 编辑框_置默认文本颜色.
-//.
+//
+// color: ABGR 颜色值.
+
 // ff:置默认文本颜色
 // color:ABGR颜色值
-func (e *Edit) SetDefaultTextColor(color int) int {
-	return xc.XEdit_SetDefaultTextColor(e.Handle, color)
+func (e *Edit) X置默认文本颜色(ABGR颜色值 int) int {
+	return 炫彩基类.X编辑框_置默认文本颜色(e.Handle, ABGR颜色值)
 }
 
 // 编辑框_置密码字符.
-//.
+//
+// ch: 字符.
+
 // ff:置密码字符
 // ch:字符
-func (e *Edit) SetPasswordCharacter(ch int) int {
-	return xc.XEdit_SetPasswordCharacter(e.Handle, ch)
+func (e *Edit) X置密码字符(字符 int) int {
+	return 炫彩基类.X编辑框_置密码字符(e.Handle, 字符)
 }
 
 // 编辑框_置文本对齐, 单行模式下有效.
-//, Edit_TextAlign_Flag_.
+//
+// align: 对齐方式, Edit_TextAlign_Flag_.
+
 // ff:置文本对齐
 // align:对齐方式
-func (e *Edit) SetTextAlign(align xcc.Edit_TextAlign_Flag_) int {
-	return xc.XEdit_SetTextAlign(e.Handle, align)
+func (e *Edit) X置文本对齐(对齐方式 炫彩常量类.Edit_TextAlign_Flag_) int {
+	return 炫彩基类.X编辑框_置文本对齐(e.Handle, 对齐方式)
 }
 
 // 编辑框_置TAB空格.
-//.
+//
+// nSpace: 空格数量.
+
 // ff:置TAB空格
 // nSpace:空格数量
-func (e *Edit) SetTabSpace(nSpace int) int {
-	return xc.XEdit_SetTabSpace(e.Handle, nSpace)
+func (e *Edit) X置TAB空格(空格数量 int) int {
+	return 炫彩基类.X编辑框_置TAB空格(e.Handle, 空格数量)
 }
 
 // 编辑框_置文本.
-//.
+//
+// pString: 字符串.
+
 // ff:置文本
 // pString:字符串
-func (e *Edit) SetText(pString string) int {
-	return xc.XEdit_SetText(e.Handle, pString)
+func (e *Edit) X置文本(字符串 string) int {
+	return 炫彩基类.X编辑框_置文本(e.Handle, 字符串)
 }
 
 // 编辑框_置文本整数.
-//.
+//
+// nValue: 整数值.
+
 // ff:置文本整数
 // nValue:整数值
-func (e *Edit) SetTextInt(nValue int) int {
-	return xc.XEdit_SetTextInt(e.Handle, nValue)
+func (e *Edit) X置文本整数(整数值 int) int {
+	return 炫彩基类.X编辑框_置文本整数(e.Handle, 整数值)
 }
 
 // 编辑框_取文本, 不包含非文本内容, 返回实际接收文本长度.
-//.
-//. 例: GetLength()+1 .
+//
+// pOut: 接收文本内存指针.
+//
+// nOutlen: 内存大小. 例: GetLength()+1 .
+
 // ff:取文本
-// pOut:接收文本指针
 // nOutlen:内存大小
-func (e *Edit) GetText(pOut *string, nOutlen int) int {
-	return xc.XEdit_GetText(e.Handle, pOut, nOutlen)
+// pOut:接收文本指针
+func (e *Edit) X取文本(接收文本指针 *string, 内存大小 int) int {
+	return 炫彩基类.X编辑框_取文本(e.Handle, 接收文本指针, 内存大小)
 }
 
 // 编辑框_取文本Ex, 不包含非文本内容, 返回文本.
+
 // ff:取文本Ex
-func (e *Edit) GetTextEx() string {
+func (e *Edit) X取文本Ex() string {
 	var s string
-	xc.XEdit_GetText(e.Handle, &s, xc.XEdit_GetLength(e.Handle)+1)
+	炫彩基类.X编辑框_取文本(e.Handle, &s, 炫彩基类.X编辑框_取内容长度(e.Handle)+1)
 	return s
 }
 
 // 编辑框_取选择文本Ex, 不包括非文本内容, 返回文本.
+
 // ff:取选择文本Ex
-func (e *Edit) GetSelectTextEx() string {
+func (e *Edit) X取选择文本Ex() string {
 	var s string
-	xc.XEdit_GetSelectText(e.Handle, &s, xc.XEdit_GetSelectTextLength(e.Handle)+1)
+	炫彩基类.X编辑框_取选择文本(e.Handle, &s, 炫彩基类.X编辑框_取选择文本长度(e.Handle)+1)
 	return s
 }
 
 // 编辑框_取文本行.
-//.
-//.
-//. 例: GetLengthRow()+1 .
+//
+// iRow: 行索引.
+//
+// pOut: 接收文本内存指针.
+//
+// nOutlen: 接收文本内存块长度. 例: GetLengthRow()+1 .
+
 // ff:取文本行
-// iRow:行索引
-// pOut:接收文本指针
 // nOutlen:接收文本内存块长度
-func (e *Edit) GetTextRow(iRow int, pOut *string, nOutlen int) int {
-	return xc.XEdit_GetTextRow(e.Handle, iRow, pOut, nOutlen)
+// pOut:接收文本指针
+// iRow:行索引
+func (e *Edit) X取文本行(行索引 int, 接收文本指针 *string, 接收文本内存块长度 int) int {
+	return 炫彩基类.X编辑框_取文本行(e.Handle, 行索引, 接收文本指针, 接收文本内存块长度)
 }
 
 // 编辑框_取文本行Ex, 返回文本.
-//.
+//
+// iRow: 行索引.
+
 // ff:取文本行Ex
 // iRow:行索引
-func (e *Edit) GetTextRowEx(iRow int) string {
+func (e *Edit) X取文本行Ex(行索引 int) string {
 	var s string
-	xc.XEdit_GetTextRow(e.Handle, iRow, &s, xc.XEdit_GetLengthRow(e.Handle, iRow)+1)
+	炫彩基类.X编辑框_取文本行(e.Handle, 行索引, &s, 炫彩基类.X编辑框_取内容长度行(e.Handle, 行索引)+1)
 	return s
 }
 
 // 编辑框_取内容长度, 包含非文本内容.
+
 // ff:取内容长度
-func (e *Edit) GetLength() int {
-	return xc.XEdit_GetLength(e.Handle)
+func (e *Edit) X取内容长度() int {
+	return 炫彩基类.X编辑框_取内容长度(e.Handle)
 }
 
 // 编辑框_取内容长度行, 包含非文本内容.
-//.
+//
+// iRow: 行索引.
+
 // ff:取内容长度行
 // iRow:行索引
-func (e *Edit) GetLengthRow(iRow int) int {
-	return xc.XEdit_GetLengthRow(e.Handle, iRow)
+func (e *Edit) X取内容长度行(行索引 int) int {
+	return 炫彩基类.X编辑框_取内容长度行(e.Handle, 行索引)
 }
 
 // 编辑框_取字符, 返回指定位置字符.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+
 // ff:取字符
-// iRow:行索引
 // iCol:列索引
-func (e *Edit) GetAt(iRow int, iCol int) int {
-	return xc.XEdit_GetAt(e.Handle, iRow, iCol)
+// iRow:行索引
+func (e *Edit) X取字符(行索引 int, 列索引 int) int {
+	return 炫彩基类.X编辑框_取字符(e.Handle, 行索引, 列索引)
 }
 
 // 编辑框_插入文本.
-//.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+//
+// pString: 字符串.
+
 // ff:插入文本
-// iRow:行索引
-// iCol:列索引
 // pString:字符串
-func (e *Edit) InsertText(iRow int, iCol int, pString string) int {
-	return xc.XEdit_InsertText(e.Handle, iRow, iCol, pString)
+// iCol:列索引
+// iRow:行索引
+func (e *Edit) X插入文本(行索引 int, 列索引 int, 字符串 string) int {
+	return 炫彩基类.X编辑框_插入文本(e.Handle, 行索引, 列索引, 字符串)
 }
 
 // AddTextUser 编辑框_插入文本模拟用户操作, 自动刷新UI, 支持撤销/恢复.
 //
 //	@param pString 字符串.
 //	@return int
+
 // ff:插入文本模拟用户操作
 // pString:字符串
-func (e *Edit) AddTextUser(pString string) int {
-	return xc.XEdit_AddTextUser(e.Handle, pString)
+func (e *Edit) X插入文本模拟用户操作(字符串 string) int {
+	return 炫彩基类.X编辑框_插入文本模拟用户操作(e.Handle, 字符串)
 }
 
 // 编辑框_添加文本.
-//.
+//
+// pString: 字符串.
+
 // ff:添加文本
 // pString:字符串
-func (e *Edit) AddText(pString string) int {
-	return xc.XEdit_AddText(e.Handle, pString)
+func (e *Edit) X添加文本(字符串 string) int {
+	return 炫彩基类.X编辑框_添加文本(e.Handle, 字符串)
 }
 
 // 编辑框_添加文本扩展.
-//.
-//.
+//
+// pString: 字符串.
+//
+// iStyle: 样式索引.
+
 // ff:添加文本EX
-// pString:字符串
 // iStyle:样式索引
-func (e *Edit) AddTextEx(pString string, iStyle int) int {
-	return xc.XEdit_AddTextEx(e.Handle, pString, iStyle)
+// pString:字符串
+func (e *Edit) X添加文本EX(字符串 string, 样式索引 int) int {
+	return 炫彩基类.X编辑框_添加文本EX(e.Handle, 字符串, 样式索引)
 }
 
 // 编辑框_添加对象, 例如: 字体, 图片, UI对象, 返回样式索引.
-//.
+//
+// hObj: 对象句柄.
+
 // ff:添加对象
 // hObj:对象句柄
-func (e *Edit) AddObject(hObj int) int {
-	return xc.XEdit_AddObject(e.Handle, hObj)
+func (e *Edit) X添加对象(对象句柄 int) int {
+	return 炫彩基类.X编辑框_添加对象(e.Handle, 对象句柄)
 }
 
 // 编辑框_添加对象从样式, 当样式为图片时有效.
-//.
+//
+// iStyle: 样式索引.
+
 // ff:添加对象并按样式
 // iStyle:样式索引
-func (e *Edit) AddByStyle(iStyle int) int {
-	return xc.XEdit_AddByStyle(e.Handle, iStyle)
+func (e *Edit) X添加对象并按样式(样式索引 int) int {
+	return 炫彩基类.X编辑框_添加对象从样式(e.Handle, 样式索引)
 }
 
 // 编辑框_添加样式, 返回样式索引.
-//.
-//.
-//.
+//
+// hFont_image_Obj: 字体.
+//
+// color: 颜色.
+//
+// bColor: 是否使用颜色.
+
 // ff:添加样式
-// hFont_image_Obj:字体
-// color:颜色
 // bColor:是否使用颜色
-func (e *Edit) AddStyle(hFont_image_Obj int, color int, bColor bool) int {
-	return xc.XEdit_AddStyle(e.Handle, hFont_image_Obj, color, bColor)
+// color:颜色
+// hFont_image_Obj:字体
+func (e *Edit) X添加样式(字体 int, 颜色 int, 是否使用颜色 bool) int {
+	return 炫彩基类.X编辑框_添加样式(e.Handle, 字体, 颜色, 是否使用颜色)
 }
 
 // 编辑框_添加样式扩展, 返回样式索引.
-//.
-//.
-//, FontStyle_.
-//.
-//.
+//
+// fontName: 字体名称.
+//
+// fontSize: 字体大小.
+//
+// fontStyle: 字体样式, FontStyle_.
+//
+// color: 颜色.
+//
+// bColor: 是否使用颜色.
+
 // ff:添加样式EX
-// fontName:字体名称
-// fontSize:字体大小
-// fontStyle:字体样式
-// color:
 // bColor:
-func (e *Edit) AddStyleEx(fontName string, fontSize int, fontStyle xcc.FontStyle_, color int, bColor bool) int {
-	return xc.XEdit_AddStyleEx(e.Handle, fontName, fontSize, fontStyle, color, bColor)
+// color:
+// fontStyle:字体样式
+// fontSize:字体大小
+// fontName:字体名称
+func (e *Edit) X添加样式EX(字体名称 string, 字体大小 int, 字体样式 炫彩常量类.FontStyle_, color int, bColor bool) int {
+	return 炫彩基类.X编辑框_添加样式EX(e.Handle, 字体名称, 字体大小, 字体样式, color, bColor)
 }
 
 // 编辑框_取样式信息.
-//.
-//.
+//
+// iStyle: 样式索引.
+//
+// info: 返回样式信息.
+
 // ff:取样式信息
-// iStyle:样式索引
 // info:返回样式信息
-func (e *Edit) GetStyleInfo(iStyle int, info *xc.Edit_Style_Info_) bool {
-	return xc.XEdit_GetStyleInfo(e.Handle, iStyle, info)
+// iStyle:样式索引
+func (e *Edit) X取样式信息(样式索引 int, 返回样式信息 *炫彩基类.Edit_Style_Info_) bool {
+	return 炫彩基类.X编辑框_取样式信息(e.Handle, 样式索引, 返回样式信息)
 }
 
 // 编辑框_置当前样式.
-//.
+//
+// iStyle: 样式索引.
+
 // ff:置当前样式
 // iStyle:样式索引
-func (e *Edit) SetCurStyle(iStyle int) int {
-	return xc.XEdit_SetCurStyle(e.Handle, iStyle)
+func (e *Edit) X置当前样式(样式索引 int) int {
+	return 炫彩基类.X编辑框_置当前样式(e.Handle, 样式索引)
 }
 
 // 编辑框_置插入符颜色.
-//.
+//
+// color: 颜色.
+
 // ff:置插入符颜色
 // color:颜色
-func (e *Edit) SetCaretColor(color int) int {
-	return xc.XEdit_SetCaretColor(e.Handle, color)
+func (e *Edit) X置插入符颜色(颜色 int) int {
+	return 炫彩基类.X编辑框_置插入符颜色(e.Handle, 颜色)
 }
 
 // 编辑框_置插入符宽度.
-//.
+//
+// nWidth: 宽度.
+
 // ff:置插入符宽度
 // nWidth:宽度
-func (e *Edit) SetCaretWidth(nWidth int) int {
-	return xc.XEdit_SetCaretWidth(e.Handle, nWidth)
+func (e *Edit) X置插入符宽度(宽度 int) int {
+	return 炫彩基类.X编辑框_置插入符宽度(e.Handle, 宽度)
 }
 
 // 编辑框_置选择背景颜色.
-//.
+//
+// color: ABGR 颜色.
+
 // ff:置选择背景颜色
 // color:ABGR颜色
-func (e *Edit) SetSelectBkColor(color int) int {
-	return xc.XEdit_SetSelectBkColor(e.Handle, color)
+func (e *Edit) X置选择背景颜色(ABGR颜色 int) int {
+	return 炫彩基类.X编辑框_置选择背景颜色(e.Handle, ABGR颜色)
 }
 
 // 编辑框_置默认行高.
-//.
+//
+// nHeight: 行高.
+
 // ff:置默认行高
 // nHeight:行高
-func (e *Edit) SetRowHeight(nHeight int) int {
-	return xc.XEdit_SetRowHeight(e.Handle, nHeight)
+func (e *Edit) X置默认行高(行高 int) int {
+	return 炫彩基类.X编辑框_置默认行高(e.Handle, 行高)
 }
 
 // 编辑框_置指定行高度, 类型为 Edit_Type_Richedit 支持指定不同行高.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// nHeight: 高度.
+
 // ff:置指定行高度
-// iRow:行索引
 // nHeight:高度
-func (e *Edit) SetRowHeightEx(iRow int, nHeight int) int {
-	return xc.XEdit_SetRowHeightEx(e.Handle, iRow, nHeight)
+// iRow:行索引
+func (e *Edit) X置指定行高度(行索引 int, 高度 int) int {
+	return 炫彩基类.X编辑框_置指定行高度(e.Handle, 行索引, 高度)
 }
 
 // SetCurPos 编辑框_置当前位置.
 //
 //	@param iRow 行索引.
 //	@return int
+
 // ff:置当前位置
 // iRow:行索引
-func (e *Edit) SetCurPos(iRow int) int {
-	return xc.XEdit_SetCurPos(e.Handle, iRow)
+func (e *Edit) X置当前位置(行索引 int) int {
+	return 炫彩基类.X编辑框_置当前位置(e.Handle, 行索引)
 }
 
 // 编辑框_取当前位置点, 返回范围位置点.
+
 // ff:取当前位置点
-func (e *Edit) GetCurPos() int {
-	return xc.XEdit_GetCurPos(e.Handle)
+func (e *Edit) X取当前位置点() int {
+	return 炫彩基类.X编辑框_取当前位置点(e.Handle)
 }
 
 // 编辑框_取当前行, 返回行索引.
+
 // ff:取当前行
-func (e *Edit) GetCurRow() int {
-	return xc.XEdit_GetCurRow(e.Handle)
+func (e *Edit) X取当前行() int {
+	return 炫彩基类.X编辑框_取当前行(e.Handle)
 }
 
 // 编辑框_取当前列, 返回列索引.
+
 // ff:取当前列
-func (e *Edit) GetCurCol() int {
-	return xc.XEdit_GetCurCol(e.Handle)
+func (e *Edit) X取当前列() int {
+	return 炫彩基类.X编辑框_取当前列(e.Handle)
 }
 
 // 编辑框_取坐标点.
-//.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+//
+// pOut: 接收返回坐标点.
+
 // ff:取坐标点
-// iRow:行索引
-// iCol:列索引
 // pOut:接收返回坐标点
-func (e *Edit) GetPoint(iRow int, iCol int, pOut *xc.POINT) int {
-	return xc.XEdit_GetPoint(e.Handle, iRow, iCol, pOut)
+// iCol:列索引
+// iRow:行索引
+func (e *Edit) X取坐标点(行索引 int, 列索引 int, 接收返回坐标点 *炫彩基类.POINT) int {
+	return 炫彩基类.X编辑框_取坐标点(e.Handle, 行索引, 列索引, 接收返回坐标点)
 }
 
 // 编辑框_自动滚动, 视图自动滚动到当前插入符位置.
+
 // ff:自动滚动
-func (e *Edit) AutoScroll() bool {
-	return xc.XEdit_AutoScroll(e.Handle)
+func (e *Edit) X自动滚动() bool {
+	return 炫彩基类.X编辑框_自动滚动(e.Handle)
 }
 
 // 编辑框_自动滚动扩展, 视图自动滚动到指定位置.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+
 // ff:自动滚动EX
-// iRow:行索引
 // iCol:列索引
-func (e *Edit) AutoScrollEx(iRow int, iCol int) bool {
-	return xc.XEdit_AutoScrollEx(e.Handle, iRow, iCol)
+// iRow:行索引
+func (e *Edit) X自动滚动EX(行索引 int, 列索引 int) bool {
+	return 炫彩基类.X编辑框_自动滚动EX(e.Handle, 行索引, 列索引)
 }
 
 // PosToRowCol 编辑框_转换位置, 转换位置点到行列.
@@ -548,331 +675,418 @@ func (e *Edit) AutoScrollEx(iRow int, iCol int) bool {
 //	@param iPos 位置点.
 //	@param pInfo 行列.
 //	@return int
+
 // ff:转换位置
-// iPos:位置点
 // pInfo:行列
-func (e *Edit) PosToRowCol(iPos int, pInfo *xc.Position_) int {
-	return xc.XEdit_PosToRowCol(e.Handle, iPos, pInfo)
+// iPos:位置点
+func (e *Edit) X转换位置(位置点 int, 行列 *炫彩基类.Position_) int {
+	return 炫彩基类.X编辑框_转换位置(e.Handle, 位置点, 行列)
 }
 
 // 编辑框_选择全部.
+
 // ff:选择全部
-func (e *Edit) SelectAll() bool {
-	return xc.XEdit_SelectAll(e.Handle)
+func (e *Edit) X选择全部() bool {
+	return 炫彩基类.X编辑框_选择全部(e.Handle)
 }
 
 // 编辑框_取消选择.
+
 // ff:取消选择
-func (e *Edit) CancelSelect() bool {
-	return xc.XEdit_CancelSelect(e.Handle)
+func (e *Edit) X取消选择() bool {
+	return 炫彩基类.X编辑框_取消选择(e.Handle)
 }
 
 // 编辑框_删除选择内容.
+
 // ff:删除选择内容
-func (e *Edit) DeleteSelect() bool {
-	return xc.XEdit_DeleteSelect(e.Handle)
+func (e *Edit) X删除选择内容() bool {
+	return 炫彩基类.X编辑框_删除选择内容(e.Handle)
 }
 
 // 编辑框_置选择.
-//.
-//.
-//.
-//.
+//
+// iStartRow: 起始行索引.
+//
+// iStartCol: 起始行列索引.
+//
+// iEndRow: 结束行索引.
+//
+// iEndCol: 结束行列索引.
+
 // ff:置选择
-// iStartRow:起始行索引
-// iStartCol:起始行列索引
-// iEndRow:结束行索引
 // iEndCol:结束行列索引
-func (e *Edit) SetSelect(iStartRow int, iStartCol int, iEndRow int, iEndCol int) bool {
-	return xc.XEdit_SetSelect(e.Handle, iStartRow, iStartCol, iEndRow, iEndCol)
+// iEndRow:结束行索引
+// iStartCol:起始行列索引
+// iStartRow:起始行索引
+func (e *Edit) X置选择(起始行索引 int, 起始行列索引 int, 结束行索引 int, 结束行列索引 int) bool {
+	return 炫彩基类.X编辑框_置选择(e.Handle, 起始行索引, 起始行列索引, 结束行索引, 结束行列索引)
 }
 
 // 编辑框_取选择文本, 不包括非文本内容, 返回接收文本内容实际长度.
-//.
-//. GetSelectTextLength()+1 .
+//
+// pOut: 接收返回文本内容.
+//
+// nOutLen: 接收内存大小. GetSelectTextLength()+1 .
+
 // ff:取选择文本
-// pOut:接收返回文本
 // nOutLen:接收内存大小
-func (e *Edit) GetSelectText(pOut *string, nOutLen int) int {
-	return xc.XEdit_GetSelectText(e.Handle, pOut, nOutLen)
+// pOut:接收返回文本
+func (e *Edit) X取选择文本(接收返回文本 *string, 接收内存大小 int) int {
+	return 炫彩基类.X编辑框_取选择文本(e.Handle, 接收返回文本, 接收内存大小)
 }
 
 // 编辑框_取选择内容范围.
-//.
-//.
+//
+// pBegin: 起始位置.
+//
+// pEnd: 结束位置.
+
 // ff:取选择内容范围
-// pBegin:起始位置
 // pEnd:
-func (e *Edit) GetSelectRange(pBegin *xc.Position_, pEnd *xc.Position_) bool {
-	return xc.XEdit_GetSelectRange(e.Handle, pBegin, pEnd)
+// pBegin:起始位置
+func (e *Edit) X取选择内容范围(起始位置 *炫彩基类.Position_, pEnd *炫彩基类.Position_) bool {
+	return 炫彩基类.X编辑框_取选择内容范围(e.Handle, 起始位置, pEnd)
 }
 
 // 编辑框_取可视行范围.
-//.
-//.
+//
+// piStart: 起始行索引.
+//
+// piEnd: 结束行索引.
+
 // ff:取可视行范围
-// piStart:起始行索引
 // piEnd:结束行索引
-func (e *Edit) GetVisibleRowRange(piStart *int32, piEnd *int32) int {
-	return xc.XEdit_GetVisibleRowRange(e.Handle, piStart, piEnd)
+// piStart:起始行索引
+func (e *Edit) X取可视行范围(起始行索引 *int32, 结束行索引 *int32) int {
+	return 炫彩基类.X编辑框_取可视行范围(e.Handle, 起始行索引, 结束行索引)
 }
 
 // 编辑框_删除, 删除指定范围内容.
-//.
-//.
-//.
-//.
+//
+// iStartRow: 起始行索引.
+//
+// iStartCol: 起始行列索引.
+//
+// iEndRow: 结束行索引.
+//
+// iEndCol: 结束行列索引.
+
 // ff:删除
-// iStartRow:起始行索引
-// iStartCol:起始行列索引
-// iEndRow:结束行索引
 // iEndCol:结束行列索引
-func (e *Edit) Delete(iStartRow int, iStartCol int, iEndRow int, iEndCol int) bool {
-	return xc.XEdit_Delete(e.Handle, iStartRow, iStartCol, iEndRow, iEndCol)
+// iEndRow:结束行索引
+// iStartCol:起始行列索引
+// iStartRow:起始行索引
+func (e *Edit) X删除(起始行索引 int, 起始行列索引 int, 结束行索引 int, 结束行列索引 int) bool {
+	return 炫彩基类.X编辑框_删除(e.Handle, 起始行索引, 起始行列索引, 结束行索引, 结束行列索引)
 }
 
 // 编辑框_删除行.
-//.
+//
+// iRow: 行索引.
+
 // ff:删除行
 // iRow:行索引
-func (e *Edit) DeleteRow(iRow int) bool {
-	return xc.XEdit_DeleteRow(e.Handle, iRow)
+func (e *Edit) X删除行(行索引 int) bool {
+	return 炫彩基类.X编辑框_删除行(e.Handle, 行索引)
 }
 
 // 编辑框_剪贴板剪切.
+
 // ff:剪贴板剪切
-func (e *Edit) ClipboardCut() bool {
-	return xc.XEdit_ClipboardCut(e.Handle)
+func (e *Edit) X剪贴板剪切() bool {
+	return 炫彩基类.X编辑框_剪贴板剪切(e.Handle)
 }
 
 // 编辑框_剪贴板复制.
+
 // ff:剪贴板复制
-func (e *Edit) ClipboardCopy() bool {
-	return xc.XEdit_ClipboardCopy(e.Handle)
+func (e *Edit) X剪贴板复制() bool {
+	return 炫彩基类.X编辑框_剪贴板复制(e.Handle)
 }
 
 // 编辑框_剪贴板粘贴.
+
 // ff:剪贴板粘贴
-func (e *Edit) ClipboardPaste() bool {
-	return xc.XEdit_ClipboardPaste(e.Handle)
+func (e *Edit) X剪贴板粘贴() bool {
+	return 炫彩基类.X编辑框_剪贴板粘贴(e.Handle)
 }
 
 // 编辑框_撤销.
+
 // ff:撤销
-func (e *Edit) Undo() bool {
-	return xc.XEdit_Undo(e.Handle)
+func (e *Edit) X撤销() bool {
+	return 炫彩基类.X编辑框_撤销(e.Handle)
 }
 
 // 编辑框_恢复.
+
 // ff:恢复
-func (e *Edit) Redo() bool {
-	return xc.XEdit_Redo(e.Handle)
+func (e *Edit) X恢复() bool {
+	return 炫彩基类.X编辑框_恢复(e.Handle)
 }
 
 // 编辑框_添加气泡开始, 当前行开始.
-//.
-//.
-//, Chat_Flag_.
+//
+// hImageAvatar: 头像.
+//
+// hImageBubble: 气泡背景.
+//
+// nFlag: 标志, Chat_Flag_.
+
 // ff:添加气泡开始
-// hImageAvatar:头像
-// hImageBubble:气泡背景
 // nFlag:标志
-func (e *Edit) AddChatBegin(hImageAvatar int, hImageBubble int, nFlag xcc.Chat_Flag_) int {
-	return xc.XEdit_AddChatBegin(e.Handle, hImageAvatar, hImageBubble, nFlag)
+// hImageBubble:气泡背景
+// hImageAvatar:头像
+func (e *Edit) X添加气泡开始(头像 int, 气泡背景 int, 标志 炫彩常量类.Chat_Flag_) int {
+	return 炫彩基类.X编辑框_添加气泡开始(e.Handle, 头像, 气泡背景, 标志)
 }
 
 // 编辑框_添加气泡结束, 当前行结束.
+
 // ff:添加气泡结束
-func (e *Edit) AddChatEnd() int {
-	return xc.XEdit_AddChatEnd(e.Handle)
+func (e *Edit) X添加气泡结束() int {
+	return 炫彩基类.X编辑框_添加气泡结束(e.Handle)
 }
 
 // 编辑框_置气泡缩进, 设置聊天气泡内容缩进.
-//.
+//
+// nIndentation: 缩进值.
+
 // ff:置气泡缩进
 // nIndentation:缩进值
-func (e *Edit) SetChatIndentation(nIndentation int) int {
-	return xc.XEdit_SetChatIndentation(e.Handle, nIndentation)
+func (e *Edit) X置气泡缩进(缩进值 int) int {
+	return 炫彩基类.X编辑框_置气泡缩进(e.Handle, 缩进值)
 }
 
 // 编辑框_置行间隔, 设置行间隔大小, 多行模式有效.
-//.
+//
+// nSpace: 行间隔大小.
+
 // ff:置行间隔
 // nSpace:行间隔大小
-func (e *Edit) SetRowSpace(nSpace int) int {
-	return xc.XEdit_SetRowSpace(e.Handle, nSpace)
+func (e *Edit) X置行间隔(行间隔大小 int) int {
+	return 炫彩基类.X编辑框_置行间隔(e.Handle, 行间隔大小)
 }
 
 // 编辑框_置当前位置扩展.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+
 // ff:置当前位置EX
-// iRow:行索引
 // iCol:列索引
-func (e *Edit) SetCurPosEx(iRow, iCol int32) int {
-	return xc.XEdit_SetCurPosEx(e.Handle, iRow, iCol)
+// iRow:行索引
+func (e *Edit) X置当前位置EX(行索引, 列索引 int32) int {
+	return 炫彩基类.X编辑框_置当前位置EX(e.Handle, 行索引, 列索引)
 }
 
 // 编辑框_取当前位置扩展.
-//.
-//.
+//
+// iRow: 返回行索引.
+//
+// iCol: 返回列索引.
+
 // ff:取当前位置EX
-// iRow:返回行索引
 // iCol:返回列索引
-func (e *Edit) GetCurPosEx(iRow, iCol *int32) int {
-	return xc.XEdit_GetCurPosEx(e.Handle, iRow, iCol)
+// iRow:返回行索引
+func (e *Edit) X取当前位置EX(返回行索引, 返回列索引 *int32) int {
+	return 炫彩基类.X编辑框_取当前位置EX(e.Handle, 返回行索引, 返回列索引)
 }
 
 // 编辑框_移动到末尾.
+
 // ff:移动到末尾
-func (e *Edit) MoveEnd() int {
-	return xc.XEdit_MoveEnd(e.Handle)
+func (e *Edit) X移动到末尾() int {
+	return 炫彩基类.X编辑框_移动到末尾(e.Handle)
 }
 
 // 编辑框_行列到位置, 返回位置点.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+
 // ff:行列到位置
-// iRow:行索引
 // iCol:列索引
-func (e *Edit) RowColToPos(iRow int, iCol int) int {
-	return xc.XEdit_RowColToPos(e.Handle, iRow, iCol)
+// iRow:行索引
+func (e *Edit) X行列到位置(行索引 int, 列索引 int) int {
+	return 炫彩基类.X编辑框_行列到位置(e.Handle, 行索引, 列索引)
 }
 
 // 编辑框_置后备字体, 置中文字体. 如果已设置, 当遇到中文字符时使用后备字体, 解决不支持中文的字体的问题
-//.
+//
+// hFont: 字体.
+
 // ff:置后备字体
 // hFont:字体
-func (e *Edit) SetBackFont(hFont int) int {
-	return xc.XEdit_SetBackFont(e.Handle, hFont)
+func (e *Edit) X置后备字体(字体 int) int {
+	return 炫彩基类.X编辑框_置后备字体(e.Handle, 字体)
 }
 
 // 编辑框_释放样式.
-//.
+//
+// iStyle: 样式.
+
 // ff:释放样式
 // iStyle:样式
-func (e *Edit) ReleaseStyle(iStyle int) bool {
-	return xc.XEdit_ReleaseStyle(e.Handle, iStyle)
+func (e *Edit) X释放样式(样式 int) bool {
+	return 炫彩基类.X编辑框_释放样式(e.Handle, 样式)
 }
 
 // 编辑框_修改样式.
-//.
-//句柄.
-//.
-//.
+//
+// iStyle: 样式索引.
+//
+// hFont: 字体句柄.
+//
+// color: ABGR 颜色.
+//
+// bColor: 是否使用颜色.
+
 // ff:修改样式
-// iStyle:样式索引
-// hFont:字体句柄
-// color:ABGR颜色
 // bColor:是否使用颜色
-func (e *Edit) ModifyStyle(iStyle int, hFont int, color int, bColor bool) bool {
-	return xc.XEdit_ModifyStyle(e.Handle, iStyle, hFont, color, bColor)
+// color:ABGR颜色
+// hFont:字体句柄
+// iStyle:样式索引
+func (e *Edit) X修改样式(样式索引 int, 字体句柄 int, ABGR颜色 int, 是否使用颜色 bool) bool {
+	return 炫彩基类.X编辑框_修改样式(e.Handle, 样式索引, 字体句柄, ABGR颜色, 是否使用颜色)
 }
 
 // 编辑框_置空格大小.
-//.
+//
+// size: 空格大小.
+
 // ff:置空格大小
 // size:空格大小
-func (e *Edit) SetSpaceSize(size int) int {
-	return xc.XEdit_SetSpaceSize(e.Handle, size)
+func (e *Edit) X置空格大小(空格大小 int) int {
+	return 炫彩基类.X编辑框_置空格大小(e.Handle, 空格大小)
 }
 
 // 编辑框_置字符间距.
-//.
-//.
+//
+// size: 英文字符间距大小.
+//
+// sizeZh: 中文字符间距大小.
+
 // ff:置字符间距
-// size:英文字符间距
 // sizeZh:中文字符间距
-func (e *Edit) SetCharSpaceSize(size int, sizeZh int) int {
-	return xc.XEdit_SetCharSpaceSize(e.Handle, size, sizeZh)
+// size:英文字符间距
+func (e *Edit) X置字符间距(英文字符间距 int, 中文字符间距 int) int {
+	return 炫彩基类.X编辑框_置字符间距(e.Handle, 英文字符间距, 中文字符间距)
 }
 
 // 编辑框_取选择文本长度, 不包括非文本内容, 返回文本内容长度.
+
 // ff:取选择文本长度
-func (e *Edit) GetSelectTextLength() int {
-	return xc.XEdit_GetSelectTextLength(e.Handle)
+func (e *Edit) X取选择文本长度() int {
+	return 炫彩基类.X编辑框_取选择文本长度(e.Handle)
 }
 
 // 编辑框_置选择文本样式.
-//.
+//
+// iStyle: 样式索引.
+
 // ff:置选择文本样式
 // iStyle:样式索引
-func (e *Edit) SetSelectTextStyle(iStyle int) int {
-	return xc.XEdit_SetSelectTextStyle(e.Handle, iStyle)
+func (e *Edit) X置选择文本样式(样式索引 int) int {
+	return 炫彩基类.X编辑框_置选择文本样式(e.Handle, 样式索引)
 }
 
 // 编辑框_取文本_临时, 不包含非文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
+
 // ff:取文本Tmp
-func (e *Edit) GetText_Temp() string {
-	return xc.XEdit_GetText_Temp(e.Handle)
+func (e *Edit) X取文本Tmp() string {
+	return 炫彩基类.X编辑框_取文本Tmp(e.Handle)
 }
 
 // 编辑框_取文本行_临时, 获取指定行文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
-//.
+//
+// iRow: 行索引.
+
 // ff:取行文本Tmp
 // iRow:行索引
-func (e *Edit) GetTextRow_Temp(iRow int) string {
-	return xc.XEdit_GetTextRow_Temp(e.Handle, iRow)
+func (e *Edit) X取行文本Tmp(行索引 int) string {
+	return 炫彩基类.X编辑框_取文本行Tmp(e.Handle, 行索引)
 }
 
 // 编辑框_取选择文本, 不包含非文本内容. 返回临时文本, 临时缓存区大小: xcc.Text_Buffer_Size .
+
 // ff:取选择文本Tmp
-func (e *Edit) GetSelectText_Temp() string {
-	return xc.XEdit_GetSelectText_Temp(e.Handle)
+func (e *Edit) X取选择文本Tmp() string {
+	return 炫彩基类.X编辑框_取选择文本Tmp(e.Handle)
 }
 
 // 编辑框_插入气泡开始, 当前行开始.
-//图片句柄.
-//图片句柄.
-//: xcc.Chat_Flag_ .
+//
+// hImageAvatar: 头像图片句柄.
+//
+// hImageBubble: 气泡背景图片句柄.
+//
+// nFlag: 聊天气泡对齐方式: xcc.Chat_Flag_ .
+
 // ff:插入气泡开始
-// hImageAvatar:头像图片句柄
-// hImageBubble:背景图片句柄
 // nFlag:对齐方式
-func (e *Edit) InsertChatBegin(hImageAvatar int, hImageBubble int, nFlag xcc.Chat_Flag_) int {
-	return xc.XEdit_InsertChatBegin(e.Handle, hImageAvatar, hImageBubble, nFlag)
+// hImageBubble:背景图片句柄
+// hImageAvatar:头像图片句柄
+func (e *Edit) X插入气泡开始(头像图片句柄 int, 背景图片句柄 int, 对齐方式 炫彩常量类.Chat_Flag_) int {
+	return 炫彩基类.X编辑框_插入气泡开始(e.Handle, 头像图片句柄, 背景图片句柄, 对齐方式)
 }
 
 // 编辑框_取指定行气泡标识. 返回行标识: xcc.Chat_Flag_
-//.
+//
+// iRow: 行索引.
+
 // ff:取指定行气泡标识
 // iRow:行索引
-func (e *Edit) GetChatFlags(iRow int) xcc.Chat_Flag_ {
-	return xc.XEdit_GetChatFlags(e.Handle, iRow)
+func (e *Edit) X取指定行气泡标识(行索引 int) 炫彩常量类.Chat_Flag_ {
+	return 炫彩基类.X编辑框_取指定行气泡标识(e.Handle, 行索引)
 }
 
 // 编辑框_插入文本扩展.
-//.
-//.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+//
+// pString: 字符串.
+//
+// iStyle: 样式.
+
 // ff:插入文本EX
-// iRow:行索引
-// iCol:列索引
-// pString:字符串
 // iStyle:样式
-func (e *Edit) InsertTextEx(iRow int, iCol int, pString string, iStyle int) int {
-	return xc.XEdit_InsertTextEx(e.Handle, iRow, iCol, pString, iStyle)
+// pString:字符串
+// iCol:列索引
+// iRow:行索引
+func (e *Edit) X插入文本EX(行索引 int, 列索引 int, 字符串 string, 样式 int) int {
+	return 炫彩基类.X编辑框_插入文本EX(e.Handle, 行索引, 列索引, 字符串, 样式)
 }
 
 // 编辑框_插入对象.
-//.
-//.
-//.
+//
+// iRow: 行索引.
+//
+// iCol: 列索引.
+//
+// hObj: 对象句柄.
+
 // ff:插入对象
-// iRow:行索引
-// iCol:列索引
 // hObj:对象句柄
-func (e *Edit) InsertObject(iRow int, iCol int, hObj int) int {
-	return xc.XEdit_InsertObject(e.Handle, iRow, iCol, hObj)
+// iCol:列索引
+// iRow:行索引
+func (e *Edit) X插入对象(行索引 int, 列索引 int, 对象句柄 int) int {
+	return 炫彩基类.X编辑框_插入对象(e.Handle, 行索引, 列索引, 对象句柄)
 }
 
 // 编辑框_置气泡最大宽度. 当值为0时代表不限制宽度.
-//.
+//
+// nWidth: 最大宽度.
+
 // ff:置气泡最大宽度
 // nWidth:最大宽度
-func (e *Edit) SetChatMaxWidth(nWidth int32) {
-	xc.XEdit_SetChatMaxWidth(e.Handle, nWidth)
+func (e *Edit) X置气泡最大宽度(最大宽度 int32) {
+	炫彩基类.X编辑框_置气泡最大宽度(e.Handle, 最大宽度)
 }
 
 /*
@@ -892,13 +1106,17 @@ type XE_EDIT_STYLE_CHANGED1 func(hEle int, iStyle int32, pbHandled *bool) int   
 type XE_EDIT_ENTER_GET_TABALIGN func(pbHandled *bool) int                        // 回车TAB对齐,返回需要TAB数量.
 type XE_EDIT_ENTER_GET_TABALIGN1 func(hEle int, pbHandled *bool) int             // 回车TAB对齐,返回需要TAB数量.
 // 编辑框_行_被改变.
-//,  if(nChangeRows>0) iEnd= iRow + nChangeRows
-//, 正数添加行, 负数删除行
+//
+// iRow: 更改行开始位置索引,  if(nChangeRows>0) iEnd= iRow + nChangeRows
+//
+// nChangeRows: 改变行数, 正数添加行, 负数删除行
 type XE_EDIT_ROW_CHANGED func(iRow int32, nChangeRows int32, pbHandled *bool) int
 
 // 编辑框_行_被改变.
-//,  if(nChangeRows>0) iEnd= iRow + nChangeRows
-//, 正数添加行, 负数删除行
+//
+// iRow: 更改行开始位置索引,  if(nChangeRows>0) iEnd= iRow + nChangeRows
+//
+// nChangeRows: 改变行数, 正数添加行, 负数删除行
 type XE_EDIT_ROW_CHANGED1 func(hEle int, iRow int32, nChangeRows int32, pbHandled *bool) int
 type XE_EDIT_SWAPROW func(iRow, bArrowUp int32, pbHandled *bool) int            // 元素事件_交换行
 type XE_EDIT_SWAPROW1 func(hEle int, iRow, bArrowUp int32, pbHandled *bool) int // 元素事件_交换行
@@ -906,131 +1124,153 @@ type XE_EDIT_COLOR_CHANGE func(color int, pbHandled *bool) int                  
 type XE_EDIT_COLOR_CHANGE1 func(hEle int, color int, pbHandled *bool) int       // 编辑框_颜色被改变
 
 // 编辑框_颜色被改变.
+
 // ff:事件_颜色被改变
 // pFun:
-func (e *Edit) Event_EDIT_COLOR_CHANGE(pFun XE_EDIT_COLOR_CHANGE) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_COLOR_CHANGE, pFun)
+func (e *Edit) X事件_颜色被改变(pFun XE_EDIT_COLOR_CHANGE) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_COLOR_CHANGE, pFun)
 }
 
 // 编辑框_颜色被改变.
+
 // ff:事件_颜色被改变1
 // pFun:
-func (e *Edit) Event_EDIT_COLOR_CHANGE1(pFun XE_EDIT_COLOR_CHANGE1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_COLOR_CHANGE, pFun)
+func (e *Edit) X事件_颜色被改变1(pFun XE_EDIT_COLOR_CHANGE1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_COLOR_CHANGE, pFun)
 }
 
 // 元素事件_交换行.
+
 // ff:事件_交换行
 // pFun:
-func (e *Edit) Event_EDIT_SWAPROW(pFun XE_EDIT_SWAPROW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_SWAPROW, pFun)
+func (e *Edit) X事件_交换行(pFun XE_EDIT_SWAPROW) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_SWAPROW, pFun)
 }
 
 // 元素事件_交换行.
+
 // ff:事件_交换行1
 // pFun:
-func (e *Edit) Event_EDIT_SWAPROW1(pFun XE_EDIT_SWAPROW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_SWAPROW, pFun)
+func (e *Edit) X事件_交换行1(pFun XE_EDIT_SWAPROW1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_SWAPROW, pFun)
 }
 
 // 元素事件_编辑框设置.
+
 // ff:事件_编辑框设置
 // pFun:
-func (e *Edit) Event_EDIT_SET(pFun XE_EDIT_SET) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_SET, pFun)
+func (e *Edit) X事件_编辑框设置(pFun XE_EDIT_SET) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_SET, pFun)
 }
 
 // 元素事件_编辑框设置.
+
 // ff:事件_编辑框设置1
 // pFun:
-func (e *Edit) Event_EDIT_SET1(pFun XE_EDIT_SET1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_SET, pFun)
+func (e *Edit) X事件_编辑框设置1(pFun XE_EDIT_SET1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_SET, pFun)
 }
 
 // 暂未使用.
+
 // ff:暂未使用Event_EDIT_DRAWROW
 // pFun:
-func (e *Edit) Event_EDIT_DRAWROW(pFun XE_EDIT_DRAWROW) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_DRAWROW, pFun)
+func (e *Edit) X暂未使用Event_EDIT_DRAWROW(pFun XE_EDIT_DRAWROW) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_DRAWROW, pFun)
 }
 
 // 暂未使用.
+
 // ff:暂未使用Event_EDIT_DRAWROW1
 // pFun:
-func (e *Edit) Event_EDIT_DRAWROW1(pFun XE_EDIT_DRAWROW1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_DRAWROW, pFun)
+func (e *Edit) X暂未使用Event_EDIT_DRAWROW1(pFun XE_EDIT_DRAWROW1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_DRAWROW, pFun)
 }
 
 // 编辑框_内容被改变.
+
 // ff:事件_内容被改变
 // pFun:
-func (e *Edit) Event_EDIT_CHANGED(pFun XE_EDIT_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_CHANGED, pFun)
+func (e *Edit) X事件_内容被改变(pFun XE_EDIT_CHANGED) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_CHANGED, pFun)
 }
 
 // 编辑框_内容被改变.
+
 // ff:事件_内容被改变1
 // pFun:
-func (e *Edit) Event_EDIT_CHANGED1(pFun XE_EDIT_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_CHANGED, pFun)
+func (e *Edit) X事件_内容被改变1(pFun XE_EDIT_CHANGED1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_CHANGED, pFun)
 }
 
 // 编辑框_光标位置_被改变.
+
 // ff:事件_光标位置被改变
 // pFun:
-func (e *Edit) Event_EDIT_POS_CHANGED(pFun XE_EDIT_POS_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_POS_CHANGED, pFun)
+func (e *Edit) X事件_光标位置被改变(pFun XE_EDIT_POS_CHANGED) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_POS_CHANGED, pFun)
 }
 
 // 编辑框_光标位置_被改变.
+
 // ff:事件_光标位置被改变1
 // pFun:
-func (e *Edit) Event_EDIT_POS_CHANGED1(pFun XE_EDIT_POS_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_POS_CHANGED, pFun)
+func (e *Edit) X事件_光标位置被改变1(pFun XE_EDIT_POS_CHANGED1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_POS_CHANGED, pFun)
 }
 
 // 编辑框_样式_被改变.
+
 // ff:事件_样式被改变
 // pFun:
-func (e *Edit) Event_EDIT_STYLE_CHANGED(pFun XE_EDIT_STYLE_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_STYLE_CHANGED, pFun)
+func (e *Edit) X事件_样式被改变(pFun XE_EDIT_STYLE_CHANGED) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_STYLE_CHANGED, pFun)
 }
 
 // 编辑框_样式_被改变.
+
 // ff:事件_样式被改变1
 // pFun:
-func (e *Edit) Event_EDIT_STYLE_CHANGED1(pFun XE_EDIT_STYLE_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_STYLE_CHANGED, pFun)
+func (e *Edit) X事件_样式被改变1(pFun XE_EDIT_STYLE_CHANGED1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_STYLE_CHANGED, pFun)
 }
 
 // 回车TAB对齐,返回需要TAB数量.
+
 // ff:事件_回车TAB对齐
 // pFun:
-func (e *Edit) Event_EDIT_ENTER_GET_TABALIGN(pFun XE_EDIT_ENTER_GET_TABALIGN) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_ENTER_GET_TABALIGN, pFun)
+func (e *Edit) X事件_回车TAB对齐(pFun XE_EDIT_ENTER_GET_TABALIGN) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_ENTER_GET_TABALIGN, pFun)
 }
 
 // 回车TAB对齐,返回需要TAB数量.
+
 // ff:事件_回车TAB对齐1
 // pFun:
-func (e *Edit) Event_EDIT_ENTER_GET_TABALIGN1(pFun XE_EDIT_ENTER_GET_TABALIGN1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_ENTER_GET_TABALIGN, pFun)
+func (e *Edit) X事件_回车TAB对齐1(pFun XE_EDIT_ENTER_GET_TABALIGN1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_ENTER_GET_TABALIGN, pFun)
 }
 
 // 编辑框_行_被改变.
-//,  if(nChangeRows>0) iEnd= iRow + nChangeRows
-//, 正数添加行, 负数删除行
+//
+// iRow: 更改行开始位置索引,  if(nChangeRows>0) iEnd= iRow + nChangeRows
+//
+// nChangeRows: 改变行数, 正数添加行, 负数删除行
+
 // ff:事件_行被改变
 // pFun:
-func (e *Edit) Event_EDIT_ROW_CHANGED(pFun XE_EDIT_ROW_CHANGED) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDIT_ROW_CHANGED, pFun)
+func (e *Edit) X事件_行被改变(pFun XE_EDIT_ROW_CHANGED) bool {
+	return 炫彩基类.X元素_注册事件C(e.Handle, 炫彩常量类.XE_EDIT_ROW_CHANGED, pFun)
 }
 
 // 编辑框_行_被改变.
-//,  if(nChangeRows>0) iEnd= iRow + nChangeRows
-//, 正数添加行, 负数删除行
+//
+// iRow: 更改行开始位置索引,  if(nChangeRows>0) iEnd= iRow + nChangeRows
+//
+// nChangeRows: 改变行数, 正数添加行, 负数删除行
+
 // ff:事件_行被改变1
 // pFun:
-func (e *Edit) Event_EDIT_ROW_CHANGED1(pFun XE_EDIT_ROW_CHANGED1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDIT_ROW_CHANGED, pFun)
+func (e *Edit) X事件_行被改变1(pFun XE_EDIT_ROW_CHANGED1) bool {
+	return 炫彩基类.X元素_注册事件C1(e.Handle, 炫彩常量类.XE_EDIT_ROW_CHANGED, pFun)
 }

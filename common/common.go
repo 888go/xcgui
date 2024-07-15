@@ -1,4 +1,4 @@
-package common//bm:炫彩工具类
+package 炫彩工具类 //bm:炫彩工具类
 
 import (
 	"syscall"
@@ -10,6 +10,7 @@ import (
 //
 //	@param b
 //	@return string
+
 // ff:
 // b:
 func Bytes2String(b []byte) string {
@@ -55,6 +56,7 @@ type sliceHeader struct {
 //
 //	@param s
 //	@return uintptr
+
 // ff:
 // s:
 func StrPtr(s string) uintptr {
@@ -69,6 +71,7 @@ func StrPtr(s string) uintptr {
 //
 //	@param ptr
 //	@return string
+
 // ff:
 // ptr:
 func UintPtrToString(ptr uintptr) string {
@@ -90,6 +93,7 @@ func UintPtrToString(ptr uintptr) string {
 //
 //	@param p
 //	@return uintptr
+
 // ff:
 // p:
 func Uint16SliceDataPtr(p *[]uint16) uintptr {
@@ -103,6 +107,7 @@ func Uint16SliceDataPtr(p *[]uint16) uintptr {
 //
 //	@param b
 //	@return uintptr
+
 // ff:
 // b:
 func BoolPtr(b bool) uintptr {
@@ -116,6 +121,7 @@ func BoolPtr(b bool) uintptr {
 //
 //	@param f
 //	@return uintptr
+
 // ff:
 // f:
 func Float32Ptr(f float32) uintptr {
@@ -126,6 +132,7 @@ func Float32Ptr(f float32) uintptr {
 //
 //	@param ptr
 //	@return float32
+
 // ff:
 // ptr:
 func UintPtrToFloat32(ptr uintptr) float32 {
@@ -140,6 +147,7 @@ func UintPtrToFloat32(ptr uintptr) float32 {
 //
 //	@param b
 //	@return uintptr
+
 // ff:
 // b:
 func ByteSliceDataPtr(b *[]byte) uintptr {
@@ -169,6 +177,7 @@ func bytePtr(p *byte) uintptr {
 } */
 
 /*// RuneToUint16Ptr 返回指向 UTF-8 字符串 r 的 UTF-16 编码的指针.
+
 // ff:
 // r:
 func RuneToUint16Ptr(r []rune) *uint16 {
@@ -176,6 +185,7 @@ func RuneToUint16Ptr(r []rune) *uint16 {
 }*/
 
 // StringToUint16Ptr 返回指向 UTF-8 字符串 s 的 UTF-16 编码的指针，与 syscall.UTF16PtrFromString 不同的是末尾没有添加终止 NUL。
+
 // ff:
 // s:
 func StringToUint16Ptr(s string) *uint16 {
@@ -183,6 +193,7 @@ func StringToUint16Ptr(s string) *uint16 {
 }
 
 // Uint16SliceToStringSlice 按null字符分割, 把 []uint16 转换到 []string.
+
 // ff:
 // s:
 func Uint16SliceToStringSlice(s []uint16) []string {

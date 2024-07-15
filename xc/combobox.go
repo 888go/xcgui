@@ -1,644 +1,832 @@
-package xc
+package 炫彩基类
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/888go/xcgui/common"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/xcc"
 )
 
 // 组合框_创建, 返回元素句柄.
-//.
-//.
-//.
-//.
-//.如果是窗口资源句柄将被添加到窗口.
+//
+// x: 元素x坐标.
+//
+// y: 元素y坐标.
+//
+// cx: 宽度.
+//
+// cy: 高度.
+//
+// hParent: 父是窗口资源句柄或UI元素资源句柄.如果是窗口资源句柄将被添加到窗口.
+
 // ff:组合框_创建
-// x:元素x坐标
-// y:元素y坐标
-// cx:宽度
-// cy:高度
 // hParent:父窗口句柄或元素句柄
-func XComboBox_Create(x int, y int, cx int, cy int, hParent int) int {
-	r, _, _ := xComboBox_Create.Call(uintptr(x), uintptr(y), uintptr(cx), uintptr(cy), uintptr(hParent))
+// cy:高度
+// cx:宽度
+// y:元素y坐标
+// x:元素x坐标
+func X组合框_创建(元素x坐标 int, 元素y坐标 int, 宽度 int, 高度 int, 父窗口句柄或元素句柄 int) int {
+	r, _, _ := xComboBox_Create.Call(uintptr(元素x坐标), uintptr(元素y坐标), uintptr(宽度), uintptr(高度), uintptr(父窗口句柄或元素句柄))
 	return int(r)
 }
 
 // 组合框_置选择项.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iIndex: 项索引.
+
 // ff:组合框_置选择项
-// hEle:元素句柄
 // iIndex:项索引
-func XComboBox_SetSelItem(hEle int, iIndex int) bool {
-	r, _, _ := xComboBox_SetSelItem.Call(uintptr(hEle), uintptr(iIndex))
+// hEle:元素句柄
+func X组合框_置选择项(元素句柄 int, 项索引 int) bool {
+	r, _, _ := xComboBox_SetSelItem.Call(uintptr(元素句柄), uintptr(项索引))
 	return r != 0
 }
 
 // 组合框_创建数据适配器, 返回数据适配器句柄.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_创建数据适配器
 // hEle:元素句柄
-func XComboBox_CreateAdapter(hEle int) int {
-	r, _, _ := xComboBox_CreateAdapter.Call(uintptr(hEle))
+func X组合框_创建数据适配器(元素句柄 int) int {
+	r, _, _ := xComboBox_CreateAdapter.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_绑定数据适配器.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// hAdapter: 适配器句柄.
+
 // ff:组合框_绑定数据适配器
-// hEle:元素句柄
 // hAdapter:适配器句柄
-func XComboBox_BindAdapter(hEle int, hAdapter int) int {
-	r, _, _ := xComboBox_BindAdapter.Call(uintptr(hEle), uintptr(hAdapter))
+// hEle:元素句柄
+func X组合框_绑定数据适配器(元素句柄 int, 适配器句柄 int) int {
+	r, _, _ := xComboBox_BindAdapter.Call(uintptr(元素句柄), uintptr(适配器句柄))
 	return int(r)
 }
 
 // 组合框_取数据适配器, 获取绑定的数据适配器.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_取数据适配器
 // hEle:元素句柄
-func XComboBox_GetAdapter(hEle int) int {
-	r, _, _ := xComboBox_GetAdapter.Call(uintptr(hEle))
+func X组合框_取数据适配器(元素句柄 int) int {
+	r, _, _ := xComboBox_GetAdapter.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_置绑定名称.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// pName: 字段名.
+
 // ff:组合框_置绑定名称
-// hEle:元素句柄
 // pName:字段名
-func XComboBox_SetBindName(hEle int, pName string) int {
-	r, _, _ := xComboBox_SetBindName.Call(uintptr(hEle), common.StrPtr(pName))
+// hEle:元素句柄
+func X组合框_置绑定名称(元素句柄 int, 字段名 string) int {
+	r, _, _ := xComboBox_SetBindName.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(字段名))
 	return int(r)
 }
 
 // 组合框_取下拉按钮坐标.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// pRect: 坐标.
+
 // ff:组合框_取下拉按钮坐标
-// hEle:元素句柄
 // pRect:坐标
-func XComboBox_GetButtonRect(hEle int, pRect *RECT) int {
-	r, _, _ := xComboBox_GetButtonRect.Call(uintptr(hEle), uintptr(unsafe.Pointer(pRect)))
+// hEle:元素句柄
+func X组合框_取下拉按钮坐标(元素句柄 int, 坐标 *RECT) int {
+	r, _, _ := xComboBox_GetButtonRect.Call(uintptr(元素句柄), uintptr(unsafe.Pointer(坐标)))
 	return int(r)
 }
 
 // 组合框_置下拉按钮大小.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// size: 大小.
+
 // ff:组合框_置下拉按钮大小
-// hEle:元素句柄
 // size:大小
-func XComboBox_SetButtonSize(hEle int, size int) int {
-	r, _, _ := xComboBox_SetButtonSize.Call(uintptr(hEle), uintptr(size))
+// hEle:元素句柄
+func X组合框_置下拉按钮大小(元素句柄 int, 大小 int) int {
+	r, _, _ := xComboBox_SetButtonSize.Call(uintptr(元素句柄), uintptr(大小))
 	return int(r)
 }
 
 // 组合框_置下拉列表高度.
-//.
-//, -1自动计算高度.
+//
+// hEle: 元素句柄.
+//
+// height: 高度, -1自动计算高度.
+
 // ff:组合框_置下拉列表高度
-// hEle:元素句柄
 // height:高度
-func XComboBox_SetDropHeight(hEle int, height int) int {
-	r, _, _ := xComboBox_SetDropHeight.Call(uintptr(hEle), uintptr(height))
+// hEle:元素句柄
+func X组合框_置下拉列表高度(元素句柄 int, 高度 int) int {
+	r, _, _ := xComboBox_SetDropHeight.Call(uintptr(元素句柄), uintptr(高度))
 	return int(r)
 }
 
 // 组合框_取下拉列表高度.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_取下拉列表高度
 // hEle:元素句柄
-func XComboBox_GetDropHeight(hEle int) int {
-	r, _, _ := xComboBox_GetDropHeight.Call(uintptr(hEle))
+func X组合框_取下拉列表高度(元素句柄 int) int {
+	r, _, _ := xComboBox_GetDropHeight.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_置项模板, 设置下拉列表项模板文件.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// pXmlFile: 项模板文件.
+
 // ff:组合框_置项模板
-// hEle:元素句柄
 // pXmlFile:项模板文件
-func XComboBox_SetItemTemplateXML(hEle int, pXmlFile string) int {
-	r, _, _ := xComboBox_SetItemTemplateXML.Call(uintptr(hEle), common.StrPtr(pXmlFile))
+// hEle:元素句柄
+func X组合框_置项模板(元素句柄 int, 项模板文件 string) int {
+	r, _, _ := xComboBox_SetItemTemplateXML.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(项模板文件))
 	return int(r)
 }
 
 // 组合框_置项模板从字符串, 设置下拉列表项模板.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// pStringXML: 字符串.
+
 // ff:组合框_置项模板从字符串
-// hEle:元素句柄
 // pStringXML:字符串
-func XComboBox_SetItemTemplateXMLFromString(hEle int, pStringXML string) int {
-	r, _, _ := xComboBox_SetItemTemplateXMLFromString.Call(uintptr(hEle), XC_wtoa(pStringXML))
+// hEle:元素句柄
+func X组合框_置项模板从字符串(元素句柄 int, 字符串 string) int {
+	r, _, _ := xComboBox_SetItemTemplateXMLFromString.Call(uintptr(元素句柄), W2A(字符串))
 	return int(r)
 }
 
 // 组合框_启用绘制下拉按钮, 是否绘制下拉按钮.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// bEnable: 是否绘制.
+
 // ff:组合框_启用绘制下拉按钮
-// hEle:元素句柄
 // bEnable:是否绘制
-func XComboBox_EnableDrawButton(hEle int, bEnable bool) int {
-	r, _, _ := xComboBox_EnableDrawButton.Call(uintptr(hEle), common.BoolPtr(bEnable))
+// hEle:元素句柄
+func X组合框_启用绘制下拉按钮(元素句柄 int, 是否绘制 bool) int {
+	r, _, _ := xComboBox_EnableDrawButton.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否绘制))
 	return int(r)
 }
 
 // 组合框_启用编辑, 启用可编辑显示的文本内容.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// bEdit: TRUE可编辑.
+
 // ff:组合框_启用编辑
-// hEle:元素句柄
 // bEdit:TRUE可编辑
-func XComboBox_EnableEdit(hEle int, bEdit bool) int {
-	r, _, _ := xComboBox_EnableEdit.Call(uintptr(hEle), common.BoolPtr(bEdit))
+// hEle:元素句柄
+func X组合框_启用编辑(元素句柄 int, TRUE可编辑 bool) int {
+	r, _, _ := xComboBox_EnableEdit.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(TRUE可编辑))
 	return int(r)
 }
 
 // 组合框_启用下拉列表高度固定大小, 启用/关闭下拉列表高度固定大小.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// bEnable: 是否启用.
+
 // ff:组合框_启用下拉列表高度固定大小
-// hEle:元素句柄
 // bEnable:是否启用
-func XComboBox_EnableDropHeightFixed(hEle int, bEnable bool) int {
-	r, _, _ := xComboBox_EnableDropHeightFixed.Call(uintptr(hEle), common.BoolPtr(bEnable))
+// hEle:元素句柄
+func X组合框_启用下拉列表高度固定大小(元素句柄 int, 是否启用 bool) int {
+	r, _, _ := xComboBox_EnableDropHeightFixed.Call(uintptr(元素句柄), 炫彩工具类.BoolPtr(是否启用))
 	return int(r)
 }
 
 // 组合框_取选择项, 获取组合框下拉列表中选择项索引.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_取选择项
 // hEle:元素句柄
-func XComboBox_GetSelItem(hEle int) int {
-	r, _, _ := xComboBox_GetSelItem.Call(uintptr(hEle))
+func X组合框_取选择项(元素句柄 int) int {
+	r, _, _ := xComboBox_GetSelItem.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_取状态, 返回: ComboBox_State_.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_取状态
 // hEle:元素句柄
-func XComboBox_GetState(hEle int) xcc.ComboBox_State_ {
-	r, _, _ := xComboBox_GetState.Call(uintptr(hEle))
-	return xcc.ComboBox_State_(r)
+func X组合框_取状态(元素句柄 int) 炫彩常量类.ComboBox_State_ {
+	r, _, _ := xComboBox_GetState.Call(uintptr(元素句柄))
+	return 炫彩常量类.ComboBox_State_(r)
 }
 
 // 组合框_添加项文本, 返回项索引.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// pText:.
+
 // ff:组合框_添加项文本
-// hEle:元素句柄
 // pText:文本
-func XComboBox_AddItemText(hEle int, pText string) int {
-	r, _, _ := xComboBox_AddItemText.Call(uintptr(hEle), common.StrPtr(pText))
+// hEle:元素句柄
+func X组合框_添加项文本(元素句柄 int, 文本 string) int {
+	r, _, _ := xComboBox_AddItemText.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(文本))
 	return int(r)
 }
 
 // 组合框_添加项文本扩展, 返回项索引.
-//.
-//.
-// 文本.
+//
+// hEle: 元素句柄.
+//
+// pName: 字段名.
+//
+// pText: 文本.
+
 // ff:组合框_添加项文本EX
-// hEle:元素句柄
-// pName:字段名
 // pText:文本
-func XComboBox_AddItemTextEx(hEle int, pName string, pText string) int {
-	r, _, _ := xComboBox_AddItemTextEx.Call(uintptr(hEle), common.StrPtr(pName), common.StrPtr(pText))
+// pName:字段名
+// hEle:元素句柄
+func X组合框_添加项文本EX(元素句柄 int, 字段名 string, 文本 string) int {
+	r, _, _ := xComboBox_AddItemTextEx.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(字段名), 炫彩工具类.StrPtr(文本))
 	return int(r)
 }
 
 // 组合框_添加项图片, 返回项索引.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// hImage: 图片句柄.
+
 // ff:组合框_添加项图片
-// hEle:元素句柄
 // hImage:图片句柄
-func XComboBox_AddItemImage(hEle int, hImage int) int {
-	r, _, _ := xComboBox_AddItemImage.Call(uintptr(hEle), uintptr(hImage))
+// hEle:元素句柄
+func X组合框_添加项图片(元素句柄 int, 图片句柄 int) int {
+	r, _, _ := xComboBox_AddItemImage.Call(uintptr(元素句柄), uintptr(图片句柄))
 	return int(r)
 }
 
 // 组合框_添加项图片扩展, 返回项索引.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// pName: 字段名.
+//
+// hImage: 图片句柄.
+
 // ff:组合框_添加项图片EX
-// hEle:元素句柄
-// pName:字段名
 // hImage:图片句柄
-func XComboBox_AddItemImageEx(hEle int, pName string, hImage int) int {
-	r, _, _ := xComboBox_AddItemImageEx.Call(uintptr(hEle), common.StrPtr(pName), uintptr(hImage))
+// pName:字段名
+// hEle:元素句柄
+func X组合框_添加项图片EX(元素句柄 int, 字段名 string, 图片句柄 int) int {
+	r, _, _ := xComboBox_AddItemImageEx.Call(uintptr(元素句柄), 炫彩工具类.StrPtr(字段名), uintptr(图片句柄))
 	return int(r)
 }
 
 // 组合框_插入项文本, 返回项索引.
-//.
-//.
-// 文本.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pText: 文本.
+
 // ff:组合框_插入项文本
-// hEle:元素句柄
-// iItem:项索引
 // pText:文本
-func XComboBox_InsertItemText(hEle int, iItem int, pText string) int {
-	r, _, _ := xComboBox_InsertItemText.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pText))
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_插入项文本(元素句柄 int, 项索引 int, 文本 string) int {
+	r, _, _ := xComboBox_InsertItemText.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(文本))
 	return int(r)
 }
 
 // 组合框_插入项文本扩展, 返回项索引.
-//.
-//.
-//.
-// 文本.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// pText: 文本.
+
 // ff:组合框_插入项文本EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // pText:文本
-func XComboBox_InsertItemTextEx(hEle int, iItem int, pName string, pText string) int {
-	r, _, _ := xComboBox_InsertItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pText))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_插入项文本EX(元素句柄 int, 项索引 int, 字段名 string, 文本 string) int {
+	r, _, _ := xComboBox_InsertItemTextEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), 炫彩工具类.StrPtr(文本))
 	return int(r)
 }
 
 // 组合框_插入项图片, 返回项索引.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// hImage: 图片句柄.
+
 // ff:组合框_插入项图片
-// hEle:元素句柄
-// iItem:项索引
 // hImage:图片句柄
-func XComboBox_InsertItemImage(hEle int, iItem int, hImage int) int {
-	r, _, _ := xComboBox_InsertItemImage.Call(uintptr(hEle), uintptr(iItem), uintptr(hImage))
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_插入项图片(元素句柄 int, 项索引 int, 图片句柄 int) int {
+	r, _, _ := xComboBox_InsertItemImage.Call(uintptr(元素句柄), uintptr(项索引), uintptr(图片句柄))
 	return int(r)
 }
 
 // 组合框_插入项图片扩展, 返回项索引.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// hImage: 图片句柄.
+
 // ff:组合框_插入项图片EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // hImage:图片句柄
-func XComboBox_InsertItemImageEx(hEle int, iItem int, pName string, hImage int) int {
-	r, _, _ := xComboBox_InsertItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_插入项图片EX(元素句柄 int, 项索引 int, 字段名 string, 图片句柄 int) int {
+	r, _, _ := xComboBox_InsertItemImageEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), uintptr(图片句柄))
 	return int(r)
 }
 
 // 组合框_置项文本.
-//.
-//.
-//.
-// 文本.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+//
+// pText: 文本.
+
 // ff:组合框_置项文本
-// hEle:元素句柄
-// iItem:项索引
-// iColumn:列索引
 // pText:文本
-func XComboBox_SetItemText(hEle int, iItem int, iColumn int, pText string) bool {
-	r, _, _ := xComboBox_SetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), common.StrPtr(pText))
+// iColumn:列索引
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项文本(元素句柄 int, 项索引 int, 列索引 int, 文本 string) bool {
+	r, _, _ := xComboBox_SetItemText.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引), 炫彩工具类.StrPtr(文本))
 	return r != 0
 }
 
 // 组合框_置项文本扩展.
-//.
-//.
-//.
-// 文本.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// pText: 文本.
+
 // ff:组合框_置项文本EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // pText:文本
-func XComboBox_SetItemTextEx(hEle int, iItem int, pName string, pText string) bool {
-	r, _, _ := xComboBox_SetItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.StrPtr(pText))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项文本EX(元素句柄 int, 项索引 int, 字段名 string, 文本 string) bool {
+	r, _, _ := xComboBox_SetItemTextEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), 炫彩工具类.StrPtr(文本))
 	return r != 0
 }
 
 // 组合框_置项图片.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+//
+// hImage: 图片句柄.
+
 // ff:组合框_置项图片
-// hEle:元素句柄
-// iItem:项索引
-// iColumn:列索引
 // hImage:图片句柄
-func XComboBox_SetItemImage(hEle int, iItem int, iColumn int, hImage int) bool {
-	r, _, _ := xComboBox_SetItemImage.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(hImage))
+// iColumn:列索引
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项图片(元素句柄 int, 项索引 int, 列索引 int, 图片句柄 int) bool {
+	r, _, _ := xComboBox_SetItemImage.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引), uintptr(图片句柄))
 	return r != 0
 }
 
 // 组合框_置项图片扩展.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// hImage: 图片句柄.
+
 // ff:组合框_置项图片EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // hImage:图片句柄
-func XComboBox_SetItemImageEx(hEle int, iItem int, pName string, hImage int) bool {
-	r, _, _ := xComboBox_SetItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(hImage))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项图片EX(元素句柄 int, 项索引 int, 字段名 string, 图片句柄 int) bool {
+	r, _, _ := xComboBox_SetItemImageEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), uintptr(图片句柄))
 	return r != 0
 }
 
 // 组合框_置项整数值.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+//
+// nValue: 整数值.
+
 // ff:组合框_置项整数值
-// hEle:元素句柄
-// iItem:项索引
-// iColumn:列索引
 // nValue:整数值
-func XComboBox_SetItemInt(hEle int, iItem int, iColumn int, nValue int32) bool {
-	r, _, _ := xComboBox_SetItemInt.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(nValue))
+// iColumn:列索引
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项整数值(元素句柄 int, 项索引 int, 列索引 int, 整数值 int32) bool {
+	r, _, _ := xComboBox_SetItemInt.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引), uintptr(整数值))
 	return r != 0
 }
 
 // 组合框_置项指数值扩展.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// nValue: 整数值.
+
 // ff:组合框_置项指数值EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // nValue:整数值
-func XComboBox_SetItemIntEx(hEle int, iItem int, pName string, nValue int32) bool {
-	r, _, _ := xComboBox_SetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(nValue))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项指数值EX(元素句柄 int, 项索引 int, 字段名 string, 整数值 int32) bool {
+	r, _, _ := xComboBox_SetItemIntEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), uintptr(整数值))
 	return r != 0
 }
 
 // 组合框_置项浮点值.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+//
+// fFloat: 浮点数.
+
 // ff:组合框_置项浮点值
-// hEle:元素句柄
-// iItem:项索引
-// iColumn:列索引
 // fFloat:浮点数
-func XComboBox_SetItemFloat(hEle int, iItem int, iColumn int, fFloat float32) bool {
-	r, _, _ := xComboBox_SetItemFloat.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), common.Float32Ptr(fFloat))
+// iColumn:列索引
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项浮点值(元素句柄 int, 项索引 int, 列索引 int, 浮点数 float32) bool {
+	r, _, _ := xComboBox_SetItemFloat.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引), 炫彩工具类.Float32Ptr(浮点数))
 	return r != 0
 }
 
 // 组合框_置项浮点值扩展.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// fFloat: 浮点数.
+
 // ff:组合框_置项浮点值EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // fFloat:浮点数
-func XComboBox_SetItemFloatEx(hEle int, iItem int, pName string, fFloat float32) bool {
-	r, _, _ := xComboBox_SetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), common.Float32Ptr(fFloat))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_置项浮点值EX(元素句柄 int, 项索引 int, 字段名 string, 浮点数 float32) bool {
+	r, _, _ := xComboBox_SetItemFloatEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), 炫彩工具类.Float32Ptr(浮点数))
 	return r != 0
 }
 
 // 组合框_取项文本.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+
 // ff:组合框_取项文本
-// hEle:元素句柄
-// iItem:项索引
 // iColumn:列索引
-func XComboBox_GetItemText(hEle int, iItem int32, iColumn int32) string {
-	r, _, _ := xComboBox_GetItemText.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn))
-	return common.UintPtrToString(r)
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项文本(元素句柄 int, 项索引 int32, 列索引 int32) string {
+	r, _, _ := xComboBox_GetItemText.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 组合框_取项文本扩展.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+
 // ff:组合框_取项文本EX
-// hEle:元素句柄
-// iItem:项索引
 // pName:字段名
-func XComboBox_GetItemTextEx(hEle int, iItem int, pName string) string {
-	r, _, _ := xComboBox_GetItemTextEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName))
-	return common.UintPtrToString(r)
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项文本EX(元素句柄 int, 项索引 int, 字段名 string) string {
+	r, _, _ := xComboBox_GetItemTextEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名))
+	return 炫彩工具类.UintPtrToString(r)
 }
 
 // 组合框_取项图片.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+
 // ff:组合框_取项图片
-// hEle:元素句柄
-// iItem:项索引
 // iColumn:列索引
-func XComboBox_GetItemImage(hEle int, iItem int, iColumn int) int {
-	r, _, _ := xComboBox_GetItemImage.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn))
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项图片(元素句柄 int, 项索引 int, 列索引 int) int {
+	r, _, _ := xComboBox_GetItemImage.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引))
 	return int(r)
 }
 
 // 组合框_取项图片扩展.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+
 // ff:组合框_取项图片EX
-// hEle:元素句柄
-// iItem:项索引
 // pName:字段名
-func XComboBox_GetItemImageEx(hEle int, iItem int, pName string) int {
-	r, _, _ := xComboBox_GetItemImageEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName))
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项图片EX(元素句柄 int, 项索引 int, 字段名 string) int {
+	r, _, _ := xComboBox_GetItemImageEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名))
 	return int(r)
 }
 
 // 组合框_取项整数值.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+//
+// pOutValue: 接收返回整数值.
+
 // ff:组合框_取项整数值
-// hEle:元素句柄
-// iItem:项索引
-// iColumn:列索引
 // pOutValue:接收返回整数值
-func XComboBox_GetItemInt(hEle int, iItem int, iColumn int, pOutValue *int32) bool {
-	r, _, _ := xComboBox_GetItemInt.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(unsafe.Pointer(pOutValue)))
+// iColumn:列索引
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项整数值(元素句柄 int, 项索引 int, 列索引 int, 接收返回整数值 *int32) bool {
+	r, _, _ := xComboBox_GetItemInt.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引), uintptr(unsafe.Pointer(接收返回整数值)))
 	return r != 0
 }
 
 // 组合框_取项整数值扩展.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// pOutValue: 接收返回整数值.
+
 // ff:组合框_取项整数值EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // pOutValue:接收返回整数值
-func XComboBox_GetItemIntEx(hEle int, iItem int, pName string, pOutValue *int32) bool {
-	r, _, _ := xComboBox_GetItemIntEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项整数值EX(元素句柄 int, 项索引 int, 字段名 string, 接收返回整数值 *int32) bool {
+	r, _, _ := xComboBox_GetItemIntEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), uintptr(unsafe.Pointer(接收返回整数值)))
 	return r != 0
 }
 
 // 组合框_取项浮点值.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// iColumn: 列索引.
+//
+// pOutValue: 接收返回浮点值.
+
 // ff:组合框_取项浮点值
-// hEle:元素句柄
-// iItem:项索引
-// iColumn:列索引
 // pOutValue:接收返回浮点值
-func XComboBox_GetItemFloat(hEle int, iItem int, iColumn int, pOutValue *float32) bool {
-	r, _, _ := xComboBox_GetItemFloat.Call(uintptr(hEle), uintptr(iItem), uintptr(iColumn), uintptr(unsafe.Pointer(pOutValue)))
+// iColumn:列索引
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项浮点值(元素句柄 int, 项索引 int, 列索引 int, 接收返回浮点值 *float32) bool {
+	r, _, _ := xComboBox_GetItemFloat.Call(uintptr(元素句柄), uintptr(项索引), uintptr(列索引), uintptr(unsafe.Pointer(接收返回浮点值)))
 	return r != 0
 }
 
 // 组合框_取项浮点值扩展.
-//.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// pName: 字段名.
+//
+// pOutValue: 接收返回浮点值.
+
 // ff:组合框_取项浮点值EX
-// hEle:元素句柄
-// iItem:项索引
-// pName:字段名
 // pOutValue:接收返回浮点值
-func XComboBox_GetItemFloatEx(hEle int, iItem int, pName string, pOutValue *float32) bool {
-	r, _, _ := xComboBox_GetItemFloatEx.Call(uintptr(hEle), uintptr(iItem), common.StrPtr(pName), uintptr(unsafe.Pointer(pOutValue)))
+// pName:字段名
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_取项浮点值EX(元素句柄 int, 项索引 int, 字段名 string, 接收返回浮点值 *float32) bool {
+	r, _, _ := xComboBox_GetItemFloatEx.Call(uintptr(元素句柄), uintptr(项索引), 炫彩工具类.StrPtr(字段名), uintptr(unsafe.Pointer(接收返回浮点值)))
 	return r != 0
 }
 
 // 组合框_删除项.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+
 // ff:组合框_删除项
-// hEle:元素句柄
 // iItem:项索引
-func XComboBox_DeleteItem(hEle int, iItem int) bool {
-	r, _, _ := xComboBox_DeleteItem.Call(uintptr(hEle), uintptr(iItem))
+// hEle:元素句柄
+func X组合框_删除项(元素句柄 int, 项索引 int) bool {
+	r, _, _ := xComboBox_DeleteItem.Call(uintptr(元素句柄), uintptr(项索引))
 	return r != 0
 }
 
 // 组合框_删除项扩展.
-//.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// iItem: 项索引.
+//
+// nCount: 删除数量.
+
 // ff:组合框_删除项EX
-// hEle:元素句柄
-// iItem:项索引
 // nCount:删除数量
-func XComboBox_DeleteItemEx(hEle int, iItem int, nCount int) bool {
-	r, _, _ := xComboBox_DeleteItemEx.Call(uintptr(hEle), uintptr(iItem), uintptr(nCount))
+// iItem:项索引
+// hEle:元素句柄
+func X组合框_删除项EX(元素句柄 int, 项索引 int, 删除数量 int) bool {
+	r, _, _ := xComboBox_DeleteItemEx.Call(uintptr(元素句柄), uintptr(项索引), uintptr(删除数量))
 	return r != 0
 }
 
 // 组合框_删除项全部.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_删除项全部
 // hEle:元素句柄
-func XComboBox_DeleteItemAll(hEle int) int {
-	r, _, _ := xComboBox_DeleteItemAll.Call(uintptr(hEle))
+func X组合框_删除项全部(元素句柄 int) int {
+	r, _, _ := xComboBox_DeleteItemAll.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_删除列全部.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_删除列全部
 // hEle:元素句柄
-func XComboBox_DeleteColumnAll(hEle int) int {
-	r, _, _ := xComboBox_DeleteColumnAll.Call(uintptr(hEle))
+func X组合框_删除列全部(元素句柄 int) int {
+	r, _, _ := xComboBox_DeleteColumnAll.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_取项数量.
-//.
+//
+// hEle:.
+
 // ff:组合框_取项数量
 // hEle:
-func XComboBox_GetCount(hEle int) int {
+func X组合框_取项数量(hEle int) int {
 	r, _, _ := xComboBox_GetCount.Call(uintptr(hEle))
 	return int(r)
 }
 
 // 组合框_取列数量.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_取列数量
 // hEle:元素句柄
-func XComboBox_GetCountColumn(hEle int) int {
-	r, _, _ := xComboBox_GetCountColumn.Call(uintptr(hEle))
+func X组合框_取列数量(元素句柄 int) int {
+	r, _, _ := xComboBox_GetCountColumn.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_弹出下拉列表.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_弹出下拉列表
 // hEle:元素句柄
-func XComboBox_PopupDropList(hEle int) int {
-	r, _, _ := xComboBox_PopupDropList.Call(uintptr(hEle))
+func X组合框_弹出下拉列表(元素句柄 int) int {
+	r, _, _ := xComboBox_PopupDropList.Call(uintptr(元素句柄))
 	return int(r)
 }
 
 // 组合框_设置项模板.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// hTemp: 模板句柄.
+
 // ff:组合框_设置项模板
-// hEle:元素句柄
 // hTemp:模板句柄
-func XComboBox_SetItemTemplate(hEle, hTemp int) int {
-	r, _, _ := xComboBox_SetItemTemplate.Call(uintptr(hEle), uintptr(hTemp))
+// hEle:元素句柄
+func X组合框_设置项模板(元素句柄, 模板句柄 int) int {
+	r, _, _ := xComboBox_SetItemTemplate.Call(uintptr(元素句柄), uintptr(模板句柄))
 	return int(r)
 }
 
 // 组合框_置项模板从内存.
-//.
-//.
+//
+// hEle: 元素句柄.
+//
+// data: 模板数据.
+
 // ff:组合框_置项模板从内存
-// hEle:元素句柄
 // data:模板数据
-func XComboBox_SetItemTemplateXMLFromMem(hEle int, data []byte) bool {
-	r, _, _ := xComboBox_SetItemTemplateXMLFromMem.Call(uintptr(hEle), common.ByteSliceDataPtr(&data), uintptr(len(data)))
+// hEle:元素句柄
+func X组合框_置项模板从内存(元素句柄 int, 模板数据 []byte) bool {
+	r, _, _ := xComboBox_SetItemTemplateXMLFromMem.Call(uintptr(元素句柄), 炫彩工具类.ByteSliceDataPtr(&模板数据), uintptr(len(模板数据)))
 	return r != 0
 }
 
 // 组合框_置项模板从资源ZIP.
-//.
-//.
-//.
-//.
-//, 可填0.
+//
+// hEle: 元素句柄.
+//
+// id: RC资源ID.
+//
+// pFileName: 文件名.
+//
+// pPassword: zip密码.
+//
+// hModule: 模块句柄, 可填0.
+
 // ff:组合框_置项模板从资源ZIP
-// hEle:元素句柄
-// id:RC资源ID
-// pFileName:文件名
-// pPassword:zip密码
 // hModule:模块句柄
-func XComboBox_SetItemTemplateXMLFromZipRes(hEle int, id int32, pFileName string, pPassword string, hModule uintptr) bool {
-	r, _, _ := xComboBox_SetItemTemplateXMLFromZipRes.Call(uintptr(hEle), uintptr(id), common.StrPtr(pFileName), common.StrPtr(pPassword), hModule)
+// pPassword:zip密码
+// pFileName:文件名
+// id:RC资源ID
+// hEle:元素句柄
+func X组合框_置项模板从资源ZIP(元素句柄 int, RC资源ID int32, 文件名 string, zip密码 string, 模块句柄 uintptr) bool {
+	r, _, _ := xComboBox_SetItemTemplateXMLFromZipRes.Call(uintptr(元素句柄), uintptr(RC资源ID), 炫彩工具类.StrPtr(文件名), 炫彩工具类.StrPtr(zip密码), 模块句柄)
 	return r != 0
 }
 
 // 组合框_取项模板, 返回项模板句柄.
-//.
+//
+// hEle: 元素句柄.
+
 // ff:组合框_取项模板
 // hEle:元素句柄
-func XComboBox_GetItemTemplate(hEle int) int {
-	r, _, _ := xComboBox_GetItemTemplate.Call(uintptr(hEle))
+func X组合框_取项模板(元素句柄 int) int {
+	r, _, _ := xComboBox_GetItemTemplate.Call(uintptr(元素句柄))
 	return int(r)
 }

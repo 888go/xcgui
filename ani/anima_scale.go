@@ -1,20 +1,22 @@
-package ani
+package 炫彩动画类
 
 import (
-	"github.com/twgh/xcgui/objectbase"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/888go/xcgui/objectbase"
+	"github.com/888go/xcgui/xc"
+	"github.com/888go/xcgui/xcc"
 )
 
 // AnimaScale 动画缩放项.
 type AnimaScale struct {
-	objectbase.ObjectBase
+	炫彩对象基类.ObjectBase
 }
 
 // 动画缩放_置延伸位置, 设置缩放起点, 确定延伸方向.
-//, Position_Flag_.
+//
+// position: 位置, Position_Flag_.
+
 // ff:置延伸位置
 // position:位置
-func (a *AnimaScale) SetPosition(position xcc.Position_Flag_) bool {
-	return xc.XAnimaScale_SetPosition(a.Handle, position)
+func (a *AnimaScale) X置延伸位置(位置 炫彩常量类.Position_Flag_) bool {
+	return 炫彩基类.X动画缩放_置延伸位置(a.Handle, 位置)
 }
